@@ -67,7 +67,12 @@
 桌面左右分栏：左为静止 Open Day mark、DoneAt、品牌句/功能行、三个入口；右为一张 iPhone。手机竖叠，图在入口下方。
 
 - Mark **静止**，不做五连击、不转圈。
-- 入口顺序：**Web → App Store → Microsoft Store**。Web 用本站按钮。Apple 用官方 **Download on the App Store** 图（一条 Universal Purchase 记录，覆盖 iPhone / iPad / Mac）。Microsoft Store 用[官方 badge 脚本](https://get.microsoft.com/badge/)：按页面语言返回对应徽章，主题跟系统亮暗；大公司 CDN 的可用性作为接受的依赖，不为「少一段第三方 JS」改回静态图。
+- 入口顺序：**Web → App Store → Microsoft Store**。Web 用本站按钮。
+  - **App Store** 用 [Apple Marketing Tools](https://toolbox.marketingtools.apple.com/) 的官方徽章图，不是产品仓里那套 Mac App Store 专用 SVG。模板：
+    `https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/{black|white}/{apple-locale}`
+    浅色用 `black`，深色用 `white`；`apple-locale` 跟当前门厅语言（如 `zh-cn`、`en-us`），没有对应图就回退 `en-us`。
+    链接以 **id `6802803318`** 为准，商店地区跟语言走（简中用 `/cn/`，不要写死 `/us/`）。路径上的 `下班倒计时` / `off-work-countdown` 是现在的 listing slug，listing 改成 DoneAt 后会变，实现时不要把旧中文名当品牌写死。Apple 生成的 `itscg` / `itsct` / `mttnsubad` 查询参数保留。
+  - **Microsoft Store** 用[官方 badge 脚本](https://get.microsoft.com/badge/)：按页面语言返回对应徽章，主题跟系统亮暗。两家官方 CDN 的可用性都作为接受的依赖。
 - Web 与顶栏「打开计时」都进 `https://off.rainif.com/{lang}`。
 - 入口下方三条短价值：本地、无账号、看清下班。不上长对比表，不把 FAQ 铺在首页。
 - 第一版只有首页放真机图：一张竖屏下班倒计时，简单机框，不要灵动岛叠字，不要商店合成图。中英各一张，按内容语言规则选用。
@@ -89,9 +94,9 @@
 
 从产品仓 `public/locales/{en,zh-CN}/content.json` 拷贝后，**以本仓为准**。FAQ 必须先按跨平台口径重写再标 canonical：改掉「网页工具、不用下载」；把 iOS / 桌面写成正式用法；不写 Widget、灵动岛、计时五态。隐私页写 `hello@doneat.app`（已接通）；`offwork@rainif.com` 只转发、不展示。
 
-商店链接（实现时与产品仓 `config/site.ts` 核对，勿各写各的）：
+商店链接（实现时与产品仓核对 **id**，不要抄死旧 slug）：
 
-- App Store：https://apps.apple.com/us/app/off-work-countdown/id6802803318
+- App Store：`https://apps.apple.com/{storefront}/app/id6802803318`（地区随语言；Apple 徽章链可带 `itscg` / `itsct` / `mttnsubad`）
 - Microsoft Store：https://apps.microsoft.com/detail/9PM0HJ2PP2LJ
 - 产品源码：https://github.com/ififi2017/Off-Work-Countdown
 
@@ -108,7 +113,7 @@
 
 - [ ] 顶栏 / 页脚 / 19 语选择器 / 内容页 en-zh 切换
 - [ ] 首页按上方锁定实现（分栏、静止 mark、三个入口、三条价值）
-- [ ] Microsoft Store 入口接官方 badge 脚本（语言跟当前 `/{lang}`，主题跟系统亮暗）；脚本失败时仍要有可点的商店链接
+- [ ] App Store 入口接 Marketing Tools 徽章图（语言 + 黑白随亮暗）；Microsoft Store 接官方 badge 脚本；两家脚本/图失败时仍要有可点的商店链接
 - [ ] 拍中英各一张竖屏下班倒计时，套简单机框
 - [ ] 跟随系统亮暗；RTL 至少不撑破顶栏（`ar`）
 
@@ -150,7 +155,7 @@
 ## 验收（本仓）
 
 - 19 语门厅可打开，语言选择器能落到正确 `/{lang}`
-- 英中长文、三条 CTA（含 Microsoft 官方 badge 按语言出图）、隐私邮箱、源码链
+- 英中长文、三条 CTA（Apple / Microsoft 官方徽章按语言出图）、隐私邮箱、源码链
 - 手机与桌面、浅色与深色
 - 任何同内容双 canonical、重定向环、query 丢失都挡发布
 - 预览部署不能代替 production 域名实测
