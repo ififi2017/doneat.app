@@ -67,7 +67,7 @@
 桌面左右分栏：左为静止 Open Day mark、DoneAt、品牌句/功能行、三个入口；右为一张 iPhone。手机竖叠，图在入口下方。
 
 - Mark **静止**，不做五连击、不转圈。
-- 入口顺序：**Web → App Store → Microsoft Store**。Apple / Microsoft 用官方 badge；Web 用本站按钮。一个 App Store badge 覆盖 iPhone / iPad / Mac（Universal Purchase）。
+- 入口顺序：**Web → App Store → Microsoft Store**。Web 用本站按钮。Apple 用官方 **Download on the App Store** 图（一条 Universal Purchase 记录，覆盖 iPhone / iPad / Mac）。Microsoft Store 用[官方 badge 脚本](https://get.microsoft.com/badge/)：按页面语言返回对应徽章，主题跟系统亮暗；大公司 CDN 的可用性作为接受的依赖，不为「少一段第三方 JS」改回静态图。
 - Web 与顶栏「打开计时」都进 `https://off.rainif.com/{lang}`。
 - 入口下方三条短价值：本地、无账号、看清下班。不上长对比表，不把 FAQ 铺在首页。
 - 第一版只有首页放真机图：一张竖屏下班倒计时，简单机框，不要灵动岛叠字，不要商店合成图。中英各一张，按内容语言规则选用。
@@ -108,6 +108,7 @@
 
 - [ ] 顶栏 / 页脚 / 19 语选择器 / 内容页 en-zh 切换
 - [ ] 首页按上方锁定实现（分栏、静止 mark、三个入口、三条价值）
+- [ ] Microsoft Store 入口接官方 badge 脚本（语言跟当前 `/{lang}`，主题跟系统亮暗）；脚本失败时仍要有可点的商店链接
 - [ ] 拍中英各一张竖屏下班倒计时，套简单机框
 - [ ] 跟随系统亮暗；RTL 至少不撑破顶栏（`ar`）
 
@@ -149,7 +150,7 @@
 ## 验收（本仓）
 
 - 19 语门厅可打开，语言选择器能落到正确 `/{lang}`
-- 英中长文、三条 CTA、隐私邮箱、源码链
+- 英中长文、三条 CTA（含 Microsoft 官方 badge 按语言出图）、隐私邮箱、源码链
 - 手机与桌面、浅色与深色
 - 任何同内容双 canonical、重定向环、query 丢失都挡发布
 - 预览部署不能代替 production 域名实测
