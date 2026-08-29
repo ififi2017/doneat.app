@@ -20,7 +20,8 @@ function syncPublicAssets() {
     mkdirSync(dest, { recursive: true });
     cpSync(join(root, from), dest, {
       recursive: true,
-      filter: (source) => !source.endsWith(".md"),
+      filter: (source) =>
+        !source.endsWith(".md") && !source.endsWith(".rtf"),
     });
   }
   mkdirSync(join(root, "public"), { recursive: true });
@@ -53,6 +54,7 @@ export default defineConfig({
     locales: [...HALL_LOCALES],
     routing: {
       prefixDefaultLocale: true,
+      redirectToDefaultLocale: false,
     },
   },
   vite: {

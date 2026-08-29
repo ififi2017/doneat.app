@@ -8,5 +8,11 @@
       "destination": "https://doneat.app/:path",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/en"
+    }
   ]
 }
