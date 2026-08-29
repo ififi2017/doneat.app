@@ -1,7 +1,25 @@
 {
   "brandName": "DoneAt",
   "brandSentence": {
-    "en": "Know when your time is yours"
+    "en": "Know when your time is yours",
+    "zh-CN": "几点下班，心里有数",
+    "zh-TW": "幾點下班，心裡有數",
+    "zh-HK": "幾點放工，心裡有數",
+    "ja": "自分の時間になる瞬間がわかる",
+    "ko": "내 시간이 시작되는 순간을 알게 됩니다",
+    "fr": "Sachez quand le temps vous appartient",
+    "de": "Sieh, wann die Zeit dir gehört",
+    "es": "Descubre cuándo el tiempo es tuyo",
+    "it": "Sappi quando il tempo è tuo",
+    "pt": "Saiba quando o tempo é seu",
+    "ru": "Знай, когда время становится твоим",
+    "hi-IN": "जानिए कब समय आपका होता है",
+    "mr-IN": "कळा, वेळ केव्हा तुमची होते",
+    "tr": "Zamanın ne zaman senin olduğunu bil",
+    "ar": "اعرف متى يصبح الوقت ملكك",
+    "th": "รู้ว่าตอนไหนเวลาเป็นของคุณ",
+    "id": "Ketahui kapan waktunya menjadi milikmu",
+    "vi": "Biết lúc nào tan ca"
   },
   "locales": [
     "en",
@@ -110,6 +128,7 @@
   },
   "notes": {
     "enFunctionalSubtitle": "Product translation.json still says Off Work Countdown; hall uses the locked Work Shift Countdown.",
+    "chineseBrandSentence": "Original Chinese lines, not a calque of the English sentence. zh-CN 几点下班，心里有数; zh-TW 幾點下班，心裡有數; zh-HK 幾點放工，心裡有數.",
     "appleBadgeFallback": [
       "hi-IN",
       "ar"

@@ -2,7 +2,7 @@
 
 Portrait timer captures, 1320×2868. No store headline, no extra Dynamic Island art.
 
-The homepage (and any other phone slot) **plays the short**. The PNG is the poster and the fallback.
+The homepage plays the short **inside the official iPhone 17 Pro Max frame**. The PNG is the poster and the fallback when video cannot play.
 
 | Stem | Language | Appearance |
 | --- | --- | --- |
@@ -13,24 +13,15 @@ The homepage (and any other phone slot) **plays the short**. The PNG is the post
 
 Each stem has `.mp4` (H.264, faststart) and `.png`. Desktop originals were `.mov`; do not ship those.
 
-Pick language from the hall locale (Chinese halls → `zh`, everyone else → `en`). Pick appearance from `prefers-color-scheme` (`white` light, `black` dark).
+| Frame | Appearance |
+| --- | --- |
+| `frames/iphone-17-pro-max-cosmic-orange.png` | Light |
+| `frames/iphone-17-pro-max-deep-blue.png` | Dark |
 
-```html
-<video
-  autoplay
-  muted
-  loop
-  playsinline
-  poster="/device/en-white.png"
-  width="1320"
-  height="2868"
->
-  <source src="/device/en-white.mp4" type="video/mp4" />
-</video>
-<img src="/device/en-white.png" width="1320" height="2868" alt="" />
-```
+The capture is 1320×2868 and matches the screen hole (insets 75 / 66 / 75 / 66 on the 1470×3000 frame). Put the video and PNG in that hole; stack the frame on top. The frame already has the Dynamic Island — do not draw another one.
+
+Pick language from the hall locale (Chinese halls → `zh`, everyone else → `en`). Pick appearance from `prefers-color-scheme` (`white` / Cosmic Orange for light, `black` / Deep Blue for dark).
 
 - `autoplay muted loop playsinline` — no controls, no sound, no tap-to-start.
 - The `<img>` is the fallback when the video cannot play.
 - `prefers-reduced-motion: reduce` — hide the video, show only the PNG.
-- Do not add a second bezel or Dynamic Island overlay.

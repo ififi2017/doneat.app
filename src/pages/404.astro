@@ -1,0 +1,27 @@
+---
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  locale="en"
+  title="DoneAt"
+  description="A work-shift countdown for the browser, iPhone, iPad, Mac and Windows."
+  path="/en"
+  hreflangKind="hall"
+>
+  <div class="flex min-h-screen flex-col">
+    <SiteHeader locale="en" />
+    <main id="content" class="mx-auto w-full max-w-3xl flex-1 px-4 py-16">
+      <h1 class="text-3xl font-semibold">Page not found</h1>
+      <p class="mt-4 text-plum/80 dark:text-cream/80">
+        That page is not on this site. You can go back to
+        <a class="text-orange underline underline-offset-4" href="/en">DoneAt</a>
+        or
+        <a class="text-orange underline underline-offset-4" href="https://off.rainif.com">open the timer</a>.
+      </p>
+    </main>
+    <SiteFooter locale="en" />
+  </div>
+</BaseLayout>
