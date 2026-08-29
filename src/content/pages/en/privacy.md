@@ -4,7 +4,7 @@ description: "How DoneAt stores data on your device, and how the official site a
 heading: "Privacy Policy"
 intro: "This page explains how DoneAt stores and processes information: the official site, the web timer, and the apps on iPhone, iPad, Mac and Windows."
 updatedLabel: "Last updated"
-updated: "29 August 2026"
+updated: "30 August 2026"
 ---
 
 ## Data stored on your device
@@ -26,13 +26,17 @@ This typically includes:
 
 To host the pages, Vercel may process ordinary connection information such as an IP address and browser identifier under its own privacy policy. This project does not store that information or use it to create a profile of you.
 
+The official site uses Vercel’s cookieless analytics to measure page views and loading performance, and a small set of aggregate counters to see which entries people use. Events come from a fixed, public list — for example `hall_view`, `download_view`, `web_timer_open`, or `app_store_open` — and are incremented by day. The request carries only the event name. It does not include a user identifier, session, language, schedule, or salary, and cannot be used to identify or track a person.
+
+The complete event list is in this repository at [`src/lib/analytics-events.ts`](https://github.com/ififi2017/doneat.app/blob/main/src/lib/analytics-events.ts).
+
 ## Web timer analytics
 
-The web timer at [off.rainif.com](https://off.rainif.com) uses Vercel’s cookieless analytics to measure page views and loading performance. It also uses a limited set of aggregate counters to understand overall feature usage.
+The web timer at [off.rainif.com](https://off.rainif.com) also uses Vercel’s cookieless analytics to measure page views and loading performance. It uses a separate, limited set of aggregate counters to understand overall feature usage.
 
-Product events come from a fixed, public list, such as `share_open` or `countdown_start`, and are aggregated by day. They do not contain user identifiers, session information, schedules or salary data and cannot be used to identify or track an individual.
+Product events come from another fixed, public list, such as `share_open` or `countdown_start`, and are aggregated by day. They do not contain user identifiers, session information, schedules or salary data and cannot be used to identify or track an individual.
 
-The complete event list is available in the open-source repository. Hosting and analytics providers may process standard connection information under their respective privacy policies. This project does not separately store that information or use it to create user profiles.
+The complete product event list is available in the product’s open-source repository. Hosting and analytics providers may process standard connection information under their respective privacy policies. This project does not separately store that information or use it to create user profiles.
 
 ## Cookies
 
@@ -58,10 +62,10 @@ Reminders are scheduled and displayed locally by the operating system. The apps 
 
 ## Third-party services
 
-DoneAt uses the following services to host pages, measure the web timer, distribute apps and open links you choose:
+DoneAt uses the following services to host pages, measure the official site and the web timer, distribute apps and open links you choose:
 
-- Vercel — hosting of the official site and the web timer; page-view and performance measurement on the web timer
-- Upstash — storage of aggregate product event counts for the web timer
+- Vercel — hosting of the official site and the web timer; page-view and performance measurement on both
+- Upstash — storage of daily aggregate event counts for the official site and the web timer
 - GitHub — source code, release information, and update checks for GitHub-distributed desktop builds
 - Apple — distribution of the App Store listing you open
 - Microsoft — distribution and updates for the Microsoft Store listing you open

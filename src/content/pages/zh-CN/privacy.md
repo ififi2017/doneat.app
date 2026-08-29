@@ -4,7 +4,7 @@ description: "DoneAt 如何在设备上保存数据，以及官网和网页计�
 heading: "隐私政策"
 intro: "本页说明 DoneAt 如何存储和处理信息，包括官网、网页计时，以及 iPhone、iPad、Mac 和 Windows 上的应用。"
 updatedLabel: "最后更新"
-updated: "2026 年 8 月 29 日"
+updated: "2026 年 8 月 30 日"
 ---
 
 ## 本地存储的数据
@@ -26,13 +26,17 @@ updated: "2026 年 8 月 29 日"
 
 为了托管这些页面，Vercel 可能依据其隐私政策处理 IP 地址、浏览器标识等常规连接信息。本项目不会保存这些信息，也不会用它们建立你的画像。
 
+官网使用 Vercel 的无 Cookie 统计服务记录页面访问量和加载表现，并用少量合计计数了解哪些入口被用到。事件来自固定且公开的清单，例如 `hall_view`、`download_view`、`web_timer_open` 或 `app_store_open`，只按日加一。请求里只有事件名，没有用户标识、会话、语言、班次或薪资，不能用来认出或追踪某一个人。
+
+完整的事件清单见本仓的 [`src/lib/analytics-events.ts`](https://github.com/ififi2017/doneat.app/blob/main/src/lib/analytics-events.ts)。
+
 ## 网页计时的数据统计
 
-[off.rainif.com](https://off.rainif.com) 上的网页计时使用 Vercel 的无 Cookie 统计服务记录页面访问量和加载性能，并使用少量聚合计数了解功能的整体使用情况。
+[off.rainif.com](https://off.rainif.com) 上的网页计时同样使用 Vercel 的无 Cookie 统计服务记录页面访问量和加载性能，并使用少量聚合计数了解功能的整体使用情况。
 
-产品事件来自固定且公开的事件清单，例如 `share_open` 或 `countdown_start`，并仅按日汇总。事件不包含用户标识符、会话信息、班次或薪资，因此不能用于识别或追踪单个人。
+产品事件来自另一份固定且公开的事件清单，例如 `share_open` 或 `countdown_start`，并仅按日汇总。事件不包含用户标识符、会话信息、班次或薪资，因此不能用于识别或追踪单个人。
 
-完整的事件清单可在开源仓库中查看。托管与统计服务商可能依据各自的隐私政策处理常规连接信息。本项目不会另行保存这些信息，也不会用它们建立用户画像。
+完整的产品事件清单可在产品开源仓库中查看。托管与统计服务商可能依据各自的隐私政策处理常规连接信息。本项目不会另行保存这些信息，也不会用它们建立用户画像。
 
 ## Cookie
 
@@ -58,10 +62,10 @@ iPhone、iPad、Mac 和 Windows 上的应用不收集使用统计。
 
 ## 第三方服务
 
-DoneAt 在托管页面、统计网页计时、分发应用以及打开你选择的链接时，会用到：
+DoneAt 在托管页面、统计官网和网页计时、分发应用以及打开你选择的链接时，会用到：
 
-- Vercel —— 托管官网和网页计时；网页计时的访问量与性能统计
-- Upstash —— 存储网页计时的聚合产品事件计数
+- Vercel —— 托管官网和网页计时；两处的访问量与性能统计
+- Upstash —— 存储官网和网页计时的按日合计事件计数
 - GitHub —— 源代码、版本信息，以及 GitHub 分发的桌面版本的更新检查
 - Apple —— 你打开的 App Store 页面的分发
 - Microsoft —— 你打开的 Microsoft Store 页面的分发与更新

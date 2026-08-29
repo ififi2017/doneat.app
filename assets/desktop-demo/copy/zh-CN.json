@@ -1,0 +1,176 @@
+{
+  "source": "Off-Work-Countdown public/locales/zh-CN/content.json#download",
+  "capturedAt": "2026-08-29",
+  "note": "Archived from the old off.rainif.com download page for a later doneat.app desktop-demo pass. Not served on the live official site.",
+  "heading": "让下班倒计时，安静地陪你工作",
+  "intro": "喜欢网页版的轻巧，也想让倒计时更自然地融入每天的工作节奏？桌面客户端可以常驻菜单栏或系统托盘，在后台继续计时、适时提醒，需要时用一个快捷键就能唤出。",
+  "benefits": [
+    {
+      "heading": "抬眼就能看到",
+      "body": [
+        "剩余时间会留在菜单栏或系统托盘。想看详情时，用全局快捷键唤出紧凑窗口，不用在浏览器标签之间来回寻找。"
+      ]
+    },
+    {
+      "heading": "提醒恰到好处",
+      "body": [
+        "隐藏窗口后，倒计时和班次提醒仍会继续。登录时启动、原生通知和专门适配的紧凑布局，让它可以安静地陪你度过整个工作日。"
+      ]
+    },
+    {
+      "heading": "你的数据，只留在本机",
+      "body": [
+        "上下班时间、薪资和偏好都保存在你的设备上。无需注册账号，客户端也不会上传使用统计或个人设置。"
+      ]
+    }
+  ],
+  "comparisonHeading": "不只是把网页版装进桌面",
+  "comparisonIntro": "客户端保留了网页版的核心体验，并为每天常驻补上了班次管理、后台提醒和悬浮工具。看看哪些功能更适合你的工作方式。",
+  "comparisonFeatureLabel": "功能",
+  "webLabel": "网页版",
+  "desktopLabel": "桌面客户端",
+  "featureIncludedLabel": "支持",
+  "featureLimitedLabel": "有限支持",
+  "featureUnavailableLabel": "客户端专属",
+  "comparison": [
+    {
+      "feature": "下班倒计时",
+      "web": {
+        "status": "included",
+        "detail": "实时倒计时与进度"
+      },
+      "desktop": {
+        "status": "included",
+        "detail": "实时倒计时与进度"
+      }
+    },
+    {
+      "feature": "薪资计算",
+      "web": {
+        "status": "included",
+        "detail": "月薪、日薪与今日已赚"
+      },
+      "desktop": {
+        "status": "included",
+        "detail": "月薪、日薪与今日已赚"
+      }
+    },
+    {
+      "feature": "工作日与跨夜班次",
+      "web": {
+        "status": "included",
+        "detail": "自定义工作日和跨零点班次"
+      },
+      "desktop": {
+        "status": "included",
+        "detail": "自定义工作日和跨零点班次"
+      }
+    },
+    {
+      "feature": "下班提醒",
+      "web": {
+        "status": "limited",
+        "detail": "网页保持打开时提醒"
+      },
+      "desktop": {
+        "status": "included",
+        "detail": "窗口隐藏后仍可原生提醒"
+      }
+    },
+    {
+      "feature": "午休计算",
+      "web": {
+        "status": "unavailable",
+        "detail": "—"
+      },
+      "desktop": {
+        "status": "included",
+        "detail": "暂停倒计时、进度与收入"
+      }
+    },
+    {
+      "feature": "健康休息提醒",
+      "web": {
+        "status": "unavailable",
+        "detail": "—"
+      },
+      "desktop": {
+        "status": "included",
+        "detail": "按有效工作时间提醒活动和远眺"
+      }
+    },
+    {
+      "feature": "加班与下一班",
+      "web": {
+        "status": "unavailable",
+        "detail": "—"
+      },
+      "desktop": {
+        "status": "included",
+        "detail": "延长本班并自动衔接下一班"
+      }
+    },
+    {
+      "feature": "托盘与悬浮计时器",
+      "web": {
+        "status": "unavailable",
+        "detail": "—"
+      },
+      "desktop": {
+        "status": "included",
+        "detail": "菜单栏/托盘、迷你面板和木鱼皮肤"
+      }
+    },
+    {
+      "feature": "登录启动与全局快捷键",
+      "web": {
+        "status": "unavailable",
+        "detail": "—"
+      },
+      "desktop": {
+        "status": "included",
+        "detail": "登录后自动就绪，随时显示或隐藏"
+      }
+    },
+    {
+      "feature": "离线与本地保存",
+      "web": {
+        "status": "included",
+        "detail": "PWA 缓存，设置保存在浏览器"
+      },
+      "desktop": {
+        "status": "included",
+        "detail": "无需网络，设置保存在本机"
+      }
+    }
+  ],
+  "demoHeading": "先睹为快",
+  "demoIntro": "桌面客户端保留了网页版简单直接的倒计时体验，又为每天长时间使用补上了后台常驻、原生提醒和悬浮计时器。下面的画面来自真实客户端。",
+  "demoAppHeading": "熟悉的倒计时，更贴近桌面使用习惯",
+  "demoAppBody": "设置班次后就可以专心工作：主窗口隐藏时倒计时仍会继续，需要调整时间、提醒或薪资设置时，再用快捷键随时打开。",
+  "demoAppAlt": "设置班次、开始倒计时、进入设置页",
+  "demoMiniHeading": "把剩余时间留在手边",
+  "demoMiniBody": "迷你计时器可以悬浮在桌面上，也可以换成木鱼皮肤。想放松一下时敲两下，不需要离开当前正在做的事。",
+  "demoMiniAlt": "悬浮计时器的木鱼皮肤",
+  "macAppStoreWidgetHeading": "把倒计时放在桌面上",
+  "macAppStoreWidgetBody": "支持小、中两种尺寸，可以放在桌面或通知中心。不用开着应用窗口，倒计时也一直在走。",
+  "macAppStoreWidgetAlt": "macOS 桌面上的下班倒计时小组件",
+  "media": {
+    "app": {
+      "light": "../media/app-zh-light.mp4",
+      "dark": "../media/app-zh-dark.mp4",
+      "posterLight": "../media/app-zh-light.jpg",
+      "posterDark": "../media/app-zh-dark.jpg"
+    },
+    "mini": {
+      "light": "../media/mini-zh-light.mp4",
+      "dark": "../media/mini-zh-dark.mp4",
+      "posterLight": "../media/mini-zh-light.jpg",
+      "posterDark": "../media/mini-zh-dark.jpg"
+    },
+    "widget": {
+      "light": "../media/widget-zh-light.jpg",
+      "dark": "../media/widget-zh-dark.jpg"
+    }
+  }
+}

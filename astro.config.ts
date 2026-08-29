@@ -11,6 +11,7 @@ const root = dirname(fileURLToPath(import.meta.url));
 function syncPublicAssets() {
   const copies: Array<[string, string]> = [
     ["assets/device", "public/device"],
+    ["assets/desktop-demo/media", "public/desktop-demo"],
     ["assets/badges", "public/badges"],
     ["assets/brand", "public/brand"],
     ["assets/icons", "public/icons"],

@@ -1,8 +1,10 @@
 ---
+import DownloadShowcase from "./DownloadShowcase.astro";
 import SiteFooter from "./SiteFooter.astro";
 import SiteHeader from "./SiteHeader.astro";
 import StoreEntries from "./StoreEntries.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { contentTrackPage } from "../lib/analytics-events";
 import { siteConfig, type ContentLocale, type ContentPage } from "../lib/config";
 import { getEntry, render } from "astro:content";
 
@@ -52,41 +54,39 @@ const softwareJsonLd =
   path={path}
   hreflangKind="content"
   jsonLd={softwareJsonLd}
+  trackPage={contentTrackPage(page)}
 >
   <div class="flex min-h-screen flex-col">
     <SiteHeader locale={locale} currentPage={page} />
-    <main id="content" class="mx-auto w-full max-w-3xl flex-1 px-4 py-6 sm:px-6 sm:py-14">
-      <h1 class="text-2xl font-semibold tracking-tight sm:text-4xl">
-        {entry.data.heading}
-      </h1>
-      {
-        entry.data.updated ? (
-          <p class="mt-3 text-sm text-plum/70 dark:text-cream/70">
-            {entry.data.updatedLabel} {entry.data.updated}
-          </p>
-        ) : null
-      }
-      <p class="mt-4 text-base leading-relaxed text-plum/80 dark:text-cream/80">
-        {entry.data.intro}
-      </p>
+    <main id="content" class="page-frame article">
+      <header class="article-head">
+        <h1 class="article-title">{entry.data.heading}</h1>
+        {
+          entry.data.updated ? (
+            <p class="article-meta">
+              {entry.data.updatedLabel} {entry.data.updated}
+            </p>
+          ) : null
+        }
+        <p class="article-lede">{entry.data.intro}</p>
+      </header>
       {
         isDownload ? (
-          <div class="mt-8">
+          <div class="article-measure mt-8">
             <StoreEntries locale={locale} variant="download" />
           </div>
         ) : null
       }
+      {isDownload ? <DownloadShowcase locale={locale} /> : null}
       {
         isDownload && entry.data.nativePerks?.length ? (
-          <section class="mt-10" aria-labelledby="native-heading">
-            <h2 id="native-heading" class="text-xl font-semibold tracking-tight">
+          <section class="article-band mt-10" aria-labelledby="native-heading">
+            <h2 id="native-heading" class="article-block-title">
               {entry.data.nativeHeading}
             </h2>
             {
               entry.data.nativeLead ? (
-                <p class="mt-3 max-w-prose text-base leading-relaxed text-plum/80 dark:text-cream/80">
-                  {entry.data.nativeLead}
-                </p>
+                <p class="article-sublede">{entry.data.nativeLead}</p>
               ) : null
             }
             <ul class="mt-6 grid w-full gap-3 sm:grid-cols-3">
@@ -112,7 +112,7 @@ const softwareJsonLd =
       {
         isDownload && entry.data.requirements?.length ? (
           <aside
-            class="mt-8 w-full rounded-2xl border border-plum/10 bg-plum/[0.035] px-4 py-4 dark:border-cream/12 dark:bg-cream/[0.05]"
+            class="article-band mt-8 w-full rounded-2xl border border-plum/10 bg-plum/[0.035] px-4 py-4 dark:border-cream/12 dark:bg-cream/[0.05]"
             aria-labelledby="download-requirements"
           >
             <h2
@@ -132,6 +132,7 @@ const softwareJsonLd =
                   <a
                     class="text-inherit underline decoration-plum/25 underline-offset-4 hover:text-orange-ink hover:decoration-orange-ink dark:decoration-cream/25 dark:hover:text-orange-bright dark:hover:decoration-orange-bright"
                     href={siteConfig.githubReleasesUrl}
+                    data-track="github_releases_open"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -147,10 +148,7 @@ const softwareJsonLd =
       {
         hasBody ? (
           <div
-            class:list={[
-              "mt-8 max-w-prose text-base leading-relaxed",
-              isFaq ? "faq-content" : "content",
-            ]}
+            class:list={["article-body", isFaq ? "faq-content" : "content"]}
           >
             <Content />
           </div>

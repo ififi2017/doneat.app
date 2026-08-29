@@ -1,21 +1,30 @@
 ---
 import { Picture } from "astro:assets";
 import enBlack from "../../assets/device/en-black.png";
+import enReview from "../../assets/device/en-review.png";
 import enWhite from "../../assets/device/en-white.png";
 import frameBlue from "../../assets/device/frames/iphone-17-pro-max-deep-blue.png";
 import frameOrange from "../../assets/device/frames/iphone-17-pro-max-cosmic-orange.png";
 import zhBlack from "../../assets/device/zh-black.png";
+import zhReview from "../../assets/device/zh-review.png";
 import zhWhite from "../../assets/device/zh-white.png";
 import { deviceStem, t, type HallLocale } from "../lib/config";
 
 interface Props {
   locale: HallLocale;
+  priority?: boolean;
+  clip?: "timer" | "review";
 }
 
-const { locale } = Astro.props;
+const { locale, priority = false, clip = "timer" } = Astro.props;
+const isReview = clip === "review";
+const loading = priority ? "eager" : "lazy";
+const fetchpriority = priority ? "high" : "auto";
 const stem = deviceStem(locale);
 const alt = t(locale, "deviceAlt");
 const still = stem === "zh" ? { white: zhWhite, black: zhBlack } : { white: enWhite, black: enBlack };
+const reviewStill = stem === "zh" ? zhReview : enReview;
+const reviewSrc = `/device/${stem}-review.mp4`;
 const sizes = "(min-width: 1024px) 24.5rem, (min-width: 640px) 20rem, 16.5rem";
 const stillWidths = [360, 720, 1080];
 const frameWidths = [400, 800, 1200];
@@ -28,50 +37,83 @@ const frameWidths = [400, 800, 1200];
 >
   <div class="device-screen">
     <div class="device-loader" aria-hidden="true"></div>
-    <Picture
-      src={still.white}
-      alt={alt}
-      formats={["webp"]}
-      widths={stillWidths}
-      sizes={sizes}
-      class="device-still light-scheme"
-      pictureAttributes={{ class: "light-scheme" }}
-      loading="lazy"
-      decoding="async"
-    />
-    <Picture
-      src={still.black}
-      alt=""
-      formats={["webp"]}
-      widths={stillWidths}
-      sizes={sizes}
-      class="device-still dark-scheme"
-      pictureAttributes={{ class: "dark-scheme" }}
-      loading="lazy"
-      decoding="async"
-    />
-    <video
-      class="device-video light-scheme"
-      data-src={`/device/${stem}-white.mp4`}
-      muted
-      loop
-      playsinline
-      preload="none"
-      width="1320"
-      height="2868"
-      aria-hidden="true"
-    ></video>
-    <video
-      class="device-video dark-scheme"
-      data-src={`/device/${stem}-black.mp4`}
-      muted
-      loop
-      playsinline
-      preload="none"
-      width="1320"
-      height="2868"
-      aria-hidden="true"
-    ></video>
+    {
+      isReview ? (
+        <>
+          <Picture
+            src={reviewStill}
+            alt={alt}
+            formats={["webp"]}
+            widths={stillWidths}
+            sizes={sizes}
+            class="device-still"
+            loading={loading}
+            fetchpriority={fetchpriority}
+            decoding="async"
+          />
+          <video
+            class="device-video"
+            data-src={reviewSrc}
+            muted
+            loop
+            playsinline
+            preload="none"
+            width="1320"
+            height="2868"
+            aria-hidden="true"
+          ></video>
+        </>
+      ) : (
+        <>
+          <Picture
+            src={still.white}
+            alt={alt}
+            formats={["webp"]}
+            widths={stillWidths}
+            sizes={sizes}
+            class="device-still light-scheme"
+            pictureAttributes={{ class: "light-scheme" }}
+            loading={loading}
+            fetchpriority={fetchpriority}
+            decoding="async"
+          />
+          <Picture
+            src={still.black}
+            alt=""
+            formats={["webp"]}
+            widths={stillWidths}
+            sizes={sizes}
+            class="device-still dark-scheme"
+            pictureAttributes={{ class: "dark-scheme" }}
+            loading={loading}
+            fetchpriority={fetchpriority}
+            decoding="async"
+          />
+          <video
+            class="device-video light-scheme"
+            data-src={`/device/${stem}-white.mp4`}
+            muted
+            loop
+            playsinline
+            preload="none"
+            width="1320"
+            height="2868"
+            aria-hidden="true"
+          ></video>
+          <video
+            class="device-video dark-scheme"
+            data-src={`/device/${stem}-black.mp4`}
+            muted
+            loop
+            playsinline
+            preload="none"
+            width="1320"
+            height="2868"
+            aria-hidden="true"
+          ></video>
+        </>
+      )
+    }
   </div>
   <Picture
     src={frameOrange}
@@ -81,7 +123,8 @@ const frameWidths = [400, 800, 1200];
     sizes={sizes}
     pictureAttributes={{ class: "device-bezel light-scheme" }}
     class="light-scheme"
-    loading="eager"
+    loading={loading}
+    fetchpriority={fetchpriority}
     aria-hidden="true"
   />
   <Picture
@@ -92,7 +135,8 @@ const frameWidths = [400, 800, 1200];
     sizes={sizes}
     pictureAttributes={{ class: "device-bezel dark-scheme" }}
     class="dark-scheme"
-    loading="lazy"
+    loading={loading}
+    fetchpriority={fetchpriority}
     aria-hidden="true"
   />
 </div>
@@ -106,10 +150,10 @@ const frameWidths = [400, 800, 1200];
     var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     var still = hero.querySelector(
       dark ? "img.device-still.dark-scheme" : "img.device-still.light-scheme",
-    );
+    ) || hero.querySelector("img.device-still");
     var video = hero.querySelector(
       dark ? "video.dark-scheme" : "video.light-scheme",
-    );
+    ) || hero.querySelector("video.device-video");
     var ready = false;
 
     function markReady() {

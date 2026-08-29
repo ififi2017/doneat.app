@@ -1,0 +1,176 @@
+{
+  "source": "Off-Work-Countdown public/locales/en/content.json#download",
+  "capturedAt": "2026-08-29",
+  "note": "Archived from the old off.rainif.com download page for a later doneat.app desktop-demo pass. Not served on the live official site.",
+  "heading": "A calmer countdown for your workday",
+  "intro": "Love how quickly the web app gets you started, but want the countdown to fit more naturally into your day? The desktop app stays in your menu bar or system tray, keeps counting in the background, and is always one shortcut away.",
+  "benefits": [
+    {
+      "heading": "Easy to glance at",
+      "body": [
+        "Keep the time remaining in your menu bar or system tray. When you want the details, a global shortcut brings up the compact window without a trip through your browser tabs."
+      ]
+    },
+    {
+      "heading": "Helpful, gentle reminders",
+      "body": [
+        "The countdown and shift reminders continue after you hide the window. Launch at login, native notifications and a focused layout make it easy to keep around all day."
+      ]
+    },
+    {
+      "heading": "Your data stays with you",
+      "body": [
+        "Your hours, salary and preferences stay on your device. There is no account to create, and the app does not upload analytics or personal settings."
+      ]
+    }
+  ],
+  "comparisonHeading": "More than the web app in a desktop window",
+  "comparisonIntro": "The desktop app keeps the web app’s core experience and adds shift planning, background reminders and floating tools for everyday use. Compare the details and choose what fits your workday.",
+  "comparisonFeatureLabel": "Feature",
+  "webLabel": "Web app",
+  "desktopLabel": "Desktop client",
+  "featureIncludedLabel": "Included",
+  "featureLimitedLabel": "Limited",
+  "featureUnavailableLabel": "Desktop only",
+  "comparison": [
+    {
+      "feature": "Off-work countdown",
+      "web": {
+        "status": "included",
+        "detail": "Live countdown and progress"
+      },
+      "desktop": {
+        "status": "included",
+        "detail": "Live countdown and progress"
+      }
+    },
+    {
+      "feature": "Salary estimate",
+      "web": {
+        "status": "included",
+        "detail": "Monthly or daily pay and today’s earnings"
+      },
+      "desktop": {
+        "status": "included",
+        "detail": "Monthly or daily pay and today’s earnings"
+      }
+    },
+    {
+      "feature": "Workdays and overnight shifts",
+      "web": {
+        "status": "included",
+        "detail": "Custom workdays and shifts across midnight"
+      },
+      "desktop": {
+        "status": "included",
+        "detail": "Custom workdays and shifts across midnight"
+      }
+    },
+    {
+      "feature": "Off-work reminders",
+      "web": {
+        "status": "limited",
+        "detail": "While the page stays open"
+      },
+      "desktop": {
+        "status": "included",
+        "detail": "Native reminders with the window hidden"
+      }
+    },
+    {
+      "feature": "Lunch calculation",
+      "web": {
+        "status": "unavailable",
+        "detail": "—"
+      },
+      "desktop": {
+        "status": "included",
+        "detail": "Pauses the timer, progress and earnings"
+      }
+    },
+    {
+      "feature": "Healthy break reminders",
+      "web": {
+        "status": "unavailable",
+        "detail": "—"
+      },
+      "desktop": {
+        "status": "included",
+        "detail": "Move and eye-rest reminders by work time"
+      }
+    },
+    {
+      "feature": "Overtime and next shift",
+      "web": {
+        "status": "unavailable",
+        "detail": "—"
+      },
+      "desktop": {
+        "status": "included",
+        "detail": "Extend this shift and continue into the next one"
+      }
+    },
+    {
+      "feature": "Tray and floating timers",
+      "web": {
+        "status": "unavailable",
+        "detail": "—"
+      },
+      "desktop": {
+        "status": "included",
+        "detail": "Menu bar/tray, mini panel and woodfish skin"
+      }
+    },
+    {
+      "feature": "Launch at login and shortcut",
+      "web": {
+        "status": "unavailable",
+        "detail": "—"
+      },
+      "desktop": {
+        "status": "included",
+        "detail": "Ready after login and available from anywhere"
+      }
+    },
+    {
+      "feature": "Offline and local storage",
+      "web": {
+        "status": "included",
+        "detail": "PWA cache and browser storage"
+      },
+      "desktop": {
+        "status": "included",
+        "detail": "Works offline and stores settings on device"
+      }
+    }
+  ],
+  "demoHeading": "See it in action",
+  "demoIntro": "The desktop app keeps the web experience simple while adding the things that make a daily companion more useful: background access, native reminders and a floating timer. These clips come from the real app.",
+  "demoAppHeading": "The countdown you know, made for the desktop",
+  "demoAppBody": "Set your shift and get back to work. The countdown continues when the main window is hidden, and a shortcut brings your time, reminders and salary settings back whenever you need them.",
+  "demoAppAlt": "Setting a shift, starting the countdown and opening settings",
+  "demoMiniHeading": "Keep the time close at hand",
+  "demoMiniBody": "Let the mini timer float above your workspace, or switch to the woodfish skin for a small moment of calm. A couple of taps are always there without pulling you away from what you are doing.",
+  "demoMiniAlt": "The floating timer with the woodfish skin",
+  "macAppStoreWidgetHeading": "Keep the countdown on your desktop",
+  "macAppStoreWidgetBody": "Small and medium sizes, on your desktop or in Notification Center. The countdown keeps going without the app window open.",
+  "macAppStoreWidgetAlt": "The Off Work Countdown widget on a macOS desktop",
+  "media": {
+    "app": {
+      "light": "../media/app-en-light.mp4",
+      "dark": "../media/app-en-dark.mp4",
+      "posterLight": "../media/app-en-light.jpg",
+      "posterDark": "../media/app-en-dark.jpg"
+    },
+    "mini": {
+      "light": "../media/mini-en-light.mp4",
+      "dark": "../media/mini-en-dark.mp4",
+      "posterLight": "../media/mini-en-light.jpg",
+      "posterDark": "../media/mini-en-dark.jpg"
+    },
+    "widget": {
+      "light": "../media/widget-en-light.jpg",
+      "dark": "../media/widget-en-dark.jpg"
+    }
+  }
+}

@@ -1,3 +1,5 @@
+.DS_Store
+
 # Logs
 logs
 *.log
@@ -151,6 +153,7 @@ dist/
 
 # Copied into public/ at config load from assets/
 public/device/
+public/desktop-demo/
 public/badges/
 public/brand/
 public/icons/
