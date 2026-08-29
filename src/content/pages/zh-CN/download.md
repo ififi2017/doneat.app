@@ -1,8 +1,13 @@
 ---
 title: "下载 — DoneAt"
-description: "从 App Store 或 Microsoft Store 获取 DoneAt，或在浏览器里打开网页计时。"
+description: "从 App Store 或 Microsoft Store 获取 DoneAt，以及各平台最低系统要求。"
 heading: "浏览器、手机、电脑，随你打开"
 intro: "想马上开始，用浏览器。想关掉页面之后还能提醒你，就装到手机或电脑上。同一个倒计时，三种打开方式。"
+requirementsHeading: 系统要求
+requirements:
+  - Windows：Windows 10 20H2 及以上版本（需有 WebView2 组件）
+  - macOS：macOS 13.0 及以上版本
+  - iOS/iPad OS：iOS 26.0/iPad OS 26.0 及以上版本
 ---
 
 ## 为什么还要装一个应用

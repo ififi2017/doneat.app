@@ -15,6 +15,8 @@ const pages = defineCollection({
     intro: z.string(),
     updatedLabel: z.string().optional(),
     updated: z.string().optional(),
+    requirementsHeading: z.string().optional(),
+    requirements: z.array(z.string()).optional(),
   }),
 });
 

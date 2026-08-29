@@ -1,8 +1,12 @@
 import hall from "../../locales/hall.json";
+import {
+  contentLocaleFor,
+  isContentPage,
+  isHallLocale,
+  type HallLocale,
+} from "./config";
 
-const HALL_CODES = hall.locales;
-
-type HallLocale = (typeof HALL_CODES)[number];
+const HALL_CODES = hall.locales as HallLocale[];
 
 /** Lowercase BCP 47 tags that are not themselves hall locales. */
 const LANGUAGE_MAPPING: Record<string, HallLocale> = {
@@ -80,9 +84,14 @@ export function localeFromAcceptLanguage(header: string | null | undefined): Hal
   return negotiateHallLocale(parseAcceptLanguage(header));
 }
 
-export function localeRedirectInlineScript(): string {
-  return `(function(){
-  var locales=${JSON.stringify(HALL_CODES)};
+export function localeFromPathname(pathname: string): HallLocale | null {
+  const segment = pathname.split("/").filter(Boolean)[0];
+  if (!segment) return null;
+  return canonicalHallLocale(segment);
+}
+
+function pickerRuntimeJs(): string {
+  return `var locales=${JSON.stringify(HALL_CODES)};
   var mapping=${JSON.stringify(LANGUAGE_MAPPING)};
   function canonical(code){
     var lower=String(code).toLowerCase();
@@ -105,14 +114,113 @@ export function localeRedirectInlineScript(): string {
     }
     return mapping[parts[0]]||null;
   }
-  var tags=(navigator.languages&&navigator.languages.length)
-    ? [].slice.call(navigator.languages)
-    : [navigator.language||""];
-  var locale="en";
-  for (var i=0;i<tags.length;i++) {
-    var mapped=mapTag(tags[i]);
-    if (mapped) { locale=mapped; break; }
+  function fromPath(path){
+    var parts=String(path||"").split("/");
+    for (var i=0;i<parts.length;i++) if (parts[i]) return canonical(parts[i]);
+    return null;
   }
+  function fromBrowser(){
+    var tags=(navigator.languages&&navigator.languages.length)
+      ? [].slice.call(navigator.languages)
+      : [navigator.language||""];
+    for (var i=0;i<tags.length;i++) {
+      var mapped=mapTag(tags[i]);
+      if (mapped) return mapped;
+    }
+    return "en";
+  }
+  function contentLocale(hall){
+    return hall==="zh-CN"||hall==="zh-TW"||hall==="zh-HK"?"zh-CN":"en";
+  }`;
+}
+
+export function normalizePathname(pathname: string): string {
+  if (!pathname) return "/";
+  const withSlash = pathname.startsWith("/") ? pathname : `/${pathname}`;
+  if (withSlash.length > 1 && withSlash.endsWith("/")) {
+    return withSlash.slice(0, -1);
+  }
+  return withSlash;
+}
+
+/** New pathname when a short or hall-prefixed URL should open a real page; otherwise null. */
+export function resolveLocaleRedirectPath(
+  pathname: string,
+  acceptLanguage: string | null | undefined,
+): string | null {
+  const path = normalizePathname(pathname);
+  const segments = path.split("/").filter(Boolean);
+  const hall = localeFromAcceptLanguage(acceptLanguage);
+
+  if (segments.length === 0) {
+    return `/${hall}`;
+  }
+
+  if (segments.length === 1 && isContentPage(segments[0])) {
+    return `/${contentLocaleFor(hall)}/${segments[0]}`;
+  }
+
+  if (
+    segments.length === 2 &&
+    isHallLocale(segments[0]) &&
+    isContentPage(segments[1])
+  ) {
+    const dest = contentLocaleFor(segments[0]);
+    if (segments[0] !== dest) {
+      return `/${dest}/${segments[1]}`;
+    }
+  }
+
+  return null;
+}
+
+export function localeRedirectInlineScript(): string {
+  return `(function(){
+  ${pickerRuntimeJs()}
+  var locale=fromBrowser();
   location.replace("/"+locale+location.search+location.hash);
 })();`;
 }
+
+export function contentPageRedirectInlineScript(page: string): string {
+  return `(function(){
+  ${pickerRuntimeJs()}
+  var locale=contentLocale(fromBrowser());
+  location.replace("/"+locale+"/"+${JSON.stringify(page)}+location.search+location.hash);
+})();`;
+}
+
+export type NotFoundCopy = {
+  title: string;
+  heading: string;
+  body: string;
+  home: string;
+  timer: string;
+};
+
+export function notFoundApplyInlineScript(
+  copy: Record<string, NotFoundCopy>,
+  webAppOrigin: string,
+): string {
+  return `(function(){
+  ${pickerRuntimeJs()}
+  var copy=${JSON.stringify(copy)};
+  var web=${JSON.stringify(webAppOrigin)};
+  var locale=fromPath(location.pathname)||fromBrowser();
+  var c=copy[locale]||copy.en;
+  document.documentElement.lang=locale;
+  document.documentElement.dir=locale==="ar"?"rtl":"ltr";
+  document.title=c.title;
+  var heading=document.getElementById("nf-heading");
+  var body=document.getElementById("nf-body");
+  var home=document.getElementById("nf-home");
+  var timer=document.getElementById("nf-timer");
+  var logo=document.getElementById("nf-logo");
+  if (heading) heading.textContent=c.heading;
+  if (body) body.textContent=c.body;
+  if (home) { home.textContent=c.home; home.setAttribute("href","/"+locale); }
+  if (timer) { timer.textContent=c.timer; timer.setAttribute("href",web+"/"+locale); }
+  if (logo) logo.setAttribute("href","/"+locale);
+})();`;
+}
+

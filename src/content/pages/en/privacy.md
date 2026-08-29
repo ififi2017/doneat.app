@@ -22,7 +22,7 @@ This typically includes:
 
 ## Official site
 
-[doneat.app](https://doneat.app) is a static website. It does not collect your shift or salary. Opening the site root follows your browser language and sends you to that hall. Language stays in the page URL; this site does not set a language cookie.
+[doneat.app](https://doneat.app) is a static website. It does not collect your shift or salary. Opening the site root, or a short path such as `/privacy` or `/download`, follows your browser language and sends you to that hall or to the English or Simplified Chinese support page. Language stays in the page URL; this site does not set a language cookie.
 
 To host the pages, Vercel may process ordinary connection information such as an IP address and browser identifier under its own privacy policy. This project does not store that information or use it to create a profile of you.
 

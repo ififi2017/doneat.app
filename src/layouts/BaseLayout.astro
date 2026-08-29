@@ -18,9 +18,11 @@ interface Props {
   path: string;
   hreflangKind: "hall" | "content";
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
 }
 
-const { locale, title, description, path, hreflangKind, jsonLd } = Astro.props;
+const { locale, title, description, path, hreflangKind, jsonLd, noindex = false } =
+  Astro.props;
 const canonical = canonicalUrl(path);
 const ogImage = canonicalUrl("/icons/og-1200x630.png");
 const hreflangLocales: readonly HallLocale[] =
@@ -41,13 +43,19 @@ function hreflangHref(code: string): string {
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
     {
-      hreflangLocales.map((code) => (
-        <link rel="alternate" hreflang={code} href={hreflangHref(code)} />
-      ))
+      noindex ? (
+        <meta name="robots" content="noindex, nofollow" />
+      ) : (
+        <>
+          <link rel="canonical" href={canonical} />
+          {hreflangLocales.map((code) => (
+            <link rel="alternate" hreflang={code} href={hreflangHref(code)} />
+          ))}
+          <link rel="alternate" hreflang="x-default" href={hreflangHref("en")} />
+        </>
+      )
     }
-    <link rel="alternate" hreflang="x-default" href={hreflangHref("en")} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={siteConfig.brandName} />
     <meta property="og:title" content={title} />
