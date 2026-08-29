@@ -18,9 +18,12 @@ if (!entry) {
 }
 const { Content } = await render(entry);
 const path = `/${locale}/${page}`;
+const isFaq = page === "faq";
+const isDownload = page === "download";
+const hasBody = Boolean(entry.body?.trim());
 
 const softwareJsonLd =
-  page === "download"
+  isDownload
     ? {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
@@ -58,7 +61,7 @@ const softwareJsonLd =
       </h1>
       {
         entry.data.updated ? (
-          <p class="mt-3 text-sm text-plum/60 dark:text-cream/55">
+          <p class="mt-3 text-sm text-plum/70 dark:text-cream/70">
             {entry.data.updatedLabel} {entry.data.updated}
           </p>
         ) : null
@@ -67,32 +70,92 @@ const softwareJsonLd =
         {entry.data.intro}
       </p>
       {
-        page === "download" ? (
+        isDownload ? (
           <div class="mt-8">
-            <StoreEntries locale={locale} showWeb={false} />
-            {
-              entry.data.requirements?.length ? (
-                <section class="mt-8 max-w-prose" aria-labelledby="download-requirements">
-                  <h2
-                    id="download-requirements"
-                    class="text-xl font-semibold tracking-tight"
-                  >
-                    {entry.data.requirementsHeading}
-                  </h2>
-                  <ul class="mt-3 list-none space-y-2 p-0 text-base leading-relaxed text-plum/80 dark:text-cream/80">
-                    {entry.data.requirements.map((line) => (
-                      <li>{line}</li>
-                    ))}
-                  </ul>
-                </section>
-              ) : null
-            }
+            <StoreEntries locale={locale} variant="download" />
           </div>
         ) : null
       }
-      <div class="content mt-8 max-w-prose text-base leading-relaxed">
-        <Content />
-      </div>
+      {
+        isDownload && entry.data.nativePerks?.length ? (
+          <section class="mt-10" aria-labelledby="native-heading">
+            <h2 id="native-heading" class="text-xl font-semibold tracking-tight">
+              {entry.data.nativeHeading}
+            </h2>
+            {
+              entry.data.nativeLead ? (
+                <p class="mt-3 max-w-prose text-base leading-relaxed text-plum/80 dark:text-cream/80">
+                  {entry.data.nativeLead}
+                </p>
+              ) : null
+            }
+            <ul class="mt-6 grid w-full gap-3 sm:grid-cols-3">
+              {entry.data.nativePerks.map((perk) => (
+                <li class="rounded-2xl border border-plum/10 bg-plum/[0.035] p-4 dark:border-cream/12 dark:bg-cream/[0.05]">
+                  <h3 class="text-[0.98rem] font-semibold tracking-tight">{perk.title}</h3>
+                  <p class="mt-2 text-sm leading-relaxed text-plum/75 dark:text-cream/75">
+                    {perk.body}
+                  </p>
+                </li>
+              ))}
+            </ul>
+            {
+              entry.data.nativeNote ? (
+                <p class="mt-5 max-w-prose text-sm leading-relaxed text-plum/70 dark:text-cream/70">
+                  {entry.data.nativeNote}
+                </p>
+              ) : null
+            }
+          </section>
+        ) : null
+      }
+      {
+        isDownload && entry.data.requirements?.length ? (
+          <aside
+            class="mt-8 w-full rounded-2xl border border-plum/10 bg-plum/[0.035] px-4 py-4 dark:border-cream/12 dark:bg-cream/[0.05]"
+            aria-labelledby="download-requirements"
+          >
+            <h2
+              id="download-requirements"
+              class="text-xs font-semibold tracking-[0.04em] text-plum/65 dark:text-cream/65"
+            >
+              {entry.data.requirementsHeading}
+            </h2>
+            <ul class="mt-2 list-none space-y-1 p-0 text-sm leading-relaxed text-plum/70 dark:text-cream/70">
+              {entry.data.requirements.map((line) => (
+                <li>{line}</li>
+              ))}
+            </ul>
+            {
+              entry.data.githubReleaseLabel && entry.data.githubReleaseNote ? (
+                <p class="mt-3 border-t border-plum/10 pt-3 text-sm leading-relaxed text-plum/60 dark:border-cream/10 dark:text-cream/60">
+                  <a
+                    class="text-inherit underline decoration-plum/25 underline-offset-4 hover:text-orange-ink hover:decoration-orange-ink dark:decoration-cream/25 dark:hover:text-orange-bright dark:hover:decoration-orange-bright"
+                    href={siteConfig.githubReleasesUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {entry.data.githubReleaseLabel}
+                  </a>
+                  <span> · {entry.data.githubReleaseNote}</span>
+                </p>
+              ) : null
+            }
+          </aside>
+        ) : null
+      }
+      {
+        hasBody ? (
+          <div
+            class:list={[
+              "mt-8 max-w-prose text-base leading-relaxed",
+              isFaq ? "faq-content" : "content",
+            ]}
+          >
+            <Content />
+          </div>
+        ) : null
+      }
     </main>
     <SiteFooter locale={locale} />
   </div>

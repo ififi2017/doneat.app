@@ -21,14 +21,14 @@ function hrefFor(page: "download" | "faq" | "about"): string {
 }
 
 const navItems = [
-  { href: webAppUrl(locale), page: null, label: t(locale, "openTimer") },
-  { href: hrefFor("download"), page: "download", label: t(locale, "download") },
-  { href: hrefFor("faq"), page: "faq", label: t(locale, "faq") },
-  { href: hrefFor("about"), page: "about", label: t(locale, "about") },
+  { href: webAppUrl(locale), page: null, label: t(locale, "openTimer"), external: true },
+  { href: hrefFor("download"), page: "download", label: t(locale, "download"), external: false },
+  { href: hrefFor("faq"), page: "faq", label: t(locale, "faq"), external: false },
+  { href: hrefFor("about"), page: "about", label: t(locale, "about"), external: false },
 ] as const;
 
 const linkIdle = "text-plum/80 dark:text-cream/80";
-const linkActive = "text-orange dark:text-orange-bright";
+const linkActive = "text-orange-ink dark:text-orange-bright";
 ---
 
 <header
@@ -60,10 +60,12 @@ const linkActive = "text-orange dark:text-orange-bright";
         navItems.map((item) => (
           <a
             class:list={[
-              "shrink-0 whitespace-nowrap py-2 hover:text-orange dark:hover:text-orange-bright",
+              "shrink-0 whitespace-nowrap py-2 hover:text-orange-ink dark:hover:text-orange-bright",
               item.page && item.page === currentPage ? linkActive : linkIdle,
             ]}
             href={item.href}
+            target={item.external ? "_blank" : undefined}
+            rel={item.external ? "noopener noreferrer" : undefined}
             aria-current={item.page && item.page === currentPage ? "page" : undefined}
           >
             {item.label}
@@ -82,7 +84,7 @@ const linkActive = "text-orange dark:text-orange-bright";
             <span></span>
           </span>
         </summary>
-        <nav class="nav-more-menu" aria-label="DoneAt">
+        <nav class="nav-more-menu header-panel-menu" aria-label="DoneAt">
           {
             navItems.map((item) => (
               <a
@@ -91,6 +93,8 @@ const linkActive = "text-orange dark:text-orange-bright";
                   item.page && item.page === currentPage && "is-current",
                 ]}
                 href={item.href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noopener noreferrer" : undefined}
                 aria-current={item.page && item.page === currentPage ? "page" : undefined}
               >
                 {item.label}
@@ -227,7 +231,7 @@ const linkActive = "text-orange dark:text-orange-bright";
 
   .nav-more-link.is-current {
     background: color-mix(in srgb, var(--color-orange) 16%, transparent);
-    color: var(--color-orange-deep);
+    color: var(--color-orange-ink);
     font-weight: 650;
   }
 

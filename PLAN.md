@@ -78,13 +78,13 @@
     链接以 **id `6802803318`** 为准，商店地区跟语言走（简中用 `/cn/`，不要写死 `/us/`）。路径上的 `下班倒计时` / `off-work-countdown` 是现在的 listing slug，listing 改成 DoneAt 后会变，实现时不要把旧中文名当品牌写死。Apple 生成的 `itscg` / `itsct` / `mttnsubad` 查询参数保留。
   - **Microsoft Store** 用[官方 badge 脚本](https://get.microsoft.com/badge/)：按页面语言返回对应徽章，主题跟系统亮暗。两家官方 CDN 的可用性都作为接受的依赖。
 - Web 与顶栏「打开计时」都进 `https://off.rainif.com/{lang}`。
-- 入口下方三条短价值：本地、无账号、看清下班。不上长对比表，不把 FAQ 铺在首页。
-- 首页机位：**先播短视频，PNG 当 poster 和播不了时的兜底**，再套官方 iPhone 17 Pro Max 框（浅色 Cosmic Orange，深色 Deep Blue，`assets/device/frames/`）。竖屏下班倒计时，不要商店合成图，不要另造机框或灵动岛。素材在 `assets/device/`：`en` / `zh` × `white` / `black` 各一份 `.mp4` + `.png`。语言跟内容语言走（中文门厅用 `zh`，其余用 `en`）；亮暗跟 `prefers-color-scheme`。`autoplay muted loop playsinline`，无控件、无声音。`prefers-reduced-motion: reduce` 只出 PNG。
+- 入口下方三条短价值：本地、无账号、看清下班。不上长对比表，不把 FAQ 铺在首页。平台可用性压成一行说明，不在首页铺 chip；Android 状态放下载页。
+- 首页机位：**当前色彩模式、且未开启 reduced-motion 时才加载对应 MP4**；其余情况只出 PNG。再套官方 iPhone 17 Pro Max 框（浅色 Cosmic Orange，深色 Deep Blue，`assets/device/frames/`）。竖屏下班倒计时，不要商店合成图，不要另造机框或灵动岛。素材在 `assets/device/`：`en` / `zh` × `white` / `black` 各一份 `.mp4` + `.png`。语言跟内容语言走（中文门厅用 `zh`，其余用 `en`）；亮暗跟 `prefers-color-scheme`。`autoplay muted loop playsinline`，无控件、无声音。`prefers-reduced-motion: reduce` 只出 PNG，且不请求视频。
 - 第一版不放桌面主窗 / 迷你计时（窗口标题仍是旧名）。不上产品仓里那套旧名桌面 demo。
 
 ### 下载页
 
-商店入口与首页同一套 App Store / Microsoft Store 徽章，不放「在浏览器里试试」。徽章下附各平台最低系统版本。外加「为何要用原生」：通知、小组件/菜单栏、关了页面仍在走。若下载页也放机位，与首页同一套视频 + PNG 兜底。无功能对比表。语气不贬网页版。不放 GitHub 直装。顶栏仍可打开网页计时。
+商店入口与首页同一套 App Store / Microsoft Store 徽章，不放「在浏览器里试试」。平台行含 Android 即将推出。三项原生价值用卡片排布；系统要求与卡片同宽，并附弱化的 GitHub Releases 文字链（仅 macOS / Windows 未签名直装包）。不放 GitHub 直装按钮。若下载页也放机位，与首页同一套视频 + PNG 兜底。无功能对比表。语气不贬网页版。顶栏仍可打开网页计时。
 
 ### 铬层
 

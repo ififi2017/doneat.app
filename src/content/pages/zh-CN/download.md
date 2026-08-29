@@ -3,27 +3,21 @@ title: "下载 — DoneAt"
 description: "从 App Store 或 Microsoft Store 获取 DoneAt，以及各平台最低系统要求。"
 heading: "浏览器、手机、电脑，随你打开"
 intro: "想马上开始，用浏览器。想关掉页面之后还能提醒你，就装到手机或电脑上。同一个倒计时，三种打开方式。"
+nativeHeading: 为什么还要装一个应用
+nativeLead: 网页计时已经够你开始。装到手机或电脑上之后，关掉页面，DoneAt 也还能接着走。
+nativePerks:
+  - title: 通知还能响
+    body: 离开屏幕之后，系统仍可以在班次接近结束时提醒你。浏览器里只有标签还开着才能做到这一点。
+  - title: 抬眼就在
+    body: 在电脑上，剩余时间可以留在菜单栏或系统托盘；在手机上，它可以和别的应用、小组件放在一起。不必再翻浏览器标签。
+  - title: 关掉页面也还在走
+    body: 关掉页面、锁上手机或藏起窗口，装在这台设备上的倒计时会接着倒数。
+nativeNote: 上下班时间和薪资仍然只留在这台设备上。不用注册账号。
 requirementsHeading: 系统要求
 requirements:
   - Windows：Windows 10 20H2 及以上版本（需有 WebView2 组件）
   - macOS：macOS 13.0 及以上版本
   - iOS/iPad OS：iOS 26.0/iPad OS 26.0 及以上版本
+githubReleaseLabel: GitHub Releases
+githubReleaseNote: 仅含 macOS / Windows 直接安装包，且未签名。
 ---
-
-## 为什么还要装一个应用
-
-网页计时已经够你开始。装到手机或电脑上之后，关掉页面，DoneAt 也还能接着走。
-
-### 通知还能响
-
-离开屏幕之后，系统仍可以在班次接近结束时提醒你。浏览器里只有标签还开着才能做到这一点。
-
-### 抬眼就在
-
-在电脑上，剩余时间可以留在菜单栏或系统托盘；在手机上，它可以和别的应用、小组件放在一起。不必再翻浏览器标签。
-
-### 关掉页面也还在走
-
-关掉页面、锁上手机或藏起窗口，装在这台设备上的倒计时会接着倒数。
-
-上下班时间和薪资仍然只留在这台设备上。不用注册账号。
