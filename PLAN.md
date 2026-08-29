@@ -1,6 +1,7 @@
 # DoneAt 官网开发计划
 
-- **Status**: TODO
+- **Status**: PREVIEW — S0–S3（预览域能做的）已落地；S4 上线窗口未做
+- **Preview**: 匿名临时部署 [temporary-rapid-sequoia-9rkyrq6.vercel.app](https://temporary-rapid-sequoia-9rkyrq6.vercel.app/en)（约 60 分钟过期）。认领并接到独立 Vercel 项目：[claim](https://vercel.com/claim-deployment?code=16e3c9c3-95ec-4602-bd8e-980c21efe3b8)。未登录 CLI，本仓尚未绑定长期 `*.vercel.app`。
 - **Repo**: [ififi2017/doneat.app](https://github.com/ififi2017/doneat.app)
 - **Goes live as**: https://doneat.app
 - **Product plan**: [Off-Work-Countdown 009](https://github.com/ififi2017/Off-Work-Countdown/blob/main/plans/009-doneat-platform-brand-domain.md)
@@ -32,7 +33,7 @@
 
 - 显示名 **DoneAt**，不随语言翻译。
 - 功能行：英文 Work Shift Countdown，简中下班倒计时；其他门厅语言用各语功能词（对产品仓 `offWorkCountdown`，en 须改成 Work Shift Countdown）。
-- 英文品牌句：Know when your time is yours（`again` 留给产品 002）。中文不译品牌句。
+- 品牌句：英文 Know when your time is yours（`again` 留给产品 002）。中文门厅**不译**，只出 DoneAt + 功能行。其他门厅用各语自然句，不要英文字面直译。不要把品牌句写进功能行。
 - 过渡说明可写一次「Off Work Countdown 现为 DoneAt」，不长期双品牌并列。
 
 ### 路由
@@ -57,7 +58,7 @@
 - 长文：Content Collections，`en` / `zh-CN` Markdown 或 MDX。
 - 门厅 19 语：Astro i18n 路由。铬层文案本仓自维护，不整份拷产品 `translation.json`。
 - 亮暗只跟 `prefers-color-scheme`，不做主题切换。
-- 尽量零水合。语言选择器用原生控件。
+- 尽量零水合。语言选择器用自绘 `<details>` 菜单，不要原生 `<select>`。
 - 不用产品仓的 Next、Serwist、`next-i18next`、倒计时组件。不注册 Service Worker / 可安装 manifest。
 - Mark 与图标以产品仓 [008](https://github.com/ififi2017/Off-Work-Countdown/blob/main/plans/008-brand-doneat.md) 的 `assets/brand` 为准，不另造一套。
 
@@ -76,7 +77,7 @@
   - **Microsoft Store** 用[官方 badge 脚本](https://get.microsoft.com/badge/)：按页面语言返回对应徽章，主题跟系统亮暗。两家官方 CDN 的可用性都作为接受的依赖。
 - Web 与顶栏「打开计时」都进 `https://off.rainif.com/{lang}`。
 - 入口下方三条短价值：本地、无账号、看清下班。不上长对比表，不把 FAQ 铺在首页。
-- 首页机位：**先播短视频，PNG 当 poster 和播不了时的兜底**。竖屏下班倒计时，不要灵动岛叠字，不要商店合成图。素材在 `assets/device/`：`en` / `zh` × `white` / `black` 各一份 `.mp4` + `.png`。语言跟内容语言走（中文门厅用 `zh`，其余用 `en`）；亮暗跟 `prefers-color-scheme`。`autoplay muted loop playsinline`，无控件、无声音。`prefers-reduced-motion: reduce` 只出 PNG。
+- 首页机位：**先播短视频，PNG 当 poster 和播不了时的兜底**，再套官方 iPhone 17 Pro Max 框（浅色 Cosmic Orange，深色 Deep Blue，`assets/device/frames/`）。竖屏下班倒计时，不要商店合成图，不要另造机框或灵动岛。素材在 `assets/device/`：`en` / `zh` × `white` / `black` 各一份 `.mp4` + `.png`。语言跟内容语言走（中文门厅用 `zh`，其余用 `en`）；亮暗跟 `prefers-color-scheme`。`autoplay muted loop playsinline`，无控件、无声音。`prefers-reduced-motion: reduce` 只出 PNG。
 - 第一版不放桌面主窗 / 迷你计时（窗口标题仍是旧名）。不上产品仓里那套旧名桌面 demo。
 
 ### 下载页
@@ -87,7 +88,7 @@
 
 - 顶栏：打开 Web 计时、下载、FAQ、关于。
 - 页脚：原理、隐私、`hello@doneat.app`、产品仓 GitHub **源码**文字链（不是下载按钮）。
-- 门厅：19 语选择器。内容页：仅 English / 中文。日文门厅点 FAQ → `/en/faq`。
+- 门厅：19 语自绘选择器。内容页：同一组件，仅 English / 中文。日文门厅点 FAQ → `/en/faq`。
 - 内容页与首页同一套视觉（008 橙 / 米 / 梅），阅读栏宽；不要产品站 gray-100 的文章壳。
 - OG / favicon：mark + DoneAt，不写 `off.rainif.com`。
 
@@ -106,30 +107,30 @@
 ### S0 — 脚手架
 
 - [x] 建立公开仓 `ififi2017/doneat.app`
-- [ ] Astro + TypeScript + Tailwind；i18n 路由；Content Collections
+- [x] Astro + TypeScript + Tailwind；i18n 路由；Content Collections
 - [ ] 接入独立 Vercel 项目（先用 `*.vercel.app`，切域名前不拆 Cloudflare 302）
 - [x] 拷贝 008 mark / 图标；产出 favicon、apple-touch 与基础 OG（`assets/`）
 
 ### S1 — 铬层与首页
 
-- [ ] 顶栏 / 页脚 / 19 语选择器 / 内容页 en-zh 切换
-- [ ] 首页按上方锁定实现（分栏、静止 mark、三个入口、三条价值、机位视频 + PNG 兜底）
-- [ ] App Store 入口接 Marketing Tools 徽章图（语言 + 黑白随亮暗）；Microsoft Store 接官方 badge 脚本；两家脚本/图失败时仍要有可点的商店链接
+- [x] 顶栏 / 页脚 / 19 语选择器 / 内容页 en-zh 切换
+- [x] 首页按上方锁定实现（分栏、静止 mark、三个入口、三条价值、机位视频 + PNG 兜底）
+- [x] App Store 入口接 Marketing Tools 徽章图（语言 + 黑白随亮暗）；Microsoft Store 接官方 badge 脚本 + SVG 兜底（脚本失败仍可点，不再叠文字链）
 - [x] 中英 × 浅色/深色真机短视频 + PNG 兜底（`assets/device/`）
-- [ ] 跟随系统亮暗；RTL 至少不撑破顶栏（`ar`）
+- [x] 跟随系统亮暗；RTL 至少不撑破顶栏（`ar`）
 
 ### S2 — 五页长文
 
-- [ ] 拷贝 about / faq / how-it-works / download / privacy
-- [ ] 重写 FAQ；隐私页改邮箱与品牌名
-- [ ] 下载页：三入口 + 为何原生；删 GitHub 直装与过时对照表
-- [ ] 内容页「打开计时」指 `off.rainif.com`，不形成来回跳转
+- [x] 拷贝 about / faq / how-it-works / download / privacy
+- [x] 重写 FAQ；隐私页改邮箱与品牌名
+- [x] 下载页：三入口 + 为何原生；删 GitHub 直装与过时对照表
+- [x] 内容页「打开计时」指 `off.rainif.com`，不形成来回跳转
 
 ### S3 — SEO 与响应头
 
-- [ ] 每页自己的 canonical、hreflang、Open Graph、必要 JSON-LD（SoftwareApplication 在下载页，Organization 在首页）
-- [ ] `sitemap.xml` / `robots.txt` 只声明本域
-- [ ] `www` → 裸域 301，保留 path + query（Cloudflare 或 Vercel，选一处做，不要两层抢）
+- [x] 每页自己的 canonical、hreflang、Open Graph、必要 JSON-LD（SoftwareApplication 在下载页，Organization 在首页）
+- [x] `sitemap.xml` / `robots.txt` 只声明本域
+- [ ] `www` → 裸域 301，保留 path + query（Cloudflare 或 Vercel，选一处做，不要两层抢；`vercel.json` 已写好，等 S4 指域名后才生效）
 
 ### S4 — 与产品仓同一窗口上线
 
