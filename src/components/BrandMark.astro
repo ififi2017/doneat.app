@@ -1,0 +1,222 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<svg
+  class:list={["brand-mark", className]}
+  viewBox="0 0 1024 1024"
+  aria-hidden="true"
+  focusable="false"
+  data-brand-mark
+>
+  <defs>
+    <radialGradient
+      id="brand-dot-glow"
+      cx="664.5"
+      cy="776.1"
+      r="260"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset="0%" stop-color="#FFB06A" stop-opacity="0.72"></stop>
+      <stop offset="20%" stop-color="#FF9A45" stop-opacity="0.38"></stop>
+      <stop offset="42%" stop-color="#F45A1E" stop-opacity="0.16"></stop>
+      <stop offset="70%" stop-color="#F45A1E" stop-opacity="0.05"></stop>
+      <stop offset="100%" stop-color="#F45A1E" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+  <path
+    d="M415 793.8 A 298 298 0 1 1 804.5 568.9"
+    fill="none"
+    stroke="#F45A1E"
+    stroke-width="110"
+    stroke-linecap="round"></path>
+  <g data-brand-hands>
+    <path
+      class="brand-mark-hands"
+      d="M512 347 L512 512 L573 617.7"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="88"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+  </g>
+  <circle
+    class="brand-mark-glow"
+    cx="664.5"
+    cy="776.1"
+    r="260"
+    fill="url(#brand-dot-glow)"></circle>
+  <circle
+    class="brand-mark-dot"
+    data-brand-dot-face
+    cx="664.5"
+    cy="776.1"
+    r="86"
+    fill="#F45A1E"></circle>
+  <circle
+    class="brand-mark-hit"
+    data-brand-dot
+    cx="664.5"
+    cy="776.1"
+    r="160"
+    fill="transparent"></circle>
+</svg>
+
+<script is:inline>
+  (function () {
+    if (document.documentElement.hasAttribute("data-brand-mark-egg")) return;
+    document.documentElement.setAttribute("data-brand-mark-egg", "");
+
+    var THRESHOLD = 5;
+    var TAP_PX = 10;
+    var DURATION = 800;
+
+    function easeSmooth(t) {
+      return 1 - Math.pow(1 - t, 3.6);
+    }
+
+    function reduceMotion() {
+      return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    }
+
+    function bind(mark) {
+      var hit = mark.querySelector("[data-brand-dot]");
+      var hands = mark.querySelector("[data-brand-hands]");
+      var dot = mark.querySelector("[data-brand-dot-face]");
+      if (!(hit instanceof SVGElement) || !(hands instanceof SVGElement)) return;
+
+      var taps = 0;
+      var busy = false;
+      var angle = 0;
+      var origin = null;
+
+      function celebrate() {
+        busy = true;
+        taps = 0;
+        if (reduceMotion()) {
+          mark.classList.add("is-pulse");
+          window.setTimeout(function () {
+            mark.classList.remove("is-pulse");
+            window.setTimeout(function () {
+              busy = false;
+            }, 160);
+          }, 160);
+          return;
+        }
+        var from = angle;
+        angle += 360;
+        var to = angle;
+        var start = performance.now();
+        function frame(now) {
+          var t = Math.min(1, (now - start) / DURATION);
+          hands.setAttribute(
+            "transform",
+            "rotate(" + (from + (to - from) * easeSmooth(t)) + " 512 512)",
+          );
+          if (t < 1) requestAnimationFrame(frame);
+          else busy = false;
+        }
+        requestAnimationFrame(frame);
+      }
+
+      hit.addEventListener("pointerdown", function (event) {
+        if (event.button) return;
+        origin = { x: event.clientX, y: event.clientY };
+        if (dot) dot.classList.add("is-pressed");
+        try {
+          hit.setPointerCapture(event.pointerId);
+        } catch (error) {}
+      });
+
+      hit.addEventListener("pointerup", function (event) {
+        if (dot) dot.classList.remove("is-pressed");
+        if (!origin || busy) {
+          origin = null;
+          return;
+        }
+        var moved =
+          Math.max(
+            Math.abs(event.clientX - origin.x),
+            Math.abs(event.clientY - origin.y),
+          ) > TAP_PX;
+        origin = null;
+        if (moved) return;
+        taps += 1;
+        if (taps >= THRESHOLD) celebrate();
+      });
+
+      hit.addEventListener("pointercancel", function () {
+        if (dot) dot.classList.remove("is-pressed");
+        origin = null;
+      });
+    }
+
+    document.querySelectorAll("[data-brand-mark]").forEach(bind);
+  })();
+</script>
+
+<style>
+  .brand-mark {
+    pointer-events: none;
+    transition: opacity 0.16s ease-out;
+  }
+
+  .brand-mark.is-pulse {
+    opacity: 0.55;
+  }
+
+  .brand-mark-hit {
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  .brand-mark-dot {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition:
+      transform 0.18s ease-out,
+      fill 0.18s ease-out;
+  }
+
+  .brand-mark-glow {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.32s ease;
+  }
+
+  .brand-mark-dot.is-pressed {
+    transform: scale(0.92);
+  }
+
+  @media (hover: hover) {
+    .brand-mark:has(.brand-mark-hit:hover) .brand-mark-glow {
+      opacity: 1;
+    }
+
+    .brand-mark:has(.brand-mark-hit:hover) .brand-mark-dot:not(.is-pressed) {
+      fill: #ff9a45;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .brand-mark-glow,
+    .brand-mark-dot,
+    .brand-mark-dot.is-pressed {
+      transform: none;
+      transition: none;
+    }
+
+    .brand-mark:has(.brand-mark-hit:hover) .brand-mark-glow {
+      opacity: 1;
+    }
+
+    .brand-mark:has(.brand-mark-hit:hover) .brand-mark-dot:not(.is-pressed) {
+      transform: none;
+      fill: #ff9a45;
+    }
+  }
+</style>

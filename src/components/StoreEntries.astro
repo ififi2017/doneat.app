@@ -4,6 +4,7 @@ import type { ImageMetadata } from "astro";
 import {
   appleBadgeLocale,
   appleStoreUrl,
+  contentLocaleFor,
   microsoftBadgeLocale,
   siteConfig,
   t,
@@ -44,6 +45,7 @@ function pickBadge(
 }
 
 const { locale, variant = "home" } = Astro.props;
+const downloadHref = `/${contentLocaleFor(locale)}/download`;
 const appleLocale = appleBadgeLocale(locale);
 const msLocale = microsoftBadgeLocale(locale);
 const appleHref = appleStoreUrl(locale);
@@ -70,15 +72,24 @@ const msDark = pickBadge(
 <div class="flex flex-col items-start gap-3">
   {
     isDownload ? null : (
-      <a
-        href={webHref}
-        class="btn btn-primary"
-        data-track="web_timer_open"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {t(locale, "webCta")}
-      </a>
+      <div class="hall-cta-row">
+        <a
+          href={webHref}
+          class="btn btn-secondary"
+          data-track="web_timer_open"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {t(locale, "webCta")}
+        </a>
+        <a
+          href={downloadHref}
+          class="btn btn-primary"
+          data-track="download_page_open"
+        >
+          {t(locale, "downloadCta")}
+        </a>
+      </div>
     )
   }
 
@@ -134,6 +145,17 @@ const msDark = pickBadge(
 </div>
 
 <style>
+  .hall-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .hall-cta-row + .store-badges {
+    margin-top: 0.85rem;
+  }
+
   .store-badges {
     display: flex;
     flex-wrap: wrap;

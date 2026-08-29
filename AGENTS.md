@@ -39,7 +39,7 @@
 
 桌面左右分栏：左为**静止** Open Day mark、DoneAt、品牌句/功能行、三个入口；右为 iPhone 机位。手机竖叠，机位在入口下方。
 
-- Mark 静止：不转圈、不五连击。
+- Mark 默认定住。只有缺口里的橙色圆点接收五连击；第五次指针转一圈回到五点（与 iOS `CelebratingBrandMark` 相同）。`prefers-reduced-motion: reduce` 只做一次透明度脉冲。不要为它拉 React。
 - 英文门厅：DoneAt + `Know when your time is yours` + Work Shift Countdown。
 - 中文门厅（zh-CN / zh-TW / zh-HK）：DoneAt + 原创品牌句 + 该语功能行。简中「几点下班，心里有数」，台湾「幾點下班，心裡有數」，香港「幾點放工，心裡有數」。不要英文字面直译。
 - 其他门厅：DoneAt + 各语品牌句 + `hall.json` 里的功能行。品牌句要像当地话，不要英文字面直译。功能行仍独立。
