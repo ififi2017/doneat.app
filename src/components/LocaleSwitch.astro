@@ -45,7 +45,7 @@ function hrefFor(code: string): string {
         stroke-linejoin="round"></path>
     </svg>
   </summary>
-  <nav class="locale-switch-menu" aria-label={t(locale, "language")}>
+  <nav class="locale-switch-menu header-panel-menu" aria-label={t(locale, "language")}>
     {
       locales.map((code) => (
         <a
@@ -106,6 +106,12 @@ function hrefFor(code: string): string {
 
   .locale-switch[open] .locale-switch-chevron {
     transform: rotate(180deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .locale-switch-chevron {
+      transition: none;
+    }
   }
 
   .locale-switch-summary:hover,

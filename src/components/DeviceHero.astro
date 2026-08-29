@@ -21,8 +21,13 @@ const stillWidths = [360, 720, 1080];
 const frameWidths = [400, 800, 1200];
 ---
 
-<div class="device-hero relative mx-auto w-full max-w-[16.5rem] sm:max-w-[20rem] lg:max-w-[24.5rem]">
+<div
+  class="device-hero relative mx-auto w-full max-w-[16.5rem] sm:max-w-[20rem] lg:max-w-[24.5rem]"
+  data-device-hero
+  aria-busy="true"
+>
   <div class="device-screen">
+    <div class="device-loader" aria-hidden="true"></div>
     <Picture
       src={still.white}
       alt={alt}
@@ -31,8 +36,8 @@ const frameWidths = [400, 800, 1200];
       sizes={sizes}
       class="device-still light-scheme"
       pictureAttributes={{ class: "light-scheme" }}
-      loading="eager"
-      fetchpriority="high"
+      loading="lazy"
+      decoding="async"
     />
     <Picture
       src={still.black}
@@ -43,35 +48,30 @@ const frameWidths = [400, 800, 1200];
       class="device-still dark-scheme"
       pictureAttributes={{ class: "dark-scheme" }}
       loading="lazy"
+      decoding="async"
     />
     <video
       class="device-video light-scheme"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="metadata"
-      poster={`/device/${stem}-white.png`}
-      width="1320"
-      height="2868"
-      aria-hidden="true"
-    >
-      <source src={`/device/${stem}-white.mp4`} type="video/mp4" />
-    </video>
-    <video
-      class="device-video dark-scheme"
-      autoplay
+      data-src={`/device/${stem}-white.mp4`}
       muted
       loop
       playsinline
       preload="none"
-      poster={`/device/${stem}-black.png`}
       width="1320"
       height="2868"
       aria-hidden="true"
-    >
-      <source src={`/device/${stem}-black.mp4`} type="video/mp4" />
-    </video>
+    ></video>
+    <video
+      class="device-video dark-scheme"
+      data-src={`/device/${stem}-black.mp4`}
+      muted
+      loop
+      playsinline
+      preload="none"
+      width="1320"
+      height="2868"
+      aria-hidden="true"
+    ></video>
   </div>
   <Picture
     src={frameOrange}
@@ -97,9 +97,94 @@ const frameWidths = [400, 800, 1200];
   />
 </div>
 
+<script is:inline>
+  (function () {
+    var hero = document.querySelector("[data-device-hero]");
+    if (!(hero instanceof HTMLElement)) return;
+
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var still = hero.querySelector(
+      dark ? "img.device-still.dark-scheme" : "img.device-still.light-scheme",
+    );
+    var video = hero.querySelector(
+      dark ? "video.dark-scheme" : "video.light-scheme",
+    );
+    var ready = false;
+
+    function markReady() {
+      if (ready) return;
+      ready = true;
+      hero.classList.add("is-ready");
+      hero.setAttribute("aria-busy", "false");
+    }
+
+    function stillReady() {
+      return still instanceof HTMLImageElement && still.complete && still.naturalWidth > 0;
+    }
+
+    function onStill() {
+      markReady();
+    }
+
+    if (still instanceof HTMLImageElement) {
+      if (stillReady()) onStill();
+      else still.addEventListener("load", onStill, { once: true });
+    }
+
+    function loadVideo() {
+      if (reduce || !(video instanceof HTMLVideoElement) || !video.dataset.src) {
+        if (stillReady()) markReady();
+        return;
+      }
+      if (video.querySelector("source")) return;
+      var source = document.createElement("source");
+      source.src = video.dataset.src;
+      source.type = "video/mp4";
+      video.appendChild(source);
+      video.setAttribute("autoplay", "");
+      video.preload = "metadata";
+      video.addEventListener("canplay", markReady, { once: true });
+      video.addEventListener("error", markReady, { once: true });
+      video.load();
+      var play = video.play();
+      if (play && typeof play.catch === "function") play.catch(function () {});
+      window.setTimeout(markReady, 5000);
+    }
+
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(
+        function (entries) {
+          if (!entries[0] || !entries[0].isIntersecting) return;
+          io.disconnect();
+          loadVideo();
+        },
+        { rootMargin: "160px 0px", threshold: 0.01 },
+      );
+      io.observe(hero);
+    } else {
+      loadVideo();
+    }
+  })();
+</script>
+
 <style>
   .device-hero {
+    isolation: isolate;
     filter: drop-shadow(0 24px 50px color-mix(in srgb, var(--color-plum) 28%, transparent));
+  }
+
+  .device-hero::after {
+    content: "";
+    position: absolute;
+    inset: 16% 8% 10%;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse at 50% 42%,
+      color-mix(in srgb, var(--color-orange) 16%, transparent),
+      transparent 70%
+    );
   }
 
   .device-screen {
@@ -110,7 +195,34 @@ const frameWidths = [400, 800, 1200];
     height: 95.6%;
     overflow: hidden;
     border-radius: 14.4% / 6.62%;
-    background: #0a0a0a;
+    background: color-mix(in srgb, var(--color-plum) 18%, var(--color-cream));
+  }
+
+  .device-loader {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: color-mix(in srgb, var(--color-plum) 10%, var(--color-cream));
+    transition: opacity 280ms ease;
+  }
+
+  .device-loader::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 28%,
+      color-mix(in srgb, var(--color-cream) 72%, transparent) 48%,
+      transparent 68%
+    );
+    transform: translateX(-40%);
+    animation: device-shimmer 1.35s ease-in-out infinite;
+  }
+
+  .device-hero.is-ready .device-loader {
+    opacity: 0;
+    pointer-events: none;
   }
 
   .device-screen :global(img),
@@ -139,9 +251,43 @@ const frameWidths = [400, 800, 1200];
     user-select: none;
   }
 
+  @keyframes device-shimmer {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(50%);
+    }
+  }
+
   @media (prefers-color-scheme: dark) {
     .device-hero {
       filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.5));
+    }
+
+    .device-hero::after {
+      background: radial-gradient(
+        ellipse at 50% 42%,
+        color-mix(in srgb, var(--color-orange-bright) 14%, transparent),
+        transparent 72%
+      );
+    }
+
+    .device-screen {
+      background: color-mix(in srgb, var(--color-evening-end) 70%, black);
+    }
+
+    .device-loader {
+      background: color-mix(in srgb, var(--color-evening-start) 82%, black);
+    }
+
+    .device-loader::after {
+      background: linear-gradient(
+        105deg,
+        transparent 28%,
+        color-mix(in srgb, var(--color-cream) 12%, transparent) 48%,
+        transparent 68%
+      );
     }
 
     .light-scheme {
@@ -152,6 +298,16 @@ const frameWidths = [400, 800, 1200];
   @media (prefers-color-scheme: light) {
     .dark-scheme {
       display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .device-loader {
+      transition: none;
+    }
+
+    .device-loader::after {
+      animation: none;
     }
   }
 </style>

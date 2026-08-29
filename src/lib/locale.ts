@@ -219,7 +219,12 @@ export function notFoundApplyInlineScript(
   if (heading) heading.textContent=c.heading;
   if (body) body.textContent=c.body;
   if (home) { home.textContent=c.home; home.setAttribute("href","/"+locale); }
-  if (timer) { timer.textContent=c.timer; timer.setAttribute("href",web+"/"+locale); }
+  if (timer) {
+    timer.textContent=c.timer;
+    timer.setAttribute("href",web+"/"+locale);
+    timer.setAttribute("target","_blank");
+    timer.setAttribute("rel","noopener noreferrer");
+  }
   if (logo) logo.setAttribute("href","/"+locale);
 })();`;
 }

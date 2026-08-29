@@ -80,7 +80,7 @@ const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
         height="80"
         alt=""
       />
-      <p class="mt-6 text-sm font-medium text-orange dark:text-orange-bright">404</p>
+      <p class="mt-6 text-sm font-medium text-orange-ink dark:text-orange-bright">404</p>
       <h1
         id="nf-heading"
         class="mt-2 text-[1.75rem] font-semibold tracking-tight sm:text-4xl"
@@ -94,17 +94,15 @@ const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
         {fallback.body}
       </p>
       <div class="mt-8 flex flex-wrap gap-3">
-        <a
-          id="nf-home"
-          href="/en"
-          class="inline-flex min-h-11 items-center justify-center rounded-full bg-orange px-5 text-sm font-semibold text-cream no-underline shadow-sm transition hover:bg-orange-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
-        >
+        <a id="nf-home" href="/en" class="btn btn-primary">
           {fallback.home}
         </a>
         <a
           id="nf-timer"
           href={siteConfig.webAppUrl + "/en"}
-          class="inline-flex min-h-11 items-center justify-center rounded-full border border-plum/15 px-5 text-sm font-semibold text-plum no-underline transition hover:border-orange hover:text-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange dark:border-cream/20 dark:text-cream dark:hover:border-orange-bright dark:hover:text-orange-bright"
+          class="btn btn-secondary"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           {fallback.timer}
         </a>
@@ -117,7 +115,7 @@ const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
         class="mx-auto flex max-w-6xl px-4 py-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] text-sm sm:px-6 sm:py-6 sm:pb-[max(1.5rem,env(safe-area-inset-bottom))]"
       >
         <a
-          class="text-plum/80 hover:text-orange dark:text-cream/80 dark:hover:text-orange-bright"
+          class="text-plum/80 hover:text-orange-ink dark:text-cream/80 dark:hover:text-orange-bright"
           href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a
         >
       </div>
