@@ -1,4 +1,5 @@
 ---
+import BrandMark from "../../components/BrandMark.astro";
 import DeviceHero from "../../components/DeviceHero.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
@@ -53,24 +54,11 @@ const jsonLd = {
   jsonLd={jsonLd}
   trackPage="hall_view"
 >
-  <div class="flex min-h-dvh flex-col">
+  <div class="hall-page flex min-h-dvh flex-col">
     <SiteHeader locale={locale} currentPage="home" />
     <main id="content" class="page-frame hall">
       <div class="hall-copy">
-        <img
-          class="hall-mark dark:hidden"
-          src="/brand/off-work-countdown-mark.svg"
-          width="56"
-          height="56"
-          alt=""
-        />
-        <img
-          class="hall-mark hidden dark:block"
-          src="/brand/off-work-countdown-mark-dark.svg"
-          width="56"
-          height="56"
-          alt=""
-        />
+        <BrandMark class="hall-mark" />
         <p class="hall-eyebrow">{subtitle}</p>
         <h1 class="hall-title">DoneAt</h1>
         {sentence ? <p class="hall-lede">{sentence}</p> : null}

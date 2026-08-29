@@ -11,6 +11,7 @@ export const trackedEvents = [
   "how_it_works_view",
   "privacy_view",
   "web_timer_open",
+  "download_page_open",
   "app_store_open",
   "microsoft_store_open",
   "github_source_open",

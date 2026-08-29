@@ -56,8 +56,18 @@ const stem = desktopMediaStem(locale);
           copy.rows.map((row) => (
             <tr>
               <th scope="row">{row.feature}</th>
-              <td data-status={row.mobile.status}>{row.mobile.detail}</td>
-              <td data-status={row.desktop.status}>{row.desktop.detail}</td>
+              <td data-status={row.mobile.status}>
+                <span class="compare-cell">
+                  <span class="compare-cue" aria-hidden="true"></span>
+                  <span>{row.mobile.detail}</span>
+                </span>
+              </td>
+              <td data-status={row.desktop.status}>
+                <span class="compare-cell">
+                  <span class="compare-cue" aria-hidden="true"></span>
+                  <span>{row.desktop.detail}</span>
+                </span>
+              </td>
             </tr>
           ))
         }
@@ -186,12 +196,51 @@ const stem = desktopMediaStem(locale);
     color: var(--color-plum);
   }
 
-  .compare-table td {
-    color: color-mix(in srgb, var(--color-plum) 78%, transparent);
+  .compare-cell {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .compare-cue {
+    flex: none;
+    box-sizing: border-box;
+    margin-top: 0.42em;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+  }
+
+  .compare-table td[data-status="included"] {
+    color: var(--color-plum);
+    font-weight: 500;
+  }
+
+  .compare-table td[data-status="included"] .compare-cue {
+    background: var(--color-orange-ink);
   }
 
   .compare-table td[data-status="limited"] {
     color: color-mix(in srgb, var(--color-plum) 58%, transparent);
+    font-weight: 400;
+  }
+
+  .compare-table td[data-status="limited"] .compare-cue {
+    background: transparent;
+    border: 1.5px solid color-mix(in srgb, var(--color-plum) 38%, transparent);
+  }
+
+  .compare-table td[data-status="absent"] {
+    color: color-mix(in srgb, var(--color-plum) 36%, transparent);
+    font-weight: 400;
+  }
+
+  .compare-table td[data-status="absent"] .compare-cue {
+    width: 0.5rem;
+    height: 0;
+    margin-top: 0.72em;
+    border-radius: 0;
+    border-top: 1.5px solid color-mix(in srgb, var(--color-plum) 32%, transparent);
   }
 
   @media (min-width: 880px) {
@@ -205,8 +254,7 @@ const stem = desktopMediaStem(locale);
 
   @media (prefers-color-scheme: dark) {
     .showcase-figure figcaption,
-    .compare-table thead th,
-    .compare-table td[data-status="limited"] {
+    .compare-table thead th {
       color: color-mix(in srgb, var(--color-cream) 55%, transparent);
     }
 
@@ -219,8 +267,28 @@ const stem = desktopMediaStem(locale);
       color: var(--color-cream);
     }
 
-    .compare-table td {
-      color: color-mix(in srgb, var(--color-cream) 78%, transparent);
+    .compare-table td[data-status="included"] {
+      color: var(--color-cream);
+    }
+
+    .compare-table td[data-status="included"] .compare-cue {
+      background: var(--color-orange-bright);
+    }
+
+    .compare-table td[data-status="limited"] {
+      color: color-mix(in srgb, var(--color-cream) 58%, transparent);
+    }
+
+    .compare-table td[data-status="limited"] .compare-cue {
+      border-color: color-mix(in srgb, var(--color-cream) 40%, transparent);
+    }
+
+    .compare-table td[data-status="absent"] {
+      color: color-mix(in srgb, var(--color-cream) 36%, transparent);
+    }
+
+    .compare-table td[data-status="absent"] .compare-cue {
+      border-top-color: color-mix(in srgb, var(--color-cream) 32%, transparent);
     }
   }
 </style>

@@ -70,7 +70,7 @@
 
 桌面左右分栏：左为静止 Open Day mark、DoneAt、品牌句/功能行、三个入口；右为一台 iPhone。手机竖叠，机位在入口下方。
 
-- Mark **静止**，不做五连击、不转圈。
+- Mark 默认定住。橙色圆点五连击后指针转一圈回到五点（与 iOS 相同）；减少动态效果时只脉冲一次。
 - 入口顺序：**Web → App Store → Microsoft Store**。Web 用本站按钮。
   - **App Store** 用 [Apple Marketing Tools](https://toolbox.marketingtools.apple.com/) 的官方徽章图，不是产品仓里那套 Mac App Store 专用 SVG。模板：
     `https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/{black|white}/{apple-locale}`
