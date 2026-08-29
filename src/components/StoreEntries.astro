@@ -20,8 +20,12 @@ const appleHref = appleStoreUrl(locale);
 const webHref = webAppUrl(locale);
 const msHref = siteConfig.microsoftStoreUrl;
 const chipClass =
-  "rounded-full border border-plum/10 bg-plum/[0.04] px-2.5 py-1 text-sm text-plum/80 dark:border-cream/15 dark:bg-cream/[0.06] dark:text-cream/80";
-const desktopPlatforms = [t(locale, "platformWeb"), "Windows", "Mac"] as const;
+  "rounded-full border border-plum/10 bg-plum/[0.04] px-2.5 py-1 text-sm text-plum/80 no-underline transition hover:border-orange/40 hover:text-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange dark:border-cream/15 dark:bg-cream/[0.06] dark:text-cream/80 dark:hover:border-orange-bright/45 dark:hover:text-orange-bright";
+const desktopPlatforms = [
+  { name: t(locale, "platformWeb"), href: webHref },
+  { name: "Windows", href: msHref },
+  { name: "Mac", href: appleHref },
+] as const;
 ---
 
 <div class="flex flex-col items-start gap-3">
@@ -74,13 +78,17 @@ const desktopPlatforms = [t(locale, "platformWeb"), "Windows", "Mac"] as const;
     <p class="text-sm text-plum/55 dark:text-cream/55">{t(locale, "platformsLabel")}</p>
     <ul class="mt-2 flex flex-wrap gap-2">
       {
-        desktopPlatforms.map((name) => (
-          <li class={chipClass}>{name}</li>
+        desktopPlatforms.map((platform) => (
+          <li>
+            <a class={chipClass} href={platform.href}>{platform.name}</a>
+          </li>
         ))
       }
     </ul>
     <ul class="mt-2 flex flex-wrap gap-2">
-      <li class={chipClass}>iPhone/iPad</li>
+      <li>
+        <a class={chipClass} href={appleHref}>iPhone/iPad</a>
+      </li>
       <li>
         <button type="button" class="platform-soon" aria-describedby="android-soon-tip">
           Android

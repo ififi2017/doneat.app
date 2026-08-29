@@ -1,3 +1,27 @@
 ---
-return Astro.rewrite("/en");
+import { localeRedirectInlineScript } from "../lib/locale";
+import { siteConfig } from "../lib/config";
+
+const cream = siteConfig.colors.cream;
+const eveningEnd = siteConfig.colors.eveningEnd;
+const headHtml = `<style>
+html,body{margin:0;min-height:100%;background:${cream}}
+@media (prefers-color-scheme: dark){html,body{background:${eveningEnd}}}
+</style><script>${localeRedirectInlineScript()}</script>`;
 ---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>DoneAt</title>
+    <Fragment set:html={headHtml} />
+  </head>
+  <body>
+    <noscript>
+      <a href="/en">DoneAt</a>
+    </noscript>
+  </body>
+</html>
