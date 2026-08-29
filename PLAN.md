@@ -108,14 +108,14 @@
 - [x] 建立公开仓 `ififi2017/doneat.app`
 - [ ] Astro + TypeScript + Tailwind；i18n 路由；Content Collections
 - [ ] 接入独立 Vercel 项目（先用 `*.vercel.app`，切域名前不拆 Cloudflare 302）
-- [ ] 拷贝 008 mark / 图标；设好 favicon 与基础 OG
+- [x] 拷贝 008 mark / 图标；产出 favicon、apple-touch 与基础 OG（`assets/`）
 
 ### S1 — 铬层与首页
 
 - [ ] 顶栏 / 页脚 / 19 语选择器 / 内容页 en-zh 切换
 - [ ] 首页按上方锁定实现（分栏、静止 mark、三个入口、三条价值）
 - [ ] App Store 入口接 Marketing Tools 徽章图（语言 + 黑白随亮暗）；Microsoft Store 接官方 badge 脚本；两家脚本/图失败时仍要有可点的商店链接
-- [ ] 拍中英各一张竖屏下班倒计时，套简单机框
+- [x] 拍中英各一张竖屏下班倒计时，套简单机框（`assets/device/`）
 - [ ] 跟随系统亮暗；RTL 至少不撑破顶栏（`ar`）
 
 ### S2 — 五页长文

@@ -1,0 +1,21 @@
+{
+  "brandName": "DoneAt",
+  "brandSentence": "Know when your time is yours",
+  "webAppUrl": "https://off.rainif.com",
+  "officialSiteUrl": "https://doneat.app",
+  "supportEmail": "hello@doneat.app",
+  "githubUrl": "https://github.com/ififi2017/Off-Work-Countdown",
+  "appStoreId": "6802803318",
+  "appStoreUrlTemplate": "https://apps.apple.com/{storefront}/app/id6802803318",
+  "microsoftStoreId": "9PM0HJ2PP2LJ",
+  "microsoftStoreUrl": "https://apps.microsoft.com/detail/9PM0HJ2PP2LJ",
+  "colors": {
+    "orange": "#F45A1E",
+    "orangeBright": "#FF9A45",
+    "orangeDeep": "#F05218",
+    "cream": "#FFF1D8",
+    "plum": "#2B1935",
+    "eveningStart": "#3B2048",
+    "eveningEnd": "#1D1329"
+  }
+}
