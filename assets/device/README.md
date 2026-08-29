@@ -1,20 +1,14 @@
-# Homepage iPhone stills
+# iPhone stills and shorts
 
-PLAN: one portrait off-work countdown, simple bezel, no store headline, no extra Dynamic Island art. English and Simplified Chinese.
+Real-device timer captures. Portrait, 1320×2868. No store headline, no extra Dynamic Island art.
 
-| File | What |
-| --- | --- |
-| `raw/en-iphone-main.png` | Simulator capture, English, working shift at 14:22. |
-| `raw/zh-CN-iphone-main.png` | Same scene, Simplified Chinese. |
-| `iphone-portrait-en.png` | Cream canvas + thin plum bezel. |
-| `iphone-portrait-zh-CN.png` | Same frame, Chinese UI. |
+| File | Language | Appearance |
+| --- | --- | --- |
+| `en-white.png` / `.mov` | English | Light |
+| `en-black.png` / `.mov` | English | Dark |
+| `zh-white.png` / `.mov` | Simplified Chinese | Light |
+| `zh-black.png` / `.mov` | Simplified Chinese | Dark |
 
-Captured from the installed Debug build on `iPhone 17 Pro Max` with `-ios.native.qaDebugScenario working` (09:00–17:00, virtual clock 14:22). The timer tab does not show the product name.
+Stills are the homepage hero. Pick language from the hall locale (Chinese halls → `zh`, everyone else → `en`). Pick appearance from `prefers-color-scheme` (`white` light, `black` dark).
 
-Re-frame after replacing the raw files:
-
-```bash
-node scripts/frame-iphone.mjs
-```
-
-Do not check in store compose art from the product repo (`scripts/marketing-shots/ios/out`).
+The `.mov` files are 12–19s loops of the same scene. Keep them in the repo; the first homepage can stay a still if motion is not wired yet. These are not the old desktop-window demo clips.
