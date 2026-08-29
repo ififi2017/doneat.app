@@ -8,7 +8,7 @@ Only what the official site needs. Not a dump of the product repo.
 | `icons/` | Favicon, apple-touch, maskable, and a 1200×630 OG still of mark + DoneAt. |
 | `badges/app-store/` | Official “Download on the App Store” SVGs from [Apple Marketing Tools](https://toolbox.marketingtools.apple.com/). Black for light pages, white for dark. |
 | `badges/microsoft/` | Official Microsoft Store badge SVGs from `get.microsoft.com/images`. Fallback if the locale widget fails. Runtime can still use the official badge script. |
-| `device/` | iPhone timer stills and shorts: `en` / `zh` × `white` / `black`. |
+| `device/` | Homepage phone: `en` / `zh` × `white` / `black` `.mp4`, PNG poster and fallback. |
 
 Do **not** add from the product repo:
 

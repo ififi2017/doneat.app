@@ -1,14 +1,36 @@
-# iPhone stills and shorts
+# iPhone hero
 
-Real-device timer captures. Portrait, 1320×2868. No store headline, no extra Dynamic Island art.
+Portrait timer captures, 1320×2868. No store headline, no extra Dynamic Island art.
 
-| File | Language | Appearance |
+The homepage (and any other phone slot) **plays the short**. The PNG is the poster and the fallback.
+
+| Stem | Language | Appearance |
 | --- | --- | --- |
-| `en-white.png` / `.mov` | English | Light |
-| `en-black.png` / `.mov` | English | Dark |
-| `zh-white.png` / `.mov` | Simplified Chinese | Light |
-| `zh-black.png` / `.mov` | Simplified Chinese | Dark |
+| `en-white` | English | Light |
+| `en-black` | English | Dark |
+| `zh-white` | Simplified Chinese | Light |
+| `zh-black` | Simplified Chinese | Dark |
 
-Stills are the homepage hero. Pick language from the hall locale (Chinese halls → `zh`, everyone else → `en`). Pick appearance from `prefers-color-scheme` (`white` light, `black` dark).
+Each stem has `.mp4` (H.264, faststart) and `.png`. Desktop originals were `.mov`; do not ship those.
 
-The `.mov` files are 12–19s loops of the same scene. Keep them in the repo; the first homepage can stay a still if motion is not wired yet. These are not the old desktop-window demo clips.
+Pick language from the hall locale (Chinese halls → `zh`, everyone else → `en`). Pick appearance from `prefers-color-scheme` (`white` light, `black` dark).
+
+```html
+<video
+  autoplay
+  muted
+  loop
+  playsinline
+  poster="/device/en-white.png"
+  width="1320"
+  height="2868"
+>
+  <source src="/device/en-white.mp4" type="video/mp4" />
+</video>
+<img src="/device/en-white.png" width="1320" height="2868" alt="" />
+```
+
+- `autoplay muted loop playsinline` — no controls, no sound, no tap-to-start.
+- The `<img>` is the fallback when the video cannot play.
+- `prefers-reduced-motion: reduce` — hide the video, show only the PNG.
+- Do not add a second bezel or Dynamic Island overlay.
