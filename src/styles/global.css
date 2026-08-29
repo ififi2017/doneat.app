@@ -209,7 +209,6 @@ html {
   width: 10rem;
   height: 10rem;
   margin-bottom: 0.45rem;
-  margin-inline-start: calc(10rem * -159 / 1024);
   color: var(--color-plum);
   overflow: visible;
 }
@@ -285,7 +284,6 @@ html {
     width: 12.5rem;
     height: 12.5rem;
     margin-bottom: 0.55rem;
-    margin-inline-start: calc(12.5rem * -159 / 1024);
   }
 
   .hall-title {
@@ -297,11 +295,50 @@ html {
   }
 }
 
+@media (max-width: 879px) {
+  .hall {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .hall-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hall-lede,
+  .hall-qualities {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .hall-qualities {
+    justify-content: center;
+  }
+
+  .hall-cta {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hall-stage {
+    width: 100%;
+    justify-self: center;
+  }
+}
+
 @media (min-width: 880px) {
   .hall {
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 3rem;
     padding-block: 1.5rem 1.75rem;
+  }
+
+  .hall-mark {
+    margin-inline-start: calc(12.5rem * -159 / 1024);
   }
 
   .hall-stage {

@@ -58,6 +58,21 @@ const contentLang = contentLocaleFor(locale);
     margin-inline: auto 0;
   }
 
+  @media (max-width: 639px) {
+    .site-footer-inner {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .site-footer-nav,
+    .site-footer-credits {
+      justify-content: center;
+      margin-inline: 0;
+    }
+  }
+
   .site-footer-inner a {
     color: color-mix(in srgb, var(--color-plum) 80%, transparent);
     text-decoration: none;

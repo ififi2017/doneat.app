@@ -69,7 +69,7 @@ const msDark = pickBadge(
 );
 ---
 
-<div class="flex flex-col items-start gap-3">
+<div class:list={["store-entries", isDownload && "is-download"]}>
   {
     isDownload ? null : (
       <div class="hall-cta-row">
@@ -145,6 +145,13 @@ const msDark = pickBadge(
 </div>
 
 <style>
+  .store-entries {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
   .hall-cta-row {
     display: flex;
     flex-wrap: wrap;
@@ -161,6 +168,21 @@ const msDark = pickBadge(
     flex-wrap: wrap;
     align-items: center;
     gap: 0.75rem;
+  }
+
+  @media (max-width: 879px) {
+    .store-entries:not(.is-download) {
+      align-items: center;
+    }
+
+    .store-entries:not(.is-download) .hall-cta-row,
+    .store-entries:not(.is-download) .store-badges {
+      justify-content: center;
+    }
+
+    .store-entries:not(.is-download) .hall-platforms {
+      text-align: center;
+    }
   }
 </style>
 
