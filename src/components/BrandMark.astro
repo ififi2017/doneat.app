@@ -188,8 +188,13 @@ const { class: className } = Astro.props;
     transition: opacity 0.32s ease;
   }
 
+  .brand-mark:has(.brand-mark-dot.is-pressed) .brand-mark-glow {
+    opacity: 1;
+  }
+
   .brand-mark-dot.is-pressed {
-    transform: scale(0.92);
+    transform: scale(1.16);
+    fill: #ff9a45;
   }
 
   @media (hover: hover) {
@@ -210,11 +215,13 @@ const { class: className } = Astro.props;
       transition: none;
     }
 
-    .brand-mark:has(.brand-mark-hit:hover) .brand-mark-glow {
+    .brand-mark:has(.brand-mark-hit:hover) .brand-mark-glow,
+    .brand-mark:has(.brand-mark-dot.is-pressed) .brand-mark-glow {
       opacity: 1;
     }
 
-    .brand-mark:has(.brand-mark-hit:hover) .brand-mark-dot:not(.is-pressed) {
+    .brand-mark:has(.brand-mark-hit:hover) .brand-mark-dot:not(.is-pressed),
+    .brand-mark-dot.is-pressed {
       transform: none;
       fill: #ff9a45;
     }
