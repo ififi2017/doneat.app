@@ -1,0 +1,27 @@
+---
+---
+
+<script is:inline>
+  (function () {
+    function send(event) {
+      if (!event || typeof navigator === "undefined" || !navigator.sendBeacon) return;
+      try {
+        navigator.sendBeacon("/api/e", event);
+      } catch (e) {}
+    }
+
+    var page = document.body.getAttribute("data-track-page");
+    if (page) send(page);
+
+    document.addEventListener(
+      "click",
+      function (ev) {
+        var node = ev.target;
+        if (!(node instanceof Element)) return;
+        var el = node.closest("[data-track]");
+        if (el) send(el.getAttribute("data-track"));
+      },
+      true,
+    );
+  })();
+</script>

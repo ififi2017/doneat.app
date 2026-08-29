@@ -51,60 +51,38 @@ const jsonLd = {
   path={`/${locale}`}
   hreflangKind="hall"
   jsonLd={jsonLd}
+  trackPage="hall_view"
 >
-  <div class="flex min-h-screen flex-col">
+  <div class="flex min-h-dvh flex-col">
     <SiteHeader locale={locale} currentPage="home" />
-    <main
-      id="content"
-      class="mx-auto grid w-full max-w-6xl flex-1 items-center gap-8 px-4 py-7 sm:gap-10 sm:px-6 sm:py-10 lg:grid-cols-2 lg:gap-16 lg:py-16"
-    >
-      <div class="order-1">
+    <main id="content" class="page-frame hall">
+      <div class="hall-copy">
         <img
-          class="mb-4 h-16 w-16 dark:hidden sm:mb-6 sm:h-24 sm:w-24 lg:h-28 lg:w-28"
+          class="hall-mark dark:hidden"
           src="/brand/off-work-countdown-mark.svg"
-          width="112"
-          height="112"
+          width="56"
+          height="56"
           alt=""
         />
         <img
-          class="mb-4 hidden h-16 w-16 dark:block sm:mb-6 sm:h-24 sm:w-24 lg:h-28 lg:w-28"
+          class="hall-mark hidden dark:block"
           src="/brand/off-work-countdown-mark-dark.svg"
-          width="112"
-          height="112"
+          width="56"
+          height="56"
           alt=""
         />
-        <p class="text-sm font-medium tracking-[0.04em] text-orange-ink dark:text-orange-bright">
-          {subtitle}
-        </p>
-        <h1 class="mt-2 text-[2.35rem] font-semibold leading-none tracking-tight sm:text-4xl lg:text-5xl">
-          DoneAt
-        </h1>
-        {
-          sentence ? (
-            <p class="mt-4 max-w-md text-lg text-plum/80 sm:text-xl dark:text-cream/80">
-              {sentence}
-            </p>
-          ) : null
-        }
-        <div class="mt-6 sm:mt-8">
+        <p class="hall-eyebrow">{subtitle}</p>
+        <h1 class="hall-title">DoneAt</h1>
+        {sentence ? <p class="hall-lede">{sentence}</p> : null}
+        <div class="hall-cta">
           <StoreEntries locale={locale} variant="home" />
         </div>
-        <ul class="mt-6 flex max-w-md flex-col gap-2 text-sm text-plum/75 sm:mt-8 dark:text-cream/75">
-          {
-            values.map((value) => (
-              <li class="flex items-start gap-2">
-                <span
-                  class="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-orange"
-                  aria-hidden="true"
-                />
-                <span>{value}</span>
-              </li>
-            ))
-          }
-        </ul>
+        <p class="hall-qualities">
+          {values.map((value) => <span>{value}</span>)}
+        </p>
       </div>
-      <div class="order-2 lg:justify-self-end">
-        <DeviceHero locale={locale} />
+      <div class="hall-stage">
+        <DeviceHero locale={locale} priority />
       </div>
     </main>
     <SiteFooter locale={locale} />

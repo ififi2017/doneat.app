@@ -37,7 +37,7 @@ const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
     <header
       class="sticky top-0 z-40 border-b border-plum/10 bg-cream/90 pt-[env(safe-area-inset-top)] backdrop-blur-md dark:border-cream/10 dark:bg-evening-end/80"
     >
-      <div class="mx-auto flex max-w-6xl items-center px-4 py-1.5 sm:px-6 sm:py-3">
+      <div class="page-frame flex items-center py-1.5 sm:py-3">
         <a
           id="nf-logo"
           href="/en"
@@ -101,6 +101,7 @@ const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
           id="nf-timer"
           href={siteConfig.webAppUrl + "/en"}
           class="btn btn-secondary"
+          data-track="web_timer_open"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -112,7 +113,7 @@ const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
 
     <footer class="mt-auto border-t border-plum/10 dark:border-cream/10">
       <div
-        class="mx-auto flex max-w-6xl px-4 py-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] text-sm sm:px-6 sm:py-6 sm:pb-[max(1.5rem,env(safe-area-inset-bottom))]"
+        class="page-frame flex py-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] text-sm sm:py-6 sm:pb-[max(1.5rem,env(safe-area-inset-bottom))]"
       >
         <a
           class="text-plum/80 hover:text-orange-ink dark:text-cream/80 dark:hover:text-orange-bright"

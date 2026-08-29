@@ -2,36 +2,30 @@
 title: "About — DoneAt"
 description: "About DoneAt, a local-first work-shift countdown for the browser, iPhone, iPad, Mac and Windows."
 heading: "About DoneAt"
-intro: "A small, open-source timer that makes the remaining workday understandable at a glance — without accounts, adverts, or sending your schedule and salary to a server."
+intro: "A local-first shift timer you can leave open. No account, no ads, and your hours stay on the device."
 ---
 
 ## Why this project exists
 
-A workday is easier to reason about when the remaining time, completed percentage and optional earnings estimate sit in one calm place. DoneAt turns those numbers into a utility you can leave open.
+Remaining time, progress, and optional earnings are easier to hold when they sit in one calm place. DoneAt is that utility.
 
 You can [start in the browser](https://off.rainif.com/en), or keep it on a phone or computer from the [download](/en/download) page.
 
-Off Work Countdown is now DoneAt. The countdown is the same; the name on the door is shorter.
+Off Work Countdown is now DoneAt. The countdown is the same; only the name on the door is shorter.
 
-## Local-first and private
+## What stays on your device
 
-Your working hours, workdays, salary and preferences stay on your device. The countdown and earnings estimate are computed locally. The iPhone, iPad, Mac and Windows apps do not send these settings or a user identifier to our servers.
+Working hours, workdays, salary, and preferences stay on the device you are using. The countdown and earnings estimate are computed there. The iPhone, iPad, Mac, and Windows apps do not send these settings or a user identifier to our servers.
 
-The web timer uses privacy-conscious page-view and performance measurement plus a small set of aggregate product events. Those events contain only an event name — never your schedule, salary, account or advertising identifier. As with any website, hosting and analytics providers may receive ordinary connection metadata such as an IP address and user agent under their own terms. The [privacy](/en/privacy) page has the details.
+The official site and the web timer record page views, loading performance, and a small set of aggregate events. An event carries only a name, never your schedule, salary, account, or advertising identifier. Hosting and analytics providers may still receive ordinary connection metadata such as an IP address and user agent, as they do on any website. The [privacy](/en/privacy) page has the details.
 
-## What the apps connect to
+Day-to-day use does not need an account. A GitHub desktop build asks GitHub on launch whether a newer release exists; that request carries no account, salary, or usage data, and an installer downloads only after you choose to update. A Microsoft Store build does not check for updates itself.
 
-You do not need an account. Day-to-day use can stay on the device.
-
-A desktop build installed from GitHub asks GitHub on launch whether a newer release exists. That request carries no account, salary or usage data, and an installer is downloaded only after you choose to update. A build installed from the Microsoft Store does not check for updates itself — the Store delivers them.
-
-Any version reaches the network when you open an external link or pick a social sharing service. Those destinations apply their own terms.
-
-Native reminders are scheduled and displayed by your operating system. Settings live in the app’s local data and can be removed by uninstalling and deleting that data.
+Opening an external link or a sharing service reaches that destination on its own terms. Native reminders are scheduled by the operating system. Uninstalling the app and deleting its local data removes the settings.
 
 ## Important limits
 
-Salary and time totals are estimates for personal reference. They are not payroll records and are not legal, tax, employment or financial advice. Reminders should not be relied on for safety-critical or legally required timing.
+Salary and time totals are estimates for personal reference. They are not payroll records, and they are not legal, tax, employment, or financial advice. Reminders should not be used for safety-critical or legally required timing.
 
 The software is provided under the MIT licence, as is and without warranty, to the extent permitted by law. The licence text in the repository is the controlling legal notice.
 
@@ -41,4 +35,4 @@ The project is released under the MIT licence. You can inspect the code or build
 
 ## Feedback
 
-Something not right, or an idea you want to try? Write to [hello@doneat.app](mailto:hello@doneat.app), or open an issue on [GitHub Issues](https://github.com/ififi2017/Off-Work-Countdown/issues). Use whichever is easier.
+Write to [hello@doneat.app](mailto:hello@doneat.app), or open a [GitHub Issue](https://github.com/ififi2017/Off-Work-Countdown/issues).

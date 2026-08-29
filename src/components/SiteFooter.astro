@@ -14,25 +14,66 @@ const { locale } = Astro.props;
 const contentLang = contentLocaleFor(locale);
 ---
 
-<footer class="mt-auto border-t border-plum/10 dark:border-cream/10">
-  <div
-    class="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] text-sm sm:gap-x-5 sm:px-6 sm:py-6 sm:pb-[max(1.5rem,env(safe-area-inset-bottom))]"
-  >
-    <a
-      class="text-plum/80 hover:text-orange-ink dark:text-cream/80 dark:hover:text-orange-bright"
-      href={`/${contentLang}/how-it-works`}>{t(locale, "howItWorks")}</a
-    >
-    <a
-      class="text-plum/80 hover:text-orange-ink dark:text-cream/80 dark:hover:text-orange-bright"
-      href={`/${contentLang}/privacy`}>{t(locale, "privacy")}</a
-    >
-    <a
-      class="text-plum/80 hover:text-orange-ink dark:text-cream/80 dark:hover:text-orange-bright"
-      href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a
-    >
-    <a
-      class="text-plum/80 hover:text-orange-ink dark:text-cream/80 dark:hover:text-orange-bright"
-      href={siteConfig.githubUrl}>{t(locale, "source")}</a
-    >
+<footer class="site-footer mt-auto border-t border-plum/10 dark:border-cream/10">
+  <div class="page-frame site-footer-inner">
+    <nav class="site-footer-nav" aria-label={siteConfig.brandName}>
+      <a href={`/${contentLang}/how-it-works`}>{t(locale, "howItWorks")}</a>
+      <a href={`/${contentLang}/privacy`}>{t(locale, "privacy")}</a>
+      <a href={`mailto:${siteConfig.supportEmail}`}>{t(locale, "contactUs")}</a>
+    </nav>
+    <p class="site-footer-credits">
+      <a href="https://rainif.com" target="_blank" rel="noopener noreferrer">
+        © fi_niaR Studio
+      </a>
+      <a href="https://astro.build/" target="_blank" rel="noopener noreferrer">
+        Powered by Astro
+      </a>
+    </p>
   </div>
 </footer>
+
+<style>
+  .site-footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.5rem 1.25rem;
+    padding-block: 0.85rem 1rem;
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    font-size: 0.875rem;
+  }
+
+  .site-footer-nav,
+  .site-footer-credits {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.25rem;
+  }
+
+  .site-footer-credits {
+    margin-block: 0;
+    margin-inline: auto 0;
+  }
+
+  .site-footer-inner a {
+    color: color-mix(in srgb, var(--color-plum) 80%, transparent);
+    text-decoration: none;
+  }
+
+  .site-footer-inner a:hover {
+    color: var(--color-orange-ink);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .site-footer-inner a {
+      color: color-mix(in srgb, var(--color-cream) 80%, transparent);
+    }
+
+    .site-footer-inner a:hover {
+      color: var(--color-orange-bright);
+    }
+  }
+</style>

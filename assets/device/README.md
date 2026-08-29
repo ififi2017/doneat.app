@@ -1,15 +1,17 @@
 # iPhone hero
 
-Portrait timer captures, 1320×2868. No store headline, no extra Dynamic Island art.
+Portrait captures, 1320×2868. No store headline, no extra Dynamic Island art.
 
-The homepage plays the short **inside the official iPhone 17 Pro Max frame**. The PNG is the poster and the fallback when video cannot play.
+The homepage plays the short timer loops (`en` / `zh` × `white` / `black`) inside the official iPhone 17 Pro Max frame. The download page plays the **feature review** (`en-review` / `zh-review`). The PNG is the poster and the fallback when video cannot play.
 
-| Stem | Language | Appearance |
+| Stem | Language | Where |
 | --- | --- | --- |
-| `en-white` | English | Light |
-| `en-black` | English | Dark |
-| `zh-white` | Simplified Chinese | Light |
-| `zh-black` | Simplified Chinese | Dark |
+| `en-white` | English, light | Homepage |
+| `en-black` | English, dark | Homepage |
+| `zh-white` | Simplified Chinese, light | Homepage |
+| `zh-black` | Simplified Chinese, dark | Homepage |
+| `en-review` | English | Download page |
+| `zh-review` | Simplified Chinese | Download page |
 
 Each stem has `.mp4` (H.264, faststart) and `.png`. Desktop originals were `.mov`; do not ship those.
 

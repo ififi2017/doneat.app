@@ -31,7 +31,7 @@ The countdown is calculated on your device and does not need the network. After 
 
 ## Is my salary information private?
 
-Your hours and salary stay on the device you are using. They are not sent to a server, nobody else can see them, and clearing the app or browser data removes them. Next to the earnings figure there is a control that hides the amount when someone is looking over your shoulder. The web timer collects anonymous page-view and performance statistics, which contain no personal or salary data. Details are on the [privacy](/en/privacy) page.
+Your hours and salary stay on the device you are using. They are not sent to a server, nobody else can see them, and clearing the app or browser data removes them. Next to the earnings figure there is a control that hides the amount when someone is looking over your shoulder. The official site and the web timer collect anonymous page-view and performance statistics, which contain no personal or salary data. Details are on the [privacy](/en/privacy) page.
 
 ## Is there an app for my phone or computer?
 

@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import {
   appleBadgeLocale,
   appleStoreUrl,
@@ -14,6 +16,33 @@ interface Props {
   variant?: "home" | "download";
 }
 
+const appleBlackBadges = import.meta.glob<ImageMetadata>(
+  "../../assets/badges/app-store/black/*.svg",
+  { eager: true, import: "default" },
+);
+const appleWhiteBadges = import.meta.glob<ImageMetadata>(
+  "../../assets/badges/app-store/white/*.svg",
+  { eager: true, import: "default" },
+);
+const microsoftBadges = import.meta.glob<ImageMetadata>(
+  "../../assets/badges/microsoft/*.svg",
+  { eager: true, import: "default" },
+);
+
+function pickBadge(
+  modules: Record<string, ImageMetadata>,
+  file: string,
+  fallback: string,
+): ImageMetadata {
+  const match = (name: string) =>
+    Object.entries(modules).find(([key]) => key.endsWith(`/${name}`))?.[1];
+  const found = match(file) ?? match(fallback);
+  if (!found) {
+    throw new Error(`Missing store badge: ${file}`);
+  }
+  return found;
+}
+
 const { locale, variant = "home" } = Astro.props;
 const appleLocale = appleBadgeLocale(locale);
 const msLocale = microsoftBadgeLocale(locale);
@@ -24,47 +53,67 @@ const isDownload = variant === "download";
 const platformLine = isDownload
   ? `Windows · Mac · iPhone/iPad · Android (${t(locale, "comingSoon")})`
   : `${t(locale, "platformWeb")} · Windows · Mac · iPhone/iPad`;
+const appleBlack = pickBadge(appleBlackBadges, `${appleLocale}.svg`, "en-us.svg");
+const appleWhite = pickBadge(appleWhiteBadges, `${appleLocale}.svg`, "en-us.svg");
+const msLight = pickBadge(
+  microsoftBadges,
+  `${msLocale}-light.svg`,
+  "en-us-light.svg",
+);
+const msDark = pickBadge(
+  microsoftBadges,
+  `${msLocale}-dark.svg`,
+  "en-us-dark.svg",
+);
 ---
 
 <div class="flex flex-col items-start gap-3">
   {
     isDownload ? null : (
-      <a href={webHref} class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+      <a
+        href={webHref}
+        class="btn btn-primary"
+        data-track="web_timer_open"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {t(locale, "webCta")}
       </a>
     )
   }
 
   <div class="store-badges">
-    <a href={appleHref} class="inline-block leading-none">
-      <img
+    <a href={appleHref} class="inline-block leading-none" data-track="app_store_open">
+      <Image
         class="h-10 w-auto dark:hidden"
-        src={`/badges/app-store/black/${appleLocale}.svg`}
+        src={appleBlack}
         alt={t(locale, "appStoreLabel")}
-        height="40"
+        height={40}
+        inferSize
       />
-      <img
+      <Image
         class="hidden h-10 w-auto dark:block"
-        src={`/badges/app-store/white/${appleLocale}.svg`}
+        src={appleWhite}
         alt={t(locale, "appStoreLabel")}
-        height="40"
+        height={40}
+        inferSize
       />
     </a>
-    <div class="ms-badge">
+    <div class="ms-badge" data-track="microsoft_store_open">
       <a href={msHref} class="ms-fallback">
-        <img
+        <Image
           class="dark:hidden"
-          src={`/badges/microsoft/${msLocale}-light.svg`}
+          src={msLight}
           alt={t(locale, "microsoftStoreLabel")}
-          width="146"
-          height="40"
+          width={146}
+          height={40}
         />
-        <img
+        <Image
           class="hidden dark:block"
-          src={`/badges/microsoft/${msLocale}-dark.svg`}
+          src={msDark}
           alt={t(locale, "microsoftStoreLabel")}
-          width="146"
-          height="40"
+          width={146}
+          height={40}
         />
       </a>
       <ms-store-badge
@@ -77,8 +126,8 @@ const platformLine = isDownload
     </div>
   </div>
 
-  <p class="max-w-md text-sm leading-relaxed text-plum/70 dark:text-cream/70">
-    <span class="text-plum/70 dark:text-cream/70">{t(locale, "platformsLabel")}</span>
+  <p class="hall-platforms">
+    <span>{t(locale, "platformsLabel")}</span>
     {" "}
     {platformLine}
   </p>

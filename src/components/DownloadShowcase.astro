@@ -1,0 +1,226 @@
+---
+import DeviceHero from "./DeviceHero.astro";
+import DesktopClip from "./DesktopClip.astro";
+import {
+  desktopMediaStem,
+  downloadShowcaseCopy,
+} from "../lib/download-showcase";
+import type { ContentLocale } from "../lib/config";
+
+interface Props {
+  locale: ContentLocale;
+}
+
+const { locale } = Astro.props;
+const copy = downloadShowcaseCopy(locale);
+const stem = desktopMediaStem(locale);
+---
+
+<section class="showcase" aria-labelledby="download-showcase">
+  <h2 id="download-showcase" class="article-block-title">{copy.heading}</h2>
+  <p class="article-sublede">{copy.lede}</p>
+
+  <div class="showcase-stages">
+    <figure class="showcase-figure">
+      <DeviceHero locale={locale} clip="review" />
+      <figcaption>{copy.mobileCaption}</figcaption>
+    </figure>
+    <div class="showcase-desk">
+      <figure class="showcase-figure">
+        <DesktopClip stem={stem} kind="app" alt={copy.appAlt} />
+        <figcaption>{copy.desktopCaption}</figcaption>
+      </figure>
+      <figure class="showcase-figure">
+        <DesktopClip stem={stem} kind="mini" alt={copy.miniAlt} />
+        <figcaption>{copy.miniCaption}</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <h2 id="download-compare" class="article-block-title showcase-compare-title">
+    {copy.comparisonHeading}
+  </h2>
+  <p class="article-sublede">{copy.comparisonLede}</p>
+
+  <div class="compare-wrap" role="region" aria-labelledby="download-compare">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th scope="col">{copy.featureLabel}</th>
+          <th scope="col">{copy.mobileLabel}</th>
+          <th scope="col">{copy.desktopLabel}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          copy.rows.map((row) => (
+            <tr>
+              <th scope="row">{row.feature}</th>
+              <td data-status={row.mobile.status}>{row.mobile.detail}</td>
+              <td data-status={row.desktop.status}>{row.desktop.detail}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    function loadClip(clip) {
+      if (!(clip instanceof HTMLElement)) return;
+      var video = clip.querySelector(dark ? "video.dark-scheme" : "video.light-scheme");
+      if (reduce || !(video instanceof HTMLVideoElement) || !video.dataset.src) return;
+      if (video.querySelector("source")) return;
+      var source = document.createElement("source");
+      source.src = video.dataset.src;
+      source.type = "video/mp4";
+      video.appendChild(source);
+      video.setAttribute("autoplay", "");
+      video.preload = "metadata";
+      video.addEventListener(
+        "canplay",
+        function () {
+          clip.classList.add("is-playing");
+        },
+        { once: true },
+      );
+      video.load();
+      var play = video.play();
+      if (play && typeof play.catch === "function") play.catch(function () {});
+    }
+
+    var clips = document.querySelectorAll("[data-desktop-clip]");
+    if (!clips.length) return;
+
+    if (!("IntersectionObserver" in window)) {
+      clips.forEach(loadClip);
+      return;
+    }
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          io.unobserve(entry.target);
+          loadClip(entry.target);
+        });
+      },
+      { rootMargin: "160px 0px", threshold: 0.01 },
+    );
+    clips.forEach(function (clip) {
+      io.observe(clip);
+    });
+  })();
+</script>
+
+<style>
+  .showcase {
+    margin-top: 2.75rem;
+  }
+
+  .showcase-stages {
+    display: grid;
+    gap: 2rem;
+    align-items: start;
+    margin: 1.75rem 0 0;
+  }
+
+  .showcase-desk {
+    display: grid;
+    gap: 1.25rem;
+    min-width: 0;
+    max-width: 22rem;
+  }
+
+  .showcase-figure {
+    margin: 0;
+    min-width: 0;
+  }
+
+  .showcase-figure figcaption {
+    margin-top: 0.65rem;
+    color: color-mix(in srgb, var(--color-plum) 58%, transparent);
+    font-size: 0.8125rem;
+    letter-spacing: 0.02em;
+    line-height: 1.45;
+  }
+
+  .showcase-compare-title {
+    margin-top: 2.75rem;
+  }
+
+  .compare-wrap {
+    margin-top: 1.15rem;
+    overflow-x: auto;
+  }
+
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+    line-height: 1.45;
+  }
+
+  .compare-table th,
+  .compare-table td {
+    padding: 0.7rem 0.75rem 0.7rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-plum) 10%, transparent);
+    text-align: start;
+    vertical-align: top;
+  }
+
+  .compare-table thead th {
+    color: color-mix(in srgb, var(--color-plum) 55%, transparent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .compare-table tbody th {
+    font-weight: 600;
+    color: var(--color-plum);
+  }
+
+  .compare-table td {
+    color: color-mix(in srgb, var(--color-plum) 78%, transparent);
+  }
+
+  .compare-table td[data-status="limited"] {
+    color: color-mix(in srgb, var(--color-plum) 58%, transparent);
+  }
+
+  @media (min-width: 880px) {
+    .showcase-stages {
+      grid-template-columns: 17.5rem 22rem;
+      justify-content: start;
+      align-items: start;
+      gap: 2.75rem;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .showcase-figure figcaption,
+    .compare-table thead th,
+    .compare-table td[data-status="limited"] {
+      color: color-mix(in srgb, var(--color-cream) 55%, transparent);
+    }
+
+    .compare-table th,
+    .compare-table td {
+      border-bottom-color: color-mix(in srgb, var(--color-cream) 12%, transparent);
+    }
+
+    .compare-table tbody th {
+      color: var(--color-cream);
+    }
+
+    .compare-table td {
+      color: color-mix(in srgb, var(--color-cream) 78%, transparent);
+    }
+  }
+</style>

@@ -42,7 +42,7 @@
 | --- | --- |
 | `/{lang}` | 19 语品牌落地页 |
 | `/download` `/privacy` `/about` `/faq` `/how-it-works` | 按浏览器语言 302 到 `en` 或 `zh-CN`（中文含繁体 → zh-CN，其余 → en） |
-| `/{en\|zh-CN}/download` | 商店 + Web 入口，以及为何要用原生 |
+| `/{en\|zh-CN}/download` | 商店 + Web 入口、手机/电脑展示与对照，以及为何要用原生 |
 | `/{en\|zh-CN}/privacy` | 隐私；支持邮箱 `hello@doneat.app` |
 | `/{en\|zh-CN}/about` | 品牌 / 开源 |
 | `/{en\|zh-CN}/faq` | 跨平台 FAQ（按现有问题骨架重写） |
@@ -125,7 +125,7 @@
 
 - [x] 拷贝 about / faq / how-it-works / download / privacy
 - [x] 重写 FAQ；隐私页改邮箱与品牌名
-- [x] 下载页：三入口 + 为何原生；删 GitHub 直装与过时对照表
+- [x] 下载页：三入口 + 手机/电脑展示与对照 + 为何原生；删 GitHub 直装与网页 vs 桌面对照表
 - [x] 内容页「打开计时」指 `off.rainif.com`，不形成来回跳转
 
 ### S3 — SEO 与响应头
@@ -154,7 +154,7 @@
 - 不改产品仓 bundle id、updater URL、exe 名
 - 不为长文临时生成 19 份未审译文
 - 不等 007 上架才开始做；也不在 007 送审包里切域名
-- 第一版不放桌面窗口截图和旧名 demo 视频
+- 下载页桌面 demo 用仓内归档素材；窗口标题仍可能是旧名，不另造截图
 
 ## 验收（本仓）
 
