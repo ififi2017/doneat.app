@@ -37,4 +37,8 @@ The software is provided under the MIT licence, as is and without warranty, to t
 
 ## Free and open source
 
-The project is released under the MIT licence. You can inspect the code, report a bug, suggest an improvement or build your own version from the public [GitHub repository](https://github.com/ififi2017/Off-Work-Countdown).
+The project is released under the MIT licence. You can inspect the code or build your own version from the public [GitHub repository](https://github.com/ififi2017/Off-Work-Countdown).
+
+## Feedback
+
+Something not right, or an idea you want to try? Write to [hello@doneat.app](mailto:hello@doneat.app), or open an issue on [GitHub Issues](https://github.com/ififi2017/Off-Work-Countdown/issues). Use whichever is easier.

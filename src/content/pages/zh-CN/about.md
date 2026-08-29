@@ -37,4 +37,8 @@ Off Work Countdown 现为 DoneAt。倒计时还是那个倒计时，门口的名
 
 ## 免费与开源
 
-项目采用 MIT 协议开源。你可以在公开的 [GitHub 仓库](https://github.com/ififi2017/Off-Work-Countdown)中查看代码、报告问题、提出改进建议，或者构建自己的版本。
+项目采用 MIT 协议开源。你可以在公开的 [GitHub 仓库](https://github.com/ififi2017/Off-Work-Countdown)中查看代码，或者构建自己的版本。
+
+## 问题反馈
+
+用起来不对劲，或者有想提的改进？可以发邮件到 [hello@doneat.app](mailto:hello@doneat.app)，也可以到 [GitHub Issues](https://github.com/ififi2017/Off-Work-Countdown/issues) 提交。选你方便的那条就行。
