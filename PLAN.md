@@ -21,6 +21,7 @@
 | `/download` `/privacy` `/about` `/faq` `/how-it-works` | 正式页（en / zh-CN） | 上线当天改为 301 到本站 |
 | 预设页 `/{lang}/{preset}` | 不复制 | 保留 |
 | GitHub 直装 | 不上官网 | README / Releases + updater |
+| Web 上的下载营销 | 设置态「获取 App」、`/download` 301 都进本站 | 不再放直达商店的 badge / 直装对话框 |
 | 技术栈 | Astro + TypeScript + Tailwind，静态输出 | Next.js 15（Web / Desktop）+ SwiftUI（iOS） |
 
 产品仓 slug `ififi2017/Off-Work-Countdown` 不改（桌面 updater）。官网仓目前同在个人账号下；GitHub Organization 是品牌外壳，和本计划的上线窗口无关。
