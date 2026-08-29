@@ -18,6 +18,8 @@ Each stem has `.mp4` (H.264, faststart) and `.png`. Desktop originals were `.mov
 | `frames/iphone-17-pro-max-cosmic-orange.png` | Light |
 | `frames/iphone-17-pro-max-deep-blue.png` | Dark |
 
+Those frames are Apple Design Resources. License: [`frames/Apple Design Resources License.rtf`](frames/Apple%20Design%20Resources%20License.rtf). Do not treat them as original DoneAt artwork.
+
 The capture is 1320×2868 and matches the screen hole (insets 75 / 66 / 75 / 66 on the 1470×3000 frame). Put the video and PNG in that hole; stack the frame on top. The frame already has the Dynamic Island — do not draw another one.
 
 Pick language from the hall locale (Chinese halls → `zh`, everyone else → `en`). Pick appearance from `prefers-color-scheme` (`white` / Cosmic Orange for light, `black` / Deep Blue for dark).
