@@ -33,7 +33,7 @@
 
 - 显示名 **DoneAt**，不随语言翻译。
 - 功能行：英文 Work Shift Countdown，简中下班倒计时；其他门厅语言用各语功能词（对产品仓 `offWorkCountdown`，en 须改成 Work Shift Countdown）。
-- 品牌句：英文 Know when your time is yours（`again` 留给产品 002）。中文门厅**不译**，只出 DoneAt + 功能行。其他门厅用各语自然句，不要英文字面直译。不要把品牌句写进功能行。
+- 品牌句：英文 Know when your time is yours（`again` 留给产品 002）。中文门厅用原创句，不直译英文：简中「几点下班，心里有数」，台湾「幾點下班，心裡有數」，香港「幾點放工，心裡有數」。其他门厅用各语自然句。不要把品牌句写进功能行。
 - 过渡说明可写一次「Off Work Countdown 现为 DoneAt」，不长期双品牌并列。
 
 ### 路由
@@ -45,7 +45,7 @@
 | `/{en\|zh-CN}/privacy` | 隐私；支持邮箱 `hello@doneat.app` |
 | `/{en\|zh-CN}/about` | 品牌 / 开源 |
 | `/{en\|zh-CN}/faq` | 跨平台 FAQ（按现有问题骨架重写） |
-| `/{en\|zh-CN}/how-it-works` | 时薪与进度口径 |
+| `/{en\|zh-CN}/how-it-works` | 班次、进度和今日已赚怎么算 |
 | `https://www.doneat.app/*` | 301 到裸域，保留 path + query |
 
 没有对应长文的语言：门厅可以是该语言，点 FAQ / About 等落到 `en` 或 `zh-CN`（中文含繁体 → zh-CN，其余 → en）。不存在的语言版本不得 301 到假 URL。
@@ -87,7 +87,7 @@
 ### 铬层
 
 - 顶栏：打开 Web 计时、下载、FAQ、关于。
-- 页脚：原理、隐私、`hello@doneat.app`、产品仓 GitHub **源码**文字链（不是下载按钮）。
+- 页脚：怎么算的、隐私、`hello@doneat.app`、产品仓 GitHub **源码**文字链（不是下载按钮）。
 - 门厅：19 语自绘选择器。内容页：同一组件，仅 English / 中文。日文门厅点 FAQ → `/en/faq`。
 - 内容页与首页同一套视觉（008 橙 / 米 / 梅），阅读栏宽；不要产品站 gray-100 的文章壳。
 - OG / favicon：mark + DoneAt，不写 `off.rainif.com`。

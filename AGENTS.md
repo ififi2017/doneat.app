@@ -41,7 +41,7 @@
 
 - Mark 静止：不转圈、不五连击。
 - 英文门厅：DoneAt + `Know when your time is yours` + Work Shift Countdown。
-- 中文门厅（zh-CN / zh-TW / zh-HK）：DoneAt + 该语功能行。**不译品牌句。**
+- 中文门厅（zh-CN / zh-TW / zh-HK）：DoneAt + 原创品牌句 + 该语功能行。简中「几点下班，心里有数」，台湾「幾點下班，心裡有數」，香港「幾點放工，心裡有數」。不要英文字面直译。
 - 其他门厅：DoneAt + 各语品牌句 + `hall.json` 里的功能行。品牌句要像当地话，不要英文字面直译。功能行仍独立。
 - 入口顺序：**Web → App Store → Microsoft Store**。
   - Web：本站按钮，链到 `https://off.rainif.com/{lang}`。
@@ -50,7 +50,7 @@
 - 入口下三条短价值：本地、无账号、看清下班。不上对比表，不把 FAQ 铺在首页。
 - 机位：**先播 mp4，png 做 poster 和播不了时的兜底**。`autoplay muted loop playsinline`，无控件、无声音。中文门厅用 `zh-*`，其余用 `en-*`。`prefers-color-scheme` 选 white/black。`prefers-reduced-motion: reduce` 只出 PNG。套仓内官方 iPhone 17 Pro Max 框（浅色 Cosmic Orange，深色 Deep Blue，`assets/device/frames/`）。视频和 PNG 铺在屏洞里，框叠在上面；框自带灵动岛，不要再另造机框或岛。
 - 顶栏：打开 Web 计时、下载、FAQ、关于。
-- 页脚：原理、隐私、`hello@doneat.app`、GitHub **源码**文字链（`https://github.com/ififi2017/Off-Work-Countdown`），不是下载按钮。
+- 页脚：怎么算的、隐私、`hello@doneat.app`、GitHub **源码**文字链（`https://github.com/ififi2017/Off-Work-Countdown`），不是下载按钮。
 - 19 语选择器：自绘零水合组件（`<details>` + 链接），不要原生 `<select>`。内容页同一套组件，选项只有 `en` / `zh-CN`。
 - 亮暗只跟 `prefers-color-scheme`，不做主题开关。
 - `ar` RTL 至少不撑破顶栏。

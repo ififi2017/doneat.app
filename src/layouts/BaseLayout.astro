@@ -1,0 +1,88 @@
+---
+import "../styles/global.css";
+import {
+  canonicalUrl,
+  HALL_LOCALES,
+  htmlLang,
+  isRtl,
+  siteConfig,
+  t,
+  type HallLocale,
+} from "../lib/config";
+import { jsonLdMarkup } from "../lib/jsonld";
+
+interface Props {
+  locale: HallLocale;
+  title: string;
+  description: string;
+  path: string;
+  hreflangKind: "hall" | "content";
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const { locale, title, description, path, hreflangKind, jsonLd } = Astro.props;
+const canonical = canonicalUrl(path);
+const ogImage = canonicalUrl("/icons/og-1200x630.png");
+const hreflangLocales: readonly HallLocale[] =
+  hreflangKind === "hall" ? HALL_LOCALES : (["en", "zh-CN"] as const);
+
+function hreflangHref(code: string): string {
+  if (hreflangKind === "hall") return canonicalUrl(`/${code}`);
+  const segments = path.split("/");
+  segments[1] = code;
+  return canonicalUrl(segments.join("/"));
+}
+---
+
+<!doctype html>
+<html lang={htmlLang(locale)} dir={isRtl(locale) ? "rtl" : "ltr"}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {
+      hreflangLocales.map((code) => (
+        <link rel="alternate" hreflang={code} href={hreflangHref(code)} />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={hreflangHref("en")} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteConfig.brandName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={locale.replace("-", "_")} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-180.png" />
+    <meta
+      name="theme-color"
+      content={siteConfig.colors.cream}
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content={siteConfig.colors.eveningEnd}
+      media="(prefers-color-scheme: dark)"
+    />
+    <Fragment set:html={jsonLdMarkup(jsonLd)} />
+  </head>
+  <body class="min-h-screen font-sans antialiased">
+    <a
+      href="#content"
+      class="sr-only focus:not-sr-only focus:absolute focus:start-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-orange focus:px-3 focus:py-2 focus:text-cream"
+    >
+      {t(locale, "skipToContent")}
+    </a>
+    <slot />
+  </body>
+</html>

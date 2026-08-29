@@ -1,0 +1,115 @@
+---
+import DeviceHero from "../../components/DeviceHero.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import StoreEntries from "../../components/StoreEntries.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  brandSentence,
+  functionalSubtitle,
+  HALL_LOCALES,
+  homeTitle,
+  isHallLocale,
+  siteConfig,
+  t,
+  type HallLocale,
+} from "../../lib/config";
+
+export function getStaticPaths() {
+  return HALL_LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const langParam = Astro.params.lang;
+if (!isHallLocale(langParam)) {
+  throw new Error(`Unknown hall locale: ${langParam}`);
+}
+const locale: HallLocale = langParam;
+const sentence = brandSentence(locale);
+const subtitle = functionalSubtitle(locale);
+const description = t(locale, "homeDescription");
+const values = [
+  t(locale, "valueLocal"),
+  t(locale, "valueNoAccount"),
+  t(locale, "valueSeeDone"),
+] as const;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteConfig.brandName,
+  url: siteConfig.officialSiteUrl,
+  logo: `${siteConfig.officialSiteUrl}/icons/icon-512.png`,
+  email: siteConfig.supportEmail,
+  sameAs: [siteConfig.githubUrl],
+};
+---
+
+<BaseLayout
+  locale={locale}
+  title={homeTitle(locale)}
+  description={description}
+  path={`/${locale}`}
+  hreflangKind="hall"
+  jsonLd={jsonLd}
+>
+  <div class="flex min-h-screen flex-col">
+    <SiteHeader locale={locale} currentPage="home" />
+    <main
+      id="content"
+      class="mx-auto grid w-full max-w-6xl flex-1 items-center gap-8 px-4 py-7 sm:gap-10 sm:px-6 sm:py-10 lg:grid-cols-2 lg:gap-16 lg:py-16"
+    >
+      <div class="order-1">
+        <img
+          class="mb-4 h-16 w-16 dark:hidden sm:mb-6 sm:h-24 sm:w-24 lg:h-28 lg:w-28"
+          src="/brand/off-work-countdown-mark.svg"
+          width="112"
+          height="112"
+          alt=""
+        />
+        <img
+          class="mb-4 hidden h-16 w-16 dark:block sm:mb-6 sm:h-24 sm:w-24 lg:h-28 lg:w-28"
+          src="/brand/off-work-countdown-mark-dark.svg"
+          width="112"
+          height="112"
+          alt=""
+        />
+        <h1 class="text-[1.75rem] font-semibold tracking-tight sm:text-4xl lg:text-5xl">DoneAt</h1>
+        {
+          sentence ? (
+            <p class="mt-3 max-w-md text-base text-plum/80 sm:text-lg dark:text-cream/80">
+              {sentence}
+            </p>
+          ) : null
+        }
+        <p
+          class:list={[
+            "text-base font-medium text-orange dark:text-orange-bright",
+            sentence ? "mt-2" : "mt-3",
+          ]}
+        >
+          {subtitle}
+        </p>
+        <div class="mt-6 sm:mt-8">
+          <StoreEntries locale={locale} />
+        </div>
+        <ul class="mt-6 flex max-w-md flex-col gap-2 text-sm text-plum/80 sm:mt-8 dark:text-cream/75">
+          {
+            values.map((value) => (
+              <li class="flex items-start gap-2">
+                <span
+                  class="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-orange"
+                  aria-hidden="true"
+                />
+                <span>{value}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="order-2 lg:justify-self-end">
+        <DeviceHero locale={locale} />
+      </div>
+    </main>
+    <SiteFooter locale={locale} />
+  </div>
+</BaseLayout>

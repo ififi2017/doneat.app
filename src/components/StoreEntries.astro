@@ -1,0 +1,218 @@
+---
+import {
+  appleBadgeLocale,
+  appleStoreUrl,
+  microsoftBadgeLocale,
+  siteConfig,
+  t,
+  webAppUrl,
+  type HallLocale,
+} from "../lib/config";
+
+interface Props {
+  locale: HallLocale;
+}
+
+const { locale } = Astro.props;
+const appleLocale = appleBadgeLocale(locale);
+const msLocale = microsoftBadgeLocale(locale);
+const appleHref = appleStoreUrl(locale);
+const webHref = webAppUrl(locale);
+const msHref = siteConfig.microsoftStoreUrl;
+const chipClass =
+  "rounded-full border border-plum/10 bg-plum/[0.04] px-2.5 py-1 text-sm text-plum/80 dark:border-cream/15 dark:bg-cream/[0.06] dark:text-cream/80";
+const desktopPlatforms = [t(locale, "platformWeb"), "Windows", "Mac"] as const;
+---
+
+<div class="flex flex-col items-start gap-3">
+  <a
+    href={webHref}
+    class="inline-flex min-h-11 items-center justify-center rounded-full bg-orange px-5 text-sm font-semibold text-cream no-underline shadow-sm transition hover:bg-orange-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+  >
+    {t(locale, "webCta")}
+  </a>
+
+  <div class="store-badges">
+    <a href={appleHref} class="inline-block leading-none">
+      <img
+        class="h-10 w-auto dark:hidden"
+        src={`/badges/app-store/black/${appleLocale}.svg`}
+        alt={t(locale, "appStoreLabel")}
+        height="40"
+      />
+      <img
+        class="hidden h-10 w-auto dark:block"
+        src={`/badges/app-store/white/${appleLocale}.svg`}
+        alt={t(locale, "appStoreLabel")}
+        height="40"
+      />
+    </a>
+    <ms-store-badge
+      productid={siteConfig.microsoftStoreId}
+      productname={siteConfig.brandName}
+      window-mode="full"
+      theme="auto"
+      language={msLocale}
+      size="large"></ms-store-badge>
+    <a href={msHref} class="ms-fallback inline-block leading-none">
+      <img
+        class="h-10 w-auto dark:hidden"
+        src={`/badges/microsoft/${msLocale}-light.svg`}
+        alt={t(locale, "microsoftStoreLabel")}
+        height="40"
+      />
+      <img
+        class="hidden h-10 w-auto dark:block"
+        src={`/badges/microsoft/${msLocale}-dark.svg`}
+        alt={t(locale, "microsoftStoreLabel")}
+        height="40"
+      />
+    </a>
+  </div>
+
+  <div>
+    <p class="text-sm text-plum/55 dark:text-cream/55">{t(locale, "platformsLabel")}</p>
+    <ul class="mt-2 flex flex-wrap gap-2">
+      {
+        desktopPlatforms.map((name) => (
+          <li class={chipClass}>{name}</li>
+        ))
+      }
+    </ul>
+    <ul class="mt-2 flex flex-wrap gap-2">
+      <li class={chipClass}>iPhone/iPad</li>
+      <li>
+        <button type="button" class="platform-soon" aria-describedby="android-soon-tip">
+          Android
+          <span id="android-soon-tip" role="tooltip" class="platform-soon-tip">
+            {t(locale, "comingSoon")}
+          </span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  .store-badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .store-badges :global(ms-store-badge) {
+    display: inline-flex;
+    flex: 0 0 auto;
+    line-height: 0;
+  }
+
+  .platform-soon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    border: 1px dashed color-mix(in srgb, var(--color-plum) 22%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-plum) 4%, transparent);
+    padding: 0.25rem 0.625rem;
+    color: color-mix(in srgb, var(--color-plum) 42%, #6b7280);
+    font: inherit;
+    font-size: 0.875rem;
+    line-height: 1.25;
+    cursor: help;
+  }
+
+  .platform-soon-tip {
+    position: absolute;
+    bottom: calc(100% + 0.5rem);
+    left: 50%;
+    z-index: 30;
+    width: max-content;
+    border-radius: 0.5rem;
+    background: var(--color-plum);
+    padding: 0.35rem 0.6rem;
+    color: var(--color-cream);
+    font-size: 0.75rem;
+    font-weight: 550;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(0.15rem);
+    box-shadow: 0 10px 24px -12px color-mix(in srgb, var(--color-plum) 70%, transparent);
+    transition:
+      opacity 120ms ease,
+      visibility 120ms ease,
+      transform 120ms ease;
+  }
+
+  .platform-soon-tip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border: 5px solid transparent;
+    border-top-color: var(--color-plum);
+    transform: translateX(-50%);
+  }
+
+  .platform-soon:hover .platform-soon-tip,
+  .platform-soon:focus-visible .platform-soon-tip,
+  .platform-soon.is-open .platform-soon-tip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .platform-soon:focus {
+    outline: none;
+  }
+
+  .platform-soon:focus-visible {
+    outline: 2px solid var(--color-orange);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .platform-soon {
+      border-color: color-mix(in srgb, var(--color-cream) 22%, transparent);
+      background: color-mix(in srgb, var(--color-cream) 4%, transparent);
+      color: color-mix(in srgb, var(--color-cream) 42%, #6b7280);
+    }
+
+    .platform-soon-tip {
+      background: var(--color-cream);
+      color: var(--color-plum);
+      box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.55);
+    }
+
+    .platform-soon-tip::after {
+      border-top-color: var(--color-cream);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .platform-soon-tip {
+      transition: none;
+    }
+  }
+</style>
+
+<script is:inline type="module" src="https://get.microsoft.com/badge/ms-store-badge.bundled.js"
+></script>
+<script is:inline>
+  if (!document.documentElement.dataset.androidSoon) {
+    document.documentElement.dataset.androidSoon = "1";
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof Node)) return;
+      document.querySelectorAll("button.platform-soon").forEach((btn) => {
+        if (btn.contains(target)) btn.classList.toggle("is-open");
+        else btn.classList.remove("is-open");
+      });
+    });
+  }
+</script>

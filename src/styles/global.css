@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --color-orange: #f45a1e;
+  --color-orange-bright: #ff9a45;
+  --color-orange-deep: #f05218;
+  --color-cream: #fff1d8;
+  --color-plum: #2b1935;
+  --color-evening-start: #3b2048;
+  --color-evening-end: #1d1329;
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Noto Sans SC", "Noto Sans", "Noto Sans Arabic",
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  background: var(--color-cream);
+  color: var(--color-plum);
+  overflow-x: clip;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    background: var(--color-evening-end);
+    color: var(--color-cream);
+  }
+
+  body {
+    background: linear-gradient(
+      180deg,
+      var(--color-evening-start) 0%,
+      var(--color-evening-end) 42%,
+      var(--color-evening-end) 100%
+    );
+    min-height: 100vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .device-video {
+    display: none !important;
+  }
+}
+
+.content :where(h2) {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 650;
+}
+
+.content :where(h2:first-child) {
+  margin-top: 0;
+}
+
+.content :where(p, ul) {
+  margin: 0.85rem 0;
+}
+
+.content :where(ul) {
+  padding-inline-start: 1.2rem;
+  list-style: disc;
+}
+
+.content :where(li) {
+  margin: 0.35rem 0;
+}
+
+.content :where(a) {
+  color: var(--color-orange-deep);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+@media (prefers-color-scheme: dark) {
+  .content :where(a) {
+    color: var(--color-orange-bright);
+  }
+}
+
+ms-store-badge {
+  display: inline-flex;
+  line-height: 0;
+}
+
+ms-store-badge::part(img) {
+  max-height: 40px;
+  width: auto;
+}
+
+ms-store-badge:not(:defined) {
+  display: none;
+}
+
+ms-store-badge:defined + .ms-fallback {
+  display: none;
+}

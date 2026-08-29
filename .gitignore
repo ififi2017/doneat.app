@@ -141,3 +141,18 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Astro
+dist/
+.astro/
+
+# Vercel
+.vercel/
+
+# Copied into public/ at config load from assets/
+public/device/
+public/badges/
+public/brand/
+public/icons/
+public/favicon.svg
+.vercel
