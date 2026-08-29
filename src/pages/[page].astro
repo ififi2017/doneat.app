@@ -1,0 +1,22 @@
+---
+import LocaleBounce from "../components/LocaleBounce.astro";
+import { CONTENT_PAGES, isContentPage } from "../lib/config";
+import { contentPageRedirectInlineScript } from "../lib/locale";
+
+export function getStaticPaths() {
+  return CONTENT_PAGES.map((page) => ({ params: { page } }));
+}
+
+const pageParam = Astro.params.page;
+if (!isContentPage(pageParam)) {
+  throw new Error(`Unknown content slug: ${pageParam}`);
+}
+---
+
+<LocaleBounce
+  script={contentPageRedirectInlineScript(pageParam)}
+  links={[
+    { href: `/en/${pageParam}`, label: "English" },
+    { href: `/zh-CN/${pageParam}`, label: "中文" },
+  ]}
+/>

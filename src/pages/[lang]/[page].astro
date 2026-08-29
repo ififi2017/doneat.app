@@ -1,98 +1,42 @@
 ---
-import SiteFooter from "../../components/SiteFooter.astro";
-import SiteHeader from "../../components/SiteHeader.astro";
-import StoreEntries from "../../components/StoreEntries.astro";
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContentArticle from "../../components/ContentArticle.astro";
+import LocaleBounce from "../../components/LocaleBounce.astro";
 import {
-  CONTENT_LOCALES,
   CONTENT_PAGES,
+  HALL_LOCALES,
+  contentLocaleFor,
   isContentLocale,
   isContentPage,
-  siteConfig,
-  type ContentLocale,
-  type ContentPage,
+  isHallLocale,
 } from "../../lib/config";
-import { getEntry, render } from "astro:content";
 
 export function getStaticPaths() {
-  return CONTENT_LOCALES.flatMap((lang) =>
+  return HALL_LOCALES.flatMap((lang) =>
     CONTENT_PAGES.map((page) => ({ params: { lang, page } })),
   );
 }
 
 const langParam = Astro.params.lang;
 const pageParam = Astro.params.page;
-if (!isContentLocale(langParam) || !isContentPage(pageParam)) {
+if (!isHallLocale(langParam) || !isContentPage(pageParam)) {
   throw new Error(`Unknown content route: ${langParam}/${pageParam}`);
 }
 
-const locale: ContentLocale = langParam;
-const page: ContentPage = pageParam;
-const entry = await getEntry("pages", `${locale}/${page}`);
-if (!entry) {
-  throw new Error(`Missing content: ${locale}/${page}`);
-}
-const { Content } = await render(entry);
-const path = `/${locale}/${page}`;
-
-const softwareJsonLd =
-  page === "download"
-    ? {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        name: siteConfig.brandName,
-        applicationCategory: "UtilitiesApplication",
-        operatingSystem: "iOS, iPadOS, macOS, Windows, Web",
-        url: `${siteConfig.officialSiteUrl}${path}`,
-        image: `${siteConfig.officialSiteUrl}/icons/og-1200x630.png`,
-        description: entry.data.description,
-        author: {
-          "@type": "Organization",
-          name: siteConfig.brandName,
-          url: siteConfig.officialSiteUrl,
-          email: siteConfig.supportEmail,
-        },
-        downloadUrl: siteConfig.microsoftStoreUrl,
-        installUrl: siteConfig.microsoftStoreUrl,
-      }
-    : undefined;
+const contentLocale = isContentLocale(langParam) ? langParam : null;
+const bounceTo = contentLocale ? null : contentLocaleFor(langParam);
+const bounceHref = bounceTo ? `/${bounceTo}/${pageParam}` : "";
+const bounceScript = bounceTo
+  ? `(function(){location.replace(${JSON.stringify(bounceHref)}+location.search+location.hash);})();`
+  : "";
 ---
 
-<BaseLayout
-  locale={locale}
-  title={entry.data.title}
-  description={entry.data.description}
-  path={path}
-  hreflangKind="content"
-  jsonLd={softwareJsonLd}
->
-  <div class="flex min-h-screen flex-col">
-    <SiteHeader locale={locale} currentPage={page} />
-    <main id="content" class="mx-auto w-full max-w-3xl flex-1 px-4 py-6 sm:px-6 sm:py-14">
-      <h1 class="text-2xl font-semibold tracking-tight sm:text-4xl">
-        {entry.data.heading}
-      </h1>
-      {
-        entry.data.updated ? (
-          <p class="mt-3 text-sm text-plum/60 dark:text-cream/55">
-            {entry.data.updatedLabel} {entry.data.updated}
-          </p>
-        ) : null
-      }
-      <p class="mt-4 text-base leading-relaxed text-plum/80 dark:text-cream/80">
-        {entry.data.intro}
-      </p>
-      {
-        page === "download" ? (
-          <div class="mt-8">
-            <StoreEntries locale={locale} />
-          </div>
-        ) : null
-      }
-      <div class="content mt-8 max-w-prose text-base leading-relaxed">
-        <Content />
-      </div>
-    </main>
-    <SiteFooter locale={locale} />
-  </div>
-</BaseLayout>
+{
+  contentLocale ? (
+    <ContentArticle locale={contentLocale} page={pageParam} />
+  ) : (
+    <LocaleBounce
+      script={bounceScript}
+      links={[{ href: bounceHref, label: bounceTo === "zh-CN" ? "中文" : "English" }]}
+    />
+  )
+}

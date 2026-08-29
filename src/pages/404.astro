@@ -1,27 +1,126 @@
 ---
-import SiteFooter from "../components/SiteFooter.astro";
-import SiteHeader from "../components/SiteHeader.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import {
+  HALL_LOCALES,
+  siteConfig,
+  t,
+  type HallLocale,
+} from "../lib/config";
+import { notFoundApplyInlineScript, type NotFoundCopy } from "../lib/locale";
+
+const copy = Object.fromEntries(
+  HALL_LOCALES.map((locale) => [
+    locale,
+    {
+      title: t(locale, "notFoundTitle"),
+      heading: t(locale, "notFoundHeading"),
+      body: t(locale, "notFoundBody"),
+      home: t(locale, "notFoundHome"),
+      timer: t(locale, "webCta"),
+    } satisfies NotFoundCopy,
+  ]),
+) as Record<HallLocale, NotFoundCopy>;
+
+const fallback = copy.en;
+const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
 ---
 
 <BaseLayout
   locale="en"
-  title="DoneAt"
-  description="A work-shift countdown for the browser, iPhone, iPad, Mac and Windows."
+  title={fallback.title}
+  description={fallback.body}
   path="/en"
   hreflangKind="hall"
+  noindex
 >
   <div class="flex min-h-screen flex-col">
-    <SiteHeader locale="en" />
-    <main id="content" class="mx-auto w-full max-w-3xl flex-1 px-4 py-16">
-      <h1 class="text-3xl font-semibold">Page not found</h1>
-      <p class="mt-4 text-plum/80 dark:text-cream/80">
-        That page is not on this site. You can go back to
-        <a class="text-orange underline underline-offset-4" href="/en">DoneAt</a>
-        or
-        <a class="text-orange underline underline-offset-4" href="https://off.rainif.com">open the timer</a>.
+    <header
+      class="sticky top-0 z-40 border-b border-plum/10 bg-cream/90 pt-[env(safe-area-inset-top)] backdrop-blur-md dark:border-cream/10 dark:bg-evening-end/80"
+    >
+      <div class="mx-auto flex max-w-6xl items-center px-4 py-1.5 sm:px-6 sm:py-3">
+        <a
+          id="nf-logo"
+          href="/en"
+          class="flex shrink-0 items-center gap-2 no-underline"
+        >
+          <img
+            class="h-7 w-7 sm:h-8 sm:w-8 dark:hidden"
+            src="/brand/off-work-countdown-mark.svg"
+            width="32"
+            height="32"
+            alt=""
+          />
+          <img
+            class="hidden h-7 w-7 sm:h-8 sm:w-8 dark:block"
+            src="/brand/off-work-countdown-mark-dark.svg"
+            width="32"
+            height="32"
+            alt=""
+          />
+          <span class="text-base font-semibold tracking-tight">DoneAt</span>
+        </a>
+      </div>
+    </header>
+
+    <main
+      id="content"
+      class="mx-auto flex w-full max-w-xl flex-1 flex-col justify-center px-4 py-16 sm:px-6 sm:py-24"
+    >
+      <img
+        class="h-16 w-16 dark:hidden sm:h-20 sm:w-20"
+        src="/brand/off-work-countdown-mark.svg"
+        width="80"
+        height="80"
+        alt=""
+      />
+      <img
+        class="hidden h-16 w-16 dark:block sm:h-20 sm:w-20"
+        src="/brand/off-work-countdown-mark-dark.svg"
+        width="80"
+        height="80"
+        alt=""
+      />
+      <p class="mt-6 text-sm font-medium text-orange dark:text-orange-bright">404</p>
+      <h1
+        id="nf-heading"
+        class="mt-2 text-[1.75rem] font-semibold tracking-tight sm:text-4xl"
+      >
+        {fallback.heading}
+      </h1>
+      <p
+        id="nf-body"
+        class="mt-4 max-w-md text-base leading-relaxed text-plum/80 dark:text-cream/80"
+      >
+        {fallback.body}
       </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          id="nf-home"
+          href="/en"
+          class="inline-flex min-h-11 items-center justify-center rounded-full bg-orange px-5 text-sm font-semibold text-cream no-underline shadow-sm transition hover:bg-orange-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+        >
+          {fallback.home}
+        </a>
+        <a
+          id="nf-timer"
+          href={siteConfig.webAppUrl + "/en"}
+          class="inline-flex min-h-11 items-center justify-center rounded-full border border-plum/15 px-5 text-sm font-semibold text-plum no-underline transition hover:border-orange hover:text-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange dark:border-cream/20 dark:text-cream dark:hover:border-orange-bright dark:hover:text-orange-bright"
+        >
+          {fallback.timer}
+        </a>
+      </div>
+      <Fragment set:html={`<script>${applyScript}</script>`} />
     </main>
-    <SiteFooter locale="en" />
+
+    <footer class="mt-auto border-t border-plum/10 dark:border-cream/10">
+      <div
+        class="mx-auto flex max-w-6xl px-4 py-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] text-sm sm:px-6 sm:py-6 sm:pb-[max(1.5rem,env(safe-area-inset-bottom))]"
+      >
+        <a
+          class="text-plum/80 hover:text-orange dark:text-cream/80 dark:hover:text-orange-bright"
+          href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a
+        >
+      </div>
+    </footer>
   </div>
 </BaseLayout>

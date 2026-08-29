@@ -1,8 +1,13 @@
 ---
 title: "Download — DoneAt"
-description: "Get DoneAt from the App Store or Microsoft Store, or open the web timer in your browser."
+description: "Get DoneAt from the App Store or Microsoft Store, and see the minimum system versions for each platform."
 heading: "Get DoneAt where you already work"
 intro: "Start in the browser when you want it now. Keep it on a phone or computer when you want a reminder after the tab is gone. Same countdown, three doors."
+requirementsHeading: System requirements
+requirements:
+  - "Windows: Windows 10 20H2 or later (WebView2 required)"
+  - "macOS: macOS 13.0 or later"
+  - "iOS/iPad OS: iOS 26.0/iPad OS 26.0 or later"
 ---
 
 ## Why keep a native app around
