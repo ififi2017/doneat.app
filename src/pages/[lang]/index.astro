@@ -11,6 +11,7 @@ import {
   HALL_LOCALES,
   homeTitle,
   isHallLocale,
+  sameAsUrls,
   siteConfig,
   t,
   type HallLocale,
@@ -41,7 +42,7 @@ const jsonLd = {
   url: siteConfig.officialSiteUrl,
   logo: `${siteConfig.officialSiteUrl}/icons/icon-512.png`,
   email: siteConfig.supportEmail,
-  sameAs: [siteConfig.githubUrl],
+  sameAs: sameAsUrls(),
 };
 ---
 

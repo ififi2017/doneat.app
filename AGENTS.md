@@ -32,8 +32,8 @@ Astro 门厅、英中长文和预览部署已经在。接着改现有工程，�
 - 商店徽章顺序仍是 **App Store → Microsoft Store**。顶栏「打开网页版」仍去网页计时。
 - 首页整页（`.hall-page`）不可选中文字；下载 / FAQ / 关于等长文页照常可选。
 - 窄屏（小于 880px）门厅**整列居中**：mark、标题、品牌句、按钮、徽章、两行说明、机位。桌面仍左右分栏。
-- 窄屏页脚可以折成两行，两行链接都居中。桌面仍左导航右署名。
-- 页脚是：怎么算的、隐私、联系我们；署名 `© fi_niaR Studio` 和 Powered by Astro。GitHub **源码**在顶栏图标，不在页脚。
+- 窄屏页脚可以折成多行，导航、社交图标、署名都居中。桌面仍左导航，右侧是社交图标 + 署名。
+- 页脚是：怎么算的、隐私、联系我们；社交图标列（现为 X `@doneatapp`，渠道写在 `site.json` 的 `socials`，不要把空位画出来）；署名 `© fi_niaR Studio` 和 Powered by Astro。GitHub **源码**在顶栏图标，不进页脚，也不进社交列。
 
 ## 实现经验（不要重踩）
 
@@ -71,7 +71,7 @@ Astro 门厅、英中长文和预览部署已经在。接着改现有工程，�
 - 入口下三条短价值：本地、无账号、看清下班。不上对比表，不把 FAQ 铺在首页。
 - 机位：**先播 mp4，png 做 poster 和播不了时的兜底**。`autoplay muted loop playsinline`，无控件、无声音。中文门厅用 `zh-*`，其余用 `en-*`。`prefers-color-scheme` 选 white/black。`prefers-reduced-motion: reduce` 只出 PNG。套仓内官方 iPhone 17 Pro Max 框（浅色 Cosmic Orange，深色 Deep Blue，`assets/device/frames/`）。视频和 PNG 铺在屏洞里，框叠在上面；框自带灵动岛，不要再另造机框或岛。
 - 顶栏：GitHub 源码图标、打开网页版、下载、FAQ、关于。
-- 页脚：怎么算的、隐私、联系我们（`hello@doneat.app`）；署名 fi_niaR Studio 与 Astro。源码不在页脚重复。
+- 页脚：怎么算的、隐私、联系我们（`hello@doneat.app`）；社交图标列；署名 fi_niaR Studio 与 Astro。源码不在页脚重复。
 - 19 语选择器：自绘零水合组件（`<details>` + 链接），不要原生 `<select>`。内容页同一套组件，选项只有 `en` / `zh-CN`。
 - 亮暗只跟 `prefers-color-scheme`，不做主题开关。
 - `ar` RTL 至少不撑破顶栏。

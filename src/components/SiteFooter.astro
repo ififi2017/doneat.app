@@ -1,4 +1,5 @@
 ---
+import SocialLinks from "./SocialLinks.astro";
 import {
   contentLocaleFor,
   siteConfig,
@@ -21,14 +22,17 @@ const contentLang = contentLocaleFor(locale);
       <a href={`/${contentLang}/privacy`}>{t(locale, "privacy")}</a>
       <a href={`mailto:${siteConfig.supportEmail}`}>{t(locale, "contactUs")}</a>
     </nav>
-    <p class="site-footer-credits">
-      <a href="https://rainif.com" target="_blank" rel="noopener noreferrer">
-        © fi_niaR Studio
-      </a>
-      <a href="https://astro.build/" target="_blank" rel="noopener noreferrer">
-        Powered by Astro
-      </a>
-    </p>
+    <div class="site-footer-end">
+      <SocialLinks locale={locale} />
+      <p class="site-footer-credits">
+        <a href="https://rainif.com" target="_blank" rel="noopener noreferrer">
+          © fi_niaR Studio
+        </a>
+        <a href="https://astro.build/" target="_blank" rel="noopener noreferrer">
+          Powered by Astro
+        </a>
+      </p>
+    </div>
   </div>
 </footer>
 
@@ -46,6 +50,7 @@ const contentLang = contentLocaleFor(locale);
   }
 
   .site-footer-nav,
+  .site-footer-end,
   .site-footer-credits {
     display: flex;
     flex-wrap: wrap;
@@ -53,9 +58,12 @@ const contentLang = contentLocaleFor(locale);
     gap: 0.5rem 1.25rem;
   }
 
+  .site-footer-end {
+    margin-inline: auto 0;
+  }
+
   .site-footer-credits {
     margin-block: 0;
-    margin-inline: auto 0;
   }
 
   @media (max-width: 639px) {
@@ -67,9 +75,15 @@ const contentLang = contentLocaleFor(locale);
     }
 
     .site-footer-nav,
+    .site-footer-end,
     .site-footer-credits {
       justify-content: center;
       margin-inline: 0;
+    }
+
+    .site-footer-end {
+      flex-direction: column;
+      gap: 0.2rem;
     }
   }
 

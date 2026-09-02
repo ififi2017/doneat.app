@@ -114,3 +114,27 @@ export function canonicalUrl(path: string): string {
   if (path === "/" || path === "") return site.officialSiteUrl;
   return `${site.officialSiteUrl}${sitePath(path)}`;
 }
+
+export type SocialLink = (typeof siteConfig.socials)[number];
+
+export function officialSocials(): SocialLink[] {
+  return siteConfig.socials;
+}
+
+export function sameAsUrls(): string[] {
+  return [siteConfig.githubUrl, ...officialSocials().map((item) => item.href)];
+}
+
+export function twitterSite(): string | undefined {
+  const x = officialSocials().find((item) => item.id === "x");
+  if (!x) return;
+  if ("handle" in x && typeof x.handle === "string" && x.handle.length > 0) {
+    return x.handle.startsWith("@") ? x.handle : `@${x.handle}`;
+  }
+  try {
+    const path = new URL(x.href).pathname.replace(/\/+$/, "").split("/").pop();
+    return path ? `@${path}` : undefined;
+  } catch {
+    return undefined;
+  }
+}

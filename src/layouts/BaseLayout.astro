@@ -10,6 +10,7 @@ import {
   isRtl,
   siteConfig,
   t,
+  twitterSite,
   type HallLocale,
 } from "../lib/config";
 import { jsonLdMarkup } from "../lib/jsonld";
@@ -37,6 +38,7 @@ const {
 } = Astro.props;
 const canonical = canonicalUrl(path);
 const ogImage = canonicalUrl("/icons/og-1200x630.png");
+const twitter = twitterSite();
 const hreflangLocales: readonly HallLocale[] =
   hreflangKind === "hall" ? HALL_LOCALES : (["en", "zh-CN"] as const);
 
@@ -78,6 +80,7 @@ function hreflangHref(code: string): string {
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content={locale.replace("-", "_")} />
     <meta name="twitter:card" content="summary_large_image" />
+    {twitter ? <meta name="twitter:site" content={twitter} /> : null}
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />

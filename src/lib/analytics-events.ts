@@ -16,6 +16,7 @@ export const trackedEvents = [
   "microsoft_store_open",
   "github_source_open",
   "github_releases_open",
+  "social_x_open",
 ] as const;
 
 export type TrackedEvent = (typeof trackedEvents)[number];

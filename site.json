@@ -6,6 +6,14 @@
   "supportEmail": "hello@doneat.app",
   "githubUrl": "https://github.com/ififi2017/Off-Work-Countdown",
   "githubReleasesUrl": "https://github.com/ififi2017/Off-Work-Countdown/releases/latest",
+  "socials": [
+    {
+      "id": "x",
+      "href": "https://x.com/doneatapp",
+      "label": "X",
+      "handle": "@doneatapp"
+    }
+  ],
   "appStoreId": "6802803318",
   "appStoreUrlTemplate": "https://apps.apple.com/{storefront}/app/id6802803318",
   "microsoftStoreId": "9PM0HJ2PP2LJ",
