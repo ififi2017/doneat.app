@@ -1,0 +1,87 @@
+---
+import { officialSocials, t, type HallLocale, type SocialLink } from "../lib/config";
+
+interface Props {
+  locale: HallLocale;
+}
+
+const { locale } = Astro.props;
+const socials = officialSocials();
+
+const tracks = {
+  x: "social_x_open",
+} as const;
+
+function trackFor(id: SocialLink["id"]): string | undefined {
+  return id in tracks ? tracks[id as keyof typeof tracks] : undefined;
+}
+---
+
+{
+  socials.length > 0 ? (
+    <nav class="site-socials" aria-label={t(locale, "socials")}>
+      {socials.map((item) => (
+        <a
+          class="site-social"
+          href={item.href}
+          data-track={trackFor(item.id)}
+          target="_blank"
+          rel="me noopener noreferrer"
+          aria-label={item.label}
+        >
+          {item.id === "x" ? (
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.727-8.833L1.254 2.25H8.08l4.261 5.662L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"
+              ></path>
+            </svg>
+          ) : (
+            <span>{item.label}</span>
+          )}
+        </a>
+      ))}
+    </nav>
+  ) : null
+}
+
+<style>
+  .site-socials {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.15rem;
+  }
+
+  .site-social {
+    display: inline-flex;
+    width: 2.25rem;
+    height: 2.25rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .site-social svg {
+    width: 1.05rem;
+    height: 1.05rem;
+  }
+
+  .site-social:hover {
+    color: var(--color-orange-ink);
+  }
+
+  .site-social:focus-visible {
+    outline: 2px solid var(--color-orange);
+    outline-offset: 2px;
+    border-radius: 999px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .site-social:hover {
+      color: var(--color-orange-bright);
+    }
+  }
+</style>
