@@ -7,7 +7,7 @@ Source of truth is the product repo’s `assets/brand/` ([008](https://github.co
 | `off-work-countdown-mark.svg` | Hero, favicon, light UI. Hands are plum `#2B1935`. |
 | `off-work-countdown-mark-dark.svg` | Same mark, cream hands `#FFF1D8` for dark backgrounds. |
 | `off-work-countdown-icon.svg` | Full-bleed 1024 icon (OG / maskable). |
-| `off-work-countdown-icon-rounded.svg` | Rounded bitmap surfaces (apple-touch, social). |
+| `off-work-countdown-icon-rounded.svg` | Rounded bitmap surfaces (apple-touch, social, search favicon). |
 
 `layers/` stays in the product repo (Icon Composer). The site does not need it.
 
