@@ -44,6 +44,7 @@ Astro 门厅、英中长文和预览部署已经在。接着改现有工程，�
 - 五连击只打缺口里的橙色圆点（可加大透明命中圆），圆环和指针不计数。第五次指针绕 `512,512` 转一圈回到五点，角度累加，不要从 360 弹回 0。时长约 0.8s，对照 iOS `CelebratingBrandMark`。不要为它拉 React。
 - 下载对照表是**手机 / iPad vs 电脑**，不是网页 vs 桌面。三种状态：`included` 实心橙点、`limited` 空心、`absent` 短横 + 「没有」/「No」。不要只靠把字调淡。iOS 独有行不要发明产品里没有的功能。
 - 首页机位用 timer loop（`en`/`zh` × `white`/`black`）。下载页手机用 review clip（`en-review` / `zh-review`）。不要对调。
+- 搜索结果 favicon 要根路径 `/favicon.ico` 和一枚 ≥48 的 PNG。Google 搜索不认 SVG；不要只挂 32px。
 
 ## 这一轮做什么
 

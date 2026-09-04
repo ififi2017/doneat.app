@@ -30,6 +30,10 @@ function syncPublicAssets() {
     join(root, "assets/brand/off-work-countdown-mark.svg"),
     join(root, "public/favicon.svg"),
   );
+  cpSync(
+    join(root, "assets/icons/favicon.ico"),
+    join(root, "public/favicon.ico"),
+  );
 }
 
 syncPublicAssets();
