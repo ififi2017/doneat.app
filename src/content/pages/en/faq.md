@@ -7,11 +7,11 @@ intro: "How to set a shift, what the numbers mean, and where your data lives —
 
 ## What is DoneAt?
 
-DoneAt is a work-shift countdown. You set the time you start and the time you finish. It shows the hours, minutes and seconds left, and a progress bar for the shift. Use it in the browser, on iPhone and iPad, or on a Mac or Windows PC. There is no account to create.
+DoneAt is a work-shift countdown. You set the time you start and the time you finish. It shows the hours, minutes and seconds left, and a progress bar for the shift. Use it in the browser, on iPhone and iPad, or on a Mac or Windows PC. There is no DoneAt account to create.
 
 ## How do I set it up?
 
-Pick your start and end time, then start the countdown. Those times stay on the device you are using, so the next time you open DoneAt they are already there. You can change them whenever you like.
+Pick your start and end time, then start the countdown. Those times are saved on the device you are using, so the next time you open DoneAt they are already there. On iPhone and iPad, you can also choose to sync them through your private iCloud database. You can change them whenever you like.
 
 ## Does it work for night shifts that run past midnight?
 
@@ -31,7 +31,7 @@ The countdown is calculated on your device and does not need the network. After 
 
 ## Is my salary information private?
 
-Your hours and salary stay on the device you are using. They are not sent to a server, nobody else can see them, and clearing the app or browser data removes them. Next to the earnings figure there is a control that hides the amount when someone is looking over your shoulder. The official site and the web timer collect anonymous page-view and performance statistics, which contain no personal or salary data. Details are on the [privacy](/en/privacy) page.
+Your hours and salary stay on the device by default. On iPhone and iPad, you can choose to sync them through your private iCloud database; Mac, Windows and the web timer remain local. DoneAt does not send this data to its own servers or place salary in widgets, notifications, Live Activities, share links or analytics. Next to the earnings figure there is a control that hides the amount when someone is looking over your shoulder. Details, including how to delete synced data, are on the [privacy](/en/privacy) page.
 
 ## Is there an app for my phone or computer?
 
@@ -39,7 +39,7 @@ Yes. iPhone, iPad and Mac are on the [App Store](https://apps.apple.com/us/app/i
 
 ## Is it free, and is the code open?
 
-The web timer is free to use. There are no accounts, adverts or paid tiers on the website. Source code is published on [GitHub](https://github.com/ififi2017/Off-Work-Countdown) under the MIT licence. Store listings follow each store’s own price and terms.
+The web timer is free to use. There are no DoneAt accounts, adverts or paid tiers on the website. Source code is published on [GitHub](https://github.com/ififi2017/Off-Work-Countdown) under the MIT licence. Store listings follow each store’s own price and terms.
 
 ## Which languages are supported?
 

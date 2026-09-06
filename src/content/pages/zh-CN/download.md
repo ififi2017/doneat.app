@@ -12,7 +12,7 @@ nativePerks:
     body: 在电脑上，剩余时间可以留在菜单栏或系统托盘；在手机上，它可以和别的应用、小组件放在一起。不必再翻浏览器标签。
   - title: 关掉页面也还在走
     body: 关掉页面、锁上手机或藏起窗口，装在这台设备上的倒计时会接着倒数。
-nativeNote: 上下班时间和薪资仍然只留在这台设备上。不用注册账号。
+nativeNote: Mac 和 Windows 数据留在这台电脑上。iPhone 和 iPad 默认保存在本机，也可以选择通过你的私人 iCloud 数据库同步。不用注册 DoneAt 账号。
 requirementsHeading: 系统要求
 requirements:
   - Windows：Windows 10 20H2 及以上版本（需有 WebView2 组件）

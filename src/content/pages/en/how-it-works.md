@@ -33,6 +33,6 @@ This is a straight-line estimate. It does not model overtime multipliers, unpaid
 
 ## Where your data lives
 
-Your hours, salary and preferences are stored on the device you are using. They are never transmitted to a server, so they are not synchronised between your phone and your computer. Clearing the app or browser data erases them.
+Your hours, salary and preferences are stored on the device you are using by default. On iPhone and iPad, you can choose to sync them through your private iCloud database. Mac, Windows and the web timer remain local and do not join that sync. DoneAt does not send this data to its own servers.
 
-Because everything is computed locally, DoneAt also works with no connection once it has been loaded or installed.
+Because the countdown and earnings estimate are computed locally, DoneAt also works with no connection once it has been loaded or installed. Clearing local data removes that device’s copy; if iCloud sync is on, use Records & Data settings to remove the synced copy separately.
