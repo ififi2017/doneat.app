@@ -12,7 +12,7 @@ nativePerks:
     body: On a computer, the remaining time can sit in the menu bar or system tray, and on a phone it can sit among your other apps and widgets. You do not have to hunt for a browser tab.
   - title: It keeps counting
     body: Close the page, lock the phone, or hide the window. The countdown on the device you installed continues from where you left it.
-nativeNote: Hours and salary still stay on that device. There is no account to create.
+nativeNote: Data on Mac and Windows stays on that computer. On iPhone and iPad, data is local by default, with optional sync through your private iCloud database. There is no DoneAt account to create.
 requirementsHeading: System requirements
 requirements:
   - "Windows: Windows 10 20H2 or later (WebView2 required)"

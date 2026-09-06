@@ -1,24 +1,46 @@
 ---
 title: "Privacy Policy — DoneAt"
-description: "How DoneAt stores data on your device, and how the official site and web timer handle hosting, analytics and third-party services."
+description: "How DoneAt stores data locally by default, offers optional private iCloud sync on iPhone and iPad, and handles analytics and third-party services."
 heading: "Privacy Policy"
 intro: "This page explains how DoneAt stores and processes information: the official site, the web timer, and the apps on iPhone, iPad, Mac and Windows."
 updatedLabel: "Last updated"
-updated: "30 August 2026"
+updated: "6 September 2026"
 ---
 
-## Data stored on your device
+## Data stored by DoneAt
 
-Information you enter is stored locally: in the browser’s local storage on the web timer, and in the application’s data on iPhone, iPad, Mac and Windows. It is not uploaded to our servers or associated with a user account, because DoneAt does not provide accounts.
+Information you enter is stored locally by default: in the browser’s local storage on the web timer, and in the application’s data on iPhone, iPad, Mac and Windows. DoneAt does not provide product accounts or send this information to DoneAt servers.
+
+On iPhone and iPad, you can choose to turn on iCloud sync. It stores your schedules, records, salary, reminder preferences, appearance, language, life profile and Focus data in your private iCloud database under your Apple Account. Notification authorization, biometric protection, Live Activity settings, the current work timer and onboarding state stay on each device. The web timer, Mac app and Windows app remain local and are not part of this sync.
 
 The countdown, progress and earnings estimate are calculated on your device from this information.
 
 This typically includes:
 
 - Start and end times, workdays, and break or overtime settings
-- Salary amount and pay period
+- Salary amount, pay period and career salary history
+- Work records and corrections, career stages, and life milestones or dates you choose to enter
+- Focus task titles, plans, sessions and rest settings
 - Notification and reminder preferences
 - Language and appearance
+
+## Optional iCloud sync
+
+Sync is off by default. When you enable it on iPhone or iPad, Apple’s CloudKit service stores the data described above in the private database associated with your Apple Account. DoneAt does not receive a copy on its own servers. Devices using the same Apple Account can recover and sync that data; this requires an available iCloud account and a network connection.
+
+Enabling sync requires DoneAt Plus. Sync that is already enabled continues after a subscription expires. Turning sync off stops synchronization on that device and keeps both its current local copy and the existing iCloud copy. Turning it off does not delete either copy.
+
+## Backup exports
+
+On iPhone and iPad, a backup export is created only when you choose Export. A full backup includes your records, synced settings, salary and career salary history, life profile, and Focus tasks and sessions. You can also export without the life profile; that option still includes salary and career history. The system share sheet then lets you choose where to save or share the file.
+
+The export is a readable JSON file, not a password-protected archive. Choose a storage location and recipients appropriate for the information it contains. Files you save or share are separate copies; deleting data in DoneAt does not delete those files.
+
+## Plus purchases
+
+On iPhone and iPad, Apple handles Plus subscriptions and lifetime purchases through the App Store. DoneAt uses StoreKit to verify purchase status and restore access, and keeps a local record of the verified entitlement and any expiry date. DoneAt does not receive your payment card details or send your purchase status to a DoneAt account server. Apple processes purchase information under its own policies.
+
+A subscription expiring does not delete your existing records. Export and deletion remain available without an active subscription.
 
 ## Official site
 
@@ -46,7 +68,7 @@ Neither the official site nor the web timer uses advertising or cross-site track
 
 ## Sharing a countdown
 
-The URL of a share link contains only the start and end times. It does not contain salary information. A person who opens the link can view only the shift times.
+The URL of a share link contains only the start and end times. It does not contain salary information. A person who opens the link can view only the shift times. Countdown share images also omit salary. A backup export is different: it can contain salary and the other personal data listed above.
 
 If you choose to share through a third-party social service, that service’s privacy policy applies.
 
@@ -60,6 +82,12 @@ A build installed from the Microsoft Store does not initiate update checks. Upda
 
 Reminders are scheduled and displayed locally by the operating system. The apps also access the network when you open an external link or choose to share through a third-party service.
 
+## Widgets, Live Activities and device protection
+
+Widgets and Live Activities use the information needed to show your timer and progress, including Focus information where applicable. They do not include salary. Local notifications also omit salary. These surfaces may be visible on your Home Screen or Lock Screen; you can manage their visibility and notification permissions in the app and system settings.
+
+When DoneAt asks you to authenticate to protect earnings or records, authentication is handled by the device through Face ID, Touch ID or its passcode. DoneAt receives the authentication result, not your biometric data or passcode. This protection is configured separately on each device.
+
 ## Third-party services
 
 DoneAt uses the following services to host pages, measure the official site and the web timer, distribute apps and open links you choose:
@@ -67,16 +95,18 @@ DoneAt uses the following services to host pages, measure the official site and 
 - Vercel — hosting of the official site and the web timer; page-view and performance measurement on both
 - Upstash — storage of daily aggregate event counts for the official site and the web timer
 - GitHub — source code, release information, and update checks for GitHub-distributed desktop builds
-- Apple — distribution of the App Store listing you open
+- Apple — app distribution, Plus payments and purchase verification through the App Store and StoreKit, and private iCloud sync when you choose to enable it on iPhone or iPad
 - Microsoft — distribution and updates for the Microsoft Store listing you open
 - A third-party download mirror, used only when you choose it from a GitHub-distributed desktop build
 - The third-party social service you choose when sharing a countdown
 
-## Deleting local data
+## Deleting your data
 
-On the web timer, clear this site’s data in your browser, including local storage and the language cookie. On a phone or computer, uninstall the app and delete its data.
+On the web timer, clear this site’s data in your browser, including local storage and the language cookie. On Mac or Windows, uninstall the app and delete its data.
 
-Because this local data is not transmitted to our servers, we cannot access or delete it on the server on your behalf.
+On iPhone and iPad, uninstalling removes the data stored on that device. If you enabled iCloud sync, the private iCloud copy remains available to your other devices. Delete from iCloud in DoneAt’s Records & Data settings deletes the iCloud copy and clears the associated synced records on devices signed in to that Apple Account when they next sync. Removing records only from this device leaves the iCloud copy available to restore. Backup files you previously exported must be deleted separately from the places where you saved or shared them.
+
+DoneAt cannot access your Apple Account or delete its private iCloud data on your behalf. DoneAt also cannot access or delete your local data from a server.
 
 ## Changes to this policy
 

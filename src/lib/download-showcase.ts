@@ -95,8 +95,8 @@ const copy: Record<ContentLocale, DownloadShowcaseCopy> = {
         desktop: { status: "included", detail: "登录后就绪，全局快捷键唤出" },
       },
       {
-        feature: "数据留在本机",
-        mobile: { status: "included", detail: "班次和薪资不上传" },
+        feature: "数据存储",
+        mobile: { status: "included", detail: "默认保存在本机，可选择通过私人 iCloud 同步" },
         desktop: { status: "included", detail: "班次和薪资不上传" },
       },
     ],
@@ -171,8 +171,8 @@ const copy: Record<ContentLocale, DownloadShowcaseCopy> = {
         desktop: { status: "included", detail: "Ready after login, one shortcut away" },
       },
       {
-        feature: "Stays on this device",
-        mobile: { status: "included", detail: "Hours and salary are not uploaded" },
+        feature: "Data storage",
+        mobile: { status: "included", detail: "Local by default, with optional private iCloud sync" },
         desktop: { status: "included", detail: "Hours and salary are not uploaded" },
       },
     ],

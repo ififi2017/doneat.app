@@ -125,6 +125,7 @@
 
 - [x] 拷贝 about / faq / how-it-works / download / privacy
 - [x] 重写 FAQ；隐私页改邮箱与品牌名
+- [x] 2026-09-06：按 iOS 3.1.9 补齐英中关于与隐私政策（记录、生活、专注、Plus、iCloud、备份、购买和删除边界）；Astro check / build 通过，四页本地浏览器预览已查看。本次未部署。
 - [x] 下载页：三入口 + 手机/电脑展示与对照 + 为何原生；删 GitHub 直装与网页 vs 桌面对照表
 - [x] 内容页「打开计时」指 `off.rainif.com`，不形成来回跳转
 
