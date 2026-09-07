@@ -49,7 +49,7 @@ Default: keep the timer on `off.rainif.com`. Official-site CTAs to the timer use
 
 `utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content={header\|hall\|notfound}`
 
-Anchor copy names DoneAt’s web timer. Off Work Countdown is the former name; About already says so.
+Visible button copy stays the short Grill lines (e.g. 「在浏览器里试试」 / “Try it in the browser”). Off Work Countdown is the former name; About already says so.
 
 **Preferred (not this round):** move the timer under `doneat.app` or `app.doneat.app`, 301 every `off.rainif.com/{locale}` URL, then update canonicals, sitemaps, in-app links, and store copy. Needs a redirect table and a rollback. Product must authorize it.
 
