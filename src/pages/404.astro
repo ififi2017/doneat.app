@@ -4,6 +4,7 @@ import {
   HALL_LOCALES,
   siteConfig,
   t,
+  webAppUrl,
   type HallLocale,
 } from "../lib/config";
 import { notFoundApplyInlineScript, type NotFoundCopy } from "../lib/locale";
@@ -49,6 +50,7 @@ const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
             width="32"
             height="32"
             alt=""
+            aria-hidden="true"
           />
           <img
             class="hidden h-7 w-7 sm:h-8 sm:w-8 dark:block"
@@ -56,6 +58,7 @@ const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
             width="32"
             height="32"
             alt=""
+            aria-hidden="true"
           />
           <span class="text-base font-semibold tracking-tight">DoneAt</span>
         </a>
@@ -72,6 +75,7 @@ const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
         width="80"
         height="80"
         alt=""
+        aria-hidden="true"
       />
       <img
         class="hidden h-16 w-16 dark:block sm:h-20 sm:w-20"
@@ -79,6 +83,7 @@ const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
         width="80"
         height="80"
         alt=""
+        aria-hidden="true"
       />
       <p class="mt-6 text-sm font-medium text-orange-ink dark:text-orange-bright">404</p>
       <h1
@@ -99,7 +104,7 @@ const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
         </a>
         <a
           id="nf-timer"
-          href={siteConfig.webAppUrl + "/en"}
+          href={webAppUrl("en", "notfound")}
           class="btn btn-secondary"
           data-track="web_timer_open"
           target="_blank"

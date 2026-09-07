@@ -5,7 +5,9 @@ import SiteHeader from "./SiteHeader.astro";
 import StoreEntries from "./StoreEntries.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { contentTrackPage } from "../lib/analytics-events";
-import { siteConfig, type ContentLocale, type ContentPage } from "../lib/config";
+import { canonicalUrl, siteConfig, type ContentLocale, type ContentPage } from "../lib/config";
+import { faqPageJsonLd, parseFaqMarkdown } from "../lib/faq-jsonld";
+import { downloadJsonLd } from "../lib/jsonld";
 import { getEntry, render } from "astro:content";
 
 interface Props {
@@ -24,26 +26,17 @@ const isFaq = page === "faq";
 const isDownload = page === "download";
 const hasBody = Boolean(entry.body?.trim());
 
-const softwareJsonLd =
-  isDownload
-    ? {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        name: siteConfig.brandName,
-        applicationCategory: "UtilitiesApplication",
-        operatingSystem: "iOS, iPadOS, macOS, Windows, Web",
-        url: `${siteConfig.officialSiteUrl}${path}`,
-        image: `${siteConfig.officialSiteUrl}/icons/og-1200x630.png`,
+const jsonLd = isFaq
+  ? faqPageJsonLd(parseFaqMarkdown(entry.body ?? ""), {
+      locale,
+      url: canonicalUrl(path),
+    })
+  : isDownload
+    ? downloadJsonLd({
+        path,
+        title: entry.data.title,
         description: entry.data.description,
-        author: {
-          "@type": "Organization",
-          name: siteConfig.brandName,
-          url: siteConfig.officialSiteUrl,
-          email: siteConfig.supportEmail,
-        },
-        downloadUrl: siteConfig.microsoftStoreUrl,
-        installUrl: siteConfig.microsoftStoreUrl,
-      }
+      })
     : undefined;
 ---
 
@@ -53,7 +46,7 @@ const softwareJsonLd =
   description={entry.data.description}
   path={path}
   hreflangKind="content"
-  jsonLd={softwareJsonLd}
+  jsonLd={jsonLd}
   trackPage={contentTrackPage(page)}
 >
   <div class="flex min-h-screen flex-col">

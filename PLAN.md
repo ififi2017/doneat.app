@@ -133,6 +133,7 @@
 
 - [x] 每页自己的 canonical、hreflang、Open Graph、必要 JSON-LD（SoftwareApplication 在下载页，Organization 在首页）
 - [x] `sitemap.xml` / `robots.txt` 只声明本域
+- [x] Search Console 提交用 `sitemap-index.xml`；`/sitemap.xml` 301 到 index；大厅 sitemap 补 `x-default`；FAQ 页 `FAQPage` JSON-LD（见 [docs/seo.md](docs/seo.md)）
 - [ ] `www` → 裸域 301，保留 path + query（Cloudflare 或 Vercel，选一处做，不要两层抢；`vercel.json` 已写好，等 S4 指域名后才生效）
 
 ### S4 — 与产品仓同一窗口上线

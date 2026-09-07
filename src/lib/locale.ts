@@ -1,5 +1,6 @@
 import hall from "../../locales/hall.json";
 import {
+  WEB_TIMER_UTM,
   contentLocaleFor,
   isContentPage,
   isHallLocale,
@@ -202,10 +203,17 @@ export function notFoundApplyInlineScript(
   copy: Record<string, NotFoundCopy>,
   webAppOrigin: string,
 ): string {
+  const utm = new URLSearchParams({
+    utm_source: WEB_TIMER_UTM.source,
+    utm_medium: WEB_TIMER_UTM.medium,
+    utm_campaign: WEB_TIMER_UTM.campaign,
+    utm_content: "notfound",
+  }).toString();
   return `(function(){
   ${pickerRuntimeJs()}
   var copy=${JSON.stringify(copy)};
   var web=${JSON.stringify(webAppOrigin)};
+  var utm=${JSON.stringify(utm)};
   var locale=fromPath(location.pathname)||fromBrowser();
   var c=copy[locale]||copy.en;
   document.documentElement.lang=locale;
@@ -221,7 +229,7 @@ export function notFoundApplyInlineScript(
   if (home) { home.textContent=c.home; home.setAttribute("href","/"+locale); }
   if (timer) {
     timer.textContent=c.timer;
-    timer.setAttribute("href",web+"/"+locale);
+    timer.setAttribute("href",web+"/"+locale+"?"+utm);
     timer.setAttribute("target","_blank");
     timer.setAttribute("rel","noopener noreferrer");
   }

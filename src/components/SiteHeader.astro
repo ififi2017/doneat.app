@@ -23,7 +23,7 @@ function hrefFor(page: "download" | "faq" | "about"): string {
 
 const navItems = [
   {
-    href: webAppUrl(locale),
+    href: webAppUrl(locale, "header"),
     page: null,
     label: t(locale, "openTimer"),
     external: true,
@@ -51,6 +51,7 @@ const linkActive = "text-orange-ink dark:text-orange-bright";
         width="32"
         height="32"
         alt=""
+        aria-hidden="true"
       />
       <img
         class="hidden h-7 w-7 sm:h-8 sm:w-8 dark:block"
@@ -58,6 +59,7 @@ const linkActive = "text-orange-ink dark:text-orange-bright";
         width="32"
         height="32"
         alt=""
+        aria-hidden="true"
       />
       <span class="text-base font-semibold tracking-tight">DoneAt</span>
     </a>

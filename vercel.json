@@ -3,6 +3,11 @@
   "framework": "astro",
   "redirects": [
     {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap-index.xml",
+      "permanent": true
+    },
+    {
       "source": "/:path(.*)",
       "has": [{ "type": "host", "value": "www.doneat.app" }],
       "destination": "https://doneat.app/:path",
