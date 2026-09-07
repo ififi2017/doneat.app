@@ -100,8 +100,25 @@ export function appleStoreUrl(locale: HallLocale): string {
   return url.toString();
 }
 
-export function webAppUrl(locale: HallLocale): string {
-  return `${site.webAppUrl}/${locale}`;
+export type WebTimerPlacement = "header" | "hall" | "notfound";
+
+export const WEB_TIMER_UTM = {
+  source: "doneat.app",
+  medium: "referral",
+  campaign: "official-site",
+} as const;
+
+/** Browser timer on off.rainif.com, with a stable UTM set for dual-domain SEO. */
+export function webAppUrl(
+  locale: HallLocale,
+  placement: WebTimerPlacement = "header",
+): string {
+  const url = new URL(`${site.webAppUrl}/${locale}`);
+  url.searchParams.set("utm_source", WEB_TIMER_UTM.source);
+  url.searchParams.set("utm_medium", WEB_TIMER_UTM.medium);
+  url.searchParams.set("utm_campaign", WEB_TIMER_UTM.campaign);
+  url.searchParams.set("utm_content", placement);
+  return url.toString();
 }
 
 export function sitePath(path: string): string {

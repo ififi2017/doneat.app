@@ -49,7 +49,7 @@ const downloadHref = `/${contentLocaleFor(locale)}/download`;
 const appleLocale = appleBadgeLocale(locale);
 const msLocale = microsoftBadgeLocale(locale);
 const appleHref = appleStoreUrl(locale);
-const webHref = webAppUrl(locale);
+const webHref = webAppUrl(locale, "hall");
 const msHref = siteConfig.microsoftStoreUrl;
 const isDownload = variant === "download";
 const platformLine = isDownload

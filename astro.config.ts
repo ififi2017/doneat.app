@@ -5,6 +5,7 @@ import { cpSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { CONTENT_PAGES, HALL_LOCALES, isContentLocale, siteConfig } from "./src/lib/config";
+import { sitemapLinksForUrl } from "./src/lib/hreflang";
 
 const root = dirname(fileURLToPath(import.meta.url));
 
@@ -42,6 +43,12 @@ export default defineConfig({
   site: siteConfig.officialSiteUrl,
   output: "static",
   trailingSlash: "never",
+  redirects: {
+    "/sitemap.xml": {
+      status: 301,
+      destination: "/sitemap-index.xml",
+    },
+  },
   integrations: [
     sitemap({
       i18n: {
@@ -64,6 +71,11 @@ export default defineConfig({
           return false;
         }
         return true;
+      },
+      serialize(item) {
+        const links = sitemapLinksForUrl(item.url);
+        if (links) item.links = links;
+        return item;
       },
     }),
   ],

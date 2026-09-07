@@ -11,11 +11,10 @@ import {
   HALL_LOCALES,
   homeTitle,
   isHallLocale,
-  sameAsUrls,
-  siteConfig,
   t,
   type HallLocale,
 } from "../../lib/config";
+import { homeJsonLd } from "../../lib/jsonld";
 
 export function getStaticPaths() {
   return HALL_LOCALES.map((lang) => ({ params: { lang } }));
@@ -35,15 +34,7 @@ const values = [
   t(locale, "valueSeeDone"),
 ] as const;
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: siteConfig.brandName,
-  url: siteConfig.officialSiteUrl,
-  logo: `${siteConfig.officialSiteUrl}/icons/icon-512.png`,
-  email: siteConfig.supportEmail,
-  sameAs: sameAsUrls(),
-};
+const jsonLd = homeJsonLd({ locale, description });
 ---
 
 <BaseLayout

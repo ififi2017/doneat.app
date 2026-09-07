@@ -12,6 +12,8 @@ This repository is the marketing and support site. It is not the countdown app.
 
 Stack: Astro, TypeScript, Tailwind CSS. Hosted on Vercel.
 
+Search Console: submit **`https://doneat.app/sitemap-index.xml` only**. `/sitemap.xml` 301s to that index. See [docs/seo.md](docs/seo.md).
+
 ```bash
 npm install
 npm run dev
@@ -25,4 +27,4 @@ Development plan: [PLAN.md](PLAN.md) (Chinese). Coordinated go-live with the pro
 
 ## 中文
 
-这是 DoneAt 的官网与支持站，不是倒计时 Web App。可交互的网页版仍在 [off.rainif.com](https://off.rainif.com)；产品源码在 [Off-Work-Countdown](https://github.com/ififi2017/Off-Work-Countdown)。开发计划见 [PLAN.md](PLAN.md)。本机克隆目录不要用 `*.app` 结尾（例如用 `doneat-site`），否则 Finder / Cursor 会当成应用包。GitHub 仓库名仍是 `doneat.app`。本地：`npm install` 后 `npm run dev`。`doneat.app` 现在仍是临时 302，不要独自切 DNS。
+这是 DoneAt 的官网与支持站，不是倒计时 Web App。可交互的网页版仍在 [off.rainif.com](https://off.rainif.com)；产品源码在 [Off-Work-Countdown](https://github.com/ififi2017/Off-Work-Countdown)。开发计划见 [PLAN.md](PLAN.md)。Search Console 只提交 `https://doneat.app/sitemap-index.xml`，说明见 [docs/seo.md](docs/seo.md)。本机克隆目录不要用 `*.app` 结尾（例如用 `doneat-site`），否则 Finder / Cursor 会当成应用包。GitHub 仓库名仍是 `doneat.app`。本地：`npm install` 后 `npm run dev`。`doneat.app` 现在仍是临时 302，不要独自切 DNS。
