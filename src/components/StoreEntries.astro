@@ -67,6 +67,8 @@ const msDark = pickBadge(
   `${msLocale}-dark.svg`,
   "en-us-dark.svg",
 );
+const msBadgeHeight = 40;
+const msBadgeWidth = Math.round((msBadgeHeight * msLight.width) / msLight.height);
 ---
 
 <div class:list={["store-entries", isDownload && "is-download"]}>
@@ -110,21 +112,26 @@ const msDark = pickBadge(
         inferSize
       />
     </a>
-    <div class="ms-badge" data-track="microsoft_store_open">
+    <div
+      class="ms-badge"
+      data-track="microsoft_store_open"
+      data-ms-width={msBadgeWidth}
+      style={`width:${msBadgeWidth}px`}
+    >
       <a href={msHref} class="ms-fallback">
         <Image
           class="dark:hidden"
           src={msLight}
           alt={t(locale, "microsoftStoreLabel")}
-          width={146}
-          height={40}
+          width={msBadgeWidth}
+          height={msBadgeHeight}
         />
         <Image
           class="hidden dark:block"
           src={msDark}
           alt={t(locale, "microsoftStoreLabel")}
-          width={146}
-          height={40}
+          width={msBadgeWidth}
+          height={msBadgeHeight}
         />
       </a>
       <ms-store-badge
@@ -190,25 +197,37 @@ const msDark = pickBadge(
 ></script>
 <script is:inline>
   (function () {
-    function reveal(badge) {
+    function fit(badge) {
       var wrap = badge.closest(".ms-badge");
-      if (wrap) wrap.classList.add("is-loaded");
+      var img = badge.shadowRoot && badge.shadowRoot.querySelector("img");
+      if (!wrap || !img || !img.naturalWidth || !img.naturalHeight) return false;
+      img.style.height = "40px";
+      img.style.maxHeight = "40px";
+      img.style.width = "auto";
+      var fromImg = Math.round((40 * img.naturalWidth) / img.naturalHeight);
+      var fromFallback = parseInt(wrap.getAttribute("data-ms-width"), 10) || 0;
+      wrap.style.width = Math.max(fromImg, fromFallback) + "px";
+      wrap.classList.add("is-loaded");
+      return true;
     }
     function watch(badge) {
-      var root = badge.shadowRoot;
-      var img = root && root.querySelector("img");
-      if (img && img.complete && img.naturalWidth) {
-        reveal(badge);
-        return;
+      function tryFit() {
+        fit(badge);
       }
+      tryFit();
+      var img = badge.shadowRoot && badge.shadowRoot.querySelector("img");
       if (img) {
-        img.addEventListener("load", function () {
-          reveal(badge);
-        }, { once: true });
+        img.addEventListener("load", tryFit);
       }
-      window.setTimeout(function () {
-        if (badge.shadowRoot && badge.shadowRoot.querySelector("img")) reveal(badge);
-      }, 4000);
+      if (badge.shadowRoot && window.MutationObserver) {
+        new MutationObserver(tryFit).observe(badge.shadowRoot, {
+          childList: true,
+          subtree: true,
+          attributes: true,
+          attributeFilter: ["src"],
+        });
+      }
+      window.setTimeout(tryFit, 4000);
     }
     function attach() {
       document.querySelectorAll("ms-store-badge").forEach(watch);
