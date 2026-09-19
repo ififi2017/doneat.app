@@ -50,6 +50,11 @@ Turning on iCloud sync requires Plus. Once enabled, sync continues after a subsc
 
 The project is released under the MIT licence. You can inspect the code or build your own version from the public [GitHub repository](https://github.com/ififi2017/Off-Work-Countdown).
 
+The holiday templates include national-calendar data generated with [Vacanza Holidays 0.83](https://github.com/vacanza/holidays) and mainland China public-holiday and makeup-workday data from [holiday-cn](https://github.com/NateScarlet/holiday-cn). Both sources are available under the MIT licence:
+
+- Vacanza Holidays: Copyright © Vacanza Team and individual contributors, dr-prodigy (2017–2023), and ryanss (2014–2017). [Read the complete licence](/licenses/vacanza-holidays-0.83.txt).
+- holiday-cn: Copyright © 2019 NateScarlet. [Read the complete licence](/licenses/holiday-cn.txt).
+
 ## Feedback
 
 Write to [hello@doneat.app](mailto:hello@doneat.app), or open a [GitHub Issue](https://github.com/ififi2017/Off-Work-Countdown/issues).

@@ -50,6 +50,11 @@ Off Work Countdown 现为 DoneAt。倒计时还是那个倒计时，门口的名
 
 项目采用 MIT 协议开源。你可以在公开的 [GitHub 仓库](https://github.com/ififi2017/Off-Work-Countdown)查看代码，或者构建自己的版本。
 
+节假日模板包含由 [Vacanza Holidays 0.83](https://github.com/vacanza/holidays) 生成的各国家和地区节假日数据，以及 [holiday-cn](https://github.com/NateScarlet/holiday-cn) 提供的中国大陆法定节假日与调休上班数据。两个来源均采用 MIT 许可证：
+
+- Vacanza Holidays：版权所有 © Vacanza Team 及各贡献者、dr-prodigy（2017–2023）、ryanss（2014–2017）。[查看完整许可证](/licenses/vacanza-holidays-0.83.txt)。
+- holiday-cn：版权所有 © 2019 NateScarlet。[查看完整许可证](/licenses/holiday-cn.txt)。
+
 ## 问题反馈
 
 写到 [hello@doneat.app](mailto:hello@doneat.app)，或开一条 [GitHub Issue](https://github.com/ififi2017/Off-Work-Countdown/issues)。
