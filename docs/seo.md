@@ -2,7 +2,11 @@
 
 Official site: [https://doneat.app](https://doneat.app). This repo is Astro + Vercel. The interactive timer stays on [https://off.rainif.com](https://off.rainif.com) (Next.js, product repo).
 
-Do not invent Search Console numbers, rankings, or traffic. Do not open `Google-Extended` / `GPTBot` / other AI-training crawlers unless product explicitly asks; Cloudflare managed robots currently disallow them.
+Do not invent Search Console numbers, rankings, or traffic. Do not open `Google-Extended` / `GPTBot` / other AI-training crawlers unless product explicitly asks; Cloudflare managed robots currently disallow them. AI search/retrieval crawlers (`OAI-SearchBot`, `PerplexityBot`, `Claude-SearchBot` and similar) are allowed; product confirmed the Cloudflare setting on 2026-09-25.
+
+## Hall title
+
+The hall `<title>` is `homeTitle` in `locales/chrome.json`: brand, the local function words and the platforms (for example "DoneAt: Work Shift Countdown for iPhone, Mac & Windows"). The brand sentence stays in the visible hall. The title targets "app" searches; the timer domain targets "use it in the browser" searches with function-first titles, so the two sites do not compete for the same query.
 
 ## Search Console (human)
 
@@ -26,7 +30,7 @@ Do not invent Search Console numbers, rankings, or traffic. Do not open `Google-
 
 ## Hreflang policy
 
-- **Hall** `/{lang}`: 19 locales, plus `x-default` → `https://doneat.app/en`. HTML (`BaseLayout`) and sitemap xhtml links use the same helper (`src/lib/hreflang.ts`).
+- **Hall** `/{lang}`: 19 locales, plus `x-default` → `https://doneat.app/` (the root, which middleware 302s to the hall matching `Accept-Language`, with `Vary: Accept-Language`). That is Google's documented x-default use for an auto-redirecting home page. It pointed at `/en` until 2026-09-25; the timer domain showed that setup leaves the root indexed as a separate English page (see the product repo's `plans/Web/001-seo-search-growth.md` §7-2). HTML (`BaseLayout`) and sitemap xhtml links use the same helper (`src/lib/hreflang.ts`).
 - **Support pages** (`about`, `download`, `faq`, `how-it-works`, `privacy`): **en and zh-CN only**. Hreflang and sitemap declare those two plus `x-default` → the English URL. Other hall languages bounce to `en` or `zh-CN` with `noindex`; they must not appear as alternates.
 - Do not generate 19 unreviewed translations of long-form pages to “fill” hreflang.
 
@@ -34,7 +38,7 @@ Do not invent Search Console numbers, rankings, or traffic. Do not open `Google-
 
 | Page | JSON-LD |
 | --- | --- |
-| Hall | `@graph`: `Organization` + `SoftwareApplication` + `WebApplication` (browser timer). No ratings or download counts. Native `SoftwareApplication` has no `offers` (iOS Plus is paid). The web timer node may say free. |
+| Hall | `@graph`: `WebSite` (site name DoneAt, `alternateName` Off Work Countdown) + `Organization` + `SoftwareApplication` + `WebApplication` (browser timer). No ratings or download counts. Native `SoftwareApplication` has no `offers` (iOS Plus is paid). The web timer node may say free. |
 | Download | `@graph`: same `Organization` / `SoftwareApplication` `@id`s + `WebPage` |
 | FAQ | `FAQPage` only. Questions/answers are parsed from the Markdown body so they match visible copy. |
 | 404 | `noindex,nofollow`. No canonical. No `og:url` (must not point at `/en`). |
@@ -84,3 +88,5 @@ On Vercel preview or production, use the deployed origin instead of `127.0.0.1:4
 Canonical spot-check: `/en`, `/zh-CN`, `/ja`, `/en/faq`, `/zh-CN/faq` should each have an HTTPS self-referencing canonical.
 
 Intent-page backlog (no marketing URLs this round): [seo-intent-backlog.md](seo-intent-backlog.md).
+
+Cross-domain SEO plan (both `off.rainif.com` and `doneat.app`, based on Search Console and Bing data as of 2026-09-25): [Off-Work-Countdown `plans/Web/001-seo-search-growth.md`](https://github.com/ififi2017/Off-Work-Countdown/blob/main/plans/Web/001-seo-search-growth.md).

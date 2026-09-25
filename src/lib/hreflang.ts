@@ -5,6 +5,7 @@ import {
   isContentLocale,
   isContentPage,
   isHallLocale,
+  siteConfig,
   type ContentPage,
 } from "./config";
 
@@ -13,14 +14,20 @@ export type HreflangLink = {
   href: string;
 };
 
-/** Hall pages exist in all 19 locales. x-default is the English hall. */
+/**
+ * Hall pages exist in all 19 locales. x-default is the site root, which
+ * middleware 302s to the hall matching Accept-Language: Google's documented
+ * x-default use for an auto-redirecting home page. Pointing it at `/en`
+ * left the root indexed as a separate English page on the timer domain.
+ */
 export function hallHreflangLinks(): HreflangLink[] {
   return [
     ...HALL_LOCALES.map((code) => ({
       lang: code,
       href: canonicalUrl(`/${code}`),
     })),
-    { lang: "x-default", href: canonicalUrl("/en") },
+    // Trailing slash matches what @astrojs/sitemap writes for the same URL.
+    { lang: "x-default", href: `${siteConfig.officialSiteUrl}/` },
   ];
 }
 

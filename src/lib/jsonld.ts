@@ -69,6 +69,19 @@ export function webTimerJsonLd(locale: string): Record<string, unknown> {
   };
 }
 
+/** Site name in search results: DoneAt, formerly Off Work Countdown. */
+export function webSiteJsonLd(locale: string): Record<string, unknown> {
+  return {
+    "@type": "WebSite",
+    "@id": `${siteConfig.officialSiteUrl}/#website`,
+    name: siteConfig.brandName,
+    alternateName: ["Off Work Countdown"],
+    url: `${siteConfig.officialSiteUrl}/`,
+    inLanguage: locale,
+    publisher: { "@id": ORGANIZATION_ID },
+  };
+}
+
 export function homeJsonLd(options: {
   locale: string;
   description: string;
@@ -76,6 +89,7 @@ export function homeJsonLd(options: {
   return {
     "@context": "https://schema.org",
     "@graph": [
+      webSiteJsonLd(options.locale),
       organizationJsonLd(),
       softwareApplicationJsonLd({
         url: siteConfig.officialSiteUrl,

@@ -34,7 +34,8 @@ assert(indexXml.includes("https://doneat.app/sitemap-0.xml"), "sitemap index lis
 
 const sitemap0 = read("sitemap-0.xml");
 assert(sitemap0.includes('hreflang="x-default"'), "sitemap hall/content x-default");
-assert(sitemap0.includes('hreflang="x-default" href="https://doneat.app/en"'), "hall x-default points at /en");
+assert(sitemap0.includes('hreflang="x-default" href="https://doneat.app/"'), "hall x-default points at the language-redirecting root");
+assert(sitemap0.includes('hreflang="x-default" href="https://doneat.app/en/faq"'), "content x-default stays on /en");
 assert(sitemap0.includes("https://doneat.app/en/faq"), "faq in sitemap");
 assert(sitemap0.includes("https://doneat.app/zh-CN/faq"), "zh-CN faq in sitemap");
 assert(!sitemap0.includes("https://doneat.app/ja/faq"), "do not list bounce faq URLs");
@@ -48,6 +49,9 @@ assert(
   "SoftwareApplication JSON-LD",
 );
 assert(enHall.includes('rel="canonical" href="https://doneat.app/en"'), "en canonical");
+assert(enHall.includes('hreflang="x-default" href="https://doneat.app/"'), "hall HTML x-default is the root");
+assert(enHall.includes('"@type":"WebSite"'), "WebSite JSON-LD for the site name");
+assert(enHall.includes("<title>DoneAt: Work Shift Countdown for iPhone, Mac &amp; Windows</title>"), "hall title carries function words");
 
 const zhHall = read("zh-CN/index.html");
 assert(zhHall.includes('rel="canonical" href="https://doneat.app/zh-CN"'), "zh-CN canonical");
