@@ -270,6 +270,10 @@ html {
   color: color-mix(in srgb, var(--color-plum) 40%, transparent);
 }
 
+.hall-qualities span[data-line-end]::after {
+  visibility: hidden;
+}
+
 .hall-stage {
   min-width: 0;
 }

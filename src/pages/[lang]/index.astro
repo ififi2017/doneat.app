@@ -57,7 +57,7 @@ const jsonLd = homeJsonLd({ locale, description });
         <div class="hall-cta">
           <StoreEntries locale={locale} variant="home" />
         </div>
-        <p class="hall-qualities">
+        <p class="hall-qualities" data-hall-qualities>
           {values.map((value) => <span>{value}</span>)}
         </p>
       </div>
@@ -68,3 +68,22 @@ const jsonLd = homeJsonLd({ locale, description });
     <SiteFooter locale={locale} />
   </div>
 </BaseLayout>
+
+<script is:inline>
+  (function () {
+    // Hide the "·" after an item that ends a wrapped line. The separator keeps
+    // its space (visibility only), so hiding it never changes where lines break.
+    var list = document.querySelector("[data-hall-qualities]");
+    if (!(list instanceof HTMLElement)) return;
+    var items = Array.prototype.slice.call(list.children);
+    function mark() {
+      items.forEach(function (item, i) {
+        var next = items[i + 1];
+        item.toggleAttribute("data-line-end", !!next && next.offsetTop > item.offsetTop);
+      });
+    }
+    mark();
+    if (document.fonts) document.fonts.ready.then(mark);
+    if ("ResizeObserver" in window) new ResizeObserver(mark).observe(list);
+  })();
+</script>
