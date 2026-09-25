@@ -43,6 +43,7 @@ Astro 门厅、英中长文、下载页都已上线。接着改现有工程，�
 
 - 门厅 mark 用内联 SVG（`BrandMark.astro`），不要 `<img src="/brand/….svg">`。用 img 时浏览器会先栅格化，放大后边缘虚。几何仍以 `assets/brand/off-work-countdown-mark.svg` 为准，不要另造。
 - 桌面 mark 用负 `margin-inline-start`（约 `159/1024` 的边长）把圆环左缘和标题对齐——SVG viewBox 四周有空。窄屏居中时不要加这个负边距。
+- 桌面门厅（≥880px）文案和机位是**一组居中**，间距随机位宽度（`--hall-stage-width` 的一半，3–12rem）走。机位按 `100dvh` 缩放，14 寸 MacBook 带浏览器工具栏时只有约 270px 宽；不要改回文案贴左、机位 `justify-self: end`，否则中间会空出近一半内容宽。
 - 暖光用径向渐变淡到透明。实心圆放大 + `drop-shadow` 叠在深色底上会切出一圈发闷的红褐边。
 - 触摸没有 hover。点按必须自己出反馈：橙色圆点约 `scale(1.16)` + 同一套暖光。`prefers-reduced-motion: reduce` 只变亮、不缩放。
 - 五连击只打缺口里的橙色圆点（可加大透明命中圆），圆环和指针不计数。第五次指针绕 `512,512` 转一圈回到五点，角度累加，不要从 360 弹回 0。时长约 0.8s，对照 iOS `CelebratingBrandMark`。不要为它拉 React。
