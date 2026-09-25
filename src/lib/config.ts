@@ -84,9 +84,14 @@ export function htmlLang(locale: HallLocale): string {
   return locale;
 }
 
+/**
+ * Hall `<title>`: brand, local function words and platforms
+ * (e.g. "DoneAt: Work Shift Countdown for iPhone, Mac & Windows").
+ * The brand sentence stays in the visible hall; the title is for search,
+ * where people look for the function and "app", not the tagline.
+ */
 export function homeTitle(locale: HallLocale): string {
-  const sentence = brandSentence(locale);
-  return `${site.brandName} — ${sentence ?? functionalSubtitle(locale)}`;
+  return t(locale, "homeTitle");
 }
 
 export function appleStoreUrl(locale: HallLocale): string {

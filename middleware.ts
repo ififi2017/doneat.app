@@ -15,5 +15,10 @@ export default function middleware(request: Request): Response | undefined {
   );
   if (!nextPath) return;
   url.pathname = nextPath;
-  return Response.redirect(url, 302);
+  // The target depends on Accept-Language. Say so for caches and crawlers;
+  // the root is also the hall hreflang x-default (src/lib/hreflang.ts).
+  return new Response(null, {
+    status: 302,
+    headers: { Location: url.toString(), Vary: "Accept-Language" },
+  });
 }
