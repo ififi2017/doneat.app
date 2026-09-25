@@ -37,6 +37,14 @@ DoneAt 是下班倒计时。填好上班和下班时间，就会显示还剩多�
 
 有。iPhone、iPad 和 Mac 在 [App Store](https://apps.apple.com/cn/app/id6802803318)，Windows 在 [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ)。浏览器计时在 [off.rainif.com](https://off.rainif.com/zh-CN)。选一个你会真正开着的就行。
 
+## 有小组件或 Apple Watch 版吗？
+
+有。在 iPhone 和 iPad 上，主屏幕和锁定屏幕小组件不打开 App 也能显示这班还剩多久；在支持的 iPhone 上，实时活动会把进度留在锁定屏幕和灵动岛上。Apple Watch 版抬腕就能看到还剩多久、几点下班，表盘上还可以添加两种复杂功能；它免费使用，无需 DoneAt Plus。小组件、实时活动和手表上只显示时间和进度，不显示薪资。在 Mac 和 Windows 上，迷你计时器会让倒计时一直留在眼前。
+
+## 能按轮班和节假日排班吗？
+
+在 iPhone 和 iPad 上可以。在同一张月历里设置排班：固定星期、大小周、轮班轮休、自由排班或手动计时都行。在「工作时间与排班」里选择国家或地区后，排班会跟着当地节假日走，中国大陆还会按调休安排上班。如果是从旧版本升级，在那里开启一次即可。网页计时和 Mac、Windows 版使用一组上下班时间。
+
 ## 免费吗？开源吗？
 
 网页计时可以免费使用，没有 DoneAt 账号、广告或付费档位。源代码以 MIT 协议公开在 [GitHub](https://github.com/ififi2017/Off-Work-Countdown)。各商店的价格和条款以商店为准。

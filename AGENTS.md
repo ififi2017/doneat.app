@@ -82,7 +82,7 @@ Astro 门厅、英中长文和预览部署已经在。接着改现有工程，�
 
 从 `content/source/` 重写成 Content Collections，之后以本仓为准。
 
-- FAQ：保持现有问题骨架；改掉「网页工具、不用下载」；iOS / 桌面是正式用法；**不写** Widget、灵动岛、计时五态。
+- FAQ：保持现有问题骨架；改掉「网页工具、不用下载」；iOS / 桌面是正式用法；不写计时五态。2026-09-25 起（产品仓 `plans/Web/001` §7-3）可以写 3.2.0 已上架的小组件、实时活动 / 灵动岛、免费 Apple Watch、月历排班和节假日。
 - 隐私：品牌 DoneAt；联系邮箱只写 `hello@doneat.app`（已接通）。不要展示 `offwork@rainif.com`。
 - About / How it works / Download：DoneAt；无 GitHub 直装；无网页 vs 桌面对照表。下载页商店徽章 + 手机/电脑对照（included / limited / absent）+ 「为何要用原生」。语气不贬网页版。下载页手机用 review clip，不要用首页那套 timer loop。
 - 「返回 / 打开计时」指向 `https://off.rainif.com`，不要在本域绕回。

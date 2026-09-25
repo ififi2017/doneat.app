@@ -96,7 +96,7 @@
 
 ### 长文
 
-从产品仓 `public/locales/{en,zh-CN}/content.json` 拷贝后，**以本仓为准**。FAQ 必须先按跨平台口径重写再标 canonical：改掉「网页工具、不用下载」；把 iOS / 桌面写成正式用法；不写 Widget、灵动岛、计时五态。隐私页写 `hello@doneat.app`（已接通）；`offwork@rainif.com` 只转发、不展示。
+从产品仓 `public/locales/{en,zh-CN}/content.json` 拷贝后，**以本仓为准**。FAQ 必须先按跨平台口径重写再标 canonical：改掉「网页工具、不用下载」；把 iOS / 桌面写成正式用法；不写计时五态。小组件、实时活动 / 灵动岛、免费 Apple Watch、月历排班与节假日自 3.2.0 上架起可写（产品仓 `plans/Web/001` §7-3）。隐私页写 `hello@doneat.app`（已接通）；`offwork@rainif.com` 只转发、不展示。
 
 商店链接（实现时与产品仓核对 **id**，不要抄死旧 slug）：
 
