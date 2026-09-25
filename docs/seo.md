@@ -84,3 +84,5 @@ On Vercel preview or production, use the deployed origin instead of `127.0.0.1:4
 Canonical spot-check: `/en`, `/zh-CN`, `/ja`, `/en/faq`, `/zh-CN/faq` should each have an HTTPS self-referencing canonical.
 
 Intent-page backlog (no marketing URLs this round): [seo-intent-backlog.md](seo-intent-backlog.md).
+
+Cross-domain SEO plan (both `off.rainif.com` and `doneat.app`, based on Search Console and Bing data as of 2026-09-25): [Off-Work-Countdown `plans/Web/001-seo-search-growth.md`](https://github.com/ififi2017/Off-Work-Countdown/blob/main/plans/Web/001-seo-search-growth.md).
