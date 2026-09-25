@@ -14,14 +14,15 @@ interface Props {
   locale: HallLocale;
   priority?: boolean;
   clip?: "timer" | "review";
+  alt?: string;
 }
 
-const { locale, priority = false, clip = "timer" } = Astro.props;
+const { locale, priority = false, clip = "timer", alt: altOverride } = Astro.props;
 const isReview = clip === "review";
 const loading = priority ? "eager" : "lazy";
 const fetchpriority = priority ? "high" : "auto";
 const stem = deviceStem(locale);
-const alt = t(locale, "deviceAlt");
+const alt = altOverride ?? t(locale, "deviceAlt");
 const still = stem === "zh" ? { white: zhWhite, black: zhBlack } : { white: enWhite, black: enBlack };
 const reviewStill = stem === "zh" ? zhReview : enReview;
 const reviewSrc = `/device/${stem}-review.mp4`;

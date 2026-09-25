@@ -1,6 +1,6 @@
 ---
 title: "Download — DoneAt"
-description: "Get DoneAt from the App Store or Microsoft Store, and see the minimum system versions for each platform."
+description: "Get DoneAt on the App Store or Microsoft Store: widgets, Live Activities, a free Apple Watch app and a monthly shift calendar on iPhone, plus system requirements."
 heading: "Get DoneAt where you already work"
 intro: "Start in the browser when you want it now. Keep it on a phone or computer when you want a reminder after the tab is gone. Same countdown, three doors."
 nativeHeading: Why keep a native app around

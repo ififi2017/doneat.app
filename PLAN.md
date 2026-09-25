@@ -1,10 +1,10 @@
 # DoneAt 官网开发计划
 
-- **Status**: PREVIEW — S0–S3（预览域能做的）已落地；S4 上线窗口未做
-- **Preview**: 匿名临时部署 [temporary-rapid-sequoia-9rkyrq6.vercel.app](https://temporary-rapid-sequoia-9rkyrq6.vercel.app/en)（约 60 分钟过期）。认领并接到独立 Vercel 项目：[claim](https://vercel.com/claim-deployment?code=16e3c9c3-95ec-4602-bd8e-980c21efe3b8)。未登录 CLI，本仓尚未绑定长期 `*.vercel.app`。
+- **Status**: LIVE — 2026-08-30 起 `doneat.app` 由本仓提供；S0–S4 完成。下载页已按 iOS 3.2.0 更新（2026-09-25）
+- **Deploy**: Vercel 项目 `doneat-app`。`main` 即 production；每个 PR 由 Vercel 出预览链接（见 PR 评论）
 - **Repo**: [ififi2017/doneat.app](https://github.com/ififi2017/doneat.app)
-- **Goes live as**: https://doneat.app
-- **Product plan**: [Off-Work-Countdown 009](https://github.com/ififi2017/Off-Work-Countdown/blob/main/plans/009-doneat-platform-brand-domain.md)
+- **Live at**: https://doneat.app
+- **Product plan**: [Off-Work-Countdown 009](https://github.com/ififi2017/Off-Work-Countdown/blob/main/plans/iOS/009-doneat-platform-brand-domain.md)；搜索增长 [Web 001](https://github.com/ififi2017/Off-Work-Countdown/blob/main/plans/Web/001-seo-search-growth.md)
 - **Reviewed against**: 2026-08-28 Grill（009 + 官网设计）；邮箱已由 Cloudflare 接通
 
 本仓只做官网。倒计时 Web App、Desktop、iOS、商店 listing 和旧域 301 在产品仓，必须和本仓**同一窗口**上线，见 009 G5。
@@ -80,11 +80,15 @@
 - Web 与顶栏「打开计时」都进 `https://off.rainif.com/{lang}`。
 - 入口下方三条短价值：本地、无账号、看清下班。不上长对比表，不把 FAQ 铺在首页。平台可用性压成一行说明，不在首页铺 chip；Android 状态放下载页。
 - 首页机位：**当前色彩模式、且未开启 reduced-motion 时才加载对应 MP4**；其余情况只出 PNG。再套官方 iPhone 17 Pro Max 框（浅色 Cosmic Orange，深色 Deep Blue，`assets/device/frames/`）。竖屏下班倒计时，不要商店合成图，不要另造机框或灵动岛。素材在 `assets/device/`：`en` / `zh` × `white` / `black` 各一份 `.mp4` + `.png`。语言跟内容语言走（中文门厅用 `zh`，其余用 `en`）；亮暗跟 `prefers-color-scheme`。`autoplay muted loop playsinline`，无控件、无声音。`prefers-reduced-motion: reduce` 只出 PNG，且不请求视频。
-- 第一版不放桌面主窗 / 迷你计时（窗口标题仍是旧名）。不上产品仓里那套旧名桌面 demo。
+- 首页不放桌面主窗 / 迷你计时（窗口标题仍是旧名），不上产品仓里那套旧名桌面 demo。下载页的桌面演示见下。
 
 ### 下载页
 
-商店入口与首页同一套 App Store / Microsoft Store 徽章，不放「在浏览器里试试」。平台行含 Android 即将推出。三项原生价值用卡片排布；系统要求与卡片同宽，并附弱化的 GitHub Releases 文字链（仅 macOS / Windows 未签名直装包）。不放 GitHub 直装按钮。若下载页也放机位，与首页同一套视频 + PNG 兜底。无功能对比表。语气不贬网页版。顶栏仍可打开网页计时。
+商店入口与首页同一套 App Store / Microsoft Store 徽章，不放「在浏览器里试试」。平台行含 Android 即将推出。三项原生价值用卡片排布；系统要求与卡片同宽，并附弱化的 GitHub Releases 文字链（仅 macOS / Windows 未签名直装包）。不放 GitHub 直装按钮。语气不贬网页版。顶栏仍可打开网页计时。
+
+- 手机机位播 review 录屏（`en-review` / `zh-review`，iOS 3.2.0 真机录制），同一套官方机框与 PNG 兜底，不用首页的 timer loop。电脑用仓内归档的主窗与迷你计时演示。
+- iPhone 功能区：一个图位轮播当前版本的商店图（`assets/showcase/`，en / zh-CN），旁边每张配一段可见说明，图片有具体 `alt`。3.2.0 为小组件与实时活动、月历排班与节假日、免费 Apple Watch、倒计时。减少动态效果时不自动轮播。
+- 对照表是**手机 / iPad vs 电脑**（included / limited / absent），不是网页 vs 桌面。
 
 ### 铬层
 
@@ -96,7 +100,7 @@
 
 ### 长文
 
-从产品仓 `public/locales/{en,zh-CN}/content.json` 拷贝后，**以本仓为准**。FAQ 必须先按跨平台口径重写再标 canonical：改掉「网页工具、不用下载」；把 iOS / 桌面写成正式用法；不写 Widget、灵动岛、计时五态。隐私页写 `hello@doneat.app`（已接通）；`offwork@rainif.com` 只转发、不展示。
+从产品仓 `public/locales/{en,zh-CN}/content.json` 拷贝后，**以本仓为准**。FAQ 必须先按跨平台口径重写再标 canonical：改掉「网页工具、不用下载」；把 iOS / 桌面写成正式用法；不写计时五态。小组件、实时活动 / 灵动岛、免费 Apple Watch、月历排班与节假日自 3.2.0 上架起可写（产品仓 `plans/Web/001` §7-3）。隐私页写 `hello@doneat.app`（已接通）；`offwork@rainif.com` 只转发、不展示。
 
 商店链接（实现时与产品仓核对 **id**，不要抄死旧 slug）：
 
@@ -110,7 +114,7 @@
 
 - [x] 建立公开仓 `ififi2017/doneat.app`
 - [x] Astro + TypeScript + Tailwind；i18n 路由；Content Collections
-- [ ] 接入独立 Vercel 项目（先用 `*.vercel.app`，切域名前不拆 Cloudflare 302）
+- [x] 接入独立 Vercel 项目 `doneat-app`
 - [x] 拷贝 008 mark / 图标；产出 favicon、apple-touch 与基础 OG（`assets/`）
 
 ### S1 — 铬层与首页
@@ -127,6 +131,7 @@
 - [x] 重写 FAQ；隐私页改邮箱与品牌名
 - [x] 2026-09-06：按 iOS 3.1.9 补齐英中关于与隐私政策（记录、生活、专注、Plus、iCloud、备份、购买和删除边界）；Astro check / build 通过，四页本地浏览器预览已查看。本次未部署。
 - [x] 下载页：三入口 + 手机/电脑展示与对照 + 为何原生；删 GitHub 直装与网页 vs 桌面对照表
+- [x] 2026-09-25：下载页按 iOS 3.2.0 更新（产品仓 Web 001 P1-11）：review 录屏重录；新增 iPhone 功能区（四张商店图轮播 + 可见说明）；对照表加月历排班、节假日与调休、Apple Watch；FAQ 加小组件 / Apple Watch、轮班与节假日两问。check / build / seo:check 通过。
 - [x] 内容页「打开计时」指 `off.rainif.com`，不形成来回跳转
 
 ### S3 — SEO 与响应头
@@ -134,17 +139,15 @@
 - [x] 每页自己的 canonical、hreflang、Open Graph、必要 JSON-LD（SoftwareApplication 在下载页，Organization 在首页）
 - [x] `sitemap.xml` / `robots.txt` 只声明本域
 - [x] Search Console 提交用 `sitemap-index.xml`；`/sitemap.xml` 301 到 index；大厅 sitemap 补 `x-default`；FAQ 页 `FAQPage` JSON-LD（见 [docs/seo.md](docs/seo.md)）
-- [ ] `www` → 裸域 301，保留 path + query（Cloudflare 或 Vercel，选一处做，不要两层抢；`vercel.json` 已写好，等 S4 指域名后才生效）
+- [x] `www` → 裸域永久跳转，保留 path + query，由 `vercel.json` 负责（Vercel 返回 308）；Cloudflare 不再叠一层
 
 ### S4 — 与产品仓同一窗口上线
 
-本仓准备好后**不要独自拆 302**。等产品仓 009 的 Web 品牌、五页 301、桌面 DisplayName 和 Microsoft Store listing 能同一天切。
+2026-08-30 与产品仓 009 同一窗口上线（产品仓 009「`doneat.app` 已是独立官网」）。
 
-上线当天本仓：
-
-- [ ] `doneat.app` / `www.doneat.app` DNS 指到本 Vercel；TLS
-- [ ] 去掉 Cloudflare 现在这条丢 path/query、指到 `off.rainif.com/` 的临时 302
-- [ ] production 核对：http/https、裸域/www、根路径/内容页、无重定向环、无第二份 PWA、无 GitHub 直装按钮
+- [x] `doneat.app` / `www.doneat.app` DNS 指到本 Vercel；TLS
+- [x] 去掉 Cloudflare 那条丢 path/query、指到 `off.rainif.com/` 的临时 302；根路径改由本仓 middleware 按语言 302 到门厅
+- [x] production 核对（2026-09-25 复核）：`http` → `https` 308；`www` → 裸域 308，保留 path + query；`/` 302 到 `/en`；`/en/download`、`/zh-CN/download` 200；一次跳转即到终点，无重定向环；无第二份 PWA、无 GitHub 直装按钮
 
 产品仓当天的清单仍以 009 P3–P6 为准。
 

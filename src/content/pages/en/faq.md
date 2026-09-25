@@ -37,6 +37,14 @@ Your hours and salary stay on the device by default. On iPhone and iPad, you can
 
 Yes. iPhone, iPad and Mac are on the [App Store](https://apps.apple.com/us/app/id6802803318). Windows is on the [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ). The browser timer is at [off.rainif.com](https://off.rainif.com/en). Choose whichever you will actually leave open.
 
+## Is there a widget or an Apple Watch app?
+
+Yes. On iPhone and iPad, Home Screen and Lock Screen widgets show the time left in your shift without opening the app, and on supported iPhone models a Live Activity keeps your progress on the Lock Screen and in the Dynamic Island. DoneAt for Apple Watch shows the time left and when you clock out, with two watch face complications. The Watch app is free and does not need DoneAt Plus. Widgets, Live Activities and the watch show times and progress, never salary. On a Mac or Windows PC, the Mini Timer keeps the countdown in view.
+
+## Can it follow my rotating shifts and public holidays?
+
+On iPhone and iPad, yes. Plan your schedule on one monthly calendar with fixed weekdays, alternating weeks, shift rotations, free scheduling or manual timing. Choose a country or region in Work Hours & Schedule and your schedule follows its public holidays, including make-up workdays in mainland China. If you updated from an earlier version, turn holidays on there once. The browser timer and the Mac and Windows apps use one start and end time.
+
 ## Is it free, and is the code open?
 
 The web timer is free to use. There are no DoneAt accounts, adverts or paid tiers on the website. Source code is published on [GitHub](https://github.com/ififi2017/Off-Work-Countdown) under the MIT licence. Store listings follow each store’s own price and terms.

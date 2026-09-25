@@ -1,4 +1,5 @@
 ---
+import { Picture } from "astro:assets";
 import DeviceHero from "./DeviceHero.astro";
 import DesktopClip from "./DesktopClip.astro";
 import {
@@ -6,6 +7,14 @@ import {
   downloadShowcaseCopy,
 } from "../lib/download-showcase";
 import type { ContentLocale } from "../lib/config";
+import enCalendar from "../../assets/showcase/en/iphone-calendar.webp";
+import enCountdown from "../../assets/showcase/en/iphone-countdown.webp";
+import enWatch from "../../assets/showcase/en/iphone-watch.webp";
+import enWidgets from "../../assets/showcase/en/iphone-widgets.webp";
+import zhCalendar from "../../assets/showcase/zh-CN/iphone-calendar.webp";
+import zhCountdown from "../../assets/showcase/zh-CN/iphone-countdown.webp";
+import zhWatch from "../../assets/showcase/zh-CN/iphone-watch.webp";
+import zhWidgets from "../../assets/showcase/zh-CN/iphone-widgets.webp";
 
 interface Props {
   locale: ContentLocale;
@@ -14,6 +23,11 @@ interface Props {
 const { locale } = Astro.props;
 const copy = downloadShowcaseCopy(locale);
 const stem = desktopMediaStem(locale);
+// 3.2.0 iPhone 商店图（产品仓 scripts/marketing-shots/ios/out/creative-3.2.0，按 720 宽导出）。
+const shots =
+  locale === "zh-CN"
+    ? { countdown: zhCountdown, widgets: zhWidgets, calendar: zhCalendar, watch: zhWatch }
+    : { countdown: enCountdown, widgets: enWidgets, calendar: enCalendar, watch: enWatch };
 ---
 
 <section class="showcase" aria-labelledby="download-showcase">
@@ -22,7 +36,7 @@ const stem = desktopMediaStem(locale);
 
   <div class="showcase-stages">
     <figure class="showcase-figure">
-      <DeviceHero locale={locale} clip="review" />
+      <DeviceHero locale={locale} clip="review" alt={copy.reviewAlt} />
       <figcaption>{copy.mobileCaption}</figcaption>
     </figure>
     <div class="showcase-desk">
@@ -36,6 +50,56 @@ const stem = desktopMediaStem(locale);
       </figure>
     </div>
   </div>
+
+  <!-- 一个图位轮播四张商店图；四段说明始终可见（图上的标题搜索引擎读不到）。
+       没有脚本时停在第一张；减少动态效果时不自动轮播，点选仍可切换。 -->
+  <section class="tour" aria-labelledby="download-iphone" data-iphone-tour>
+    <h2 id="download-iphone" class="article-block-title showcase-compare-title">
+      {copy.iphoneHeading}
+    </h2>
+    <p class="article-sublede">{copy.iphoneLede}</p>
+    <div class="tour-stage">
+      <div class="tour-slot">
+        {
+          copy.iphoneFeatures.map((feature, index) => (
+            <Picture
+              src={shots[feature.shot]}
+              alt={feature.alt}
+              formats={["webp"]}
+              fallbackFormat="webp"
+              widths={[360, 720]}
+              sizes="(min-width: 880px) 15rem, 60vw"
+              loading="lazy"
+              decoding="async"
+              pictureAttributes={{
+                class: "tour-shot",
+                "data-tour-shot": String(index),
+                "data-active": index === 0 ? "" : undefined,
+                "aria-hidden": index === 0 ? undefined : "true",
+              }}
+            />
+          ))
+        }
+      </div>
+      <ol class="tour-list">
+        {
+          copy.iphoneFeatures.map((feature, index) => (
+            <li class="tour-item" data-tour-item={index} data-active={index === 0 ? "" : undefined}>
+              <span class="tour-dot" aria-hidden="true" />
+              <div>
+                <h3 class="tour-title">
+                  <button type="button" aria-pressed={index === 0 ? "true" : "false"}>
+                    {feature.title}
+                  </button>
+                </h3>
+                <p class="tour-body">{feature.body}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
 
   <h2 id="download-compare" class="article-block-title showcase-compare-title">
     {copy.comparisonHeading}
@@ -75,6 +139,81 @@ const stem = desktopMediaStem(locale);
     </table>
   </div>
 </section>
+
+<script is:inline>
+  (function () {
+    var tour = document.querySelector("[data-iphone-tour]");
+    if (!(tour instanceof HTMLElement)) return;
+    var shots = tour.querySelectorAll("[data-tour-shot]");
+    var items = tour.querySelectorAll("[data-tour-item]");
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var active = 0;
+    var visible = false;
+    var held = false;
+    var timer = 0;
+
+    function show(index) {
+      active = index;
+      shots.forEach(function (shot, i) {
+        if (i === index) {
+          shot.setAttribute("data-active", "");
+          shot.removeAttribute("aria-hidden");
+        } else {
+          shot.removeAttribute("data-active");
+          shot.setAttribute("aria-hidden", "true");
+        }
+      });
+      items.forEach(function (item, i) {
+        if (i === index) item.setAttribute("data-active", "");
+        else item.removeAttribute("data-active");
+        var button = item.querySelector("button");
+        if (button) button.setAttribute("aria-pressed", i === index ? "true" : "false");
+      });
+      schedule();
+    }
+
+    // 每张停留 4.5 秒；只在看得见、没有悬停或焦点、没开减少动态效果时轮播。
+    function schedule() {
+      window.clearTimeout(timer);
+      if (reduce || held || !visible) return;
+      timer = window.setTimeout(function () {
+        show((active + 1) % shots.length);
+      }, 4500);
+    }
+
+    items.forEach(function (item, i) {
+      item.addEventListener("click", function () {
+        show(i);
+      });
+    });
+    tour.addEventListener("mouseenter", function () {
+      held = true;
+      schedule();
+    });
+    tour.addEventListener("mouseleave", function () {
+      held = false;
+      schedule();
+    });
+    tour.addEventListener("focusin", function () {
+      held = true;
+      schedule();
+    });
+    tour.addEventListener("focusout", function () {
+      held = false;
+      schedule();
+    });
+
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(
+        function (entries) {
+          visible = Boolean(entries[0] && entries[0].isIntersecting);
+          schedule();
+        },
+        { threshold: 0.4 },
+      ).observe(tour.querySelector(".tour-slot"));
+    }
+  })();
+</script>
 
 <script is:inline>
   (function () {
@@ -164,6 +303,104 @@ const stem = desktopMediaStem(locale);
     margin-top: 2.75rem;
   }
 
+  .tour-stage {
+    display: grid;
+    gap: 1.75rem;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+
+  .tour-slot {
+    position: relative;
+    width: 100%;
+    max-width: 15rem;
+    margin-inline: auto;
+    aspect-ratio: 720 / 1565;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--color-plum) 10%, transparent);
+    border-radius: 1.25rem;
+    background: color-mix(in srgb, var(--color-plum) 4%, var(--color-cream));
+    box-shadow: 0 18px 40px -22px color-mix(in srgb, var(--color-plum) 45%, transparent);
+  }
+
+  .tour-slot :global(.tour-shot) {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 500ms ease-out;
+  }
+
+  .tour-slot :global(.tour-shot[data-active]) {
+    opacity: 1;
+  }
+
+  .tour-slot :global(.tour-shot img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .tour-list {
+    display: grid;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tour-item {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.7rem 0.85rem;
+    border-radius: 0.9rem;
+    cursor: pointer;
+    transition: background-color 200ms ease;
+  }
+
+  .tour-item[data-active] {
+    background: color-mix(in srgb, var(--color-plum) 4.5%, transparent);
+  }
+
+  .tour-dot {
+    flex: none;
+    width: 0.4rem;
+    height: 0.4rem;
+    margin-top: 0.55rem;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--color-plum) 22%, transparent);
+    transition: background-color 200ms ease;
+  }
+
+  .tour-item[data-active] .tour-dot {
+    background: var(--color-orange-ink);
+  }
+
+  .tour-title {
+    margin: 0;
+    font-size: 0.98rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    line-height: 1.45;
+  }
+
+  .tour-title button {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-align: start;
+    cursor: pointer;
+  }
+
+  .tour-body {
+    margin: 0.3rem 0 0;
+    color: color-mix(in srgb, var(--color-plum) 72%, transparent);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
   .compare-wrap {
     margin-top: 1.15rem;
     overflow-x: auto;
@@ -244,6 +481,12 @@ const stem = desktopMediaStem(locale);
   }
 
   @media (min-width: 880px) {
+    .tour-stage {
+      grid-template-columns: 15rem minmax(0, 36rem);
+      justify-content: start;
+      gap: 2.75rem;
+    }
+
     .showcase-stages {
       grid-template-columns: 17.5rem 22rem;
       justify-content: start;
@@ -252,7 +495,36 @@ const stem = desktopMediaStem(locale);
     }
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    .tour-slot :global(.tour-shot),
+    .tour-item,
+    .tour-dot {
+      transition: none;
+    }
+  }
+
   @media (prefers-color-scheme: dark) {
+    .tour-slot {
+      border-color: color-mix(in srgb, var(--color-cream) 12%, transparent);
+      box-shadow: none;
+    }
+
+    .tour-item[data-active] {
+      background: color-mix(in srgb, var(--color-cream) 6%, transparent);
+    }
+
+    .tour-dot {
+      background: color-mix(in srgb, var(--color-cream) 24%, transparent);
+    }
+
+    .tour-item[data-active] .tour-dot {
+      background: var(--color-orange-bright);
+    }
+
+    .tour-body {
+      color: color-mix(in srgb, var(--color-cream) 72%, transparent);
+    }
+
     .showcase-figure figcaption,
     .compare-table thead th {
       color: color-mix(in srgb, var(--color-cream) 55%, transparent);

@@ -15,6 +15,14 @@ The homepage plays the short timer loops (`en` / `zh` × `white` / `black`) insi
 
 Each stem has `.mp4` (H.264, faststart) and `.png`. Desktop originals were `.mov`; do not ship those.
 
+The review clips were re-recorded on iOS 3.2.0 (2026-09-25). The device recordings are 1284×2778, so they are scaled to 2868 high and 3 px are cropped from each side to reach 1320×2868 without stretching:
+
+```bash
+ffmpeg -i EN_Review.mov -an -vf "scale=1326:2868:flags=lanczos,crop=1320:2868:3:0,format=yuv420p" \
+  -c:v libx264 -preset slow -crf 26 -profile:v high -movflags +faststart en-review.mp4
+ffmpeg -ss 0.5 -i EN_Review.mov -frames:v 1 -vf "scale=1326:2868:flags=lanczos,crop=1320:2868:3:0" en-review.png
+```
+
 | Frame | Appearance |
 | --- | --- |
 | `frames/iphone-17-pro-max-cosmic-orange.png` | Light |
