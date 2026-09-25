@@ -13,20 +13,26 @@ You can [start in the browser](https://off.rainif.com/en), or keep it on a phone
 
 Off Work Countdown is now DoneAt. The countdown is the same; only the name on the door is shorter.
 
-## On iPhone and iPad in 3.1.9
+## On iPhone and iPad in 3.2.0
 
-Alongside the countdown, DoneAt helps you look back at your work and plan time for what comes next:
+The countdown, scheduling and the Apple Watch app are free:
 
-- Explore weekly, monthly and yearly records, tap a time segment for details, or double-tap a day for a closer look.
-- Add life milestones and career stages to see work in context, including past estimates and your current work stage.
-- Plan tasks and use the focus timer with work and rest sessions.
-- Recover existing iCloud records during quick setup on a new device.
+- Build and review your schedule on one monthly calendar, with fixed weekdays, alternating weeks, shift rotations, free scheduling or manual timing.
+- Choose a country or region in Work Hours & Schedule and your schedule follows its public holidays and makeup workdays. If you updated from an earlier version, turn holidays on there once.
+- Check your shift and clock-out countdown on Apple Watch. The Watch app is free and does not need DoneAt Plus.
+
+DoneAt also helps you look back at your work and plan time for what comes next:
+
+- Explore weekly and monthly records, tap a time segment for details, or double-tap a day for a closer look. The last seven days are free; DoneAt Plus adds older records, the yearly view and editing past days.
+- With Plus, add life milestones and career stages to see work in context, including past estimates and your current work stage.
+- With Plus, plan tasks and use the focus timer with work and rest sessions.
+- On a new device, quick setup can bring back records already synced to your own iCloud.
 
 These features are part of the native iPhone and iPad app. The [download page](/en/download) explains the options for each platform.
 
 ## Where your data goes
 
-Working hours, workdays, salary and preferences stay on the device you are using by default. The countdown and earnings estimate are computed there. On iPhone and iPad, you can choose to sync schedules, records, salary and settings through your private iCloud database. Mac, Windows and the web timer remain local. None of these apps sends those settings or a user identifier to DoneAt servers.
+Working hours, workdays, salary and preferences stay on the device you are using by default. The countdown and earnings estimate are computed there. On iPhone and iPad, you can choose to sync schedules, records, salary and settings across your devices. Optional iCloud sync uses your private iCloud. DoneAt cannot read it. Mac, Windows and the web timer remain local. None of these apps sends those settings or a user identifier to DoneAt servers.
 
 The official site and the web timer record page views, loading performance, and a small set of aggregate events. An event carries only a name, never your schedule, salary, account, or advertising identifier. Hosting and analytics providers may still receive ordinary connection metadata such as an IP address and user agent, as they do on any website. The [privacy](/en/privacy) page has the details.
 

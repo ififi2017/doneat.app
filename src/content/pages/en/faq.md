@@ -31,7 +31,7 @@ The countdown is calculated on your device and does not need the network. After 
 
 ## Is my salary information private?
 
-Your hours and salary stay on the device by default. On iPhone and iPad, you can choose to sync them through your private iCloud database; Mac, Windows and the web timer remain local. DoneAt does not send this data to its own servers or place salary in widgets, notifications, Live Activities, share links or analytics. Next to the earnings figure there is a control that hides the amount when someone is looking over your shoulder. Details, including how to delete synced data, are on the [privacy](/en/privacy) page.
+Your hours and salary stay on the device by default. On iPhone and iPad, you can choose to sync them across your devices. Optional iCloud sync uses your private iCloud. DoneAt cannot read it. Mac, Windows and the web timer remain local. DoneAt does not send this data to its own servers or place salary in widgets, notifications, Live Activities, share links or analytics. Next to the earnings figure there is a control that hides the amount when someone is looking over your shoulder. Details, including how to delete synced data, are on the [privacy](/en/privacy) page.
 
 ## Is there an app for my phone or computer?
 

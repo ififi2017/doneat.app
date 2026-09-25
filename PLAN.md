@@ -132,6 +132,7 @@
 - [x] 2026-09-06：按 iOS 3.1.9 补齐英中关于与隐私政策（记录、生活、专注、Plus、iCloud、备份、购买和删除边界）；Astro check / build 通过，四页本地浏览器预览已查看。本次未部署。
 - [x] 下载页：三入口 + 手机/电脑展示与对照 + 为何原生；删 GitHub 直装与网页 vs 桌面对照表
 - [x] 2026-09-25：下载页按 iOS 3.2.0 更新（产品仓 Web 001 P1-11）：review 录屏重录；新增 iPhone 功能区（四张商店图轮播 + 可见说明）；对照表加月历排班、节假日与调休、Apple Watch；FAQ 加小组件 / Apple Watch、轮班与节假日两问。check / build / seo:check 通过。
+- [x] 2026-09-25：英中关于页按 iOS 3.2.0 更新（小节标题 3.2.0；月历排班、节假日与调休、Apple Watch 倒计时免费；记录七天免费与 Plus 边界按商店写）；关于页「你的数据会去哪里」与 FAQ 薪资隐私问答加入拍板的 iCloud 短句，FAQ JSON-LD 随正文生成。check / build / seo:check 通过。
 - [x] 内容页「打开计时」指 `off.rainif.com`，不形成来回跳转
 
 ### S3 — SEO 与响应头
