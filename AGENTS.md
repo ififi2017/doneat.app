@@ -1,11 +1,11 @@
 # 开发交接（给下一个 agent）
 
-把 `doneat.app` 做成可以预览的官网。锁定已经拍完，不要重新决策。先读本文件和 [PLAN.md](PLAN.md)，再写代码。
+`doneat.app` 官网已于 2026-08-30 上线，由本仓的 Vercel 项目提供。本文件是维护规则：锁定已经拍完，不要重新决策。先读本文件和 [PLAN.md](PLAN.md)，再写代码。
 
 ## 你在哪个仓
 
 - **工作区**：`/Users/zhengyuxuan/doneat-site`（本机文件夹不能叫 `*.app`，否则 macOS / Cursor 会当成应用包。GitHub 仓库仍是 `ififi2017/doneat.app`）。
-- **产品仓**（只读对照，不要改，除非用户明确要求）：`/Users/zhengyuxuan/Off-Work-Countdown`。产品计划是 [009](https://github.com/ififi2017/Off-Work-Countdown/blob/main/plans/009-doneat-platform-brand-domain.md)。
+- **产品仓**（只读对照，不要改，除非用户明确要求）：`/Users/zhengyuxuan/Off-Work-Countdown`。产品计划是 [009](https://github.com/ififi2017/Off-Work-Countdown/blob/main/plans/iOS/009-doneat-platform-brand-domain.md)，搜索增长见 [Web 001](https://github.com/ififi2017/Off-Work-Countdown/blob/main/plans/Web/001-seo-search-growth.md)。
 - 本仓只做品牌门厅、商店下载和支持站。可交互倒计时仍在 `https://off.rainif.com`。
 
 ## 已经有的（不要重做）
@@ -18,10 +18,14 @@
 | `assets/brand/` | Open Day SVG（mark 明/暗、满幅图标、圆角图标）。不要另造 mark。 |
 | `assets/icons/` | favicon、apple-touch、maskable、OG（mark + DoneAt）。 |
 | `assets/badges/` | 已下载的官方 App Store / Microsoft Store SVG。用仓内文件，不要再去产品仓拿 Mac App Store 专用标。 |
-| `assets/device/` | 首页机位：`en` / `zh` × `white` / `black` 的 `.mp4` + `.png`。用法见该目录 README。 |
+| `assets/device/` | 首页机位 timer loop（`en` / `zh` × `white` / `black`）和下载页 review 录屏（`en-review` / `zh-review`，iOS 3.2.0），各一份 `.mp4` + `.png`。用法与转码命令见该目录 README。 |
+| `assets/showcase/` | 下载页 iPhone 功能区用的 3.2.0 商店图，`en` / `zh-CN` 各四张（小组件、月历、Apple Watch、倒计时），720 宽 WebP。 |
 | `content/source/*.content.json` | 英中长文草稿。**不能原文上线**，见下方 S2。 |
 
-Astro 门厅、英中长文和预览部署已经在。接着改现有工程，不要当空白仓重做。`doneat.app` 现在仍是 Cloudflare 302 到 `off.rainif.com/`（会丢 path/query）。**不要拆这条 302，不要改 DNS。**
+Astro 门厅、英中长文、下载页都已上线。接着改现有工程，不要当空白仓重做。
+
+- 部署：`main` 自动发布到 `doneat.app`（Vercel 项目 `doneat-app`）；每个 PR 由 Vercel 出预览链接，写进 PR 评论。
+- 域名：Cloudflare 只管 DNS 和 AI 爬虫规则。`http` → `https`、`www` → 裸域都是 308，保留 path 和 query；根路径 `/` 由本仓 middleware 按浏览器语言 302 到门厅。**不要改 DNS、Cloudflare 规则或 Vercel 域名绑定，除非用户明确要求。**
 
 ## 已经拍板（不要重开）
 
@@ -43,19 +47,22 @@ Astro 门厅、英中长文和预览部署已经在。接着改现有工程，�
 - 触摸没有 hover。点按必须自己出反馈：橙色圆点约 `scale(1.16)` + 同一套暖光。`prefers-reduced-motion: reduce` 只变亮、不缩放。
 - 五连击只打缺口里的橙色圆点（可加大透明命中圆），圆环和指针不计数。第五次指针绕 `512,512` 转一圈回到五点，角度累加，不要从 360 弹回 0。时长约 0.8s，对照 iOS `CelebratingBrandMark`。不要为它拉 React。
 - 下载对照表是**手机 / iPad vs 电脑**，不是网页 vs 桌面。三种状态：`included` 实心橙点、`limited` 空心、`absent` 短横 + 「没有」/「No」。不要只靠把字调淡。iOS 独有行不要发明产品里没有的功能。
-- 首页机位用 timer loop（`en`/`zh` × `white`/`black`）。下载页手机用 review clip（`en-review` / `zh-review`）。不要对调。
+- 首页机位用 timer loop（`en`/`zh` × `white`/`black`）。下载页手机用 review clip（`en-review` / `zh-review`）。不要对调。首页不要换成商店合成图。
+- 商店图上印的标题搜索引擎读不到。下载页用商店图时，每张都要配一段页面上可见的功能说明和具体的 `alt`，只写该版本真实存在的功能（对照产品仓 `app-store-connect/ios/<版本>.json` 与 `docs/reviews/`）。
+- 下载页 iPhone 功能区是一个图位轮播多张商店图，说明列在旁边、始终可见，不要摆成商店图墙。轮播用内联脚本，不拉框架；悬停、键盘焦点、不在视口时暂停，`prefers-reduced-motion: reduce` 时不自动切换；没有脚本时停在第一张。
+- 新真机录屏常是别的机型尺寸（如 1284×2778）。等比缩放到 2868 高再居中裁到 1320×2868，不要拉伸；去音轨、`+faststart`。命令见 `assets/device/README.md`。
 - 搜索结果 favicon 要根路径 `/favicon.ico` 和一枚 ≥48 的 PNG。Google 搜索不认 SVG；不要只挂 32px。
 
-## 这一轮做什么
+## 各页面规则
 
-做完 **S0 剩余 + S1 + S2 + S3 里能在预览域做的部分**。停在可以 `*.vercel.app` 预览。S4 上线窗口留给人和产品仓同一天切。
+S0–S4 都已完成（S4 上线 2026-08-30）。以下按阶段保留仍然有效的规则。
 
 ### S0
 
 - 初始化 Astro + TypeScript + Tailwind，静态输出。
 - i18n 路由：门厅 19 语 `/{lang}/`；长文只有 `en`、`zh-CN`。
 - Content Collections 放 about / faq / how-it-works / download / privacy。
-- 接独立 Vercel 项目，先用预览域名。
+- 独立 Vercel 项目 `doneat-app`，`main` 即 production。
 - 铬层文案本仓自维护薄目录（可从 `locales/hall.json` 扩），**不要**整份拷产品 `translation.json`。
 
 ### S1 首页与铬层
@@ -84,12 +91,12 @@ Astro 门厅、英中长文和预览部署已经在。接着改现有工程，�
 
 - FAQ：保持现有问题骨架；改掉「网页工具、不用下载」；iOS / 桌面是正式用法；不写计时五态。2026-09-25 起（产品仓 `plans/Web/001` §7-3）可以写 3.2.0 已上架的小组件、实时活动 / 灵动岛、免费 Apple Watch、月历排班和节假日。
 - 隐私：品牌 DoneAt；联系邮箱只写 `hello@doneat.app`（已接通）。不要展示 `offwork@rainif.com`。
-- About / How it works / Download：DoneAt；无 GitHub 直装；无网页 vs 桌面对照表。下载页商店徽章 + 手机/电脑对照（included / limited / absent）+ 「为何要用原生」。语气不贬网页版。下载页手机用 review clip，不要用首页那套 timer loop。
+- About / How it works / Download：DoneAt；无 GitHub 直装；无网页 vs 桌面对照表。下载页商店徽章 + 手机和电脑演示 + iPhone 功能区（当前为 3.2.0：小组件与实时活动、月历排班与节假日、免费 Apple Watch、倒计时）+ 手机/电脑对照（included / limited / absent）+ 「为何要用原生」。语气不贬网页版。下载页手机用 review clip，不要用首页那套 timer loop。
 - 「返回 / 打开计时」指向 `https://off.rainif.com`，不要在本域绕回。
 - 没有长文的门厅语言：链到 `en` 或 `zh-CN`（中文含繁体 → zh-CN，其余 → en）。**不要** 301 到不存在的 URL。
 - 日文门厅点 FAQ → `/en/faq`。
 
-### S3（预览域能做的）
+### S3
 
 - 每页自己的 canonical（`https://doneat.app/...`）、hreflang、OG（用 `assets/icons/og-1200x630.png`，文案不写 `off.rainif.com`）。
 - 首页 Organization JSON-LD；下载页 SoftwareApplication JSON-LD。
@@ -104,8 +111,8 @@ Astro 门厅、英中长文和预览部署已经在。接着改现有工程，�
 - 不要用产品仓的 Next、Serwist、`next-i18next`、倒计时组件。
 - 不要为长文生成 19 份未审译文。
 - 不要把品牌句写进 19 语功能行。
-- 不要上桌面主窗 / 迷你计时 / 产品仓旧名 demo。
-- 不要独自拆 Cloudflare 302，不要切正式域名。
+- 首页不要上桌面主窗 / 迷你计时 / 产品仓旧名 demo。下载页的桌面演示只用仓内归档 `assets/desktop-demo/`，不另造截图。
+- 不要改 DNS、Cloudflare 规则或 Vercel 域名绑定，除非用户明确要求。
 - 尽量零水合。语言选择器不要为了它拉一个 React 运行时。
 
 ## 文案语气
@@ -121,6 +128,7 @@ Astro 门厅、英中长文和预览部署已经在。接着改现有工程，�
 - 三入口在浅色/深色、桌面/手机下都能点；徽章脚本失败时仍有商店链接。
 - 机位：浅/深、中/英四套对得上；减少动态效果时是静帧。
 - 没有第二份 PWA，没有 GitHub 直装按钮，没有指向假长文 URL 的 301。
-- 预览部署即可。不要宣布可以切 `doneat.app` DNS。
+- 下载页 iPhone 功能区：浅/深、中/英、手机/桌面宽度都能读；减少动态效果时不自动轮播、不请求视频。
+- `npm run check`、`npm run build`、`npm run seo:check` 通过。PR 用 Vercel 预览链接验收；合并到 `main` 即发布到 `doneat.app`。
 
-做完后更新 `PLAN.md` 对应 checkbox，并在 PR / 交接里写清预览 URL 和未做的 S4。
+做完后更新 `PLAN.md` 对应 checkbox，并在 PR 里写清 Vercel 预览链接。
