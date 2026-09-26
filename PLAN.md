@@ -134,6 +134,11 @@
 - [x] 2026-09-25：下载页按 iOS 3.2.0 更新（产品仓 Web 001 P1-11）：review 录屏重录；新增 iPhone 功能区（四张商店图轮播 + 可见说明）；对照表加月历排班、节假日与调休、Apple Watch；FAQ 加小组件 / Apple Watch、轮班与节假日两问。check / build / seo:check 通过。
 - [x] 内容页「打开计时」指 `off.rainif.com`，不形成来回跳转
 
+### Android 隐私补充（暂不上线）
+
+- [x] 2026-09-27：本地分支 `codex/android-privacy-policy` 补齐英中隐私页中的 Android 系统备份、手动导入导出、Play 购买、评价、设备认证与删除边界；核对产品源码及 Google 官方文档。`check`、`build`、`seo:check` 通过；英中新增段落桌面深色预览已查看，手机与浅色尚未验收。
+- [ ] 按用户 2026-09-27 指示暂不上线：尚未推送、创建 PR、合并或生产发布。Android 准备上架时重新核对实际发行包、商品配置及 SDK 声明，复核发布日期，再安排官网 PR 与发布。当前线上隐私页保持原样。
+
 ### S3 — SEO 与响应头
 
 - [x] 每页自己的 canonical、hreflang、Open Graph、必要 JSON-LD（SoftwareApplication 在下载页，Organization 在首页）
