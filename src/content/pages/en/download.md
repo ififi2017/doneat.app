@@ -18,6 +18,9 @@ requirements:
   - "Windows: Windows 10 20H2 or later (WebView2 required)"
   - "macOS: macOS 13.0 or later"
   - "iOS/iPad OS: iOS 26.0/iPad OS 26.0 or later"
+  - "Chrome extension: Chrome 120 or later"
+chromeExtensionLabel: Chrome Web Store
+chromeExtensionNote: Also available as a Chrome extension. Click the toolbar icon to see the time left.
 githubReleaseLabel: GitHub Releases
 githubReleaseNote: macOS and Windows installers only, and those builds are unsigned.
 ---
