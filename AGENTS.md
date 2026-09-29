@@ -93,6 +93,7 @@ S0–S4 都已完成（S4 上线 2026-08-30）。以下按阶段保留仍然有�
 - FAQ：保持现有问题骨架；改掉「网页工具、不用下载」；iOS / 桌面是正式用法；不写计时五态。2026-09-25 起（产品仓 `plans/Web/001` §7-3）可以写 3.2.0 已上架的小组件、实时活动 / 灵动岛、免费 Apple Watch、月历排班和节假日。
 - 隐私：品牌 DoneAt；联系邮箱只写 `hello@doneat.app`（已接通）。不要展示 `offwork@rainif.com`。
 - About / How it works / Download：DoneAt；无 GitHub 直装；无网页 vs 桌面对照表。下载页商店徽章 + 手机和电脑演示 + iPhone 功能区（当前为 3.2.0：小组件与实时活动、月历排班与节假日、免费 Apple Watch、倒计时）+ 手机/电脑对照（included / limited / absent）+ 「为何要用原生」。语气不贬网页版。下载页手机用 review clip，不要用首页那套 timer loop。
+- Chrome 扩展（`site.json` 的 `chromeWebStoreUrl`）只在下载页系统要求下方和 GitHub Releases 并列一条文字链接，不做商店徽章、不进首页和平台行。它不是主要收入来源，不要抬高权重。
 - 「返回 / 打开计时」指向 `https://off.rainif.com`，不要在本域绕回。
 - 没有长文的门厅语言：链到 `en` 或 `zh-CN`（中文含繁体 → zh-CN，其余 → en）。**不要** 301 到不存在的 URL。
 - 日文门厅点 FAQ → `/en/faq`。

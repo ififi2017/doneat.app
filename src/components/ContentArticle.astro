@@ -26,6 +26,26 @@ const isFaq = page === "faq";
 const isDownload = page === "download";
 const hasBody = Boolean(entry.body?.trim());
 
+// 商店徽章之外的次要入口：Chrome 扩展和 GitHub 安装包，只在系统要求下方给文字链接。
+const otherDownloads = [
+  entry.data.chromeExtensionLabel && entry.data.chromeExtensionNote
+    ? {
+        href: siteConfig.chromeWebStoreUrl,
+        track: "chrome_extension_open",
+        label: entry.data.chromeExtensionLabel,
+        note: entry.data.chromeExtensionNote,
+      }
+    : null,
+  entry.data.githubReleaseLabel && entry.data.githubReleaseNote
+    ? {
+        href: siteConfig.githubReleasesUrl,
+        track: "github_releases_open",
+        label: entry.data.githubReleaseLabel,
+        note: entry.data.githubReleaseNote,
+      }
+    : null,
+].filter((item) => item !== null);
+
 const jsonLd = isFaq
   ? faqPageJsonLd(parseFaqMarkdown(entry.body ?? ""), {
       locale,
@@ -120,19 +140,23 @@ const jsonLd = isFaq
               ))}
             </ul>
             {
-              entry.data.githubReleaseLabel && entry.data.githubReleaseNote ? (
-                <p class="mt-3 border-t border-plum/10 pt-3 text-sm leading-relaxed text-plum/60 dark:border-cream/10 dark:text-cream/60">
-                  <a
-                    class="text-inherit underline decoration-plum/25 underline-offset-4 hover:text-orange-ink hover:decoration-orange-ink dark:decoration-cream/25 dark:hover:text-orange-bright dark:hover:decoration-orange-bright"
-                    href={siteConfig.githubReleasesUrl}
-                    data-track="github_releases_open"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {entry.data.githubReleaseLabel}
-                  </a>
-                  <span> · {entry.data.githubReleaseNote}</span>
-                </p>
+              otherDownloads.length ? (
+                <ul class="mt-3 list-none space-y-1 border-t border-plum/10 p-0 pt-3 text-sm leading-relaxed text-plum/60 dark:border-cream/10 dark:text-cream/60">
+                  {otherDownloads.map((item) => (
+                    <li>
+                      <a
+                        class="text-inherit underline decoration-plum/25 underline-offset-4 hover:text-orange-ink hover:decoration-orange-ink dark:decoration-cream/25 dark:hover:text-orange-bright dark:hover:decoration-orange-bright"
+                        href={item.href}
+                        data-track={item.track}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {item.label}
+                      </a>
+                      <span> · {item.note}</span>
+                    </li>
+                  ))}
+                </ul>
               ) : null
             }
           </aside>

@@ -18,6 +18,9 @@ requirements:
   - Windows：Windows 10 20H2 及以上版本（需有 WebView2 组件）
   - macOS：macOS 13.0 及以上版本
   - iOS/iPad OS：iOS 26.0/iPad OS 26.0 及以上版本
+  - Chrome 扩展：Chrome 120 及以上版本
+chromeExtensionLabel: Chrome 应用商店
+chromeExtensionNote: 也有 Chrome 扩展版，点工具栏图标就能看剩余时间。
 githubReleaseLabel: GitHub Releases
 githubReleaseNote: 仅含 macOS / Windows 直接安装包，且未签名。
 ---

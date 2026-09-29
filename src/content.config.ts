@@ -25,6 +25,8 @@ const pages = defineCollection({
     nativeNote: z.string().optional(),
     githubReleaseLabel: z.string().optional(),
     githubReleaseNote: z.string().optional(),
+    chromeExtensionLabel: z.string().optional(),
+    chromeExtensionNote: z.string().optional(),
   }),
 });
 
