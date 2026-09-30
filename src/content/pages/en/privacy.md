@@ -1,17 +1,17 @@
 ---
 title: "Privacy Policy — DoneAt"
-description: "How DoneAt stores data locally by default, offers optional private iCloud sync on iPhone and iPad, and handles analytics and third-party services."
+description: "How DoneAt stores data locally, handles optional iCloud sync, Android system backups and Google Play services, and lets you export or delete data."
 heading: "Privacy Policy"
-intro: "This page explains how DoneAt stores and processes information: the official site, the web timer, and the apps on iPhone, iPad, Mac and Windows."
+intro: "This page explains how DoneAt stores and processes information: the official site, the web timer, and the apps on iPhone, iPad, Android, Mac and Windows."
 updatedLabel: "Last updated"
-updated: "6 September 2026"
+updated: "30 September 2026"
 ---
 
 ## Data stored by DoneAt
 
-Information you enter is stored locally by default: in the browser’s local storage on the web timer, and in the application’s data on iPhone, iPad, Mac and Windows. DoneAt does not provide product accounts or send this information to DoneAt servers.
+Information you enter is stored locally by default: in the browser’s local storage on the web timer, and in the application’s data on iPhone, iPad, Android, Mac and Windows. DoneAt does not provide product accounts or send this information to DoneAt servers.
 
-On iPhone and iPad, you can choose to turn on iCloud sync. It stores your schedules, records, salary, reminder preferences, appearance, language, life profile and Focus data in your private iCloud database under your Apple Account. Notification authorization, biometric protection, Live Activity settings, the current work timer and onboarding state stay on each device. The web timer, Mac app and Windows app remain local and are not part of this sync.
+On iPhone and iPad, you can choose to turn on iCloud sync. It stores your schedules, records, salary, reminder preferences, appearance, language, life profile and Focus data in your private iCloud database under your Apple Account. Notification authorization, biometric protection, Live Activity settings, the current work timer and onboarding state stay on each device. This iCloud sync does not include Android, the web timer, Mac or Windows.
 
 The countdown, progress and earnings estimate are calculated on your device from this information.
 
@@ -30,15 +30,29 @@ Sync is off by default. When you enable it on iPhone or iPad, Apple’s CloudKit
 
 Enabling sync requires DoneAt Plus. Sync that is already enabled continues after a subscription expires. Turning sync off stops synchronization on that device and keeps both its current local copy and the existing iCloud copy. Turning it off does not delete either copy.
 
+## Android system backup and device transfer
+
+On Android, the app allows the records archive and device settings to be included in system backup and device transfer. The archive can contain schedules, work records, salary settings and history, life information, and Focus tasks, plans and sessions. Device settings can also contain an unfinished setup draft, including salary entered during setup. Whether a backup is created, where it is stored and how it is restored depend on your device, Google account and Android backup settings. DoneAt does not receive a copy on its own servers.
+
+The running timer, active Focus queue, reminder registry, purchase proof and pending purchase acknowledgement are excluded from the app’s backup and device-transfer rules. Reminders are rebuilt and purchase status is checked again after a restore.
+
+The current Android version does not offer automatic Google Drive sync or require Google sign-in within DoneAt. Android and iPhone do not sync with each other automatically. You can move data yourself using a RecordJSON backup file, which may contain salary and other personal information.
+
 ## Backup exports
 
-On iPhone and iPad, a backup export is created only when you choose Export. A full backup includes your records, synced settings, salary and career salary history, life profile, and Focus tasks and sessions. You can also export without the life profile; that option still includes salary and career history. The system share sheet then lets you choose where to save or share the file.
+On iPhone and iPad, a backup export is created only when you choose Export. A full backup includes your records, synced settings, salary and career salary history, life profile, and Focus tasks and sessions. You can also export without the life profile; that option still includes salary settings. The system share sheet then lets you choose where to save or share the file.
+
+On Android, you choose whether to import or export a RecordJSON backup in Records & Data; you can also restore a file during initial setup. The system document picker lets you select the file or save location. A full export can contain records, schedules, salary settings and career salary history, life information, and Focus tasks, plans and sessions. Exporting without the life profile still includes salary settings.
 
 The export is a readable JSON file, not a password-protected archive. Choose a storage location and recipients appropriate for the information it contains. Files you save or share are separate copies; deleting data in DoneAt does not delete those files.
 
 ## Plus purchases
 
 On iPhone and iPad, Apple handles Plus subscriptions and lifetime purchases through the App Store. DoneAt uses StoreKit to verify purchase status and restore access, and keeps a local record of the verified entitlement and any expiry date. DoneAt does not receive your payment card details or send your purchase status to a DoneAt account server. Apple processes purchase information under its own policies.
+
+On Android, Google Play handles Plus subscriptions and lifetime purchases. DoneAt queries Play for owned purchases, verifies Play’s signature, and stores signed purchase proof and acknowledgement retry information in app-private storage excluded from Android backup and device transfer. The proof includes purchase tokens and product identifiers, not salary or work records. The app checks Play again when it starts, returns to the foreground, restores purchases or retries acknowledgement.
+
+Google Play processes payment and purchase information under its own policies. DoneAt does not receive payment card details or send purchase status to a DoneAt account server. Restoring or importing a data archive does not restore Plus access; the app checks Google Play separately. App Store and Google Play purchases are separate.
 
 A subscription expiring does not delete your existing records. Export and deletion remain available without an active subscription.
 
@@ -76,6 +90,8 @@ If you choose to share through a third-party social service, that service’s pr
 
 The iPhone, iPad, Mac and Windows apps do not collect usage analytics.
 
+The Android app does not include a DoneAt usage analytics service. It accesses Google Play when checking or buying Plus, and may ask Play to show an in-app review prompt after an eligible completed shift. The app does not receive a result telling it whether you submitted a review. If you submit one, Google Play handles the rating and text. Public reviews may be visible to the developer; reviews from a closed test may be shared privately with the developer. You can manage or delete your review through Google Play.
+
 A desktop build installed from GitHub checks for a newer release when it starts. The request contains no account, salary or usage data, and an installer is downloaded only after you confirm an update. If GitHub cannot be reached directly, you may choose to retry through a third-party mirror. Updates downloaded through either channel are signature-checked before installation.
 
 A build installed from the Microsoft Store does not initiate update checks. Updates are provided by the Microsoft Store.
@@ -84,9 +100,9 @@ Reminders are scheduled and displayed locally by the operating system. The apps 
 
 ## Widgets, Live Activities and device protection
 
-Widgets and Live Activities use the information needed to show your timer and progress, including Focus information where applicable. They do not include salary. Local notifications also omit salary. These surfaces may be visible on your Home Screen or Lock Screen; you can manage their visibility and notification permissions in the app and system settings.
+Widgets and, on iPhone and iPad, Live Activities use the information needed to show your timer and progress, including Focus information where applicable. They do not include salary. Local notifications also omit salary. These surfaces may be visible on your Home Screen or Lock Screen; you can manage their visibility and notification permissions in the app and system settings.
 
-When DoneAt asks you to authenticate to protect earnings or records, authentication is handled by the device through Face ID, Touch ID or its passcode. DoneAt receives the authentication result, not your biometric data or passcode. This protection is configured separately on each device.
+When DoneAt asks you to authenticate to protect earnings or records, authentication is handled by the device: Face ID, Touch ID or a device passcode on iPhone and iPad; supported biometrics or the device PIN, pattern or password on Android. DoneAt receives the authentication result, not your biometric data or device credentials. This protection is configured separately on each device.
 
 ## Third-party services
 
@@ -96,6 +112,7 @@ DoneAt uses the following services to host pages, measure the official site and 
 - Upstash — storage of daily aggregate event counts for the official site and the web timer
 - GitHub — source code, release information, and update checks for GitHub-distributed desktop builds
 - Apple — app distribution, Plus payments and purchase verification through the App Store and StoreKit, and private iCloud sync when you choose to enable it on iPhone or iPad
+- Google — Google Play distribution, Plus payments and purchase status, in-app reviews, and Android system backup or device transfer when enabled in device settings; Google handles information under its [privacy policy](https://policies.google.com/privacy)
 - Microsoft — distribution and updates for the Microsoft Store listing you open
 - A third-party download mirror, used only when you choose it from a GitHub-distributed desktop build
 - The third-party social service you choose when sharing a countdown
@@ -105,6 +122,10 @@ DoneAt uses the following services to host pages, measure the official site and 
 On the web timer, clear this site’s data in your browser, including local storage and the language cookie. On Mac or Windows, uninstall the app and delete its data.
 
 On iPhone and iPad, uninstalling removes the data stored on that device. If you enabled iCloud sync, the private iCloud copy remains available to your other devices. Delete from iCloud in DoneAt’s Records & Data settings deletes the iCloud copy and clears the associated synced records on devices signed in to that Apple Account when they next sync. Removing records only from this device leaves the iCloud copy available to restore. Backup files you previously exported must be deleted separately from the places where you saved or shared them.
+
+On Android, Records & Data lets you export or delete records. Deleting records keeps app settings, including salary settings. To remove all local app data, clear the app’s storage in Android settings or uninstall it. Files exported elsewhere are separate copies and must be deleted where you saved or shared them.
+
+Android system backups may remain after local data is cleared or the app is uninstalled, and may be restored when you reinstall or move to another device. Manage those copies in the relevant device or Google account backup settings; DoneAt cannot access or delete them for you. Removing local data does not cancel a Google Play subscription. Manage or cancel subscriptions in Google Play.
 
 DoneAt cannot access your Apple Account or delete its private iCloud data on your behalf. DoneAt also cannot access or delete your local data from a server.
 

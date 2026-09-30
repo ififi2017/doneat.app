@@ -129,6 +129,7 @@
 
 - [x] 拷贝 about / faq / how-it-works / download / privacy
 - [x] 重写 FAQ；隐私页改邮箱与品牌名
+- [x] 2026-09-30：英中隐私政策覆盖当前 Android 实现（系统备份与设备转移、Google Play 购买和评价、RecordJSON 导入导出、设备身份验证与删除边界），明确首发不含自动 Drive 同步；校正不含生活档案导出的薪资说明。Node 22 下 check / build / seo:check 通过。本次仅更新源码，未合并到 main。
 - [x] 2026-09-06：按 iOS 3.1.9 补齐英中关于与隐私政策（记录、生活、专注、Plus、iCloud、备份、购买和删除边界）；Astro check / build 通过，四页本地浏览器预览已查看。本次未部署。
 - [x] 下载页：三入口 + 手机/电脑展示与对照 + 为何原生；删 GitHub 直装与网页 vs 桌面对照表
 - [x] 2026-09-25：下载页按 iOS 3.2.0 更新（产品仓 Web 001 P1-11）：review 录屏重录；新增 iPhone 功能区（四张商店图轮播 + 可见说明）；对照表加月历排班、节假日与调休、Apple Watch；FAQ 加小组件 / Apple Watch、轮班与节假日两问。check / build / seo:check 通过。
