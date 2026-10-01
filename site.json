@@ -23,10 +23,11 @@
     "orange": "#F45A1E",
     "orangeBright": "#FF9A45",
     "orangeDeep": "#F05218",
-    "orangeInk": "#C2410C",
+    "orangeInk": "#9D3516",
     "cream": "#FFF1D8",
-    "plum": "#2B1935",
-    "eveningStart": "#3B2048",
-    "eveningEnd": "#1D1329"
+    "plum": "#30202C",
+    "eveningStart": "#44313E",
+    "eveningEnd": "#171318",
+    "paper": "#F4F0E8"
   }
 }

@@ -10,6 +10,8 @@ import * as cssSelect from "css-select";
 import * as cssTree from "css-tree";
 import { homeStory } from "../src/lib/home-story.ts";
 import { mediaCopy } from "../src/lib/media-copy.ts";
+import { homeDemo } from "../src/lib/home-demo.ts";
+const hallCopy = JSON.parse(readFileSync(new URL("../locales/hall.json", import.meta.url), "utf8"));
 
 const repo = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const documents = JSON.parse(execFileSync("python3", [resolve(repo, "review/parse-built-home.py"), repo], { encoding: "utf8", maxBuffer: 16 * 1024 * 1024 }));
@@ -50,7 +52,7 @@ function stylesheetRules(doc) {
         if (p.type === "atrule" && p.name === "layer") layers.push(p.params);
       }
       rule.walkDecls((decl) => {
-        if (decl.prop !== "color" && !decl.prop.startsWith("--footer-")) return;
+        if (decl.prop !== "color" && !decl.prop.startsWith("--")) return;
         for (const selector of rule.selectors) rules.push({ selector, property: decl.prop, value: decl.value, important: decl.important, media, layered: layers.length > 0, source: href, order: rules.length });
       });
     });
@@ -88,13 +90,23 @@ function footerColor(node, rules, dark, hover) {
   if (!variable) return { color: rule.value, rule };
   const token = inheritedToken(node, variable, rules, dark, hover);
   assert(token, `missing inherited footer token ${variable}`);
-  return { color: token.value, rule, token };
+  let color = token.value;
+  const chain = [variable];
+  while (/^var\(/.test(color)) {
+    const name = /^var\(\s*(--[\w-]+)/.exec(color)?.[1];
+    assert(name && !chain.includes(name), `invalid footer token chain ${chain}`);
+    chain.push(name);
+    const next = inheritedToken(node, name, rules, dark, hover);
+    assert(next, `missing footer token ${name}`);
+    color = next.value;
+  }
+  return { color, rule, token };
 }
 
 const results = [], cascade = [];
 for (const { locale, document: doc } of documents) {
   connect(doc);
-  const copy = homeStory(locale), media = mediaCopy(locale);
+  const copy = homeStory(locale), media = mediaCopy(locale), demo = homeDemo(locale);
   assert(Object.values(copy).every((s) => typeof s === "string" && s.trim()), `${locale}: missing story`);
   assert(Object.values(media).every((s) => typeof s === "string" && s.trim()), `${locale}: missing control`);
   assert.equal(one("html", doc).attribs.lang, locale);
@@ -102,7 +114,7 @@ for (const { locale, document: doc } of documents) {
   assert.equal(all("h1", doc).length, 1);
   const headings = all("#shift-title>span", doc).map(clean);
   assert.deepEqual(headings, [copy.headlineWork, copy.headlineLife]);
-  for (const [selector, value] of [["#proof-title", copy.proofTitle], [".proof-copy>p", copy.proofBody], ["#carry-title", copy.carryTitle], [".carry-heading>p", copy.carryBody], ["#get-title", copy.getTitle], [".get-layout>div>p", copy.getBody], [".proof-device>figcaption", copy.recording]]) assert.equal(clean(one(selector, doc)), value, `${locale}: ${selector}`);
+  for (const [selector, value] of [["#proof-title", copy.proofTitle], [".proof-copy>p", copy.proofBody], ["#carry-title", copy.carryTitle], [".carry-heading>p", copy.carryBody], ["#get-title", copy.getTitle], [".get-layout>div>p", copy.getBody], [".proof-device>figcaption", `${hallCopy.functionalSubtitle[locale]} · iPhone`]]) assert.equal(clean(one(selector, doc)), value, `${locale}: ${selector}`);
   if (locale !== "en") {
     for (const key of ["headlineWork", "headlineLife", "proofBody", "carryBody", "getBody", "recording"]) assert.notEqual(copy[key], homeStory("en")[key], `${locale}: English fallback ${key}`);
     for (const key of ["pause", "play", "brand"]) assert.notEqual(media[key], mediaCopy("en")[key], `${locale}: English control fallback ${key}`);
@@ -115,13 +127,20 @@ for (const { locale, document: doc } of documents) {
   assert.equal(clean(one("[data-media-control]>span", doc)), media.pause);
   assert.equal(one("[data-brand-dot]", doc).attribs["aria-label"], media.brand);
   assert.equal(one("[data-brand-dot]", doc).attribs["aria-hidden"], "true");
-  const alts = all(".carry-gallery figure img", doc).map((n) => n.attribs.alt);
+  const alts = [one('.carry-widgets[role="img"]', doc).attribs["aria-label"], one(".watch-screen img", doc).attribs.alt];
   assert.deepEqual(alts, [copy.widgetsAlt, copy.watchAlt]);
+  assert.equal(all(".carry-gallery figure img", doc).length, 5);
+  assert(all(".carry-widgets img, .watch-frame img", doc).every((image) => image.attribs.alt === ""));
+  assert.equal(all(".shift-cut, .carry-divider", doc).length, 0);
   assert.notEqual(alts[0], alts[1]);
   assert(!alts.includes(copy.carryBody));
-  assert.equal(one(".shift-ticket", doc).attribs["aria-label"], copy.shiftExample);
-  assert.equal(one(".shift-ticket", doc).attribs.dir, "ltr");
-  assert.deepEqual(all(".ticket-label>span", doc).map(clean), [copy.clockIn, copy.clockOut]);
+  assert.equal(one(".shift-ticket", doc).attribs["aria-label"], demo.day);
+  assert.equal(one("[data-shift-now]", doc).attribs.dir, "ltr");
+  assert.equal(clean(one("[data-shift-now]", doc)), "13:00");
+  assert.equal(clean(one("[data-shift-left]", doc)), "04:00");
+  assert.equal(clean(one("[data-shift-replay]", doc)), `${demo.replay}↺`);
+  assert(Object.hasOwn(one("[data-shift-replay]", doc).attribs, "hidden"));
+  assert.deepEqual(all(".ticket-label>span", doc).map(clean), [`${copy.clockIn} 09:00`, `${copy.clockOut} 17:00`]);
   const expectedDownload = `/${locale.startsWith("zh") ? "zh-CN" : "en"}/download`;
   for (const link of all('[data-track="download_page_open"]', doc)) assert.equal(link.attribs.href, expectedDownload);
   assert(all('[data-track="download_page_open"]', doc).length >= 2);

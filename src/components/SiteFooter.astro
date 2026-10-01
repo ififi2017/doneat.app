@@ -15,7 +15,7 @@ const { locale } = Astro.props;
 const contentLang = contentLocaleFor(locale);
 ---
 
-<footer class="site-footer mt-auto border-t border-plum/10 dark:border-cream/10">
+<footer class="site-footer mt-auto">
   <div class="page-frame site-footer-inner">
     <nav class="site-footer-nav" aria-label={siteConfig.brandName}>
       <a href={`/${contentLang}/how-it-works`}>{t(locale, "howItWorks")}</a>
@@ -37,16 +37,23 @@ const contentLang = contentLocaleFor(locale);
 </footer>
 
 <style>
+  .site-footer {
+    --footer-link-color: var(--night-ink);
+    --footer-link-hover-color: var(--color-orange-bright);
+    --accent: var(--color-orange-bright);
+    background: var(--night-surface);
+    color: var(--night-ink);
+    border-top: 1px solid color-mix(in srgb, var(--night-ink) 22%, transparent);
+  }
   .site-footer-inner {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
     gap: 0.5rem 1.25rem;
-    padding-block: 0.85rem 1rem;
-    padding-bottom: max(1rem, env(safe-area-inset-bottom));
-    font-size: 0.875rem;
+    padding-block: 1.5rem;
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+    font-size: 0.75rem;
   }
 
   .site-footer-nav,
@@ -88,6 +95,9 @@ const contentLang = contentLocaleFor(locale);
   }
 
   .site-footer-inner a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
     color: var(--footer-link-color, color-mix(in srgb, var(--color-plum) 80%, transparent));
     text-decoration: none;
   }

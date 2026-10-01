@@ -13,7 +13,6 @@ const copy = mediaCopy(locale);
   (function () {
     var button = document.querySelector("[data-media-control]");
     if (!button) return;
-    button.hidden = false;
     var motion = matchMedia("(prefers-reduced-motion: reduce)");
     var paused = motion.matches || Boolean(navigator.connection && navigator.connection.saveData);
     var visibleVideos = new WeakSet();
@@ -39,6 +38,7 @@ const copy = mediaCopy(locale);
     } else videos.forEach(function (video) { visibleVideos.add(video); });
     document.addEventListener("visibilitychange", function () { videos.forEach(syncVideo); });
     function update() {
+      button.hidden = motion.matches || Boolean(navigator.connection && navigator.connection.saveData);
       document.documentElement.toggleAttribute("data-demos-paused", paused);
       button.setAttribute("aria-pressed", String(paused));
       button.querySelector("span").textContent = paused ? button.dataset.play : button.dataset.pause;
