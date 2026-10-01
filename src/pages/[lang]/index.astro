@@ -1,82 +1,64 @@
 ---
+import { Picture } from "astro:assets";
 import BrandMark from "../../components/BrandMark.astro";
 import DeviceHero from "../../components/DeviceHero.astro";
+import MediaControls from "../../components/MediaControls.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
 import StoreEntries from "../../components/StoreEntries.astro";
-import MediaControls from "../../components/MediaControls.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import {
-  brandSentence,
-  functionalSubtitle,
-  HALL_LOCALES,
-  homeTitle,
-  isHallLocale,
-  t,
-  type HallLocale,
-} from "../../lib/config";
+import { brandSentence, contentLocaleFor, functionalSubtitle, HALL_LOCALES, homeTitle, isChineseHall, isHallLocale, t, webAppUrl } from "../../lib/config";
 import { homeJsonLd } from "../../lib/jsonld";
+import { homeStory } from "../../lib/home-story";
+import "../../styles/home-story.css";
+import enWidgets from "../../../assets/showcase/en/iphone-widgets.webp";
+import enWatch from "../../../assets/showcase/en/iphone-watch.webp";
+import zhWidgets from "../../../assets/showcase/zh-CN/iphone-widgets.webp";
+import zhWatch from "../../../assets/showcase/zh-CN/iphone-watch.webp";
 
-export function getStaticPaths() {
-  return HALL_LOCALES.map((lang) => ({ params: { lang } }));
-}
-
-const langParam = Astro.params.lang;
-if (!isHallLocale(langParam)) {
-  throw new Error(`Unknown hall locale: ${langParam}`);
-}
-const locale: HallLocale = langParam;
-const sentence = brandSentence(locale);
-const subtitle = functionalSubtitle(locale);
+export function getStaticPaths() { return HALL_LOCALES.map((lang) => ({ params: { lang } })); }
+const locale = Astro.params.lang;
+if (!isHallLocale(locale)) throw new Error(`Unknown hall locale: ${locale}`);
+const copy = homeStory(locale);
 const description = t(locale, "homeDescription");
-const values = [
-  t(locale, "valueLocal"),
-  t(locale, "valueNoAccount"),
-  t(locale, "valueSeeDone"),
-] as const;
-
-const jsonLd = homeJsonLd({ locale, description });
+const download = `/${contentLocaleFor(locale)}/download`;
+const widgets = isChineseHall(locale) ? zhWidgets : enWidgets;
+const watch = isChineseHall(locale) ? zhWatch : enWatch;
+const values = [t(locale, "valueLocal"), t(locale, "valueNoAccount"), t(locale, "valueSeeDone")];
 ---
 
-<BaseLayout
-  locale={locale}
-  title={homeTitle(locale)}
-  description={description}
-  path={`/${locale}`}
-  hreflangKind="hall"
-  jsonLd={jsonLd}
-  trackPage="hall_view"
->
-  <div class="hall-page flex min-h-dvh flex-col">
+<BaseLayout locale={locale} title={homeTitle(locale)} description={description} path={`/${locale}`} hreflangKind="hall" jsonLd={homeJsonLd({locale,description})} trackPage="hall_view">
+  <div class="shift-page">
     <SiteHeader locale={locale} currentPage="home" />
-    <main id="content" class="page-frame hall">
-      <div class="hall-copy">
-        <div class="hall-signature">
-          <BrandMark class="hall-mark" locale={locale} />
-          <p class="hall-eyebrow">{subtitle}</p>
+    <main id="content">
+      <section class="shift-hero" aria-labelledby="shift-title">
+        <div class="shift-frame">
+          <div class="shift-masthead"><span>DoneAt — {functionalSubtitle(locale)}</span><a href="#see-it">{copy.explore}<span aria-hidden="true">↓</span></a></div>
+          <h1 class="shift-title" id="shift-title"><span>{copy.headlineWork}</span><span>{copy.headlineLife}</span></h1>
+          <div class="shift-bottom">
+            <div class="shift-intro"><p>{brandSentence(locale)}</p><div class="shift-actions"><a class="btn btn-primary" href={download} data-track="download_page_open">{t(locale,"downloadCta")}</a><a class="shift-web-link" href={webAppUrl(locale,"hall")} target="_blank" rel="noopener noreferrer" data-track="web_timer_open">{t(locale,"webCta")}<span aria-hidden="true">↗</span></a></div></div>
+            <figure class="shift-ticket" dir="ltr" aria-label={copy.shiftExample}>
+              <div class="ticket-label"><span dir="auto">{copy.clockIn}</span><span dir="auto">{copy.clockOut}</span></div>
+              <div class="ticket-hours"><span>09:00</span><svg viewBox="0 0 160 30" aria-hidden="true"><path d="M0 15H152m-14-13 14 13-14 13" fill="none" stroke="currentColor" stroke-width="2" /></svg><span>17:00</span></div>
+              <figcaption><span dir="auto">{copy.shiftExample}</span><span class="ticket-punch" aria-hidden="true"></span></figcaption>
+            </figure>
+          </div>
         </div>
-        <h1 class="hall-title">DoneAt</h1>
-        {sentence ? <p class="hall-lede">{sentence}</p> : null}
-        <div class="hall-cta">
-          <StoreEntries locale={locale} variant="home" />
+        <div class="shift-cut" aria-hidden="true"><span>DoneAt</span><span>→</span></div>
+      </section>
+      <section class="shift-proof shift-frame" id="see-it" aria-labelledby="proof-title">
+        <div class="chapter-line"><span>01</span><span>{functionalSubtitle(locale)}</span><MediaControls locale={locale} /></div>
+        <div class="proof-layout">
+          <div class="proof-copy"><h2 id="proof-title">{copy.proofTitle}</h2><p>{copy.proofBody}</p><ul class="proof-values">{values.map((v,i)=><li><span aria-hidden="true">0{i+1}</span>{v}</li>)}</ul><a class="story-link" href={download}>{t(locale,"downloadCta")}<span aria-hidden="true">↗</span></a></div>
+          <figure class="proof-device"><div class="proof-label"><BrandMark locale={locale} /><span>DoneAt</span></div><DeviceHero locale={locale} /><figcaption>{copy.recording}</figcaption></figure>
         </div>
-        <p class="hall-qualities" data-hall-qualities>
-          {values.map((value, index) => <span><small aria-hidden="true">0{index + 1}</small>{value}</span>)}
-        </p>
-      </div>
-      <div class="hall-stage">
-        <div class="daylight-dial" aria-hidden="true">
-          <svg viewBox="0 0 600 600" fill="none">
-            <circle class="dial-orbit" cx="300" cy="300" r="264" />
-            <circle class="dial-inner" cx="300" cy="300" r="220" />
-            {Array.from({length: 60}, (_, i) => <path class:list={["dial-tick", i % 5 === 0 && "is-hour"]} d={i % 5 === 0 ? "M300 25V43" : "M300 29V36"} transform={`rotate(${i * 6} 300 300)`} />)}
-            <path class="dial-day" d="M300 36 A264 264 0 0 1 432 529" />
-            <circle class="dial-end" cx="432" cy="529" r="7" />
-          </svg>
+      </section>
+      <section class="shift-carry" aria-labelledby="carry-title">
+        <div class="shift-frame"><div class="chapter-line"><span>02</span><span>iPhone · iPad · Apple Watch</span></div><div class="carry-heading"><h2 id="carry-title">{copy.carryTitle}</h2><p>{copy.carryBody}</p></div>
+          <div class="carry-gallery"><figure><Picture src={widgets} formats={["webp"]} widths={[360,720]} sizes="(min-width:880px) 30vw, 80vw" alt={copy.carryBody} loading="lazy" decoding="async" /><figcaption>iPhone / iPad</figcaption></figure><div class="carry-divider" aria-hidden="true"><span>→</span><svg viewBox="0 0 160 160" fill="none"><circle cx="80" cy="80" r="74" stroke="currentColor" stroke-width="1" /><path d="M80 42V80L104 98" stroke="currentColor" stroke-width="5" stroke-linecap="round" /></svg><span>↗</span></div><figure><Picture src={watch} formats={["webp"]} widths={[360,720]} sizes="(min-width:880px) 30vw, 80vw" alt={copy.carryBody} loading="lazy" decoding="async" /><figcaption>Apple Watch</figcaption></figure></div>
         </div>
-        <div class="hall-device"><DeviceHero locale={locale} priority /></div>
-        <div class="hall-stage-caption"><span>{t(locale, "deviceAlt")}</span><MediaControls locale={locale} /></div>
-      </div>
+      </section>
+      <section class="shift-get shift-frame" id="get-doneat" aria-labelledby="get-title"><div class="chapter-line"><span>03</span><span>DoneAt</span></div><div class="get-layout"><h2 id="get-title">{copy.getTitle}</h2><div><p>{copy.getBody}</p><StoreEntries locale={locale} /><p class="get-android">Android — {t(locale,"comingSoon")}</p></div></div></section>
     </main>
     <SiteFooter locale={locale} />
   </div>
