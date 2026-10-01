@@ -20,6 +20,7 @@ export function getStaticPaths() { return HALL_LOCALES.map((lang) => ({ params: 
 const locale = Astro.params.lang;
 if (!isHallLocale(locale)) throw new Error(`Unknown hall locale: ${locale}`);
 const copy = homeStory(locale);
+const getTitleParts = isChineseHall(locale) ? copy.getTitle.split(/(时间|時間)/u) : [copy.getTitle];
 const description = t(locale, "homeDescription");
 const download = `/${contentLocaleFor(locale)}/download`;
 const widgets = isChineseHall(locale) ? zhWidgets : enWidgets;
@@ -58,7 +59,7 @@ const values = [t(locale, "valueLocal"), t(locale, "valueNoAccount"), t(locale, 
           <div class="carry-gallery"><figure><Picture src={widgets} formats={["webp"]} widths={[360,720]} sizes="(min-width:880px) 30vw, 80vw" alt={copy.widgetsAlt} loading="lazy" decoding="async" /><figcaption>iPhone / iPad</figcaption></figure><div class="carry-divider" aria-hidden="true"><span>→</span><svg viewBox="0 0 160 160" fill="none"><circle cx="80" cy="80" r="74" stroke="currentColor" stroke-width="1" /><path d="M80 42V80L104 98" stroke="currentColor" stroke-width="5" stroke-linecap="round" /></svg><span>↗</span></div><figure><Picture src={watch} formats={["webp"]} widths={[360,720]} sizes="(min-width:880px) 30vw, 80vw" alt={copy.watchAlt} loading="lazy" decoding="async" /><figcaption>Apple Watch</figcaption></figure></div>
         </div>
       </section>
-      <section class="shift-get shift-frame" id="get-doneat" aria-labelledby="get-title"><div class="chapter-line"><span>03</span><span>DoneAt</span></div><div class="get-layout"><h2 id="get-title">{copy.getTitle}</h2><div><p>{copy.getBody}</p><StoreEntries locale={locale} /><p class="get-android">Android — {t(locale,"comingSoon")}</p></div></div></section>
+      <section class="shift-get shift-frame" id="get-doneat" aria-labelledby="get-title"><div class="chapter-line"><span>03</span><span>DoneAt</span></div><div class="get-layout"><h2 id="get-title">{getTitleParts.map(part => part === "时间" || part === "時間" ? <span class="get-title-word">{part}</span> : part)}</h2><div><p>{copy.getBody}</p><StoreEntries locale={locale} /><p class="get-android">Android — {t(locale,"comingSoon")}</p></div></div></section>
     </main>
     <SiteFooter locale={locale} />
   </div>

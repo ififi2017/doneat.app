@@ -345,6 +345,11 @@
 .get-layout h2 {
   max-width: 13em;
 }
+.get-layout .get-title-word {
+  display: inline-block;
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
 .get-layout > div > p:first-child {
   margin: 0 0 2rem;
 }
