@@ -1,7 +1,9 @@
 ---
+import type { HallLocale } from "../lib/config";
+import { mediaCopy } from "../lib/media-copy";
 interface Props {
   class?: string;
-  locale?: string;
+  locale?: HallLocale;
 }
 
 const { class: className, locale = "en" } = Astro.props;
@@ -60,7 +62,7 @@ const { class: className, locale = "en" } = Astro.props;
     class="brand-mark-hit"
     data-brand-dot
     aria-hidden="true"
-    aria-label={locale.startsWith("zh") ? "点亮下班时刻" : "Light up your clock-out moment"}
+    aria-label={mediaCopy(locale).brand}
     cx="664.5"
     cy="776.1"
     r="160"

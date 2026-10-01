@@ -1,12 +1,13 @@
 ---
 import type { HallLocale } from "../lib/config";
+import { mediaCopy } from "../lib/media-copy";
 interface Props { locale: HallLocale }
 const { locale } = Astro.props;
-const zh = locale.startsWith("zh");
+const copy = mediaCopy(locale);
 ---
-<button hidden class="media-control" type="button" data-media-control data-pause={zh ? "暂停演示" : "Pause demos"} data-play={zh ? "播放演示" : "Play demos"} aria-pressed="false">
+<button hidden class="media-control" type="button" data-media-control data-pause={copy.pause} data-play={copy.play} aria-pressed="false">
   <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M4 3h3v10H4zm5 0h3v10H9z" /></svg>
-  <span>{zh ? "暂停演示" : "Pause demos"}</span>
+  <span>{copy.pause}</span>
 </button>
 <script is:inline type="module">
   (function () {

@@ -88,21 +88,21 @@ const contentLang = contentLocaleFor(locale);
   }
 
   .site-footer-inner a {
-    color: color-mix(in srgb, var(--color-plum) 80%, transparent);
+    color: var(--footer-link-color, color-mix(in srgb, var(--color-plum) 80%, transparent));
     text-decoration: none;
   }
 
   .site-footer-inner a:hover {
-    color: var(--color-orange-ink);
+    color: var(--footer-link-hover-color, var(--color-orange-ink));
   }
 
   @media (prefers-color-scheme: dark) {
     .site-footer-inner a {
-      color: color-mix(in srgb, var(--color-cream) 80%, transparent);
+      color: var(--footer-link-color, color-mix(in srgb, var(--color-cream) 80%, transparent));
     }
 
     .site-footer-inner a:hover {
-      color: var(--color-orange-bright);
+      color: var(--footer-link-hover-color, var(--color-orange-bright));
     }
   }
 </style>

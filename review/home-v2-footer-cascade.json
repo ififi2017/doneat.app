@@ -1,0 +1,2361 @@
+{
+  "kind": "compiled selector matching, specificity and inherited-token analysis; no browser computed style",
+  "cases": [
+    {
+      "locale": "en",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "en",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "en",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "en",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "en",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "en",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "en",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "en",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "zh-CN",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "zh-CN",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "zh-CN",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "zh-CN",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "zh-CN",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "zh-CN",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "zh-CN",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "zh-CN",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "zh-TW",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "zh-TW",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "zh-TW",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "zh-TW",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "zh-TW",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "zh-TW",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "zh-TW",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "zh-TW",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "zh-HK",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "zh-HK",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "zh-HK",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "zh-HK",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "zh-HK",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "zh-HK",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "zh-HK",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "zh-HK",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ja",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ja",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "ja",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ja",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ja",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ja",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "ja",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ja",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ko",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ko",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "ko",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ko",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ko",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ko",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "ko",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ko",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "fr",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "fr",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "fr",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "fr",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "fr",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "fr",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "fr",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "fr",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "de",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "de",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "de",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "de",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "de",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "de",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "de",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "de",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "es",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "es",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "es",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "es",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "es",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "es",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "es",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "es",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "it",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "it",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "it",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "it",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "it",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "it",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "it",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "it",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "pt",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "pt",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "pt",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "pt",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "pt",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "pt",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "pt",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "pt",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ru",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ru",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "ru",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ru",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ru",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ru",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "ru",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ru",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "hi-IN",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "hi-IN",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "hi-IN",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "hi-IN",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "hi-IN",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "hi-IN",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "hi-IN",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "hi-IN",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "mr-IN",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "mr-IN",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "mr-IN",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "mr-IN",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "mr-IN",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "mr-IN",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "mr-IN",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "mr-IN",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "tr",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "tr",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "tr",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "tr",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "tr",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "tr",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "tr",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "tr",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ar",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ar",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "ar",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ar",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ar",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ar",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "ar",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "ar",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "th",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "th",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "th",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "th",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "th",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "th",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "th",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "th",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "id",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "id",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "id",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "id",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "id",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "id",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "id",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "id",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "vi",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "vi",
+      "mode": "light",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "vi",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "vi",
+      "mode": "light",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "vi",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-footer-nav a",
+      "color": "#fff1d8",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]",
+      "specificity": [
+        0,
+        3,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#fff1d8",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "vi",
+      "mode": "dark",
+      "state": "normal",
+      "target": ".site-social",
+      "color": "#fff1d8",
+      "winningSelector": ".shift-page .site-footer",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "source": "/_astro/index.BDV-UrSK.css"
+    },
+    {
+      "locale": "vi",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-footer-nav a",
+      "color": "#ff9a45",
+      "winningSelector": ".site-footer-inner[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover",
+      "specificity": [
+        0,
+        4,
+        1
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    },
+    {
+      "locale": "vi",
+      "mode": "dark",
+      "state": "hover",
+      "target": ".site-social",
+      "color": "#ff9a45",
+      "winningSelector": ".site-social[data-astro-cid-y2qsmizv]:hover",
+      "specificity": [
+        0,
+        3,
+        0
+      ],
+      "tokenSelector": ".shift-page .site-footer",
+      "tokenValue": "#ff9a45",
+      "source": "/_astro/StoreEntries.DUY1Z_Mt.css"
+    }
+  ]
+}

@@ -176,7 +176,7 @@ const frameWidths = [400, 800, 1200];
     }
 
     function loadVideo() {
-      if (reduce || !(video instanceof HTMLVideoElement) || !video.dataset.src) {
+      if (reduce || document.documentElement.hasAttribute("data-demos-paused") || !(video instanceof HTMLVideoElement) || !video.dataset.src) {
         if (stillReady()) markReady();
         return;
       }
@@ -203,8 +203,8 @@ const frameWidths = [400, 800, 1200];
       var io = new IntersectionObserver(
         function (entries) {
           if (!entries[0] || !entries[0].isIntersecting) return;
-          io.disconnect();
           loadVideo();
+          if (video instanceof HTMLVideoElement && video.querySelector("source")) io.disconnect();
         },
         { rootMargin: "160px 0px", threshold: 0.01 },
       );
@@ -213,7 +213,11 @@ const frameWidths = [400, 800, 1200];
       loadVideo();
     }
     document.addEventListener("doneat:media", function (event) {
-      if (!event.detail.paused) { reduce = false; loadVideo(); }
+      if (!event.detail.paused) {
+        reduce = false;
+        var bounds = hero.getBoundingClientRect();
+        if (bounds.bottom > 0 && bounds.top < innerHeight) loadVideo();
+      }
     });
   })();
 </script>

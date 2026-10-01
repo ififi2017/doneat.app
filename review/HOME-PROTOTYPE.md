@@ -1,6 +1,6 @@
 # 首页方向原型 v2 — 2026-10-01
 
-这是方向原型，尚未完成浏览器验收，不是最终版本。
+这是 `787e7daa` 的历史方向原型说明，尚未完成浏览器验收，不是最终版本。后续 19 语本地化与修正见 `HOME-LOCALIZATION.md`；下列英文回退描述只适用于该历史原型。
 
 新分支 `codex/home-time-transition` 从上一版 `fdbcc7d` 分出，上一版分支 `codex/award-quality-redesign` 保留。没有推送、合并或发布。
 
