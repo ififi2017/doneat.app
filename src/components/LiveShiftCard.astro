@@ -200,10 +200,21 @@ const initialTime = copy.timeLeft
       bubble.style.transform = "translateX(" + (rtl ? -shift : shift) + "px)";
     }
 
+    // A closing full-width mark (！。？) carries half an em of blank after its
+    // ink; hang it so the centred title lines up with the line below.
     function setTitle(text) {
       titleEl.hidden = !text;
-      titleEl.textContent = text || "";
+      titleEl.textContent = "";
       card.classList.toggle("has-title", Boolean(text));
+      if (!text) return;
+      var hang = /[\uFF01\u3002\uFF1F]$/.test(text);
+      titleEl.appendChild(document.createTextNode(hang ? text.slice(0, -1) : text));
+      if (hang) {
+        var mark = document.createElement("span");
+        mark.className = "lc-hang";
+        mark.textContent = text.slice(-1);
+        titleEl.appendChild(mark);
+      }
     }
 
     function celebrate() {
@@ -426,10 +437,13 @@ const initialTime = copy.timeLeft
     overflow-wrap: break-word;
   }
   .has-title .lc-time {
-    margin-top: 0.4rem;
-    font-size: min(5.5vw, 1.35rem);
-    font-weight: 600;
-    color: var(--lc-soft);
+    margin-top: 0.5rem;
+    font-size: min(4.6vw, 1.125rem);
+    font-weight: 500;
+    color: var(--lc-muted);
+  }
+  .lc-title :global(.lc-hang) {
+    margin-inline-end: -0.5em;
   }
   .lc-time :global(.lc-word) {
     display: inline-block;
