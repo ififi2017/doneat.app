@@ -1,0 +1,25 @@
+{
+  "downloadURL": "http://localhost:4322/zh-CN/download",
+  "pause": {
+    "allPaused": true,
+    "pressed": "true"
+  },
+  "languageOptions": [
+    "English",
+    "简体中文"
+  ],
+  "escape": {
+    "closed": true,
+    "focus": "locale-switch-summary"
+  },
+  "tour": {
+    "active": "1",
+    "focusOutline": "solid",
+    "pressed": "true"
+  },
+  "table": {
+    "full": 672,
+    "scrollLeft": 31.5,
+    "width": 348
+  }
+}

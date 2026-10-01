@@ -1,0 +1,128 @@
+[
+  {
+    "file": "assets/device/web/en-black.mp4",
+    "originalBytes": 4555287,
+    "webBytes": 163880,
+    "savedPercent": 96.4,
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 720,
+          "height": 1564,
+          "avg_frame_rate": "24/1"
+        }
+      ],
+      "format": {
+        "duration": "12.333333",
+        "size": "163880"
+      }
+    }
+  },
+  {
+    "file": "assets/device/web/en-review.mp4",
+    "originalBytes": 1202724,
+    "webBytes": 794756,
+    "savedPercent": 33.9,
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 720,
+          "height": 1564,
+          "avg_frame_rate": "24/1"
+        }
+      ],
+      "format": {
+        "duration": "14.958333",
+        "size": "794756"
+      }
+    }
+  },
+  {
+    "file": "assets/device/web/en-white.mp4",
+    "originalBytes": 4999265,
+    "webBytes": 169323,
+    "savedPercent": 96.6,
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 720,
+          "height": 1564,
+          "avg_frame_rate": "24/1"
+        }
+      ],
+      "format": {
+        "duration": "13.500000",
+        "size": "169323"
+      }
+    }
+  },
+  {
+    "file": "assets/device/web/zh-black.mp4",
+    "originalBytes": 4635522,
+    "webBytes": 159012,
+    "savedPercent": 96.6,
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 720,
+          "height": 1564,
+          "avg_frame_rate": "24/1"
+        }
+      ],
+      "format": {
+        "duration": "14.750000",
+        "size": "159012"
+      }
+    }
+  },
+  {
+    "file": "assets/device/web/zh-review.mp4",
+    "originalBytes": 1125094,
+    "webBytes": 737489,
+    "savedPercent": 34.5,
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 720,
+          "height": 1564,
+          "avg_frame_rate": "24/1"
+        }
+      ],
+      "format": {
+        "duration": "15.000000",
+        "size": "737489"
+      }
+    }
+  },
+  {
+    "file": "assets/device/web/zh-white.mp4",
+    "originalBytes": 5893911,
+    "webBytes": 177848,
+    "savedPercent": 97.0,
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 720,
+          "height": 1564,
+          "avg_frame_rate": "24/1"
+        }
+      ],
+      "format": {
+        "duration": "18.750000",
+        "size": "177848"
+      }
+    }
+  }
+]

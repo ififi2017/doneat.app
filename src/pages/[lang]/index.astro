@@ -4,6 +4,7 @@ import DeviceHero from "../../components/DeviceHero.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
 import StoreEntries from "../../components/StoreEntries.astro";
+import MediaControls from "../../components/MediaControls.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import {
   brandSentence,
@@ -50,40 +51,33 @@ const jsonLd = homeJsonLd({ locale, description });
     <SiteHeader locale={locale} currentPage="home" />
     <main id="content" class="page-frame hall">
       <div class="hall-copy">
-        <BrandMark class="hall-mark" />
-        <p class="hall-eyebrow">{subtitle}</p>
+        <div class="hall-signature">
+          <BrandMark class="hall-mark" locale={locale} />
+          <p class="hall-eyebrow">{subtitle}</p>
+        </div>
         <h1 class="hall-title">DoneAt</h1>
         {sentence ? <p class="hall-lede">{sentence}</p> : null}
         <div class="hall-cta">
           <StoreEntries locale={locale} variant="home" />
         </div>
         <p class="hall-qualities" data-hall-qualities>
-          {values.map((value) => <span>{value}</span>)}
+          {values.map((value, index) => <span><small aria-hidden="true">0{index + 1}</small>{value}</span>)}
         </p>
       </div>
       <div class="hall-stage">
-        <DeviceHero locale={locale} priority />
+        <div class="daylight-dial" aria-hidden="true">
+          <svg viewBox="0 0 600 600" fill="none">
+            <circle class="dial-orbit" cx="300" cy="300" r="264" />
+            <circle class="dial-inner" cx="300" cy="300" r="220" />
+            {Array.from({length: 60}, (_, i) => <path class:list={["dial-tick", i % 5 === 0 && "is-hour"]} d={i % 5 === 0 ? "M300 25V43" : "M300 29V36"} transform={`rotate(${i * 6} 300 300)`} />)}
+            <path class="dial-day" d="M300 36 A264 264 0 0 1 432 529" />
+            <circle class="dial-end" cx="432" cy="529" r="7" />
+          </svg>
+        </div>
+        <div class="hall-device"><DeviceHero locale={locale} priority /></div>
+        <div class="hall-stage-caption"><span>{t(locale, "deviceAlt")}</span><MediaControls locale={locale} /></div>
       </div>
     </main>
     <SiteFooter locale={locale} />
   </div>
 </BaseLayout>
-
-<script is:inline>
-  (function () {
-    // Hide the "·" after an item that ends a wrapped line. The separator keeps
-    // its space (visibility only), so hiding it never changes where lines break.
-    var list = document.querySelector("[data-hall-qualities]");
-    if (!(list instanceof HTMLElement)) return;
-    var items = Array.prototype.slice.call(list.children);
-    function mark() {
-      items.forEach(function (item, i) {
-        var next = items[i + 1];
-        item.toggleAttribute("data-line-end", !!next && next.offsetTop > item.offsetTop);
-      });
-    }
-    mark();
-    if (document.fonts) document.fonts.ready.then(mark);
-    if ("ResizeObserver" in window) new ResizeObserver(mark).observe(list);
-  })();
-</script>

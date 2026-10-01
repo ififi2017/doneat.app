@@ -25,8 +25,8 @@ const stem = deviceStem(locale);
 const alt = altOverride ?? t(locale, "deviceAlt");
 const still = stem === "zh" ? { white: zhWhite, black: zhBlack } : { white: enWhite, black: enBlack };
 const reviewStill = stem === "zh" ? zhReview : enReview;
-const reviewSrc = `/device/${stem}-review.mp4`;
-const sizes = "(min-width: 1024px) 24.5rem, (min-width: 640px) 20rem, 16.5rem";
+const reviewSrc = `/device/web/${stem}-review.mp4`;
+const sizes = "(min-width: 880px) 18rem, (min-width: 640px) 17rem, 80vw";
 const stillWidths = [360, 720, 1080];
 const frameWidths = [400, 800, 1200];
 ---
@@ -34,10 +34,8 @@ const frameWidths = [400, 800, 1200];
 <div
   class="device-hero relative mx-auto w-full max-w-[16.5rem] sm:max-w-[20rem] lg:max-w-[24.5rem]"
   data-device-hero
-  aria-busy="true"
 >
   <div class="device-screen">
-    <div class="device-loader" aria-hidden="true"></div>
     {
       isReview ? (
         <>
@@ -80,7 +78,7 @@ const frameWidths = [400, 800, 1200];
           />
           <Picture
             src={still.black}
-            alt=""
+            alt={alt}
             formats={["webp"]}
             widths={stillWidths}
             sizes={sizes}
@@ -92,7 +90,7 @@ const frameWidths = [400, 800, 1200];
           />
           <video
             class="device-video light-scheme"
-            data-src={`/device/${stem}-white.mp4`}
+            data-src={`/device/web/${stem}-white.mp4`}
             muted
             loop
             playsinline
@@ -103,7 +101,7 @@ const frameWidths = [400, 800, 1200];
           ></video>
           <video
             class="device-video dark-scheme"
-            data-src={`/device/${stem}-black.mp4`}
+            data-src={`/device/web/${stem}-black.mp4`}
             muted
             loop
             playsinline
@@ -147,7 +145,7 @@ const frameWidths = [400, 800, 1200];
     var hero = document.querySelector("[data-device-hero]");
     if (!(hero instanceof HTMLElement)) return;
 
-    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches || Boolean(navigator.connection && navigator.connection.saveData);
     var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     var still = hero.querySelector(
       dark ? "img.device-still.dark-scheme" : "img.device-still.light-scheme",
@@ -190,7 +188,11 @@ const frameWidths = [400, 800, 1200];
       video.setAttribute("autoplay", "");
       video.preload = "metadata";
       video.addEventListener("canplay", markReady, { once: true });
+      video.addEventListener("playing", function () { hero.classList.add("is-video-playing"); });
       video.addEventListener("error", markReady, { once: true });
+      video.addEventListener("play", function () {
+        if (document.documentElement.hasAttribute("data-demos-paused")) video.pause();
+      });
       video.load();
       var play = video.play();
       if (play && typeof play.catch === "function") play.catch(function () {});
@@ -210,6 +212,9 @@ const frameWidths = [400, 800, 1200];
     } else {
       loadVideo();
     }
+    document.addEventListener("doneat:media", function (event) {
+      if (!event.detail.paused) { reduce = false; loadVideo(); }
+    });
   })();
 </script>
 
@@ -243,33 +248,6 @@ const frameWidths = [400, 800, 1200];
     background: color-mix(in srgb, var(--color-plum) 18%, var(--color-cream));
   }
 
-  .device-loader {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    background: color-mix(in srgb, var(--color-plum) 10%, var(--color-cream));
-    transition: opacity 280ms ease;
-  }
-
-  .device-loader::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      105deg,
-      transparent 28%,
-      color-mix(in srgb, var(--color-cream) 72%, transparent) 48%,
-      transparent 68%
-    );
-    transform: translateX(-40%);
-    animation: device-shimmer 1.35s ease-in-out infinite;
-  }
-
-  .device-hero.is-ready .device-loader {
-    opacity: 0;
-    pointer-events: none;
-  }
-
   .device-screen :global(img),
   .device-screen video {
     position: absolute;
@@ -279,6 +257,8 @@ const frameWidths = [400, 800, 1200];
     object-fit: cover;
     object-position: center top;
   }
+  .device-video { opacity: 0; }
+  .device-hero.is-video-playing .device-video { opacity: 1; }
 
   .device-bezel {
     position: relative;
@@ -294,15 +274,6 @@ const frameWidths = [400, 800, 1200];
     height: auto;
     pointer-events: none;
     user-select: none;
-  }
-
-  @keyframes device-shimmer {
-    0% {
-      transform: translateX(-50%);
-    }
-    100% {
-      transform: translateX(50%);
-    }
   }
 
   @media (prefers-color-scheme: dark) {
@@ -322,19 +293,6 @@ const frameWidths = [400, 800, 1200];
       background: color-mix(in srgb, var(--color-evening-end) 70%, black);
     }
 
-    .device-loader {
-      background: color-mix(in srgb, var(--color-evening-start) 82%, black);
-    }
-
-    .device-loader::after {
-      background: linear-gradient(
-        105deg,
-        transparent 28%,
-        color-mix(in srgb, var(--color-cream) 12%, transparent) 48%,
-        transparent 68%
-      );
-    }
-
     .light-scheme {
       display: none;
     }
@@ -346,13 +304,4 @@ const frameWidths = [400, 800, 1200];
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .device-loader {
-      transition: none;
-    }
-
-    .device-loader::after {
-      animation: none;
-    }
-  }
 </style>

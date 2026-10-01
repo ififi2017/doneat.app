@@ -1,0 +1,52 @@
+---
+import type { HallLocale } from "../lib/config";
+interface Props { locale: HallLocale }
+const { locale } = Astro.props;
+const zh = locale.startsWith("zh");
+---
+<button hidden class="media-control" type="button" data-media-control data-pause={zh ? "暂停演示" : "Pause demos"} data-play={zh ? "播放演示" : "Play demos"} aria-pressed="false">
+  <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M4 3h3v10H4zm5 0h3v10H9z" /></svg>
+  <span>{zh ? "暂停演示" : "Pause demos"}</span>
+</button>
+<script is:inline type="module">
+  (function () {
+    var button = document.querySelector("[data-media-control]");
+    if (!button) return;
+    button.hidden = false;
+    var motion = matchMedia("(prefers-reduced-motion: reduce)");
+    var paused = motion.matches || Boolean(navigator.connection && navigator.connection.saveData);
+    var visibleVideos = new WeakSet();
+    var videos = document.querySelectorAll("video");
+    function syncVideo(video) {
+      if (paused || document.hidden || !visibleVideos.has(video)) video.pause();
+      else if (video.querySelector("source")) video.play().catch(function () {});
+    }
+    if ("IntersectionObserver" in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) visibleVideos.add(entry.target);
+          else visibleVideos.delete(entry.target);
+          syncVideo(entry.target);
+        });
+      });
+      videos.forEach(function (video) {
+        observer.observe(video);
+        video.addEventListener("play", function () {
+          if (paused || document.hidden || !visibleVideos.has(video)) video.pause();
+        });
+      });
+    } else videos.forEach(function (video) { visibleVideos.add(video); });
+    document.addEventListener("visibilitychange", function () { videos.forEach(syncVideo); });
+    function update() {
+      document.documentElement.toggleAttribute("data-demos-paused", paused);
+      button.setAttribute("aria-pressed", String(paused));
+      button.querySelector("span").textContent = paused ? button.dataset.play : button.dataset.pause;
+      button.querySelector("path").setAttribute("d", paused ? "M4 2l10 6-10 6z" : "M4 3h3v10H4zm5 0h3v10H9z");
+      document.dispatchEvent(new CustomEvent("doneat:media", {detail: {paused: paused}}));
+      videos.forEach(syncVideo);
+    }
+    button.addEventListener("click", function () { paused = !paused; update(); });
+    motion.addEventListener("change", function (event) { paused = event.matches; update(); });
+    update();
+  })();
+</script>

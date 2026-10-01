@@ -1,11 +1,14 @@
 ---
+import DeviceHero from "./DeviceHero.astro";
+import MediaControls from "./MediaControls.astro";
 import DownloadShowcase from "./DownloadShowcase.astro";
 import SiteFooter from "./SiteFooter.astro";
 import SiteHeader from "./SiteHeader.astro";
 import StoreEntries from "./StoreEntries.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { downloadShowcaseCopy } from "../lib/download-showcase";
 import { contentTrackPage } from "../lib/analytics-events";
-import { canonicalUrl, siteConfig, type ContentLocale, type ContentPage } from "../lib/config";
+import { canonicalUrl, siteConfig, type ContentLocale, type ContentPage, t } from "../lib/config";
 import { faqPageJsonLd, parseFaqMarkdown } from "../lib/faq-jsonld";
 import { downloadJsonLd } from "../lib/jsonld";
 import { getEntry, render } from "astro:content";
@@ -71,29 +74,71 @@ const jsonLd = isFaq
 >
   <div class="flex min-h-screen flex-col">
     <SiteHeader locale={locale} currentPage={page} />
-    <main id="content" class="page-frame article">
-      <header class="article-head">
-        <h1 class="article-title">{entry.data.heading}</h1>
-        {
-          entry.data.updated ? (
-            <p class="article-meta">
-              {entry.data.updatedLabel} {entry.data.updated}
+    <main
+      id="content"
+      class:list={["page-frame article", isDownload && "download-page"]}
+    >
+      <div class:list={[isDownload && "download-hero"]}>
+        <div>
+          <header class="article-head">
+            <p class="article-kicker">
+              {t(locale, page === "how-it-works" ? "howItWorks" : page)}
             </p>
+            <h1 class="article-title">{entry.data.heading}</h1>
+            {
+              entry.data.updated ? (
+                <p class="article-meta">
+                  {entry.data.updatedLabel} {entry.data.updated}
+                </p>
+              ) : null
+            }
+            <p class="article-lede">{entry.data.intro}</p>
+          </header>
+          {
+            isDownload ? (
+              <div class="download-stores" id="get-app">
+                <StoreEntries locale={locale} variant="download" />
+              </div>
+            ) : null
+          }
+        </div>
+        {
+          isDownload ? (
+            <div class="download-device">
+              <div class="download-light" aria-hidden="true"></div>
+              <DeviceHero
+                locale={locale}
+                clip="review"
+                priority
+                alt={downloadShowcaseCopy(locale).reviewAlt}
+              />
+              <MediaControls locale={locale} />
+            </div>
           ) : null
         }
-        <p class="article-lede">{entry.data.intro}</p>
-      </header>
+      </div>
       {
         isDownload ? (
-          <div class="article-measure mt-8">
-            <StoreEntries locale={locale} variant="download" />
-          </div>
+          <nav
+            class="download-index"
+            aria-label={locale === "zh-CN" ? "本页内容" : "On this page"}
+          >
+            <a href="#download-iphone"><span>01</span> iPhone / Apple Watch</a>
+            <a href="#download-showcase"><span>02</span> Mac / Windows</a>
+            <a href="#download-compare">
+              <span>03</span>
+              {locale === "zh-CN" ? "功能对照" : "Compare features"}
+            </a>
+            <a href="#download-requirements">
+              <span>04</span> {entry.data.requirementsHeading}
+            </a>
+          </nav>
         ) : null
       }
       {isDownload ? <DownloadShowcase locale={locale} /> : null}
       {
         isDownload && entry.data.nativePerks?.length ? (
-          <section class="article-band mt-10" aria-labelledby="native-heading">
+          <section class="article-band native-band" aria-labelledby="native-heading">
             <h2 id="native-heading" class="article-block-title">
               {entry.data.nativeHeading}
             </h2>
@@ -102,9 +147,10 @@ const jsonLd = isFaq
                 <p class="article-sublede">{entry.data.nativeLead}</p>
               ) : null
             }
-            <ul class="mt-6 grid w-full gap-3 sm:grid-cols-3">
-              {entry.data.nativePerks.map((perk) => (
-                <li class="rounded-2xl border border-plum/10 bg-plum/[0.035] p-4 dark:border-cream/12 dark:bg-cream/[0.05]">
+            <ul class="native-perks">
+              {entry.data.nativePerks.map((perk, index) => (
+                <li class="native-perk">
+                  <span class="perk-number" aria-hidden="true">0{index + 1}</span>
                   <h3 class="text-[0.98rem] font-semibold tracking-tight">{perk.title}</h3>
                   <p class="mt-2 text-sm leading-relaxed text-plum/75 dark:text-cream/75">
                     {perk.body}
@@ -125,7 +171,7 @@ const jsonLd = isFaq
       {
         isDownload && entry.data.requirements?.length ? (
           <aside
-            class="article-band mt-8 w-full rounded-2xl border border-plum/10 bg-plum/[0.035] px-4 py-4 dark:border-cream/12 dark:bg-cream/[0.05]"
+            class="article-band requirements-band"
             aria-labelledby="download-requirements"
           >
             <h2

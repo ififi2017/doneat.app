@@ -39,7 +39,7 @@ const linkActive = "text-orange-ink dark:text-orange-bright";
 ---
 
 <header
-  class="sticky top-0 z-40 border-b border-plum/10 bg-cream/90 pt-[env(safe-area-inset-top)] backdrop-blur-md dark:border-cream/10 dark:bg-evening-end/80"
+  class="site-header sticky top-0 z-40 border-b border-plum/10 bg-cream/90 pt-[env(safe-area-inset-top)] backdrop-blur-md dark:border-cream/10 dark:bg-evening-end/80"
 >
   <div
     class="page-frame flex flex-nowrap items-center gap-3 py-1.5 sm:gap-4 sm:py-3"
@@ -352,6 +352,8 @@ const linkActive = "text-orange-ink dark:text-orange-bright";
       if (event.key !== "Escape") return;
       document.querySelectorAll("details.header-panel[open]").forEach((el) => {
         el.removeAttribute("open");
+        var summary = el.querySelector("summary");
+        if (summary) summary.focus();
       });
     });
   }
