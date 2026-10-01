@@ -13,70 +13,34 @@
   border-bottom: 1px solid var(--rule);
   overflow: clip;
 }
-.shift-hero > .shift-frame {
+/* Hero: the claim on the start side, the product's own card on the end side.
+   Sized by height as well as width so the card and both entries stay on the
+   first screen of a 13-inch laptop with browser chrome. */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 28rem);
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 7rem);
+  min-height: min(calc(100svh - 4.5rem), 58rem);
+  padding-block: clamp(2.5rem, 7svh, 5.5rem);
+}
+.hero-copy {
   container-type: inline-size;
-}
-.shift-masthead {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem 2rem;
-  padding-block: 1.5rem 2.5rem;
-}
-.shift-signature {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
   min-width: 0;
 }
-.shift-signature .brand-mark {
-  width: 5rem;
-  height: 5rem;
-  flex: none;
-  color: inherit;
-  margin-inline-start: calc(5rem * -159 / 1024);
-}
-.shift-signature > span {
-  font-size: 1rem;
-  font-weight: 600;
-}
-.shift-signature small {
-  display: block;
-  margin-top: 0.2rem;
-  font-size: 0.75rem;
-  font-weight: 400;
-}
-.shift-tools {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem 1.5rem;
-  font-size: 0.75rem;
-}
-.shift-tools > a {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  min-height: 44px;
-  text-decoration: none;
-}
 .shift-title {
-  --hero-title-max: clamp(3.5rem, 10.7vw, 10.25rem);
+  --hero-title-max: clamp(3rem, 14svh, 9.5rem);
   margin: 0;
   font-size: var(
     --hero-font-fit,
     min(
       var(--hero-title-max),
-      calc(
-        (min(100vw, var(--site-width)) - 2 * var(--site-gutter)) /
-          var(--hero-line-width)
-      )
+      calc((min(100vw, var(--site-width)) - 2 * var(--site-gutter)) * 0.55 / var(--hero-line-width))
     )
   );
-  font-weight: 550;
+  font-weight: 650;
   line-height: 0.98;
-  letter-spacing: -0.065em;
+  letter-spacing: -0.055em;
 }
 .shift-title > span {
   display: block;
@@ -84,6 +48,7 @@
   max-width: none;
   white-space: nowrap;
   overflow-wrap: normal;
+  transition: opacity 1.2s var(--ease-out);
 }
 @supports (font-size: 1cqi) {
   .shift-title {
@@ -93,21 +58,23 @@
     );
   }
 }
+/* The second line warms up as the sample day passes and is fully lit once
+   the shift is over; the first line steps back. */
 .shift-title > span + span {
   color: var(--color-orange-bright);
   margin-top: 0.08em;
+  opacity: calc(0.62 + 0.38 * var(--day-progress, 1));
 }
-.shift-bottom {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
-  gap: clamp(2rem, 6vw, 6rem);
-  align-items: end;
-  margin-block: 3rem 4rem;
+.shift-hero:is([data-day="done"], [data-day="rest"]) .shift-title > span:first-child {
+  opacity: 0.5;
 }
-.shift-intro > p {
-  margin: 0 0 1.6rem;
+.shift-hero:is([data-day="done"], [data-day="rest"]) .shift-title > span + span {
+  opacity: 1;
+}
+.hero-sentence {
+  margin: clamp(1.25rem, 3.5svh, 2.25rem) 0 clamp(1.5rem, 4svh, 2.5rem);
   max-width: 22em;
-  font-size: clamp(1.2rem, 2vw, 1.75rem);
+  font-size: clamp(1.15rem, 1.7vw, 1.5rem);
   line-height: 1.5;
 }
 .shift-actions {
@@ -129,93 +96,27 @@
   text-decoration: underline;
   text-underline-offset: 0.3em;
 }
-.shift-ticket {
-  margin: 0;
-  padding: 1.5rem 1.75rem;
-  background: var(--color-orange-bright);
-  color: var(--color-plum);
+.hero-stage {
+  position: relative;
+  display: grid;
+  justify-items: end;
   min-width: 0;
 }
-.ticket-label {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  font-size: 0.75rem;
-  line-height: 1.6;
+/* Warm light behind the card, faded to transparent; brighter after work. */
+.hero-stage::before {
+  content: "";
+  position: absolute;
+  inset: -30% -25%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--color-orange-bright) 26%, transparent), transparent);
+  opacity: calc(0.25 + 0.35 * var(--day-progress, 0));
+  pointer-events: none;
+  transition: opacity 1.2s var(--ease-out);
 }
-.ticket-label b {
-  display: block;
-  font-weight: 600;
+.shift-hero:is([data-day="done"]) .hero-stage::before {
+  opacity: 0.9;
 }
-.ticket-label > span:last-child {
-  text-align: end;
-}
-.ticket-hours {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 1rem;
-  margin-block: 1.1rem;
-  font-size: clamp(2.4rem, 4.1vw, 4.5rem);
-  font-weight: 550;
-  line-height: 1.1;
-  letter-spacing: -0.06em;
-  font-variant-numeric: tabular-nums;
-}
-.ticket-hours > div:last-child {
-  text-align: end;
-}
-.ticket-hours small {
-  display: block;
-  font-size: 0.6875rem;
-  letter-spacing: 0;
-  line-height: 1.5;
-  font-weight: 400;
-  margin-bottom: 0.4rem;
-}
-.ticket-track {
-  height: 0.3rem;
-  background: color-mix(in srgb, var(--color-plum) 20%, transparent);
-  overflow: hidden;
-}
-.ticket-track > span {
-  display: block;
-  height: 100%;
-  background: var(--color-plum);
-  transform: scaleX(0.5);
-  transform-origin: left;
-}
-:dir(rtl) .ticket-track > span {
-  transform-origin: right;
-}
-.shift-ticket figcaption {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem 1rem;
-  margin-top: 1rem;
-  font-size: 0.6875rem;
-  line-height: 1.5;
-}
-.ticket-replay {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  min-height: 44px;
-  padding-inline: 0.25rem;
-  border: 0;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  text-decoration: underline;
-  text-underline-offset: 0.25em;
-  cursor: pointer;
-}
-.ticket-replay[hidden] {
-  display: none;
-}
-.ticket-replay:focus-visible {
-  outline-color: var(--color-plum);
+.hero-stage > * {
+  position: relative;
 }
 .chapter-line {
   display: flex;
@@ -226,6 +127,9 @@
   padding-top: 1rem;
   font-size: 0.75rem;
   line-height: 1.5;
+}
+.chapter-line > .media-control {
+  margin-inline-start: auto;
 }
 .chapter-line > span:first-child {
   min-width: 2rem;
@@ -322,17 +226,23 @@
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
   gap: clamp(2rem, 7vw, 7rem);
-  align-items: end;
+  align-items: stretch;
 }
 .carry-gallery figure {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   min-width: 0;
+}
+/* Media centres in its column; both captions share one baseline. */
+.carry-gallery figure > :first-child {
+  margin-block: auto;
 }
 .carry-widgets {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  width: min(100%, 34rem);
+  width: min(100%, 30rem);
   margin-inline: auto;
 }
 .carry-widgets picture {
@@ -416,6 +326,16 @@
 .get-layout h2 {
   max-width: 13em;
 }
+.get-heading .brand-mark {
+  display: block;
+  width: 4.5rem;
+  height: 4.5rem;
+  margin: 0 0 1.75rem;
+  margin-inline-start: calc(4.5rem * -159 / 1024);
+}
+.get-web {
+  margin-top: 1.25rem;
+}
 .get-layout .get-title-word {
   display: inline-block;
   white-space: nowrap;
@@ -446,24 +366,24 @@
   --hero-title-max: clamp(3.2rem, 8.5vw, 8rem);
 }
 @media (max-width: 879px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    gap: 3rem;
+    padding-block: 2.5rem 3.5rem;
+  }
+  .hero-stage {
+    justify-items: start;
+  }
   .shift-title {
     --hero-title-max: clamp(3.5rem, 10.4vw, 7.2rem);
+    font-size: var(--hero-font-fit, min(var(--hero-title-max), calc(100cqi / var(--hero-line-width))));
   }
-  .shift-bottom,
   .proof-layout,
   .carry-heading,
   .get-layout {
     grid-template-columns: minmax(0, 1fr);
     gap: 2.5rem;
-  }
-  .shift-bottom {
-    margin-block: 2.5rem 3rem;
-  }
-  .shift-ticket {
-    width: min(100%, 36rem);
-  }
-  .ticket-hours {
-    font-size: clamp(2.7rem, 7vw, 4rem);
   }
   .proof-device {
     width: min(100%, 28rem);
@@ -477,17 +397,9 @@
   }
 }
 @media (max-width: 539px) {
-  .shift-masthead {
-    padding-block: 1rem 2rem;
-    gap: 0.5rem 1rem;
-  }
-  .shift-signature {
-    width: 100%;
-  }
-  .shift-tools {
-    width: 100%;
-    justify-content: space-between;
-    gap: 0.5rem 1rem;
+  .hero-grid {
+    padding-block: 2rem 3rem;
+    gap: 2.5rem;
   }
   .shift-title {
     --hero-title-max: clamp(3rem, 12.5vw, 4.5rem);
@@ -505,19 +417,6 @@
     align-items: start;
     flex-direction: column;
     gap: 0.5rem;
-  }
-  .shift-bottom {
-    margin-block: 2rem 2.5rem;
-  }
-  .shift-intro > p {
-    font-size: 1.15rem;
-  }
-  .shift-ticket {
-    padding: 1.1rem;
-  }
-  .ticket-hours {
-    font-size: 2.6rem;
-    gap: 0.6rem;
   }
   .proof-layout,
   .carry-heading,
@@ -549,12 +448,8 @@
   }
 }
 @media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
-  .shift-tools > a > span,
   .story-link > span {
     transition: transform 150ms var(--ease-out);
-  }
-  .shift-tools > a:hover > span {
-    transform: translateY(3px);
   }
   .story-link:hover > span {
     transform: translate(2px, -2px);

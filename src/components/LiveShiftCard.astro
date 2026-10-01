@@ -1,0 +1,628 @@
+---
+import { functionalSubtitle, webAppUrl, type HallLocale } from "../lib/config";
+import { liveCardCopy } from "../lib/live-card";
+
+interface Props { locale: HallLocale }
+const { locale } = Astro.props;
+const copy = liveCardCopy(locale);
+// Without script the card shows the sample shift at its start.
+const initialTime = copy.timeLeft
+  .replace("{{hours}}", "8")
+  .replace("{{minutes}}", "00")
+  .replace("{{seconds}}", "00");
+---
+
+<figure
+  class="live-card"
+  data-live-card
+  aria-label={copy.sample}
+  data-copy={JSON.stringify({
+    timeLeft: copy.timeLeft,
+    offWorkTime: copy.offWorkTime,
+    restDay: copy.restDay,
+    nextShiftIn: copy.nextShiftIn,
+    nextShiftLabelShort: copy.nextShiftLabelShort,
+    preview: copy.preview,
+    backToNow: copy.backToNow,
+  })}
+>
+  <div class="lc-head">
+    <div class="lc-brand">
+      <p>DoneAt</p>
+      <p>{functionalSubtitle(locale)}</p>
+    </div>
+    <span class="lc-chip" dir="ltr">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>
+      09:00 – 17:00
+    </span>
+  </div>
+  <div class="lc-display">
+    <p class="lc-title" data-lc-title hidden></p>
+    <p class="lc-time" data-lc-time>
+      <span class="sr-only" data-lc-sr>{initialTime}</span>
+      <span aria-hidden="true" data-lc-vis>{initialTime}</span>
+    </p>
+  </div>
+  <div class="lc-progress" aria-hidden="true">
+    <div class="lc-track"><div class="lc-fill" data-lc-fill></div></div>
+    <div class="lc-anchor" data-lc-anchor>
+      <div class="lc-bubble" data-lc-bubble>0.0%</div>
+      <span class="lc-arrow"></span>
+    </div>
+  </div>
+  <div class="lc-summary">
+    <p>{copy.sample}</p>
+    <dl>
+      <div><dt>{copy.startTime}</dt><dd dir="ltr">09:00</dd></div>
+      <div><dt>{copy.endTime}</dt><dd dir="ltr">17:00</dd></div>
+    </dl>
+  </div>
+  <div class="lc-actions">
+    <button class="lc-button lc-outline" type="button" data-lc-preview hidden>
+      <span class="lc-icon" data-lc-icon-preview><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.8 11.3 2 22l10.7-3.79" /><path d="M4 3h.01M22 8h.01M15 2h.01M22 20h.01" /><path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10" /><path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11-.11.7-.72 1.22-1.43 1.22H17" /><path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7" /><path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z" /></svg></span>
+      <span class="lc-icon" data-lc-icon-back hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14 4 9l5-5" /><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11" /></svg></span>
+      <span data-lc-preview-label>{copy.preview}</span>
+    </button>
+    <a class="lc-button lc-solid" href={webAppUrl(locale, "card")} target="_blank" rel="noopener noreferrer" data-track="web_timer_open">
+      {copy.useOwn}
+      <svg viewBox="0 0 24 24" aria-hidden="true" class="lc-flip"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+    </a>
+  </div>
+</figure>
+
+<script is:inline>
+  // Mirrors the product web card for a fixed Mon–Fri 09:00–17:00 sample shift on
+  // the visitor's own clock. It reads no settings and stores nothing. Runs inline
+  // so the first paint already shows the live state.
+  (function () {
+    var card = document.querySelector("[data-live-card]");
+    if (!card) return;
+    var copy = JSON.parse(card.getAttribute("data-copy"));
+    var hero = card.closest(".shift-hero") || card;
+    var titleEl = card.querySelector("[data-lc-title]");
+    var srEl = card.querySelector("[data-lc-sr]");
+    var visEl = card.querySelector("[data-lc-vis]");
+    var fill = card.querySelector("[data-lc-fill]");
+    var anchor = card.querySelector("[data-lc-anchor]");
+    var bubble = card.querySelector("[data-lc-bubble]");
+    var previewButton = card.querySelector("[data-lc-preview]");
+    var previewLabel = card.querySelector("[data-lc-preview-label]");
+    var previewIcon = card.querySelector("[data-lc-icon-preview]");
+    var backIcon = card.querySelector("[data-lc-icon-back]");
+    var motion = matchMedia("(prefers-reduced-motion: reduce)");
+    var HOUR = 3600000;
+    var START = 9 * HOUR;
+    var END = 17 * HOUR;
+    var SHIFT = END - START;
+    var timer = 0;
+    var mode = "live";
+    var lastKind = "";
+    var celebrated = false;
+
+    function pad(n) { return String(n).padStart(2, "0"); }
+    function fill2(template, values) {
+      return template.replace(/\{\{(\w+)\}\}/g, function (_, key) { return values[key]; });
+    }
+    function countdown(ms) {
+      var s = Math.max(0, Math.floor(ms / 1000));
+      return fill2(copy.timeLeft, { hours: String(Math.floor(s / 3600)), minutes: pad(Math.floor(s % 3600 / 60)), seconds: pad(s % 60) });
+    }
+    function clock(ms) {
+      var s = Math.max(0, Math.ceil(ms / 1000));
+      return Math.floor(s / 3600) + ":" + pad(Math.floor(s % 3600 / 60)) + ":" + pad(s % 60);
+    }
+    function isWorkday(date) { var d = date.getDay(); return d >= 1 && d <= 5; }
+    function nextStart(now) {
+      for (var i = 0; i < 8; i++) {
+        var d = new Date(now.getFullYear(), now.getMonth(), now.getDate() + i, 9);
+        if (d > now && isWorkday(d)) return d;
+      }
+      return now;
+    }
+    function read(now) {
+      var midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      var at = now - midnight;
+      if (!isWorkday(now)) return { kind: "rest", progress: 0, next: nextStart(now) - now };
+      if (at < START) return { kind: "before", progress: 0, next: START - at };
+      if (at < END) return { kind: "running", progress: (at - START) / SHIFT, left: END - at };
+      return { kind: "done", progress: 1, next: nextStart(now) - now };
+    }
+
+    // Product RollingText: only the changed digit moves, in 160 ms, linear.
+    // Only digits get their own slot, so Indic and Thai text keeps its shaping,
+    // and each number is an LTR island inside RTL copy.
+    function shape(text) { return text.replace(/\d/g, "0"); }
+    function build(text) {
+      visEl.textContent = "";
+      text.split(" ").forEach(function (word, index) {
+        if (index) visEl.appendChild(document.createTextNode(" "));
+        var w = document.createElement("span");
+        w.className = "lc-word";
+        word.split(/(\d+)/).forEach(function (run) {
+          if (!run) return;
+          if (!/^\d+$/.test(run)) { w.appendChild(document.createTextNode(run)); return; }
+          var number = document.createElement("span");
+          number.className = "lc-number";
+          number.dir = "ltr";
+          Array.from(run).forEach(function (digit) {
+            var slot = document.createElement("span");
+            slot.className = "lc-slot";
+            var glyph = document.createElement("span");
+            glyph.textContent = digit;
+            slot.appendChild(glyph);
+            number.appendChild(slot);
+          });
+          w.appendChild(number);
+        });
+        visEl.appendChild(w);
+      });
+    }
+    function setTime(text, roll) {
+      if (srEl.textContent === text && visEl.dataset.text === text) return;
+      srEl.textContent = text;
+      var previous = visEl.dataset.text || "";
+      visEl.dataset.text = text;
+      if (!roll || motion.matches || shape(previous) !== shape(text) || typeof visEl.animate !== "function") {
+        build(text);
+        return;
+      }
+      var slots = visEl.querySelectorAll(".lc-slot");
+      var digits = text.match(/\d/g) || [];
+      var before = previous.match(/\d/g) || [];
+      digits.forEach(function (digit, i) {
+        if (digit === before[i] || !slots[i]) return;
+        var slot = slots[i];
+        var old = slot.lastElementChild;
+        var glyph = document.createElement("span");
+        glyph.textContent = digit;
+        slot.appendChild(glyph);
+        glyph.animate([{ transform: "translateY(-0.3em)", opacity: 0, filter: "blur(3px)" }, { transform: "none", opacity: 1, filter: "blur(0)" }], { duration: 160, easing: "linear" });
+        if (old) old.animate([{ transform: "none", opacity: 1 }, { transform: "translateY(0.3em)", opacity: 0, filter: "blur(3px)" }], { duration: 160, easing: "linear", fill: "forwards" }).onfinish = function () { old.remove(); };
+      });
+    }
+
+    function setProgress(p, showBubble) {
+      var bounded = Math.min(1, Math.max(0, p));
+      var pct = Math.floor(bounded * 1000) / 10;
+      fill.style.width = bounded * 100 + "%";
+      anchor.style.insetInlineStart = bounded * 100 + "%";
+      anchor.hidden = !showBubble;
+      bubble.textContent = pct.toFixed(1) + "%";
+      // Keep the bubble inside the card while its tip stays on the real value.
+      var track = fill.parentElement.clientWidth;
+      var half = bubble.offsetWidth / 2;
+      if (!track || !half) return;
+      var center = track * bounded;
+      var clamped = Math.min(Math.max(center, half - 18), track - half + 18);
+      var max = Math.max(0, half - 12);
+      var shift = Math.min(Math.max(clamped - center, -max), max);
+      var rtl = getComputedStyle(card).direction === "rtl";
+      bubble.style.transform = "translateX(" + (rtl ? -shift : shift) + "px)";
+    }
+
+    function setTitle(text) {
+      titleEl.hidden = !text;
+      titleEl.textContent = text || "";
+      card.classList.toggle("has-title", Boolean(text));
+    }
+
+    function celebrate() {
+      if (motion.matches || document.documentElement.hasAttribute("data-demos-paused")) return;
+      document.documentElement.setAttribute("data-celebrate", String(Date.now()));
+      document.dispatchEvent(new CustomEvent("doneat:celebrate"));
+    }
+
+    function paint(state, roll) {
+      hero.setAttribute("data-day", state.kind);
+      hero.style.setProperty("--day-progress", String(state.progress));
+      if (state.kind === "running") {
+        setTitle("");
+        setTime(countdown(state.left), roll);
+      } else if (state.kind === "before") {
+        setTitle(copy.nextShiftLabelShort);
+        setTime(clock(state.next), roll);
+      } else {
+        setTitle(state.kind === "done" ? copy.offWorkTime : copy.restDay);
+        setTime(fill2(copy.nextShiftIn, { time: clock(state.next) }), roll);
+      }
+      setProgress(state.progress, state.kind !== "rest");
+    }
+
+    function syncButton() {
+      var previewing = mode !== "live";
+      previewButton.hidden = !previewing && lastKind === "done";
+      previewLabel.textContent = previewing ? copy.backToNow : copy.preview;
+      previewIcon.hidden = previewing;
+      backIcon.hidden = !previewing;
+    }
+
+    function tick() {
+      window.clearTimeout(timer);
+      if (mode !== "live") return;
+      var state = read(new Date());
+      paint(state, lastKind === state.kind);
+      if (state.kind === "done" && !celebrated) {
+        celebrated = true;
+        celebrate();
+      }
+      lastKind = state.kind;
+      syncButton();
+      if (!document.hidden) timer = window.setTimeout(tick, 1000 - (Date.now() % 1000) + 8);
+    }
+
+    function preview() {
+      window.clearTimeout(timer);
+      mode = "preview";
+      syncButton();
+      var from = read(new Date());
+      var done = { kind: "done", progress: 1, next: nextStart(new Date(new Date().setHours(17, 0, 0, 0))) - new Date(new Date().setHours(17, 0, 0, 0)) };
+      var startLeft = from.kind === "running" ? from.left : SHIFT;
+      var startProgress = from.kind === "running" ? from.progress : 0;
+      if (motion.matches) { paint(done, false); return; }
+      var t0 = performance.now();
+      var duration = 1400;
+      function step(now) {
+        if (mode !== "preview") return;
+        var t = Math.min(1, (now - t0) / duration);
+        var e = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        if (t < 1) {
+          paint({ kind: "running", progress: startProgress + (1 - startProgress) * e, left: startLeft * (1 - e) }, false);
+          requestAnimationFrame(step);
+        } else {
+          paint(done, false);
+          celebrate();
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    previewButton.addEventListener("click", function () {
+      if (mode === "live") preview();
+      else { mode = "live"; lastKind = ""; tick(); }
+    });
+    document.addEventListener("visibilitychange", function () { if (!document.hidden) tick(); });
+    window.addEventListener("resize", function () { setProgress(parseFloat(hero.style.getPropertyValue("--day-progress")) || 0, !anchor.hidden); });
+    card.classList.add("is-live");
+    tick();
+  })();
+</script>
+
+<script>
+  import confetti from "canvas-confetti";
+
+  // Same burst as the product web app (components/Confetti.tsx): two side
+  // cannons for five seconds, on the main thread, above everything.
+  let interval = 0;
+  function fire() {
+    const cannon = confetti.create(undefined, { resize: true, useWorker: false });
+    const duration = 5000;
+    const end = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 60 };
+    const range = (min: number, max: number) => Math.random() * (max - min) + min;
+    const launch = () => {
+      const left = end - Date.now();
+      if (left <= 0) return false;
+      const particleCount = 50 * (left / duration);
+      void cannon({ ...defaults, particleCount, origin: { x: range(0.1, 0.3), y: Math.random() - 0.2 } });
+      void cannon({ ...defaults, particleCount, origin: { x: range(0.7, 0.9), y: Math.random() - 0.2 } });
+      return true;
+    };
+    window.clearInterval(interval);
+    launch();
+    interval = window.setInterval(() => {
+      if (!launch()) window.clearInterval(interval);
+    }, 250);
+  }
+  function whenVisible() {
+    if (!document.hidden) return fire();
+    const once = () => {
+      if (document.hidden) return;
+      document.removeEventListener("visibilitychange", once);
+      fire();
+    };
+    document.addEventListener("visibilitychange", once);
+  }
+  document.addEventListener("doneat:celebrate", whenVisible);
+  // The inline card may have asked before this module loaded.
+  const asked = Number(document.documentElement.getAttribute("data-celebrate"));
+  if (asked && Date.now() - asked < 4000) whenVisible();
+</script>
+
+<style>
+  .live-card {
+    --lc-bg: #fff;
+    --lc-ink: #111827;
+    --lc-muted: #6b7280;
+    --lc-soft: #4b5563;
+    --lc-line: #e5e7eb;
+    --lc-primary: #18181b;
+    --lc-primary-ink: #fafafa;
+    --lc-panel: #f9fafb;
+    box-sizing: border-box;
+    width: min(100%, 28rem);
+    margin: 0;
+    padding: 1.5rem;
+    border: 1px solid rgb(0 0 0 / 0.06);
+    border-radius: 1.75rem;
+    background: var(--lc-bg);
+    color: var(--lc-ink);
+    box-shadow:
+      0 1px 2px rgb(15 23 42 / 0.04),
+      0 40px 90px -34px rgb(0 0 0 / 0.55);
+    font-family: var(--font-product);
+    text-align: start;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .lc-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .lc-brand p {
+    margin: 0;
+  }
+  .lc-brand p:first-child {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+  .lc-brand p:last-child {
+    margin-top: 0.15rem;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: var(--lc-muted);
+  }
+  .lc-chip {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    gap: 0.4rem;
+    height: 2.25rem;
+    padding-inline: 0.75rem;
+    border: 1px solid var(--lc-line);
+    border-radius: 0.5rem;
+    font-size: 0.8125rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--lc-ink);
+  }
+  .lc-chip svg,
+  .lc-button svg {
+    width: 1rem;
+    height: 1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .lc-chip svg {
+    width: 0.875rem;
+    height: 0.875rem;
+    color: var(--lc-muted);
+  }
+  .lc-display {
+    display: grid;
+    align-content: center;
+    min-height: 5.5rem;
+    margin-top: 1.25rem;
+    text-align: center;
+  }
+  .lc-title {
+    margin: 0;
+    font-size: min(7vw, 1.9rem);
+    font-weight: 700;
+    line-height: 1.25;
+  }
+  .lc-time {
+    margin: 0;
+    font-size: min(8vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.2;
+    font-variant-numeric: tabular-nums;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .has-title .lc-time {
+    margin-top: 0.4rem;
+    font-size: min(5.5vw, 1.35rem);
+    font-weight: 600;
+    color: var(--lc-soft);
+  }
+  .lc-time :global(.lc-word) {
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .lc-time :global(.lc-number) {
+    unicode-bidi: isolate;
+  }
+  .lc-time :global(.lc-slot) {
+    display: inline-grid;
+  }
+  .lc-time :global(.lc-slot > span) {
+    grid-area: 1 / 1;
+  }
+  .lc-progress {
+    position: relative;
+    padding-top: 2.5rem;
+  }
+  .lc-track {
+    height: 0.5rem;
+    overflow: hidden;
+    border-radius: 999px;
+    background: var(--lc-line);
+  }
+  .lc-fill {
+    width: 0;
+    height: 100%;
+    background: var(--lc-primary);
+  }
+  .lc-anchor {
+    position: absolute;
+    bottom: calc(0.5rem + 7px);
+    inset-inline-start: 0;
+    translate: -50% 0;
+  }
+  :dir(rtl) .lc-anchor {
+    translate: 50% 0;
+  }
+  .lc-anchor[hidden] {
+    display: none;
+  }
+  .lc-bubble {
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.375rem;
+    background: var(--lc-primary);
+    color: var(--lc-primary-ink);
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.43;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+  .lc-arrow {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    translate: -50% 0;
+    border-inline: 6px solid transparent;
+    border-top: 6px solid var(--lc-primary);
+  }
+  .lc-summary {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    background: var(--lc-panel);
+  }
+  .lc-summary p {
+    margin: 0;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: var(--lc-muted);
+  }
+  .lc-summary dl {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0.75rem 0 0;
+  }
+  .lc-summary dl > div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+  .lc-summary dt {
+    font-size: 0.875rem;
+    color: var(--lc-soft);
+  }
+  .lc-summary dd {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+  .lc-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+  .lc-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      background-color 150ms ease,
+      color 150ms ease,
+      transform 140ms var(--ease-out);
+  }
+  .lc-button[hidden] {
+    display: none;
+  }
+  .lc-button:active {
+    transform: scale(0.97);
+  }
+  .lc-outline {
+    border: 1px solid var(--lc-line);
+    background: var(--lc-bg);
+    color: var(--lc-ink);
+  }
+  .lc-solid {
+    border: 1px solid var(--lc-primary);
+    background: var(--lc-primary);
+    color: var(--lc-primary-ink);
+  }
+  .lc-icon {
+    display: inline-flex;
+  }
+  .lc-icon[hidden] {
+    display: none;
+  }
+  :dir(rtl) .lc-flip {
+    transform: scaleX(-1);
+  }
+  .live-card :focus-visible {
+    outline: 2px solid var(--lc-primary);
+    outline-offset: 3px;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .lc-outline:hover {
+      background: #f3f4f6;
+    }
+    .lc-solid:hover {
+      background: #374151;
+      border-color: #374151;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    .live-card {
+      --lc-bg: #111827;
+      --lc-ink: #fff;
+      --lc-muted: #9ca3af;
+      --lc-soft: #d1d5db;
+      --lc-line: #374151;
+      --lc-primary: #fafafa;
+      --lc-primary-ink: #18181b;
+      --lc-panel: rgb(0 0 0 / 0.2);
+      border-color: rgb(255 255 255 / 0.07);
+      box-shadow:
+        0 1px 0 rgb(255 255 255 / 0.04) inset,
+        0 40px 90px -30px rgb(0 0 0 / 0.75);
+    }
+    .lc-outline {
+      border-color: #1f2937;
+      background: #09090b;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .lc-outline:hover {
+        background: #1f2937;
+      }
+      .lc-solid:hover {
+        background: #e5e7eb;
+        border-color: #e5e7eb;
+      }
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lc-button {
+      transition: none;
+    }
+    .lc-button:active {
+      transform: none;
+    }
+  }
+</style>

@@ -11,6 +11,7 @@ import * as cssTree from "css-tree";
 import { homeStory } from "../src/lib/home-story.ts";
 import { mediaCopy } from "../src/lib/media-copy.ts";
 import { homeDemo } from "../src/lib/home-demo.ts";
+import { liveCardCopy } from "../src/lib/live-card.ts";
 const hallCopy = JSON.parse(readFileSync(new URL("../locales/hall.json", import.meta.url), "utf8"));
 
 const repo = resolve(dirname(fileURLToPath(import.meta.url)), "..");
@@ -106,7 +107,8 @@ function footerColor(node, rules, dark, hover) {
 const results = [], cascade = [];
 for (const { locale, document: doc } of documents) {
   connect(doc);
-  const copy = homeStory(locale), media = mediaCopy(locale), demo = homeDemo(locale);
+  const copy = homeStory(locale), media = mediaCopy(locale), demo = homeDemo(locale), card = liveCardCopy(locale);
+  assert(Object.values(card).every((s) => typeof s === "string" && s.trim()), `${locale}: missing card copy`);
   assert(Object.values(copy).every((s) => typeof s === "string" && s.trim()), `${locale}: missing story`);
   assert(Object.values(media).every((s) => typeof s === "string" && s.trim()), `${locale}: missing control`);
   assert.equal(one("html", doc).attribs.lang, locale);
@@ -116,8 +118,9 @@ for (const { locale, document: doc } of documents) {
   assert.deepEqual(headings, [copy.headlineWork, copy.headlineLife]);
   for (const [selector, value] of [["#proof-title", copy.proofTitle], [".proof-copy>p", copy.proofBody], ["#carry-title", copy.carryTitle], [".carry-heading>p", copy.carryBody], ["#get-title", copy.getTitle], [".get-layout>div>p", copy.getBody], [".proof-device>figcaption", `${hallCopy.functionalSubtitle[locale]} · iPhone`]]) assert.equal(clean(one(selector, doc)), value, `${locale}: ${selector}`);
   if (locale !== "en") {
-    for (const key of ["headlineWork", "headlineLife", "proofBody", "carryBody", "getBody", "recording"]) assert.notEqual(copy[key], homeStory("en")[key], `${locale}: English fallback ${key}`);
+    for (const key of ["headlineWork", "headlineLife", "proofBody", "carryBody", "getBody"]) assert.notEqual(copy[key], homeStory("en")[key], `${locale}: English fallback ${key}`);
     for (const key of ["pause", "play", "brand"]) assert.notEqual(media[key], mediaCopy("en")[key], `${locale}: English control fallback ${key}`);
+    for (const key of ["sample", "preview", "backToNow"]) assert.notEqual(card[key], liveCardCopy("en")[key], `${locale}: English card fallback ${key}`);
   }
   const control = one("[data-media-control]", doc);
   assert.equal(control.attribs["data-pause"], media.pause);
@@ -134,16 +137,22 @@ for (const { locale, document: doc } of documents) {
   assert.equal(all(".shift-cut, .carry-divider", doc).length, 0);
   assert.notEqual(alts[0], alts[1]);
   assert(!alts.includes(copy.carryBody));
-  assert.equal(one(".shift-ticket", doc).attribs["aria-label"], demo.day);
-  assert.equal(one("[data-shift-now]", doc).attribs.dir, "ltr");
-  assert.equal(clean(one("[data-shift-now]", doc)), "13:00");
-  assert.equal(clean(one("[data-shift-left]", doc)), "04:00");
-  assert.equal(clean(one("[data-shift-replay]", doc)), `${demo.replay}↺`);
-  assert(Object.hasOwn(one("[data-shift-replay]", doc).attribs, "hidden"));
-  assert.deepEqual(all(".ticket-label>span", doc).map(clean), [`${copy.clockIn} 09:00`, `${copy.clockOut} 17:00`]);
+  assert.equal(all(".shift-ticket, [data-shift-ticket]", doc).length, 0);
+  const liveCard = one(".shift-hero [data-live-card]", doc);
+  assert.equal(liveCard.attribs["aria-label"], card.sample);
+  const initial = card.timeLeft.replace("{{hours}}", "8").replace("{{minutes}}", "00").replace("{{seconds}}", "00");
+  assert.equal(clean(one("[data-lc-sr]", doc)), initial);
+  assert.equal(clean(one("[data-lc-vis]", doc)), initial);
+  assert(Object.hasOwn(one("[data-lc-preview]", doc).attribs, "hidden"), `${locale}: NoJS preview must be hidden`);
+  assert.equal(clean(one("[data-lc-preview-label]", doc)), card.preview);
+  assert.deepEqual(all(".lc-summary dd", doc).map(clean), ["09:00", "17:00"]);
+  assert.deepEqual(all(".lc-summary dt", doc).map(clean), [card.startTime, card.endTime]);
+  assert.equal(JSON.parse(liveCard.attribs["data-copy"]).offWorkTime, card.offWorkTime);
+  assert.equal(all(".carry-gallery figcaption p", doc).map(clean)[0], demo.widgets);
   const expectedDownload = `/${locale.startsWith("zh") ? "zh-CN" : "en"}/download`;
   for (const link of all('[data-track="download_page_open"]', doc)) assert.equal(link.attribs.href, expectedDownload);
   assert(all('[data-track="download_page_open"]', doc).length >= 2);
+  assert(all('[data-track="web_timer_open"]', doc).length >= 3);
   for (const link of all('[data-track="web_timer_open"]', doc)) assert.equal(new URL(link.attribs.href).pathname, `/${locale}`);
   assert.equal(one('link[rel="canonical"]', doc).attribs.href, `https://doneat.app/${locale}`);
   assert.equal(one('link[hreflang="x-default"]', doc).attribs.href, "https://doneat.app/");

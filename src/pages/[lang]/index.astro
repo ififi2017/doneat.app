@@ -2,6 +2,7 @@
 import { Picture } from "astro:assets";
 import BrandMark from "../../components/BrandMark.astro";
 import DeviceHero from "../../components/DeviceHero.astro";
+import LiveShiftCard from "../../components/LiveShiftCard.astro";
 import MediaControls from "../../components/MediaControls.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
@@ -44,22 +45,17 @@ const values = [t(locale, "valueLocal"), t(locale, "valueNoAccount"), t(locale, 
     <SiteHeader locale={locale} currentPage="home" />
     <main id="content">
       <section class="shift-hero" aria-labelledby="shift-title">
-        <div class="shift-frame">
-          <div class="shift-masthead"><div class="shift-signature"><BrandMark locale={locale} /><span>DoneAt<small>{functionalSubtitle(locale)}</small></span></div><div class="shift-tools"><a href="#see-it">{copy.explore}<span aria-hidden="true">↓</span></a><MediaControls locale={locale} /></div></div>
-          <h1 class="shift-title" id="shift-title" style={`--hero-line-width:${heroLineWidth(locale)}`}><span>{copy.headlineWork}</span><span>{copy.headlineLife}</span></h1>
-          <div class="shift-bottom">
-            <div class="shift-intro"><p>{brandSentence(locale)}</p><div class="shift-actions"><a class="btn btn-primary" href={download} data-track="download_page_open">{t(locale,"downloadCta")}</a><a class="shift-web-link" href={webAppUrl(locale,"hall")} target="_blank" rel="noopener noreferrer" data-track="web_timer_open">{t(locale,"webCta")}<span aria-hidden="true">↗</span></a></div></div>
-            <figure class="shift-ticket" data-shift-ticket aria-label={demo.day}>
-              <div class="ticket-label"><span>{copy.clockIn} <b dir="ltr">09:00</b></span><span>{copy.clockOut} <b dir="ltr">17:00</b></span></div>
-              <div class="ticket-hours"><div><small>{demo.now}</small><time dir="ltr" data-shift-now>13:00</time></div><div><small>{demo.left}</small><time dir="ltr" data-shift-left>04:00</time></div></div>
-              <div class="ticket-track" aria-hidden="true"><span data-shift-fill></span></div>
-              <figcaption><span>{demo.day}</span><button hidden class="ticket-replay" type="button" data-shift-replay>{demo.replay}<span aria-hidden="true">↺</span></button></figcaption>
-            </figure>
+        <div class="shift-frame hero-grid">
+          <div class="hero-copy">
+            <h1 class="shift-title" id="shift-title" style={`--hero-line-width:${heroLineWidth(locale)}`}><span>{copy.headlineWork}</span><span>{copy.headlineLife}</span></h1>
+            <p class="hero-sentence">{brandSentence(locale)}</p>
+            <div class="shift-actions"><a class="btn btn-primary" href={download} data-track="download_page_open">{t(locale,"downloadCta")}</a><a class="shift-web-link" href={webAppUrl(locale,"hall")} target="_blank" rel="noopener noreferrer" data-track="web_timer_open">{t(locale,"webCta")}<span aria-hidden="true">↗</span></a></div>
           </div>
+          <div class="hero-stage"><LiveShiftCard locale={locale} /></div>
         </div>
       </section>
       <section class="shift-proof shift-frame" id="see-it" aria-labelledby="proof-title">
-        <div class="chapter-line"><span>01</span><span>{functionalSubtitle(locale)}</span></div>
+        <div class="chapter-line"><span>01</span><span>{functionalSubtitle(locale)}</span><MediaControls locale={locale} /></div>
         <div class="proof-layout">
           <div class="proof-copy" data-story-reveal><h2 id="proof-title">{copy.proofTitle}</h2><p>{copy.proofBody}</p><ul class="proof-values">{values.map((v,i)=><li><span aria-hidden="true">0{i+1}</span>{v}</li>)}</ul><a class="story-link" href={download} data-track="download_page_open">{t(locale,"downloadCta")}<span aria-hidden="true">↗</span></a></div>
           <figure class="proof-device" data-story-reveal><DeviceHero locale={locale} /><figcaption>{functionalSubtitle(locale)} · iPhone</figcaption></figure>
@@ -74,7 +70,7 @@ const values = [t(locale, "valueLocal"), t(locale, "valueNoAccount"), t(locale, 
                 <Picture pictureAttributes={{class: "carry-live"}} src={live} formats={["webp"]} fallbackFormat="webp" widths={[366,732]} alt="" aria-hidden="true" loading="lazy" />
                 <Picture pictureAttributes={{class: "carry-widget"}} src={widget} formats={["webp"]} fallbackFormat="webp" widths={[489,978]} alt="" aria-hidden="true" loading="lazy" />
               </div>
-              <figcaption><h3>{demo.widgets}</h3><p>iPhone / iPad</p></figcaption>
+              <figcaption><h3>iPhone · iPad</h3><p>{demo.widgets}</p></figcaption>
             </figure>
             <figure data-story-reveal>
               <div class="carry-watch">
@@ -86,7 +82,7 @@ const values = [t(locale, "valueLocal"), t(locale, "valueNoAccount"), t(locale, 
           </div>
         </div>
       </section>
-      <section class="shift-get shift-frame" id="get-doneat" aria-labelledby="get-title"><div class="chapter-line"><span>03</span><span>DoneAt</span></div><div class="get-layout" data-story-reveal><h2 id="get-title">{getTitleParts.map(part => part === "时间，" || part === "時間，" ? <span class="get-title-word">{part}</span> : part)}</h2><div><p>{copy.getBody}</p><StoreEntries locale={locale} variant="download" /></div></div></section>
+      <section class="shift-get shift-frame" id="get-doneat" aria-labelledby="get-title"><div class="chapter-line"><span>03</span><span>DoneAt</span></div><div class="get-layout" data-story-reveal><div class="get-heading"><BrandMark locale={locale} /><h2 id="get-title">{getTitleParts.map(part => part === "时间，" || part === "時間，" ? <span class="get-title-word">{part}</span> : part)}</h2></div><div><p>{copy.getBody}</p><StoreEntries locale={locale} variant="download" /><a class="story-link get-web" href={webAppUrl(locale,"hall")} target="_blank" rel="noopener noreferrer" data-track="web_timer_open">{t(locale,"webCta")}<span aria-hidden="true">↗</span></a></div></div></section>
     </main>
     <SiteFooter locale={locale} />
   </div>
@@ -107,10 +103,12 @@ const values = [t(locale, "valueLocal"), t(locale, "valueNoAccount"), t(locale, 
       const available = title.getBoundingClientRect().width - 1;
       if (available <= 0) return;
       let size = parseFloat(getComputedStyle(title).fontSize);
-      for (let attempt = 0; attempt < 3; attempt++) {
+      // Glyph advances can round per character, so width is not exactly linear
+      // in font size; step with a small margin until it fits.
+      for (let attempt = 0; attempt < 6; attempt++) {
         const widest = Math.max(...rows.map(row => row.getBoundingClientRect().width));
         if (widest <= available) break;
-        size *= available / widest;
+        size *= (available / widest) * 0.99;
         title.style.setProperty("--hero-font-fit", `${Math.floor(size * 10) / 10}px`);
       }
     }

@@ -10,9 +10,19 @@
   --color-evening-start: #44313e;
   --color-evening-end: #171318;
   --font-sans:
-    ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang SC",
+    "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang SC",
     "Hiragino Sans GB", "Noto Sans SC", "Noto Sans", "Noto Sans Arabic",
     "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Geist is the product's Web/Desktop face; CJK, Arabic and Indic text fall
+   through to the system fonts listed after it. */
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/GeistVF.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* One palette and one outer grid for the hall, downloads, navigation and footer. */
@@ -28,8 +38,14 @@
   --hero-surface: var(--color-plum);
   --night-surface: var(--color-plum);
   --night-ink: var(--color-cream);
+  --font-product: var(--font-sans);
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+/* Geist lacks Vietnamese tone marks; mixing faces inside a word reads badly. */
+:root:lang(vi) {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Noto Sans", Arial, sans-serif;
+  --font-product: var(--font-sans);
 }
 html {
   background: var(--paper);

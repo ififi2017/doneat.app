@@ -4,7 +4,7 @@
     {
       "locale": "en",
       "dir": "ltr",
-      "storyFields": 15,
+      "storyFields": 10,
       "controlFields": 3,
       "headlines": [
         "Work ends.",
@@ -22,7 +22,7 @@
     {
       "locale": "zh-CN",
       "dir": "ltr",
-      "storyFields": 15,
+      "storyFields": 10,
       "controlFields": 3,
       "headlines": [
         "工作有终点。",
@@ -40,7 +40,7 @@
     {
       "locale": "zh-TW",
       "dir": "ltr",
-      "storyFields": 15,
+      "storyFields": 10,
       "controlFields": 3,
       "headlines": [
         "工作有終點。",
@@ -58,7 +58,7 @@
     {
       "locale": "zh-HK",
       "dir": "ltr",
-      "storyFields": 15,
+      "storyFields": 10,
       "controlFields": 3,
       "headlines": [
         "工作有終點。",
@@ -76,7 +76,7 @@
     {
       "locale": "ja",
       "dir": "ltr",
-      "storyFields": 15,
+      "storyFields": 10,
       "controlFields": 3,
       "headlines": [
         "仕事が終わる。",
@@ -94,7 +94,7 @@
     {
       "locale": "ko",
       "dir": "ltr",
-      "storyFields": 15,
+      "storyFields": 10,
       "controlFields": 3,
       "headlines": [
         "일이 끝나면,",
@@ -112,7 +112,7 @@
     {
       "locale": "fr",
       "dir": "ltr",
-      "storyFields": 15,
+      "storyFields": 10,
       "controlFields": 3,
       "headlines": [
         "Le travail s'arrête.",
@@ -130,7 +130,7 @@
     {
       "locale": "de",
       "dir": "ltr",
-      "storyFields": 15,
+      "storyFields": 10,
       "controlFields": 3,
       "headlines": [
         "Die Arbeit endet.",
@@ -148,7 +148,7 @@
     {
       "locale": "es",
       "dir": "ltr",
-      "storyFields": 15,
+      "storyFields": 10,
       "controlFields": 3,
       "headlines": [
         "El trabajo termina.",
@@ -166,7 +166,7 @@
     {
       "locale": "it",
       "dir": "ltr",
-      "storyFields": 15,
+      "storyFields": 10,
       "controlFields": 3,
       "headlines": [
         "Il lavoro finisce.",
@@ -184,7 +184,7 @@
     {
       "locale": "pt",
       "dir": "ltr",
-      "storyFields": 15,
+      "storyFields": 10,
       "controlFields": 3,
       "headlines": [
         "O trabalho termina.",
@@ -202,7 +202,7 @@
     {
       "locale": "ru",
       "dir": "ltr",
-      "storyFields": 15,
+      "storyFields": 10,
       "controlFields": 3,
       "headlines": [
         "Работа окончена.",
@@ -220,7 +220,7 @@
     {
       "locale": "hi-IN",
       "dir": "ltr",
-      "storyFields": 15,
+      "storyFields": 10,
       "controlFields": 3,
       "headlines": [
         "काम खत्म होता है।",
@@ -238,7 +238,7 @@
     {
       "locale": "mr-IN",
       "dir": "ltr",
-      "storyFields": 15,
+      "storyFields": 10,
       "controlFields": 3,
       "headlines": [
         "काम संपतं.",
@@ -256,7 +256,7 @@
     {
       "locale": "tr",
       "dir": "ltr",
-      "storyFields": 15,
+      "storyFields": 10,
       "controlFields": 3,
       "headlines": [
         "Mesai biter.",
@@ -274,7 +274,7 @@
     {
       "locale": "ar",
       "dir": "rtl",
-      "storyFields": 15,
+      "storyFields": 10,
       "controlFields": 3,
       "headlines": [
         "للعمل نهاية.",
@@ -292,7 +292,7 @@
     {
       "locale": "th",
       "dir": "ltr",
-      "storyFields": 15,
+      "storyFields": 10,
       "controlFields": 3,
       "headlines": [
         "งานมีจุดสิ้นสุด",
@@ -310,7 +310,7 @@
     {
       "locale": "id",
       "dir": "ltr",
-      "storyFields": 15,
+      "storyFields": 10,
       "controlFields": 3,
       "headlines": [
         "Kerja selesai.",
@@ -328,7 +328,7 @@
     {
       "locale": "vi",
       "dir": "ltr",
-      "storyFields": 15,
+      "storyFields": 10,
       "controlFields": 3,
       "headlines": [
         "Công việc kết thúc.",

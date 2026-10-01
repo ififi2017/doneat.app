@@ -105,7 +105,7 @@ export function appleStoreUrl(locale: HallLocale): string {
   return url.toString();
 }
 
-export type WebTimerPlacement = "header" | "hall" | "notfound";
+export type WebTimerPlacement = "header" | "hall" | "card" | "notfound";
 
 export const WEB_TIMER_UTM = {
   source: "doneat.app",
