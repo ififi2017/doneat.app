@@ -42,29 +42,43 @@ const values = [t(locale, "valueLocal"), t(locale, "valueNoAccount"), t(locale, 
 
 <BaseLayout locale={locale} title={homeTitle(locale)} description={description} path={`/${locale}`} hreflangKind="hall" jsonLd={homeJsonLd({locale,description})} trackPage="hall_view">
   <div class="shift-page">
-    <SiteHeader locale={locale} currentPage="home" />
+    <SiteHeader locale={locale} currentPage="home" tone="dark" />
     <main id="content">
-      <section class="shift-hero" aria-labelledby="shift-title">
+      <section class="scene-hero" aria-labelledby="shift-title" data-scene="exit">
         <div class="shift-frame hero-grid">
           <div class="hero-copy">
-            <h1 class="shift-title" id="shift-title" style={`--hero-line-width:${heroLineWidth(locale)}`}><span>{copy.headlineWork}</span><span>{copy.headlineLife}</span></h1>
+            <h1 class="shift-title" id="shift-title" style={`--hero-line-width:${heroLineWidth(locale)}`}><span><span>{copy.headlineWork}</span></span><span><span>{copy.headlineLife}</span></span></h1>
             <p class="hero-sentence">{brandSentence(locale)}</p>
             <div class="shift-actions"><a class="btn btn-primary" href={download} data-track="download_page_open">{t(locale,"downloadCta")}</a><a class="shift-web-link" href={webAppUrl(locale,"hall")} target="_blank" rel="noopener noreferrer" data-track="web_timer_open">{t(locale,"webCta")}<span aria-hidden="true">↗</span></a></div>
           </div>
           <div class="hero-stage"><LiveShiftCard locale={locale} /></div>
         </div>
       </section>
-      <section class="shift-proof shift-frame" id="see-it" aria-labelledby="proof-title">
-        <div class="chapter-line"><span>01</span><span>{functionalSubtitle(locale)}</span><MediaControls locale={locale} /></div>
-        <div class="proof-layout">
-          <div class="proof-copy" data-story-reveal><h2 id="proof-title">{copy.proofTitle}</h2><p>{copy.proofBody}</p><ul class="proof-values">{values.map((v,i)=><li><span aria-hidden="true">0{i+1}</span>{v}</li>)}</ul><a class="story-link" href={download} data-track="download_page_open">{t(locale,"downloadCta")}<span aria-hidden="true">↗</span></a></div>
-          <figure class="proof-device" data-story-reveal><DeviceHero locale={locale} /><figcaption>{functionalSubtitle(locale)} · iPhone</figcaption></figure>
+      <section class="scene-statement" aria-labelledby="proof-title" data-scene="sticky">
+        <div class="scene-pin">
+          <div class="shift-frame statement">
+            <h2 id="proof-title">{copy.proofTitle}</h2>
+            <p data-words>{copy.proofBody}</p>
+          </div>
         </div>
       </section>
-      <section class="shift-carry surface-orange" aria-labelledby="carry-title">
-        <div class="shift-frame"><div class="chapter-line"><span>02</span><span>iPhone · iPad · Apple Watch</span></div><div class="carry-heading" data-story-reveal><h2 id="carry-title">{copy.carryTitle}</h2><p>{copy.carryBody}</p></div>
+      <section class="scene-phone" id="see-it" aria-labelledby="phone-title" data-scene="sticky">
+        <div class="scene-pin">
+          <div class="shift-frame phone-layout">
+            <div class="phone-copy">
+              <p class="scene-kicker" id="phone-title">{functionalSubtitle(locale)} · iPhone</p>
+              <ol class="phone-steps">{values.map((v,i)=><li data-step={i}><span aria-hidden="true">0{i+1}</span>{v}</li>)}</ol>
+              <a class="story-link" href={download} data-track="download_page_open">{t(locale,"downloadCta")}<span aria-hidden="true">↗</span></a>
+            </div>
+            <figure class="phone-device"><DeviceHero locale={locale} /><figcaption><MediaControls locale={locale} /></figcaption></figure>
+          </div>
+        </div>
+      </section>
+      <section class="scene-carry" aria-labelledby="carry-title" data-scene="pass">
+        <div class="shift-frame">
+          <div class="carry-heading"><h2 id="carry-title">{copy.carryTitle}</h2><p>{copy.carryBody}</p></div>
           <div class="carry-gallery">
-            <figure data-story-reveal>
+            <figure>
               <div class="carry-widgets" role="img" aria-label={copy.widgetsAlt}>
                 <Picture pictureAttributes={{class: "carry-island"}} src={island} formats={["webp"]} fallbackFormat="webp" widths={[255,510]} alt="" aria-hidden="true" loading="lazy" />
                 <Picture pictureAttributes={{class: "carry-live"}} src={live} formats={["webp"]} fallbackFormat="webp" widths={[366,732]} alt="" aria-hidden="true" loading="lazy" />
@@ -72,7 +86,7 @@ const values = [t(locale, "valueLocal"), t(locale, "valueNoAccount"), t(locale, 
               </div>
               <figcaption><h3>iPhone · iPad</h3><p>{demo.widgets}</p></figcaption>
             </figure>
-            <figure data-story-reveal>
+            <figure>
               <div class="carry-watch">
                 <Picture pictureAttributes={{class: "watch-screen"}} src={watch} formats={["webp"]} fallbackFormat="webp" widths={[208,416]} alt={copy.watchAlt} loading="lazy" />
                 <Picture pictureAttributes={{class: "watch-frame"}} src={watchFrame} formats={["webp"]} fallbackFormat="webp" widths={[280,560]} alt="" aria-hidden="true" loading="lazy" />
@@ -82,14 +96,23 @@ const values = [t(locale, "valueLocal"), t(locale, "valueNoAccount"), t(locale, 
           </div>
         </div>
       </section>
-      <section class="shift-get shift-frame" id="get-doneat" aria-labelledby="get-title"><div class="chapter-line"><span>03</span><span>DoneAt</span></div><div class="get-layout" data-story-reveal><div class="get-heading"><BrandMark locale={locale} /><h2 id="get-title">{getTitleParts.map(part => part === "时间，" || part === "時間，" ? <span class="get-title-word">{part}</span> : part)}</h2></div><div><p>{copy.getBody}</p><StoreEntries locale={locale} variant="download" /><a class="story-link get-web" href={webAppUrl(locale,"hall")} target="_blank" rel="noopener noreferrer" data-track="web_timer_open">{t(locale,"webCta")}<span aria-hidden="true">↗</span></a></div></div></section>
+      <section class="scene-finale" id="get-doneat" aria-labelledby="get-title" data-scene="pass">
+        <div class="finale-glow" aria-hidden="true"></div>
+        <div class="shift-frame get-layout">
+          <BrandMark locale={locale} />
+          <h2 id="get-title">{getTitleParts.map(part => part === "时间，" || part === "時間，" ? <span class="get-title-word">{part}</span> : part)}</h2>
+          <p>{copy.getBody}</p>
+          <StoreEntries locale={locale} variant="download" />
+          <a class="story-link get-web" href={webAppUrl(locale,"hall")} target="_blank" rel="noopener noreferrer" data-track="web_timer_open">{t(locale,"webCta")}<span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
     </main>
     <SiteFooter locale={locale} />
   </div>
 </BaseLayout>
 
 <script>
-  import "../../lib/home-motion";
+  import "../../lib/home-scenes";
   const title = document.getElementById("shift-title");
   if (title instanceof HTMLElement) {
     const rows = Array.from(title.querySelectorAll<HTMLElement>(":scope > span"));

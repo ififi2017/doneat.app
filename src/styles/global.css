@@ -1,14 +1,27 @@
 @import "tailwindcss";
 
+/* `dark:` follows the system scheme, and also applies inside a .tone-dark
+   subtree (the homepage header sits on black in both schemes). */
+@custom-variant dark {
+  @media (prefers-color-scheme: dark) {
+    @slot;
+  }
+  &:where(.tone-dark, .tone-dark *) {
+    @slot;
+  }
+}
+
 @theme {
   --color-orange: #f45a1e;
   --color-orange-bright: #ff9a45;
   --color-orange-deep: #f05218;
-  --color-orange-ink: #9d3516;
-  --color-cream: #fff1d8;
-  --color-plum: #30202c;
-  --color-evening-start: #44313e;
-  --color-evening-end: #171318;
+  --color-orange-ink: #c2410c;
+  /* Token names predate the 2026-10 neutral palette: "plum" is now the ink
+     near-black and "cream" the light text on dark. Orange is the one accent. */
+  --color-cream: #f5f5f7;
+  --color-plum: #1d1d1f;
+  --color-evening-start: #1d1d1f;
+  --color-evening-end: #000000;
   --font-sans:
     "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang SC",
     "Hiragino Sans GB", "Noto Sans SC", "Noto Sans", "Noto Sans Arabic",
@@ -29,15 +42,17 @@
 :root {
   --site-width: 94rem;
   --site-gutter: clamp(1.25rem, 5vw, 5rem);
-  --paper: #f4f0e8;
-  --surface: #e7dfd4;
+  --paper: #fbfbfd;
+  --surface: #f5f5f7;
   --ink: var(--color-plum);
-  --muted: #65545f;
-  --rule: #d4c8cf;
+  --muted: #6e6e73;
+  --rule: #d2d2d7;
   --accent: var(--color-orange-ink);
-  --hero-surface: var(--color-plum);
-  --night-surface: var(--color-plum);
+  --hero-surface: #000;
+  --night-surface: #000;
   --night-ink: var(--color-cream);
+  --night-muted: #a1a1a6;
+  --glow: #ff7a2e;
   --font-product: var(--font-sans);
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
@@ -64,23 +79,14 @@ body {
   margin-inline: auto;
   padding-inline: var(--site-gutter);
 }
-.surface-orange {
-  --ink: var(--color-plum);
-  --muted: var(--color-plum);
-  --rule: color-mix(in srgb, var(--color-plum) 35%, transparent);
-  --accent: var(--color-plum);
-  color: var(--ink);
-  background: var(--color-orange-bright);
-}
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: var(--color-evening-end);
-    --surface: #31262e;
+    --paper: #000;
+    --surface: #1d1d1f;
     --ink: var(--color-cream);
-    --muted: #d8c8d4;
-    --rule: #67535f;
+    --muted: #a1a1a6;
+    --rule: #424245;
     --accent: var(--color-orange-bright);
-    --hero-surface: var(--color-evening-start);
   }
 }
 :where(a, button, summary, [tabindex]):focus-visible {
@@ -99,12 +105,12 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  min-height: 3.25rem;
-  padding: 0.85rem 1.4rem;
+  min-height: 2.875rem;
+  padding: 0.7rem 1.4rem;
   border: 1px solid transparent;
-  border-radius: 0;
-  font-size: 0.875rem;
-  font-weight: 600;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 500;
   line-height: 1.3;
   text-decoration: none;
   transition:

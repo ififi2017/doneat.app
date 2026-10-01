@@ -12,9 +12,11 @@ import {
 interface Props {
   locale: HallLocale;
   currentPage?: ContentPage | "home";
+  /** "dark" keeps the bar dark in both schemes (the homepage opens on black). */
+  tone?: "auto" | "dark";
 }
 
-const { locale, currentPage = "home" } = Astro.props;
+const { locale, currentPage = "home", tone = "auto" } = Astro.props;
 const contentLang = contentLocaleFor(locale);
 
 function hrefFor(page: "download" | "faq" | "about"): string {
@@ -39,10 +41,10 @@ const linkActive = "text-orange-ink dark:text-orange-bright";
 ---
 
 <header
-  class="site-header sticky top-0 z-40 pt-[env(safe-area-inset-top)]"
+  class:list={["site-header sticky top-0 z-40 pt-[env(safe-area-inset-top)]", tone === "dark" && "tone-dark"]}
 >
   <div
-    class="page-frame flex flex-nowrap items-center gap-3 py-1.5 sm:gap-4 sm:py-3"
+    class="page-frame flex flex-nowrap items-center gap-3 py-1.5 sm:gap-4"
   >
     <a href={`/${locale}`} class="flex shrink-0 items-center gap-2 no-underline">
       <img
@@ -150,11 +152,13 @@ const linkActive = "text-orange-ink dark:text-orange-bright";
 
 <style>
   .site-header {
-    background: var(--paper);
+    background: color-mix(in srgb, var(--paper) 78%, transparent);
     color: var(--ink);
-    border-bottom: 1px solid var(--rule);
+    border-bottom: 1px solid color-mix(in srgb, var(--rule) 70%, transparent);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
   }
-  .site-header > .page-frame { min-height: 4.5rem; }
+  .site-header > .page-frame { min-height: 3.5rem; }
   .nav-github {
     display: inline-flex;
     width: 2.25rem;
@@ -335,6 +339,39 @@ const linkActive = "text-orange-ink dark:text-orange-bright";
     .nav-github:hover {
       color: var(--color-orange-bright);
     }
+  }
+
+  .site-header.tone-dark {
+    --paper: #161617;
+    --ink: var(--color-cream);
+    --rule: #424245;
+  }
+
+  :global(.tone-dark) .nav-more-summary {
+    border-color: color-mix(in srgb, var(--color-cream) 18%, transparent);
+    background: var(--paper);
+  }
+
+  :global(.tone-dark) .nav-more-menu {
+    border-color: color-mix(in srgb, var(--color-cream) 14%, transparent);
+    background: var(--paper);
+    box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.55);
+  }
+
+  :global(.tone-dark) .nav-more-link:hover, :global(.tone-dark) .nav-more-link.is-current {
+    background: color-mix(in srgb, var(--color-orange-bright) 16%, transparent);
+  }
+
+  :global(.tone-dark) .nav-more-link.is-current {
+    color: var(--color-orange-bright);
+  }
+
+  :global(.tone-dark) .nav-github {
+    color: color-mix(in srgb, var(--color-cream) 80%, transparent);
+  }
+
+  :global(.tone-dark) .nav-github:hover {
+    color: var(--color-orange-bright);
   }
 
   @media (prefers-reduced-motion: reduce) {

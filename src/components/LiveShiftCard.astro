@@ -78,7 +78,7 @@ const initialTime = copy.timeLeft
     var card = document.querySelector("[data-live-card]");
     if (!card) return;
     var copy = JSON.parse(card.getAttribute("data-copy"));
-    var hero = card.closest(".shift-hero") || card;
+    var hero = card.closest(".scene-hero") || card;
     var titleEl = card.querySelector("[data-lc-title]");
     var srEl = card.querySelector("[data-lc-sr]");
     var visEl = card.querySelector("[data-lc-vis]");

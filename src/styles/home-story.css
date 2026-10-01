@@ -1,32 +1,52 @@
-/* The chapter layouts use the shared palette and outer grid from global.css. */
+/* Homepage scenes. Palette and outer grid come from global.css.
+ *
+ * Scroll motion is progress-driven: src/lib/home-scenes.ts writes --p (0..1)
+ * on each [data-scene] (--x on the hero) and adds html.scenes-on. Every rule
+ * falls back to the finished state, so NoJS and reduced motion get a complete
+ * static page.
+ */
 .shift-page {
   min-height: 100vh;
   -webkit-user-select: none;
   user-select: none;
 }
-.shift-hero {
+
+/* Dark scenes share one set of tokens in both colour schemes. */
+.scene-hero,
+.scene-statement,
+.scene-finale {
   --ink: var(--night-ink);
+  --muted: var(--night-muted);
+  --rule: #424245;
   --accent: var(--color-orange-bright);
-  --rule: color-mix(in srgb, var(--night-ink) 35%, transparent);
   color: var(--ink);
-  background: var(--hero-surface);
-  border-bottom: 1px solid var(--rule);
+  background: #000;
+}
+.scene-phone {
+  background: var(--paper);
+}
+.scene-carry {
+  background: var(--surface);
+}
+
+/* ---------- Hero ---------- */
+.scene-hero {
+  position: relative;
   overflow: clip;
 }
-/* Hero: the claim on the start side, the product's own card on the end side.
-   Sized by height as well as width so the card and both entries stay on the
-   first screen of a 13-inch laptop with browser chrome. */
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(0, 28rem);
   align-items: center;
   gap: clamp(2.5rem, 6vw, 7rem);
-  min-height: min(calc(100svh - 4.5rem), 58rem);
+  min-height: min(calc(100svh - 3.5rem), 58rem);
   padding-block: clamp(2.5rem, 7svh, 5.5rem);
 }
 .hero-copy {
   container-type: inline-size;
   min-width: 0;
+  transform: translateY(calc(var(--x, 0) * -14svh));
+  opacity: calc(1 - var(--x, 0) * 0.9);
 }
 .shift-title {
   --hero-title-max: clamp(3rem, 14svh, 9.5rem);
@@ -39,16 +59,8 @@
     )
   );
   font-weight: 650;
-  line-height: 0.98;
-  letter-spacing: -0.055em;
-}
-.shift-title > span {
-  display: block;
-  width: max-content;
-  max-width: none;
-  white-space: nowrap;
-  overflow-wrap: normal;
-  transition: opacity 1.2s var(--ease-out);
+  line-height: 1;
+  letter-spacing: -0.05em;
 }
 @supports (font-size: 1cqi) {
   .shift-title {
@@ -58,174 +70,345 @@
     );
   }
 }
-/* The second line warms up as the sample day passes and is fully lit once
-   the shift is over; the first line steps back. */
+/* Each row is a mask; the inner span rises into it on load. */
+.shift-title > span {
+  display: block;
+  width: max-content;
+  max-width: none;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+  overflow: clip;
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+.shift-title > span > span {
+  display: block;
+  transition: opacity 1.2s var(--ease-out);
+}
 .shift-title > span + span {
-  color: var(--color-orange-bright);
-  margin-top: 0.08em;
-  opacity: calc(0.62 + 0.38 * var(--day-progress, 1));
+  margin-top: 0.04em;
 }
-.shift-hero:is([data-day="done"], [data-day="rest"]) .shift-title > span:first-child {
-  opacity: 0.5;
+/* The second line is the payoff: a warm gradient that brightens with the
+   sample day and is fully lit once the shift is over. */
+.shift-title > span + span > span {
+  background: linear-gradient(95deg, #ffc387 0%, #ff8a3d 45%, #f45a1e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: calc(0.8 + 0.2 * var(--day-progress, 1));
 }
-.shift-hero:is([data-day="done"], [data-day="rest"]) .shift-title > span + span {
+.scene-hero:is([data-day="done"], [data-day="rest"]) .shift-title > span:first-child > span {
+  opacity: 0.42;
+}
+.scene-hero:is([data-day="done"], [data-day="rest"]) .shift-title > span + span > span {
   opacity: 1;
 }
 .hero-sentence {
   margin: clamp(1.25rem, 3.5svh, 2.25rem) 0 clamp(1.5rem, 4svh, 2.5rem);
   max-width: 22em;
+  color: var(--muted);
   font-size: clamp(1.15rem, 1.7vw, 1.5rem);
-  line-height: 1.5;
+  line-height: 1.45;
 }
 .shift-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1rem 1.5rem;
+  gap: 1rem 1.75rem;
 }
-.shift-hero .btn-primary {
+.scene-hero .btn-primary {
   background: var(--night-ink);
   color: var(--color-plum);
 }
 .shift-web-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.45rem;
   min-height: 44px;
-  font-size: 0.875rem;
+  color: var(--color-orange-bright);
+  font-size: 0.9375rem;
+  text-decoration: none;
+}
+.shift-web-link:hover {
   text-decoration: underline;
-  text-underline-offset: 0.3em;
+  text-underline-offset: 0.25em;
 }
 .hero-stage {
   position: relative;
   display: grid;
   justify-items: end;
   min-width: 0;
+  transform: translateY(calc(var(--x, 0) * -6svh)) scale(calc(1 - var(--x, 0) * 0.06));
+  transform-origin: 50% 0;
 }
-/* Warm light behind the card, faded to transparent; brighter after work. */
+/* Sunset light behind the card, faded to transparent; it grows through the
+   day and blooms after clock-off. */
 .hero-stage::before {
   content: "";
   position: absolute;
-  inset: -30% -25%;
-  background: radial-gradient(closest-side, color-mix(in srgb, var(--color-orange-bright) 26%, transparent), transparent);
-  opacity: calc(0.25 + 0.35 * var(--day-progress, 0));
+  inset: -45% -40%;
+  background: radial-gradient(closest-side, rgb(255 122 46 / 0.32), rgb(244 90 30 / 0.12) 45%, transparent);
+  opacity: calc(0.35 + 0.45 * var(--day-progress, 0));
   pointer-events: none;
   transition: opacity 1.2s var(--ease-out);
 }
-.shift-hero:is([data-day="done"]) .hero-stage::before {
-  opacity: 0.9;
+.scene-hero[data-day="done"] .hero-stage::before {
+  opacity: 1;
 }
 .hero-stage > * {
   position: relative;
 }
-.chapter-line {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  border-top: 1px solid var(--rule);
-  padding-top: 1rem;
-  font-size: 0.75rem;
-  line-height: 1.5;
+
+@media (prefers-reduced-motion: no-preference) {
+  .shift-title > span > span {
+    animation: line-rise 1s var(--ease-out) both;
+  }
+  .shift-title > span + span > span {
+    animation-delay: 0.12s;
+  }
+  .hero-sentence,
+  .shift-actions {
+    animation: soft-rise 0.9s var(--ease-out) both;
+    animation-delay: 0.32s;
+  }
+  .shift-actions {
+    animation-delay: 0.42s;
+  }
+  .hero-stage > .live-card {
+    animation: card-arrive 1.2s var(--ease-out) both;
+    animation-delay: 0.28s;
+  }
+  .hero-stage::before {
+    animation: glow-arrive 2s var(--ease-out) both;
+    animation-delay: 0.3s;
+  }
 }
-.chapter-line > .media-control {
-  margin-inline-start: auto;
+@keyframes line-rise {
+  from {
+    transform: translateY(105%);
+  }
 }
-.chapter-line > span:first-child {
-  min-width: 2rem;
-  font-variant-numeric: tabular-nums;
+@keyframes soft-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
 }
-.shift-proof,
-.shift-carry,
-.shift-get {
-  padding-block: clamp(3.5rem, 8vw, 7rem);
+@keyframes card-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(2.5rem) scale(0.96);
+    filter: blur(10px);
+  }
 }
-.proof-layout,
-.carry-heading,
-.get-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  gap: clamp(2.5rem, 6vw, 6rem);
-  align-items: center;
-  margin-top: 3.5rem;
+@keyframes glow-arrive {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
 }
-.proof-copy h2,
-.carry-heading h2,
-.get-layout h2 {
+
+/* ---------- Shared scene parts ---------- */
+.scene-pin {
+  position: relative;
+}
+.scene-kicker {
   margin: 0;
-  font-size: clamp(2.7rem, 5.4vw, 5rem);
-  line-height: 1.08;
-  font-weight: 550;
-  letter-spacing: -0.055em;
-  text-wrap: balance;
-  overflow-wrap: anywhere;
-}
-.proof-copy > p,
-.carry-heading > p,
-.get-layout > div > p {
-  font-size: 1.125rem;
-  line-height: 1.8;
-  max-width: 35em;
-  margin: 1.5rem 0 0;
-}
-.proof-values {
-  margin: 2.5rem 0;
-  padding: 0;
-  list-style: none;
-}
-.proof-values li {
-  display: flex;
-  align-items: baseline;
-  gap: 1.2rem;
-  padding-block: 0.75rem;
-  border-bottom: 1px solid var(--rule);
-  font-size: 0.9rem;
-}
-.proof-values li > span {
   color: var(--accent);
-  font-size: 0.65rem;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 .story-link {
   display: inline-flex;
   align-items: center;
-  gap: 2rem;
+  gap: 0.45rem;
   min-height: 44px;
-  font-size: 0.875rem;
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 0.35em;
+  color: var(--accent);
+  font-size: 1.0625rem;
+  text-decoration: none;
 }
 .story-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+/* ---------- Statement: words light up as you read ---------- */
+.statement {
+  padding-block: clamp(6rem, 16vw, 12rem);
+}
+html.scenes-on .scene-statement {
+  height: 220svh;
+}
+html.scenes-on .scene-statement > .scene-pin {
+  position: sticky;
+  top: 0;
+  display: grid;
+  align-items: center;
+  height: 100svh;
+}
+html.scenes-on .statement {
+  padding-block: 0;
+}
+.statement h2 {
+  margin: 0 0 1.75rem;
   color: var(--accent);
+  font-size: clamp(1.1rem, 1.6vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
-.proof-device {
+.statement p {
+  max-width: 19em;
   margin: 0;
-  padding: clamp(1.5rem, 4vw, 3rem);
-  background: var(--surface);
-  border-radius: 1.5rem;
+  font-size: clamp(2.25rem, 5.4vw, 5.25rem);
+  font-weight: 650;
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
 }
-.proof-device .device-hero {
-  width: 18rem;
-  max-width: 100%;
+:lang(zh) .statement p,
+:lang(ja) .statement p,
+:lang(ko) .statement p {
+  max-width: 14em;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
 }
-.proof-device figcaption {
-  margin-top: 1.5rem;
-  font-size: 0.75rem;
-  line-height: 1.6;
-  text-align: center;
-  color: var(--muted);
+.statement .w {
+  transition: color 0.35s linear;
+}
+html.scenes-on .statement .w {
+  color: #3a3a3c;
+}
+html.scenes-on .statement .w.is-lit {
+  color: var(--ink);
+}
+
+/* ---------- iPhone: pinned, the device settles while steps advance ---------- */
+.phone-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 6rem);
+  padding-block: clamp(5rem, 12vw, 9rem);
+}
+.phone-steps {
+  margin: 1.75rem 0 2.5rem;
+  padding: 0;
+  list-style: none;
+}
+.phone-steps li {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  padding-block: 0.5rem;
+  font-size: clamp(1.9rem, 3.6vw, 3.4rem);
+  font-weight: 650;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  transition:
+    opacity 0.5s var(--ease-out),
+    transform 0.5s var(--ease-out);
+}
+.phone-steps li > span {
+  min-width: 2ch;
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
+.phone-device {
+  margin: 0;
+  display: grid;
+  justify-items: center;
+  gap: 1.25rem;
+}
+.phone-device .device-hero {
+  width: min(22rem, 100%);
+}
+.phone-device figcaption {
+  display: flex;
+  justify-content: center;
+  min-height: 2.75rem;
+}
+@media (min-width: 880px) {
+  html.scenes-on .scene-phone {
+    height: 300svh;
+  }
+  html.scenes-on .scene-phone > .scene-pin {
+    position: sticky;
+    top: 0;
+    display: grid;
+    align-items: center;
+    height: 100svh;
+    overflow: clip;
+  }
+  html.scenes-on .phone-layout {
+    padding-block: 3.5rem 2rem;
+  }
+  /* --a: the intro, the first 30% of the pin. */
+  html.scenes-on .phone-device {
+    --a: clamp(0, calc(var(--p, 1) / 0.3), 1);
+    transform: translateY(calc((1 - var(--a)) * 22svh)) scale(calc(1 + (1 - var(--a)) * 0.22));
+    transform-origin: 50% 30%;
+  }
+  html.scenes-on .phone-device .device-hero {
+    width: min(22rem, 100%, calc((100svh - 9rem) * 0.46));
+  }
+  html.scenes-on .phone-copy {
+    --a: clamp(0, calc((var(--p, 1) - 0.12) / 0.2), 1);
+    opacity: var(--a);
+    transform: translateY(calc((1 - var(--a)) * 3rem));
+  }
+  html.scenes-on .phone-steps li {
+    opacity: 0.22;
+  }
+  html.scenes-on .phone-steps li.is-active {
+    opacity: 1;
+    transform: translateX(0.35rem);
+  }
+  html.scenes-on[dir="rtl"] .phone-steps li.is-active {
+    transform: translateX(-0.35rem);
+  }
+}
+
+/* ---------- Carry: widgets and Watch arrive at different depths ---------- */
+.scene-carry > .shift-frame {
+  padding-block: clamp(5rem, 12vw, 10rem);
 }
 .carry-heading {
-  align-items: start;
-  margin-bottom: 3.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 6vw, 6rem);
+  align-items: end;
+  margin-bottom: clamp(3rem, 7vw, 6rem);
+}
+.carry-heading h2,
+.get-layout h2 {
+  margin: 0;
+  font-size: clamp(2.7rem, 6vw, 5.75rem);
+  line-height: 1.04;
+  font-weight: 650;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+:lang(zh) .carry-heading h2,
+:lang(zh) .get-layout h2 {
+  line-height: 1.15;
+  letter-spacing: -0.03em;
 }
 .carry-heading > p {
   margin: 0;
+  max-width: 30em;
+  color: var(--muted);
+  font-size: clamp(1.0625rem, 1.4vw, 1.3rem);
+  line-height: 1.6;
 }
 .carry-gallery {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-  gap: clamp(2rem, 7vw, 7rem);
+  gap: clamp(1.5rem, 4vw, 3rem);
   align-items: stretch;
 }
 .carry-gallery figure {
@@ -233,8 +416,12 @@
   flex-direction: column;
   margin: 0;
   min-width: 0;
+  padding: clamp(1.75rem, 4vw, 3.5rem);
+  border-radius: 1.75rem;
+  background: var(--paper);
+  overflow: clip;
 }
-/* Media centres in its column; both captions share one baseline. */
+/* Media centres in its tile; both captions share one baseline. */
 .carry-gallery figure > :first-child {
   margin-block: auto;
 }
@@ -248,7 +435,7 @@
 .carry-widgets picture {
   display: block;
   height: auto;
-  filter: drop-shadow(0 10px 12px #30202c20);
+  filter: drop-shadow(0 18px 24px rgb(0 0 0 / 0.12));
 }
 .carry-widgets img {
   display: block;
@@ -277,7 +464,7 @@
 }
 .carry-watch {
   position: relative;
-  width: min(100%, 20rem);
+  width: min(100%, 19rem);
   aspect-ratio: 560 / 880;
   margin-inline: auto;
 }
@@ -304,54 +491,126 @@
   object-fit: contain;
 }
 .carry-gallery figcaption {
-  margin-top: 2rem;
-  border-top: 1px solid var(--rule);
-  padding-top: 1rem;
+  margin-top: 2.5rem;
 }
 .carry-gallery h3 {
   margin: 0;
-  font-size: clamp(1.4rem, 2vw, 2rem);
-  font-weight: 550;
-  line-height: 1.3;
-  letter-spacing: -0.025em;
+  font-size: clamp(1.4rem, 2vw, 1.9rem);
+  font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
 }
 .carry-gallery figcaption p {
-  margin: 0.5rem 0 0;
-  font-size: 0.8125rem;
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+  font-size: 1rem;
   line-height: 1.5;
 }
+/* Entry progress per layer, reached as the gallery comes into view. Each
+   layer starts further away, so the stack assembles with depth. */
+html.scenes-on .carry-island {
+  --l: clamp(0, calc((var(--p, 1) - 0.12) / 0.36), 1);
+  opacity: var(--l);
+  transform: translateY(calc((1 - var(--l)) * -3rem)) scale(calc(0.9 + 0.1 * var(--l)));
+}
+html.scenes-on .carry-live {
+  --l: clamp(0, calc((var(--p, 1) - 0.16) / 0.36), 1);
+  opacity: var(--l);
+  transform: translateY(calc((1 - var(--l)) * 4rem));
+}
+html.scenes-on .carry-widget {
+  --l: clamp(0, calc((var(--p, 1) - 0.2) / 0.36), 1);
+  opacity: var(--l);
+  transform: translateY(calc((1 - var(--l)) * 7rem)) scale(calc(0.94 + 0.06 * var(--l)));
+}
+html.scenes-on .carry-watch {
+  --l: clamp(0, calc((var(--p, 1) - 0.14) / 0.4), 1);
+  opacity: var(--l);
+  transform: perspective(60rem) translateY(calc((1 - var(--l)) * 6rem)) rotateY(calc((1 - var(--l)) * -28deg)) rotateZ(calc((1 - var(--l)) * 6deg));
+}
+
+/* ---------- Finale: the page ends at clock-off, in sunset light ---------- */
+.scene-finale {
+  position: relative;
+  overflow: clip;
+  isolation: isolate;
+}
+.finale-glow {
+  position: absolute;
+  left: 50%;
+  bottom: -55%;
+  z-index: -1;
+  width: max(110vw, 70rem);
+  aspect-ratio: 1;
+  translate: -50% 0;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(255 154 69 / 0.75), rgb(244 90 30 / 0.45) 38%, rgb(160 40 10 / 0.18) 62%, transparent);
+  opacity: var(--g, 1);
+  transform: translateY(calc((1 - var(--g, 1)) * 30%)) scale(calc(0.8 + 0.2 * var(--g, 1)));
+  pointer-events: none;
+}
+html.scenes-on .scene-finale {
+  --g: clamp(0, calc((var(--p, 1) - 0.05) / 0.5), 1);
+}
 .get-layout {
-  align-items: start;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  padding-block: clamp(7rem, 16vw, 13rem) clamp(8rem, 18vw, 15rem);
+}
+.get-layout .brand-mark {
+  display: block;
+  width: 5.5rem;
+  height: 5.5rem;
+  margin-bottom: 1.5rem;
 }
 .get-layout h2 {
-  max-width: 13em;
-}
-.get-heading .brand-mark {
-  display: block;
-  width: 4.5rem;
-  height: 4.5rem;
-  margin: 0 0 1.75rem;
-  margin-inline-start: calc(4.5rem * -159 / 1024);
-}
-.get-web {
-  margin-top: 1.25rem;
+  max-width: 12em;
 }
 .get-layout .get-title-word {
   display: inline-block;
   white-space: nowrap;
   overflow-wrap: normal;
 }
-.get-layout > div > p:first-child {
-  margin: 0 0 2rem;
+.get-layout > p {
+  max-width: 30em;
+  margin: 1.5rem 0 2.25rem;
+  color: var(--muted);
+  font-size: clamp(1.0625rem, 1.4vw, 1.3rem);
+  line-height: 1.6;
+}
+.get-layout .store-badges {
+  justify-content: center;
+}
+.get-web {
+  margin-top: 1rem;
+}
+/* Dark badges on the always-dark finale, whatever the system scheme. */
+.scene-finale .store-badges .dark\:hidden {
+  display: none;
+}
+.scene-finale .store-badges .dark\:block {
+  display: block;
+}
+.scene-finale .hall-platforms {
+  color: var(--muted);
+}
+
+/* ---------- Script-specific type ---------- */
+/* Chinese headings break at punctuation, not inside a word; a phrase longer
+   than the line may still wrap. */
+:lang(zh) :is(.statement p, .carry-heading h2, .get-layout h2, .phone-steps li) {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 :dir(rtl) .shift-title {
   letter-spacing: 0;
   line-height: 1.16;
 }
 :lang(zh) .shift-title {
-  --hero-title-max: clamp(3.25rem, 9.8vw, 9rem);
-  line-height: 1.1;
-  letter-spacing: -0.07em;
+  --hero-title-max: clamp(3.25rem, 13svh, 9rem);
+  line-height: 1.12;
+  letter-spacing: -0.06em;
 }
 :lang(ja) .shift-title,
 :lang(ko) .shift-title {
@@ -361,10 +620,12 @@
 :lang(hi) .shift-title,
 :lang(mr) .shift-title,
 :lang(th) .shift-title {
-  line-height: 1.2;
+  line-height: 1.22;
   letter-spacing: 0;
-  --hero-title-max: clamp(3.2rem, 8.5vw, 8rem);
+  --hero-title-max: clamp(3.2rem, 12svh, 8rem);
 }
+
+/* ---------- Narrow ---------- */
 @media (max-width: 879px) {
   .hero-grid {
     grid-template-columns: minmax(0, 1fr);
@@ -377,23 +638,17 @@
   }
   .shift-title {
     --hero-title-max: clamp(3.5rem, 10.4vw, 7.2rem);
-    font-size: var(--hero-font-fit, min(var(--hero-title-max), calc(100cqi / var(--hero-line-width))));
   }
-  .proof-layout,
+  .phone-layout,
   .carry-heading,
-  .get-layout {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2.5rem;
-  }
-  .proof-device {
-    width: min(100%, 28rem);
-    margin-inline: auto;
-  }
   .carry-gallery {
-    gap: 2rem;
+    grid-template-columns: minmax(0, 1fr);
   }
-  .carry-watch {
-    width: min(100%, 17rem);
+  .phone-device .device-hero {
+    width: min(17rem, 100%);
+  }
+  html.scenes-on .scene-statement {
+    height: 170svh;
   }
 }
 @media (max-width: 539px) {
@@ -418,44 +673,31 @@
     flex-direction: column;
     gap: 0.5rem;
   }
-  .proof-layout,
-  .carry-heading,
-  .get-layout {
-    margin-top: 2.5rem;
+  .hero-sentence {
+    font-size: 1.15rem;
   }
-  .proof-copy h2,
-  .carry-heading h2,
-  .get-layout h2 {
-    font-size: 2.65rem;
+  .phone-steps li {
+    font-size: 1.75rem;
   }
-  .proof-copy > p,
-  .carry-heading > p,
-  .get-layout > div > p {
-    font-size: 1rem;
-  }
-  .proof-device .device-hero {
-    width: 16rem;
-  }
-  .carry-gallery {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 3.5rem;
-  }
-  .carry-widgets {
-    max-width: 28rem;
+  .carry-gallery figure {
+    padding: 1.5rem;
+    border-radius: 1.5rem;
   }
   .carry-watch {
-    width: 15rem;
+    width: 14rem;
   }
 }
-@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
-  .story-link > span {
+@media (hover: hover) and (pointer: fine) {
+  .story-link > span,
+  .shift-web-link > span {
     transition: transform 150ms var(--ease-out);
   }
-  .story-link:hover > span {
+  .story-link:hover > span,
+  .shift-web-link:hover > span {
     transform: translate(2px, -2px);
   }
-  .shift-hero .btn-primary:hover {
-    background: var(--color-orange-bright);
+  .scene-hero .btn-primary:hover {
+    background: #fff;
     color: var(--color-plum);
   }
 }
