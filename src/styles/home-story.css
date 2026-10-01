@@ -241,21 +241,34 @@
   gap: clamp(2.5rem, 6vw, 6rem);
   padding-block: clamp(5rem, 12vw, 9rem);
 }
-.proof-statement {
-  max-width: 17em;
-  margin: 1.25rem 0 0;
-  font-size: clamp(1.9rem, 3.3vw, 3.25rem);
+.proof-title {
+  margin: 0;
+  font-size: clamp(2.6rem, 5vw, 4.75rem);
   font-weight: 650;
-  line-height: 1.16;
-  letter-spacing: -0.035em;
+  line-height: 1.04;
+  letter-spacing: -0.05em;
   text-wrap: balance;
+}
+:lang(zh) .proof-title {
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+/* The lead sentence: reading size, lit word by word while pinned. */
+.proof-statement {
+  max-width: 26em;
+  margin: 1.5rem 0 0;
+  font-size: clamp(1.15rem, 1.55vw, 1.45rem);
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  text-wrap: pretty;
 }
 :lang(zh) .proof-statement,
 :lang(ja) .proof-statement,
 :lang(ko) .proof-statement {
-  max-width: 13em;
-  line-height: 1.32;
-  letter-spacing: -0.015em;
+  max-width: 22em;
+  line-height: 1.7;
+  letter-spacing: 0;
 }
 .proof-statement .w {
   transition: color 0.35s linear;
@@ -536,9 +549,11 @@ html.scenes-on .scene-finale {
 }
 .get-layout .brand-mark {
   display: block;
-  width: 5.5rem;
-  height: 5.5rem;
-  margin-bottom: 1.5rem;
+  width: clamp(6.5rem, 9vw, 8.5rem);
+  height: clamp(6.5rem, 9vw, 8.5rem);
+  margin-bottom: 0.75rem;
+  /* A dark lift, not a warm glow: the mark separates from the sunset. */
+  filter: drop-shadow(0 14px 22px rgb(28 10 22 / 0.5)) drop-shadow(0 2px 4px rgb(28 10 22 / 0.35));
 }
 .get-layout h2 {
   max-width: 12em;
@@ -549,10 +564,10 @@ html.scenes-on .scene-finale {
   overflow-wrap: normal;
 }
 .get-layout > p {
-  max-width: 30em;
-  text-wrap: balance;
+  max-width: 40em;
+  text-wrap: pretty;
   margin: 1.5rem 0 2.25rem;
-  color: var(--muted);
+  color: var(--ink);
   font-size: clamp(1.0625rem, 1.4vw, 1.3rem);
   line-height: 1.6;
 }
@@ -562,21 +577,29 @@ html.scenes-on .scene-finale {
 .get-web {
   margin-top: 1rem;
 }
-/* Dark badges on the always-dark finale, whatever the system scheme. */
-.scene-finale .store-badges .dark\:hidden {
-  display: none;
+/* Badges and the platform line centre under the title, like everything
+   else in the finale. */
+.scene-finale .get-layout .store-entries {
+  align-items: center;
 }
-.scene-finale .store-badges .dark\:block {
-  display: block;
+.scene-finale .get-layout .hall-platforms {
+  color: var(--ink);
+  text-align: center;
+  text-wrap: balance;
 }
-.scene-finale .hall-platforms {
-  color: var(--muted);
+/* A full-width stop carries half an em of blank space after its ink, which
+   pulls a centred CJK line visibly to the start side. */
+.get-layout .sentence {
+  display: inline-block;
+}
+.get-layout .end-punct {
+  margin-inline-end: -0.5em;
 }
 
 /* ---------- Script-specific type ---------- */
 /* Chinese headings break at punctuation, not inside a word; a phrase longer
    than the line may still wrap. */
-:lang(zh) :is(.proof-statement, .carry-heading h2, .get-layout h2, .phone-steps li) {
+:lang(zh) :is(.proof-title, .proof-statement, .carry-heading h2, .get-layout h2, .phone-steps li) {
   word-break: keep-all;
   overflow-wrap: anywhere;
 }

@@ -29,8 +29,13 @@ const locale = Astro.params.lang;
 if (!isHallLocale(locale)) throw new Error(`Unknown hall locale: ${locale}`);
 const copy = homeStory(locale);
 const demo = homeDemo(locale);
-// Keep the following comma with the Chinese noun.
-const getTitleParts = isChineseHall(locale) ? copy.getTitle.split(/(时间，|時間，)/u) : [copy.getTitle];
+// The finale title is centred: hang a closing full-width stop so its blank
+// half doesn't shift the line, and keep the comma with the Chinese noun.
+const getTitleEnd = /[。！？]$/u.test(copy.getTitle) ? copy.getTitle.slice(-1) : "";
+const getTitleBody = getTitleEnd ? copy.getTitle.slice(0, -1) : copy.getTitle;
+// Sentences wrap as units, so a short connective never dangles at a line end.
+const getBodySentences = copy.getBody.split(/(?<=[.!?])\s+/u);
+const getTitleParts = isChineseHall(locale) ? getTitleBody.split(/(时间，|時間，)/u) : [getTitleBody];
 const description = t(locale, "homeDescription");
 const download = `/${contentLocaleFor(locale)}/download`;
 const island = isChineseHall(locale) ? zhIsland : enIsland;
@@ -58,7 +63,7 @@ const values = [t(locale, "valueLocal"), t(locale, "valueNoAccount"), t(locale, 
         <div class="scene-pin">
           <div class="shift-frame proof-layout">
             <div class="proof-copy">
-              <h2 class="scene-kicker" id="proof-title">{copy.proofTitle}</h2>
+              <h2 class="proof-title" id="proof-title">{copy.proofTitle}</h2>
               <p class="proof-statement" data-words="0.04 0.42">{copy.proofBody}</p>
               <ol class="phone-steps" data-steps="0.5 0.46">{values.map((v,i)=><li data-step={i}><span aria-hidden="true">0{i+1}</span>{v}</li>)}</ol>
               <a class="story-link" href={download} data-track="download_page_open">{t(locale,"downloadCta")}<span aria-hidden="true">↗</span></a>
@@ -93,9 +98,9 @@ const values = [t(locale, "valueLocal"), t(locale, "valueNoAccount"), t(locale, 
         <div class="finale-glow" aria-hidden="true"></div>
         <div class="shift-frame get-layout">
           <BrandMark locale={locale} />
-          <h2 id="get-title">{getTitleParts.map(part => part === "时间，" || part === "時間，" ? <span class="get-title-word">{part}</span> : part)}</h2>
-          <p>{copy.getBody}</p>
-          <StoreEntries locale={locale} variant="download" />
+          <h2 id="get-title">{getTitleParts.map(part => part === "时间，" || part === "時間，" ? <span class="get-title-word">{part.slice(0, -1)}<span class="end-punct">{part.slice(-1)}</span></span> : part)}{getTitleEnd && <span class="end-punct">{getTitleEnd}</span>}</h2>
+          <p>{getBodySentences.map((sentence, index) => <>{index > 0 && " "}<span class="sentence">{sentence}</span></>)}</p>
+          <StoreEntries locale={locale} variant="download" tone="dark" />
           <a class="story-link get-web" href={webAppUrl(locale,"hall")} target="_blank" rel="noopener noreferrer" data-track="web_timer_open">{t(locale,"webCta")}<span aria-hidden="true">↗</span></a>
         </div>
       </section>

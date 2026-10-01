@@ -42,7 +42,9 @@ Astro 门厅、英中长文、下载页都已上线。接着改现有工程，�
 ## 实现经验（不要重踩）
 
 - 门厅 mark 用内联 SVG（`BrandMark.astro`），不要 `<img src="/brand/….svg">`。用 img 时浏览器会先栅格化，放大后边缘虚。几何仍以 `assets/brand/off-work-countdown-mark.svg` 为准，不要另造。
-- 收尾章 mark 居中放在标题上方，不加负边距；不要另造 mark。
+- 收尾章 mark 居中放在标题上方，不加负边距，约 6.5–8.5rem，用深色 `drop-shadow` 托起（不是暖光）；不要另造 mark。
+- 收尾章居中排版：标题末尾的全角句号、换行处的「时间，」逗号用 `.end-punct` 收掉半个字宽，否则肉眼看整行偏左；说明句按句子成块换行；说明与平台行用标题同色（米色）。收尾章商店徽章用 `StoreEntries tone="dark"`：两枚都用黑色版（含微软官方脚本 `theme="dark"`），不随系统明暗变成一黑一白。
+- 文案层级：短标题大字，长句用导读字号（约 1.15–1.45rem）。不要把整句说明放成巨型粗体。
 - 首屏按高度和宽度同时限字号：1280×720、1440×800 这类带浏览器工具栏的笔记本首屏里，主按钮和整张卡片都要完整可见。
 - 全站字体是产品 Web／Desktop 同款 Geist（`public/fonts/GeistVF.woff2`，OFL 许可在 `public/licenses/geist-ofl.txt`），中日韩、阿拉伯、印地等文字回落系统字体。Geist 缺越南语声调字形，`vi` 整页用系统字体。
 - 全站外层栅格只由 `src/styles/global.css` 的 `--site-width`／`--site-gutter` 及 `.page-frame, .shift-frame` 定义。导航、首页、下载页和页脚用相同外边缘；长文阅读宽度在栅格内部约束，不能再覆盖外层 frame。色板与动效曲线同样由此文件统一管理。

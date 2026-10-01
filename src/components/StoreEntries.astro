@@ -15,6 +15,9 @@ import {
 interface Props {
   locale: HallLocale;
   variant?: "home" | "download";
+  /** "dark": both badges use their black artwork whatever the system scheme
+      (the homepage finale sits on a fixed evening background). */
+  tone?: "auto" | "dark";
 }
 
 const appleBlackBadges = import.meta.glob<ImageMetadata>(
@@ -44,7 +47,8 @@ function pickBadge(
   return found;
 }
 
-const { locale, variant = "home" } = Astro.props;
+const { locale, variant = "home", tone = "auto" } = Astro.props;
+const fixedDark = tone === "dark";
 const downloadHref = `/${contentLocaleFor(locale)}/download`;
 const appleLocale = appleBadgeLocale(locale);
 const msLocale = microsoftBadgeLocale(locale);
@@ -94,19 +98,21 @@ const msBadgeWidth = Math.round((msBadgeHeight * msLight.width) / msLight.height
   <div class="store-badges">
     <a href={appleHref} class="inline-block leading-none" data-track="app_store_open">
       <Image
-        class="h-10 w-auto dark:hidden"
+        class:list={["h-10 w-auto", !fixedDark && "dark:hidden"]}
         src={appleBlack}
         alt={t(locale, "appStoreLabel")}
         height={40}
         inferSize
       />
-      <Image
-        class="hidden h-10 w-auto dark:block"
-        src={appleWhite}
-        alt={t(locale, "appStoreLabel")}
-        height={40}
-        inferSize
-      />
+      {!fixedDark && (
+        <Image
+          class="hidden h-10 w-auto dark:block"
+          src={appleWhite}
+          alt={t(locale, "appStoreLabel")}
+          height={40}
+          inferSize
+        />
+      )}
     </a>
     <a
       href={msHref}
@@ -117,15 +123,17 @@ const msBadgeWidth = Math.round((msBadgeHeight * msLight.width) / msLight.height
       style={`width:${msBadgeWidth}px`}
     >
       <span class="ms-fallback" aria-hidden="true">
+        {!fixedDark && (
+          <Image
+            class="dark:hidden"
+            src={msLight}
+            alt=""
+            width={msBadgeWidth}
+            height={msBadgeHeight}
+          />
+        )}
         <Image
-          class="dark:hidden"
-          src={msLight}
-          alt=""
-          width={msBadgeWidth}
-          height={msBadgeHeight}
-        />
-        <Image
-          class="hidden dark:block"
+          class:list={[!fixedDark && "hidden dark:block"]}
           src={msDark}
           alt=""
           width={msBadgeWidth}
@@ -138,7 +146,7 @@ const msBadgeWidth = Math.round((msBadgeHeight * msLight.width) / msLight.height
         productid={siteConfig.microsoftStoreId}
         productname={siteConfig.brandName}
         window-mode="full"
-        theme="auto"
+        theme={fixedDark ? "dark" : "auto"}
         language={msLocale}
         size="large"></ms-store-badge>
     </a>
