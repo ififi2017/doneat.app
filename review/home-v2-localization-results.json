@@ -1,0 +1,347 @@
+{
+  "kind": "generated HTML/source checks; no browser execution",
+  "locales": [
+    {
+      "locale": "en",
+      "dir": "ltr",
+      "storyFields": 10,
+      "controlFields": 3,
+      "headlines": [
+        "Work ends.",
+        "Your time begins."
+      ],
+      "pause": "Pause demos",
+      "play": "Play demos",
+      "widgetsAlt": "DoneAt countdown in the Dynamic Island, Lock Screen and Home Screen widgets",
+      "watchAlt": "DoneAt on Apple Watch showing time left, shift progress and clock-out time",
+      "canonical": "https://doneat.app/en",
+      "download": "/en/download",
+      "recordingStem": "en",
+      "status": "static checks passed"
+    },
+    {
+      "locale": "zh-CN",
+      "dir": "ltr",
+      "storyFields": 10,
+      "controlFields": 3,
+      "headlines": [
+        "工作有终点。",
+        "时间归自己。"
+      ],
+      "pause": "暂停演示",
+      "play": "播放演示",
+      "widgetsAlt": "灵动岛、锁定屏幕和主屏幕小组件中的 DoneAt 倒计时",
+      "watchAlt": "Apple Watch 上的 DoneAt，显示剩余时间、班次进度和下班时刻",
+      "canonical": "https://doneat.app/zh-CN",
+      "download": "/zh-CN/download",
+      "recordingStem": "zh",
+      "status": "static checks passed"
+    },
+    {
+      "locale": "zh-TW",
+      "dir": "ltr",
+      "storyFields": 10,
+      "controlFields": 3,
+      "headlines": [
+        "工作有終點。",
+        "時間歸自己。"
+      ],
+      "pause": "暫停示範",
+      "play": "播放示範",
+      "widgetsAlt": "動態島、鎖定畫面和主畫面小工具中的 DoneAt 倒數",
+      "watchAlt": "Apple Watch 上的 DoneAt，顯示剩餘時間、班次進度和下班時刻",
+      "canonical": "https://doneat.app/zh-TW",
+      "download": "/zh-CN/download",
+      "recordingStem": "zh",
+      "status": "static checks passed"
+    },
+    {
+      "locale": "zh-HK",
+      "dir": "ltr",
+      "storyFields": 10,
+      "controlFields": 3,
+      "headlines": [
+        "工作有終點。",
+        "時間歸自己。"
+      ],
+      "pause": "暫停示範",
+      "play": "播放示範",
+      "widgetsAlt": "動態島、鎖定畫面和主畫面小工具中的 DoneAt 倒數",
+      "watchAlt": "Apple Watch 上的 DoneAt，顯示剩餘時間、更次進度和放工時刻",
+      "canonical": "https://doneat.app/zh-HK",
+      "download": "/zh-CN/download",
+      "recordingStem": "zh",
+      "status": "static checks passed"
+    },
+    {
+      "locale": "ja",
+      "dir": "ltr",
+      "storyFields": 10,
+      "controlFields": 3,
+      "headlines": [
+        "仕事が終わる。",
+        "自分の時間が始まる。"
+      ],
+      "pause": "デモを一時停止",
+      "play": "デモを再生",
+      "widgetsAlt": "Dynamic Island、ロック画面、ホーム画面ウィジェットに表示された DoneAt のカウントダウン",
+      "watchAlt": "残り時間、シフトの進み具合、退勤時刻を表示する Apple Watch の DoneAt",
+      "canonical": "https://doneat.app/ja",
+      "download": "/en/download",
+      "recordingStem": "en",
+      "status": "static checks passed"
+    },
+    {
+      "locale": "ko",
+      "dir": "ltr",
+      "storyFields": 10,
+      "controlFields": 3,
+      "headlines": [
+        "일이 끝나면,",
+        "내 시간이 시작돼요."
+      ],
+      "pause": "데모 일시 정지",
+      "play": "데모 재생",
+      "widgetsAlt": "Dynamic Island, 잠금 화면, 홈 화면 위젯에 표시된 DoneAt 카운트다운",
+      "watchAlt": "남은 시간, 근무 진행률, 퇴근 시간을 보여 주는 Apple Watch의 DoneAt",
+      "canonical": "https://doneat.app/ko",
+      "download": "/en/download",
+      "recordingStem": "en",
+      "status": "static checks passed"
+    },
+    {
+      "locale": "fr",
+      "dir": "ltr",
+      "storyFields": 10,
+      "controlFields": 3,
+      "headlines": [
+        "Le travail s'arrête.",
+        "Votre temps débute."
+      ],
+      "pause": "Mettre les démos en pause",
+      "play": "Lire les démos",
+      "widgetsAlt": "Le compte à rebours DoneAt dans la Dynamic Island et les widgets de l'écran verrouillé et de l'écran d'accueil",
+      "watchAlt": "DoneAt sur Apple Watch avec le temps restant, la progression et l'heure de fin du service",
+      "canonical": "https://doneat.app/fr",
+      "download": "/en/download",
+      "recordingStem": "en",
+      "status": "static checks passed"
+    },
+    {
+      "locale": "de",
+      "dir": "ltr",
+      "storyFields": 10,
+      "controlFields": 3,
+      "headlines": [
+        "Die Arbeit endet.",
+        "Deine Zeit beginnt."
+      ],
+      "pause": "Demos pausieren",
+      "play": "Demos abspielen",
+      "widgetsAlt": "Der DoneAt Countdown in der Dynamic Island sowie in Sperrbildschirm- und Home-Bildschirm-Widgets",
+      "watchAlt": "DoneAt auf der Apple Watch mit Restzeit, Schichtfortschritt und Feierabendzeit",
+      "canonical": "https://doneat.app/de",
+      "download": "/en/download",
+      "recordingStem": "en",
+      "status": "static checks passed"
+    },
+    {
+      "locale": "es",
+      "dir": "ltr",
+      "storyFields": 10,
+      "controlFields": 3,
+      "headlines": [
+        "El trabajo termina.",
+        "Tu tiempo comienza."
+      ],
+      "pause": "Pausar demos",
+      "play": "Reproducir demos",
+      "widgetsAlt": "La cuenta atrás de DoneAt en la Dynamic Island y en los widgets de la pantalla bloqueada y de inicio",
+      "watchAlt": "DoneAt en Apple Watch con el tiempo restante, el progreso del turno y la hora de salida",
+      "canonical": "https://doneat.app/es",
+      "download": "/en/download",
+      "recordingStem": "en",
+      "status": "static checks passed"
+    },
+    {
+      "locale": "it",
+      "dir": "ltr",
+      "storyFields": 10,
+      "controlFields": 3,
+      "headlines": [
+        "Il lavoro finisce.",
+        "Il tuo tempo comincia."
+      ],
+      "pause": "Pausa demo",
+      "play": "Riproduci demo",
+      "widgetsAlt": "Il conto alla rovescia DoneAt nella Dynamic Island e nei widget della schermata di blocco e Home",
+      "watchAlt": "DoneAt su Apple Watch con tempo rimasto, avanzamento del turno e orario di uscita",
+      "canonical": "https://doneat.app/it",
+      "download": "/en/download",
+      "recordingStem": "en",
+      "status": "static checks passed"
+    },
+    {
+      "locale": "pt",
+      "dir": "ltr",
+      "storyFields": 10,
+      "controlFields": 3,
+      "headlines": [
+        "O trabalho termina.",
+        "Seu tempo começa."
+      ],
+      "pause": "Pausar demos",
+      "play": "Reproduzir demos",
+      "widgetsAlt": "Contagem regressiva do DoneAt na Dynamic Island e nos widgets das telas de bloqueio e de início",
+      "watchAlt": "DoneAt no Apple Watch com tempo restante, progresso do turno e horário de saída",
+      "canonical": "https://doneat.app/pt",
+      "download": "/en/download",
+      "recordingStem": "en",
+      "status": "static checks passed"
+    },
+    {
+      "locale": "ru",
+      "dir": "ltr",
+      "storyFields": 10,
+      "controlFields": 3,
+      "headlines": [
+        "Работа окончена.",
+        "Теперь твоё время."
+      ],
+      "pause": "Приостановить демо",
+      "play": "Воспроизвести демо",
+      "widgetsAlt": "Обратный отсчёт DoneAt в Dynamic Island и виджетах экрана блокировки и главного экрана",
+      "watchAlt": "DoneAt на Apple Watch: оставшееся время, прогресс смены и время окончания работы",
+      "canonical": "https://doneat.app/ru",
+      "download": "/en/download",
+      "recordingStem": "en",
+      "status": "static checks passed"
+    },
+    {
+      "locale": "hi-IN",
+      "dir": "ltr",
+      "storyFields": 10,
+      "controlFields": 3,
+      "headlines": [
+        "काम खत्म होता है।",
+        "आपका समय शुरू होता है।"
+      ],
+      "pause": "डेमो रोकें",
+      "play": "डेमो चलाएँ",
+      "widgetsAlt": "Dynamic Island, लॉक स्क्रीन और होम स्क्रीन विजेट में DoneAt की उलटी गिनती",
+      "watchAlt": "Apple Watch पर DoneAt में बचा हुआ समय, शिफ्ट की प्रगति और काम खत्म होने का समय",
+      "canonical": "https://doneat.app/hi-IN",
+      "download": "/en/download",
+      "recordingStem": "en",
+      "status": "static checks passed"
+    },
+    {
+      "locale": "mr-IN",
+      "dir": "ltr",
+      "storyFields": 10,
+      "controlFields": 3,
+      "headlines": [
+        "काम संपतं.",
+        "तुमचा वेळ सुरू होतो."
+      ],
+      "pause": "डेमो थांबवा",
+      "play": "डेमो चालवा",
+      "widgetsAlt": "Dynamic Island, लॉक स्क्रीन आणि होम स्क्रीन विजेटमधील DoneAt ची उलट मोजणी",
+      "watchAlt": "Apple Watch वरील DoneAt मध्ये उरलेला वेळ, शिफ्टची प्रगती आणि काम संपण्याची वेळ",
+      "canonical": "https://doneat.app/mr-IN",
+      "download": "/en/download",
+      "recordingStem": "en",
+      "status": "static checks passed"
+    },
+    {
+      "locale": "tr",
+      "dir": "ltr",
+      "storyFields": 10,
+      "controlFields": 3,
+      "headlines": [
+        "Mesai biter.",
+        "Senin zamanın başlar."
+      ],
+      "pause": "Demoları duraklat",
+      "play": "Demoları oynat",
+      "widgetsAlt": "Dynamic Island, kilit ekranı ve ana ekran araç takımlarında DoneAt geri sayımı",
+      "watchAlt": "Apple Watch'ta kalan süreyi, vardiya ilerlemesini ve mesai bitişini gösteren DoneAt",
+      "canonical": "https://doneat.app/tr",
+      "download": "/en/download",
+      "recordingStem": "en",
+      "status": "static checks passed"
+    },
+    {
+      "locale": "ar",
+      "dir": "rtl",
+      "storyFields": 10,
+      "controlFields": 3,
+      "headlines": [
+        "للعمل نهاية.",
+        "ووقتك يبدأ."
+      ],
+      "pause": "إيقاف العروض مؤقتًا",
+      "play": "تشغيل العروض",
+      "widgetsAlt": "العد التنازلي في DoneAt ضمن Dynamic Island وأدوات شاشة القفل والشاشة الرئيسية",
+      "watchAlt": "DoneAt على Apple Watch يعرض الوقت المتبقي وتقدم الدوام ووقت نهايته",
+      "canonical": "https://doneat.app/ar",
+      "download": "/en/download",
+      "recordingStem": "en",
+      "status": "static checks passed"
+    },
+    {
+      "locale": "th",
+      "dir": "ltr",
+      "storyFields": 10,
+      "controlFields": 3,
+      "headlines": [
+        "งานมีจุดสิ้นสุด",
+        "เวลาของคุณเริ่มต้น"
+      ],
+      "pause": "พักการสาธิต",
+      "play": "เล่นการสาธิต",
+      "widgetsAlt": "เวลานับถอยหลังของ DoneAt ใน Dynamic Island และวิดเจ็ตหน้าจอล็อกกับหน้าจอโฮม",
+      "watchAlt": "DoneAt บน Apple Watch แสดงเวลาที่เหลือ ความคืบหน้าของงาน และเวลาเลิกงาน",
+      "canonical": "https://doneat.app/th",
+      "download": "/en/download",
+      "recordingStem": "en",
+      "status": "static checks passed"
+    },
+    {
+      "locale": "id",
+      "dir": "ltr",
+      "storyFields": 10,
+      "controlFields": 3,
+      "headlines": [
+        "Kerja selesai.",
+        "Waktumu dimulai."
+      ],
+      "pause": "Jeda demo",
+      "play": "Putar demo",
+      "widgetsAlt": "Hitung mundur DoneAt di Dynamic Island serta widget layar kunci dan layar utama",
+      "watchAlt": "DoneAt di Apple Watch menampilkan waktu tersisa, progres sif, dan waktu selesai kerja",
+      "canonical": "https://doneat.app/id",
+      "download": "/en/download",
+      "recordingStem": "en",
+      "status": "static checks passed"
+    },
+    {
+      "locale": "vi",
+      "dir": "ltr",
+      "storyFields": 10,
+      "controlFields": 3,
+      "headlines": [
+        "Công việc kết thúc.",
+        "Giờ là của bạn."
+      ],
+      "pause": "Tạm dừng demo",
+      "play": "Phát demo",
+      "widgetsAlt": "Đếm ngược DoneAt trong Dynamic Island và tiện ích màn hình khóa, màn hình chính",
+      "watchAlt": "DoneAt trên Apple Watch hiển thị thời gian còn lại, tiến độ ca làm và giờ tan ca",
+      "canonical": "https://doneat.app/vi",
+      "download": "/en/download",
+      "recordingStem": "en",
+      "status": "static checks passed"
+    }
+  ]
+}

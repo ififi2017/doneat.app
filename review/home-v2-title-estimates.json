@@ -1,0 +1,969 @@
+{
+  "kind": "native-font-estimate-not-browser-test",
+  "method": "AppKit NSAttributedString with NSFont.systemFont size 100 semibold; source CSS tracking included; widths normalized to em",
+  "assumptions": {
+    "rootFontPx": 16,
+    "viewports": [
+      360,
+      390,
+      768,
+      1024,
+      1440
+    ],
+    "minimumFontPx": 32,
+    "caseCount": 95
+  },
+  "limitations": "Not browser computed styles, physical line counts, screenshots, zoom, or substituted-font runtime verification. Hand off exact head to authenticated Mac browser QA.",
+  "locales": [
+    {
+      "locale": "en",
+      "direction": "ltr",
+      "lines": [
+        "Work ends.",
+        "Your time begins."
+      ],
+      "emWidths": [
+        4.2682,
+        6.4529
+      ],
+      "emBudget": 7,
+      "cases": [
+        {
+          "viewportPx": 360,
+          "contentPx": 320,
+          "fontPx": 45.71,
+          "estimatedMaxLinePx": 294.99,
+          "estimatedFreePx": 25.01
+        },
+        {
+          "viewportPx": 390,
+          "contentPx": 350,
+          "fontPx": 48.75,
+          "estimatedMaxLinePx": 314.58,
+          "estimatedFreePx": 35.42
+        },
+        {
+          "viewportPx": 768,
+          "contentPx": 691.2,
+          "fontPx": 79.87,
+          "estimatedMaxLinePx": 515.41,
+          "estimatedFreePx": 175.79
+        },
+        {
+          "viewportPx": 1024,
+          "contentPx": 921.6,
+          "fontPx": 109.57,
+          "estimatedMaxLinePx": 707.03,
+          "estimatedFreePx": 214.57
+        },
+        {
+          "viewportPx": 1440,
+          "contentPx": 1296,
+          "fontPx": 154.08,
+          "estimatedMaxLinePx": 994.26,
+          "estimatedFreePx": 301.74
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "direction": "ltr",
+      "lines": [
+        "工作有终点。",
+        "时间归自己。"
+      ],
+      "emWidths": [
+        5.0985,
+        4.9903
+      ],
+      "emBudget": 5.6,
+      "cases": [
+        {
+          "viewportPx": 360,
+          "contentPx": 320,
+          "fontPx": 45.6,
+          "estimatedMaxLinePx": 232.49,
+          "estimatedFreePx": 87.51
+        },
+        {
+          "viewportPx": 390,
+          "contentPx": 350,
+          "fontPx": 47.97,
+          "estimatedMaxLinePx": 244.58,
+          "estimatedFreePx": 105.42
+        },
+        {
+          "viewportPx": 768,
+          "contentPx": 691.2,
+          "fontPx": 75.26,
+          "estimatedMaxLinePx": 383.73,
+          "estimatedFreePx": 307.47
+        },
+        {
+          "viewportPx": 1024,
+          "contentPx": 921.6,
+          "fontPx": 100.35,
+          "estimatedMaxLinePx": 511.65,
+          "estimatedFreePx": 409.95
+        },
+        {
+          "viewportPx": 1440,
+          "contentPx": 1296,
+          "fontPx": 141.12,
+          "estimatedMaxLinePx": 719.5,
+          "estimatedFreePx": 576.5
+        }
+      ]
+    },
+    {
+      "locale": "zh-TW",
+      "direction": "ltr",
+      "lines": [
+        "工作有終點。",
+        "時間歸自己。"
+      ],
+      "emWidths": [
+        5.1202,
+        5.1202
+      ],
+      "emBudget": 5.6,
+      "cases": [
+        {
+          "viewportPx": 360,
+          "contentPx": 320,
+          "fontPx": 45.6,
+          "estimatedMaxLinePx": 233.48,
+          "estimatedFreePx": 86.52
+        },
+        {
+          "viewportPx": 390,
+          "contentPx": 350,
+          "fontPx": 47.97,
+          "estimatedMaxLinePx": 245.61,
+          "estimatedFreePx": 104.39
+        },
+        {
+          "viewportPx": 768,
+          "contentPx": 691.2,
+          "fontPx": 75.26,
+          "estimatedMaxLinePx": 385.36,
+          "estimatedFreePx": 305.84
+        },
+        {
+          "viewportPx": 1024,
+          "contentPx": 921.6,
+          "fontPx": 100.35,
+          "estimatedMaxLinePx": 513.82,
+          "estimatedFreePx": 407.78
+        },
+        {
+          "viewportPx": 1440,
+          "contentPx": 1296,
+          "fontPx": 141.12,
+          "estimatedMaxLinePx": 722.56,
+          "estimatedFreePx": 573.44
+        }
+      ]
+    },
+    {
+      "locale": "zh-HK",
+      "direction": "ltr",
+      "lines": [
+        "工作有終點。",
+        "時間歸自己。"
+      ],
+      "emWidths": [
+        5.1202,
+        5.1202
+      ],
+      "emBudget": 5.6,
+      "cases": [
+        {
+          "viewportPx": 360,
+          "contentPx": 320,
+          "fontPx": 45.6,
+          "estimatedMaxLinePx": 233.48,
+          "estimatedFreePx": 86.52
+        },
+        {
+          "viewportPx": 390,
+          "contentPx": 350,
+          "fontPx": 47.97,
+          "estimatedMaxLinePx": 245.61,
+          "estimatedFreePx": 104.39
+        },
+        {
+          "viewportPx": 768,
+          "contentPx": 691.2,
+          "fontPx": 75.26,
+          "estimatedMaxLinePx": 385.36,
+          "estimatedFreePx": 305.84
+        },
+        {
+          "viewportPx": 1024,
+          "contentPx": 921.6,
+          "fontPx": 100.35,
+          "estimatedMaxLinePx": 513.82,
+          "estimatedFreePx": 407.78
+        },
+        {
+          "viewportPx": 1440,
+          "contentPx": 1296,
+          "fontPx": 141.12,
+          "estimatedMaxLinePx": 722.56,
+          "estimatedFreePx": 573.44
+        }
+      ]
+    },
+    {
+      "locale": "ja",
+      "direction": "ltr",
+      "lines": [
+        "仕事が終わる。",
+        "自分の時間が始まる。"
+      ],
+      "emWidths": [
+        6.2185,
+        8.8836
+      ],
+      "emBudget": 9.6,
+      "cases": [
+        {
+          "viewportPx": 360,
+          "contentPx": 320,
+          "fontPx": 33.33,
+          "estimatedMaxLinePx": 296.12,
+          "estimatedFreePx": 23.88
+        },
+        {
+          "viewportPx": 390,
+          "contentPx": 350,
+          "fontPx": 36.46,
+          "estimatedMaxLinePx": 323.88,
+          "estimatedFreePx": 26.12
+        },
+        {
+          "viewportPx": 768,
+          "contentPx": 691.2,
+          "fontPx": 72,
+          "estimatedMaxLinePx": 639.62,
+          "estimatedFreePx": 51.58
+        },
+        {
+          "viewportPx": 1024,
+          "contentPx": 921.6,
+          "fontPx": 96,
+          "estimatedMaxLinePx": 852.83,
+          "estimatedFreePx": 68.77
+        },
+        {
+          "viewportPx": 1440,
+          "contentPx": 1296,
+          "fontPx": 135,
+          "estimatedMaxLinePx": 1199.29,
+          "estimatedFreePx": 96.71
+        }
+      ]
+    },
+    {
+      "locale": "ko",
+      "direction": "ltr",
+      "lines": [
+        "일이 끝나면,",
+        "내 시간이 시작돼요."
+      ],
+      "emWidths": [
+        4.5117,
+        7.1671
+      ],
+      "emBudget": 7.8,
+      "cases": [
+        {
+          "viewportPx": 360,
+          "contentPx": 320,
+          "fontPx": 41.03,
+          "estimatedMaxLinePx": 294.04,
+          "estimatedFreePx": 25.96
+        },
+        {
+          "viewportPx": 390,
+          "contentPx": 350,
+          "fontPx": 44.87,
+          "estimatedMaxLinePx": 321.6,
+          "estimatedFreePx": 28.4
+        },
+        {
+          "viewportPx": 768,
+          "contentPx": 691.2,
+          "fontPx": 79.87,
+          "estimatedMaxLinePx": 572.45,
+          "estimatedFreePx": 118.75
+        },
+        {
+          "viewportPx": 1024,
+          "contentPx": 921.6,
+          "fontPx": 109.57,
+          "estimatedMaxLinePx": 785.29,
+          "estimatedFreePx": 136.31
+        },
+        {
+          "viewportPx": 1440,
+          "contentPx": 1296,
+          "fontPx": 154.08,
+          "estimatedMaxLinePx": 1104.31,
+          "estimatedFreePx": 191.69
+        }
+      ]
+    },
+    {
+      "locale": "fr",
+      "direction": "ltr",
+      "lines": [
+        "Le travail s'arrête.",
+        "Votre temps débute."
+      ],
+      "emWidths": [
+        6.4431,
+        7.6479
+      ],
+      "emBudget": 8.3,
+      "cases": [
+        {
+          "viewportPx": 360,
+          "contentPx": 320,
+          "fontPx": 38.55,
+          "estimatedMaxLinePx": 294.86,
+          "estimatedFreePx": 25.14
+        },
+        {
+          "viewportPx": 390,
+          "contentPx": 350,
+          "fontPx": 42.17,
+          "estimatedMaxLinePx": 322.5,
+          "estimatedFreePx": 27.5
+        },
+        {
+          "viewportPx": 768,
+          "contentPx": 691.2,
+          "fontPx": 79.87,
+          "estimatedMaxLinePx": 610.85,
+          "estimatedFreePx": 80.35
+        },
+        {
+          "viewportPx": 1024,
+          "contentPx": 921.6,
+          "fontPx": 109.57,
+          "estimatedMaxLinePx": 837.96,
+          "estimatedFreePx": 83.64
+        },
+        {
+          "viewportPx": 1440,
+          "contentPx": 1296,
+          "fontPx": 154.08,
+          "estimatedMaxLinePx": 1178.38,
+          "estimatedFreePx": 117.62
+        }
+      ]
+    },
+    {
+      "locale": "de",
+      "direction": "ltr",
+      "lines": [
+        "Die Arbeit endet.",
+        "Deine Zeit beginnt."
+      ],
+      "emWidths": [
+        6.2369,
+        7.0487
+      ],
+      "emBudget": 7.7,
+      "cases": [
+        {
+          "viewportPx": 360,
+          "contentPx": 320,
+          "fontPx": 41.56,
+          "estimatedMaxLinePx": 292.93,
+          "estimatedFreePx": 27.07
+        },
+        {
+          "viewportPx": 390,
+          "contentPx": 350,
+          "fontPx": 45.45,
+          "estimatedMaxLinePx": 320.39,
+          "estimatedFreePx": 29.61
+        },
+        {
+          "viewportPx": 768,
+          "contentPx": 691.2,
+          "fontPx": 79.87,
+          "estimatedMaxLinePx": 562.99,
+          "estimatedFreePx": 128.21
+        },
+        {
+          "viewportPx": 1024,
+          "contentPx": 921.6,
+          "fontPx": 109.57,
+          "estimatedMaxLinePx": 772.31,
+          "estimatedFreePx": 149.29
+        },
+        {
+          "viewportPx": 1440,
+          "contentPx": 1296,
+          "fontPx": 154.08,
+          "estimatedMaxLinePx": 1086.06,
+          "estimatedFreePx": 209.94
+        }
+      ]
+    },
+    {
+      "locale": "es",
+      "direction": "ltr",
+      "lines": [
+        "El trabajo termina.",
+        "Tu tiempo comienza."
+      ],
+      "emWidths": [
+        6.6508,
+        7.8174
+      ],
+      "emBudget": 8.5,
+      "cases": [
+        {
+          "viewportPx": 360,
+          "contentPx": 320,
+          "fontPx": 37.65,
+          "estimatedMaxLinePx": 294.3,
+          "estimatedFreePx": 25.7
+        },
+        {
+          "viewportPx": 390,
+          "contentPx": 350,
+          "fontPx": 41.18,
+          "estimatedMaxLinePx": 321.89,
+          "estimatedFreePx": 28.11
+        },
+        {
+          "viewportPx": 768,
+          "contentPx": 691.2,
+          "fontPx": 79.87,
+          "estimatedMaxLinePx": 624.39,
+          "estimatedFreePx": 66.81
+        },
+        {
+          "viewportPx": 1024,
+          "contentPx": 921.6,
+          "fontPx": 108.42,
+          "estimatedMaxLinePx": 847.59,
+          "estimatedFreePx": 74.01
+        },
+        {
+          "viewportPx": 1440,
+          "contentPx": 1296,
+          "fontPx": 152.47,
+          "estimatedMaxLinePx": 1191.93,
+          "estimatedFreePx": 104.07
+        }
+      ]
+    },
+    {
+      "locale": "it",
+      "direction": "ltr",
+      "lines": [
+        "Il lavoro finisce.",
+        "Il tuo tempo comincia."
+      ],
+      "emWidths": [
+        5.5437,
+        8.1723
+      ],
+      "emBudget": 8.9,
+      "cases": [
+        {
+          "viewportPx": 360,
+          "contentPx": 320,
+          "fontPx": 35.96,
+          "estimatedMaxLinePx": 293.84,
+          "estimatedFreePx": 26.16
+        },
+        {
+          "viewportPx": 390,
+          "contentPx": 350,
+          "fontPx": 39.33,
+          "estimatedMaxLinePx": 321.38,
+          "estimatedFreePx": 28.62
+        },
+        {
+          "viewportPx": 768,
+          "contentPx": 691.2,
+          "fontPx": 77.66,
+          "estimatedMaxLinePx": 634.69,
+          "estimatedFreePx": 56.51
+        },
+        {
+          "viewportPx": 1024,
+          "contentPx": 921.6,
+          "fontPx": 103.55,
+          "estimatedMaxLinePx": 846.25,
+          "estimatedFreePx": 75.35
+        },
+        {
+          "viewportPx": 1440,
+          "contentPx": 1296,
+          "fontPx": 145.62,
+          "estimatedMaxLinePx": 1190.04,
+          "estimatedFreePx": 105.96
+        }
+      ]
+    },
+    {
+      "locale": "pt",
+      "direction": "ltr",
+      "lines": [
+        "O trabalho termina.",
+        "Seu tempo começa."
+      ],
+      "emWidths": [
+        7.1704,
+        7.6077
+      ],
+      "emBudget": 8.3,
+      "cases": [
+        {
+          "viewportPx": 360,
+          "contentPx": 320,
+          "fontPx": 38.55,
+          "estimatedMaxLinePx": 293.31,
+          "estimatedFreePx": 26.69
+        },
+        {
+          "viewportPx": 390,
+          "contentPx": 350,
+          "fontPx": 42.17,
+          "estimatedMaxLinePx": 320.81,
+          "estimatedFreePx": 29.19
+        },
+        {
+          "viewportPx": 768,
+          "contentPx": 691.2,
+          "fontPx": 79.87,
+          "estimatedMaxLinePx": 607.64,
+          "estimatedFreePx": 83.56
+        },
+        {
+          "viewportPx": 1024,
+          "contentPx": 921.6,
+          "fontPx": 109.57,
+          "estimatedMaxLinePx": 833.56,
+          "estimatedFreePx": 88.04
+        },
+        {
+          "viewportPx": 1440,
+          "contentPx": 1296,
+          "fontPx": 154.08,
+          "estimatedMaxLinePx": 1172.2,
+          "estimatedFreePx": 123.8
+        }
+      ]
+    },
+    {
+      "locale": "ru",
+      "direction": "ltr",
+      "lines": [
+        "Работа окончена.",
+        "Теперь твоё время."
+      ],
+      "emWidths": [
+        7.0874,
+        7.7521
+      ],
+      "emBudget": 8.4,
+      "cases": [
+        {
+          "viewportPx": 360,
+          "contentPx": 320,
+          "fontPx": 38.1,
+          "estimatedMaxLinePx": 295.32,
+          "estimatedFreePx": 24.68
+        },
+        {
+          "viewportPx": 390,
+          "contentPx": 350,
+          "fontPx": 41.67,
+          "estimatedMaxLinePx": 323,
+          "estimatedFreePx": 27
+        },
+        {
+          "viewportPx": 768,
+          "contentPx": 691.2,
+          "fontPx": 79.87,
+          "estimatedMaxLinePx": 619.17,
+          "estimatedFreePx": 72.03
+        },
+        {
+          "viewportPx": 1024,
+          "contentPx": 921.6,
+          "fontPx": 109.57,
+          "estimatedMaxLinePx": 849.38,
+          "estimatedFreePx": 72.22
+        },
+        {
+          "viewportPx": 1440,
+          "contentPx": 1296,
+          "fontPx": 154.08,
+          "estimatedMaxLinePx": 1194.44,
+          "estimatedFreePx": 101.56
+        }
+      ]
+    },
+    {
+      "locale": "hi-IN",
+      "direction": "ltr",
+      "lines": [
+        "काम खत्म होता है।",
+        "आपका समय शुरू होता है।"
+      ],
+      "emWidths": [
+        6.4201,
+        9.2015
+      ],
+      "emBudget": 10,
+      "cases": [
+        {
+          "viewportPx": 360,
+          "contentPx": 320,
+          "fontPx": 32,
+          "estimatedMaxLinePx": 294.45,
+          "estimatedFreePx": 25.55
+        },
+        {
+          "viewportPx": 390,
+          "contentPx": 350,
+          "fontPx": 35,
+          "estimatedMaxLinePx": 322.05,
+          "estimatedFreePx": 27.95
+        },
+        {
+          "viewportPx": 768,
+          "contentPx": 691.2,
+          "fontPx": 65.28,
+          "estimatedMaxLinePx": 600.67,
+          "estimatedFreePx": 90.53
+        },
+        {
+          "viewportPx": 1024,
+          "contentPx": 921.6,
+          "fontPx": 87.04,
+          "estimatedMaxLinePx": 800.9,
+          "estimatedFreePx": 120.7
+        },
+        {
+          "viewportPx": 1440,
+          "contentPx": 1296,
+          "fontPx": 122.4,
+          "estimatedMaxLinePx": 1126.26,
+          "estimatedFreePx": 169.74
+        }
+      ]
+    },
+    {
+      "locale": "mr-IN",
+      "direction": "ltr",
+      "lines": [
+        "काम संपतं.",
+        "तुमचा वेळ सुरू होतो."
+      ],
+      "emWidths": [
+        3.8489,
+        7.0685
+      ],
+      "emBudget": 7.7,
+      "cases": [
+        {
+          "viewportPx": 360,
+          "contentPx": 320,
+          "fontPx": 41.56,
+          "estimatedMaxLinePx": 293.76,
+          "estimatedFreePx": 26.24
+        },
+        {
+          "viewportPx": 390,
+          "contentPx": 350,
+          "fontPx": 44.85,
+          "estimatedMaxLinePx": 317.02,
+          "estimatedFreePx": 32.98
+        },
+        {
+          "viewportPx": 768,
+          "contentPx": 691.2,
+          "fontPx": 65.28,
+          "estimatedMaxLinePx": 461.43,
+          "estimatedFreePx": 229.77
+        },
+        {
+          "viewportPx": 1024,
+          "contentPx": 921.6,
+          "fontPx": 87.04,
+          "estimatedMaxLinePx": 615.24,
+          "estimatedFreePx": 306.36
+        },
+        {
+          "viewportPx": 1440,
+          "contentPx": 1296,
+          "fontPx": 122.4,
+          "estimatedMaxLinePx": 865.18,
+          "estimatedFreePx": 430.82
+        }
+      ]
+    },
+    {
+      "locale": "tr",
+      "direction": "ltr",
+      "lines": [
+        "Mesai biter.",
+        "Senin zamanın başlar."
+      ],
+      "emWidths": [
+        4.2612,
+        8.1634
+      ],
+      "emBudget": 8.9,
+      "cases": [
+        {
+          "viewportPx": 360,
+          "contentPx": 320,
+          "fontPx": 35.96,
+          "estimatedMaxLinePx": 293.52,
+          "estimatedFreePx": 26.48
+        },
+        {
+          "viewportPx": 390,
+          "contentPx": 350,
+          "fontPx": 39.33,
+          "estimatedMaxLinePx": 321.03,
+          "estimatedFreePx": 28.97
+        },
+        {
+          "viewportPx": 768,
+          "contentPx": 691.2,
+          "fontPx": 77.66,
+          "estimatedMaxLinePx": 633.99,
+          "estimatedFreePx": 57.21
+        },
+        {
+          "viewportPx": 1024,
+          "contentPx": 921.6,
+          "fontPx": 103.55,
+          "estimatedMaxLinePx": 845.33,
+          "estimatedFreePx": 76.27
+        },
+        {
+          "viewportPx": 1440,
+          "contentPx": 1296,
+          "fontPx": 145.62,
+          "estimatedMaxLinePx": 1188.74,
+          "estimatedFreePx": 107.26
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "direction": "rtl",
+      "lines": [
+        "للعمل نهاية.",
+        "ووقتك يبدأ."
+      ],
+      "emWidths": [
+        4.6283,
+        4.4557
+      ],
+      "emBudget": 5,
+      "cases": [
+        {
+          "viewportPx": 360,
+          "contentPx": 320,
+          "fontPx": 48,
+          "estimatedMaxLinePx": 222.16,
+          "estimatedFreePx": 97.84
+        },
+        {
+          "viewportPx": 390,
+          "contentPx": 350,
+          "fontPx": 48.75,
+          "estimatedMaxLinePx": 225.63,
+          "estimatedFreePx": 124.37
+        },
+        {
+          "viewportPx": 768,
+          "contentPx": 691.2,
+          "fontPx": 79.87,
+          "estimatedMaxLinePx": 369.67,
+          "estimatedFreePx": 321.53
+        },
+        {
+          "viewportPx": 1024,
+          "contentPx": 921.6,
+          "fontPx": 109.57,
+          "estimatedMaxLinePx": 507.12,
+          "estimatedFreePx": 414.48
+        },
+        {
+          "viewportPx": 1440,
+          "contentPx": 1296,
+          "fontPx": 154.08,
+          "estimatedMaxLinePx": 713.13,
+          "estimatedFreePx": 582.87
+        }
+      ]
+    },
+    {
+      "locale": "th",
+      "direction": "ltr",
+      "lines": [
+        "งานมีจุดสิ้นสุด",
+        "เวลาของคุณเริ่มต้น"
+      ],
+      "emWidths": [
+        5.8374,
+        7.7499
+      ],
+      "emBudget": 8.4,
+      "cases": [
+        {
+          "viewportPx": 360,
+          "contentPx": 320,
+          "fontPx": 38.1,
+          "estimatedMaxLinePx": 295.24,
+          "estimatedFreePx": 24.76
+        },
+        {
+          "viewportPx": 390,
+          "contentPx": 350,
+          "fontPx": 41.67,
+          "estimatedMaxLinePx": 322.91,
+          "estimatedFreePx": 27.09
+        },
+        {
+          "viewportPx": 768,
+          "contentPx": 691.2,
+          "fontPx": 65.28,
+          "estimatedMaxLinePx": 505.92,
+          "estimatedFreePx": 185.28
+        },
+        {
+          "viewportPx": 1024,
+          "contentPx": 921.6,
+          "fontPx": 87.04,
+          "estimatedMaxLinePx": 674.55,
+          "estimatedFreePx": 247.05
+        },
+        {
+          "viewportPx": 1440,
+          "contentPx": 1296,
+          "fontPx": 122.4,
+          "estimatedMaxLinePx": 948.59,
+          "estimatedFreePx": 347.41
+        }
+      ]
+    },
+    {
+      "locale": "id",
+      "direction": "ltr",
+      "lines": [
+        "Kerja selesai.",
+        "Waktumu dimulai."
+      ],
+      "emWidths": [
+        4.8221,
+        6.8108
+      ],
+      "emBudget": 7.4,
+      "cases": [
+        {
+          "viewportPx": 360,
+          "contentPx": 320,
+          "fontPx": 43.24,
+          "estimatedMaxLinePx": 294.52,
+          "estimatedFreePx": 25.48
+        },
+        {
+          "viewportPx": 390,
+          "contentPx": 350,
+          "fontPx": 47.3,
+          "estimatedMaxLinePx": 322.13,
+          "estimatedFreePx": 27.87
+        },
+        {
+          "viewportPx": 768,
+          "contentPx": 691.2,
+          "fontPx": 79.87,
+          "estimatedMaxLinePx": 543.99,
+          "estimatedFreePx": 147.21
+        },
+        {
+          "viewportPx": 1024,
+          "contentPx": 921.6,
+          "fontPx": 109.57,
+          "estimatedMaxLinePx": 746.25,
+          "estimatedFreePx": 175.35
+        },
+        {
+          "viewportPx": 1440,
+          "contentPx": 1296,
+          "fontPx": 154.08,
+          "estimatedMaxLinePx": 1049.41,
+          "estimatedFreePx": 246.59
+        }
+      ]
+    },
+    {
+      "locale": "vi",
+      "direction": "ltr",
+      "lines": [
+        "Công việc kết thúc.",
+        "Giờ là của bạn."
+      ],
+      "emWidths": [
+        7.1582,
+        5.4076
+      ],
+      "emBudget": 7.8,
+      "cases": [
+        {
+          "viewportPx": 360,
+          "contentPx": 320,
+          "fontPx": 41.03,
+          "estimatedMaxLinePx": 293.67,
+          "estimatedFreePx": 26.33
+        },
+        {
+          "viewportPx": 390,
+          "contentPx": 350,
+          "fontPx": 44.87,
+          "estimatedMaxLinePx": 321.2,
+          "estimatedFreePx": 28.8
+        },
+        {
+          "viewportPx": 768,
+          "contentPx": 691.2,
+          "fontPx": 79.87,
+          "estimatedMaxLinePx": 571.74,
+          "estimatedFreePx": 119.46
+        },
+        {
+          "viewportPx": 1024,
+          "contentPx": 921.6,
+          "fontPx": 109.57,
+          "estimatedMaxLinePx": 784.31,
+          "estimatedFreePx": 137.29
+        },
+        {
+          "viewportPx": 1440,
+          "contentPx": 1296,
+          "fontPx": 154.08,
+          "estimatedMaxLinePx": 1102.94,
+          "estimatedFreePx": 193.06
+        }
+      ]
+    }
+  ]
+}

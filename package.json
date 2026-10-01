@@ -17,9 +17,11 @@
     "@astrojs/check": "^0.9.10",
     "@astrojs/sitemap": "^3.7.3",
     "@tailwindcss/vite": "^4.3.3",
+    "@types/canvas-confetti": "^1.9.0",
     "@upstash/redis": "^1.38.3",
     "@vercel/analytics": "^2.0.1",
     "astro": "^7.2.9",
+    "canvas-confetti": "^1.9.4",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3"
   }

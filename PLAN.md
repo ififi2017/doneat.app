@@ -68,18 +68,18 @@
 
 ### 首页
 
-桌面左右分栏：左为静止 Open Day mark、DoneAt、品牌句/功能行、三个入口；右为一台 iPhone。手机竖叠，机位在入口下方。
+2026-10-01 用户重设计要求取代旧首屏分栏和窄屏居中：梅色双行标题与班次票据 → 真实录屏 → 小组件／Apple Watch → 下载。窄屏按语言起始边排列，品牌 mark 在首屏署名中，官方商店徽章在下载章；手机位于第 01 章。19 语 h1 必须两行完整可读。全站色板／外层栅格由 `src/styles/global.css` 统一定义，详见 AGENTS。
 
 - Mark 默认定住。橙色圆点五连击后指针转一圈回到五点（与 iOS 相同）；减少动态效果时只脉冲一次。
-- 入口顺序：**Web → App Store → Microsoft Store**。Web 用本站按钮。
+- 首屏主入口为客户端下载详情，次入口为浏览器计时；下载章商店顺序为 **App Store → Microsoft Store**。Web 不提升为主入口。
   - **App Store** 用 [Apple Marketing Tools](https://toolbox.marketingtools.apple.com/) 的官方徽章图，不是产品仓里那套 Mac App Store 专用 SVG。模板：
     `https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/{black|white}/{apple-locale}`
     浅色用 `black`，深色用 `white`；`apple-locale` 跟当前门厅语言（如 `zh-cn`、`en-us`），没有对应图就回退 `en-us`。
     链接以 **id `6802803318`** 为准，商店地区跟语言走（简中用 `/cn/`，不要写死 `/us/`）。路径上的 `下班倒计时` / `off-work-countdown` 是现在的 listing slug，listing 改成 DoneAt 后会变，实现时不要把旧中文名当品牌写死。Apple 生成的 `itscg` / `itsct` / `mttnsubad` 查询参数保留。
   - **Microsoft Store** 用[官方 badge 脚本](https://get.microsoft.com/badge/)：按页面语言返回对应徽章，主题跟系统亮暗。两家官方 CDN 的可用性都作为接受的依赖。
 - Web 与顶栏「打开计时」都进 `https://off.rainif.com/{lang}`。
-- 入口下方三条短价值：本地、无账号、看清下班。不上长对比表，不把 FAQ 铺在首页。平台可用性压成一行说明，不在首页铺 chip；Android 状态放下载页。
-- 首页机位：**当前色彩模式、且未开启 reduced-motion 时才加载对应 MP4**；其余情况只出 PNG。再套官方 iPhone 17 Pro Max 框（浅色 Cosmic Orange，深色 Deep Blue，`assets/device/frames/`）。竖屏下班倒计时，不要商店合成图，不要另造机框或灵动岛。素材在 `assets/device/`：`en` / `zh` × `white` / `black` 各一份 `.mp4` + `.png`。语言跟内容语言走（中文门厅用 `zh`，其余用 `en`）；亮暗跟 `prefers-color-scheme`。`autoplay muted loop playsinline`，无控件、无声音。`prefers-reduced-motion: reduce` 只出 PNG，且不请求视频。
+- 第 01 章三条短价值：本地、无账号、看清下班。不上长对比表，不把 FAQ 铺在首页。平台可用性压成一行说明，不在首页铺 chip；Android 待发布状态在下载章与下载页的既有平台行中说明。
+- 第 01 章机位：**当前色彩模式、且未开启 reduced-motion 时才加载对应 MP4**；其余情况只出 PNG。再套官方 iPhone 17 Pro Max 框（浅色 Cosmic Orange，深色 Deep Blue，`assets/device/frames/`）。竖屏下班倒计时，不要商店合成图，不要另造机框或灵动岛。素材在 `assets/device/`：`en` / `zh` × `white` / `black` 各一份 `.mp4` + `.png`。语言跟内容语言走（中文门厅用 `zh`，其余用 `en`）；亮暗跟 `prefers-color-scheme`。`autoplay muted loop playsinline`，无控件、无声音。`prefers-reduced-motion: reduce` 只出 PNG，且不请求视频。
 - 首页不放桌面主窗 / 迷你计时（窗口标题仍是旧名），不上产品仓里那套旧名桌面 demo。下载页的桌面演示见下。
 
 ### 下载页
@@ -93,7 +93,7 @@
 ### 铬层
 
 - 顶栏：打开 Web 计时、下载、FAQ、关于。
-- 页脚：怎么算的、隐私、`hello@doneat.app`、产品仓 GitHub **源码**文字链（不是下载按钮）。
+- 页脚：怎么算的、隐私、联系我们、社交与 fi_niaR Studio／Astro 署名。产品 GitHub 源码图标在顶栏，不在页脚重复。
 - 门厅：19 语自绘选择器。内容页：同一组件，仅 English / 中文。日文门厅点 FAQ → `/en/faq`。
 - 内容页与首页同一套视觉（008 橙 / 米 / 梅），阅读栏宽；不要产品站 gray-100 的文章壳。
 - OG / favicon：mark + DoneAt，不写 `off.rainif.com`。
@@ -120,7 +120,7 @@
 ### S1 — 铬层与首页
 
 - [x] 顶栏 / 页脚 / 19 语选择器 / 内容页 en-zh 切换
-- [x] 首页按上方锁定实现（分栏、静止 mark、三个入口、三条价值、机位视频 + PNG 兜底）
+- [x] 初版首页按当时锁定实现（历史：分栏、静止 mark、三个入口、三条价值、机位视频 + PNG 兜底；当前布局按 2026-10-01 重设计条款）
 - [x] App Store 入口接 Marketing Tools 徽章图（语言 + 黑白随亮暗）；Microsoft Store 接官方 badge 脚本 + SVG 兜底（脚本失败仍可点，不再叠文字链）
 - [x] 中英 × 浅色/深色真机短视频 + PNG 兜底（`assets/device/`）
 - [x] 跟随系统亮暗；RTL 至少不撑破顶栏（`ar`）
@@ -155,7 +155,7 @@
 ## 明确不做
 
 - 不在本站做第二份倒计时 Web App / PWA / Service Worker
-- 不放 GitHub 直装按钮（页脚源码链可以）
+- 不放 GitHub 直装按钮（顶栏源码图标可保留）
 - 不搬产品仓的 Host 分流或 Next App Router
 - 不改产品仓 bundle id、updater URL、exe 名
 - 不为长文临时生成 19 份未审译文
@@ -169,3 +169,57 @@
 - 手机与桌面、浅色与深色
 - 任何同内容双 canonical、重定向环、query 丢失都挡发布
 - 预览部署不能代替 production 域名实测
+
+## 2026-10-01 官网设计改版（待审阅，未发布）
+
+- [x] 隔离 clone 分支 `codex/award-quality-redesign`，基于 main `00a706d`；保护原工作区与未合并隐私分支。
+- [x] 首页原创暖光／刻度表达，客户端下载主入口；下载页真机、iPhone／Watch 功能、桌面与对照；支持页共享系统。
+- [x] 四轮浏览器与截图复核；57 个多语言首页组合、20 个内容页组合、5 宽度与 1280×720 短屏；修复光晕溢出、低对比、poster、徽章时序与章节遮挡。
+- [x] 全局暂停、键盘焦点、reduce／NoJS、录屏压缩；check／build／seo 检查通过。
+- [x] 审阅证据、局限和本机预览步骤记入 `review/README.md`；截图作为附件交付。
+- [ ] 用户视觉审阅与发布批准；未推送、未合并 main、未部署。
+
+## 2026-10-01 首页新方向 v2（待浏览器复核）
+
+- [x] 按用户新方向在 `codex/home-time-transition` 重写首页信息结构：深梅排字首屏、真实录屏证据、橙色随身体验、下载章节；手机不在首屏。
+- [x] 保留第一版 `fdbcc7d5` 与原型 `787e7daa`；后续本地化与问题修复独立提交。
+- [x] 19 语章节、控件与独立图片描述；页脚组件继承颜色 token；源码层面修复暂停／屏幕外视频挂载。
+- [x] 本地临时副本最终 check：33 files，0 errors／warnings／hints；build：121 页；seo:check 通过。19 语构建 HTML、152 个编译页脚颜色用例通过。
+- [ ] 第二版真实浏览器、截图、长文案、窄屏／RTL、键盘／触控／reduced-motion 验收。工具当前不可用，第一版证据不替代本轮。
+- [ ] 用户新视觉方向审阅。后续已获用户授权推送设计分支、创建草稿 PR #23 和 Vercel Preview；仍未合并 main、未部署生产，未改未合并隐私分支。
+
+## 2026-10-01 独立评审后实质修复（进行中）
+
+- [x] 优先统一首页／下载页／导航／页脚的色板、94rem 外层栅格与响应式内边距；移除旧暖光和重复覆盖规则。
+- [x] 优先把第 02 章换成 iOS 3.2.0 原始界面准确裁切与官方 Watch 框，配页面原生排字；移除装饰时钟和箭头。
+- [x] 优先实现票据 13:00→17:00、剩余时间与进度联动；一次播放后停住，可重播／全局暂停，离屏／后台休眠，reduce／省流量／NoJS 固定静帧。章节入场只播放一次，默认内容可见。
+- [x] 移除首屏假按钮横条；访客说明改为自然文案；真实手机背景改为完整圆角面板；下载对比表单元格内边距由组件独立管理；增强暗色首屏分区。
+- [x] 同步 AGENTS 中受重设计取代的布局条款，保留产品边界、品牌资源、SEO、下载顺序与发布限制。保留 19 语两行标题及中文名词加逗号的换行修复。
+- [x] 当前修复源码 check：36 files，0 errors／warnings／hints；build：121 页；SEO 与 19 语生成内容／152 个页脚颜色用例通过。六份裁切逐像素、Watch 截图与框逐字节核对源文件。
+- [ ] 当前修复 head 的实际 Mac 浏览器、截图与交互验收；先验长语言／RTL，reduce 状态下直接观察时间不自动推进。先前 4821738 仅中英五宽度共 10/95 组通过，不能说 19 语实测已过。
+- [ ] 用户审阅与合并／生产批准。草稿 PR #23 保持待审；不合并 main、不部署生产、不动待审隐私分支。
+
+## 2026-10-01 首屏实时卡片与产品同款视觉（Claude 分支 `claude/tender-shannon-6pmpeo`）
+
+- [x] 用户批准：首屏右侧放与产品网页版同款的实时卡片，替换加速票据。固定周一至周五 09:00–17:00 示例班次，按访客本机时间实时倒计时；17:00 后「下班时间到！」并放产品同款礼花；周末「今天不上班」；上班前「距上班还有」。「预览下班」可随时快进看下班时刻，「换成我的时间」去网页版设置。不接受输入、不存储、不上报。
+- [x] 卡片对照产品 `off-work-countdown.tsx`、`CountdownDisplay`、`ProgressBar`、`RollingText`、`Confetti`：Geist、白卡／暗色卡、百分比气泡、只滚动变化的数字、canvas-confetti 参数一致；九条文案逐字取自产品 19 语 translation.json，三条站内文案补齐 19 语。
+- [x] 全站改用产品同款 Geist（OFL，随站分发许可）；`vi` 因缺声调字形用系统字体。
+- [x] 首屏改为左标题／右卡片，按高度限字号；去掉与顶栏重复的首屏字标；可五连击 mark 移到第 03 章；暂停演示移到有录屏的第 01 章；第 02 章两列说明统一为「设备名 + 一句话」，手表在列内垂直居中；第 03 章补上与文案对应的「在浏览器里试试」。
+- [x] 修复 RTL 下逐位数字被双向算法反序、印地／泰文逐字拆分破坏字形的问题：只给数字建滚动槽，数字整体按 LTR 隔离。
+- [x] check 0 errors；build 121 页；seo:check 通过；`review/check-home-content.mjs` 19 语与 152 个页脚颜色用例通过。Linux headless Chromium（伪造时钟）：19 语 × 360／390／768／1024／1280×720／1440×800 × 班内／下班两种状态共 228 组，无横向溢出、标题与卡片不溢出、≥880px 时主按钮与整张卡片都在首屏内；预览、17:00 实时跨越、reduced-motion、NoJS 分别实测。
+- [ ] Mac Safari／Chrome 实机复核（Linux 无苹方，中文字重与字距需在 Mac 上看）；用户审阅后再决定是否并入 PR #23。
+
+## 2026-10-01 Apple 式配色与滚动动效
+
+- [x] 用户反馈配色不好看、要 Apple 产品页式动效。全站换成中性色（近黑／米白／浅灰）+ 品牌橙单一强调色；按钮改胶囊形；顶栏改半透明模糊，首页顶栏固定深色。
+- [x] 首页改为五段滚动场景：首屏加载时标题遮罩升起、卡片模糊浮入，滚动时上移淡出；宣言段钉住并逐词点亮；iPhone 段钉住，机身放大后归位、三条价值依次点亮；小组件与手表分层带景深入场；黑底收尾随滚动升起日落光。`home-scenes.ts` 只写进度变量，CSS 计算画面；NoJS／减少动态效果显示完整静态页。
+- [x] check 0 errors；build 121 页；seo:check、19 语内容检查与 152 个页脚颜色用例通过；19 语 × 6 视口 × 两种时刻共 228 组首屏实测无溢出且主按钮与卡片在首屏内；19 语 × 6 视口钉住段内容不超出视口、无横向溢出。
+- [ ] Mac Safari／Chrome 实机看滚动手感与中文字重；不支持 Intl.Segmenter 的旧浏览器退回按空格分词（中文整句一次点亮）。
+
+## 2026-10-01 回到品牌色、宣言配图、顶栏方框
+
+- [x] 用户反馈 Apple 式中性色太像苹果、黑底难看：回到 008 橙／米／梅，首屏与收尾改梅色傍晚渐变，浅色段落用暖纸色与浅米；下班后首屏第一行只淡到约六成。
+- [x] 用户反馈「还剩多少，不必猜」整屏只有文字：宣言与 iPhone 录屏合成一段钉住场景，左侧逐词点亮、右侧机身升起归位，再依次点亮三条价值；窄屏按阅读位置点亮。
+- [x] 用户反馈 iPhone 段滚动时顶栏出现方框：去掉顶栏 `backdrop-filter`，改实色；首页顶栏为深梅色。
+- [x] check 0 errors；build 121 页；seo:check、19 语内容检查与 152 个页脚颜色用例通过；228 组首屏与 114 组钉住段实测通过。
+- [x] 收尾章：mark 放大并加深色投影；两枚商店徽章统一黑色版并居中；标题按字形视觉居中（收掉句末全角标点的空白）；说明与平台行改米色、按句换行。iPhone 段改为大标题 + 导读句，修正层级。

@@ -1,0 +1,1085 @@
+[
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "See the apps"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/en?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Try it in the browser"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "en",
+    "overflow": 0,
+    "width": 360
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/zh-CN/download",
+        "text": "详细了解客户端"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/zh-CN?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "在浏览器里试试"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "zh-CN",
+    "overflow": 0,
+    "width": 360
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/zh-CN/download",
+        "text": "詳細了解用戶端"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/zh-TW?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "在瀏覽器裡試試"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "zh-TW",
+    "overflow": 0,
+    "width": 360
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/zh-CN/download",
+        "text": "了解吓客戶端"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/zh-HK?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "喺瀏覽器度試吓"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "zh-HK",
+    "overflow": 0,
+    "width": 360
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "アプリを見る"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/ja?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "ブラウザで試す"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "ja",
+    "overflow": 0,
+    "width": 360
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "앱 자세히 보기"
+      },
+      {
+        "height": 52.000030517578125,
+        "href": "https://off.rainif.com/ko?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "브라우저에서 써 보기"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "ko",
+    "overflow": 0,
+    "width": 360
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Découvrir l’app"
+      },
+      {
+        "height": 51.999969482421875,
+        "href": "https://off.rainif.com/fr?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Essayez dans le navigateur"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "fr",
+    "overflow": 0,
+    "width": 360
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Apps ansehen"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/de?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Im Browser ausprobieren"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "de",
+    "overflow": 0,
+    "width": 360
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Ver las apps"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/es?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Pruébalo en el navegador"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "es",
+    "overflow": 0,
+    "width": 360
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Scopri le app"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/it?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Provalo nel browser"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "it",
+    "overflow": 0,
+    "width": 360
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Conheça os apps"
+      },
+      {
+        "height": 52.000030517578125,
+        "href": "https://off.rainif.com/pt?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Experimente no navegador"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "pt",
+    "overflow": 0,
+    "width": 360
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Подробнее о приложениях"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/ru?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Попробовать в браузере"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "ru",
+    "overflow": 0,
+    "width": 360
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "ऐप देखें"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/hi-IN?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "ब्राउज़र में आज़माएँ"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "hi-IN",
+    "overflow": 0,
+    "width": 360
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "अॅप पाहा"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/mr-IN?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "ब्राउझरमध्ये वापरून पहा"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "mr-IN",
+    "overflow": 0,
+    "width": 360
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Uygulamaları inceleyin"
+      },
+      {
+        "height": 51.999969482421875,
+        "href": "https://off.rainif.com/tr?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Tarayıcıda dene"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "tr",
+    "overflow": 0,
+    "width": 360
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "تعرّف على التطبيقات"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/ar?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "جرِّبه في المتصفح"
+      }
+    ],
+    "dir": "rtl",
+    "locale": "ar",
+    "overflow": 0,
+    "width": 360
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "ดูแอป"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/th?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "ลองใช้ในเบราว์เซอร์"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "th",
+    "overflow": 0,
+    "width": 360
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Lihat aplikasinya"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/id?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Coba di browser"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "id",
+    "overflow": 0,
+    "width": 360
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Xem ứng dụng"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/vi?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Thử trong trình duyệt"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "vi",
+    "overflow": 0,
+    "width": 360
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "See the apps"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/en?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Try it in the browser"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "en",
+    "overflow": 0,
+    "width": 1024
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/zh-CN/download",
+        "text": "详细了解客户端"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/zh-CN?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "在浏览器里试试"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "zh-CN",
+    "overflow": 0,
+    "width": 1024
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/zh-CN/download",
+        "text": "詳細了解用戶端"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/zh-TW?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "在瀏覽器裡試試"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "zh-TW",
+    "overflow": 0,
+    "width": 1024
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/zh-CN/download",
+        "text": "了解吓客戶端"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/zh-HK?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "喺瀏覽器度試吓"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "zh-HK",
+    "overflow": 0,
+    "width": 1024
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52.000030517578125,
+        "href": "/en/download",
+        "text": "アプリを見る"
+      },
+      {
+        "height": 52.000030517578125,
+        "href": "https://off.rainif.com/ja?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "ブラウザで試す"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "ja",
+    "overflow": 0,
+    "width": 1024
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52.000030517578125,
+        "href": "/en/download",
+        "text": "앱 자세히 보기"
+      },
+      {
+        "height": 52.000030517578125,
+        "href": "https://off.rainif.com/ko?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "브라우저에서 써 보기"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "ko",
+    "overflow": 0,
+    "width": 1024
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Découvrir l’app"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/fr?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Essayez dans le navigateur"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "fr",
+    "overflow": 0,
+    "width": 1024
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Apps ansehen"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/de?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Im Browser ausprobieren"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "de",
+    "overflow": 0,
+    "width": 1024
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Ver las apps"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/es?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Pruébalo en el navegador"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "es",
+    "overflow": 0,
+    "width": 1024
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Scopri le app"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/it?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Provalo nel browser"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "it",
+    "overflow": 0,
+    "width": 1024
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Conheça os apps"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/pt?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Experimente no navegador"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "pt",
+    "overflow": 0,
+    "width": 1024
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Подробнее о приложениях"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/ru?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Попробовать в браузере"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "ru",
+    "overflow": 0,
+    "width": 1024
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "ऐप देखें"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/hi-IN?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "ब्राउज़र में आज़माएँ"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "hi-IN",
+    "overflow": 0,
+    "width": 1024
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "अॅप पाहा"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/mr-IN?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "ब्राउझरमध्ये वापरून पहा"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "mr-IN",
+    "overflow": 0,
+    "width": 1024
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Uygulamaları inceleyin"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/tr?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Tarayıcıda dene"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "tr",
+    "overflow": 0,
+    "width": 1024
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "تعرّف على التطبيقات"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/ar?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "جرِّبه في المتصفح"
+      }
+    ],
+    "dir": "rtl",
+    "locale": "ar",
+    "overflow": 0,
+    "width": 1024
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "ดูแอป"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/th?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "ลองใช้ในเบราว์เซอร์"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "th",
+    "overflow": 0,
+    "width": 1024
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Lihat aplikasinya"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/id?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Coba di browser"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "id",
+    "overflow": 0,
+    "width": 1024
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Xem ứng dụng"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/vi?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Thử trong trình duyệt"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "vi",
+    "overflow": 0,
+    "width": 1024
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 51.99993896484375,
+        "href": "/en/download",
+        "text": "See the apps"
+      },
+      {
+        "height": 51.99993896484375,
+        "href": "https://off.rainif.com/en?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Try it in the browser"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "en",
+    "overflow": 0,
+    "width": 1440
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/zh-CN/download",
+        "text": "详细了解客户端"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/zh-CN?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "在浏览器里试试"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "zh-CN",
+    "overflow": 0,
+    "width": 1440
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/zh-CN/download",
+        "text": "詳細了解用戶端"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/zh-TW?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "在瀏覽器裡試試"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "zh-TW",
+    "overflow": 0,
+    "width": 1440
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/zh-CN/download",
+        "text": "了解吓客戶端"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/zh-HK?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "喺瀏覽器度試吓"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "zh-HK",
+    "overflow": 0,
+    "width": 1440
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "アプリを見る"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/ja?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "ブラウザで試す"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "ja",
+    "overflow": 0,
+    "width": 1440
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "앱 자세히 보기"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/ko?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "브라우저에서 써 보기"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "ko",
+    "overflow": 0,
+    "width": 1440
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Découvrir l’app"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/fr?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Essayez dans le navigateur"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "fr",
+    "overflow": 0,
+    "width": 1440
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Apps ansehen"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/de?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Im Browser ausprobieren"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "de",
+    "overflow": 0,
+    "width": 1440
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Ver las apps"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/es?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Pruébalo en el navegador"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "es",
+    "overflow": 0,
+    "width": 1440
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Scopri le app"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/it?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Provalo nel browser"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "it",
+    "overflow": 0,
+    "width": 1440
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Conheça os apps"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/pt?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Experimente no navegador"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "pt",
+    "overflow": 0,
+    "width": 1440
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Подробнее о приложениях"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/ru?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Попробовать в браузере"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "ru",
+    "overflow": 0,
+    "width": 1440
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "ऐप देखें"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/hi-IN?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "ब्राउज़र में आज़माएँ"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "hi-IN",
+    "overflow": 0,
+    "width": 1440
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "अॅप पाहा"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/mr-IN?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "ब्राउझरमध्ये वापरून पहा"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "mr-IN",
+    "overflow": 0,
+    "width": 1440
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Uygulamaları inceleyin"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/tr?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Tarayıcıda dene"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "tr",
+    "overflow": 0,
+    "width": 1440
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "تعرّف على التطبيقات"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/ar?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "جرِّبه في المتصفح"
+      }
+    ],
+    "dir": "rtl",
+    "locale": "ar",
+    "overflow": 0,
+    "width": 1440
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "ดูแอป"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/th?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "ลองใช้ในเบราว์เซอร์"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "th",
+    "overflow": 0,
+    "width": 1440
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Lihat aplikasinya"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/id?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Coba di browser"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "id",
+    "overflow": 0,
+    "width": 1440
+  },
+  {
+    "badBounds": [],
+    "cta": [
+      {
+        "height": 52,
+        "href": "/en/download",
+        "text": "Xem ứng dụng"
+      },
+      {
+        "height": 52,
+        "href": "https://off.rainif.com/vi?utm_source=doneat.app&utm_medium=referral&utm_campaign=official-site&utm_content=hall",
+        "text": "Thử trong trình duyệt"
+      }
+    ],
+    "dir": "ltr",
+    "locale": "vi",
+    "overflow": 0,
+    "width": 1440
+  }
+]

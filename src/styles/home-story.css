@@ -1,0 +1,697 @@
+/* Homepage scenes. Palette and outer grid come from global.css.
+ *
+ * Scroll motion is progress-driven: src/lib/home-scenes.ts writes --p (0..1)
+ * on each [data-scene] (--x on the hero) and adds html.scenes-on. Every rule
+ * falls back to the finished state, so NoJS and reduced motion get a complete
+ * static page.
+ */
+.shift-page {
+  min-height: 100vh;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Evening scenes (hero, finale) share plum tokens in both colour schemes. */
+.scene-hero,
+.scene-finale {
+  --ink: var(--night-ink);
+  --muted: var(--night-muted);
+  --rule: var(--night-rule);
+  --accent: var(--color-orange-bright);
+  color: var(--ink);
+  background: var(--evening);
+}
+.scene-proof {
+  background: var(--paper);
+}
+.scene-carry {
+  background: var(--surface);
+}
+
+/* ---------- Hero ---------- */
+.scene-hero {
+  position: relative;
+  overflow: clip;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 28rem);
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 7rem);
+  min-height: min(calc(100svh - 3.5rem), 58rem);
+  padding-block: clamp(2.5rem, 7svh, 5.5rem);
+}
+.hero-copy {
+  container-type: inline-size;
+  min-width: 0;
+  transform: translateY(calc(var(--x, 0) * -14svh));
+  opacity: calc(1 - var(--x, 0) * 0.9);
+}
+.shift-title {
+  --hero-title-max: clamp(3rem, 14svh, 9.5rem);
+  margin: 0;
+  font-size: var(
+    --hero-font-fit,
+    min(
+      var(--hero-title-max),
+      calc((min(100vw, var(--site-width)) - 2 * var(--site-gutter)) * 0.55 / var(--hero-line-width))
+    )
+  );
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+@supports (font-size: 1cqi) {
+  .shift-title {
+    font-size: var(
+      --hero-font-fit,
+      min(var(--hero-title-max), calc(100cqi / var(--hero-line-width)))
+    );
+  }
+}
+/* Each row is a mask; the inner span rises into it on load. */
+.shift-title > span {
+  display: block;
+  width: max-content;
+  max-width: none;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+  overflow: clip;
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+.shift-title > span > span {
+  display: block;
+  transition: opacity 1.2s var(--ease-out);
+}
+.shift-title > span + span {
+  margin-top: 0.04em;
+}
+/* The second line is the payoff: a warm gradient that brightens with the
+   sample day and is fully lit once the shift is over. */
+.shift-title > span + span > span {
+  background: linear-gradient(95deg, #ffc387 0%, #ff8a3d 45%, #f45a1e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: calc(0.8 + 0.2 * var(--day-progress, 1));
+}
+.scene-hero:is([data-day="done"], [data-day="rest"]) .shift-title > span:first-child > span {
+  opacity: 0.62;
+}
+.scene-hero:is([data-day="done"], [data-day="rest"]) .shift-title > span + span > span {
+  opacity: 1;
+}
+.hero-sentence {
+  margin: clamp(1.25rem, 3.5svh, 2.25rem) 0 clamp(1.5rem, 4svh, 2.5rem);
+  max-width: 22em;
+  color: var(--muted);
+  font-size: clamp(1.15rem, 1.7vw, 1.5rem);
+  line-height: 1.45;
+}
+.shift-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.75rem;
+}
+.scene-hero .btn-primary {
+  background: var(--night-ink);
+  color: var(--color-plum);
+}
+.shift-web-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  color: var(--color-orange-bright);
+  font-size: 0.9375rem;
+  text-decoration: none;
+}
+.shift-web-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+.hero-stage {
+  position: relative;
+  display: grid;
+  justify-items: end;
+  min-width: 0;
+  transform: translateY(calc(var(--x, 0) * -6svh)) scale(calc(1 - var(--x, 0) * 0.06));
+  transform-origin: 50% 0;
+}
+/* Sunset light behind the card, faded to transparent; it grows through the
+   day and blooms after clock-off. */
+.hero-stage::before {
+  content: "";
+  position: absolute;
+  inset: -45% -40%;
+  background: radial-gradient(closest-side, rgb(255 122 46 / 0.32), rgb(244 90 30 / 0.12) 45%, transparent);
+  opacity: calc(0.35 + 0.45 * var(--day-progress, 0));
+  pointer-events: none;
+  transition: opacity 1.2s var(--ease-out);
+}
+.scene-hero[data-day="done"] .hero-stage::before {
+  opacity: 1;
+}
+.hero-stage > * {
+  position: relative;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .shift-title > span > span {
+    animation: line-rise 1s var(--ease-out) both;
+  }
+  .shift-title > span + span > span {
+    animation-delay: 0.12s;
+  }
+  .hero-sentence,
+  .shift-actions {
+    animation: soft-rise 0.9s var(--ease-out) both;
+    animation-delay: 0.32s;
+  }
+  .shift-actions {
+    animation-delay: 0.42s;
+  }
+  .hero-stage > .live-card {
+    animation: card-arrive 1.2s var(--ease-out) both;
+    animation-delay: 0.28s;
+  }
+  .hero-stage::before {
+    animation: glow-arrive 2s var(--ease-out) both;
+    animation-delay: 0.3s;
+  }
+}
+@keyframes line-rise {
+  from {
+    transform: translateY(105%);
+  }
+}
+@keyframes soft-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+}
+@keyframes card-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(2.5rem) scale(0.96);
+    filter: blur(10px);
+  }
+}
+@keyframes glow-arrive {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+}
+
+/* ---------- Shared scene parts ---------- */
+.scene-pin {
+  position: relative;
+}
+.scene-kicker {
+  margin: 0;
+  color: var(--accent);
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.story-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  color: var(--accent);
+  font-size: 1.0625rem;
+  text-decoration: none;
+}
+.story-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+/* ---------- Proof: the statement lights word by word beside the real
+   recording, then the three values step through ---------- */
+.proof-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 6rem);
+  padding-block: clamp(5rem, 12vw, 9rem);
+}
+.proof-title {
+  margin: 0;
+  font-size: clamp(2.6rem, 5vw, 4.75rem);
+  font-weight: 650;
+  line-height: 1.04;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+:lang(zh) .proof-title {
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+/* The lead sentence: reading size, lit word by word while pinned. */
+.proof-statement {
+  max-width: 26em;
+  margin: 1.5rem 0 0;
+  font-size: clamp(1.15rem, 1.55vw, 1.45rem);
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  text-wrap: pretty;
+}
+:lang(zh) .proof-statement,
+:lang(ja) .proof-statement,
+:lang(ko) .proof-statement {
+  max-width: 22em;
+  line-height: 1.7;
+  letter-spacing: 0;
+}
+.proof-statement .w {
+  transition: color 0.35s linear;
+}
+html.scenes-on .proof-statement .w {
+  color: color-mix(in srgb, var(--ink) 22%, var(--paper));
+}
+html.scenes-on .proof-statement .w.is-lit {
+  color: var(--ink);
+}
+.phone-steps {
+  margin: 2.25rem 0 1.75rem;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid var(--rule);
+  list-style: none;
+}
+.phone-steps li {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding-block: 0.35rem;
+  font-size: clamp(1.15rem, 1.7vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  transition:
+    opacity 0.5s var(--ease-out),
+    transform 0.5s var(--ease-out);
+}
+.phone-steps li > span {
+  min-width: 2ch;
+  color: var(--accent);
+  font-size: 0.8rem;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
+.phone-device {
+  margin: 0;
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+}
+.phone-device .device-hero {
+  width: min(21rem, 100%);
+}
+.phone-device figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem 1rem;
+  min-height: 2.75rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+@media (min-width: 880px) {
+  html.scenes-on .scene-proof {
+    height: 320svh;
+  }
+  html.scenes-on .scene-proof > .scene-pin {
+    position: sticky;
+    top: 3.5rem;
+    display: grid;
+    align-items: center;
+    height: calc(100svh - 3.5rem);
+    overflow: clip;
+  }
+  html.scenes-on .proof-layout {
+    padding-block: 1.5rem;
+  }
+  /* --a: the device rises and settles over the first quarter of the pin. */
+  html.scenes-on .phone-device {
+    --a: clamp(0, calc(var(--p, 1) / 0.25), 1);
+    opacity: calc(0.35 + 0.65 * var(--a));
+    transform: translateY(calc((1 - var(--a)) * 18svh)) scale(calc(1 + (1 - var(--a)) * 0.16));
+    transform-origin: 50% 30%;
+  }
+  html.scenes-on .phone-device .device-hero {
+    width: min(21rem, 100%, calc((100svh - 10rem) * 0.44));
+  }
+  html.scenes-on .phone-steps li {
+    opacity: 0.32;
+  }
+  html.scenes-on .phone-steps li.is-active {
+    opacity: 1;
+    transform: translateX(0.35rem);
+  }
+  html.scenes-on[dir="rtl"] .phone-steps li.is-active {
+    transform: translateX(-0.35rem);
+  }
+}
+
+/* ---------- Carry: widgets and Watch arrive at different depths ---------- */
+.scene-carry > .shift-frame {
+  padding-block: clamp(5rem, 12vw, 10rem);
+}
+.carry-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 6vw, 6rem);
+  align-items: end;
+  margin-bottom: clamp(3rem, 7vw, 6rem);
+}
+.carry-heading h2,
+.get-layout h2 {
+  margin: 0;
+  font-size: clamp(2.7rem, 6vw, 5.75rem);
+  line-height: 1.04;
+  font-weight: 650;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+:lang(zh) .carry-heading h2,
+:lang(zh) .get-layout h2 {
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+.carry-heading > p {
+  margin: 0;
+  max-width: 30em;
+  color: var(--muted);
+  font-size: clamp(1.0625rem, 1.4vw, 1.3rem);
+  line-height: 1.6;
+}
+.carry-gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: stretch;
+}
+.carry-gallery figure {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-width: 0;
+  padding: clamp(1.75rem, 4vw, 3.5rem);
+  border-radius: 1.75rem;
+  background: var(--tile);
+  overflow: clip;
+}
+/* Media centres in its tile; both captions share one baseline. */
+.carry-gallery figure > :first-child {
+  margin-block: auto;
+}
+.carry-widgets {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: min(100%, 30rem);
+  margin-inline: auto;
+}
+.carry-widgets picture {
+  display: block;
+  height: auto;
+  filter: drop-shadow(0 18px 24px rgb(0 0 0 / 0.12));
+}
+.carry-widgets img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.carry-island {
+  width: 55%;
+  align-self: end;
+}
+.carry-live {
+  width: 85%;
+  align-self: end;
+}
+.carry-widget {
+  width: 100%;
+}
+.carry-island img {
+  border-radius: 999px;
+}
+.carry-live img {
+  border-radius: 6% / 22%;
+}
+.carry-widget img {
+  border-radius: 7% / 9%;
+}
+.carry-watch {
+  position: relative;
+  width: min(100%, 19rem);
+  aspect-ratio: 560 / 880;
+  margin-inline: auto;
+}
+.carry-watch .watch-screen {
+  position: absolute;
+  left: 12.857143%;
+  top: 21.818182%;
+  width: 74.285714%;
+  height: 56.363636%;
+  border-radius: 20%;
+  overflow: hidden;
+  background: #000;
+}
+.carry-watch .watch-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.carry-watch img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.carry-gallery figcaption {
+  margin-top: 2.5rem;
+}
+.carry-gallery h3 {
+  margin: 0;
+  font-size: clamp(1.4rem, 2vw, 1.9rem);
+  font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+}
+.carry-gallery figcaption p {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+/* Entry progress per layer, reached as the gallery comes into view. Each
+   layer starts further away, so the stack assembles with depth. */
+html.scenes-on .carry-island {
+  --l: clamp(0, calc((var(--p, 1) - 0.12) / 0.36), 1);
+  opacity: var(--l);
+  transform: translateY(calc((1 - var(--l)) * -3rem)) scale(calc(0.9 + 0.1 * var(--l)));
+}
+html.scenes-on .carry-live {
+  --l: clamp(0, calc((var(--p, 1) - 0.16) / 0.36), 1);
+  opacity: var(--l);
+  transform: translateY(calc((1 - var(--l)) * 4rem));
+}
+html.scenes-on .carry-widget {
+  --l: clamp(0, calc((var(--p, 1) - 0.2) / 0.36), 1);
+  opacity: var(--l);
+  transform: translateY(calc((1 - var(--l)) * 7rem)) scale(calc(0.94 + 0.06 * var(--l)));
+}
+html.scenes-on .carry-watch {
+  --l: clamp(0, calc((var(--p, 1) - 0.14) / 0.4), 1);
+  opacity: var(--l);
+  transform: perspective(60rem) translateY(calc((1 - var(--l)) * 6rem)) rotateY(calc((1 - var(--l)) * -28deg)) rotateZ(calc((1 - var(--l)) * 6deg));
+}
+
+/* ---------- Finale: the page ends at clock-off, in sunset light ---------- */
+.scene-finale {
+  position: relative;
+  overflow: clip;
+  isolation: isolate;
+}
+.finale-glow {
+  position: absolute;
+  left: 50%;
+  bottom: -55%;
+  z-index: -1;
+  width: max(110vw, 70rem);
+  aspect-ratio: 1;
+  translate: -50% 0;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(255 154 69 / 0.75), rgb(244 90 30 / 0.45) 38%, rgb(160 40 10 / 0.18) 62%, transparent);
+  opacity: var(--g, 1);
+  transform: translateY(calc((1 - var(--g, 1)) * 30%)) scale(calc(0.8 + 0.2 * var(--g, 1)));
+  pointer-events: none;
+}
+html.scenes-on .scene-finale {
+  --g: clamp(0, calc((var(--p, 1) - 0.05) / 0.5), 1);
+}
+.get-layout {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  padding-block: clamp(7rem, 16vw, 13rem) clamp(8rem, 18vw, 15rem);
+}
+.get-layout .brand-mark {
+  display: block;
+  width: clamp(6.5rem, 9vw, 8.5rem);
+  height: clamp(6.5rem, 9vw, 8.5rem);
+  margin-bottom: 0.75rem;
+  /* A dark lift, not a warm glow: the mark separates from the sunset. */
+  filter: drop-shadow(0 14px 22px rgb(28 10 22 / 0.5)) drop-shadow(0 2px 4px rgb(28 10 22 / 0.35));
+}
+.get-layout h2 {
+  max-width: 12em;
+}
+.get-layout .get-title-word {
+  display: inline-block;
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+.get-layout > p {
+  max-width: 40em;
+  text-wrap: pretty;
+  margin: 1.5rem 0 2.25rem;
+  color: var(--ink);
+  font-size: clamp(1.0625rem, 1.4vw, 1.3rem);
+  line-height: 1.6;
+}
+.get-layout .store-badges {
+  justify-content: center;
+}
+.get-web {
+  margin-top: 1rem;
+}
+/* Badges and the platform line centre under the title, like everything
+   else in the finale. */
+.scene-finale .get-layout .store-entries {
+  align-items: center;
+}
+.scene-finale .get-layout .hall-platforms {
+  color: var(--ink);
+  text-align: center;
+  text-wrap: balance;
+}
+/* A full-width stop carries half an em of blank space after its ink, which
+   pulls a centred CJK line visibly to the start side. */
+.get-layout .sentence {
+  display: inline-block;
+}
+.get-layout .end-punct {
+  margin-inline-end: -0.5em;
+}
+
+/* ---------- Script-specific type ---------- */
+/* Chinese headings break at punctuation, not inside a word; a phrase longer
+   than the line may still wrap. */
+:lang(zh) :is(.proof-title, .proof-statement, .carry-heading h2, .get-layout h2, .phone-steps li) {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+:dir(rtl) .shift-title {
+  letter-spacing: 0;
+  line-height: 1.16;
+}
+:lang(zh) .shift-title {
+  --hero-title-max: clamp(3.25rem, 13svh, 9rem);
+  line-height: 1.12;
+  letter-spacing: -0.06em;
+}
+:lang(ja) .shift-title,
+:lang(ko) .shift-title {
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+}
+:lang(hi) .shift-title,
+:lang(mr) .shift-title,
+:lang(th) .shift-title {
+  line-height: 1.22;
+  letter-spacing: 0;
+  --hero-title-max: clamp(3.2rem, 12svh, 8rem);
+}
+
+/* ---------- Narrow ---------- */
+@media (max-width: 879px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    gap: 3rem;
+    padding-block: 2.5rem 3.5rem;
+  }
+  .hero-stage {
+    justify-items: start;
+  }
+  .shift-title {
+    --hero-title-max: clamp(3.5rem, 10.4vw, 7.2rem);
+  }
+  .proof-layout,
+  .carry-heading,
+  .carry-gallery {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .phone-device .device-hero {
+    width: min(17rem, 100%);
+  }
+}
+@media (max-width: 539px) {
+  .hero-grid {
+    padding-block: 2rem 3rem;
+    gap: 2.5rem;
+  }
+  .shift-title {
+    --hero-title-max: clamp(3rem, 12.5vw, 4.5rem);
+    line-height: 1.04;
+  }
+  :lang(zh) .shift-title {
+    --hero-title-max: clamp(2.85rem, 12.3vw, 4.5rem);
+  }
+  :lang(hi) .shift-title,
+  :lang(mr) .shift-title,
+  :lang(th) .shift-title {
+    --hero-title-max: clamp(2.75rem, 11.5vw, 4rem);
+  }
+  .shift-actions {
+    align-items: start;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .hero-sentence {
+    font-size: 1.15rem;
+  }
+  .carry-gallery figure {
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+  }
+  .carry-watch {
+    width: 14rem;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .story-link > span,
+  .shift-web-link > span {
+    transition: transform 150ms var(--ease-out);
+  }
+  .story-link:hover > span,
+  .shift-web-link:hover > span {
+    transform: translate(2px, -2px);
+  }
+  .scene-hero .btn-primary:hover {
+    background: #fff;
+    color: var(--color-plum);
+  }
+}

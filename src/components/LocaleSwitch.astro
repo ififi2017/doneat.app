@@ -186,5 +186,21 @@ function hrefFor(code: string): string {
       background: color-mix(in srgb, var(--color-orange-bright) 16%, transparent);
     }
   }
+
+  :global(.tone-dark) .locale-switch-summary {
+    border-color: color-mix(in srgb, var(--color-cream) 18%, transparent);
+    background: color-mix(in srgb, var(--color-evening-start) 88%, black);
+  }
+
+  :global(.tone-dark) .locale-switch-menu {
+    border-color: color-mix(in srgb, var(--color-cream) 14%, transparent);
+    background: var(--color-evening-start);
+    box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.55);
+  }
+
+  :global(.tone-dark) .locale-switch-option:hover,
+  :global(.tone-dark) .locale-switch-option.is-current {
+    background: color-mix(in srgb, var(--color-orange-bright) 16%, transparent);
+  }
 </style>
 

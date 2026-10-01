@@ -1,16 +1,17 @@
 ---
+import type { HallLocale } from "../lib/config";
+import { mediaCopy } from "../lib/media-copy";
 interface Props {
   class?: string;
+  locale?: HallLocale;
 }
 
-const { class: className } = Astro.props;
+const { class: className, locale = "en" } = Astro.props;
 ---
 
 <svg
   class:list={["brand-mark", className]}
   viewBox="0 0 1024 1024"
-  aria-hidden="true"
-  focusable="false"
   data-brand-mark
 >
   <defs>
@@ -60,6 +61,8 @@ const { class: className } = Astro.props;
   <circle
     class="brand-mark-hit"
     data-brand-dot
+    aria-hidden="true"
+    aria-label={mediaCopy(locale).brand}
     cx="664.5"
     cy="776.1"
     r="160"
@@ -89,10 +92,18 @@ const { class: className } = Astro.props;
       var dot = mark.querySelector("[data-brand-dot-face]");
       if (!(hit instanceof SVGElement) || !(hands instanceof SVGElement)) return;
 
+      hit.removeAttribute("aria-hidden");
+      hit.setAttribute("role", "button");
+      hit.setAttribute("tabindex", "0");
       var taps = 0;
       var busy = false;
       var angle = 0;
       var origin = null;
+      hit.addEventListener("keydown", function (event) {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        if (!busy) { taps += 1; if (taps >= THRESHOLD) celebrate(); }
+      });
 
       function celebrate() {
         busy = true;
@@ -172,6 +183,11 @@ const { class: className } = Astro.props;
   .brand-mark-hit {
     pointer-events: auto;
     cursor: pointer;
+  }
+  .brand-mark-hit:focus-visible {
+    outline: 16px solid currentColor;
+    outline-offset: 10px;
+    border-radius: 50%;
   }
 
   .brand-mark-dot {
