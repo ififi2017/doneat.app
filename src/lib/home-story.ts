@@ -123,7 +123,7 @@ const stories: Record<HallLocale, Story> = {
   ],
   fr: [
     "Le travail s'arrête.",
-    "Votre temps commence.",
+    "Votre temps débute.",
     "Le temps restant, en clair.",
     "Réglez votre service. Retrouvez le temps restant, votre progression et vos gains du jour au même endroit.",
     "Gardez-le à portée de main.",
@@ -207,8 +207,8 @@ const stories: Record<HallLocale, Story> = {
     "DoneAt no Apple Watch com tempo restante, progresso do turno e horário de saída",
   ],
   ru: [
-    "Работа заканчивается.",
-    "Твоё время начинается.",
+    "Работа окончена.",
+    "Теперь твоё время.",
     "Знай, сколько осталось.",
     "Задай свою смену. Оставшееся время, прогресс и заработок за сегодня — в одном месте.",
     "Пусть время будет рядом.",
@@ -327,7 +327,7 @@ const stories: Record<HallLocale, Story> = {
   ],
   vi: [
     "Công việc kết thúc.",
-    "Thời gian của bạn bắt đầu.",
+    "Giờ là của bạn.",
     "Biết còn bao lâu.",
     "Đặt ca làm. Xem thời gian còn lại, tiến độ và thu nhập hôm nay ở cùng một nơi.",
     "Mang thời gian theo bạn.",

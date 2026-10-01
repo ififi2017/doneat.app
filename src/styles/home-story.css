@@ -31,6 +31,9 @@
   background: #30202c;
   overflow: clip;
 }
+.shift-hero > .shift-frame {
+  container-type: inline-size;
+}
 .shift-masthead {
   display: flex;
   flex-wrap: wrap;
@@ -49,17 +52,36 @@
   text-decoration: none;
 }
 .shift-title {
+  --hero-title-max: clamp(3.5rem, 10.7vw, 10.25rem);
   margin: 0;
-  font-size: clamp(3.5rem, 10.7vw, 10.25rem);
+  font-size: var(
+    --hero-font-fit,
+    min(
+      var(--hero-title-max),
+      calc(
+        (min(100vw, 94rem) - 2 * clamp(1.25rem, 5vw, 5rem)) /
+          var(--hero-line-width)
+      )
+    )
+  );
   font-weight: 550;
   line-height: 0.98;
   letter-spacing: -0.065em;
 }
 .shift-title > span {
   display: block;
-  max-width: 12em;
-  overflow-wrap: anywhere;
-  text-wrap: balance;
+  width: max-content;
+  max-width: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+@supports (font-size: 1cqi) {
+  .shift-title {
+    font-size: var(
+      --hero-font-fit,
+      min(var(--hero-title-max), calc(100cqi / var(--hero-line-width)))
+    );
+  }
 }
 .shift-title > span + span {
   color: var(--story-orange);
@@ -397,7 +419,7 @@
   transform: scaleX(-1);
 }
 :lang(zh) .shift-title {
-  font-size: clamp(3.25rem, 9.8vw, 9rem);
+  --hero-title-max: clamp(3.25rem, 9.8vw, 9rem);
   line-height: 1.1;
   letter-spacing: -0.07em;
 }
@@ -411,7 +433,7 @@
 :lang(th) .shift-title {
   line-height: 1.2;
   letter-spacing: 0;
-  font-size: clamp(3.2rem, 8.5vw, 8rem);
+  --hero-title-max: clamp(3.2rem, 8.5vw, 8rem);
 }
 @media (prefers-color-scheme: dark) {
   .shift-page {
@@ -461,7 +483,7 @@
     padding-block: 1.5rem 3rem;
   }
   .shift-title {
-    font-size: clamp(3.5rem, 10.4vw, 7.2rem);
+    --hero-title-max: clamp(3.5rem, 10.4vw, 7.2rem);
   }
   .shift-bottom {
     grid-template-columns: 1fr;
@@ -508,16 +530,16 @@
     max-width: 22em;
   }
   .shift-title {
-    font-size: clamp(3rem, 12.5vw, 4.5rem);
+    --hero-title-max: clamp(3rem, 12.5vw, 4.5rem);
     line-height: 1.04;
   }
   :lang(zh) .shift-title {
-    font-size: clamp(2.85rem, 12.3vw, 4.5rem);
+    --hero-title-max: clamp(2.85rem, 12.3vw, 4.5rem);
   }
   :lang(hi) .shift-title,
   :lang(mr) .shift-title,
   :lang(th) .shift-title {
-    font-size: clamp(2.75rem, 11.5vw, 4rem);
+    --hero-title-max: clamp(2.75rem, 11.5vw, 4rem);
   }
   .shift-actions {
     align-items: start;

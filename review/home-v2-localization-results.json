@@ -116,7 +116,7 @@
       "controlFields": 3,
       "headlines": [
         "Le travail s'arrête.",
-        "Votre temps commence."
+        "Votre temps débute."
       ],
       "pause": "Mettre les démos en pause",
       "play": "Lire les démos",
@@ -205,8 +205,8 @@
       "storyFields": 15,
       "controlFields": 3,
       "headlines": [
-        "Работа заканчивается.",
-        "Твоё время начинается."
+        "Работа окончена.",
+        "Теперь твоё время."
       ],
       "pause": "Приостановить демо",
       "play": "Воспроизвести демо",
@@ -332,7 +332,7 @@
       "controlFields": 3,
       "headlines": [
         "Công việc kết thúc.",
-        "Thời gian của bạn bắt đầu."
+        "Giờ là của bạn."
       ],
       "pause": "Tạm dừng demo",
       "play": "Phát demo",
