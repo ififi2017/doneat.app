@@ -16,12 +16,10 @@
   --color-orange-bright: #ff9a45;
   --color-orange-deep: #f05218;
   --color-orange-ink: #c2410c;
-  /* Token names predate the 2026-10 neutral palette: "plum" is now the ink
-     near-black and "cream" the light text on dark. Orange is the one accent. */
-  --color-cream: #f5f5f7;
-  --color-plum: #1d1d1f;
-  --color-evening-start: #1d1d1f;
-  --color-evening-end: #000000;
+  --color-cream: #fff1d8;
+  --color-plum: #30202c;
+  --color-evening-start: #44313e;
+  --color-evening-end: #171318;
   --font-sans:
     "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang SC",
     "Hiragino Sans GB", "Noto Sans SC", "Noto Sans", "Noto Sans Arabic",
@@ -42,17 +40,20 @@
 :root {
   --site-width: 94rem;
   --site-gutter: clamp(1.25rem, 5vw, 5rem);
-  --paper: #fbfbfd;
-  --surface: #f5f5f7;
+  /* Brand palette (plan 008): orange, cream and plum. Light pages sit on a
+     warm paper; evening scenes use a plum gradient rather than black. */
+  --paper: #fbf6ee;
+  --surface: #f5eadb;
   --ink: var(--color-plum);
-  --muted: #6e6e73;
-  --rule: #d2d2d7;
+  --muted: #6b5864;
+  --rule: #e3d5c6;
   --accent: var(--color-orange-ink);
-  --hero-surface: #000;
-  --night-surface: #000;
+  --evening: linear-gradient(180deg, #3d2a38 0%, #2d1f2a 55%, #231820 100%);
+  --night-surface: #231820;
   --night-ink: var(--color-cream);
-  --night-muted: #a1a1a6;
-  --glow: #ff7a2e;
+  --night-muted: #d3bfc9;
+  --night-rule: #54404d;
+  --tile: #fffaf2;
   --font-product: var(--font-sans);
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
@@ -81,12 +82,13 @@ body {
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #000;
-    --surface: #1d1d1f;
+    --paper: var(--color-evening-end);
+    --surface: #241b22;
     --ink: var(--color-cream);
-    --muted: #a1a1a6;
-    --rule: #424245;
+    --muted: #d3bfc9;
+    --rule: #4a3a45;
     --accent: var(--color-orange-bright);
+    --tile: #2c2128;
   }
 }
 :where(a, button, summary, [tabindex]):focus-visible {

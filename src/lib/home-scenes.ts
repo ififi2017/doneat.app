@@ -18,6 +18,19 @@ let on = false;
 
 const clamp = (value: number) => Math.min(1, Math.max(0, value));
 
+const pinned = new WeakMap<HTMLElement, boolean>();
+
+// A sticky scene is only pinned where its CSS pins it (not on narrow screens).
+function isPinned(scene: HTMLElement): boolean {
+  let value = pinned.get(scene);
+  if (value === undefined) {
+    const pin = scene.querySelector<HTMLElement>(".scene-pin");
+    value = Boolean(pin && getComputedStyle(pin).position === "sticky");
+    pinned.set(scene, value);
+  }
+  return value;
+}
+
 function progress(scene: HTMLElement): number {
   const rect = scene.getBoundingClientRect();
   const viewport = window.innerHeight;
@@ -25,10 +38,25 @@ function progress(scene: HTMLElement): number {
     case "exit":
       return clamp(-rect.top / Math.max(1, rect.height));
     case "sticky":
-      return clamp(-rect.top / Math.max(1, rect.height - viewport));
+      if (isPinned(scene)) return clamp(-rect.top / Math.max(1, rect.height - viewport));
+    // falls through: an unpinned stage reads like a pass-through scene
     default:
       return clamp((viewport - rect.top) / (rect.height + viewport));
   }
+}
+
+// "start span" on data-words / data-steps: the slice of scene progress over
+// which that part plays.
+function range(element: HTMLElement, name: string, fallback: [number, number]): [number, number] {
+  const [start, span] = (element.getAttribute(name) ?? "").split(" ").map(Number);
+  return Number.isFinite(start) && span > 0 ? [start, span] : fallback;
+}
+
+// Unpinned, an element plays while it crosses the middle of the viewport.
+function reading(element: HTMLElement): number {
+  const rect = element.getBoundingClientRect();
+  const viewport = window.innerHeight;
+  return clamp((viewport * 0.85 - rect.top) / (viewport * 0.45));
 }
 
 // Statement words: split once into segments so they can light in order.
@@ -65,19 +93,24 @@ function paint(scene: HTMLElement) {
   last.set(scene, p);
   scene.style.setProperty(scene.dataset.scene === "exit" ? "--x" : "--p", p.toFixed(4));
 
-  // Words finish lighting a little before the pin releases.
+  const stage = scene.dataset.scene !== "sticky" || isPinned(scene);
+
   scene.querySelectorAll<HTMLElement>("[data-words]").forEach((element) => {
+    const [start, span] = range(element, "data-words", [0.08, 0.7]);
+    const local = stage ? clamp((p - start) / span) : reading(element);
     const words = element.querySelectorAll<HTMLElement>(".w");
-    const lit = Math.round(clamp((p - 0.08) / 0.7) * words.length);
+    const lit = Math.round(local * words.length);
     words.forEach((word, index) => word.classList.toggle("is-lit", index < lit));
   });
 
-  // Steps advance after the device has settled.
-  const steps = scene.querySelectorAll<HTMLElement>("[data-step]");
-  if (steps.length) {
-    const active = Math.min(steps.length - 1, Math.max(0, Math.floor(((p - 0.28) / 0.66) * steps.length)));
-    steps.forEach((step, index) => step.classList.toggle("is-active", index === active));
-  }
+  scene.querySelectorAll<HTMLElement>("[data-steps]").forEach((list) => {
+    const [start, span] = range(list, "data-steps", [0.28, 0.66]);
+    const steps = list.querySelectorAll<HTMLElement>("[data-step]");
+    const local = stage ? (p - start) / span : -1;
+    list.classList.toggle("is-playing", local >= 0);
+    const active = Math.min(steps.length - 1, Math.max(0, Math.floor(local * steps.length)));
+    steps.forEach((step, index) => step.classList.toggle("is-active", local >= 0 && index === active));
+  });
 }
 
 function tick() {
@@ -87,6 +120,14 @@ function tick() {
 
 function schedule() {
   if (!frame) frame = requestAnimationFrame(tick);
+}
+
+function resized() {
+  scenes.forEach((scene) => {
+    pinned.delete(scene);
+    last.delete(scene);
+  });
+  schedule();
 }
 
 const observer =
@@ -118,7 +159,7 @@ function enable() {
     observer.observe(scene);
   });
   window.addEventListener("scroll", schedule, { passive: true });
-  window.addEventListener("resize", schedule, { passive: true });
+  window.addEventListener("resize", resized, { passive: true });
 }
 
 function disable() {
@@ -128,12 +169,13 @@ function disable() {
   observer?.disconnect();
   near.clear();
   window.removeEventListener("scroll", schedule);
-  window.removeEventListener("resize", schedule);
+  window.removeEventListener("resize", resized);
   scenes.forEach((scene) => {
+    pinned.delete(scene);
     scene.style.removeProperty("--p");
     scene.style.removeProperty("--x");
     last.delete(scene);
-    scene.querySelectorAll(".is-active").forEach((step) => step.classList.remove("is-active"));
+    scene.querySelectorAll(".is-active, .is-playing").forEach((node) => node.classList.remove("is-active", "is-playing"));
   });
 }
 

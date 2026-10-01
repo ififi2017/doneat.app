@@ -54,23 +54,16 @@ const values = [t(locale, "valueLocal"), t(locale, "valueNoAccount"), t(locale, 
           <div class="hero-stage"><LiveShiftCard locale={locale} /></div>
         </div>
       </section>
-      <section class="scene-statement" aria-labelledby="proof-title" data-scene="sticky">
+      <section class="scene-proof" id="see-it" aria-labelledby="proof-title" data-scene="sticky">
         <div class="scene-pin">
-          <div class="shift-frame statement">
-            <h2 id="proof-title">{copy.proofTitle}</h2>
-            <p data-words>{copy.proofBody}</p>
-          </div>
-        </div>
-      </section>
-      <section class="scene-phone" id="see-it" aria-labelledby="phone-title" data-scene="sticky">
-        <div class="scene-pin">
-          <div class="shift-frame phone-layout">
-            <div class="phone-copy">
-              <p class="scene-kicker" id="phone-title">{functionalSubtitle(locale)} · iPhone</p>
-              <ol class="phone-steps">{values.map((v,i)=><li data-step={i}><span aria-hidden="true">0{i+1}</span>{v}</li>)}</ol>
+          <div class="shift-frame proof-layout">
+            <div class="proof-copy">
+              <h2 class="scene-kicker" id="proof-title">{copy.proofTitle}</h2>
+              <p class="proof-statement" data-words="0.04 0.42">{copy.proofBody}</p>
+              <ol class="phone-steps" data-steps="0.5 0.46">{values.map((v,i)=><li data-step={i}><span aria-hidden="true">0{i+1}</span>{v}</li>)}</ol>
               <a class="story-link" href={download} data-track="download_page_open">{t(locale,"downloadCta")}<span aria-hidden="true">↗</span></a>
             </div>
-            <figure class="phone-device"><DeviceHero locale={locale} /><figcaption><MediaControls locale={locale} /></figcaption></figure>
+            <figure class="phone-device"><DeviceHero locale={locale} /><figcaption><span id="phone-title">{functionalSubtitle(locale)} · iPhone</span><MediaControls locale={locale} /></figcaption></figure>
           </div>
         </div>
       </section>

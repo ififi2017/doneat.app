@@ -152,11 +152,11 @@ const linkActive = "text-orange-ink dark:text-orange-bright";
 
 <style>
   .site-header {
-    background: color-mix(in srgb, var(--paper) 78%, transparent);
+    /* Solid: a backdrop blur over the pinned homepage scenes paints stray
+       compositing boxes in Chromium. */
+    background: var(--paper);
     color: var(--ink);
-    border-bottom: 1px solid color-mix(in srgb, var(--rule) 70%, transparent);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--rule);
   }
   .site-header > .page-frame { min-height: 3.5rem; }
   .nav-github {
@@ -342,9 +342,9 @@ const linkActive = "text-orange-ink dark:text-orange-bright";
   }
 
   .site-header.tone-dark {
-    --paper: #161617;
+    --paper: #3d2a38;
     --ink: var(--color-cream);
-    --rule: #424245;
+    --rule: #54404d;
   }
 
   :global(.tone-dark) .nav-more-summary {

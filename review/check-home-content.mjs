@@ -116,7 +116,7 @@ for (const { locale, document: doc } of documents) {
   assert.equal(all("h1", doc).length, 1);
   const headings = all("#shift-title>span", doc).map(clean);
   assert.deepEqual(headings, [copy.headlineWork, copy.headlineLife]);
-  for (const [selector, value] of [["#proof-title", copy.proofTitle], [".statement>p[data-words]", copy.proofBody], ["#carry-title", copy.carryTitle], [".carry-heading>p", copy.carryBody], ["#get-title", copy.getTitle], [".get-layout>p", copy.getBody], ["#phone-title", `${hallCopy.functionalSubtitle[locale]} · iPhone`]]) assert.equal(clean(one(selector, doc)), value, `${locale}: ${selector}`);
+  for (const [selector, value] of [["#proof-title", copy.proofTitle], [".proof-statement[data-words]", copy.proofBody], ["#carry-title", copy.carryTitle], [".carry-heading>p", copy.carryBody], ["#get-title", copy.getTitle], [".get-layout>p", copy.getBody], ["#phone-title", `${hallCopy.functionalSubtitle[locale]} · iPhone`]]) assert.equal(clean(one(selector, doc)), value, `${locale}: ${selector}`);
   if (locale !== "en") {
     for (const key of ["headlineWork", "headlineLife", "proofBody", "carryBody", "getBody"]) assert.notEqual(copy[key], homeStory("en")[key], `${locale}: English fallback ${key}`);
     for (const key of ["pause", "play", "brand"]) assert.notEqual(media[key], mediaCopy("en")[key], `${locale}: English control fallback ${key}`);
@@ -158,7 +158,7 @@ for (const { locale, document: doc } of documents) {
   assert.equal(one('link[hreflang="x-default"]', doc).attribs.href, "https://doneat.app/");
   assert.equal(all('.scene-hero [data-device-hero]', doc).length, 0);
   assert.equal(all('.phone-steps>li[data-step]', doc).length, 3);
-  assert.deepEqual(all('[data-scene]', doc).map((n) => n.attribs['data-scene']), ['exit', 'sticky', 'sticky', 'pass', 'pass']);
+  assert.deepEqual(all('[data-scene]', doc).map((n) => n.attribs['data-scene']), ['exit', 'sticky', 'pass', 'pass']);
   assert.equal(all('.phone-device [data-device-hero]', doc).length, 1);
   assert.equal(all('video source', doc).length, 0);
   const stem = locale.startsWith("zh") ? "zh" : "en";
@@ -174,7 +174,7 @@ for (const { locale, document: doc } of documents) {
   const rules = stylesheetRules(doc);
   for (const dark of [false, true]) for (const hover of [false, true]) for (const selector of [".site-footer-nav a", ".site-social"]) {
     const trace = footerColor(one(selector, doc), rules, dark, hover);
-    assert.equal(trace.color.toLowerCase(), hover ? "#ff9a45" : "#f5f5f7", `${locale}: footer ${dark}/${hover}/${selector}`);
+    assert.equal(trace.color.toLowerCase(), hover ? "#ff9a45" : "#fff1d8", `${locale}: footer ${dark}/${hover}/${selector}`);
     cascade.push({ locale, mode: dark ? "dark" : "light", state: hover ? "hover" : "normal", target: selector, color: trace.color, winningSelector: trace.rule.selector, specificity: trace.rule.specificity, tokenSelector: trace.token?.selector, tokenValue: trace.token?.value, source: trace.rule.source });
   }
   results.push({ locale, dir: locale === "ar" ? "rtl" : "ltr", storyFields: Object.keys(copy).length, controlFields: Object.keys(media).length, headlines: headings, pause: media.pause, play: media.play, widgetsAlt: alts[0], watchAlt: alts[1], canonical: `https://doneat.app/${locale}`, download: expectedDownload, recordingStem: stem, status: "static checks passed" });
