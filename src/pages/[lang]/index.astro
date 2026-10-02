@@ -111,6 +111,17 @@ const values = [t(locale, "valueLocal"), t(locale, "valueNoAccount"), t(locale, 
 
 <script>
   import "../../lib/home-scenes";
+  // The finale and footer together fill the last screen; measure the chrome
+  // around them so the finale's min-height leaves no strip of the previous
+  // chapter showing above it.
+  const finale = document.querySelector<HTMLElement>(".scene-finale");
+  const chrome = [document.querySelector<HTMLElement>(".site-header"), document.querySelector<HTMLElement>(".site-footer")];
+  if (finale && chrome.every(Boolean)) {
+    const observer = new ResizeObserver(() => {
+      finale.style.setProperty("--finale-chrome", `${chrome.reduce((sum, el) => sum + (el?.offsetHeight ?? 0), 0)}px`);
+    });
+    chrome.forEach((el) => el && observer.observe(el));
+  }
   const title = document.getElementById("shift-title");
   if (title instanceof HTMLElement) {
     const rows = Array.from(title.querySelectorAll<HTMLElement>(":scope > span"));

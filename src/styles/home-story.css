@@ -523,6 +523,11 @@ html.scenes-on .carry-watch {
   position: relative;
   overflow: clip;
   isolation: isolate;
+  /* With the header and footer, fill the last screen exactly; content is
+     centred, so a one-line English title leaves no gap above. */
+  display: grid;
+  align-content: center;
+  min-height: calc(100svh - var(--finale-chrome, 9.375rem));
 }
 .finale-glow {
   position: absolute;
