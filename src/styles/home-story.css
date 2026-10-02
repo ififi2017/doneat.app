@@ -527,7 +527,9 @@ html.scenes-on .carry-watch {
 .finale-glow {
   position: absolute;
   left: 50%;
-  bottom: -55%;
+  /* Keep the sun's centre a fixed distance above the section's bottom edge,
+     whatever the section's height. */
+  bottom: calc(max(110vw, 70rem) / -2 + 12rem);
   z-index: -1;
   width: max(110vw, 70rem);
   aspect-ratio: 1;
@@ -545,18 +547,20 @@ html.scenes-on .scene-finale {
   display: grid;
   justify-items: center;
   text-align: center;
-  padding-block: clamp(7rem, 16vw, 13rem) clamp(8rem, 18vw, 15rem);
+  /* Height-aware, so the whole finale fits one laptop screen. */
+  padding-block: clamp(4rem, min(10vw, 11svh), 8rem) clamp(4.5rem, min(11vw, 12svh), 9rem);
 }
 .get-layout .brand-mark {
   display: block;
-  width: clamp(6.5rem, 9vw, 8.5rem);
-  height: clamp(6.5rem, 9vw, 8.5rem);
+  width: clamp(5.5rem, min(9vw, 13svh), 8.5rem);
+  height: clamp(5.5rem, min(9vw, 13svh), 8.5rem);
   margin-bottom: 0.75rem;
   /* A dark lift, not a warm glow: the mark separates from the sunset. */
   filter: drop-shadow(0 14px 22px rgb(28 10 22 / 0.5)) drop-shadow(0 2px 4px rgb(28 10 22 / 0.35));
 }
 .get-layout h2 {
   max-width: 12em;
+  font-size: clamp(2.7rem, min(6vw, 9svh), 5.75rem);
 }
 .get-layout .get-title-word {
   display: inline-block;
