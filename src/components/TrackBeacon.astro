@@ -13,6 +13,13 @@
     var page = document.body.getAttribute("data-track-page");
     if (page) send(page);
 
+    if (
+      page === "download_view" &&
+      new URLSearchParams(location.search).get("from") === "web"
+    ) {
+      send("download_from_web");
+    }
+
     document.addEventListener(
       "click",
       function (ev) {
