@@ -48,7 +48,7 @@ A subscription expiring does not delete your existing records. Export and deleti
 
 To host the pages, Vercel may process ordinary connection information such as an IP address and browser identifier under its own privacy policy. This project does not store that information or use it to create a profile of you.
 
-The official site uses Vercel’s cookieless analytics to measure page views and loading performance, and a small set of aggregate counters to see which entries people use. Events come from a fixed, public list — for example `hall_view`, `download_view`, `web_timer_open`, or `app_store_open` — and are incremented by day. The request carries only the event name. It does not include a user identifier, session, language, schedule, or salary, and cannot be used to identify or track a person.
+The official site uses Vercel’s cookieless analytics to measure page views and loading performance, and a small set of aggregate counters to see which entries people use. Events come from a fixed, public list — for example `hall_view`, `download_view`, `download_from_web`, `web_timer_open`, or `app_store_open` — and are incremented by day. The request carries only the event name. It does not include a user identifier, session, language, schedule, or salary, and cannot be used to identify or track a person.
 
 The complete event list is in this repository at [`src/lib/analytics-events.ts`](https://github.com/ififi2017/doneat.app/blob/main/src/lib/analytics-events.ts).
 
