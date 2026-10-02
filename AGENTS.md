@@ -50,6 +50,7 @@ Astro 门厅、英中长文、下载页都已上线。接着改现有工程，�
 - 全站外层栅格只由 `src/styles/global.css` 的 `--site-width`／`--site-gutter` 及 `.page-frame, .shift-frame` 定义。导航、首页、下载页和页脚用相同外边缘；长文阅读宽度在栅格内部约束，不能再覆盖外层 frame。色板与动效曲线同样由此文件统一管理。
 - 暖光用径向渐变淡到透明。实心圆放大 + `drop-shadow` 叠在深色底上会切出一圈发闷的红褐边。
 - 触摸没有 hover。点按必须自己出反馈：橙色圆点约 `scale(1.16)` + 同一套暖光。`prefers-reduced-motion: reduce` 只变亮、不缩放。
+- SVG 内的可聚焦元素（如彩蛋命中圆）浏览器按 `:focus` 而非 `:focus-visible` 画默认焦点框，点一下就出现方框。要显式 `:focus { outline: none }`，只在 `:focus-visible` 画圆形焦点环。
 - 五连击只打缺口里的橙色圆点（可加大透明命中圆），圆环和指针不计数。第五次指针绕 `512,512` 转一圈回到五点，角度累加，不要从 360 弹回 0。时长约 0.8s，对照 iOS `CelebratingBrandMark`。不要为它拉 React。
 - 下载对照表是**手机 / iPad vs 电脑**，不是网页 vs 桌面。三种状态：`included` 实心橙点、`limited` 空心、`absent` 短横 + 「没有」/「No」。不要只靠把字调淡。iOS 独有行不要发明产品里没有的功能。
 - 第 02 章使用真实产品原始截图的准确裁切和官方 Watch 框，来源、版本与裁切坐标记录在 `assets/product/sources.json`。宣传标题用页面原生排字，不把带标题的商店海报贴在首页；不生成或重绘产品 UI。
