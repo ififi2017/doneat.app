@@ -183,6 +183,12 @@ const { class: className, locale = "en" } = Astro.props;
   .brand-mark-hit {
     pointer-events: auto;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* Browsers ring focused SVG children on :focus, not :focus-visible, so a
+     click would draw a rectangle around the hit circle's bounding box. */
+  .brand-mark-hit:focus {
+    outline: none;
   }
   .brand-mark-hit:focus-visible {
     outline: 16px solid currentColor;
