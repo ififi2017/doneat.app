@@ -6,6 +6,7 @@
 export const trackedEvents = [
   "hall_view",
   "download_view",
+  "download_from_web",
   "faq_view",
   "about_view",
   "how_it_works_view",
