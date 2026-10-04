@@ -32,8 +32,7 @@ export function hallHreflangLinks(): HreflangLink[] {
 }
 
 /**
- * Support pages ship only in en and zh-CN. Do not advertise hall locales
- * that bounce or 404.
+ * Content pages now ship in all 19 locales, matching the hall.
  */
 export function contentHreflangLinks(page: ContentPage): HreflangLink[] {
   return [

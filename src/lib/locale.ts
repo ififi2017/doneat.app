@@ -131,7 +131,7 @@ function pickerRuntimeJs(): string {
     return "en";
   }
   function contentLocale(hall){
-    return hall==="zh-CN"||hall==="zh-TW"||hall==="zh-HK"?"zh-CN":"en";
+    return hall;
   }`;
 }
 

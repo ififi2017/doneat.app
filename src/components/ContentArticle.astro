@@ -49,6 +49,7 @@ const otherDownloads = [
     : null,
 ].filter((item) => item !== null);
 
+const showcase = downloadShowcaseCopy(locale);
 const jsonLd = isFaq
   ? faqPageJsonLd(parseFaqMarkdown(entry.body ?? ""), {
       locale,
@@ -109,7 +110,7 @@ const jsonLd = isFaq
                 locale={locale}
                 clip="review"
                 priority
-                alt={downloadShowcaseCopy(locale).reviewAlt}
+                alt={showcase.reviewAlt}
               />
               <MediaControls locale={locale} />
             </div>
@@ -120,13 +121,13 @@ const jsonLd = isFaq
         isDownload ? (
           <nav
             class="download-index"
-            aria-label={locale === "zh-CN" ? "本页内容" : "On this page"}
+            aria-label={showcase.pageIndexLabel}
           >
             <a href="#download-iphone"><span>01</span> iPhone / Apple Watch</a>
             <a href="#download-showcase"><span>02</span> Mac / Windows</a>
             <a href="#download-compare">
               <span>03</span>
-              {locale === "zh-CN" ? "功能对照" : "Compare features"}
+              {showcase.compareNavLabel}
             </a>
             <a href="#download-requirements">
               <span>04</span> {entry.data.requirementsHeading}

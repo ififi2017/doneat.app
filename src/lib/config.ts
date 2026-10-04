@@ -7,8 +7,8 @@ export const siteConfig = site;
 export type HallLocale = keyof typeof hall.functionalSubtitle;
 export const HALL_LOCALES = hall.locales as HallLocale[];
 
-export type ContentLocale = "en" | "zh-CN";
-export const CONTENT_LOCALES = hall.notes.contentLanguages as ContentLocale[];
+export type ContentLocale = HallLocale;
+export const CONTENT_LOCALES = HALL_LOCALES;
 
 export const CONTENT_PAGES = [
   "download",
@@ -30,7 +30,7 @@ export function isHallLocale(value: string | undefined): value is HallLocale {
 }
 
 export function isContentLocale(value: string | undefined): value is ContentLocale {
-  return value === "en" || value === "zh-CN";
+  return isHallLocale(value);
 }
 
 export function isContentPage(value: string | undefined): value is ContentPage {
@@ -46,7 +46,7 @@ export function isChineseHall(locale: HallLocale): boolean {
 }
 
 export function contentLocaleFor(locale: HallLocale): ContentLocale {
-  return isChineseHall(locale) ? "zh-CN" : "en";
+  return locale;
 }
 
 export function functionalSubtitle(locale: HallLocale): string {
