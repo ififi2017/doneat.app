@@ -44,7 +44,7 @@ Harici bir bağlantı veya paylaşım hizmeti o hedefe kendi koşullarıyla ula�
 
 Maaş ve süre toplamları kişisel başvuru için tahminlerdir. Bordro kaydı değildir; hukuki, vergi, istihdam veya finansal tavsiye değildir. Hatırlatıcılar güvenlik açısından kritik veya yasal olarak zorunlu zamanlama için kullanılmamalıdır.
 
-Yazılım, yasanın izin verdiği ölçüde, MIT lisansı altında olduğu gibi ve garantisiz sunulur. Depodaki lisans metni bağlayıcı yasal bildirimdir.
+Yazılım, yasanın izin verdiği ölçüde, [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) lisansı altında olduğu gibi ve garantisiz sunulur. Depodaki lisans metni bağlayıcı yasal bildirimdir.
 
 ## Ücretsiz geri sayım, isteğe bağlı Plus
 
@@ -54,7 +54,9 @@ iCloud eşitlemesini açmak Plus gerektirir. Bir kez açıldığında eşitleme 
 
 ## Açık kaynak
 
-Proje MIT lisansı altında yayımlanır. Kodu inceleyebilir veya herkese açık [GitHub deposundan](https://github.com/ififi2017/Off-Work-Countdown) kendi sürümünü derleyebilirsin.
+Proje [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) lisansı altında yayımlanır. Kodu inceleyebilir veya herkese açık [GitHub deposundan](https://github.com/ififi2017/Off-Work-Countdown) kendi sürümünü derleyebilirsin.
+
+Daha önce verilen MIT izinleri geçerliliğini korur. Marka ve görseller ayrı koşullara tabidir; üçüncü taraf bileşenler kendi lisanslarını korur. [Marka kullanım kuralları](https://github.com/ififi2017/Off-Work-Countdown/blob/main/TRADEMARKS.md)
 
 Tatil şablonları, [Vacanza Holidays 0.83](https://github.com/vacanza/holidays) ile üretilmiş ulusal takvim verisini ve [holiday-cn](https://github.com/NateScarlet/holiday-cn) kaynağından Çin anakarası resmi tatil ve telafi iş günü verisini içerir. İki kaynak da MIT lisansı altındadır:
 

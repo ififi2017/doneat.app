@@ -44,7 +44,7 @@ DoneAt は仕事の振り返りや次の時間の計画にも役立ちます：
 
 給与と時間の合計は個人的な参考用であり、給与記録ではありません。法律、税務、雇用、または財務上のアドバイスにはなりません。リマインダーは安全上重要なタイミングや法的に要求されるタイミングには使用しないでください。
 
-本ソフトウェアは MIT ライセンスに基づき、現状のまま保証なしで提供されます（法律で認められる範囲内）。リポジトリ内のライセンス文が法的拘束力のある通知です。
+本ソフトウェアは [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) ライセンスに基づき、現状のまま保証なしで提供されます（法律で認められる範囲内）。リポジトリ内のライセンス文が法的拘束力のある通知です。
 
 ## 無料カウントダウンとオプションの Plus
 
@@ -54,7 +54,9 @@ iCloud 同期を初めて有効にするには Plus が必要です。有効化�
 
 ## オープンソース
 
-プロジェクトは MIT ライセンスで公開されています。公開の [GitHub リポジトリ](https://github.com/ififi2017/Off-Work-Countdown)でコードを確認したり、自分でビルドしたりできます。
+プロジェクトは [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) ライセンスで公開されています。公開の [GitHub リポジトリ](https://github.com/ififi2017/Off-Work-Countdown)でコードを確認したり、自分でビルドしたりできます。
+
+過去の MIT ライセンスによる許諾は引き続き有効です。ブランドと素材には別の条件が適用され、第三者のコンポーネントはそれぞれのライセンスに従います。 [ブランドの使用ガイドライン](https://github.com/ififi2017/Off-Work-Countdown/blob/main/TRADEMARKS.md)
 
 祝日テンプレートには [Vacanza Holidays 0.83](https://github.com/vacanza/holidays) で生成された各国・地域の祝日データと、[holiday-cn](https://github.com/NateScarlet/holiday-cn) による中国本土の法定休日・振替出勤日データが含まれています。どちらも MIT ライセンスです：
 

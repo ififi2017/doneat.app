@@ -44,7 +44,7 @@ Abrir um link externo ou um serviço de compartilhamento leva a esse destino sob
 
 Salário e totais de tempo são estimativas para referência pessoal. Não são registros de folha de pagamento nem consultoria legal, fiscal, trabalhista ou financeira. Os lembretes não devem ser usados para cronometragens críticas de segurança ou legalmente exigidas.
 
-O software é fornecido sob a licença MIT, como está e sem garantia, na medida permitida por lei. O texto da licença no repositório é o aviso legal definitivo.
+O software é fornecido sob a licença [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md), como está e sem garantia, na medida permitida por lei. O texto da licença no repositório é o aviso legal definitivo.
 
 ## Contagem regressiva gratuita, Plus opcional
 
@@ -54,7 +54,9 @@ Ativar a sincronização com o iCloud requer o Plus. Uma vez habilitada, a sincr
 
 ## Código aberto
 
-O projeto está publicado sob a licença MIT. Você pode inspecionar o código ou criar sua própria versão do [repositório público do GitHub](https://github.com/ififi2017/Off-Work-Countdown).
+O projeto está publicado sob a licença [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md). Você pode inspecionar o código ou criar sua própria versão do [repositório público do GitHub](https://github.com/ififi2017/Off-Work-Countdown).
+
+As permissões MIT já concedidas continuam válidas. A marca e o material visual têm condições separadas; os componentes de terceiros mantêm suas próprias licenças. [Uso da marca](https://github.com/ififi2017/Off-Work-Countdown/blob/main/TRADEMARKS.md)
 
 Os modelos de feriados incluem dados de calendários nacionais gerados com [Vacanza Holidays 0.83](https://github.com/vacanza/holidays) e dados de feriados e dias de compensação da China continental de [holiday-cn](https://github.com/NateScarlet/holiday-cn). Ambas as fontes estão disponíveis sob a licença MIT:
 

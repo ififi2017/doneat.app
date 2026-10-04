@@ -44,7 +44,7 @@ Aprire un link esterno o un servizio di condivisione raggiunge quella destinazio
 
 Stipendio e totali di tempo sono stime per riferimento personale. Non sono registri paghe né consulenza legale, fiscale, lavorativa o finanziaria. I promemoria non dovrebbero essere usati per tempistiche critiche per la sicurezza o legalmente richieste.
 
-Il software è fornito sotto licenza MIT, così com'è e senza garanzia, nella misura consentita dalla legge. Il testo della licenza nel repository è l'avviso legale di riferimento.
+Il software è fornito sotto licenza [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md), così com'è e senza garanzia, nella misura consentita dalla legge. Il testo della licenza nel repository è l'avviso legale di riferimento.
 
 ## Conto alla rovescia gratuito, Plus opzionale
 
@@ -54,7 +54,9 @@ Attivare la sincronizzazione iCloud richiede Plus. Una volta abilitata, la sincr
 
 ## Open source
 
-Il progetto è rilasciato sotto licenza MIT. Puoi ispezionare il codice o creare la tua versione dal [repository pubblico GitHub](https://github.com/ififi2017/Off-Work-Countdown).
+Il progetto è rilasciato sotto licenza [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md). Puoi ispezionare il codice o creare la tua versione dal [repository pubblico GitHub](https://github.com/ififi2017/Off-Work-Countdown).
+
+Le autorizzazioni MIT già concesse restano valide. Marchio e materiale grafico hanno condizioni separate; i componenti di terze parti mantengono le proprie licenze. [Uso del marchio](https://github.com/ififi2017/Off-Work-Countdown/blob/main/TRADEMARKS.md)
 
 I template delle festività includono dati di calendari nazionali generati con [Vacanza Holidays 0.83](https://github.com/vacanza/holidays) e dati delle festività e dei giorni di recupero della Cina continentale da [holiday-cn](https://github.com/NateScarlet/holiday-cn). Entrambe le fonti sono disponibili sotto licenza MIT:
 

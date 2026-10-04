@@ -47,7 +47,7 @@ iPhone と iPad では可能です。1 つの月間カレンダーで固定曜�
 
 ## 無料ですか？オープンソースですか？
 
-ウェブタイマーは無料で使えます。DoneAt のアカウント、広告、有料プランはありません。ソースコードは MIT ライセンスで [GitHub](https://github.com/ififi2017/Off-Work-Countdown) に公開されています。ストア版の価格と規約は各ストアに準じます。
+ウェブタイマーは無料で使えます。DoneAt のアカウント、広告、有料プランはありません。ソースコードは [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) ライセンスで [GitHub](https://github.com/ififi2017/Off-Work-Countdown) に公開されています。ストア版の価格と規約は各ストアに準じます。
 
 ## どの言語に対応していますか？
 

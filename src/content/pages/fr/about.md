@@ -42,7 +42,7 @@ L'utilisation quotidienne ne nécessite pas de compte DoneAt. L'app de bureau in
 
 Les totaux de salaire et de temps sont des estimations personnelles, pas des relevés de paie. Ils ne constituent pas un conseil juridique, fiscal, d'emploi ou financier. N'utilisez pas les rappels pour des timings critiques pour la sécurité ou légalement requis.
 
-Le logiciel est fourni sous licence MIT, tel quel et sans garantie, dans les limites permises par la loi.
+Le logiciel est fourni sous licence [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md), tel quel et sans garantie, dans les limites permises par la loi.
 
 ## Compte à rebours gratuit et Plus optionnel
 
@@ -52,7 +52,9 @@ Activer la synchronisation iCloud pour la première fois nécessite Plus. Une sy
 
 ## Open source
 
-Le projet est publié sous licence MIT. Vous pouvez inspecter le code ou créer votre propre version depuis le [dépôt GitHub](https://github.com/ififi2017/Off-Work-Countdown) public.
+Le projet est publié sous licence [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md). Vous pouvez inspecter le code ou créer votre propre version depuis le [dépôt GitHub](https://github.com/ififi2017/Off-Work-Countdown) public.
+
+Les autorisations MIT déjà accordées restent valables. La marque et les visuels ont des conditions distinctes ; les composants tiers conservent leurs propres licences. [Utilisation de la marque](https://github.com/ififi2017/Off-Work-Countdown/blob/main/TRADEMARKS.md)
 
 ## Android
 

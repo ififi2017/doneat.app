@@ -47,7 +47,7 @@ En iPhone y iPad, sí. Planifica tu horario en un calendario mensual con días f
 
 ## ¿Es gratis y es de código abierto?
 
-El temporizador web es gratuito. No hay cuentas de DoneAt, anuncios ni niveles de pago en el sitio web. El código fuente está publicado en [GitHub](https://github.com/ififi2017/Off-Work-Countdown) bajo la licencia MIT. Los precios y términos de las tiendas siguen las condiciones de cada tienda.
+El temporizador web es gratuito. No hay cuentas de DoneAt, anuncios ni niveles de pago en el sitio web. El código fuente está publicado en [GitHub](https://github.com/ififi2017/Off-Work-Countdown) bajo la licencia [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md). Los precios y términos de las tiendas siguen las condiciones de cada tienda.
 
 ## ¿Qué idiomas se soportan?
 

@@ -47,7 +47,7 @@ iPhone과 iPad에서는 가능합니다. 하나의 월간 캘린더에서 고정
 
 ## 무료인가요? 오픈 소스인가요?
 
-웹 타이머는 무료로 사용할 수 있습니다. DoneAt 계정, 광고, 유료 요금제가 없습니다. 소스 코드는 MIT 라이선스로 [GitHub](https://github.com/ififi2017/Off-Work-Countdown)에 공개되어 있습니다. 스토어 버전의 가격과 약관은 각 스토어를 따릅니다.
+웹 타이머는 무료로 사용할 수 있습니다. DoneAt 계정, 광고, 유료 요금제가 없습니다. 소스 코드는 [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) 라이선스로 [GitHub](https://github.com/ififi2017/Off-Work-Countdown)에 공개되어 있습니다. 스토어 버전의 가격과 약관은 각 스토어를 따릅니다.
 
 ## 어떤 언어를 지원하나요?
 

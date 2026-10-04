@@ -46,7 +46,7 @@ Opening an external link or a sharing service reaches that destination on its ow
 
 Salary and time totals are estimates for personal reference. They are not payroll records, and they are not legal, tax, employment, or financial advice. Reminders should not be used for safety-critical or legally required timing.
 
-The software is provided under the MIT licence, as is and without warranty, to the extent permitted by law. The licence text in the repository is the controlling legal notice.
+The software is provided under the [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) licence, as is and without warranty, to the extent permitted by law. The licence text in the repository is the controlling legal notice.
 
 ## Free countdown, optional Plus
 
@@ -56,7 +56,9 @@ Turning on iCloud sync requires Plus. Once enabled, sync continues after a subsc
 
 ## Open source
 
-The project is released under the MIT licence. You can inspect the code or build your own version from the public [GitHub repository](https://github.com/ififi2017/Off-Work-Countdown).
+The project is released under the [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) licence. You can inspect the code or build your own version from the public [GitHub repository](https://github.com/ififi2017/Off-Work-Countdown).
+
+Historical MIT permissions remain valid. Brand and artwork permissions are separate; third-party components retain their own licenses. [Brand guidelines](https://github.com/ififi2017/Off-Work-Countdown/blob/main/TRADEMARKS.md)
 
 The holiday templates include national-calendar data generated with [Vacanza Holidays 0.83](https://github.com/vacanza/holidays) and mainland China public-holiday and makeup-workday data from [holiday-cn](https://github.com/NateScarlet/holiday-cn). Both sources are available under the MIT licence:
 

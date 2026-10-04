@@ -47,7 +47,7 @@ DoneAt 是下班倒计时。填好上班和下班时间，就会显示还剩多�
 
 ## 免费吗？开源吗？
 
-网页计时可以免费使用，没有 DoneAt 账号、广告或付费档位。源代码以 MIT 协议公开在 [GitHub](https://github.com/ififi2017/Off-Work-Countdown)。各商店的价格和条款以商店为准。
+网页计时可以免费使用，没有 DoneAt 账号、广告或付费档位。源代码以 [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) 协议公开在 [GitHub](https://github.com/ififi2017/Off-Work-Countdown)。各商店的价格和条款以商店为准。
 
 ## 支持哪些语言？
 
