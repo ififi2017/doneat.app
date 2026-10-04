@@ -47,7 +47,7 @@ On iPhone and iPad, yes. Plan your schedule on one monthly calendar with fixed w
 
 ## Is it free, and is the code open?
 
-The web timer is free to use. There are no DoneAt accounts, adverts or paid tiers on the website. Source code is published on [GitHub](https://github.com/ififi2017/Off-Work-Countdown) under the MIT licence. Store listings follow each store’s own price and terms.
+The web timer is free to use. There are no DoneAt accounts, adverts or paid tiers on the website. Source code is published on [GitHub](https://github.com/ififi2017/Off-Work-Countdown) under the [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) licence. Store listings follow each store’s own price and terms.
 
 ## Which languages are supported?
 

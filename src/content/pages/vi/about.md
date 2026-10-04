@@ -44,7 +44,7 @@ Mở một liên kết ngoài hoặc dịch vụ chia sẻ sẽ tới đích đ�
 
 Lương và tổng thời gian là ước tính để bạn tham khảo. Chúng không phải bảng lương, và không phải tư vấn pháp lý, thuế, lao động hoặc tài chính. Không dùng lời nhắc cho việc tính giờ then chốt về an toàn hoặc bắt buộc theo luật.
 
-Phần mềm được cung cấp theo giấy phép MIT, nguyên trạng và không bảo đảm, trong phạm vi luật cho phép. Văn bản giấy phép trong kho mã là thông báo pháp lý có hiệu lực.
+Phần mềm được cung cấp theo giấy phép [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md), nguyên trạng và không bảo đảm, trong phạm vi luật cho phép. Văn bản giấy phép trong kho mã là thông báo pháp lý có hiệu lực.
 
 ## Bộ đếm miễn phí, Plus tùy chọn
 
@@ -54,7 +54,9 @@ Bật đồng bộ iCloud cần Plus. Sau khi bật, đồng bộ tiếp tục k
 
 ## Mã nguồn mở
 
-Dự án được phát hành theo giấy phép MIT. Bạn có thể xem mã hoặc tự dựng một bản từ [kho GitHub công khai](https://github.com/ififi2017/Off-Work-Countdown).
+Dự án được phát hành theo giấy phép [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md). Bạn có thể xem mã hoặc tự dựng một bản từ [kho GitHub công khai](https://github.com/ififi2017/Off-Work-Countdown).
+
+Các quyền đã cấp theo MIT vẫn có hiệu lực. Thương hiệu và tư liệu hình ảnh có điều khoản riêng; các thành phần bên thứ ba giữ nguyên giấy phép của mình. [Hướng dẫn sử dụng thương hiệu](https://github.com/ififi2017/Off-Work-Countdown/blob/main/TRADEMARKS.md)
 
 Mẫu ngày lễ gồm dữ liệu lịch quốc gia tạo bằng [Vacanza Holidays 0.83](https://github.com/vacanza/holidays) và dữ liệu ngày lễ cùng ngày làm bù của Trung Quốc đại lục từ [holiday-cn](https://github.com/NateScarlet/holiday-cn). Cả hai nguồn đều theo giấy phép MIT:
 

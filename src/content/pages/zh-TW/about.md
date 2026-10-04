@@ -44,7 +44,7 @@ DoneAt 也幫助你回顧工作、安排接下來的時間：
 
 薪資與時間彙總只供個人參考，不是工資記錄，也不構成法律、稅務、勞動關係或財務建議。提醒不要用在安全關鍵或法律要求的計時上。
 
-本軟體依據 MIT 授權條款按現狀提供，在法律允許的範圍內不作保證。儲存庫裡的授權條款原文是具有約束力的法律聲明。
+本軟體依據 [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) 授權條款按現狀提供，在法律允許的範圍內不作保證。儲存庫裡的授權條款原文是具有約束力的法律聲明。
 
 ## 免費倒數計時與可選的 Plus
 
@@ -54,7 +54,9 @@ DoneAt 也幫助你回顧工作、安排接下來的時間：
 
 ## 開源
 
-專案採用 MIT 協議開源。你可以在公開的 [GitHub 儲存庫](https://github.com/ififi2017/Off-Work-Countdown)查看程式碼，或者建構自己的版本。
+專案採用 [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) 協議開源。你可以在公開的 [GitHub 儲存庫](https://github.com/ififi2017/Off-Work-Countdown)查看程式碼，或者建構自己的版本。
+
+歷史 MIT 授權繼續有效。品牌與素材另行授權，第三方元件保留各自授權條款。 [品牌使用規範](https://github.com/ififi2017/Off-Work-Countdown/blob/main/TRADEMARKS.md)
 
 節假日範本包含由 [Vacanza Holidays 0.83](https://github.com/vacanza/holidays) 產生的各國家和地區節假日資料，以及 [holiday-cn](https://github.com/NateScarlet/holiday-cn) 提供的中國大陸法定節假日與調休上班資料。兩個來源均採用 MIT 授權條款：
 

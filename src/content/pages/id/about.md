@@ -44,7 +44,7 @@ Membuka tautan eksternal atau layanan berbagi mencapai tujuan itu dengan ketentu
 
 Gaji dan jumlah waktu adalah perkiraan untuk acuan pribadi. Itu bukan catatan penggajian, dan bukan nasihat hukum, pajak, ketenagakerjaan, atau keuangan. Pengingat tidak boleh dipakai untuk penentuan waktu yang kritis bagi keselamatan atau diwajibkan secara hukum.
 
-Perangkat lunak disediakan di bawah lisensi MIT, apa adanya dan tanpa jaminan, sejauh diizinkan hukum. Teks lisensi di repositori adalah pemberitahuan hukum yang mengikat.
+Perangkat lunak disediakan di bawah lisensi [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md), apa adanya dan tanpa jaminan, sejauh diizinkan hukum. Teks lisensi di repositori adalah pemberitahuan hukum yang mengikat.
 
 ## Hitung mundur gratis, Plus opsional
 
@@ -54,7 +54,9 @@ Menyalakan sinkronisasi iCloud membutuhkan Plus. Setelah diaktifkan, sinkronisas
 
 ## Sumber terbuka
 
-Proyek ini dirilis di bawah lisensi MIT. Kamu bisa memeriksa kode atau membangun versimu sendiri dari [repositori GitHub](https://github.com/ififi2017/Off-Work-Countdown) yang publik.
+Proyek ini dirilis di bawah lisensi [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md). Kamu bisa memeriksa kode atau membangun versimu sendiri dari [repositori GitHub](https://github.com/ififi2017/Off-Work-Countdown) yang publik.
+
+Izin MIT yang telah diberikan tetap berlaku. Merek dan materi visual memiliki ketentuan terpisah; komponen pihak ketiga tetap menggunakan lisensinya masing-masing. [Panduan penggunaan merek](https://github.com/ififi2017/Off-Work-Countdown/blob/main/TRADEMARKS.md)
 
 Templat hari libur mencakup data kalender nasional yang dibuat dengan [Vacanza Holidays 0.83](https://github.com/vacanza/holidays) dan data hari libur resmi serta hari kerja pengganti Tiongkok daratan dari [holiday-cn](https://github.com/NateScarlet/holiday-cn). Kedua sumber tersedia di bawah lisensi MIT:
 

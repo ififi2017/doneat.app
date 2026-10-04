@@ -46,7 +46,7 @@ Android 版本目前处于测试阶段，Plus 购买由 Google Play 处理。在
 
 薪资与时间汇总只供个人参考，不是工资记录，也不构成法律、税务、劳动关系或财务建议。提醒不要用在安全关键或法律要求的计时上。
 
-本软件依据 MIT 许可证按现状提供，在法律允许的范围内不作保证。仓库里的许可证原文是具有约束力的法律声明。
+本软件依据 [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) 许可证按现状提供，在法律允许的范围内不作保证。仓库里的许可证原文是具有约束力的法律声明。
 
 ## 免费倒计时与可选的 Plus
 
@@ -56,7 +56,9 @@ Android 版本目前处于测试阶段，Plus 购买由 Google Play 处理。在
 
 ## 开源
 
-项目采用 MIT 协议开源。你可以在公开的 [GitHub 仓库](https://github.com/ififi2017/Off-Work-Countdown)查看代码，或者构建自己的版本。
+项目采用 [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) 协议开源。你可以在公开的 [GitHub 仓库](https://github.com/ififi2017/Off-Work-Countdown)查看代码，或者构建自己的版本。
+
+历史 MIT 授权继续有效。品牌与素材另行授权，第三方组件保留各自许可证。 [品牌使用规则](https://github.com/ififi2017/Off-Work-Countdown/blob/main/TRADEMARKS.md)
 
 节假日模板包含由 [Vacanza Holidays 0.83](https://github.com/vacanza/holidays) 生成的各国家和地区节假日数据，以及 [holiday-cn](https://github.com/NateScarlet/holiday-cn) 提供的中国大陆法定节假日与调休上班数据。两个来源均采用 MIT 许可证：
 

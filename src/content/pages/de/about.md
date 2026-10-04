@@ -44,7 +44,7 @@ Ein externer Link oder ein Teilen-Dienst führt zu dessen eigenem Nutzungsbereic
 
 Gehalt und Zeitangaben sind Schätzungen zur persönlichen Orientierung. Sie sind keine Lohnabrechnungen und keine Rechts-, Steuer-, Arbeits- oder Finanzberatung. Erinnerungen sollten nicht für sicherheitskritische oder gesetzlich vorgeschriebene Abläufe verwendet werden.
 
-Die Software wird unter der MIT-Lizenz so wie sie ist und ohne Gewähr bereitgestellt, soweit gesetzlich zulässig. Der Lizenztext im Repository ist der maßgebliche rechtliche Hinweis.
+Die Software wird unter der [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md)-Lizenz so wie sie ist und ohne Gewähr bereitgestellt, soweit gesetzlich zulässig. Der Lizenztext im Repository ist der maßgebliche rechtliche Hinweis.
 
 ## Kostenloser Countdown, optionales Plus
 
@@ -54,7 +54,9 @@ Das Einschalten der iCloud-Synchronisierung erfordert Plus. Einmal aktiviert, l�
 
 ## Open Source
 
-Das Projekt steht unter der MIT-Lizenz. Du kannst den Code einsehen oder eine eigene Version vom öffentlichen [GitHub-Repository](https://github.com/ififi2017/Off-Work-Countdown) bauen.
+Das Projekt steht unter der [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md)-Lizenz. Du kannst den Code einsehen oder eine eigene Version vom öffentlichen [GitHub-Repository](https://github.com/ififi2017/Off-Work-Countdown) bauen.
+
+Bereits erteilte MIT-Lizenzen bleiben gültig. Für Marke und Bildmaterial gelten gesonderte Bedingungen; Komponenten Dritter behalten ihre jeweiligen Lizenzen. [Richtlinien zur Markennutzung](https://github.com/ififi2017/Off-Work-Countdown/blob/main/TRADEMARKS.md)
 
 Die Feiertagsvorlagen enthalten Kalendertagsdaten, generiert mit [Vacanza Holidays 0.83](https://github.com/vacanza/holidays), sowie Feiertags- und Nachholarbeitstage für Festlandchina von [holiday-cn](https://github.com/NateScarlet/holiday-cn). Beide Quellen stehen unter der MIT-Lizenz:
 

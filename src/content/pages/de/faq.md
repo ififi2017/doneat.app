@@ -47,7 +47,7 @@ Auf iPhone und iPad ja. Plane deinen Monat in einem Kalender mit festen Wochenta
 
 ## Ist es kostenlos und ist der Code offen?
 
-Der Web-Timer ist kostenlos. Es gibt keine DoneAt-Konten, Werbung oder Bezahlstufen auf der Website. Der Quellcode ist unter der MIT-Lizenz auf [GitHub](https://github.com/ififi2017/Off-Work-Countdown) veröffentlicht. Store-Preise und -Bedingungen richten sich nach dem jeweiligen Store.
+Der Web-Timer ist kostenlos. Es gibt keine DoneAt-Konten, Werbung oder Bezahlstufen auf der Website. Der Quellcode ist unter der [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md)-Lizenz auf [GitHub](https://github.com/ififi2017/Off-Work-Countdown) veröffentlicht. Store-Preise und -Bedingungen richten sich nach dem jeweiligen Store.
 
 ## Welche Sprachen werden unterstützt?
 

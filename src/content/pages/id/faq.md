@@ -47,7 +47,7 @@ Di iPhone dan iPad, ya. Rencanakan jadwal di satu kalender bulanan dengan hari t
 
 ## Apakah gratis, dan apakah kodenya terbuka?
 
-Timer web gratis dipakai. Tidak ada akun DoneAt, iklan, atau tingkat berbayar di situs. Kode sumber diterbitkan di [GitHub](https://github.com/ififi2017/Off-Work-Countdown) di bawah lisensi MIT. Cantuman toko mengikuti harga dan ketentuan masing-masing toko.
+Timer web gratis dipakai. Tidak ada akun DoneAt, iklan, atau tingkat berbayar di situs. Kode sumber diterbitkan di [GitHub](https://github.com/ififi2017/Off-Work-Countdown) di bawah lisensi [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md). Cantuman toko mengikuti harga dan ketentuan masing-masing toko.
 
 ## Bahasa apa yang didukung?
 

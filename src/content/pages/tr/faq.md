@@ -47,7 +47,7 @@ iPhone ve iPad’de evet. Aylık bir takvimde sabit hafta günleri, dönüşüml
 
 ## Ücretsiz mi, kod açık mı?
 
-Web zamanlayıcı ücretsizdir. Sitede DoneAt hesabı, reklam veya ücretli katman yoktur. Kaynak kodu MIT lisansı altında [GitHub](https://github.com/ififi2017/Off-Work-Countdown)’da yayımlanır. Mağaza listeleri her mağazanın kendi fiyat ve koşullarını izler.
+Web zamanlayıcı ücretsizdir. Sitede DoneAt hesabı, reklam veya ücretli katman yoktur. Kaynak kodu [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) lisansı altında [GitHub](https://github.com/ififi2017/Off-Work-Countdown)’da yayımlanır. Mağaza listeleri her mağazanın kendi fiyat ve koşullarını izler.
 
 ## Hangi diller destekleniyor?
 

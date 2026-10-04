@@ -144,6 +144,15 @@
 - [x] 本次 `check`（39 files，0 errors/warnings/hints）、`build`（121 页）、`seo:check` 通过；19 语 × 隐私/About × 390/1280 宽度共 76 个浏览器布局用例无横向溢出。实际查看浅色中文/英文隐私与致谢、阿拉伯语 RTL 段落及俄语标题；修复既有俄语长标题溢出。两份许可证与跨页锚点检查通过。本轮未做深色视觉复验，17 语新增译文的母语审阅仍需后续补充。
 - [x] 创建官网 [PR #30](https://github.com/ififi2017/doneat.app/pull/30)，Vercel 构建 Ready。[预览地址](https://doneat-app-git-codex-android-privacy-policy-ififi2017s-projects.vercel.app) 需要 Vercel 登录，当前浏览器会话未获得预览访问；保留访问保护。发布与生产域名验收证据记录在该 PR。Android 功能验证状态仍以产品仓 `docs/android/progress.md` 为准。
 
+### 产品 MPL 切换与品牌授权（2026-10-04）
+
+- [x] 官网代码保留 MIT；新增 LICENSING / ASSETS / TRADEMARKS，按路径区分原创品牌素材、内联 Logo 与 Apple/Microsoft/字体等第三方资源，保留历史 MIT 权利。
+- [x] 19 语 About / FAQ 的产品许可说明改为 MPL-2.0，增加历史授权及品牌边界链接；节假日数据的 MIT 与 Android 的 Apache-2.0 声明保持原样。
+- [x] `check`（39 files、0 errors/warnings/hints）、`build`（121 页）、`seo:check` 通过；19 语 × About/FAQ × 390/1280 × 浅/深色共 152 个浏览器用例无溢出，MPL 链接数量正确，已实际查看英/中/阿拉伯语截图。第三方许可和归属段落逐字核对不变。
+- [ ] 与产品 [PR #298](https://github.com/ififi2017/Off-Work-Countdown/pull/298) 协调合并，产品先合并；官网不得提前声明切换已发布。
+- [x] 官网 [PR #31](https://github.com/ififi2017/doneat.app/pull/31) 已创建；`21698b2` 的 Vercel 构建 Ready。[预览地址](https://doneat-app-git-codex-mpl-brand-licensing-ififi2017s-projects.vercel.app/en/about) 已记录。当前浏览器被重定向到 Vercel 的 GitHub 登录页，未获得访问权限。
+- [ ] 登录后完成 Vercel 页面验收；本地 152 个用例不能替代受保护预览的线上验收。
+
 ### S3 — SEO 与响应头
 
 - [x] 每页自己的 canonical、hreflang、Open Graph、必要 JSON-LD（SoftwareApplication 在下载页，Organization 在首页）
