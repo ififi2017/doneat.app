@@ -106,6 +106,10 @@ iPhone、iPad、Android、Mac 和 Windows 上的应用不收集使用统计。
 
 DoneAt 为保护收入或记录而请求身份验证时，由设备通过支持的生物识别方式（如面容 ID、触控 ID、Android 指纹或人脸识别），或设备 PIN、图案、密码完成。DoneAt 只接收验证结果，不会取得你的生物识别数据或设备密码。这项保护在每台设备上分别设置。
 
+## Android 界面效果
+
+Android 应用使用开源的 Backdrop（AndroidLiquidGlass）和 Shapes 库绘制玻璃效果与形状。效果在本机完成，不会向项目作者发送应用内容或设备标识。项目链接和 Apache-2.0 许可证列于[关于页面](/zh-CN/about#android-液态玻璃)，也随应用附于“致谢”。
+
 ## 第三方服务
 
 DoneAt 在托管页面、统计官网和网页计时、分发应用以及打开你选择的链接时，会用到：

@@ -32,7 +32,7 @@ Diese Funktionen gehören zur nativen iPhone- und iPad-App. Die [Download-Seite]
 
 ## Wo deine Daten liegen
 
-Arbeitszeiten, Arbeitstage, Gehalt und Einstellungen bleiben standardmäßig auf dem verwendeten Gerät. Der Countdown und der geschätzte Verdienst werden dort berechnet. Auf iPhone und iPad kannst du Zeitpläne, Aufzeichnungen, Gehalt und Einstellungen geräteübergreifend synchronisieren. Die optionale iCloud-Synchronisierung nutzt deine private iCloud – DoneAt kann sie nicht lesen. Mac, Windows und der Web-Timer bleiben lokal. Keine dieser Apps sendet diese Einstellungen oder eine Nutzerkennung an DoneAt-Server.
+Arbeitszeiten, Arbeitstage, Gehalt und Einstellungen bleiben standardmäßig auf dem verwendeten Gerät. Der Countdown und der geschätzte Verdienst werden dort berechnet. Auf iPhone und iPad kannst du Zeitpläne, Aufzeichnungen, Gehalt und Einstellungen geräteübergreifend synchronisieren. Die optionale iCloud-Synchronisierung nutzt deine private iCloud – DoneAt kann sie nicht lesen. Mac, Windows und der Web-Timer bleiben lokal. Diese Arbeitseinstellungen werden nicht an DoneAt-Server gesendet.
 
 Die offizielle Website und der Web-Timer zeichnen Seitenaufrufe, Ladezeiten und wenige aggregierte Ereignisse auf. Ein Ereignis trägt nur einen Namen, niemals Zeitplan, Gehalt, Konto oder Werbe-ID. Hosting- und Analyseanbieter können dennoch Verbindungsmetadaten wie IP-Adresse und User-Agent erhalten, wie bei jeder Website. Details stehen auf der [Datenschutz](/de/privacy)-Seite.
 
@@ -60,6 +60,12 @@ Die Feiertagsvorlagen enthalten Kalendertagsdaten, generiert mit [Vacanza Holida
 
 - Vacanza Holidays: Copyright © Vacanza Team und einzelne Mitwirkende, dr-prodigy (2017–2023) und ryanss (2014–2017). [Lizenz lesen](/licenses/vacanza-holidays-0.83.txt).
 - holiday-cn: Copyright © 2019 NateScarlet. [Lizenz lesen](/licenses/holiday-cn.txt).
+
+## Android
+
+Android befindet sich in der Testphase. Käufe werden über Google Play abgewickelt. Bei aktivierter Serverprüfung verarbeitet DoneAt auf Cloudflare Kauftokens und speichert deren Hashes mit dem Berechtigungsstatus; Gehalt und Arbeitsaufzeichnungen werden nicht übertragen. Einzelheiten zu Prüfung, Sicherungen und Löschung stehen in der [Datenschutzerklärung](/de/privacy#android).
+
+Die Android-Navigation verwendet [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) von Kyant und [Shapes 1.2.1](https://github.com/Kyant0/Shapes). DoneAt hat das Beispiel `LiquidBottomTabs` für Navigation, Ziehen, Barrierefreiheit, Rechts-nach-links-Darstellung und reduzierte Bewegung angepasst. Die Effekte werden lokal gezeichnet; App-Inhalte und Gerätekennungen werden nicht an die Autoren gesendet. Beide Bibliotheken stehen unter Apache License 2.0: [Backdrop-Lizenz](/licenses/backdrop-2.0.1.txt), [Shapes-Lizenz](/licenses/shapes-1.2.1.txt). Die vollständigen Texte sind auch unter Einstellungen → Über → Danksagungen enthalten.
 
 ## Feedback
 

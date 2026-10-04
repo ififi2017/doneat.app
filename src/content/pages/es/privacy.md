@@ -2,16 +2,16 @@
 title: "Política de privacidad — DoneAt"
 description: "Cómo DoneAt almacena datos localmente por defecto, ofrece sincronización privada opcional con iCloud en iPhone y iPad, y maneja analíticas y servicios de terceros."
 heading: "Política de privacidad"
-intro: "Esta página explica cómo DoneAt almacena y procesa información: el sitio oficial, el temporizador web y las apps en iPhone, iPad, Mac y Windows."
+intro: "Esta página explica cómo DoneAt almacena y procesa información: el sitio oficial, el temporizador web y las apps en iPhone, iPad, Android, Mac y Windows."
 updatedLabel: "Última actualización"
-updated: "6 de septiembre de 2026"
+updated: "4 de octubre de 2026"
 ---
 
 ## Datos almacenados por DoneAt
 
-La información que introduces se almacena localmente por defecto: en el almacenamiento local del navegador en el temporizador web, y en los datos de la aplicación en iPhone, iPad, Mac y Windows. DoneAt no proporciona cuentas de producto ni envía esta información a servidores de DoneAt.
+La información que introduces se almacena localmente por defecto: en el almacenamiento local del navegador en el temporizador web, y en los datos de la aplicación en iPhone, iPad, Android, Mac y Windows. DoneAt no proporciona cuentas de producto ni envía esta información a servidores de DoneAt.
 
-En iPhone y iPad puedes activar la sincronización con iCloud. Almacena tus horarios, registros, salario, preferencias de recordatorios, apariencia, idioma, perfil de vida y datos de Enfoque en tu base de datos privada de iCloud bajo tu cuenta de Apple. La autorización de notificaciones, protección biométrica, ajustes de Actividad en vivo, el temporizador de trabajo actual y el estado de incorporación quedan en cada dispositivo. El temporizador web, la app de Mac y la app de Windows siguen siendo locales y no son parte de esta sincronización.
+En iPhone y iPad puedes activar la sincronización con iCloud. Almacena tus horarios, registros, salario, preferencias de recordatorios, apariencia, idioma, perfil de vida y datos de Enfoque en tu base de datos privada de iCloud bajo tu cuenta de Apple. La autorización de notificaciones, protección biométrica, ajustes de Actividad en vivo, el temporizador de trabajo actual y el estado de incorporación quedan en cada dispositivo. El temporizador web, la app de Android, Mac y la app de Windows siguen siendo locales y no son parte de esta sincronización.
 
 La cuenta regresiva, el progreso y la estimación de ganancias se calculan en tu dispositivo a partir de esta información.
 
@@ -29,6 +29,21 @@ Esto típicamente incluye:
 La sincronización está desactivada por defecto. Cuando la activas en iPhone o iPad, el servicio CloudKit de Apple almacena los datos descritos arriba en la base de datos privada asociada con tu cuenta de Apple. DoneAt no recibe una copia en sus propios servidores. Los dispositivos que usan la misma cuenta de Apple pueden recuperar y sincronizar esos datos; esto requiere una cuenta de iCloud disponible y conexión a la red.
 
 Activar la sincronización requiere DoneAt Plus. La sincronización que ya está activada continúa después de que expire una suscripción. Desactivar la sincronización detiene la sincronización en ese dispositivo y mantiene tanto su copia local actual como la copia existente de iCloud. Desactivarla no elimina ninguna de las dos copias.
+
+## Android
+
+Android está en pruebas; su disponibilidad y las compras Plus dependen del lanzamiento en Google Play. Los datos de trabajo y ajustes permanecen por defecto en el almacenamiento privado de la app, sin cuenta DoneAt ni analítica de uso en la app.
+
+Las copias del sistema y transferencias de dispositivo pueden incluir registros, salario, historial profesional, perfil de vida, datos Focus y ajustes de una configuración incompleta. Dependen del dispositivo, cuenta y ajustes del sistema; DoneAt no recibe una copia en su servidor. El temporizador activo, registro de recordatorios y pruebas de compra quedan excluidos. Tras restaurar, se programan los recordatorios y se comprueban las compras de nuevo. No hay sincronización automática con Google Drive ni con iPhone. Las exportaciones manuales son JSON legible, pueden incluir salario y crean una copia separada en el destino que elijas.
+
+Google Play procesa compras y reseñas opcionales. DoneAt no recibe datos de tarjeta ni sabe si enviaste una reseña. Guarda localmente pruebas de compra con producto y token, excluidas de las copias del sistema. Puede comprobar compras al abrir o volver a la app, restaurarlas o reintentar su confirmación. Con verificación del servidor activada, envía token, producto e identificador aleatorio de solicitud por HTTPS a `api.doneat.app` en Cloudflare. Google comunica cambios mediante Cloud Pub/Sub. El servicio consulta el estado y vencimiento exacto a Google y devuelve una prueba firmada, sin recibir datos de trabajo ni copias de seguridad.
+
+La base guarda hash del token, producto, estado y vencimiento del acceso, fecha de verificación, marca de compra de prueba, hash del token sustituto y revisión para verificar, restaurar y evitar reutilizar compras sustituidas. Los identificadores de notificación se deduplican durante 30 días; los antiguos se eliminan al procesar notificaciones posteriores. Tokens originales y respuestas Google solo se procesan transitoriamente, sin guardarlos en la base ni en registros de la aplicación. La limitación por IP es temporal; DoneAt no guarda direcciones IP ni sus hashes en la base. Google y Cloudflare procesan el tráfico según sus políticas. Los identificadores de compra no se usan para publicidad ni perfiles de uso.
+
+Los recordatorios son locales. La autenticación del dispositivo solo devuelve un resultado, no datos biométricos ni PIN. Backdrop (AndroidLiquidGlass) y Shapes dibujan localmente sin enviar contenido o identificadores a sus autores; fuentes y licencias en [Acerca de](/es/about#android).
+
+Elimina datos locales desde la app, borrando su almacenamiento o desinstalándola. Borra aparte exportaciones y copias del sistema con su proveedor. Para eliminar un registro de compra del servidor, escribe a [hello@doneat.app](mailto:hello@doneat.app). Borrar datos locales no elimina automáticamente ese registro ni cancela una suscripción; gestiónala en Google Play. Exportar y eliminar siguen disponibles sin Plus activo.
+
 
 ## Exportaciones de respaldo
 

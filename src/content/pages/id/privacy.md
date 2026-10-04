@@ -2,16 +2,16 @@
 title: "Kebijakan privasi — DoneAt"
 description: "Bagaimana DoneAt menyimpan data secara lokal secara bawaan, menawarkan sinkronisasi iCloud pribadi opsional di iPhone dan iPad, serta menangani analitik dan layanan pihak ketiga."
 heading: "Kebijakan privasi"
-intro: "Halaman ini menjelaskan bagaimana DoneAt menyimpan dan memproses informasi: situs resmi, timer web, dan aplikasi di iPhone, iPad, Mac, dan Windows."
+intro: "Halaman ini menjelaskan bagaimana DoneAt menyimpan dan memproses informasi: situs resmi, timer web, dan aplikasi di iPhone, iPad, Android, Mac, dan Windows."
 updatedLabel: "Terakhir diperbarui"
-updated: "6 September 2026"
+updated: "4 Oktober 2026"
 ---
 
 ## Data yang disimpan DoneAt
 
-Informasi yang kamu masukkan disimpan secara lokal secara bawaan: di penyimpanan lokal browser pada timer web, dan di data aplikasi di iPhone, iPad, Mac, dan Windows. DoneAt tidak menyediakan akun produk dan tidak mengirim informasi ini ke server DoneAt.
+Informasi yang kamu masukkan disimpan secara lokal secara bawaan: di penyimpanan lokal browser pada timer web, dan di data aplikasi di iPhone, iPad, Android, Mac, dan Windows. DoneAt tidak menyediakan akun produk dan tidak mengirim informasi ini ke server DoneAt.
 
-Di iPhone dan iPad, kamu bisa memilih menyalakan sinkronisasi iCloud. Ia menyimpan jadwal, catatan, gaji, preferensi pengingat, tampilan, bahasa, profil hidup, dan data Fokus di basis data iCloud pribadimu di bawah Akun Apple. Otorisasi notifikasi, perlindungan biometrik, pengaturan Live Activity, timer kerja saat ini, dan status pengaturan awal tetap di masing-masing perangkat. Timer web, aplikasi Mac, dan aplikasi Windows tetap lokal dan bukan bagian dari sinkronisasi ini.
+Di iPhone dan iPad, kamu bisa memilih menyalakan sinkronisasi iCloud. Ia menyimpan jadwal, catatan, gaji, preferensi pengingat, tampilan, bahasa, profil hidup, dan data Fokus di basis data iCloud pribadimu di bawah Akun Apple. Otorisasi notifikasi, perlindungan biometrik, pengaturan Live Activity, timer kerja saat ini, dan status pengaturan awal tetap di masing-masing perangkat. Timer web, aplikasi Android, Mac, dan aplikasi Windows tetap lokal dan bukan bagian dari sinkronisasi ini.
 
 Hitung mundur, kemajuan, dan perkiraan penghasilan dihitung di perangkat kamu dari informasi ini.
 
@@ -29,6 +29,21 @@ Biasanya mencakup:
 Sinkronisasi mati secara bawaan. Saat kamu mengaktifkannya di iPhone atau iPad, layanan CloudKit milik Apple menyimpan data yang dijelaskan di atas di basis data pribadi yang terkait dengan Akun Apple-mu. DoneAt tidak menerima salinan di servernya sendiri. Perangkat yang memakai Akun Apple yang sama bisa memulihkan dan menyinkronkan data itu; ini membutuhkan akun iCloud yang tersedia dan koneksi jaringan.
 
 Mengaktifkan sinkronisasi membutuhkan DoneAt Plus. Sinkronisasi yang sudah aktif berlanjut setelah langganan berakhir. Mematikannya menghentikan sinkronisasi di perangkat itu dan mempertahankan baik salinan lokal saat ini maupun salinan iCloud yang ada. Mematikannya tidak menghapus salah satu salinan.
+
+## Android
+
+Aplikasi Android masih diuji; ketersediaan dan pembelian Plus mengikuti rilis Google Play. Data kerja dan pengaturan tersimpan secara bawaan di ruang pribadi aplikasi, tanpa akun DoneAt atau analisis penggunaan aplikasi.
+
+Cadangan sistem dan perpindahan perangkat dapat memuat catatan, gaji, riwayat karier, profil kehidupan, data Focus, serta pengaturan awal yang belum selesai. Ini bergantung pada perangkat, akun, dan pengaturan sistem; DoneAt tidak menerima salinan di server. Timer aktif, daftar pengingat terjadwal, dan bukti pembelian dikecualikan. Setelah pemulihan, pengingat dijadwalkan ulang dan pembelian diperiksa lagi. Tidak ada sinkronisasi otomatis Google Drive atau iPhone. Ekspor manual berupa JSON terbaca, dapat memuat gaji, dan membuat salinan terpisah di tujuan yang kamu pilih.
+
+Google Play menangani pembelian dan ulasan opsional. DoneAt tidak menerima data kartu atau hasil yang memberi tahu apakah ulasan dikirim. Bukti dengan produk dan token disimpan lokal di luar cadangan sistem. Pembelian dapat diperiksa saat membuka atau kembali ke aplikasi, memulihkan pembelian, atau mencoba konfirmasi lagi. Jika verifikasi server aktif, token, produk, dan pengenal permintaan acak dikirim lewat HTTPS ke `api.doneat.app` di Cloudflare. Google mengirim perubahan melalui Cloud Pub/Sub. Layanan memeriksa status dan waktu kedaluwarsa yang tepat ke Google, lalu memberi bukti bertanda tangan tanpa menerima data kerja atau cadangan.
+
+Basis data menyimpan hash token, produk, status dan kedaluwarsa akses, waktu pemeriksaan, penanda pembelian uji, hash token pengganti, dan revisi untuk verifikasi, pemulihan, dan mencegah penggunaan ulang pembelian yang diganti. ID notifikasi dideduplikasi dalam jendela 30 hari; entri lama dihapus saat notifikasi berikutnya diproses. Token asli dan respons Google hanya diproses sementara, tidak disimpan di basis data atau log aplikasi. Pembatasan berbasis IP bersifat sementara; DoneAt tidak menyimpan IP atau hash-nya di basis data. Google dan Cloudflare memproses lalu lintas menurut kebijakan masing-masing. Pengenal pembelian tidak digunakan untuk iklan atau profil penggunaan.
+
+Pengingat dijadwalkan di perangkat. Autentikasi perangkat hanya memberi hasil, bukan biometrik atau PIN. Backdrop (AndroidLiquidGlass) dan Shapes menggambar lokal tanpa mengirim isi atau pengenal kepada pembuatnya; sumber dan lisensi ada di [Tentang](/id/about#android).
+
+Hapus data lokal di aplikasi, dengan menghapus penyimpanannya, atau mencopotnya. Hapus ekspor dan cadangan sistem secara terpisah di penyedia penyimpanan. Untuk menghapus catatan pembelian server, hubungi [hello@doneat.app](mailto:hello@doneat.app). Penghapusan lokal tidak otomatis menghapus catatan server atau membatalkan langganan; kelola langganan di Google Play. Ekspor dan penghapusan tetap tersedia tanpa Plus aktif.
+
 
 ## Ekspor cadangan
 

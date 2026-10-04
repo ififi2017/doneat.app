@@ -106,9 +106,13 @@ Widgets and Live Activities use the information needed to show your timer and pr
 
 When DoneAt asks you to authenticate to protect earnings or records, authentication is handled by the device through supported biometrics (such as Face ID, Touch ID or Android fingerprint or face authentication) or a device PIN, pattern or password. DoneAt receives the authentication result, not your biometric data or passcode. This protection is configured separately on each device.
 
+## Android visual effects
+
+The Android app uses the open-source Backdrop (AndroidLiquidGlass) and Shapes libraries for glass and shape rendering. These effects are drawn locally and do not send app content or device identifiers to the projects’ authors. Project links and Apache-2.0 licences are listed in [About](/en/about#android-liquid-glass) and included in the app’s Acknowledgements.
+
 ## Third-party services
 
-DoneAt uses the following services to host pages, measure the official site and the web timer, distribute apps and open links you choose:
+DoneAt uses the following services to host pages, measure the official site and the web timer, distribute apps, verify purchases and open links you choose:
 
 - Vercel — hosting of the official site and the web timer; page-view and performance measurement on both
 - Upstash — storage of daily aggregate event counts for the official site and the web timer

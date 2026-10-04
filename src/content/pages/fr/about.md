@@ -32,7 +32,7 @@ Ces fonctionnalités font partie de l'app native iPhone et iPad. La page [télé
 
 ## Où vont vos données
 
-Les horaires, jours ouvrés, salaire et préférences restent sur l'appareil que vous utilisez par défaut. Le compte à rebours et l'estimation des gains sont calculés localement. Sur iPhone et iPad, vous pouvez synchroniser plannings, relevés, salaire et paramètres entre vos appareils. La synchronisation iCloud optionnelle utilise votre iCloud privé, que DoneAt ne peut pas lire. Mac, Windows et le minuteur web restent locaux. Aucune app n'envoie ces paramètres ou un identifiant utilisateur aux serveurs DoneAt.
+Les horaires, jours ouvrés, salaire et préférences restent sur l'appareil que vous utilisez par défaut. Le compte à rebours et l'estimation des gains sont calculés localement. Sur iPhone et iPad, vous pouvez synchroniser plannings, relevés, salaire et paramètres entre vos appareils. La synchronisation iCloud optionnelle utilise votre iCloud privé, que DoneAt ne peut pas lire. Mac, Windows et le minuteur web restent locaux. Ces paramètres de travail ne sont pas envoyés aux serveurs DoneAt.
 
 Le site officiel et le minuteur web enregistrent les vues de pages, les performances de chargement et quelques événements agrégés. Un événement ne contient qu'un nom, jamais vos horaires, salaire, compte ou identifiant publicitaire. Les fournisseurs d'hébergement et d'analyse peuvent recevoir des informations de connexion standard comme l'adresse IP. Les détails sont sur la page [Confidentialité](/fr/privacy).
 
@@ -53,6 +53,12 @@ Activer la synchronisation iCloud pour la première fois nécessite Plus. Une sy
 ## Open source
 
 Le projet est publié sous licence MIT. Vous pouvez inspecter le code ou créer votre propre version depuis le [dépôt GitHub](https://github.com/ififi2017/Off-Work-Countdown) public.
+
+## Android
+
+La version Android est en test. Google Play gère les achats. Lorsque la vérification serveur est activée, DoneAt traite les jetons d’achat sur Cloudflare et conserve leurs empreintes avec l’état des droits ; ni salaire ni relevés de travail ne sont envoyés. Voir la [politique de confidentialité](/fr/privacy#android) pour la vérification, les sauvegardes et la suppression.
+
+La navigation Android utilise [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) de Kyant et [Shapes 1.2.1](https://github.com/Kyant0/Shapes). DoneAt adapte l’exemple `LiquidBottomTabs` à sa navigation, au glissement, à l’accessibilité, aux interfaces de droite à gauche et à la réduction des animations. Le rendu est local : aucun contenu de l’app ni identifiant d’appareil n’est envoyé aux auteurs. Les deux bibliothèques sont sous Apache License 2.0 : [licence Backdrop](/licenses/backdrop-2.0.1.txt), [licence Shapes](/licenses/shapes-1.2.1.txt). Les textes complets figurent aussi dans Réglages → À propos → Remerciements.
 
 ## Contact
 

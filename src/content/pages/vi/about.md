@@ -32,7 +32,7 @@ Những tính năng này thuộc ứng dụng gốc trên iPhone và iPad. [Tran
 
 ## Dữ liệu của bạn đi đâu
 
-Giờ làm, ngày làm, lương và tùy chọn ở trên thiết bị bạn đang dùng theo mặc định. Bộ đếm và ước tính thu nhập được tính ở đó. Trên iPhone và iPad, bạn có thể chọn đồng bộ lịch, bản ghi, lương và cài đặt giữa các thiết bị. Đồng bộ iCloud tùy chọn dùng iCloud riêng của bạn. DoneAt không đọc được. Mac, Windows và bộ đếm web vẫn ở máy. Không ứng dụng nào trong số này gửi những cài đặt đó hoặc mã định danh người dùng tới máy chủ DoneAt.
+Giờ làm, ngày làm, lương và tùy chọn ở trên thiết bị bạn đang dùng theo mặc định. Bộ đếm và ước tính thu nhập được tính ở đó. Trên iPhone và iPad, bạn có thể chọn đồng bộ lịch, bản ghi, lương và cài đặt giữa các thiết bị. Đồng bộ iCloud tùy chọn dùng iCloud riêng của bạn. DoneAt không đọc được. Mac, Windows và bộ đếm web vẫn ở máy. Những cài đặt công việc này không được gửi tới máy chủ DoneAt.
 
 Trang chính thức và bộ đếm web ghi lượt xem trang, hiệu năng tải, và một tập nhỏ sự kiện tổng hợp. Một sự kiện chỉ mang một tên, không bao giờ mang lịch, lương, tài khoản hoặc mã định danh quảng cáo. Nhà cung cấp lưu trữ và phân tích vẫn có thể nhận siêu dữ liệu kết nối thông thường như địa chỉ IP và user agent, như mọi trang web. Trang [quyền riêng tư](/vi/privacy) có chi tiết.
 
@@ -60,6 +60,12 @@ Mẫu ngày lễ gồm dữ liệu lịch quốc gia tạo bằng [Vacanza Holid
 
 - Vacanza Holidays: Copyright © Vacanza Team và các cộng tác viên, dr-prodigy (2017–2023), và ryanss (2014–2017). [Đọc toàn bộ giấy phép](/licenses/vacanza-holidays-0.83.txt).
 - holiday-cn: Copyright © 2019 NateScarlet. [Đọc toàn bộ giấy phép](/licenses/holiday-cn.txt).
+
+## Android
+
+Bản Android đang được thử nghiệm. Google Play xử lý giao dịch mua. Khi bật xác minh máy chủ, DoneAt xử lý mã thông báo mua hàng trên Cloudflare và lưu giá trị băm cùng trạng thái quyền truy cập; không gửi lương hay bản ghi công việc. Xem [chính sách quyền riêng tư](/vi/privacy#android) về xác minh, sao lưu và xóa.
+
+Thanh điều hướng Android dùng [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) của Kyant và [Shapes 1.2.1](https://github.com/Kyant0/Shapes). DoneAt điều chỉnh ví dụ `LiquidBottomTabs` cho điều hướng, kéo, trợ năng, bố cục phải sang trái và giảm chuyển động. Hiệu ứng được vẽ trên máy, không gửi nội dung ứng dụng hay mã định danh thiết bị cho tác giả. Cả hai dùng Apache License 2.0: [giấy phép Backdrop](/licenses/backdrop-2.0.1.txt), [giấy phép Shapes](/licenses/shapes-1.2.1.txt). Toàn văn cũng có trong Cài đặt → Giới thiệu → Lời cảm ơn.
 
 ## Góp ý
 

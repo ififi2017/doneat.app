@@ -32,7 +32,7 @@ Fitur ini bagian dari aplikasi asli iPhone dan iPad. [Halaman unduh](/id/downloa
 
 ## Ke mana data kamu pergi
 
-Jam kerja, hari kerja, gaji, dan preferensi tetap di perangkat yang kamu pakai secara bawaan. Hitung mundur dan perkiraan penghasilan dihitung di sana. Di iPhone dan iPad, kamu bisa memilih menyinkronkan jadwal, catatan, gaji, dan pengaturan antar perangkat. Sinkronisasi iCloud opsional memakai iCloud pribadimu. DoneAt tidak bisa membacanya. Mac, Windows, dan timer web tetap lokal. Tidak satu pun aplikasi ini mengirim pengaturan itu atau pengenal pengguna ke server DoneAt.
+Jam kerja, hari kerja, gaji, dan preferensi tetap di perangkat yang kamu pakai secara bawaan. Hitung mundur dan perkiraan penghasilan dihitung di sana. Di iPhone dan iPad, kamu bisa memilih menyinkronkan jadwal, catatan, gaji, dan pengaturan antar perangkat. Sinkronisasi iCloud opsional memakai iCloud pribadimu. DoneAt tidak bisa membacanya. Mac, Windows, dan timer web tetap lokal. Pengaturan kerja ini tidak dikirim ke server DoneAt.
 
 Situs resmi dan timer web mencatat tampilan halaman, kinerja pemuatan, dan sekelompok kecil peristiwa agregat. Sebuah peristiwa hanya membawa nama, tidak pernah jadwal, gaji, akun, atau pengenal iklan. Penyedia hosting dan analitik tetap dapat menerima metadata koneksi biasa seperti alamat IP dan user agent, seperti di situs mana pun. Halaman [privasi](/id/privacy) memuat rinciannya.
 
@@ -60,6 +60,12 @@ Templat hari libur mencakup data kalender nasional yang dibuat dengan [Vacanza H
 
 - Vacanza Holidays: Copyright © Vacanza Team dan kontributor individu, dr-prodigy (2017–2023), dan ryanss (2014–2017). [Baca lisensi lengkap](/licenses/vacanza-holidays-0.83.txt).
 - holiday-cn: Copyright © 2019 NateScarlet. [Baca lisensi lengkap](/licenses/holiday-cn.txt).
+
+## Android
+
+Versi Android masih diuji. Google Play menangani pembelian. Pada versi dengan verifikasi server, DoneAt memproses token di Cloudflare dan menyimpan hash beserta status akses, tanpa mengirim gaji atau catatan kerja. Lihat [kebijakan privasi](/id/privacy#android) untuk verifikasi, cadangan, dan penghapusan.
+
+Navigasi Android memakai [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) oleh Kyant dan [Shapes 1.2.1](https://github.com/Kyant0/Shapes). Contoh `LiquidBottomTabs` disesuaikan untuk navigasi DoneAt, seret, aksesibilitas, tata letak kanan-ke-kiri, dan pengurangan gerakan. Efek digambar di perangkat tanpa mengirim isi aplikasi atau pengenal perangkat kepada pembuatnya. Keduanya memakai Apache License 2.0: [lisensi Backdrop](/licenses/backdrop-2.0.1.txt), [lisensi Shapes](/licenses/shapes-1.2.1.txt). Teks lengkap juga ada di Pengaturan → Tentang → Ucapan terima kasih.
 
 ## Masukan
 

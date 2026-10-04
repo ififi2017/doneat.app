@@ -32,7 +32,7 @@ DoneAt は仕事の振り返りや次の時間の計画にも役立ちます：
 
 ## データの行き先
 
-勤務時間、勤務日、給与、設定はデフォルトで使用中の端末に保存され、カウントダウンと収入の見積もりもローカルで計算されます。iPhone と iPad では、複数端末間でスケジュール、記録、給与、設定を同期することもできます。オプションの iCloud 同期はあなたのプライベート iCloud を使うので、DoneAt は読み取れません。Mac、Windows、ウェブタイマーはローカル保存のままです。どのアプリも設定やユーザー識別子を DoneAt のサーバーに送信しません。
+勤務時間、勤務日、給与、設定はデフォルトで使用中の端末に保存され、カウントダウンと収入の見積もりもローカルで計算されます。iPhone と iPad では、複数端末間でスケジュール、記録、給与、設定を同期することもできます。オプションの iCloud 同期はあなたのプライベート iCloud を使うので、DoneAt は読み取れません。Mac、Windows、ウェブタイマーはローカル保存のままです。これらの勤務設定は DoneAt のサーバーには送信されません。
 
 公式サイトとウェブタイマーはページビュー、読み込みパフォーマンス、少数の集計イベントを記録します。イベントには名前だけが含まれ、スケジュール、給与、アカウント、広告識別子は含まれません。他のウェブサイトと同様に、ホスティングや分析プロバイダーは IP アドレスやブラウザ識別子などの接続情報を各社の規約に基づいて受け取る場合があります。詳細は[プライバシー](/ja/privacy)をご覧ください。
 
@@ -60,6 +60,12 @@ iCloud 同期を初めて有効にするには Plus が必要です。有効化�
 
 - Vacanza Holidays：Copyright © Vacanza Team および各貢献者、dr-prodigy（2017–2023）、ryanss（2014–2017）。[完全なライセンスを見る](/licenses/vacanza-holidays-0.83.txt)。
 - holiday-cn：Copyright © 2019 NateScarlet。[完全なライセンスを見る](/licenses/holiday-cn.txt)。
+
+## Android
+
+Android 版はテスト中です。購入は Google Play が処理します。サーバー検証を有効にした版では、DoneAt が Cloudflare 上で購入トークンを処理し、そのハッシュと利用権の状態を保存します。給与や勤務記録は送信しません。検証、バックアップ、削除については[プライバシーポリシー](/ja/privacy#android)をご覧ください。
+
+Android のナビゲーションには、Kyant の [Backdrop（AndroidLiquidGlass）2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) と [Shapes 1.2.1](https://github.com/Kyant0/Shapes) を使用しています。`LiquidBottomTabs` のサンプルを、DoneAt の画面移動、ドラッグ、アクセシビリティ、右から左への表示、視差効果の軽減に合わせて変更しています。描画は端末内で行い、アプリの内容や端末識別子を作者へ送信しません。両ライブラリは Apache License 2.0 です。[Backdrop のライセンス](/licenses/backdrop-2.0.1.txt)と [Shapes のライセンス](/licenses/shapes-1.2.1.txt)の全文は、アプリの「設定 → このアプリについて → 謝辞」にも収録しています。
 
 ## フィードバック
 

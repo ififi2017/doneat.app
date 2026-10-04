@@ -32,7 +32,7 @@ DoneAt은 업무 회고와 다음 시간 계획에도 도움이 됩니다:
 
 ## 데이터가 어디로 가나요
 
-근무 시간, 근무일, 급여, 설정은 기본적으로 사용 중인 기기에 저장되고, 카운트다운과 수입 추정도 로컬에서 계산됩니다. iPhone과 iPad에서는 여러 기기 간에 스케줄, 기록, 급여, 설정을 동기화할 수도 있습니다. 선택적 iCloud 동기화는 개인 iCloud를 사용하므로 DoneAt은 읽을 수 없습니다. Mac, Windows, 웹 타이머는 로컬 저장 그대로입니다. 어떤 앱도 설정이나 사용자 식별자를 DoneAt 서버로 보내지 않습니다.
+근무 시간, 근무일, 급여, 설정은 기본적으로 사용 중인 기기에 저장되고, 카운트다운과 수입 추정도 로컬에서 계산됩니다. iPhone과 iPad에서는 여러 기기 간에 스케줄, 기록, 급여, 설정을 동기화할 수도 있습니다. 선택적 iCloud 동기화는 개인 iCloud를 사용하므로 DoneAt은 읽을 수 없습니다. Mac, Windows, 웹 타이머는 로컬 저장 그대로입니다. 이러한 근무 설정은 DoneAt 서버로 전송되지 않습니다.
 
 공식 사이트와 웹 타이머는 페이지 뷰, 로딩 성능, 소수의 집계 이벤트를 기록합니다. 이벤트에는 이름만 포함되며, 스케줄, 급여, 계정, 광고 식별자는 포함되지 않습니다. 다른 웹사이트와 마찬가지로 호스팅 및 분석 제공업체가 각사의 약관에 따라 IP 주소, 브라우저 식별자 등의 연결 정보를 받을 수 있습니다. 자세한 내용은 [개인정보](/ko/privacy)를 참조하세요.
 
@@ -60,6 +60,12 @@ iCloud 동기화를 처음 활성화하려면 Plus가 필요합니다. 활성화
 
 - Vacanza Holidays: Copyright © Vacanza Team 및 기여자, dr-prodigy (2017–2023), ryanss (2014–2017). [전체 라이선스 보기](/licenses/vacanza-holidays-0.83.txt).
 - holiday-cn: Copyright © 2019 NateScarlet. [전체 라이선스 보기](/licenses/holiday-cn.txt).
+
+## Android
+
+Android 버전은 테스트 중이며 구매는 Google Play가 처리합니다. 서버 검증을 사용하는 버전에서는 DoneAt이 Cloudflare에서 구매 토큰을 처리하고 해시와 이용 권한 상태를 저장합니다. 급여와 근무 기록은 전송하지 않습니다. 검증, 백업, 삭제는 [개인정보 처리방침](/ko/privacy#android)을 참고하세요.
+
+Android 탐색 UI는 Kyant의 [Backdrop(AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass)과 [Shapes 1.2.1](https://github.com/Kyant0/Shapes)을 사용합니다. `LiquidBottomTabs` 예제를 DoneAt의 탐색, 드래그, 접근성, 오른쪽에서 왼쪽으로 쓰는 화면, 동작 줄이기에 맞게 수정했습니다. 효과는 기기에서 그리며 앱 내용이나 기기 식별자를 개발자에게 보내지 않습니다. 두 라이브러리는 Apache License 2.0으로 제공됩니다. [Backdrop 라이선스](/licenses/backdrop-2.0.1.txt)와 [Shapes 라이선스](/licenses/shapes-1.2.1.txt) 전문은 앱의 설정 → 정보 → 감사의 말에도 포함되어 있습니다.
 
 ## 피드백
 

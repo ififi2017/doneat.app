@@ -32,7 +32,7 @@ Bu özellikler yerel iPhone ve iPad uygulamasının parçasıdır. Her platformu
 
 ## Verilerin nereye gider
 
-Çalışma saatleri, iş günleri, maaş ve tercihler varsayılan olarak kullandığın cihazda kalır. Geri sayım ve kazanç tahmini orada hesaplanır. iPhone ve iPad’de programları, kayıtları, maaşı ve ayarları cihazlar arasında eşitlemeyi seçebilirsin. İsteğe bağlı iCloud eşitlemesi senin özel iCloud’unu kullanır. DoneAt bunu okuyamaz. Mac, Windows ve web zamanlayıcı yerel kalır. Bu uygulamaların hiçbiri bu ayarları veya bir kullanıcı tanımlayıcısını DoneAt sunucularına göndermez.
+Çalışma saatleri, iş günleri, maaş ve tercihler varsayılan olarak kullandığın cihazda kalır. Geri sayım ve kazanç tahmini orada hesaplanır. iPhone ve iPad’de programları, kayıtları, maaşı ve ayarları cihazlar arasında eşitlemeyi seçebilirsin. İsteğe bağlı iCloud eşitlemesi senin özel iCloud’unu kullanır. DoneAt bunu okuyamaz. Mac, Windows ve web zamanlayıcı yerel kalır. Bu çalışma ayarları DoneAt sunucularına gönderilmez.
 
 Resmî site ve web zamanlayıcı sayfa görüntülemelerini, yükleme performansını ve küçük bir toplu olay kümesini kaydeder. Bir olay yalnızca bir ad taşır; programını, maaşını, hesabını veya reklam tanımlayıcını asla. Barındırma ve analiz sağlayıcıları, her sitede olduğu gibi IP adresi ve user agent gibi olağan bağlantı meta verilerini yine de alabilir. Ayrıntılar [gizlilik](/tr/privacy) sayfasında.
 
@@ -60,6 +60,12 @@ Tatil şablonları, [Vacanza Holidays 0.83](https://github.com/vacanza/holidays)
 
 - Vacanza Holidays: Copyright © Vacanza Team ve bireysel katkıda bulunanlar, dr-prodigy (2017–2023) ve ryanss (2014–2017). [Lisansın tamamını oku](/licenses/vacanza-holidays-0.83.txt).
 - holiday-cn: Copyright © 2019 NateScarlet. [Lisansın tamamını oku](/licenses/holiday-cn.txt).
+
+## Android
+
+Android sürümü test aşamasındadır. Satın almaları Google Play işler. Sunucu doğrulaması açık sürümlerde DoneAt, Cloudflare üzerinde satın alma jetonlarını işler ve özetlerini erişim durumuyla saklar; maaş ve çalışma kayıtları gönderilmez. Doğrulama, yedekleme ve silme için [gizlilik politikasına](/tr/privacy#android) bakabilirsin.
+
+Android gezinmesi Kyant’ın [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) ve [Shapes 1.2.1](https://github.com/Kyant0/Shapes) kütüphanelerini kullanır. `LiquidBottomTabs` örneği DoneAt’ın gezinme, sürükleme, erişilebilirlik, sağdan sola düzen ve azaltılmış hareket davranışına uyarlanmıştır. Efektler cihazda çizilir; uygulama içeriği veya cihaz kimlikleri yazarlara gönderilmez. İkisi de Apache License 2.0 kullanır: [Backdrop lisansı](/licenses/backdrop-2.0.1.txt), [Shapes lisansı](/licenses/shapes-1.2.1.txt). Tam metinler Ayarlar → Hakkında → Teşekkürler bölümünde de bulunur.
 
 ## Geri bildirim
 

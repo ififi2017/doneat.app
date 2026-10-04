@@ -265,6 +265,8 @@ body {
   letter-spacing: -0.045em;
   line-height: 1.15;
   text-wrap: balance;
+  hyphens: auto;
+  overflow-wrap: anywhere;
 }
 .article-meta {
   margin: 0.75rem 0 0;

@@ -2,16 +2,16 @@
 title: "Datenschutzrichtlinie — DoneAt"
 description: "Wie DoneAt Daten standardmäßig lokal speichert, optionale private iCloud-Synchronisierung auf iPhone und iPad bietet sowie Analysen und Drittanbieterdienste handhabt."
 heading: "Datenschutzrichtlinie"
-intro: "Diese Seite erklärt, wie DoneAt Informationen speichert und verarbeitet: die offizielle Website, den Web-Timer und die Apps auf iPhone, iPad, Mac und Windows."
+intro: "Diese Seite erklärt, wie DoneAt Informationen speichert und verarbeitet: die offizielle Website, den Web-Timer und die Apps auf iPhone, iPad, Android, Mac und Windows."
 updatedLabel: "Letzte Aktualisierung"
-updated: "6. September 2026"
+updated: "4. Oktober 2026"
 ---
 
 ## Von DoneAt gespeicherte Daten
 
-Eingegebene Informationen werden standardmäßig lokal gespeichert: im Local Storage des Browsers beim Web-Timer und in den App-Daten auf iPhone, iPad, Mac und Windows. DoneAt bietet keine Produktkonten und sendet diese Informationen nicht an DoneAt-Server.
+Eingegebene Informationen werden standardmäßig lokal gespeichert: im Local Storage des Browsers beim Web-Timer und in den App-Daten auf iPhone, iPad, Android, Mac und Windows. DoneAt bietet keine Produktkonten und sendet diese Informationen nicht an DoneAt-Server.
 
-Auf iPhone und iPad kannst du die iCloud-Synchronisierung aktivieren. Sie speichert Zeitpläne, Aufzeichnungen, Gehalt, Erinnerungseinstellungen, Darstellung, Sprache, Lebensprofil und Fokus-Daten in deiner privaten iCloud unter deinem Apple-Account. Benachrichtigungseinstellungen, biometrischer Schutz, Live-Aktivitäts-Einstellungen, der aktuelle Arbeitstimer und der Onboarding-Status bleiben auf jedem Gerät. Der Web-Timer, die Mac-App und die Windows-App bleiben lokal und sind nicht Teil dieser Synchronisierung.
+Auf iPhone und iPad kannst du die iCloud-Synchronisierung aktivieren. Sie speichert Zeitpläne, Aufzeichnungen, Gehalt, Erinnerungseinstellungen, Darstellung, Sprache, Lebensprofil und Fokus-Daten in deiner privaten iCloud unter deinem Apple-Account. Benachrichtigungseinstellungen, biometrischer Schutz, Live-Aktivitäts-Einstellungen, der aktuelle Arbeitstimer und der Onboarding-Status bleiben auf jedem Gerät. Der Web-Timer, die Android, Mac-App und die Windows-App bleiben lokal und sind nicht Teil dieser Synchronisierung.
 
 Countdown, Fortschritt und Verdienstschätzung werden auf deinem Gerät aus diesen Informationen berechnet.
 
@@ -29,6 +29,21 @@ Typischerweise umfasst das:
 Die Synchronisierung ist standardmäßig aus. Wenn du sie auf iPhone oder iPad aktivierst, speichert Apples CloudKit-Dienst die oben beschriebenen Daten in der privaten Datenbank deines Apple-Accounts. DoneAt erhält keine Kopie auf eigenen Servern. Geräte mit demselben Apple-Account können diese Daten wiederherstellen und synchronisieren; das erfordert einen verfügbaren iCloud-Account und eine Netzwerkverbindung.
 
 Die Aktivierung der Synchronisierung erfordert DoneAt Plus. Bereits aktivierte Synchronisierung läuft nach Ablauf eines Abonnements weiter. Das Deaktivieren stoppt die Synchronisierung auf diesem Gerät und behält sowohl die lokale Kopie als auch die iCloud-Kopie. Das Deaktivieren löscht keine der beiden Kopien.
+
+## Android
+
+Die Android-App befindet sich in der Testphase. Verfügbarkeit und Plus-Käufe richten sich nach der Veröffentlichung bei Google Play. Arbeitsdaten und Einstellungen bleiben standardmäßig im privaten App-Speicher; es gibt kein DoneAt-Konto und keine Nutzungsanalyse in der App.
+
+System-Backups und Geräteübertragungen können Aufzeichnungen, Gehalt, beruflichen Verlauf, Lebensprofil, Focus-Daten und noch nicht abgeschlossene Einrichtungseinstellungen enthalten. Dies hängt von Gerät, Konto und Systemeinstellungen ab. DoneAt erhält keine Serverkopie. Laufender Timer, Erinnerungsregister und Kaufnachweise sind ausgeschlossen; nach einer Wiederherstellung werden Erinnerungen neu geplant und Käufe geprüft. Es gibt keine automatische Google-Drive- oder iPhone-Synchronisierung. Manuell exportierte Backups sind lesbare JSON-Dateien und können Gehalt enthalten; der gewählte Speicherort oder Empfänger erhält eine separate Kopie.
+
+Google Play verarbeitet Käufe und optionale Bewertungen; DoneAt erhält keine Kartendaten und erfährt nicht, ob eine Bewertung abgegeben wurde. Kaufnachweise mit Produkt-ID und Token werden lokal außerhalb des System-Backups gespeichert. Die App prüft Käufe beim Start, bei Rückkehr in den Vordergrund, beim Wiederherstellen oder bei einem erneuten Bestätigungsversuch. Bei aktivierter Serverprüfung sendet sie Token, Produkt-ID und eine zufällige Anfragekennung per HTTPS an `api.doneat.app` auf Cloudflare. Google meldet Änderungen über Cloud Pub/Sub. Der Dienst prüft Status und exakten Ablauf bei Google und liefert einen signierten Nachweis; Arbeitsdaten und Backups werden nicht hochgeladen.
+
+Die Datenbank speichert Token-Hash, Produkt, Berechtigungsstatus und Ablauf, Prüfzeit, Testkauf-Markierung, Ersatz-Token-Hash und Revision für Prüfung, Wiederherstellung und Schutz vor erneuter Nutzung ersetzter Käufe. Nachrichten-IDs werden in einem 30-Tage-Fenster dedupliziert; ältere Einträge werden bei späteren Nachrichten entfernt. Rohe Tokens und Google-Antworten werden nur vorübergehend verarbeitet, nicht in Datenbank oder Anwendungslogs gespeichert. IP-basierte Begrenzung ist vorübergehend; IP-Adressen und ihre Hashes werden nicht in der DoneAt-Datenbank gespeichert. Google und Cloudflare verarbeiten Netzwerkverkehr nach ihren eigenen Richtlinien. Kaufkennungen dienen weder Werbung noch Nutzungsprofilen.
+
+Erinnerungen werden lokal geplant. Geräteauthentifizierung liefert nur ein Ergebnis, keine biometrischen Daten oder PIN. Backdrop (AndroidLiquidGlass) und Shapes zeichnen Effekte lokal und senden keine App-Inhalte oder Gerätekennungen an ihre Autoren; Quellen und Lizenzen stehen unter [Über](/de/about#android).
+
+Lokale Daten lassen sich in der App oder durch Löschen des App-Speichers bzw. Deinstallation entfernen. Exportdateien und System-Backups müssen separat beim jeweiligen Speicheranbieter gelöscht werden. Für die Löschung eines serverseitigen Kaufdatensatzes schreibe an [hello@doneat.app](mailto:hello@doneat.app). Lokales Löschen entfernt diesen Datensatz nicht automatisch und kündigt kein Abonnement; Abonnements werden bei Google Play verwaltet. Export und Löschung bleiben ohne aktives Plus möglich.
+
 
 ## Backup-Exporte
 
