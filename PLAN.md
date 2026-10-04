@@ -149,8 +149,9 @@
 - [x] 官网代码保留 MIT；新增 LICENSING / ASSETS / TRADEMARKS，按路径区分原创品牌素材、内联 Logo 与 Apple/Microsoft/字体等第三方资源，保留历史 MIT 权利。
 - [x] 19 语 About / FAQ 的产品许可说明改为 MPL-2.0，增加历史授权及品牌边界链接；节假日数据的 MIT 与 Android 的 Apache-2.0 声明保持原样。
 - [x] `check`（39 files、0 errors/warnings/hints）、`build`（121 页）、`seo:check` 通过；19 语 × About/FAQ × 390/1280 × 浅/深色共 152 个浏览器用例无溢出，MPL 链接数量正确，已实际查看英/中/阿拉伯语截图。第三方许可和归属段落逐字核对不变。
-- [ ] 与产品许可证 PR 协调合并，产品先合并；官网不得提前声明切换已发布。
-- [ ] PR 的 Vercel 预览验收和链接记录。
+- [ ] 与产品 [PR #298](https://github.com/ififi2017/Off-Work-Countdown/pull/298) 协调合并，产品先合并；官网不得提前声明切换已发布。
+- [x] 官网 [PR #31](https://github.com/ififi2017/doneat.app/pull/31) 已创建；`21698b2` 的 Vercel 构建 Ready。[预览地址](https://doneat-app-git-codex-mpl-brand-licensing-ififi2017s-projects.vercel.app/en/about) 已记录。当前浏览器被重定向到 Vercel 的 GitHub 登录页，未获得访问权限。
+- [ ] 登录后完成 Vercel 页面验收；本地 152 个用例不能替代受保护预览的线上验收。
 
 ### S3 — SEO 与响应头
 
