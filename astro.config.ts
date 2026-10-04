@@ -1,13 +1,32 @@
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
-import { cpSync, mkdirSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { CONTENT_PAGES, HALL_LOCALES, hasPublishedContent, isContentPage, siteConfig } from "./src/lib/config";
 import { sitemapLinksForUrl } from "./src/lib/hreflang";
+import { PUBLISHED_BY_PAGE } from "./src/lib/published-content";
 
 const root = dirname(fileURLToPath(import.meta.url));
+
+/** Edge middleware cannot read the content directory, so the published list is data. Fail the build if that data drifts from the files. */
+function assertPublishedContentMatchesDisk() {
+  const dir = join(root, "src/content/pages");
+  for (const page of Object.keys(PUBLISHED_BY_PAGE)) {
+    const onDisk = readdirSync(dir)
+      .filter((locale) => existsSync(join(dir, locale, `${page}.md`)))
+      .sort();
+    const declared = [...PUBLISHED_BY_PAGE[page as keyof typeof PUBLISHED_BY_PAGE]].sort();
+    if (onDisk.join("\n") !== declared.join("\n")) {
+      throw new Error(
+        `src/lib/published-content.ts is out of date for "${page}".\nOn disk: ${onDisk.join(", ")}\nDeclared: ${declared.join(", ")}`,
+      );
+    }
+  }
+}
+
+assertPublishedContentMatchesDisk();
 
 function syncPublicAssets() {
   const copies: Array<[string, string]> = [

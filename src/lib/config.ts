@@ -1,16 +1,7 @@
-import { existsSync } from "node:fs";
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
 import chrome from "../../locales/chrome.json";
 import hall from "../../locales/hall.json";
 import site from "../../site.json";
-
-/** Content directory. `import.meta.url` moves when Vite bundles this module, so prefer the project root. */
-function contentPagesDirectory(): string {
-  const fromRoot = join(process.cwd(), "src/content/pages");
-  if (existsSync(fromRoot)) return fromRoot;
-  return join(dirname(fileURLToPath(import.meta.url)), "../content/pages");
-}
+import { PUBLISHED_BY_PAGE } from "./published-content";
 
 export const siteConfig = site;
 
@@ -42,9 +33,9 @@ export function isContentLocale(value: string | undefined): value is ContentLoca
   return isHallLocale(value);
 }
 
-/** True when `src/content/pages/{locale}/{page}.md` is in the repo. */
+/** True when `src/content/pages/{locale}/{page}.md` is listed in `published-content.ts`. */
 export function hasPublishedContent(locale: string, page: ContentPage): boolean {
-  return existsSync(join(contentPagesDirectory(), locale, `${page}.md`));
+  return (PUBLISHED_BY_PAGE[page] as readonly string[]).includes(locale);
 }
 
 /** Hall locales that actually have this content page. Hreflang and the sitemap use this list. */
