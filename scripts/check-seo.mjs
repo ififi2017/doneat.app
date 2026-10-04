@@ -2,7 +2,7 @@
 /**
  * Post-build SEO checks against dist/. Run: npm run build && node scripts/check-seo.mjs
  */
-import { readFileSync, existsSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -38,7 +38,19 @@ assert(sitemap0.includes('hreflang="x-default" href="https://doneat.app/"'), "ha
 assert(sitemap0.includes('hreflang="x-default" href="https://doneat.app/en/faq"'), "content x-default stays on /en");
 assert(sitemap0.includes("https://doneat.app/en/faq"), "faq in sitemap");
 assert(sitemap0.includes("https://doneat.app/zh-CN/faq"), "zh-CN faq in sitemap");
-assert(!sitemap0.includes("https://doneat.app/ja/faq"), "do not list bounce faq URLs");
+
+const pagesDir = join(root, "../src/content/pages");
+const hallLocales = JSON.parse(readFileSync(join(root, "../locales/hall.json"), "utf8")).locales;
+const publishedFaq = readdirSync(pagesDir).filter((locale) =>
+  existsSync(join(pagesDir, locale, "faq.md")),
+);
+for (const locale of publishedFaq) {
+  assert(sitemap0.includes(`https://doneat.app/${locale}/faq`), `${locale} faq in sitemap`);
+}
+for (const locale of hallLocales) {
+  if (publishedFaq.includes(locale)) continue;
+  assert(!sitemap0.includes(`https://doneat.app/${locale}/faq`), `${locale} faq must stay out of the sitemap until it has content`);
+}
 
 const enHall = read("en/index.html");
 assert(enHall.includes('hreflang="x-default"'), "hall HTML x-default");
@@ -73,7 +85,20 @@ assert(count(zhFaq, '"@type":"Question"') === zhQuestions, "zh-CN FAQPage questi
 assert(enFaq.includes("FAQPage"), "en FAQPage");
 assert(enFaq.includes("What is DoneAt?"), "en FAQ question in JSON-LD");
 assert(enFaq.includes('rel="canonical" href="https://doneat.app/en/faq"'), "en faq canonical");
-assert(!enFaq.includes('hreflang="ja"'), "faq must not claim ja");
+for (const locale of publishedFaq) {
+  assert(enFaq.includes(`hreflang="${locale}"`), `en faq hreflang ${locale}`);
+}
+for (const locale of hallLocales) {
+  if (publishedFaq.includes(locale)) continue;
+  assert(!enFaq.includes(`hreflang="${locale}"`), `en faq must not claim ${locale}`);
+}
+assert(existsSync(join(dist, "ja/download/index.html")), "ja download is built");
+assert(existsSync(join(dist, "zh-TW/faq/index.html")), "zh-TW faq is built");
+const jaDownload = read("ja/download/index.html");
+const zhTwFaq = read("zh-TW/faq/index.html");
+assert(jaDownload.includes('rel="canonical" href="https://doneat.app/ja/download"'), "ja download canonical");
+assert(zhTwFaq.includes('rel="canonical" href="https://doneat.app/zh-TW/faq"'), "zh-TW faq canonical");
+assert(!zhTwFaq.includes('rel="canonical" href="https://doneat.app/zh-CN/faq"'), "zh-TW faq is not canonicalized to zh-CN");
 assert(zhFaq.includes("FAQPage"), "zh-CN FAQPage");
 assert(zhFaq.includes("DoneAt 是什么？"), "zh-CN FAQ question in JSON-LD");
 assert(zhFaq.includes('rel="canonical" href="https://doneat.app/zh-CN/faq"'), "zh-CN faq canonical");

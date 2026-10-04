@@ -1,14 +1,14 @@
 import chrome from "../../locales/chrome.json";
 import hall from "../../locales/hall.json";
 import site from "../../site.json";
+import { PUBLISHED_BY_PAGE } from "./published-content";
 
 export const siteConfig = site;
 
 export type HallLocale = keyof typeof hall.functionalSubtitle;
 export const HALL_LOCALES = hall.locales as HallLocale[];
 
-export type ContentLocale = "en" | "zh-CN";
-export const CONTENT_LOCALES = hall.notes.contentLanguages as ContentLocale[];
+export type ContentLocale = HallLocale;
 
 export const CONTENT_PAGES = [
   "download",
@@ -30,7 +30,17 @@ export function isHallLocale(value: string | undefined): value is HallLocale {
 }
 
 export function isContentLocale(value: string | undefined): value is ContentLocale {
-  return value === "en" || value === "zh-CN";
+  return isHallLocale(value);
+}
+
+/** True when `src/content/pages/{locale}/{page}.md` is listed in `published-content.ts`. */
+export function hasPublishedContent(locale: string, page: ContentPage): boolean {
+  return (PUBLISHED_BY_PAGE[page] as readonly string[]).includes(locale);
+}
+
+/** Hall locales that actually have this content page. Hreflang and the sitemap use this list. */
+export function publishedLocalesFor(page: ContentPage): HallLocale[] {
+  return HALL_LOCALES.filter((locale) => hasPublishedContent(locale, page));
 }
 
 export function isContentPage(value: string | undefined): value is ContentPage {
@@ -45,8 +55,13 @@ export function isChineseHall(locale: HallLocale): boolean {
   return (CHINESE_HALL_LOCALES as readonly string[]).includes(locale);
 }
 
-export function contentLocaleFor(locale: HallLocale): ContentLocale {
-  return isChineseHall(locale) ? "zh-CN" : "en";
+/**
+ * Locale of the content page a hall should link to.
+ * Missing translations stay on the English page. Callers put that locale in
+ * the href, so there is no 302 from `/{locale}/{page}` onto another language.
+ */
+export function contentLocaleFor(locale: HallLocale, page: ContentPage): ContentLocale {
+  return hasPublishedContent(locale, page) ? locale : "en";
 }
 
 export function functionalSubtitle(locale: HallLocale): string {

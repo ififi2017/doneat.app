@@ -17,10 +17,8 @@ interface Props {
 }
 
 const { locale, currentPage = "home", tone = "auto" } = Astro.props;
-const contentLang = contentLocaleFor(locale);
-
 function hrefFor(page: "download" | "faq" | "about"): string {
-  return `/${contentLang}/${page}`;
+  return `/${contentLocaleFor(locale, page)}/${page}`;
 }
 
 const navItems = [

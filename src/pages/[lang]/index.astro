@@ -37,7 +37,7 @@ const getTitleBody = getTitleEnd ? copy.getTitle.slice(0, -1) : copy.getTitle;
 const getBodySentences = copy.getBody.split(/(?<=[.!?])\s+/u);
 const getTitleParts = isChineseHall(locale) ? getTitleBody.split(/(时间，|時間，)/u) : [getTitleBody];
 const description = t(locale, "homeDescription");
-const download = `/${contentLocaleFor(locale)}/download`;
+const download = `/${contentLocaleFor(locale, "download")}/download`;
 const island = isChineseHall(locale) ? zhIsland : enIsland;
 const live = isChineseHall(locale) ? zhLive : enLive;
 const widget = isChineseHall(locale) ? zhWidget : enWidget;

@@ -12,14 +12,15 @@ interface Props {
 }
 
 const { locale } = Astro.props;
-const contentLang = contentLocaleFor(locale);
+const howItWorksLang = contentLocaleFor(locale, "how-it-works");
+const privacyLang = contentLocaleFor(locale, "privacy");
 ---
 
 <footer class="site-footer mt-auto">
   <div class="page-frame site-footer-inner">
     <nav class="site-footer-nav" aria-label={siteConfig.brandName}>
-      <a href={`/${contentLang}/how-it-works`}>{t(locale, "howItWorks")}</a>
-      <a href={`/${contentLang}/privacy`}>{t(locale, "privacy")}</a>
+      <a href={`/${howItWorksLang}/how-it-works`}>{t(locale, "howItWorks")}</a>
+      <a href={`/${privacyLang}/privacy`}>{t(locale, "privacy")}</a>
       <a href={`mailto:${siteConfig.supportEmail}`}>{t(locale, "contactUs")}</a>
     </nav>
     <div class="site-footer-end">

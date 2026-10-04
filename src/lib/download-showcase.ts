@@ -1,4 +1,4 @@
-import type { ContentLocale } from "./config";
+import { isChineseHall, type ContentLocale } from "./config";
 
 export type CompareStatus = "included" | "limited" | "absent";
 
@@ -34,10 +34,16 @@ export interface DownloadShowcaseCopy {
   featureLabel: string;
   mobileLabel: string;
   desktopLabel: string;
+  /** Download-page section nav and the sideways-scroll hint. */
+  showcaseLabel: string;
+  compareHint: string;
+  pageIndexLabel: string;
+  compareNavLabel: string;
   rows: CompareRow[];
 }
 
-const copy: Record<ContentLocale, DownloadShowcaseCopy> = {
+const copy: Partial<Record<ContentLocale, DownloadShowcaseCopy>> &
+  Record<"en" | "zh-CN", DownloadShowcaseCopy> = {
   "zh-CN": {
     heading: "在电脑上，抬眼就能看到",
     lede: "专心做事时，让剩余时间留在菜单栏、托盘或迷你计时里。窗口藏起来，下班提醒也还在。",
@@ -83,6 +89,10 @@ const copy: Record<ContentLocale, DownloadShowcaseCopy> = {
     featureLabel: "功能",
     mobileLabel: "手机 / iPad",
     desktopLabel: "电脑",
+    showcaseLabel: "DoneAt 客户端功能",
+    compareHint: "横向滑动，查看两种平台的功能 →",
+    pageIndexLabel: "本页内容",
+    compareNavLabel: "功能对照",
     rows: [
       {
         feature: "下班倒计时",
@@ -216,6 +226,10 @@ const copy: Record<ContentLocale, DownloadShowcaseCopy> = {
     featureLabel: "Feature",
     mobileLabel: "iPhone / iPad",
     desktopLabel: "Computer",
+    showcaseLabel: "DoneAt app features",
+    compareHint: "Scroll sideways to compare both platforms →",
+    pageIndexLabel: "On this page",
+    compareNavLabel: "Compare features",
     rows: [
       {
         feature: "Shift countdown",
@@ -350,9 +364,9 @@ const copy: Record<ContentLocale, DownloadShowcaseCopy> = {
 export function downloadShowcaseCopy(
   locale: ContentLocale,
 ): DownloadShowcaseCopy {
-  return copy[locale];
+  return copy[locale] ?? copy.en;
 }
 
 export function desktopMediaStem(locale: ContentLocale): "zh" | "en" {
-  return locale === "zh-CN" ? "zh" : "en";
+  return isChineseHall(locale) ? "zh" : "en";
 }
