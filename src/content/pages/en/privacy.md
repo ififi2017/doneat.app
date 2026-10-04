@@ -4,7 +4,7 @@ description: "How DoneAt stores data locally by default, offers optional private
 heading: "Privacy Policy"
 intro: "This page explains how DoneAt stores and processes information: the official site, the web timer, and the apps on iPhone, iPad, Android, Mac and Windows."
 updatedLabel: "Last updated"
-updated: "27 September 2026"
+updated: "4 October 2026"
 ---
 
 ## Data stored by DoneAt
@@ -50,7 +50,11 @@ The export is a readable JSON file, not a password-protected archive. Choose a s
 
 On iPhone and iPad, Apple handles Plus subscriptions and lifetime purchases through the App Store. DoneAt uses StoreKit to verify purchase status and restore access, and keeps a local record of the verified entitlement and any expiry date. DoneAt does not receive your payment card details or send your purchase status to a DoneAt account server. Apple processes purchase information under its own policies.
 
-On Android, Google Play handles Plus subscriptions and lifetime purchases when they become available. DoneAt queries Google Play to verify and restore access, checks purchase signatures, and keeps purchase verification data in private app storage. This includes product identifiers and purchase tokens used to confirm purchases and retry unfinished confirmations. It excludes salary and work records and is not included in system backups. DoneAt may contact Google Play when the app opens or resumes, when you restore purchases, and when a confirmation needs to be retried. DoneAt does not receive your payment card details or send these purchases to a DoneAt account server. Google processes purchases under its own policies.
+On Android, Google Play handles Plus subscriptions and lifetime purchases when they become available. DoneAt queries Google Play to verify and restore access, checks purchase signatures, and keeps purchase verification data in private app storage. This includes product identifiers and purchase tokens used to confirm purchases and retry unfinished confirmations. It excludes salary and work records and is not included in system backups. DoneAt may contact Google Play when the app opens or resumes, when you restore purchases, and when a confirmation needs to be retried. DoneAt does not receive your payment card details. Google processes purchases under its own policies.
+
+For Android purchase verification, DoneAt operates `api.doneat.app` on Cloudflare. A version with server verification enabled sends the Play purchase token, product identifier and a random request nonce over HTTPS. Google Play can also send purchase-state changes through Cloud Pub/Sub. The service queries Google for the current entitlement and exact expiry, then returns a digitally signed receipt. It does not receive salary, schedules, work records, Focus plans or backups.
+
+The database stores a hash of the purchase token, the product, entitlement status and expiry, verification time, test-purchase flag, replacement-token hash and revision. These purchase records support verification, restoration and prevention of reuse after a purchase is replaced. Notification message IDs use a 30-day deduplication window; older entries are removed when later notifications are processed. Raw purchase tokens and Google responses are processed transiently and are not stored in the database or application logs. IP-based rate limiting is transient; DoneAt does not save IP addresses or those IP hashes in the database. Cloudflare and Google process network traffic under their own policies. Purchase identifiers are not used for advertising or usage profiling. Signed receipts on the phone are excluded from system backup.
 
 A subscription expiring does not delete your existing records. Export and deletion remain available without an active subscription.
 
@@ -110,7 +114,8 @@ DoneAt uses the following services to host pages, measure the official site and 
 - Upstash — storage of daily aggregate event counts for the official site and the web timer
 - GitHub — source code, release information, and update checks for GitHub-distributed desktop builds
 - Apple — app distribution, Plus payments and purchase verification through the App Store and StoreKit, and private iCloud sync when you choose to enable it on iPhone or iPad
-- Google — Android distribution and updates, Plus purchases and purchase verification through Google Play, optional ratings and reviews, and system backups where provided by Google
+- Google — Android distribution and updates, Plus purchases and purchase verification through Google Play, purchase-state notifications through Cloud Pub/Sub, optional ratings and reviews, and system backups where provided by Google
+- Cloudflare — hosting the Android purchase-verification service and its purchase-state database
 - Microsoft — distribution and updates for the Microsoft Store listing you open
 - A third-party download mirror, used only when you choose it from a GitHub-distributed desktop build
 - The third-party social service you choose when sharing a countdown
@@ -122,6 +127,8 @@ On the web timer, clear this site’s data in your browser, including local stor
 On iPhone and iPad, uninstalling removes the data stored on that device. If you enabled iCloud sync, the private iCloud copy remains available to your other devices. Delete from iCloud in DoneAt’s Records & Data settings deletes the iCloud copy and clears the associated synced records on devices signed in to that Apple Account when they next sync. Removing records only from this device leaves the iCloud copy available to restore. Backup files you previously exported must be deleted separately from the places where you saved or shared them.
 
 On Android, you can remove records in Records & Data. Clearing app storage or uninstalling removes its local app data. Exported files must be deleted separately. System backup copies may remain under your device or account’s backup settings and may restore data when you reinstall or move to another device; manage those copies through the system backup provider. DoneAt cannot delete them for you. Deleting app data or uninstalling does not cancel a subscription; manage subscriptions in the store where you purchased them.
+
+For questions about or requests to delete a server purchase record, contact [hello@doneat.app](mailto:hello@doneat.app). Removing local records or uninstalling does not automatically delete the server purchase record or cancel a subscription.
 
 DoneAt cannot access your Apple Account or delete its private iCloud data on your behalf. DoneAt also cannot access or delete your local data from a server.
 

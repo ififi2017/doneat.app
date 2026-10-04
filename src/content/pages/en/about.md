@@ -26,7 +26,9 @@ These features are part of the native iPhone and iPad app. The [download page](/
 
 ## Where your data goes
 
-Working hours, workdays, salary and preferences stay on the device you are using by default. The countdown and earnings estimate are computed there. On iPhone and iPad, you can choose to sync schedules, records, salary and settings through your private iCloud database. Mac, Windows and the web timer remain local. None of these apps sends those settings or a user identifier to DoneAt servers.
+Working hours, workdays, salary and preferences stay on the device you are using by default. The countdown and earnings estimate are computed there. On iPhone and iPad, you can choose to sync schedules, records, salary and settings through your private iCloud database. Mac, Windows and the web timer remain local. These work settings are not sent to DoneAt servers.
+
+The Android version is in testing. Google Play handles its Plus purchases; DoneAt’s purchase-verification service on Cloudflare checks purchase status and exact expiry with Google. It processes purchase tokens and stores their hashes with entitlement state. Salary and work records stay outside this service. See the [privacy policy](/en/privacy) for purchase verification, system backups and deletion.
 
 The official site and the web timer record page views, loading performance, and a small set of aggregate events. An event carries only a name, never your schedule, salary, account, or advertising identifier. Hosting and analytics providers may still receive ordinary connection metadata such as an IP address and user agent, as they do on any website. The [privacy](/en/privacy) page has the details.
 

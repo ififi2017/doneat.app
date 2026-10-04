@@ -4,7 +4,7 @@ description: "DoneAt 如何默认在本地保存数据、在 iPhone 和 iPad 上
 heading: "隐私政策"
 intro: "本页说明 DoneAt 如何存储和处理信息，包括官网、网页计时，以及 iPhone、iPad、Android、Mac 和 Windows 上的应用。"
 updatedLabel: "最后更新"
-updated: "2026 年 9 月 27 日"
+updated: "2026 年 10 月 4 日"
 ---
 
 ## DoneAt 保存的数据
@@ -50,7 +50,11 @@ DoneAt 不提供自动 Google Drive 同步，也不在 Android 与 iPhone 之间
 
 在 iPhone 和 iPad 上，Plus 订阅和终身购买由 Apple 通过 App Store 处理。DoneAt 使用 StoreKit 验证购买状态、恢复权益，并在本地保存已验证的权益及适用的到期时间。DoneAt 不会收到你的银行卡信息，也不会将购买状态发送到 DoneAt 账号服务器。Apple 按其自身政策处理购买信息。
 
-Android 的 Plus 订阅与终身购买开放后，将由 Google Play 处理。DoneAt 向 Google Play 查询购买状态以验证和恢复权益，核验购买签名，并在应用私有存储中保存购买验证数据。其中包含用于确认购买及重试未完成确认的商品标识和购买令牌，不含薪资或工作记录，也不进入系统备份。应用打开或回到前台、恢复购买、重试购买确认时，DoneAt 可能访问 Google Play。DoneAt 不会收到你的银行卡信息，也不会将购买信息发送到 DoneAt 账号服务器。Google 按其自身政策处理购买信息。
+Android 的 Plus 订阅与终身购买开放后，将由 Google Play 处理。DoneAt 向 Google Play 查询购买状态以验证和恢复权益，核验购买签名，并在应用私有存储中保存购买验证数据。其中包含用于确认购买及重试未完成确认的商品标识和购买令牌，不含薪资或工作记录，也不进入系统备份。应用打开或回到前台、恢复购买、重试购买确认时，DoneAt 可能访问 Google Play。DoneAt 不会收到你的银行卡信息。Google 按其自身政策处理购买信息。
+
+DoneAt 使用 Cloudflare 托管的 `api.doneat.app` 核验 Android 购买。启用服务端验证的版本会通过 HTTPS 发送 Play 购买令牌、商品标识和随机请求标识；Google Play 也可以通过 Cloud Pub/Sub 发送购买状态变更通知。服务向 Google 查询当前权益与精确到期时刻，并返回数字签名凭据，不接收薪资、排班、工作记录、专注计划或备份。
+
+数据库保存购买令牌的哈希、商品、权益状态与到期时刻、核验时间、测试购买标记、替换令牌哈希及修订号，用于核验、恢复购买和防止已替换的旧购买重复生效。通知消息 ID 按 30 天窗口去重，在处理后续通知时清理过期记录。原始购买令牌与 Google 响应只在处理时使用，不存入数据库或应用日志。IP 限流也是临时处理；DoneAt 不在数据库保存 IP 地址或这些 IP 哈希。Cloudflare 和 Google 依各自政策处理网络流量。购买标识不用于广告或使用行为画像，手机上的签名凭据也不进入系统备份。
 
 订阅到期不会删除已有记录，导出与删除数据也不需要有效订阅。
 
@@ -110,7 +114,8 @@ DoneAt 在托管页面、统计官网和网页计时、分发应用以及打开�
 - Upstash —— 存储官网和网页计时的按日合计事件计数
 - GitHub —— 源代码、版本信息，以及 GitHub 分发的桌面版本的更新检查
 - Apple —— 应用分发，以及通过 App Store 和 StoreKit 处理的 Plus 付款与购买验证，以及你选择在 iPhone 或 iPad 上打开的私人 iCloud 同步
-- Google —— Android 应用分发和更新、通过 Google Play 处理的 Plus 购买与验证、可选的评分和评价，以及由 Google 提供的系统备份
+- Google —— Android 应用分发和更新、通过 Google Play 处理的 Plus 购买与验证、通过 Cloud Pub/Sub 传递的购买状态通知、可选的评分和评价，以及由 Google 提供的系统备份
+- Cloudflare —— 托管 Android 购买验证服务及购买状态数据库
 - Microsoft —— 你打开的 Microsoft Store 页面的分发与更新
 - 第三方下载镜像 —— 仅在你从 GitHub 分发的桌面版本里主动选择时使用
 - 你选择用来分享倒计时的第三方社交服务
@@ -122,6 +127,8 @@ DoneAt 在托管页面、统计官网和网页计时、分发应用以及打开�
 在 iPhone 和 iPad 上，卸载应用会删除这台设备上的本地数据。如果你打开过 iCloud 同步，私人 iCloud 副本仍可供其他设备使用。在 DoneAt 的“记录与数据”设置里选择“从 iCloud 删除”，会删除 iCloud 副本，并在登录同一 Apple 账户的设备下次同步时清除相关同步记录。仅移除这台设备上的记录，会保留可供恢复的 iCloud 副本。此前导出的备份文件，需要到你保存或分享它们的位置另行删除。
 
 在 Android 上，你可以在“记录与数据”中移除记录。清除应用存储或卸载会移除本机应用数据；导出的文件需要另行删除。系统备份副本可能仍保存在设备或账号的备份服务中，并在重装或换机时恢复，请通过系统备份服务管理这些副本，DoneAt 无法代你删除。删除应用数据或卸载不会取消订阅；订阅需要在购买时使用的商店中管理。
+
+如需咨询或申请删除服务端购买记录，请联系 [hello@doneat.app](mailto:hello@doneat.app)。删除本地记录或卸载应用，不会自动删除服务端购买记录，也不会取消订阅。
 
 DoneAt 无法访问你的 Apple 账户，也无法代你删除其中的私人 iCloud 数据。DoneAt 同样无法通过服务器访问或删除你的本地数据。
 
