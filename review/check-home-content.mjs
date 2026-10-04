@@ -149,7 +149,8 @@ for (const { locale, document: doc } of documents) {
   assert.deepEqual(all(".lc-summary dt", doc).map(clean), [card.startTime, card.endTime]);
   assert.equal(JSON.parse(liveCard.attribs["data-copy"]).offWorkTime, card.offWorkTime);
   assert.equal(all(".carry-gallery figcaption p", doc).map(clean)[0], demo.widgets);
-  const expectedDownload = `/${locale.startsWith("zh") ? "zh-CN" : "en"}/download`;
+  const downloadLocale = existsSync(resolve(repo, "src/content/pages", locale, "download.md")) ? locale : "en";
+  const expectedDownload = `/${downloadLocale}/download`;
   for (const link of all('[data-track="download_page_open"]', doc)) assert.equal(link.attribs.href, expectedDownload);
   assert(all('[data-track="download_page_open"]', doc).length >= 2);
   assert(all('[data-track="web_timer_open"]', doc).length >= 3);

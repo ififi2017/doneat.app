@@ -49,7 +49,7 @@ function pickBadge(
 
 const { locale, variant = "home", tone = "auto" } = Astro.props;
 const fixedDark = tone === "dark";
-const downloadHref = `/${contentLocaleFor(locale)}/download`;
+const downloadHref = `/${contentLocaleFor(locale, "download")}/download`;
 const appleLocale = appleBadgeLocale(locale);
 const msLocale = microsoftBadgeLocale(locale);
 const appleHref = appleStoreUrl(locale);

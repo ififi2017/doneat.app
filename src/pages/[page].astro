@@ -1,6 +1,6 @@
 ---
 import LocaleBounce from "../components/LocaleBounce.astro";
-import { CONTENT_PAGES, isContentPage } from "../lib/config";
+import { CONTENT_PAGES, isContentPage, localeNames, publishedLocalesFor } from "../lib/config";
 import { contentPageRedirectInlineScript } from "../lib/locale";
 
 export function getStaticPaths() {
@@ -15,8 +15,8 @@ if (!isContentPage(pageParam)) {
 
 <LocaleBounce
   script={contentPageRedirectInlineScript(pageParam)}
-  links={[
-    { href: `/en/${pageParam}`, label: "English" },
-    { href: `/zh-CN/${pageParam}`, label: "中文" },
-  ]}
+  links={publishedLocalesFor(pageParam).map((code) => ({
+    href: `/${code}/${pageParam}`,
+    label: localeNames[code],
+  }))}
 />

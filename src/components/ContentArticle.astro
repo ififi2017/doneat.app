@@ -19,12 +19,14 @@ interface Props {
 }
 
 const { locale, page } = Astro.props;
-const entry = await getEntry("pages", `${locale}/${page}`);
+const own = await getEntry("pages", `${locale}/${page}`);
+// A route without its own file renders the English page in place. No redirect.
+const entry = own ?? (await getEntry("pages", `en/${page}`));
 if (!entry) {
   throw new Error(`Missing content: ${locale}/${page}`);
 }
 const { Content } = await render(entry);
-const path = `/${locale}/${page}`;
+const path = own ? `/${locale}/${page}` : `/en/${page}`;
 const isFaq = page === "faq";
 const isDownload = page === "download";
 const hasBody = Boolean(entry.body?.trim());

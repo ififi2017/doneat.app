@@ -1,9 +1,10 @@
 import hall from "../../locales/hall.json";
 import {
+  CONTENT_PAGES,
   WEB_TIMER_UTM,
   contentLocaleFor,
   isContentPage,
-  isHallLocale,
+  publishedLocalesFor,
   type HallLocale,
 } from "./config";
 
@@ -130,8 +131,11 @@ function pickerRuntimeJs(): string {
     }
     return "en";
   }
-  function contentLocale(hall){
-    return hall;
+  var published=${JSON.stringify(Object.fromEntries(CONTENT_PAGES.map((page) => [page, publishedLocalesFor(page)])))};
+  function contentLocale(hall, page){
+    var list=published[page]||[];
+    for (var i=0;i<list.length;i++) if (list[i]===hall) return hall;
+    return "en";
   }`;
 }
 
@@ -158,20 +162,11 @@ export function resolveLocaleRedirectPath(
   }
 
   if (segments.length === 1 && isContentPage(segments[0])) {
-    return `/${contentLocaleFor(hall)}/${segments[0]}`;
+    return `/${contentLocaleFor(hall, segments[0])}/${segments[0]}`;
   }
 
-  if (
-    segments.length === 2 &&
-    isHallLocale(segments[0]) &&
-    isContentPage(segments[1])
-  ) {
-    const dest = contentLocaleFor(segments[0]);
-    if (segments[0] !== dest) {
-      return `/${dest}/${segments[1]}`;
-    }
-  }
-
+  // `/{lang}/{page}` is either the real page or absent. Do not 302 it onto
+  // English or another language; halls link straight at a page that exists.
   return null;
 }
 
@@ -186,7 +181,7 @@ export function localeRedirectInlineScript(): string {
 export function contentPageRedirectInlineScript(page: string): string {
   return `(function(){
   ${pickerRuntimeJs()}
-  var locale=contentLocale(fromBrowser());
+  var locale=contentLocale(fromBrowser(), ${JSON.stringify(page)});
   location.replace("/"+locale+"/"+${JSON.stringify(page)}+location.search+location.hash);
 })();`;
 }

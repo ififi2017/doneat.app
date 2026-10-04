@@ -1,8 +1,8 @@
 ---
 import {
-  CONTENT_LOCALES,
   HALL_LOCALES,
   localeNames,
+  publishedLocalesFor,
   t,
   type ContentPage,
   type HallLocale,
@@ -15,7 +15,8 @@ interface Props {
 
 const { locale, currentPage = "home" } = Astro.props;
 const isContent = currentPage !== "home";
-const locales = (isContent ? CONTENT_LOCALES : HALL_LOCALES) as readonly HallLocale[];
+const locales: readonly HallLocale[] =
+  currentPage === "home" ? HALL_LOCALES : publishedLocalesFor(currentPage);
 
 function hrefFor(code: string): string {
   if (isContent) return `/${code}/${currentPage}`;

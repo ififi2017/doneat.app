@@ -4,7 +4,7 @@ import { defineConfig } from "astro/config";
 import { cpSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { CONTENT_PAGES, HALL_LOCALES, isContentLocale, siteConfig } from "./src/lib/config";
+import { CONTENT_PAGES, HALL_LOCALES, hasPublishedContent, isContentPage, siteConfig } from "./src/lib/config";
 import { sitemapLinksForUrl } from "./src/lib/hreflang";
 
 const root = dirname(fileURLToPath(import.meta.url));
@@ -65,8 +65,8 @@ export default defineConfig({
         }
         if (
           segments.length === 2 &&
-          (CONTENT_PAGES as readonly string[]).includes(segments[1]) &&
-          !isContentLocale(segments[0])
+          isContentPage(segments[1]) &&
+          !hasPublishedContent(segments[0], segments[1])
         ) {
           return false;
         }
