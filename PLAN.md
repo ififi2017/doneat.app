@@ -19,7 +19,7 @@
 | --- | --- | --- |
 | 域名 | `doneat.app` | `off.rainif.com` |
 | 首页 `/{lang}` | 品牌落地页 | Web App |
-| `/download` `/privacy` `/about` `/faq` `/how-it-works` | 正式页（en / zh-CN） | 上线当天改为 301 到本站 |
+| `/download` `/privacy` `/about` `/faq` `/how-it-works` | 正式页（与门厅相同的 19 语） | 上线当天改为 301 到本站 |
 | 预设页 `/{lang}/{preset}` | 不复制 | 保留 |
 | GitHub 直装 | 不上官网 | README / Releases + updater |
 | Web 上的下载营销 | 设置态「获取 App」、`/download` 301 都进本站 | 不再放直达商店的 badge / 直装对话框 |
@@ -41,23 +41,23 @@
 | 路径 | 做什么 |
 | --- | --- |
 | `/{lang}` | 19 语品牌落地页 |
-| `/download` `/privacy` `/about` `/faq` `/how-it-works` | 按浏览器语言 302 到 `en` 或 `zh-CN`（中文含繁体 → zh-CN，其余 → en） |
-| `/{en\|zh-CN}/download` | 商店 + Web 入口、手机/电脑展示与对照，以及为何要用原生 |
-| `/{en\|zh-CN}/privacy` | 隐私；支持邮箱 `hello@doneat.app` |
-| `/{en\|zh-CN}/about` | 品牌 / 开源 |
-| `/{en\|zh-CN}/faq` | 跨平台 FAQ（按现有问题骨架重写） |
-| `/{en\|zh-CN}/how-it-works` | 班次、进度和今日已赚怎么算 |
-| `/{其他门厅语}/privacy` 等 | 302 到 `en` 或 `zh-CN` 对应页，不生成假长文 |
+| `/download` `/privacy` `/about` `/faq` `/how-it-works` | 按浏览器语言 302 到已有该页的门厅语言；该语言还没有文件时落到 `/en/{page}` |
+| `/{lang}/download` | 商店 + Web 入口、手机/电脑展示与对照，以及为何要用原生。19 语都有正文 |
+| `/{lang}/privacy` | 隐私；支持邮箱 `hello@doneat.app` |
+| `/{lang}/about` | 品牌 / 开源 |
+| `/{lang}/faq` | 跨平台 FAQ（按现有问题骨架） |
+| `/{lang}/how-it-works` | 班次、进度和今日已赚怎么算 |
+| 磁盘上还没有的 `/{lang}/{page}` | 不生成路由。门厅用链接直接指向已有语言（现为各语自己的页），不 302 |
 | `https://www.doneat.app/*` | 301 到裸域，保留 path + query |
 
-没有对应长文的语言：门厅可以是该语言，点 FAQ / About 等落到 `en` 或 `zh-CN`（中文含繁体 → zh-CN，其余 → en）。不存在的语言版本不得 301 到假 URL。
+长文路由只为 `src/content/pages/{lang}/{page}.md` 实际存在的语言生成。hreflang 和 sitemap 只列这些语言，并带 `x-default` → `/en/{page}`。缺文件时页面就地显示英文正文，canonical 指到 `/en/{page}`，不 302。不存在的语言版本不得 301 到假 URL。
 
 每条路由只认本域 canonical。不要声明「全站迁到 doneat.app」。Search Console 不做整站 Change of Address。
 
 ### 技术栈
 
 - Astro + TypeScript + Tailwind CSS，静态输出，独立 Vercel 项目。
-- 长文：Content Collections，`en` / `zh-CN` Markdown 或 MDX。
+- 长文：Content Collections，与门厅相同的 19 语 Markdown。缺文件的语言不进路由。
 - 门厅 19 语：Astro i18n 路由。铬层文案本仓自维护，不整份拷产品 `translation.json`。
 - 亮暗只跟 `prefers-color-scheme`，不做主题切换。
 - 尽量零水合。语言选择器用自绘 `<details>` 菜单，不要原生 `<select>`。
@@ -94,7 +94,7 @@
 
 - 顶栏：打开 Web 计时、下载、FAQ、关于。
 - 页脚：怎么算的、隐私、联系我们、社交与 fi_niaR Studio／Astro 署名。产品 GitHub 源码图标在顶栏，不在页脚重复。
-- 门厅：19 语自绘选择器。内容页：同一组件，仅 English / 中文。日文门厅点 FAQ → `/en/faq`。
+- 门厅：19 语自绘选择器。内容页用同一组件，选项是该页已经发布的语言。日文门厅点 FAQ → `/ja/faq`。
 - 内容页与首页同一套视觉（008 橙 / 米 / 梅），阅读栏宽；不要产品站 gray-100 的文章壳。
 - OG / favicon：mark + DoneAt，不写 `off.rainif.com`。
 
@@ -134,6 +134,7 @@
 - [x] 2026-09-25：下载页按 iOS 3.2.0 更新（产品仓 Web 001 P1-11）：review 录屏重录；新增 iPhone 功能区（四张商店图轮播 + 可见说明）；对照表加月历排班、节假日与调休、Apple Watch；FAQ 加小组件 / Apple Watch、轮班与节假日两问。check / build / seo:check 通过。
 - [x] 2026-09-25：英中关于页按 iOS 3.2.0 更新（小节标题 3.2.0；月历排班、节假日与调休、Apple Watch 倒计时免费；记录七天免费与 Plus 边界按商店写）；关于页「你的数据会去哪里」与 FAQ 薪资隐私问答加入拍板的 iCloud 短句，FAQ JSON-LD 随正文生成。check / build / seo:check 通过。
 - [x] 内容页「打开计时」指 `off.rainif.com`，不形成来回跳转
+- [x] 2026-10-04：五页长文扩到与门厅相同的 19 语（`en` `zh-CN` `zh-TW` `zh-HK` `ja` `ko` `fr` `de` `es` `it` `pt` `ru` `hi-IN` `mr-IN` `tr` `ar` `th` `id` `vi`）。繁中自有页面，不再跳到简中。`/{lang}/{page}` 不再 302。路由、hreflang 和 sitemap 只包含磁盘上有文件的语言；缺译文时就地回落英文正文。下载页对照表和 iPhone 功能说明除 `en` / `zh-CN` 外仍回落英文。新译文需母语审阅。
 
 ### S3 — SEO 与响应头
 
@@ -158,14 +159,14 @@
 - 不放 GitHub 直装按钮（顶栏源码图标可保留）
 - 不搬产品仓的 Host 分流或 Next App Router
 - 不改产品仓 bundle id、updater URL、exe 名
-- 不为长文临时生成 19 份未审译文
+- 不为未要求的页面再自动扩写译文。2026-10-04 用户明确要求补齐 19 语长文；这批译文待母语审阅，不要当成已定稿
 - 不等 007 上架才开始做；也不在 007 送审包里切域名
 - 下载页桌面 demo 用仓内归档素材；窗口标题仍可能是旧名，不另造截图
 
 ## 验收（本仓）
 
 - 19 语门厅可打开，语言选择器能落到正确 `/{lang}`
-- 英中长文、三条 CTA（Apple / Microsoft 官方徽章按语言出图）、隐私邮箱、源码链
+- 19 语长文可读、三条 CTA（Apple / Microsoft 官方徽章按语言出图）、隐私邮箱、源码链
 - 手机与桌面、浅色与深色
 - 任何同内容双 canonical、重定向环、query 丢失都挡发布
 - 预览部署不能代替 production 域名实测

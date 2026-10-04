@@ -19,11 +19,11 @@ Do not ship these as indexed pages in this round. Write only after a SERP pass f
 | off work timer / clock-out countdown | Utility | `/en`, `/en/how-it-works` | SERP before any new slug. |
 | 下班倒计时 | Product (zh) | `/zh-CN`, `/zh-CN/download` | Maintain quality; no extra doorway pages. |
 | 几点下班 | Brand sentence overlap | `/zh-CN` | Do not spin extra URLs around the locked brand line. |
-| Feierabend Countdown | de hall | `/de` | Hall only until a reviewed de long-form page exists. |
-| 退勤 カウントダウン | ja hall | `/ja` (FAQ → `/en/faq`) | No ja long-form until translated and SERP-checked. |
-| 퇴근 카운트다운 | ko hall | `/ko` | Same as ja. |
-| tan ca / đếm ngược tan ca | vi hall | `/vi` | Same. |
-| pulang kerja countdown | id hall | `/id` | Same. |
+| Feierabend Countdown | de hall | `/de`, `/de/download` | Long-form exists; native review before treating the SERP as settled. |
+| 退勤 カウントダウン | ja hall | `/ja`, `/ja/faq` | Long-form exists; native review before treating the SERP as settled. |
+| 퇴근 카운트다운 | ko hall | `/ko`, `/ko/download` | Same as ja. |
+| tan ca / đếm ngược tan ca | vi hall | `/vi`, `/vi/download` | Same. |
+| pulang kerja countdown | id hall | `/id`, `/id/download` | Same. |
 | overnight shift countdown | Feature | `/en/faq`, `/en/how-it-works` | Maybe an FAQ expansion, not a new site section. |
 | work hours salary tracker | Adjacent | Privacy / how-it-works | High risk of payroll-advice SERPs; stay conservative. |
 

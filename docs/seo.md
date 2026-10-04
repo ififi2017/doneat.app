@@ -23,7 +23,7 @@ The hall `<title>` is `homeTitle` in `locales/chrome.json`: brand, the local fun
 | --- | --- |
 | `/robots.txt` | `200`, `Sitemap: https://doneat.app/sitemap-index.xml` |
 | `/sitemap-index.xml` | `200`, lists `/sitemap-0.xml` |
-| `/sitemap-0.xml` | `200`, hall + en/zh-CN support URLs |
+| `/sitemap-0.xml` | `200`, hall URLs plus every support URL that has a content file |
 | `/sitemap.xml` | `301` → `/sitemap-index.xml` (`vercel.json` + Astro `redirects`) |
 
 `@astrojs/sitemap` emits `sitemap-index.xml` / `sitemap-0.xml`. There is no need for a second index at `/sitemap.xml`.
@@ -31,8 +31,8 @@ The hall `<title>` is `homeTitle` in `locales/chrome.json`: brand, the local fun
 ## Hreflang policy
 
 - **Hall** `/{lang}`: 19 locales, plus `x-default` → `https://doneat.app/` (the root, which middleware 302s to the hall matching `Accept-Language`, with `Vary: Accept-Language`). That is Google's documented x-default use for an auto-redirecting home page. It pointed at `/en` until 2026-09-25; the timer domain showed that setup leaves the root indexed as a separate English page (see the product repo's `plans/Web/001-seo-search-growth.md` §7-2). HTML (`BaseLayout`) and sitemap xhtml links use the same helper (`src/lib/hreflang.ts`).
-- **Support pages** (`about`, `download`, `faq`, `how-it-works`, `privacy`): **en and zh-CN only**. Hreflang and sitemap declare those two plus `x-default` → the English URL. Other hall languages bounce to `en` or `zh-CN` with `noindex`; they must not appear as alternates.
-- Do not generate 19 unreviewed translations of long-form pages to “fill” hreflang.
+- **Support pages** (`about`, `download`, `faq`, `how-it-works`, `privacy`): one URL per hall language that has `src/content/pages/{lang}/{page}.md`. As of 2026-10-04 that is all 19 hall languages. Hreflang and the sitemap list only those files, plus `x-default` → the English URL. A missing file is not a route and must not appear as an alternate. `/{lang}/{page}` is not redirected onto another language; short paths such as `/faq` still 302 by `Accept-Language` to a locale that has the page.
+- New long-form copy still needs a native-speaker review. Do not add further unreviewed pages just to fill hreflang.
 
 ## Structured data
 

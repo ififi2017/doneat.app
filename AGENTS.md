@@ -31,7 +31,7 @@ Astro 门厅、英中长文、下载页都已上线。接着改现有工程，�
 
 官网优先把人送到**客户端**，不是网页计时。
 
-- 首页主按钮是「详细了解客户端」（en：Learn more about the apps）→ `/{en|zh-CN}/download`。繁中门厅进 `/zh-CN/download`，其余进 `/en/download`。不要写成「看电脑版什么样」——下载页手机和电脑都有。
+- 首页主按钮是「详细了解客户端」（en：Learn more about the apps）→ `/{lang}/download`。该语言已有下载页就进自己的页；还没有文件时链接直接指向 `/en/download`，不 302。不要写成「看电脑版什么样」——下载页手机和电脑都有。
 - 「在浏览器里试试」用次要描边，仍去 `https://off.rainif.com/{lang}`。下载页不要再放这两颗按钮。
 - 商店徽章顺序仍是 **App Store → Microsoft Store**。顶栏「打开网页版」仍去网页计时。
 - 首页整页（`.shift-page`）不可选中文字；下载 / FAQ / 关于等长文页照常可选。
@@ -71,7 +71,7 @@ S0–S4 都已完成（S4 上线 2026-08-30）。以下按阶段保留仍然有�
 ### S0
 
 - 初始化 Astro + TypeScript + Tailwind，静态输出。
-- i18n 路由：门厅 19 语 `/{lang}/`；长文只有 `en`、`zh-CN`。
+- i18n 路由：门厅 19 语 `/{lang}/`。长文与门厅同语；路由只为 `src/content/pages/{lang}/{page}.md` 存在的语言生成。
 - Content Collections 放 about / faq / how-it-works / download / privacy。
 - 独立 Vercel 项目 `doneat-app`，`main` 即 production。
 - 铬层文案本仓自维护薄目录（可从 `locales/hall.json` 扩），**不要**整份拷产品 `translation.json`。
@@ -91,12 +91,12 @@ S0–S4 都已完成（S4 上线 2026-08-30）。以下按阶段保留仍然有�
 - 第 01 章机位：**先播 mp4，png 做 poster 和播不了时的兜底**。`autoplay muted loop playsinline`，无控件、无声音。中文门厅用 `zh-*`，其余用 `en-*`。`prefers-color-scheme` 选 white/black。`prefers-reduced-motion: reduce` 只出 PNG。套仓内官方 iPhone 17 Pro Max 框（浅色 Cosmic Orange，深色 Deep Blue，`assets/device/frames/`）。视频和 PNG 铺在屏洞里，框叠在上面；框自带灵动岛，不要再另造机框或岛。
 - 顶栏：GitHub 源码图标、打开网页版、下载、FAQ、关于。
 - 页脚：怎么算的、隐私、联系我们（`hello@doneat.app`）；社交图标列；署名 fi_niaR Studio 与 Astro。源码不在页脚重复。
-- 19 语选择器：自绘零水合组件（`<details>` + 链接），不要原生 `<select>`。内容页同一套组件，选项只有 `en` / `zh-CN`。
+- 19 语选择器：自绘零水合组件（`<details>` + 链接），不要原生 `<select>`。内容页同一套组件，选项是该页已经发布的语言。
 - 亮暗只跟 `prefers-color-scheme`，不做主题开关。
 - `ar` RTL 至少不撑破顶栏。
 - 视觉用 008 品牌色：橙 `#F45A1E`／亮橙 `#FF9A45`、米 `#FFF1D8`、梅 `#30202C`。浅色页面是暖纸色 `#FBF6EE`、浅米 `#F5EADB` 与奶白卡片；首页首屏与收尾是梅色傍晚渐变（`--evening`），不要用纯黑或 Apple 式中性灰（用户 2026-10-01 明确否决）。橙用于 mark、标题渐变、链接和日落光。宣言／iPhone 段与小组件段跟随系统明暗。布局颜色以 `src/styles/global.css` 为权威，`site.json.colors` 同步 theme-color；不要建立首页／下载页各一套色板。按钮全站为胶囊形。
 
-### S2 五页长文（仅 en / zh-CN）
+### S2 五页长文（与门厅相同的 19 语）
 
 从 `content/source/` 重写成 Content Collections，之后以本仓为准。
 
@@ -105,8 +105,8 @@ S0–S4 都已完成（S4 上线 2026-08-30）。以下按阶段保留仍然有�
 - About / How it works / Download：DoneAt；无 GitHub 直装；无网页 vs 桌面对照表。下载页商店徽章 + 手机和电脑演示 + iPhone 功能区（当前为 3.2.0：小组件与实时活动、月历排班与节假日、免费 Apple Watch、倒计时）+ 手机/电脑对照（included / limited / absent）+ 「为何要用原生」。语气不贬网页版。下载页手机用 review clip，不要用首页那套 timer loop。
 - Chrome 扩展（`site.json` 的 `chromeWebStoreUrl`）只在下载页系统要求下方和 GitHub Releases 并列一条文字链接，不做商店徽章、不进首页和平台行。它不是主要收入来源，不要抬高权重。
 - 「返回 / 打开计时」指向 `https://off.rainif.com`，不要在本域绕回。
-- 没有长文的门厅语言：链到 `en` 或 `zh-CN`（中文含繁体 → zh-CN，其余 → en）。**不要** 301 到不存在的 URL。
-- 日文门厅点 FAQ → `/en/faq`。
+- 没有该页文件的语言：门厅链接直接指向已有正文（现为各语自己的页；缺文件时指向 `/en/{page}`），不 302 `/{lang}/{page}`。**不要** 301 到不存在的 URL。hreflang 和 sitemap 只列磁盘上有文件的语言，`x-default` 指向英文页。
+- 日文门厅点 FAQ → `/ja/faq`。繁中门厅进自己的 `/zh-TW` 或 `/zh-HK` 长文，不跳简中。
 
 ### S3
 
