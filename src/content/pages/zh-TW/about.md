@@ -32,7 +32,7 @@ DoneAt 也幫助你回顧工作、安排接下來的時間：
 
 ## 你的資料會去哪裡
 
-上下班時間、工作日、薪資和偏好預設留在你正在用的這台裝置上，倒數計時和收入估算也在本地算完。在 iPhone 和 iPad 上，你可以選擇在多台裝置間同步排班、記錄、薪資和設定。可選 iCloud 同步進你自己的私人 iCloud，DoneAt 讀不到。Mac、Windows 和網頁計時仍只保存在本地。各端都不會把這些設定或使用者標識傳送到 DoneAt 的伺服器。
+上下班時間、工作日、薪資和偏好預設留在你正在用的這台裝置上，倒數計時和收入估算也在本地算完。在 iPhone 和 iPad 上，你可以選擇在多台裝置間同步排班、記錄、薪資和設定。可選 iCloud 同步進你自己的私人 iCloud，DoneAt 讀不到。Mac、Windows 和網頁計時仍只保存在本地。這些工作設定不會傳送到 DoneAt 的伺服器。
 
 官網和網頁計時會記錄頁面訪問、載入表現，以及少量合計事件。事件裡只有事件名稱，沒有班次、薪資、帳號或廣告標識。和其他網站一樣，託管與統計服務商仍可能依據其條款收到 IP 位址、瀏覽器標識等常規連線資訊。細節見[隱私](/zh-TW/privacy)。
 
@@ -60,6 +60,12 @@ DoneAt 也幫助你回顧工作、安排接下來的時間：
 
 - Vacanza Holidays：版權所有 © Vacanza Team 及各貢獻者、dr-prodigy（2017–2023）、ryanss（2014–2017）。[查看完整授權條款](/licenses/vacanza-holidays-0.83.txt)。
 - holiday-cn：版權所有 © 2019 NateScarlet。[查看完整授權條款](/licenses/holiday-cn.txt)。
+
+## Android
+
+Android 版本目前處於測試階段，購買由 Google Play 處理。啟用伺服器驗證的版本會透過 Cloudflare 上的 DoneAt 服務處理購買權杖，保存其雜湊與權益狀態，不傳送薪資或工作記錄。驗證、備份和刪除方式見[隱私權政策](/zh-TW/privacy#android)。
+
+Android 導覽使用 Kyant 的 [Backdrop（AndroidLiquidGlass）2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) 和 [Shapes 1.2.1](https://github.com/Kyant0/Shapes)。DoneAt 參考 `LiquidBottomTabs` 範例，調整應用程式導覽、拖曳、輔助使用、由右至左版面與減少動態效果。效果在裝置上繪製，不會向作者傳送應用程式內容或裝置識別碼。兩個函式庫均採 Apache License 2.0：[Backdrop 授權條款](/licenses/backdrop-2.0.1.txt)、[Shapes 授權條款](/licenses/shapes-1.2.1.txt)。完整條款也附於應用程式的「設定 → 關於 → 致謝」。
 
 ## 問題回饋
 

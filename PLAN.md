@@ -136,6 +136,14 @@
 - [x] 内容页「打开计时」指 `off.rainif.com`，不形成来回跳转
 - [x] 2026-10-04：五页长文扩到与门厅相同的 19 语（`en` `zh-CN` `zh-TW` `zh-HK` `ja` `ko` `fr` `de` `es` `it` `pt` `ru` `hi-IN` `mr-IN` `tr` `ar` `th` `id` `vi`）。繁中自有页面，不再跳到简中。`/{lang}/{page}` 不再 302。路由、hreflang 和 sitemap 只包含磁盘上有文件的语言；缺译文时就地回落英文正文。下载页对照表和 iPhone 功能说明除 `en` / `zh-CN` 外仍回落英文。新译文需母语审阅。
 
+### Android 隐私与开源说明
+
+- [x] 2026-09-27：准备 Android 隐私草稿，按当时用户要求暂不发布。
+- [x] 2026-10-04：用户要求“Android 相关隐私说明先补上去”，本次解除上述说明的发布暂停。基于官网最新 `cb18b8e` 保留已上线重设计及 19 语言页面，补齐 Android 系统备份、导入导出、Play 购买、Cloudflare 验证、保留与删除、设备认证及评价说明。
+- [x] 19 语 About 补充 Kyant 的 Backdrop（AndroidLiquidGlass）2.0.1 / Shapes 1.2.1、LiquidBottomTabs 改编范围、设备本地绘制和 Apache-2.0；两份完整许可证与应用内版本逐字一致。隐私页链接到对应致谢，日期更新至 2026-10-04。Android 保持测试阶段、服务器验证依版本启用的说明。
+- [x] 本次 `check`（39 files，0 errors/warnings/hints）、`build`（121 页）、`seo:check` 通过；19 语 × 隐私/About × 390/1280 宽度共 76 个浏览器布局用例无横向溢出。实际查看浅色中文/英文隐私与致谢、阿拉伯语 RTL 段落及俄语标题；修复既有俄语长标题溢出。两份许可证与跨页锚点检查通过。本轮未做深色视觉复验，17 语新增译文的母语审阅仍需后续补充。
+- [x] 创建官网 [PR #30](https://github.com/ififi2017/doneat.app/pull/30)，Vercel 构建 Ready。[预览地址](https://doneat-app-git-codex-android-privacy-policy-ififi2017s-projects.vercel.app) 需要 Vercel 登录，当前浏览器会话未获得预览访问；保留访问保护。发布与生产域名验收证据记录在该 PR。Android 功能验证状态仍以产品仓 `docs/android/progress.md` 为准。
+
 ### S3 — SEO 与响应头
 
 - [x] 每页自己的 canonical、hreflang、Open Graph、必要 JSON-LD（SoftwareApplication 在下载页，Organization 在首页）

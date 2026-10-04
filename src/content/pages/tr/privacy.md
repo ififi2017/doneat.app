@@ -2,16 +2,16 @@
 title: "Gizlilik ilkesi — DoneAt"
 description: "DoneAt veriyi varsayılan olarak yerelde tutar, iPhone ve iPad’de isteğe bağlı özel iCloud eşitlemesi sunar ve analiz ile üçüncü taraf hizmetlerini nasıl ele alır."
 heading: "Gizlilik ilkesi"
-intro: "Bu sayfa DoneAt’in bilgiyi nasıl sakladığını ve işlediğini açıklar: resmî site, web zamanlayıcı ve iPhone, iPad, Mac ile Windows uygulamaları."
+intro: "Bu sayfa DoneAt’in bilgiyi nasıl sakladığını ve işlediğini açıklar: resmî site, web zamanlayıcı ve iPhone, iPad, Android, Mac ile Windows uygulamaları."
 updatedLabel: "Son güncelleme"
-updated: "6 Eylül 2026"
+updated: "4 Ekim 2026"
 ---
 
 ## DoneAt’in sakladığı veri
 
-Girdiğin bilgi varsayılan olarak yerelde saklanır: web zamanlayıcıda tarayıcının yerel depolamasında, iPhone, iPad, Mac ve Windows’ta uygulamanın verisinde. DoneAt ürün hesabı sunmaz ve bu bilgiyi DoneAt sunucularına göndermez.
+Girdiğin bilgi varsayılan olarak yerelde saklanır: web zamanlayıcıda tarayıcının yerel depolamasında, iPhone, iPad, Android, Mac ve Windows’ta uygulamanın verisinde. DoneAt ürün hesabı sunmaz ve bu bilgiyi DoneAt sunucularına göndermez.
 
-iPhone ve iPad’de iCloud eşitlemesini açmayı seçebilirsin. Programlarını, kayıtlarını, maaşını, hatırlatıcı tercihlerini, görünümü, dili, yaşam profilini ve Focus verisini Apple Hesabın altındaki özel iCloud veritabanında tutar. Bildirim izni, biyometrik koruma, Live Activity ayarları, geçerli iş sayacı ve ilk kurulum durumu her cihazda kalır. Web zamanlayıcı, Mac uygulaması ve Windows uygulaması yerel kalır ve bu eşitlemenin parçası değildir.
+iPhone ve iPad’de iCloud eşitlemesini açmayı seçebilirsin. Programlarını, kayıtlarını, maaşını, hatırlatıcı tercihlerini, görünümü, dili, yaşam profilini ve Focus verisini Apple Hesabın altındaki özel iCloud veritabanında tutar. Bildirim izni, biyometrik koruma, Live Activity ayarları, geçerli iş sayacı ve ilk kurulum durumu her cihazda kalır. Web zamanlayıcı, Android, Mac uygulaması ve Windows uygulaması yerel kalır ve bu eşitlemenin parçası değildir.
 
 Geri sayım, ilerleme ve kazanç tahmini bu bilgiden cihazında hesaplanır.
 
@@ -29,6 +29,21 @@ Bu genellikle şunları içerir:
 Eşitleme varsayılan olarak kapalıdır. iPhone veya iPad’de açtığında Apple’ın CloudKit hizmeti yukarıda anlatılan veriyi Apple Hesabınla ilişkili özel veritabanında saklar. DoneAt kendi sunucularında bir kopya almaz. Aynı Apple Hesabını kullanan cihazlar bu veriyi kurtarabilir ve eşitleyebilir; bunun için kullanılabilir bir iCloud hesabı ve ağ bağlantısı gerekir.
 
 Eşitlemeyi açmak DoneAt Plus gerektirir. Zaten açılmış eşitleme abonelik bittikten sonra da sürer. Eşitlemeyi kapatmak o cihazda eşitlemeyi durdurur ve hem güncel yerel kopyayı hem mevcut iCloud kopyasını tutar. Kapatmak iki kopyadan birini silmez.
+
+## Android
+
+Android uygulaması test aşamasındadır; erişim ve Plus satın almaları Google Play yayınına bağlıdır. Çalışma verileri ve ayarlar varsayılan olarak uygulamanın özel alanında kalır. DoneAt hesabı veya uygulama kullanım analizi yoktur.
+
+Sistem yedekleri ve cihaz aktarımı; kayıtları, maaşı, kariyer geçmişini, yaşam profilini, Focus verilerini ve tamamlanmamış kurulum ayarlarını içerebilir. Bu, cihazına, hesabına ve sistem ayarlarına bağlıdır; DoneAt sunucusunda kopya oluşmaz. Çalışan sayaç, hatırlatıcı kaydı ve satın alma kanıtları hariç tutulur. Geri yükleme sonrası hatırlatıcılar yeniden planlanır ve satın almalar kontrol edilir. Otomatik Google Drive veya iPhone eşitlemesi yoktur. Elle dışa aktarılan yedek okunabilir JSON’dur, maaş içerebilir ve seçtiğin konum ya da alıcıda ayrı kopya oluşturur.
+
+Satın almaları ve isteğe bağlı yorumları Google Play işler. DoneAt kart bilgilerini veya yorum gönderip göndermediğini almaz. Ürün ve jeton içeren kanıtlar sistem yedeği dışında cihazda saklanır. Başlatma, uygulamaya dönme, satın almayı geri yükleme veya onayı yeniden deneme sırasında kontrol yapılabilir. Sunucu doğrulaması açıksa jeton, ürün ve rastgele istek kimliği HTTPS ile Cloudflare’daki `api.doneat.app` adresine gönderilir. Google değişiklikleri Cloud Pub/Sub ile iletir. Hizmet durumu ve kesin bitiş zamanını Google’dan doğrular, imzalı kanıt döndürür; çalışma verileri veya yedekleri almaz.
+
+Veritabanı doğrulama, geri yükleme ve değiştirilmiş satın almaların yeniden kullanımını önlemek için jeton özeti, ürün, erişim durumu ve bitişi, kontrol zamanı, test satın alma işareti, yeni jeton özeti ve revizyonu saklar. Bildirim kimlikleri 30 günlük aralıkta tekilleştirilir; eskiler sonraki bildirimler işlenirken silinir. Ham jetonlar ve Google yanıtları geçici işlenir, veritabanına veya uygulama günlüklerine yazılmaz. IP tabanlı sınırlama geçicidir; DoneAt veritabanında IP veya özetleri tutulmaz. Google ve Cloudflare trafiği kendi politikalarıyla işler. Satın alma kimlikleri reklam veya kullanım profili için kullanılmaz.
+
+Hatırlatıcılar cihazda planlanır. Cihaz doğrulaması yalnızca sonuç verir; biyometrik veri veya PIN alınmaz. Backdrop (AndroidLiquidGlass) ve Shapes yerel çizim yapar, yazarlara içerik veya kimlik göndermez. Kaynaklar ve lisanslar [Hakkında](/tr/about#android) bölümündedir.
+
+Yerel verileri uygulamadan, depolamasını temizleyerek veya kaldırarak silebilirsin. Dışa aktarılan dosyaları ve sistem yedeklerini sağlayıcılarında ayrıca silmelisin. Sunucudaki satın alma kaydını silmek için [hello@doneat.app](mailto:hello@doneat.app) adresine yaz. Yerel silme sunucu kaydını otomatik silmez veya aboneliği iptal etmez; abonelikleri Google Play’de yönet. Dışa aktarma ve silme, etkin Plus olmadan kullanılabilir.
+
 
 ## Yedek dışa aktarma
 

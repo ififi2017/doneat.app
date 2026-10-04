@@ -32,7 +32,9 @@ DoneAt 也帮助你回顾工作、安排接下来的时间：
 
 ## 你的数据会去哪里
 
-上下班时间、工作日、薪资和偏好默认留在你正在用的这台设备上，倒计时和收入估算也在本地算完。在 iPhone 和 iPad 上，你可以选择在多台设备间同步排班、记录、薪资和设置。可选 iCloud 同步进你自己的私人 iCloud，DoneAt 读不到。Mac、Windows 和网页计时仍只保存在本地。各端都不会把这些设置或用户标识发送到 DoneAt 的服务器。
+上下班时间、工作日、薪资和偏好默认留在你正在用的这台设备上，倒计时和收入估算也在本地算完。在 iPhone 和 iPad 上，你可以选择在多台设备间同步排班、记录、薪资和设置。可选 iCloud 同步进你自己的私人 iCloud，DoneAt 读不到。Mac、Windows 和网页计时仍只保存在本地。这些工作设置不会发送到 DoneAt 的服务器。
+
+Android 版本目前处于测试阶段，Plus 购买由 Google Play 处理。在启用服务端验证的版本中，DoneAt 在 Cloudflare 上的购买验证服务会向 Google 核对购买状态与精确到期时刻，处理购买令牌并保存其哈希和权益状态，不接收薪资或工作记录。购买验证、系统备份和删除方式见[隐私政策](/zh-CN/privacy)。
 
 官网和网页计时会记录页面访问、加载表现，以及少量合计事件。事件里只有事件名称，没有班次、薪资、账号或广告标识。和其他网站一样，托管与统计服务商仍可能依据其条款收到 IP 地址、浏览器标识等常规连接信息。细节见[隐私](/zh-CN/privacy)。
 
@@ -60,6 +62,12 @@ DoneAt 也帮助你回顾工作、安排接下来的时间：
 
 - Vacanza Holidays：版权所有 © Vacanza Team 及各贡献者、dr-prodigy（2017–2023）、ryanss（2014–2017）。[查看完整许可证](/licenses/vacanza-holidays-0.83.txt)。
 - holiday-cn：版权所有 © 2019 NateScarlet。[查看完整许可证](/licenses/holiday-cn.txt)。
+
+### Android 液态玻璃
+
+Android 应用使用 Kyant 的 [Backdrop（AndroidLiquidGlass）2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) 及其依赖 [Shapes 1.2.1](https://github.com/Kyant0/Shapes)，在设备上绘制玻璃模糊、折射与形状。DoneAt 底部导航参考了项目的 `LiquidBottomTabs` 示例，并适配应用导航、拖动、无障碍、从右向左布局及减弱动态效果。
+
+两个库均采用 Apache License 2.0。完整许可证可在此查看：[Backdrop](/licenses/backdrop-2.0.1.txt)、[Shapes](/licenses/shapes-1.2.1.txt)，也随 Android 应用附于“设置 → 关于 → 致谢”。这些绘图库不会向项目作者发送应用内容或设备标识。
 
 ## 问题反馈
 

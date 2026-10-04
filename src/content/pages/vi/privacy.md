@@ -2,16 +2,16 @@
 title: "Chính sách quyền riêng tư — DoneAt"
 description: "DoneAt lưu dữ liệu trên máy theo mặc định, có đồng bộ iCloud riêng tùy chọn trên iPhone và iPad, và xử lý phân tích cùng dịch vụ bên thứ ba thế nào."
 heading: "Chính sách quyền riêng tư"
-intro: "Trang này giải thích DoneAt lưu và xử lý thông tin thế nào: trang chính thức, bộ đếm web, và ứng dụng trên iPhone, iPad, Mac và Windows."
+intro: "Trang này giải thích DoneAt lưu và xử lý thông tin thế nào: trang chính thức, bộ đếm web, và ứng dụng trên iPhone, iPad, Android, Mac và Windows."
 updatedLabel: "Cập nhật lần cuối"
-updated: "6 tháng 9 năm 2026"
+updated: "4 tháng 10 năm 2026"
 ---
 
 ## Dữ liệu DoneAt lưu
 
-Thông tin bạn nhập được lưu trên máy theo mặc định: trong bộ nhớ cục bộ của trình duyệt với bộ đếm web, và trong dữ liệu ứng dụng trên iPhone, iPad, Mac và Windows. DoneAt không có tài khoản sản phẩm và không gửi thông tin này tới máy chủ DoneAt.
+Thông tin bạn nhập được lưu trên máy theo mặc định: trong bộ nhớ cục bộ của trình duyệt với bộ đếm web, và trong dữ liệu ứng dụng trên iPhone, iPad, Android, Mac và Windows. DoneAt không có tài khoản sản phẩm và không gửi thông tin này tới máy chủ DoneAt.
 
-Trên iPhone và iPad, bạn có thể chọn bật đồng bộ iCloud. Nó lưu lịch, bản ghi, lương, tùy chọn nhắc, giao diện, ngôn ngữ, hồ sơ cuộc sống và dữ liệu Tập trung trong cơ sở dữ liệu iCloud riêng dưới Tài khoản Apple của bạn. Quyền thông báo, bảo vệ sinh trắc, cài đặt Hoạt động trực tiếp, bộ đếm công việc hiện tại và trạng thái thiết lập ban đầu ở trên từng thiết bị. Bộ đếm web, ứng dụng Mac và ứng dụng Windows vẫn ở máy và không thuộc lần đồng bộ này.
+Trên iPhone và iPad, bạn có thể chọn bật đồng bộ iCloud. Nó lưu lịch, bản ghi, lương, tùy chọn nhắc, giao diện, ngôn ngữ, hồ sơ cuộc sống và dữ liệu Tập trung trong cơ sở dữ liệu iCloud riêng dưới Tài khoản Apple của bạn. Quyền thông báo, bảo vệ sinh trắc, cài đặt Hoạt động trực tiếp, bộ đếm công việc hiện tại và trạng thái thiết lập ban đầu ở trên từng thiết bị. Bộ đếm web, ứng dụng Android, Mac và ứng dụng Windows vẫn ở máy và không thuộc lần đồng bộ này.
 
 Bộ đếm ngược, tiến độ và ước tính thu nhập được tính trên thiết bị của bạn từ thông tin này.
 
@@ -29,6 +29,21 @@ Thường gồm:
 Đồng bộ tắt theo mặc định. Khi bạn bật trên iPhone hoặc iPad, dịch vụ CloudKit của Apple lưu dữ liệu mô tả ở trên trong cơ sở dữ liệu riêng gắn với Tài khoản Apple của bạn. DoneAt không nhận một bản sao trên máy chủ của mình. Thiết bị dùng cùng Tài khoản Apple có thể khôi phục và đồng bộ dữ liệu đó; việc này cần tài khoản iCloud dùng được và kết nối mạng.
 
 Bật đồng bộ cần DoneAt Plus. Đồng bộ đã bật tiếp tục sau khi đăng ký hết hạn. Tắt đồng bộ sẽ dừng đồng bộ trên thiết bị đó và giữ cả bản cục bộ hiện tại lẫn bản iCloud đang có. Tắt không xóa bản nào trong hai bản.
+
+## Android
+
+Ứng dụng Android đang thử nghiệm; khả năng tải và mua Plus phụ thuộc vào bản phát hành Google Play. Dữ liệu công việc và cài đặt mặc định nằm trong bộ nhớ riêng của ứng dụng, không có tài khoản DoneAt hay phân tích hành vi sử dụng trong ứng dụng.
+
+Sao lưu hệ thống và chuyển thiết bị có thể chứa bản ghi, lương, lịch sử nghề nghiệp, hồ sơ cuộc sống, dữ liệu Focus và cài đặt ban đầu chưa hoàn tất. Điều này tùy thiết bị, tài khoản và cài đặt hệ thống; DoneAt không nhận bản sao trên máy chủ. Bộ đếm đang chạy, sổ nhắc nhở đã lên lịch và bằng chứng mua hàng bị loại trừ. Sau khi khôi phục, nhắc nhở được lập lại và giao dịch được kiểm tra lại. Không tự đồng bộ Google Drive hoặc với iPhone. Bản xuất thủ công là JSON đọc được, có thể chứa lương và tạo bản sao riêng tại nơi bạn chọn.
+
+Google Play xử lý mua hàng và đánh giá tùy chọn. DoneAt không nhận thông tin thẻ hay kết quả cho biết bạn đã gửi đánh giá chưa. Bằng chứng gồm sản phẩm và mã thông báo được lưu trên máy, ngoài sao lưu hệ thống. Có thể kiểm tra khi mở hoặc quay lại ứng dụng, khôi phục mua hàng hoặc thử xác nhận lại. Khi bật xác minh máy chủ, mã thông báo, sản phẩm và mã yêu cầu ngẫu nhiên được gửi qua HTTPS tới `api.doneat.app` trên Cloudflare. Google gửi thay đổi qua Cloud Pub/Sub. Dịch vụ hỏi Google về trạng thái và thời điểm hết hạn chính xác, rồi trả bằng chứng có chữ ký, không nhận dữ liệu công việc hay bản sao lưu.
+
+Cơ sở dữ liệu lưu giá trị băm của mã thông báo, sản phẩm, trạng thái và thời hạn quyền truy cập, thời điểm xác minh, cờ mua thử, giá trị băm của mã thay thế và số sửa đổi để xác minh, khôi phục và ngăn dùng lại giao dịch đã thay thế. ID thông báo được khử trùng lặp trong khoảng 30 ngày; mục cũ bị xóa khi xử lý thông báo sau. Mã gốc và phản hồi Google chỉ được xử lý tạm thời, không lưu trong cơ sở dữ liệu hoặc nhật ký ứng dụng. Giới hạn theo IP là tạm thời; DoneAt không lưu IP hoặc giá trị băm của IP trong cơ sở dữ liệu. Google và Cloudflare xử lý lưu lượng theo chính sách riêng. Mã mua hàng không dùng cho quảng cáo hay lập hồ sơ sử dụng.
+
+Nhắc nhở được lên lịch trên máy. Xác thực thiết bị chỉ trả kết quả, không gửi sinh trắc học hay PIN. Backdrop (AndroidLiquidGlass) và Shapes vẽ trên máy, không gửi nội dung hoặc mã định danh cho tác giả; nguồn và giấy phép tại [Giới thiệu](/vi/about#android).
+
+Xóa dữ liệu trên máy trong ứng dụng, bằng cách xóa bộ nhớ ứng dụng hoặc gỡ cài đặt. Xóa riêng bản xuất và sao lưu hệ thống tại nhà cung cấp lưu trữ. Để xóa bản ghi mua hàng trên máy chủ, liên hệ [hello@doneat.app](mailto:hello@doneat.app). Xóa cục bộ không tự xóa bản ghi máy chủ hoặc hủy thuê bao; quản lý thuê bao trong Google Play. Vẫn có thể xuất và xóa khi không có Plus còn hiệu lực.
+
 
 ## Xuất bản sao lưu
 

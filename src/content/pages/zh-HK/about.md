@@ -32,7 +32,7 @@ DoneAt 亦幫你回顧工作、安排之後嘅時間：
 
 ## 你嘅資料會去邊
 
-返工放工時間、工作日、薪金同偏好預設留喺你用緊嘅呢部裝置上，倒數計時同收入估算都喺本地計完。喺 iPhone 同 iPad 上，你可以揀喺多部裝置之間同步排班、記錄、薪金同設定。可選 iCloud 同步會入你自己嘅私人 iCloud，DoneAt 讀唔到。Mac、Windows 同網頁計時仲係只保存喺本地。各端都唔會將呢啲設定或用戶標識發送到 DoneAt 嘅伺服器。
+返工放工時間、工作日、薪金同偏好預設留喺你用緊嘅呢部裝置上，倒數計時同收入估算都喺本地計完。喺 iPhone 同 iPad 上，你可以揀喺多部裝置之間同步排班、記錄、薪金同設定。可選 iCloud 同步會入你自己嘅私人 iCloud，DoneAt 讀唔到。Mac、Windows 同網頁計時仲係只保存喺本地。呢啲工作設定唔會傳送到 DoneAt 嘅伺服器。
 
 官網同網頁計時會記錄頁面訪問、載入表現，同少量合計事件。事件入面只有事件名稱，冇更份、薪金、帳號或廣告標識。同其他網站一樣，託管同統計服務商仍可能依據其條款收到 IP 位址、瀏覽器標識等常規連線資訊。細節見[私隱](/zh-HK/privacy)。
 
@@ -60,6 +60,12 @@ DoneAt 亦幫你回顧工作、安排之後嘅時間：
 
 - Vacanza Holidays：版權所有 © Vacanza Team 及各貢獻者、dr-prodigy（2017–2023）、ryanss（2014–2017）。[睇完整授權條款](/licenses/vacanza-holidays-0.83.txt)。
 - holiday-cn：版權所有 © 2019 NateScarlet。[睇完整授權條款](/licenses/holiday-cn.txt)。
+
+## Android
+
+Android 版本目前測試中，購買由 Google Play 處理。啟用伺服器驗證嘅版本會透過 Cloudflare 上嘅 DoneAt 服務處理購買權杖，保存佢嘅雜湊同權益狀態，唔會傳送薪金或工作記錄。驗證、備份同刪除方法見[私隱政策](/zh-HK/privacy#android)。
+
+Android 導覽用咗 Kyant 嘅 [Backdrop（AndroidLiquidGlass）2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) 同 [Shapes 1.2.1](https://github.com/Kyant0/Shapes)。DoneAt 參考 `LiquidBottomTabs` 範例，調整應用程式導覽、拖曳、無障礙、由右至左版面同減少動態效果。效果喺裝置繪製，唔會向作者傳送應用程式內容或裝置識別碼。兩個程式庫均採用 Apache License 2.0：[Backdrop 授權條款](/licenses/backdrop-2.0.1.txt)、[Shapes 授權條款](/licenses/shapes-1.2.1.txt)。完整條款亦放喺應用程式「設定 → 關於 → 致謝」。
 
 ## 問題回饋
 

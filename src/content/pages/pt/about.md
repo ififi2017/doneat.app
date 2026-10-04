@@ -32,7 +32,7 @@ Esses recursos fazem parte do app nativo de iPhone e iPad. A página de [downloa
 
 ## Para onde vão seus dados
 
-Horários de trabalho, dias úteis, salário e preferências ficam no dispositivo que você está usando por padrão. A contagem regressiva e a estimativa de ganhos são calculadas lá. No iPhone e iPad, você pode sincronizar horários, registros, salário e configurações entre dispositivos. A sincronização opcional com o iCloud usa seu iCloud privado. O DoneAt não consegue lê-lo. Mac, Windows e o temporizador web permanecem locais. Nenhum desses apps envia essas configurações ou um identificador de usuário para servidores do DoneAt.
+Horários de trabalho, dias úteis, salário e preferências ficam no dispositivo que você está usando por padrão. A contagem regressiva e a estimativa de ganhos são calculadas lá. No iPhone e iPad, você pode sincronizar horários, registros, salário e configurações entre dispositivos. A sincronização opcional com o iCloud usa seu iCloud privado. O DoneAt não consegue lê-lo. Mac, Windows e o temporizador web permanecem locais. Essas configurações de trabalho não são enviadas aos servidores do DoneAt.
 
 O site oficial e o temporizador web registram visualizações de página, desempenho de carregamento e um pequeno conjunto de eventos agregados. Um evento carrega apenas um nome, nunca seu horário, salário, conta ou identificador de publicidade. Provedores de hospedagem e análise podem ainda receber metadados de conexão comuns como endereço IP e user agent, como em qualquer site. Os detalhes estão na página de [privacidade](/pt/privacy).
 
@@ -60,6 +60,12 @@ Os modelos de feriados incluem dados de calendários nacionais gerados com [Vaca
 
 - Vacanza Holidays: Copyright © Vacanza Team e colaboradores individuais, dr-prodigy (2017–2023) e ryanss (2014–2017). [Leia a licença completa](/licenses/vacanza-holidays-0.83.txt).
 - holiday-cn: Copyright © 2019 NateScarlet. [Leia a licença completa](/licenses/holiday-cn.txt).
+
+## Android
+
+A versão Android está em testes. O Google Play processa as compras. Com a verificação no servidor ativada, o DoneAt processa tokens na Cloudflare e guarda seus hashes com o estado do acesso; salários e registros de trabalho não são enviados. Veja a [política de privacidade](/pt/privacy#android) sobre verificação, backups e exclusão.
+
+A navegação Android usa [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass), de Kyant, e [Shapes 1.2.1](https://github.com/Kyant0/Shapes). O DoneAt adapta o exemplo `LiquidBottomTabs` para navegação, arraste, acessibilidade, layouts da direita para a esquerda e movimento reduzido. Os efeitos são desenhados localmente, sem enviar conteúdo ou identificadores do dispositivo aos autores. Ambas as bibliotecas usam Apache License 2.0: [licença Backdrop](/licenses/backdrop-2.0.1.txt), [licença Shapes](/licenses/shapes-1.2.1.txt), também incluídas em Ajustes → Sobre → Agradecimentos.
 
 ## Feedback
 

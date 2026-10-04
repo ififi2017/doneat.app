@@ -2,16 +2,16 @@
 title: "Informativa sulla privacy — DoneAt"
 description: "Come DoneAt memorizza i dati localmente di default, offre sincronizzazione privata opzionale iCloud su iPhone e iPad, e gestisce analisi e servizi di terze parti."
 heading: "Informativa sulla privacy"
-intro: "Questa pagina spiega come DoneAt memorizza ed elabora le informazioni: il sito ufficiale, il timer web e le app su iPhone, iPad, Mac e Windows."
+intro: "Questa pagina spiega come DoneAt memorizza ed elabora le informazioni: il sito ufficiale, il timer web e le app su iPhone, iPad, Android, Mac e Windows."
 updatedLabel: "Ultimo aggiornamento"
-updated: "6 settembre 2026"
+updated: "4 ottobre 2026"
 ---
 
 ## Dati memorizzati da DoneAt
 
-Le informazioni che inserisci vengono memorizzate localmente di default: nel local storage del browser sul timer web, e nei dati dell'applicazione su iPhone, iPad, Mac e Windows. DoneAt non fornisce account di prodotto né invia queste informazioni ai server DoneAt.
+Le informazioni che inserisci vengono memorizzate localmente di default: nel local storage del browser sul timer web, e nei dati dell'applicazione su iPhone, iPad, Android, Mac e Windows. DoneAt non fornisce account di prodotto né invia queste informazioni ai server DoneAt.
 
-Su iPhone e iPad puoi attivare la sincronizzazione iCloud. Memorizza i tuoi programmi, record, stipendio, preferenze dei promemoria, aspetto, lingua, profilo di vita e dati di Concentrazione nel tuo database privato iCloud sotto il tuo Account Apple. L'autorizzazione alle notifiche, la protezione biometrica, le impostazioni delle Attività in tempo reale, il timer di lavoro corrente e lo stato di onboarding restano su ogni dispositivo. Il timer web, l'app Mac e l'app Windows restano locali e non fanno parte di questa sincronizzazione.
+Su iPhone e iPad puoi attivare la sincronizzazione iCloud. Memorizza i tuoi programmi, record, stipendio, preferenze dei promemoria, aspetto, lingua, profilo di vita e dati di Concentrazione nel tuo database privato iCloud sotto il tuo Account Apple. L'autorizzazione alle notifiche, la protezione biometrica, le impostazioni delle Attività in tempo reale, il timer di lavoro corrente e lo stato di onboarding restano su ogni dispositivo. Il timer web, l'app Android, Mac e l'app Windows restano locali e non fanno parte di questa sincronizzazione.
 
 Il conto alla rovescia, il progresso e la stima dei guadagni vengono calcolati sul tuo dispositivo da queste informazioni.
 
@@ -29,6 +29,21 @@ Questo tipicamente include:
 La sincronizzazione è disattivata di default. Quando la attivi su iPhone o iPad, il servizio CloudKit di Apple memorizza i dati descritti sopra nel database privato associato al tuo Account Apple. DoneAt non riceve una copia sui propri server. I dispositivi che usano lo stesso Account Apple possono recuperare e sincronizzare quei dati; questo richiede un account iCloud disponibile e una connessione di rete.
 
 Attivare la sincronizzazione richiede DoneAt Plus. La sincronizzazione già attivata continua dopo la scadenza di un abbonamento. Disattivare la sincronizzazione ferma la sincronizzazione su quel dispositivo e mantiene sia la sua copia locale corrente che la copia iCloud esistente. Disattivarla non elimina nessuna delle due copie.
+
+## Android
+
+L’app Android è in fase di test; disponibilità e acquisti Plus dipendono dalla pubblicazione su Google Play. Dati di lavoro e impostazioni restano di norma nello spazio privato dell’app, senza account DoneAt né analisi dell’utilizzo nell’app.
+
+Backup di sistema e trasferimenti possono includere registri, stipendio, carriera, profilo di vita, dati Focus e impostazioni di una configurazione incompleta. Dipendono da dispositivo, account e impostazioni di sistema; DoneAt non riceve copie sul server. Timer in corso, registro dei promemoria e prove d’acquisto sono esclusi. Dopo un ripristino i promemoria vengono ricreati e gli acquisti ricontrollati. Non c’è sincronizzazione automatica Google Drive o con iPhone. Le esportazioni manuali sono JSON leggibile, possono contenere lo stipendio e creano copie distinte nella destinazione scelta.
+
+Google Play gestisce acquisti e recensioni facoltative. DoneAt non riceve dati della carta né sa se hai inviato una recensione. Le prove con prodotto e token sono salvate localmente ed escluse dal backup di sistema. Gli acquisti possono essere verificati all’avvio, al ritorno nell’app, al ripristino o durante un nuovo tentativo di conferma. Con verifica server attiva, token, prodotto e identificativo casuale della richiesta vengono inviati via HTTPS ad `api.doneat.app` su Cloudflare. Google invia cambiamenti tramite Cloud Pub/Sub. Il servizio consulta Google per stato e scadenza esatta e restituisce una prova firmata, senza ricevere dati di lavoro o backup.
+
+Il database conserva hash del token, prodotto, stato e scadenza dei diritti, ora di verifica, indicatore di acquisto di test, hash del token sostitutivo e revisione per verifica, ripristino e protezione dal riutilizzo di acquisti sostituiti. Gli ID delle notifiche vengono deduplicati su 30 giorni; i più vecchi vengono rimossi quando arrivano altre notifiche. Token originali e risposte Google sono transitori, non salvati nel database o nei log applicativi. Il limite per IP è temporaneo; DoneAt non salva IP o relativi hash nel database. Google e Cloudflare trattano il traffico secondo le proprie politiche. Gli identificativi d’acquisto non servono a pubblicità o profilazione d’uso.
+
+I promemoria sono locali. L’autenticazione del dispositivo fornisce solo un esito, non dati biometrici o PIN. Backdrop (AndroidLiquidGlass) e Shapes disegnano localmente senza inviare contenuti o identificativi agli autori; fonti e licenze sono in [Informazioni](/it/about#android).
+
+Rimuovi i dati locali nell’app, cancellandone lo spazio di archiviazione o disinstallandola. Elimina separatamente esportazioni e backup di sistema presso il relativo fornitore. Per cancellare un record d’acquisto server, contatta [hello@doneat.app](mailto:hello@doneat.app). L’eliminazione locale non cancella automaticamente quel record né l’abbonamento, da gestire in Google Play. Esportazione ed eliminazione restano disponibili senza Plus attivo.
+
 
 ## Esportazioni di backup
 

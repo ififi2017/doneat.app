@@ -32,7 +32,9 @@ These features are part of the native iPhone and iPad app. The [download page](/
 
 ## Where your data goes
 
-Working hours, workdays, salary and preferences stay on the device you are using by default. The countdown and earnings estimate are computed there. On iPhone and iPad, you can choose to sync schedules, records, salary and settings across your devices. Optional iCloud sync uses your private iCloud. DoneAt cannot read it. Mac, Windows and the web timer remain local. None of these apps sends those settings or a user identifier to DoneAt servers.
+Working hours, workdays, salary and preferences stay on the device you are using by default. The countdown and earnings estimate are computed there. On iPhone and iPad, you can choose to sync schedules, records, salary and settings across your devices. Optional iCloud sync uses your private iCloud. DoneAt cannot read it. Mac, Windows and the web timer remain local. These work settings are not sent to DoneAt servers.
+
+The Android version is in testing. Google Play handles its Plus purchases. In builds with server verification enabled, DoneAt’s purchase-verification service on Cloudflare checks purchase status and exact expiry with Google. It processes purchase tokens and stores their hashes with entitlement state. Salary and work records stay outside this service. See the [privacy policy](/en/privacy) for purchase verification, system backups and deletion.
 
 The official site and the web timer record page views, loading performance, and a small set of aggregate events. An event carries only a name, never your schedule, salary, account, or advertising identifier. Hosting and analytics providers may still receive ordinary connection metadata such as an IP address and user agent, as they do on any website. The [privacy](/en/privacy) page has the details.
 
@@ -60,6 +62,12 @@ The holiday templates include national-calendar data generated with [Vacanza Hol
 
 - Vacanza Holidays: Copyright © Vacanza Team and individual contributors, dr-prodigy (2017–2023), and ryanss (2014–2017). [Read the complete licence](/licenses/vacanza-holidays-0.83.txt).
 - holiday-cn: Copyright © 2019 NateScarlet. [Read the complete licence](/licenses/holiday-cn.txt).
+
+### Android liquid glass
+
+The Android app uses [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) by Kyant, with [Shapes 1.2.1](https://github.com/Kyant0/Shapes), to draw glass blur, refraction and shapes on the device. DoneAt’s bottom navigation adapts the project’s `LiquidBottomTabs` example for its own navigation, dragging, accessibility, right-to-left layouts and reduced-motion behavior.
+
+Both libraries are distributed under Apache License 2.0. Their complete licence texts are available here: [Backdrop](/licenses/backdrop-2.0.1.txt) and [Shapes](/licenses/shapes-1.2.1.txt), and in the Android app under Settings → About → Acknowledgements. These rendering libraries do not send app content or device identifiers to their authors.
 
 ## Feedback
 
