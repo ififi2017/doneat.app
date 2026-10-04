@@ -64,7 +64,7 @@ DoneAt 使用 Cloudflare 托管的 `api.doneat.app` 核验 Android 购买。启�
 
 为了托管这些页面，Vercel 可能依据其隐私政策处理 IP 地址、浏览器标识等常规连接信息。本项目不会保存这些信息，也不会用它们建立你的画像。
 
-官网使用 Vercel 的无 Cookie 统计服务记录页面访问量和加载表现，并用少量合计计数了解哪些入口被用到。事件来自固定且公开的清单，例如 `hall_view`、`download_view`、`web_timer_open` 或 `app_store_open`，只按日加一。请求里只有事件名，没有用户标识、会话、语言、班次或薪资，不能用来认出或追踪某一个人。
+官网使用 Vercel 的无 Cookie 统计服务记录页面访问量和加载表现，并用少量合计计数了解哪些入口被用到。事件来自固定且公开的清单，例如 `hall_view`、`download_view`、`download_from_web`、`web_timer_open` 或 `app_store_open`，只按日加一。请求里只有事件名，没有用户标识、会话、语言、班次或薪资，不能用来认出或追踪某一个人。
 
 完整的事件清单见本仓的 [`src/lib/analytics-events.ts`](https://github.com/ififi2017/doneat.app/blob/main/src/lib/analytics-events.ts)。
 

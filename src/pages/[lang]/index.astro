@@ -1,70 +1,166 @@
 ---
+import { Picture } from "astro:assets";
 import BrandMark from "../../components/BrandMark.astro";
 import DeviceHero from "../../components/DeviceHero.astro";
+import LiveShiftCard from "../../components/LiveShiftCard.astro";
+import MediaControls from "../../components/MediaControls.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
 import StoreEntries from "../../components/StoreEntries.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import {
-  brandSentence,
-  functionalSubtitle,
-  HALL_LOCALES,
-  homeTitle,
-  isHallLocale,
-  t,
-  type HallLocale,
-} from "../../lib/config";
+import { brandSentence, contentLocaleFor, functionalSubtitle, HALL_LOCALES, homeTitle, isChineseHall, isHallLocale, t, webAppUrl } from "../../lib/config";
 import { homeJsonLd } from "../../lib/jsonld";
+import { homeStory } from "../../lib/home-story";
+import { heroLineWidth } from "../../lib/hero-title";
+import { homeDemo } from "../../lib/home-demo";
+import "../../styles/home-story.css";
+import enIsland from "../../../assets/product/en/island.webp";
+import enLive from "../../../assets/product/en/live.webp";
+import enWidget from "../../../assets/product/en/widget.webp";
+import enWatch from "../../../assets/product/en/watch.png";
+import zhIsland from "../../../assets/product/zh-CN/island.webp";
+import zhLive from "../../../assets/product/zh-CN/live.webp";
+import zhWidget from "../../../assets/product/zh-CN/widget.webp";
+import zhWatch from "../../../assets/product/zh-CN/watch.png";
+import watchFrame from "../../../assets/product/watch-frame.png";
 
-export function getStaticPaths() {
-  return HALL_LOCALES.map((lang) => ({ params: { lang } }));
-}
-
-const langParam = Astro.params.lang;
-if (!isHallLocale(langParam)) {
-  throw new Error(`Unknown hall locale: ${langParam}`);
-}
-const locale: HallLocale = langParam;
-const sentence = brandSentence(locale);
-const subtitle = functionalSubtitle(locale);
+export function getStaticPaths() { return HALL_LOCALES.map((lang) => ({ params: { lang } })); }
+const locale = Astro.params.lang;
+if (!isHallLocale(locale)) throw new Error(`Unknown hall locale: ${locale}`);
+const copy = homeStory(locale);
+const demo = homeDemo(locale);
+// The finale title is centred: hang a closing full-width stop so its blank
+// half doesn't shift the line, and keep the comma with the Chinese noun.
+const getTitleEnd = /[。！？]$/u.test(copy.getTitle) ? copy.getTitle.slice(-1) : "";
+const getTitleBody = getTitleEnd ? copy.getTitle.slice(0, -1) : copy.getTitle;
+// Sentences wrap as units, so a short connective never dangles at a line end.
+const getBodySentences = copy.getBody.split(/(?<=[.!?])\s+/u);
+const getTitleParts = isChineseHall(locale) ? getTitleBody.split(/(时间，|時間，)/u) : [getTitleBody];
 const description = t(locale, "homeDescription");
-const values = [
-  t(locale, "valueLocal"),
-  t(locale, "valueNoAccount"),
-  t(locale, "valueSeeDone"),
-] as const;
-
-const jsonLd = homeJsonLd({ locale, description });
+const download = `/${contentLocaleFor(locale, "download")}/download`;
+const island = isChineseHall(locale) ? zhIsland : enIsland;
+const live = isChineseHall(locale) ? zhLive : enLive;
+const widget = isChineseHall(locale) ? zhWidget : enWidget;
+const watch = isChineseHall(locale) ? zhWatch : enWatch;
+const values = [t(locale, "valueLocal"), t(locale, "valueNoAccount"), t(locale, "valueSeeDone")];
 ---
 
-<BaseLayout
-  locale={locale}
-  title={homeTitle(locale)}
-  description={description}
-  path={`/${locale}`}
-  hreflangKind="hall"
-  jsonLd={jsonLd}
-  trackPage="hall_view"
->
-  <div class="hall-page flex min-h-dvh flex-col">
-    <SiteHeader locale={locale} currentPage="home" />
-    <main id="content" class="page-frame hall">
-      <div class="hall-copy">
-        <BrandMark class="hall-mark" />
-        <p class="hall-eyebrow">{subtitle}</p>
-        <h1 class="hall-title">DoneAt</h1>
-        {sentence ? <p class="hall-lede">{sentence}</p> : null}
-        <div class="hall-cta">
-          <StoreEntries locale={locale} variant="home" />
+<BaseLayout locale={locale} title={homeTitle(locale)} description={description} path={`/${locale}`} hreflangKind="hall" jsonLd={homeJsonLd({locale,description})} trackPage="hall_view">
+  <div class="shift-page">
+    <SiteHeader locale={locale} currentPage="home" tone="dark" />
+    <main id="content">
+      <section class="scene-hero" aria-labelledby="shift-title" data-scene="exit">
+        <div class="shift-frame hero-grid">
+          <div class="hero-copy">
+            <h1 class="shift-title" id="shift-title" style={`--hero-line-width:${heroLineWidth(locale)}`}><span><span>{copy.headlineWork}</span></span><span><span>{copy.headlineLife}</span></span></h1>
+            <p class="hero-sentence">{brandSentence(locale)}</p>
+            <div class="shift-actions"><a class="btn btn-primary" href={download} data-track="download_page_open">{t(locale,"downloadCta")}</a><a class="shift-web-link" href={webAppUrl(locale,"hall")} target="_blank" rel="noopener noreferrer" data-track="web_timer_open">{t(locale,"webCta")}<span aria-hidden="true">↗</span></a></div>
+          </div>
+          <div class="hero-stage"><LiveShiftCard locale={locale} /></div>
         </div>
-        <p class="hall-qualities">
-          {values.map((value) => <span>{value}</span>)}
-        </p>
-      </div>
-      <div class="hall-stage">
-        <DeviceHero locale={locale} priority />
-      </div>
+      </section>
+      <section class="scene-proof" id="see-it" aria-labelledby="proof-title" data-scene="sticky">
+        <div class="scene-pin">
+          <div class="shift-frame proof-layout">
+            <div class="proof-copy">
+              <h2 class="proof-title" id="proof-title">{copy.proofTitle}</h2>
+              <p class="proof-statement" data-words="0.04 0.42">{copy.proofBody}</p>
+              <ol class="phone-steps" data-steps="0.5 0.46">{values.map((v,i)=><li data-step={i}><span aria-hidden="true">0{i+1}</span>{v}</li>)}</ol>
+              <a class="story-link" href={download} data-track="download_page_open">{t(locale,"downloadCta")}<span aria-hidden="true">↗</span></a>
+            </div>
+            <figure class="phone-device"><DeviceHero locale={locale} /><figcaption><span id="phone-title">{functionalSubtitle(locale)} · iPhone</span><MediaControls locale={locale} /></figcaption></figure>
+          </div>
+        </div>
+      </section>
+      <section class="scene-carry" aria-labelledby="carry-title" data-scene="pass">
+        <div class="shift-frame">
+          <div class="carry-heading"><h2 id="carry-title">{copy.carryTitle}</h2><p>{copy.carryBody}</p></div>
+          <div class="carry-gallery">
+            <figure>
+              <div class="carry-widgets" role="img" aria-label={copy.widgetsAlt}>
+                <Picture pictureAttributes={{class: "carry-island"}} src={island} formats={["webp"]} fallbackFormat="webp" widths={[255,510]} alt="" aria-hidden="true" loading="lazy" />
+                <Picture pictureAttributes={{class: "carry-live"}} src={live} formats={["webp"]} fallbackFormat="webp" widths={[366,732]} alt="" aria-hidden="true" loading="lazy" />
+                <Picture pictureAttributes={{class: "carry-widget"}} src={widget} formats={["webp"]} fallbackFormat="webp" widths={[489,978]} alt="" aria-hidden="true" loading="lazy" />
+              </div>
+              <figcaption><h3>iPhone · iPad</h3><p>{demo.widgets}</p></figcaption>
+            </figure>
+            <figure>
+              <div class="carry-watch">
+                <Picture pictureAttributes={{class: "watch-screen"}} src={watch} formats={["webp"]} fallbackFormat="webp" widths={[208,416]} alt={copy.watchAlt} loading="lazy" />
+                <Picture pictureAttributes={{class: "watch-frame"}} src={watchFrame} formats={["webp"]} fallbackFormat="webp" widths={[280,560]} alt="" aria-hidden="true" loading="lazy" />
+              </div>
+              <figcaption><h3>Apple Watch</h3><p>{t(locale,"valueSeeDone")}</p></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+      <section class="scene-finale" id="get-doneat" aria-labelledby="get-title" data-scene="pass">
+        <div class="finale-glow" aria-hidden="true"></div>
+        <div class="shift-frame get-layout">
+          <BrandMark locale={locale} />
+          <h2 id="get-title">{getTitleParts.map(part => part === "时间，" || part === "時間，" ? <span class="get-title-word">{part.slice(0, -1)}<span class="end-punct">{part.slice(-1)}</span></span> : part)}{getTitleEnd && <span class="end-punct">{getTitleEnd}</span>}</h2>
+          <p>{getBodySentences.map((sentence, index) => <>{index > 0 && " "}<span class="sentence">{sentence}</span></>)}</p>
+          <StoreEntries locale={locale} variant="download" tone="dark" />
+          <a class="story-link get-web" href={webAppUrl(locale,"hall")} target="_blank" rel="noopener noreferrer" data-track="web_timer_open">{t(locale,"webCta")}<span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
     </main>
     <SiteFooter locale={locale} />
   </div>
 </BaseLayout>
+
+<script>
+  import "../../lib/home-scenes";
+  // The finale and footer together fill the last screen; measure the chrome
+  // around them so the finale's min-height leaves no strip of the previous
+  // chapter showing above it.
+  const finale = document.querySelector<HTMLElement>(".scene-finale");
+  const chrome = [document.querySelector<HTMLElement>(".site-header"), document.querySelector<HTMLElement>(".site-footer")];
+  if (finale && chrome.every(Boolean)) {
+    const observer = new ResizeObserver(() => {
+      finale.style.setProperty("--finale-chrome", `${chrome.reduce((sum, el) => sum + (el?.offsetHeight ?? 0), 0)}px`);
+    });
+    chrome.forEach((el) => el && observer.observe(el));
+  }
+  const title = document.getElementById("shift-title");
+  if (title instanceof HTMLElement) {
+    const rows = Array.from(title.querySelectorAll<HTMLElement>(":scope > span"));
+    let frame = 0;
+    let observedWidth = -1;
+
+    // Correct only actual overflow from a substituted system font; never hide text.
+    function fitTitle() {
+      if (!(title instanceof HTMLElement)) return;
+      title.style.removeProperty("--hero-font-fit");
+      const available = title.getBoundingClientRect().width - 1;
+      if (available <= 0) return;
+      let size = parseFloat(getComputedStyle(title).fontSize);
+      // Glyph advances can round per character, so width is not exactly linear
+      // in font size; step with a small margin until it fits.
+      for (let attempt = 0; attempt < 6; attempt++) {
+        const widest = Math.max(...rows.map(row => row.getBoundingClientRect().width));
+        if (widest <= available) break;
+        size *= (available / widest) * 0.99;
+        title.style.setProperty("--hero-font-fit", `${Math.floor(size * 10) / 10}px`);
+      }
+    }
+
+    function scheduleFit() {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(fitTitle);
+    }
+
+    fitTitle();
+    document.fonts.ready.then(scheduleFit);
+    if (typeof ResizeObserver !== "undefined") {
+      new ResizeObserver(entries => {
+        const width = entries[0]?.contentRect.width ?? 0;
+        if (Math.abs(width - observedWidth) < 0.5) return;
+        observedWidth = width;
+        scheduleFit();
+      }).observe(title);
+    } else {
+      window.addEventListener("resize", scheduleFit, { passive: true });
+    }
+  }
+</script>

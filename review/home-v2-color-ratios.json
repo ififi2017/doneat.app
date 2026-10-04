@@ -1,0 +1,59 @@
+{
+  "kind": "declared solid-color pairs; no browser style/pixel measurement",
+  "pairs": [
+    {
+      "foreground": "#fff1d8",
+      "background": "#30202c",
+      "ratio": 13.75,
+      "passes4_5": true
+    },
+    {
+      "foreground": "#ff9a45",
+      "background": "#30202c",
+      "ratio": 7.28,
+      "passes4_5": true
+    },
+    {
+      "foreground": "#30202c",
+      "background": "#f4f0e8",
+      "ratio": 13.5,
+      "passes4_5": true
+    },
+    {
+      "foreground": "#30202c",
+      "background": "#ff9a45",
+      "ratio": 7.28,
+      "passes4_5": true
+    },
+    {
+      "foreground": "#51444f",
+      "background": "#f4f0e8",
+      "ratio": 8.07,
+      "passes4_5": true
+    },
+    {
+      "foreground": "#51444f",
+      "background": "#e3dbce",
+      "ratio": 6.68,
+      "passes4_5": true
+    },
+    {
+      "foreground": "#fff1d8",
+      "background": "#201823",
+      "ratio": 15.48,
+      "passes4_5": true
+    },
+    {
+      "foreground": "#d5c4d4",
+      "background": "#201823",
+      "ratio": 10.42,
+      "passes4_5": true
+    },
+    {
+      "foreground": "#d5c4d4",
+      "background": "#3d2e3a",
+      "ratio": 7.68,
+      "passes4_5": true
+    }
+  ]
+}

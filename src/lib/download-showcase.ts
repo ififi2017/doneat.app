@@ -1,4 +1,4 @@
-import type { ContentLocale } from "./config";
+import { isChineseHall, type ContentLocale } from "./config";
 
 export type CompareStatus = "included" | "limited" | "absent";
 
@@ -34,21 +34,29 @@ export interface DownloadShowcaseCopy {
   featureLabel: string;
   mobileLabel: string;
   desktopLabel: string;
+  /** Download-page section nav and the sideways-scroll hint. */
+  showcaseLabel: string;
+  compareHint: string;
+  pageIndexLabel: string;
+  compareNavLabel: string;
   rows: CompareRow[];
 }
 
-const copy: Record<ContentLocale, DownloadShowcaseCopy> = {
+const copy: Partial<Record<ContentLocale, DownloadShowcaseCopy>> &
+  Record<"en" | "zh-CN", DownloadShowcaseCopy> = {
   "zh-CN": {
-    heading: "手机和电脑上的倒计时",
-    lede: "同一个班次，装在口袋里或桌面上。关掉页面之后，通知和剩余时间还在。",
+    heading: "在电脑上，抬眼就能看到",
+    lede: "专心做事时，让剩余时间留在菜单栏、托盘或迷你计时里。窗口藏起来，下班提醒也还在。",
     mobileCaption: "iPhone",
     desktopCaption: "电脑主窗",
     miniCaption: "迷你计时，可留在桌面上",
     appAlt: "电脑上的 DoneAt：设好班次后开始倒计时",
     miniAlt: "桌面上的迷你计时",
-    reviewAlt: "iPhone 上的 DoneAt：今天这班的倒计时和进度，下方是本周、今年的工时和接下来的提醒",
+    reviewAlt:
+      "iPhone 上的 DoneAt：今天这班的倒计时和进度，下方是本周、今年的工时和接下来的提醒",
     iphoneHeading: "iPhone 和 Apple Watch 上能做什么",
-    iphoneLede: "手机上看倒计时，锁屏和手腕上看还剩多久，一整个月的班排在一张月历里。",
+    iphoneLede:
+      "手机上看倒计时，锁屏和手腕上看还剩多久，一整个月的班排在一张月历里。",
     iphoneFeatures: [
       {
         shot: "widgets",
@@ -76,10 +84,15 @@ const copy: Record<ContentLocale, DownloadShowcaseCopy> = {
       },
     ],
     comparisonHeading: "装在哪里，剩余时间出现的方式不一样",
-    comparisonLede: "倒计时、今日已赚和跨夜班次两边都有。手机上还可以用月历排班、跟着节假日走、把年终奖算进去、用生物识别锁住薪资，并在 Apple Watch 上抬腕查看。",
+    comparisonLede:
+      "倒计时、今日已赚和跨夜班次两边都有。手机上还可以用月历排班、跟着节假日走、把年终奖算进去、用生物识别锁住薪资，并在 Apple Watch 上抬腕查看。",
     featureLabel: "功能",
     mobileLabel: "手机 / iPad",
     desktopLabel: "电脑",
+    showcaseLabel: "DoneAt 客户端功能",
+    compareHint: "横向滑动，查看两种平台的功能 →",
+    pageIndexLabel: "本页内容",
+    compareNavLabel: "功能对照",
     rows: [
       {
         feature: "下班倒计时",
@@ -98,12 +111,18 @@ const copy: Record<ContentLocale, DownloadShowcaseCopy> = {
       },
       {
         feature: "月历排班",
-        mobile: { status: "included", detail: "固定星期、大小周、轮班轮休、自由排班或手动计时" },
+        mobile: {
+          status: "included",
+          detail: "固定星期、大小周、轮班轮休、自由排班或手动计时",
+        },
         desktop: { status: "limited", detail: "一组上下班时间" },
       },
       {
         feature: "节假日与调休",
-        mobile: { status: "included", detail: "按国家或地区适配，在「工作时间与排班」中开启" },
+        mobile: {
+          status: "included",
+          detail: "按国家或地区适配，在「工作时间与排班」中开启",
+        },
         desktop: { status: "absent", detail: "没有" },
       },
       {
@@ -123,7 +142,10 @@ const copy: Record<ContentLocale, DownloadShowcaseCopy> = {
       },
       {
         feature: "自动循环排班",
-        mobile: { status: "included", detail: "设一次，按班次循环；之后看小组件即可" },
+        mobile: {
+          status: "included",
+          detail: "设一次，按班次循环；之后看小组件即可",
+        },
         desktop: { status: "absent", detail: "没有" },
       },
       {
@@ -133,7 +155,10 @@ const copy: Record<ContentLocale, DownloadShowcaseCopy> = {
       },
       {
         feature: "抬眼就在",
-        mobile: { status: "included", detail: "主屏幕与锁定屏幕小组件、实时活动" },
+        mobile: {
+          status: "included",
+          detail: "主屏幕与锁定屏幕小组件、实时活动",
+        },
         desktop: { status: "included", detail: "菜单栏、托盘与迷你计时" },
       },
       {
@@ -148,22 +173,27 @@ const copy: Record<ContentLocale, DownloadShowcaseCopy> = {
       },
       {
         feature: "数据存储",
-        mobile: { status: "included", detail: "默认保存在本机，可选择通过私人 iCloud 同步" },
+        mobile: {
+          status: "included",
+          detail: "默认保存在本机，可选择通过私人 iCloud 同步",
+        },
         desktop: { status: "included", detail: "班次和薪资不上传" },
       },
     ],
   },
   en: {
-    heading: "The same countdown, on a phone or a computer",
-    lede: "One shift, in your pocket or on the desk. After you close the page, reminders and remaining time stay with the app.",
+    heading: "On your desk. Out of your way.",
+    lede: "Keep the time left in your menu bar, system tray or mini timer. Hide the window; your clock-out reminder stays with you.",
     mobileCaption: "iPhone",
     desktopCaption: "Desktop window",
     miniCaption: "Mini timer, stays on the desk",
     appAlt: "DoneAt on a computer: set a shift and start the countdown",
     miniAlt: "The mini timer on the desktop",
-    reviewAlt: "DoneAt on iPhone: the countdown and progress for today’s shift, with this week’s and this year’s hours and upcoming reminders",
+    reviewAlt:
+      "DoneAt on iPhone: the countdown and progress for today’s shift, with this week’s and this year’s hours and upcoming reminders",
     iphoneHeading: "What DoneAt does on iPhone and Apple Watch",
-    iphoneLede: "The countdown on your phone, the time left on your Lock Screen and wrist, and a whole month of shifts on one calendar.",
+    iphoneLede:
+      "The countdown on your phone, the time left on your Lock Screen and wrist, and a whole month of shifts on one calendar.",
     iphoneFeatures: [
       {
         shot: "widgets",
@@ -191,34 +221,64 @@ const copy: Record<ContentLocale, DownloadShowcaseCopy> = {
       },
     ],
     comparisonHeading: "Where it lives is what changes",
-    comparisonLede: "The countdown, today’s earnings, and overnight shifts are on both. On iPhone you can also plan the month on a calendar, follow public holidays, fold in a year-end bonus, lock salary behind biometrics, and check the time on Apple Watch.",
+    comparisonLede:
+      "The countdown, today’s earnings, and overnight shifts are on both. On iPhone you can also plan the month on a calendar, follow public holidays, fold in a year-end bonus, lock salary behind biometrics, and check the time on Apple Watch.",
     featureLabel: "Feature",
     mobileLabel: "iPhone / iPad",
     desktopLabel: "Computer",
+    showcaseLabel: "DoneAt app features",
+    compareHint: "Scroll sideways to compare both platforms →",
+    pageIndexLabel: "On this page",
+    compareNavLabel: "Compare features",
     rows: [
       {
         feature: "Shift countdown",
-        mobile: { status: "included", detail: "Live remaining time and progress" },
-        desktop: { status: "included", detail: "Live remaining time and progress" },
+        mobile: {
+          status: "included",
+          detail: "Live remaining time and progress",
+        },
+        desktop: {
+          status: "included",
+          detail: "Live remaining time and progress",
+        },
       },
       {
         feature: "Today’s earnings",
-        mobile: { status: "included", detail: "Monthly or daily pay, by progress" },
-        desktop: { status: "included", detail: "Monthly or daily pay, by progress" },
+        mobile: {
+          status: "included",
+          detail: "Monthly or daily pay, by progress",
+        },
+        desktop: {
+          status: "included",
+          detail: "Monthly or daily pay, by progress",
+        },
       },
       {
         feature: "Overnight shifts",
-        mobile: { status: "included", detail: "End time before start crosses midnight" },
-        desktop: { status: "included", detail: "End time before start crosses midnight" },
+        mobile: {
+          status: "included",
+          detail: "End time before start crosses midnight",
+        },
+        desktop: {
+          status: "included",
+          detail: "End time before start crosses midnight",
+        },
       },
       {
         feature: "Monthly calendar",
-        mobile: { status: "included", detail: "Fixed weekdays, alternating weeks, rotations, free scheduling or manual timing" },
+        mobile: {
+          status: "included",
+          detail:
+            "Fixed weekdays, alternating weeks, rotations, free scheduling or manual timing",
+        },
         desktop: { status: "limited", detail: "One start and end time" },
       },
       {
         feature: "Public holidays",
-        mobile: { status: "included", detail: "By country or region, turned on in Work Hours & Schedule" },
+        mobile: {
+          status: "included",
+          detail: "By country or region, turned on in Work Hours & Schedule",
+        },
         desktop: { status: "absent", detail: "No" },
       },
       {
@@ -228,52 +288,85 @@ const copy: Record<ContentLocale, DownloadShowcaseCopy> = {
       },
       {
         feature: "Salary lock",
-        mobile: { status: "included", detail: "Biometrics to open salary settings or show the amount" },
+        mobile: {
+          status: "included",
+          detail: "Biometrics to open salary settings or show the amount",
+        },
         desktop: { status: "absent", detail: "No" },
       },
       {
         feature: "Coming up",
-        mobile: { status: "included", detail: "Health reminders, shift progress, lunch" },
+        mobile: {
+          status: "included",
+          detail: "Health reminders, shift progress, lunch",
+        },
         desktop: { status: "absent", detail: "No" },
       },
       {
         feature: "Recurring schedule",
-        mobile: { status: "included", detail: "Set once; it cycles on its own. After that, the widget is enough" },
+        mobile: {
+          status: "included",
+          detail:
+            "Set once; it cycles on its own. After that, the widget is enough",
+        },
         desktop: { status: "absent", detail: "No" },
       },
       {
         feature: "Reminders after you leave",
         mobile: { status: "included", detail: "System notifications" },
-        desktop: { status: "included", detail: "System notifications with the window hidden" },
+        desktop: {
+          status: "included",
+          detail: "System notifications with the window hidden",
+        },
       },
       {
         feature: "Close at hand",
-        mobile: { status: "included", detail: "Home Screen and Lock Screen widgets, Live Activities" },
-        desktop: { status: "included", detail: "Menu bar, tray, and mini timer" },
+        mobile: {
+          status: "included",
+          detail: "Home Screen and Lock Screen widgets, Live Activities",
+        },
+        desktop: {
+          status: "included",
+          detail: "Menu bar, tray, and mini timer",
+        },
       },
       {
         feature: "Apple Watch",
-        mobile: { status: "included", detail: "Free app and two complications" },
+        mobile: {
+          status: "included",
+          detail: "Free app and two complications",
+        },
         desktop: { status: "absent", detail: "No" },
       },
       {
         feature: "Launch at login and shortcut",
         mobile: { status: "limited", detail: "Open it from the home screen" },
-        desktop: { status: "included", detail: "Ready after login, one shortcut away" },
+        desktop: {
+          status: "included",
+          detail: "Ready after login, one shortcut away",
+        },
       },
       {
         feature: "Data storage",
-        mobile: { status: "included", detail: "Local by default, with optional private iCloud sync" },
-        desktop: { status: "included", detail: "Hours and salary are not uploaded" },
+        mobile: {
+          status: "included",
+          detail: "Local by default, with optional private iCloud sync",
+        },
+        desktop: {
+          status: "included",
+          detail: "Hours and salary are not uploaded",
+        },
       },
     ],
   },
 };
 
-export function downloadShowcaseCopy(locale: ContentLocale): DownloadShowcaseCopy {
-  return copy[locale];
+export function downloadShowcaseCopy(
+  locale: ContentLocale,
+): DownloadShowcaseCopy {
+  return copy[locale] ?? copy.en;
 }
 
 export function desktopMediaStem(locale: ContentLocale): "zh" | "en" {
-  return locale === "zh-CN" ? "zh" : "en";
+  return isChineseHall(locale) ? "zh" : "en";
 }

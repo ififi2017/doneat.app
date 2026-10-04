@@ -70,18 +70,18 @@ function trackFor(id: SocialLink["id"]): string | undefined {
   }
 
   .site-social:hover {
-    color: var(--color-orange-ink);
+    color: var(--footer-link-hover-color, var(--color-orange-ink));
   }
 
   .site-social:focus-visible {
-    outline: 2px solid var(--color-orange);
+    outline: 2px solid var(--footer-focus-color, var(--color-orange));
     outline-offset: 2px;
     border-radius: 999px;
   }
 
   @media (prefers-color-scheme: dark) {
     .site-social:hover {
-      color: var(--color-orange-bright);
+      color: var(--footer-link-hover-color, var(--color-orange-bright));
     }
   }
 </style>

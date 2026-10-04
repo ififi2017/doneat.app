@@ -12,13 +12,13 @@ import {
 interface Props {
   locale: HallLocale;
   currentPage?: ContentPage | "home";
+  /** "dark" keeps the bar dark in both schemes (the homepage opens on black). */
+  tone?: "auto" | "dark";
 }
 
-const { locale, currentPage = "home" } = Astro.props;
-const contentLang = contentLocaleFor(locale);
-
+const { locale, currentPage = "home", tone = "auto" } = Astro.props;
 function hrefFor(page: "download" | "faq" | "about"): string {
-  return `/${contentLang}/${page}`;
+  return `/${contentLocaleFor(locale, page)}/${page}`;
 }
 
 const navItems = [
@@ -39,10 +39,10 @@ const linkActive = "text-orange-ink dark:text-orange-bright";
 ---
 
 <header
-  class="sticky top-0 z-40 border-b border-plum/10 bg-cream/90 pt-[env(safe-area-inset-top)] backdrop-blur-md dark:border-cream/10 dark:bg-evening-end/80"
+  class:list={["site-header sticky top-0 z-40 pt-[env(safe-area-inset-top)]", tone === "dark" && "tone-dark"]}
 >
   <div
-    class="page-frame flex flex-nowrap items-center gap-3 py-1.5 sm:gap-4 sm:py-3"
+    class="page-frame flex flex-nowrap items-center gap-3 py-1.5 sm:gap-4"
   >
     <a href={`/${locale}`} class="flex shrink-0 items-center gap-2 no-underline">
       <img
@@ -149,6 +149,14 @@ const linkActive = "text-orange-ink dark:text-orange-bright";
 </header>
 
 <style>
+  .site-header {
+    /* Solid: a backdrop blur over the pinned homepage scenes paints stray
+       compositing boxes in Chromium. */
+    background: var(--paper);
+    color: var(--ink);
+    border-bottom: 1px solid var(--rule);
+  }
+  .site-header > .page-frame { min-height: 3.5rem; }
   .nav-github {
     display: inline-flex;
     width: 2.25rem;
@@ -184,7 +192,7 @@ const linkActive = "text-orange-ink dark:text-orange-bright";
     display: block;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1100px) {
     .site-nav {
       display: flex;
     }
@@ -202,7 +210,7 @@ const linkActive = "text-orange-ink dark:text-orange-bright";
     justify-content: center;
     border: 1px solid color-mix(in srgb, var(--color-plum) 14%, transparent);
     border-radius: 999px;
-    background: color-mix(in srgb, var(--color-cream) 88%, white);
+    background: var(--paper);
     color: inherit;
     cursor: pointer;
     list-style: none;
@@ -267,7 +275,7 @@ const linkActive = "text-orange-ink dark:text-orange-bright";
     overflow: auto;
     border: 1px solid color-mix(in srgb, var(--color-plum) 12%, transparent);
     border-radius: 0.9rem;
-    background: var(--color-cream);
+    background: var(--paper);
     padding: 0.35rem;
     box-shadow: 0 18px 40px -24px color-mix(in srgb, var(--color-plum) 55%, transparent);
   }
@@ -304,12 +312,12 @@ const linkActive = "text-orange-ink dark:text-orange-bright";
   @media (prefers-color-scheme: dark) {
     .nav-more-summary {
       border-color: color-mix(in srgb, var(--color-cream) 18%, transparent);
-      background: color-mix(in srgb, var(--color-evening-start) 88%, black);
+      background: var(--paper);
     }
 
     .nav-more-menu {
       border-color: color-mix(in srgb, var(--color-cream) 14%, transparent);
-      background: var(--color-evening-start);
+      background: var(--paper);
       box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.55);
     }
 
@@ -329,6 +337,39 @@ const linkActive = "text-orange-ink dark:text-orange-bright";
     .nav-github:hover {
       color: var(--color-orange-bright);
     }
+  }
+
+  .site-header.tone-dark {
+    --paper: #3d2a38;
+    --ink: var(--color-cream);
+    --rule: #54404d;
+  }
+
+  :global(.tone-dark) .nav-more-summary {
+    border-color: color-mix(in srgb, var(--color-cream) 18%, transparent);
+    background: var(--paper);
+  }
+
+  :global(.tone-dark) .nav-more-menu {
+    border-color: color-mix(in srgb, var(--color-cream) 14%, transparent);
+    background: var(--paper);
+    box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.55);
+  }
+
+  :global(.tone-dark) .nav-more-link:hover, :global(.tone-dark) .nav-more-link.is-current {
+    background: color-mix(in srgb, var(--color-orange-bright) 16%, transparent);
+  }
+
+  :global(.tone-dark) .nav-more-link.is-current {
+    color: var(--color-orange-bright);
+  }
+
+  :global(.tone-dark) .nav-github {
+    color: color-mix(in srgb, var(--color-cream) 80%, transparent);
+  }
+
+  :global(.tone-dark) .nav-github:hover {
+    color: var(--color-orange-bright);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -352,6 +393,8 @@ const linkActive = "text-orange-ink dark:text-orange-bright";
       if (event.key !== "Escape") return;
       document.querySelectorAll("details.header-panel[open]").forEach((el) => {
         el.removeAttribute("open");
+        var summary = el.querySelector("summary");
+        if (summary) summary.focus();
       });
     });
   }

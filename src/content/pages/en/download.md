@@ -1,8 +1,8 @@
 ---
 title: "Download — DoneAt"
 description: "Get DoneAt on the App Store or Microsoft Store: widgets, Live Activities, a free Apple Watch app and a monthly shift calendar on iPhone, plus system requirements."
-heading: "Get DoneAt where you already work"
-intro: "Start in the browser when you want it now. Keep it on a phone or computer when you want a reminder after the tab is gone. Same countdown, three doors."
+heading: "Your time, close at hand."
+intro: "A glance at your phone. A moment on your wrist. A quiet corner of your desktop. Keep the time left in your shift where it works for you."
 nativeHeading: Why keep a native app around
 nativeLead: The browser timer is enough to start. On a phone or computer, DoneAt can keep going after you close the page.
 nativePerks:
@@ -18,6 +18,9 @@ requirements:
   - "Windows: Windows 10 20H2 or later (WebView2 required)"
   - "macOS: macOS 13.0 or later"
   - "iOS/iPad OS: iOS 26.0/iPad OS 26.0 or later"
+  - "Chrome extension: Chrome 120 or later"
+chromeExtensionLabel: Chrome Web Store
+chromeExtensionNote: Also available as a Chrome extension. Click the toolbar icon to see the time left.
 githubReleaseLabel: GitHub Releases
 githubReleaseNote: macOS and Windows installers only, and those builds are unsigned.
 ---

@@ -1,10 +1,10 @@
 import {
   canonicalUrl,
-  CONTENT_LOCALES,
   HALL_LOCALES,
-  isContentLocale,
+  hasPublishedContent,
   isContentPage,
   isHallLocale,
+  publishedLocalesFor,
   siteConfig,
   type ContentPage,
 } from "./config";
@@ -32,12 +32,12 @@ export function hallHreflangLinks(): HreflangLink[] {
 }
 
 /**
- * Support pages ship only in en and zh-CN. Do not advertise hall locales
- * that bounce or 404.
+ * Content alternates are only locales that have the page on disk.
+ * A hall language without a translation is not advertised.
  */
 export function contentHreflangLinks(page: ContentPage): HreflangLink[] {
   return [
-    ...CONTENT_LOCALES.map((code) => ({
+    ...publishedLocalesFor(page).map((code) => ({
       lang: code,
       href: canonicalUrl(`/${code}/${page}`),
     })),
@@ -79,8 +79,9 @@ export function sitemapLinksForUrl(pageUrl: string): SitemapAlternate[] | undefi
   }
   if (
     segments.length === 2 &&
-    isContentLocale(segments[0]) &&
-    isContentPage(segments[1])
+    isHallLocale(segments[0]) &&
+    isContentPage(segments[1]) &&
+    hasPublishedContent(segments[0], segments[1])
   ) {
     return contentHreflangLinks(segments[1]).map((link) => ({
       lang: link.lang,

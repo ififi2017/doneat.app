@@ -135,9 +135,25 @@
     ],
     "contentLanguages": [
       "en",
-      "zh-CN"
+      "zh-CN",
+      "zh-TW",
+      "zh-HK",
+      "ja",
+      "ko",
+      "fr",
+      "de",
+      "es",
+      "it",
+      "pt",
+      "ru",
+      "hi-IN",
+      "mr-IN",
+      "tr",
+      "ar",
+      "th",
+      "id",
+      "vi"
     ],
-    "chineseHallLinksTo": "zh-CN",
-    "otherHallLinksTo": "en"
+    "contentNote": "Long-form routes follow files in src/content/pages. Halls link to that locale when the file exists, otherwise /en/{page}. No 302 from /{lang}/{page}."
   }
 }

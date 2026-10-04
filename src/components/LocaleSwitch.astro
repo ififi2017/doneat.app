@@ -1,8 +1,8 @@
 ---
 import {
-  CONTENT_LOCALES,
   HALL_LOCALES,
   localeNames,
+  publishedLocalesFor,
   t,
   type ContentPage,
   type HallLocale,
@@ -15,7 +15,8 @@ interface Props {
 
 const { locale, currentPage = "home" } = Astro.props;
 const isContent = currentPage !== "home";
-const locales = (isContent ? CONTENT_LOCALES : HALL_LOCALES) as readonly HallLocale[];
+const locales: readonly HallLocale[] =
+  currentPage === "home" ? HALL_LOCALES : publishedLocalesFor(currentPage);
 
 function hrefFor(code: string): string {
   if (isContent) return `/${code}/${currentPage}`;
@@ -185,6 +186,22 @@ function hrefFor(code: string): string {
     .locale-switch-option.is-current {
       background: color-mix(in srgb, var(--color-orange-bright) 16%, transparent);
     }
+  }
+
+  :global(.tone-dark) .locale-switch-summary {
+    border-color: color-mix(in srgb, var(--color-cream) 18%, transparent);
+    background: color-mix(in srgb, var(--color-evening-start) 88%, black);
+  }
+
+  :global(.tone-dark) .locale-switch-menu {
+    border-color: color-mix(in srgb, var(--color-cream) 14%, transparent);
+    background: var(--color-evening-start);
+    box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.55);
+  }
+
+  :global(.tone-dark) .locale-switch-option:hover,
+  :global(.tone-dark) .locale-switch-option.is-current {
+    background: color-mix(in srgb, var(--color-orange-bright) 16%, transparent);
   }
 </style>
 

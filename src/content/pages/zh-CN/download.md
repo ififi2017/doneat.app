@@ -1,8 +1,8 @@
 ---
 title: "下载 — DoneAt"
 description: "从 App Store 或 Microsoft Store 获取 DoneAt：iPhone 上有小组件、实时活动、免费 Apple Watch 版和带节假日的月历排班，另附各平台系统要求。"
-heading: "浏览器、手机、电脑，随你打开"
-intro: "想马上开始，用浏览器。想关掉页面之后还能提醒你，就装到手机或电脑上。同一个倒计时，三种打开方式。"
+heading: "把下班时刻，带在身边。"
+intro: "手机上看一眼，手腕上抬一下，桌面上留一角。今天这班还剩多久，在你顺手的地方看见。"
 nativeHeading: 为什么还要装一个应用
 nativeLead: 网页计时已经够你开始。装到手机或电脑上之后，关掉页面，DoneAt 也还能接着走。
 nativePerks:
@@ -18,6 +18,9 @@ requirements:
   - Windows：Windows 10 20H2 及以上版本（需有 WebView2 组件）
   - macOS：macOS 13.0 及以上版本
   - iOS/iPad OS：iOS 26.0/iPad OS 26.0 及以上版本
+  - Chrome 扩展：Chrome 120 及以上版本
+chromeExtensionLabel: Chrome 应用商店
+chromeExtensionNote: 也有 Chrome 扩展版，点工具栏图标就能看剩余时间。
 githubReleaseLabel: GitHub Releases
 githubReleaseNote: 仅含 macOS / Windows 直接安装包，且未签名。
 ---

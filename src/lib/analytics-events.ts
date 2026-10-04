@@ -6,6 +6,7 @@
 export const trackedEvents = [
   "hall_view",
   "download_view",
+  "download_from_web",
   "faq_view",
   "about_view",
   "how_it_works_view",
@@ -16,6 +17,7 @@ export const trackedEvents = [
   "microsoft_store_open",
   "github_source_open",
   "github_releases_open",
+  "chrome_extension_open",
   "social_x_open",
 ] as const;
 

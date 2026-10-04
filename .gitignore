@@ -160,3 +160,6 @@ public/icons/
 public/favicon.svg
 public/favicon.ico
 .vercel
+
+# Browser review images are delivered separately; structured evidence stays in Git.
+review/screenshots/

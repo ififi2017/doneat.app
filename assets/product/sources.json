@@ -1,0 +1,97 @@
+{
+  "version": "iOS 3.2.0",
+  "sourceRepository": "ififi2017/Off-Work-Countdown",
+  "sourceDirectory": "scripts/marketing-shots/ios",
+  "assets": [
+    {
+      "file": "assets/product/en/island.webp",
+      "source": "raw/en-2.png",
+      "sourceSHA256": "78f8fb83b0f954f1d0225282ee26b1234dfdd7575e901245e5bdb97a4435fd42",
+      "crop": [
+        405,
+        993,
+        510,
+        111
+      ],
+      "pixels": "exact crop; lossless WebP; no reconstructed UI"
+    },
+    {
+      "file": "assets/product/en/live.webp",
+      "source": "raw/en-2.png",
+      "sourceSHA256": "78f8fb83b0f954f1d0225282ee26b1234dfdd7575e901245e5bdb97a4435fd42",
+      "crop": [
+        294,
+        1136,
+        732,
+        205
+      ],
+      "pixels": "exact crop; lossless WebP; no reconstructed UI"
+    },
+    {
+      "file": "assets/product/en/widget.webp",
+      "source": "raw/en-2.png",
+      "sourceSHA256": "78f8fb83b0f954f1d0225282ee26b1234dfdd7575e901245e5bdb97a4435fd42",
+      "crop": [
+        171,
+        1379,
+        978,
+        740
+      ],
+      "pixels": "exact crop; lossless WebP; no reconstructed UI"
+    },
+    {
+      "file": "assets/product/en/watch.png",
+      "source": "raw/en-watch-3.2.0.png",
+      "sourceSHA256": "3a65520ff112a3457955c62a9b4ffb18a84a4b01396da60c995ec00cae251023",
+      "pixels": "unmodified real Watch screenshot"
+    },
+    {
+      "file": "assets/product/zh-CN/island.webp",
+      "source": "raw/zh-2.png",
+      "sourceSHA256": "f228fc7b21671edd8c6779925e5b752413daa98145f9034f7277ed24cc2b1d4d",
+      "crop": [
+        405,
+        993,
+        510,
+        111
+      ],
+      "pixels": "exact crop; lossless WebP; no reconstructed UI"
+    },
+    {
+      "file": "assets/product/zh-CN/live.webp",
+      "source": "raw/zh-2.png",
+      "sourceSHA256": "f228fc7b21671edd8c6779925e5b752413daa98145f9034f7277ed24cc2b1d4d",
+      "crop": [
+        294,
+        1136,
+        732,
+        205
+      ],
+      "pixels": "exact crop; lossless WebP; no reconstructed UI"
+    },
+    {
+      "file": "assets/product/zh-CN/widget.webp",
+      "source": "raw/zh-2.png",
+      "sourceSHA256": "f228fc7b21671edd8c6779925e5b752413daa98145f9034f7277ed24cc2b1d4d",
+      "crop": [
+        171,
+        1379,
+        978,
+        740
+      ],
+      "pixels": "exact crop; lossless WebP; no reconstructed UI"
+    },
+    {
+      "file": "assets/product/zh-CN/watch.png",
+      "source": "raw/zh-watch-3.2.0.png",
+      "sourceSHA256": "2757e79ec620217d0ca07a9d01b530035bbe6e7928e55b126cf3b21eb363c4db",
+      "pixels": "unmodified real Watch screenshot"
+    },
+    {
+      "file": "assets/product/watch-frame.png",
+      "source": "frames/watch-s11-46mm-gold-milanese.png",
+      "sourceSHA256": "0f94f02a5ef807631f4ff4de8c8f8c77a139148834fd6c643343a02380c899e4",
+      "pixels": "unmodified Apple frame used by existing product marketing"
+    }
+  ]
+}

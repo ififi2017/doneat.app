@@ -1,0 +1,130 @@
+[
+  {
+    "file": "doneat-home-zh-desktop.jpg",
+    "url": "http://localhost:4322/zh-CN",
+    "width": 1440,
+    "height": 900,
+    "heading": "DoneAt",
+    "loadedDesktopStills": [],
+    "overflow": 0,
+    "storeFallbackVisible": "visible",
+    "videoSources": [
+      "/device/web/zh-white.mp4"
+    ]
+  },
+  {
+    "file": "doneat-home-en-desktop.jpg",
+    "url": "http://localhost:4322/en",
+    "width": 1440,
+    "height": 900,
+    "heading": "DoneAt",
+    "loadedDesktopStills": [],
+    "overflow": 0,
+    "storeFallbackVisible": "visible",
+    "videoSources": [
+      "/device/web/en-white.mp4"
+    ]
+  },
+  {
+    "file": "doneat-home-zh-mobile.jpg",
+    "url": "http://localhost:4322/zh-CN",
+    "width": 390,
+    "height": 844,
+    "heading": "DoneAt",
+    "loadedDesktopStills": [],
+    "overflow": 0,
+    "storeFallbackVisible": "visible",
+    "videoSources": [
+      "/device/web/zh-white.mp4"
+    ]
+  },
+  {
+    "file": "doneat-home-ar-mobile.jpg",
+    "url": "http://localhost:4322/ar",
+    "width": 360,
+    "height": 800,
+    "heading": "DoneAt",
+    "loadedDesktopStills": [],
+    "overflow": 0,
+    "storeFallbackVisible": "visible",
+    "videoSources": [
+      "/device/web/en-white.mp4"
+    ]
+  },
+  {
+    "file": "doneat-home-zh-desktop-dark.jpg",
+    "url": "http://localhost:4323/zh-CN",
+    "width": 1440,
+    "height": 900,
+    "heading": "DoneAt",
+    "loadedDesktopStills": [],
+    "overflow": 0,
+    "storeFallbackVisible": "visible",
+    "videoSources": [
+      "/device/web/zh-black.mp4"
+    ]
+  },
+  {
+    "file": "doneat-home-en-short-desktop.jpg",
+    "url": "http://localhost:4322/en",
+    "width": 1280,
+    "height": 720,
+    "heading": "DoneAt",
+    "loadedDesktopStills": [],
+    "overflow": 0,
+    "storeFallbackVisible": "visible",
+    "videoSources": [
+      "/device/web/en-white.mp4"
+    ]
+  },
+  {
+    "file": "doneat-download-zh-desktop.jpg",
+    "url": "http://localhost:4322/zh-CN/download",
+    "width": 1440,
+    "height": 900,
+    "heading": "把下班时刻，带在身边。",
+    "loadedDesktopStills": [
+      860,
+      600
+    ],
+    "overflow": 0,
+    "storeFallbackVisible": "visible",
+    "videoSources": [
+      "/device/web/zh-review.mp4",
+      "/desktop-demo/app-zh-light.mp4",
+      "/desktop-demo/mini-zh-light.mp4"
+    ]
+  },
+  {
+    "file": "doneat-download-en-desktop.jpg",
+    "url": "http://localhost:4322/en/download",
+    "width": 1440,
+    "height": 900,
+    "heading": "Your time, close at hand.",
+    "loadedDesktopStills": [
+      860,
+      600
+    ],
+    "overflow": 0,
+    "storeFallbackVisible": "visible",
+    "videoSources": [
+      "/device/web/en-review.mp4",
+      "/desktop-demo/app-en-light.mp4",
+      "/desktop-demo/mini-en-light.mp4"
+    ]
+  },
+  {
+    "file": "doneat-download-zh-mobile-dark-reduced.jpg",
+    "url": "http://localhost:4324/zh-CN/download",
+    "width": 390,
+    "height": 844,
+    "heading": "把下班时刻，带在身边。",
+    "loadedDesktopStills": [
+      860,
+      600
+    ],
+    "overflow": 0,
+    "storeFallbackVisible": "visible",
+    "videoSources": []
+  }
+]

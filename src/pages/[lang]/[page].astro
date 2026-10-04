@@ -1,19 +1,15 @@
 ---
+import { getCollection } from "astro:content";
 import ContentArticle from "../../components/ContentArticle.astro";
-import LocaleBounce from "../../components/LocaleBounce.astro";
-import {
-  CONTENT_PAGES,
-  HALL_LOCALES,
-  contentLocaleFor,
-  isContentLocale,
-  isContentPage,
-  isHallLocale,
-} from "../../lib/config";
+import { isContentPage, isHallLocale } from "../../lib/config";
 
-export function getStaticPaths() {
-  return HALL_LOCALES.flatMap((lang) =>
-    CONTENT_PAGES.map((page) => ({ params: { lang, page } })),
-  );
+export async function getStaticPaths() {
+  const entries = await getCollection("pages");
+  return entries.flatMap((entry) => {
+    const [lang, page] = entry.id.split("/");
+    if (!isHallLocale(lang) || !isContentPage(page)) return [];
+    return [{ params: { lang, page } }];
+  });
 }
 
 const langParam = Astro.params.lang;
@@ -21,22 +17,6 @@ const pageParam = Astro.params.page;
 if (!isHallLocale(langParam) || !isContentPage(pageParam)) {
   throw new Error(`Unknown content route: ${langParam}/${pageParam}`);
 }
-
-const contentLocale = isContentLocale(langParam) ? langParam : null;
-const bounceTo = contentLocale ? null : contentLocaleFor(langParam);
-const bounceHref = bounceTo ? `/${bounceTo}/${pageParam}` : "";
-const bounceScript = bounceTo
-  ? `(function(){location.replace(${JSON.stringify(bounceHref)}+location.search+location.hash);})();`
-  : "";
 ---
 
-{
-  contentLocale ? (
-    <ContentArticle locale={contentLocale} page={pageParam} />
-  ) : (
-    <LocaleBounce
-      script={bounceScript}
-      links={[{ href: bounceHref, label: bounceTo === "zh-CN" ? "中文" : "English" }]}
-    />
-  )
-}
+<ContentArticle locale={langParam} page={pageParam} />
