@@ -241,3 +241,15 @@
 - [x] 用户反馈 iPhone 段滚动时顶栏出现方框：去掉顶栏 `backdrop-filter`，改实色；首页顶栏为深梅色。
 - [x] check 0 errors；build 121 页；seo:check、19 语内容检查与 152 个页脚颜色用例通过；228 组首屏与 114 组钉住段实测通过。
 - [x] 收尾章：mark 放大并加深色投影；两枚商店徽章统一黑色版并居中；标题按字形视觉居中（收掉句末全角标点的空白）；说明与平台行改米色、按句换行。iPhone 段改为大标题 + 导读句，修正层级。
+
+## 2026-10-11 国内分站
+
+- [x] 创建独立工作树与 `codex/china-site` 分支，基于 main `1830d4a`；保留原工作区未提交修改。
+- [x] 同仓构建变量控制国内简中六页、X 隐藏、国内 canonical/sitemap/robots、备案空位与正式号码注入；默认海外 19 语和既有入口不变。
+- [x] 国内构建关闭 Vercel Analytics 与未部署的统计入口；国内隐私页补托管与统计适用范围说明。
+- [x] `npm run check`：41 files、0 errors/warnings/hints；默认海外 build/seo 与国内空备案/注入文本两种 build/seo 通过。验收用文本未发布。
+- [x] GitHub environment `china` 的变量、专用部署密钥与分支限制；受限部署账号、root 管理的接收器/Nginx/SSH 配置已安装，服务器配置检查通过。
+- [x] 部署脚本和 receiver 的本地语法、非法归档、限额、并发、截断、原子替换与 mock SSH 协议验证通过；协作使用 GPT-6.1 Sol / High，主 Agent 已审查。
+- [ ] GitHub Actions 正式发布、IP HTTP 与真实浏览器验收。
+- [ ] 域名 A 记录生效后配置 HTTPS、www 跳转与续期并完成域名实测。
+- [ ] 提供真实网站备案号后设置 `ICP_FILING_NUMBER` 并重新发布。

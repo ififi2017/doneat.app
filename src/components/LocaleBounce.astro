@@ -1,5 +1,5 @@
 ---
-import { siteConfig } from "../lib/config";
+import { defaultLocale, siteConfig } from "../lib/config";
 
 interface Props {
   script: string;
@@ -16,7 +16,7 @@ html,body{margin:0;min-height:100%;background:${cream}}
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={defaultLocale}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

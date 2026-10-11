@@ -8,7 +8,7 @@ import StoreEntries from "./StoreEntries.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { downloadShowcaseCopy } from "../lib/download-showcase";
 import { contentTrackPage } from "../lib/analytics-events";
-import { canonicalUrl, siteConfig, type ContentLocale, type ContentPage, t } from "../lib/config";
+import { canonicalUrl, isChina, siteConfig, type ContentLocale, type ContentPage, t } from "../lib/config";
 import { faqPageJsonLd, parseFaqMarkdown } from "../lib/faq-jsonld";
 import { downloadJsonLd } from "../lib/jsonld";
 import { getEntry, render } from "astro:content";
@@ -215,6 +215,11 @@ const jsonLd = isFaq
           <div
             class:list={["article-body", isFaq ? "faq-content" : "content"]}
           >
+            {isChina && page === "privacy" && <p>
+              本页同时介绍 DoneAt 客户端与网站的隐私处理。国内官网 doneat.com.cn 托管于国内服务器，
+              不启用下文所述的 Vercel Analytics；服务器会处理提供网页所需的连接信息。
+              关于 doneat.app 和 off.rainif.com 的说明适用于对应网站。
+            </p>}
             <Content />
           </div>
         ) : null

@@ -1,0 +1,178 @@
+# 国内静态官网部署
+
+国内站 `doneat.com.cn` 使用同一 Astro 工程，以 `SITE_REGION=cn` 仅生成简中内容，隐藏 X 社交入口，按 `ICP_FILING_NUMBER` 展示备案号。海外 `doneat.app` 的 Vercel/main 发布规则不变。这里不部署倒计时产品，不配置 DNS、Cloudflare 或海外域名。
+
+目标服务器：Ubuntu 24.04、`47.108.65.173`。新 nginx server block 与现有服务并存。先用 HTTP 和 IP 验收；确认域名 DNS 后再单独完成 TLS。构建 canonical 已使用 `https://doneat.com.cn`，TLS 完成前 HTTPS 链接尚不能作为线上验收通过的证据。
+
+## GitHub Actions 设置
+
+创建 environment `china`，允许分支 `codex/china-site` 部署；将来切到 main 时，先调整 environment 的分支规则，再把 workflow 的 `push.branches` 加入 `main`。这只新增国内发布任务，海外仍由 Vercel 的既有配置发布。
+
+| 类型 | 名称 | 值 |
+| --- | --- | --- |
+| environment variable | `SITE_REGION` | `cn` |
+| environment variable | `SITE_ORIGIN` | `https://doneat.com.cn` |
+| environment variable | `ICP_FILING_NUMBER` | 未提供时留空；有正式备案号后填写完整展示文本 |
+| environment variable | `DEPLOY_HOST` | `47.108.65.173` |
+| environment variable | `DEPLOY_USER` | `doneat-deploy` |
+| environment variable | `DEPLOY_PORT` | `22`（或实际 SSH 端口） |
+| environment secret | `SSH_PRIVATE_KEY` | 该站专用、无口令的 SSH 私钥；不要复用管理员密钥 |
+| environment secret | `SSH_KNOWN_HOSTS` | 经可信管理员通道核对的服务器公钥记录 |
+
+workflow 在 `codex/china-site` push 后自动检查、构建、SEO 检查并部署国内站。整个国内 job 使用 `china` environment 的上述同名变量，配置不是 cn/目标 origin 时立即失败。`workflow_dispatch` 的 region 默认为 `cn`；选择 `global` 只构建并保存 artifact，没有 environment secrets、SSH 步骤或任何海外发布动作。
+
+首次新增 workflow 仅在功能分支时，push 可以运行，但手动入口需要该 workflow 文件先出现在仓库默认分支。[GitHub 的手动运行说明](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow)明确要求这一点。文件注册后可选择分支手动运行；选择的分支仍须满足 `china` environment 的部署规则。不要为了首次运行改默认分支。
+
+私钥只临时写入 runner temp、权限 600，结束或收到中断信号时清理。SSH 启用 `StrictHostKeyChecking=yes`、专用 known_hosts、无密码回退，忽略个人 SSH config，不使用 ssh/scp 第三方 action。不要把私钥或 secrets 放进仓库、命令参数或日志。
+
+## 服务器一次性安装（管理员）
+
+以下命令只创建专用用户、目录和新增站点。先确认同名账号/目录不存在冲突，保留现有 nginx/SSH 配置备份。安装 nginx 不应替换现有服务监听配置；若 80 已被其他进程使用，应先由管理员确认共存方式。
+
+```bash
+sudo apt-get update
+sudo apt-get install nginx python3
+id doneat-deploy || sudo useradd --system --home-dir /var/lib/doneat-deploy --create-home --shell /bin/sh doneat-deploy
+sudo passwd -l doneat-deploy
+sudo chown root:root /var/lib/doneat-deploy
+sudo chmod 755 /var/lib/doneat-deploy
+sudo install -d -o root -g root -m 755 /var/lib/doneat-deploy/.ssh
+sudo install -d -o doneat-deploy -g doneat-deploy -m 755 /var/www/doneat-cn /var/www/doneat-cn/releases
+```
+
+通过现有管理员通道把本仓 `deploy/receive-site.py`、`deploy/nginx-china.conf` 传到服务器上的管理员暂存目录，在该目录执行：
+
+```bash
+sudo install -o root -g root -m 755 receive-site.py /usr/local/bin/doneat-receive
+sudo install -o root -g root -m 644 nginx-china.conf /etc/nginx/sites-available/doneat-cn
+sudo ln -s /etc/nginx/sites-available/doneat-cn /etc/nginx/sites-enabled/doneat-cn
+```
+
+不要预先创建 `current` 目录。首次成功发布会创建指向 `releases/<sha>-<随机值>` 的 `current` 符号链接。nginx 用户只需读权限。`doneat-deploy` 不加入 sudoers，不能修改 `/usr/local/bin/doneat-receive`、自己的 home/.ssh 或 nginx 配置。
+
+管理员用 `sudoedit /var/lib/doneat-deploy/.ssh/authorized_keys` 填入专用公钥（替换下面公钥占位），且该文件只放这把受限公钥：
+
+```text
+restrict,no-pty,command="/usr/local/bin/doneat-receive" ssh-ed25519 <专用公钥内容> doneat-cn-actions
+```
+
+```bash
+sudo chown root:root /var/lib/doneat-deploy/.ssh/authorized_keys
+sudo chmod 644 /var/lib/doneat-deploy/.ssh/authorized_keys
+```
+
+公钥文件可读但只有 root 可写，用户不能移除 forced-command。部署用户需要 `/bin/sh` 让 sshd 执行 forced command；不要设置 nologin。专用 key 的 `restrict` 禁止端口/agent/X11 转发与用户 rc，`no-pty` 禁止终端。接收器只解释 `SSH_ORIGINAL_COMMAND`，从不把它交给 shell。[OpenSSH authorized_keys 文档](https://man.openbsd.org/sshd.8)描述了这些限制。
+
+管理员另用 `sudoedit /etc/ssh/sshd_config.d/90-doneat-deploy.conf` 添加仅针对此用户的防护，避免未来加入其他 key 时绕过限制：
+
+```text
+Match User doneat-deploy
+    AuthenticationMethods publickey
+    PasswordAuthentication no
+    KbdInteractiveAuthentication no
+    AllowTcpForwarding no
+    AllowAgentForwarding no
+    X11Forwarding no
+    PermitTTY no
+    PermitUserRC no
+    ForceCommand /usr/local/bin/doneat-receive
+Match all
+```
+
+```bash
+sudo sshd -t
+sudo systemctl reload ssh
+sudo nginx -t
+sudo systemctl reload nginx
+```
+
+任何配置检查失败都先修正，保留当前管理员 SSH 会话，再开第二个会话确认可登录。检查 `sudo sshd -T -C user=doneat-deploy,host=localhost,addr=127.0.0.1` 的有效配置；不要修改其他用户规则。新增 server block 没有 `default_server`，不删除默认站点，不改既有服务。`www.doneat.com.cn` 暂时 308 到同协议的裸域；IP 验收不会被转到域名。
+
+## 核对服务器身份
+
+从可信的现有管理员会话读取 `/etc/ssh/ssh_host_ed25519_key.pub`，用以下命令显示其指纹，并与服务器控制台记录核对：
+
+```bash
+sudo ssh-keygen -lf /etc/ssh/ssh_host_ed25519_key.pub
+```
+
+`SSH_KNOWN_HOSTS` 是下面格式的一行（实际内容来自已核对的服务器公钥），不是指纹文本：
+
+```text
+47.108.65.173 ssh-ed25519 <服务器公钥内容>
+```
+
+非 22 端口使用 `[47.108.65.173]:<端口>` 作为第一列。不能把未经独立核对的 `ssh-keyscan` 结果直接当作信任依据。换 host key 时先核对新身份，再更新 secret；不关闭校验。
+
+## 手动发布
+
+与 Actions 使用完全相同的协议。在干净、已提交的 checkout 中构建，避免把未提交内容标记成已有 Git SHA。私钥与 known_hosts 文件保存在仓库外：
+
+```bash
+export SITE_REGION=cn
+export SITE_ORIGIN=https://doneat.com.cn
+export ICP_FILING_NUMBER=''
+npm ci
+npm run check
+npm run build
+npm run seo:check
+export DEPLOY_HOST=47.108.65.173
+export DEPLOY_USER=doneat-deploy
+export DEPLOY_PORT=22
+export DEPLOY_SHA="$(git rev-parse HEAD)"
+export SSH_PRIVATE_KEY_FILE=/absolute/private/path/doneat-cn-key
+export SSH_KNOWN_HOSTS_FILE=/absolute/private/path/doneat-cn-known_hosts
+bash scripts/deploy-china.sh
+```
+
+脚本先校验 host/user/port/SHA 与国内环境、检查必要文件和普通文件类型，然后压缩 `dist/`，通过 SSH stdin 发送 `deploy <40位SHA>`，最后调用 `status` 核对当前 SHA。不会调用远程 tar、scp 或任意远程 shell。
+
+## 接收、保留和回滚
+
+receiver 在专用用户权限下运行，用非阻塞独占锁串行发布。先收完整 gzip tar（压缩上限 512 MiB），限时 300 秒，最多 10,000 条目、单文件 256 MiB、总文件内容 1 GiB、解压流含元数据上限 1 GiB + 16 MiB。拒绝绝对路径、`..`、控制字符、反斜杠、重复路径、超深路径、symlink/hardlink、稀疏文件、设备/FIFO；不恢复归档权限或所有者。只自行创建普通文件/目录，检查简中首页、五页正文、404、robots 与 sitemap 必须齐全，并拒绝常见海外语言目录。
+
+通过后写隐藏 SHA 元数据，暂存目录改名为唯一 release，原子替换 `current` symlink。传输/提取失败会清理暂存物，现有站点不切换。若进程被 SIGKILL 或服务器断电，可能留下 `.incoming-*`、`.archive-*` 或未引用 release；清理必须由管理员确认无发布在运行后执行。部署账号持有站点内容写权限；密钥泄漏者可替换本站内容，不能靠此协议获得服务器任意命令权限。
+
+旧 release 不自动删除，避免误删或失去回滚点。管理员定期检查 `df -h /var/www/doneat-cn`、`du -sh /var/www/doneat-cn/releases`，保留 current 与最近若干已验收版本（建议 3–5 个），按完整目录名手动清理其余版本。不要用未经核对的通配符删除。首次上线前记录可用磁盘；发布需要归档、展开内容与旧版同时存在。
+
+回滚由管理员执行，不向受限 key 开放 rollback 命令：先从 `releases/` 选定并检查一个已验收目录，然后将下列占位替换成该完整目录名：
+
+```bash
+release_name='填写已验收版本的完整目录名'
+[[ $release_name =~ ^[0-9a-f]{40}-[0-9a-f]{32}$ ]] || { printf '无效版本目录\n' >&2; exit 1; }
+sudo -u doneat-deploy test -f "/var/www/doneat-cn/releases/$release_name/.doneat-release-sha"
+sudo -u doneat-deploy ln -s "releases/$release_name" /var/www/doneat-cn/.rollback-next
+sudo -u doneat-deploy mv -Tf /var/www/doneat-cn/.rollback-next /var/www/doneat-cn/current
+```
+
+`mv -T` 在同一目录中替换 symlink；无需重启 nginx。之后重新核对 HTTP 内容与 SHA。不要在发布任务进行时手动回滚。
+
+## HTTP 验收与 TLS
+
+nginx 仅公开简中六条正式路由与已知静态资源类型，未知文件、隐藏文件与其他语言返回真实 404，内部 `/404.html` 保留原响应状态。根与五个短路径为 302 且保留 query；`/sitemap.xml` 为 301 且保留 query。无 SPA fallback、目录列表或动态应用。
+
+`_astro` 已知构建资源缓存一年并标记 immutable；媒体/字体最多一小时且需重新验证；HTML、robots、sitemap、许可证与 404 使用 no-cache。MP4 由 nginx 静态模块提供 byte-range。参考 [nginx try_files/error_page 文档](https://nginx.org/en/docs/http/ngx_http_core_module.html)。
+
+管理员首次发布后检查：
+
+```bash
+curl -I 'http://47.108.65.173/?utm_source=acceptance'
+curl -I 'http://47.108.65.173/download?utm_source=acceptance'
+curl -I 'http://47.108.65.173/sitemap.xml?source=acceptance'
+curl -I http://47.108.65.173/zh-CN
+curl -I http://47.108.65.173/zh-CN/download
+curl -I http://47.108.65.173/missing-page
+curl -I http://47.108.65.173/en
+curl -I http://47.108.65.173/.doneat-release-sha
+curl -I -H 'Host: www.doneat.com.cn' 'http://47.108.65.173/zh-CN/download?source=acceptance'
+```
+
+从构建 HTML 中选一个实际 MP4 URL，用 `curl -I -H 'Range: bytes=0-1023'` 请求，确认 206/Content-Range；选一个 `_astro` 文件确认 immutable。实际浏览器检查浅/深、手机/桌面：首页和五页可读，下载链接有效，X 不显示，未提供备案号时无占位。curl 不代替视觉与交互验收。
+
+确认 `doneat.com.cn` 和 `www.doneat.com.cn` DNS 都指向目标后，管理员为这两个域名单独配置/续期 TLS，HTTPS 主站继续使用本配置的静态 location 规则，HTTP 域名转 HTTPS，并让 HTTPS 的 www 308 到裸域。IP HTTP 验收可继续使用独立 block；既有服务和海外 DNS 不动。TLS 完成后在真实域名重跑状态码、query、canonical、sitemap、静态缓存与视频范围检查。
+
+## 本次检查边界
+
+本地临时目录测试已通过：同 SHA 两次成功发布保留两个独立 release；14 种恶意归档、5 类上限、截断归档、并发锁和 6 种非法 SSH 命令均被拒绝；失败不切换 current、无暂存残留；status 返回当前 SHA。workflow YAML 已解析，global job 无 environment 或部署 secrets；mock SSH 完整发布协议和临时私钥清理通过，6 种不合法 shell 参数被拒绝。
+
+本仓可运行 `bash -n scripts/deploy-china.sh`、Python compile 和临时目录 receiver 测试，验证合法部署、SHA 状态、重复发布的唯一目录以及恶意归档拒绝。服务器安装、真实 SSH/host key、nginx 配置加载、HTTP 与 TLS 只有在目标服务器实际检查后才能记为完成。
