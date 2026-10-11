@@ -1,0 +1,92 @@
+name: Build and deploy China site
+
+on:
+  push:
+    branches: [codex/china-site]
+  workflow_dispatch:
+    inputs:
+      region:
+        description: 'cn deploys China; global only builds an artifact'
+        required: true
+        default: cn
+        type: choice
+        options: [cn, global]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: china-site-${{ inputs.region || 'cn' }}
+  cancel-in-progress: false
+
+jobs:
+  china:
+    if: github.event_name == 'push' || inputs.region == 'cn'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    environment: china
+    env:
+      SITE_REGION: ${{ vars.SITE_REGION || 'cn' }}
+      SITE_ORIGIN: ${{ vars.SITE_ORIGIN || 'https://doneat.com.cn' }}
+      ICP_FILING_NUMBER: ${{ vars.ICP_FILING_NUMBER }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Check China build configuration
+        shell: bash
+        run: |
+          test "$SITE_REGION" = cn
+          test "$SITE_ORIGIN" = https://doneat.com.cn
+      - run: npm ci
+      - run: npm run check
+      - run: npm run build
+      - run: npm run seo:check
+      - name: Save the checked build
+        uses: actions/upload-artifact@v4
+        with:
+          name: doneat-cn-${{ github.sha }}
+          path: dist/
+          if-no-files-found: error
+          retention-days: 14
+      - name: Deploy through the restricted receiver
+        shell: bash
+        env:
+          DEPLOY_HOST: ${{ vars.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ vars.DEPLOY_USER }}
+          DEPLOY_PORT: ${{ vars.DEPLOY_PORT || '22' }}
+          DEPLOY_SHA: ${{ github.sha }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: bash scripts/deploy-china.sh
+
+  global-artifact:
+    if: github.event_name == 'workflow_dispatch' && inputs.region == 'global'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      SITE_REGION: global
+      SITE_ORIGIN: https://doneat.app
+      ICP_FILING_NUMBER: ''
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm run build
+      - run: npm run seo:check
+      - uses: actions/upload-artifact@v4
+        with:
+          name: doneat-global-${{ github.sha }}
+          path: dist/
+          if-no-files-found: error
+          retention-days: 14

@@ -4,7 +4,7 @@ import { defineConfig } from "astro/config";
 import { cpSync, existsSync, mkdirSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { CONTENT_PAGES, HALL_LOCALES, hasPublishedContent, isContentPage, siteConfig } from "./src/lib/config";
+import { CONTENT_PAGES, HALL_LOCALES, hasPublishedContent, isContentPage, siteConfig, defaultLocale } from "./src/lib/config";
 import { sitemapLinksForUrl } from "./src/lib/hreflang";
 import { PUBLISHED_BY_PAGE } from "./src/lib/published-content";
 
@@ -71,7 +71,7 @@ export default defineConfig({
   integrations: [
     sitemap({
       i18n: {
-        defaultLocale: "en",
+        defaultLocale,
         locales: Object.fromEntries(HALL_LOCALES.map((locale) => [locale, locale])),
       },
       filter: (page) => {
@@ -99,7 +99,7 @@ export default defineConfig({
     }),
   ],
   i18n: {
-    defaultLocale: "en",
+    defaultLocale,
     locales: [...HALL_LOCALES],
     routing: {
       prefixDefaultLocale: true,
@@ -108,5 +108,10 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    define: {
+      "process.env.SITE_REGION": JSON.stringify(process.env.SITE_REGION || "global"),
+      "process.env.SITE_ORIGIN": JSON.stringify(process.env.SITE_ORIGIN || ""),
+      "process.env.ICP_FILING_NUMBER": JSON.stringify(process.env.ICP_FILING_NUMBER || ""),
+    },
   },
 });

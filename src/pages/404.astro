@@ -2,6 +2,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import {
   HALL_LOCALES,
+  isChina,
+  icpFilingNumber,
+  defaultLocale,
   siteConfig,
   t,
   webAppUrl,
@@ -22,15 +25,15 @@ const copy = Object.fromEntries(
   ]),
 ) as Record<HallLocale, NotFoundCopy>;
 
-const fallback = copy.en;
+const fallback = copy[defaultLocale];
 const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
 ---
 
 <BaseLayout
-  locale="en"
+  locale={defaultLocale}
   title={fallback.title}
   description={fallback.body}
-  path="/en"
+  path={`/${defaultLocale}`}
   hreflangKind="hall"
   noindex
 >
@@ -41,7 +44,7 @@ const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
       <div class="page-frame flex items-center py-1.5 sm:py-3">
         <a
           id="nf-logo"
-          href="/en"
+          href={`/${defaultLocale}`}
           class="flex shrink-0 items-center gap-2 no-underline"
         >
           <img
@@ -99,12 +102,12 @@ const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
         {fallback.body}
       </p>
       <div class="mt-8 flex flex-wrap gap-3">
-        <a id="nf-home" href="/en" class="btn btn-primary">
+        <a id="nf-home" href={`/${defaultLocale}`} class="btn btn-primary">
           {fallback.home}
         </a>
         <a
           id="nf-timer"
-          href={webAppUrl("en", "notfound")}
+          href={webAppUrl(defaultLocale, "notfound")}
           class="btn btn-secondary"
           data-track="web_timer_open"
           target="_blank"
@@ -125,6 +128,9 @@ const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
           href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a
         >
       </div>
+      {isChina && <div class="page-frame min-h-8 pb-4 text-center text-xs" aria-label="备案信息">
+        {icpFilingNumber && <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">{icpFilingNumber}</a>}
+      </div>}
     </footer>
   </div>
 </BaseLayout>

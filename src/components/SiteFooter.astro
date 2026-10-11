@@ -2,6 +2,8 @@
 import SocialLinks from "./SocialLinks.astro";
 import {
   contentLocaleFor,
+  isChina,
+  icpFilingNumber,
   siteConfig,
   t,
   type HallLocale,
@@ -35,6 +37,9 @@ const privacyLang = contentLocaleFor(locale, "privacy");
       </p>
     </div>
   </div>
+  {isChina && <div class="page-frame site-footer-filing" aria-label="备案信息">
+    {icpFilingNumber && <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">{icpFilingNumber}</a>}
+  </div>}
 </footer>
 
 <style>
@@ -46,6 +51,18 @@ const privacyLang = contentLocaleFor(locale, "privacy");
     color: var(--night-ink);
     border-top: 1px solid color-mix(in srgb, var(--night-ink) 22%, transparent);
   }
+  .site-footer-filing {
+    min-height: 2rem;
+    padding-block: 0 1rem;
+    text-align: center;
+    font-size: 0.75rem;
+  }
+  .site-footer-filing a {
+    color: inherit;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+  .site-footer-filing a:hover { color: var(--footer-link-hover-color); }
   .site-footer-inner {
     display: flex;
     flex-wrap: wrap;

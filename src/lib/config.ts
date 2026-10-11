@@ -3,10 +3,15 @@ import hall from "../../locales/hall.json";
 import site from "../../site.json";
 import { PUBLISHED_BY_PAGE } from "./published-content";
 
-export const siteConfig = site;
+import { defaultLocale, isChina, siteOrigin } from "./deployment";
+export { defaultLocale, isChina, icpFilingNumber } from "./deployment";
+
+export const siteConfig = isChina
+  ? { ...site, officialSiteUrl: siteOrigin, socials: site.socials.filter((item) => item.id !== "x") }
+  : site;
 
 export type HallLocale = keyof typeof hall.functionalSubtitle;
-export const HALL_LOCALES = hall.locales as HallLocale[];
+export const HALL_LOCALES: HallLocale[] = isChina ? ["zh-CN"] : hall.locales as HallLocale[];
 
 export type ContentLocale = HallLocale;
 
@@ -61,7 +66,7 @@ export function isChineseHall(locale: HallLocale): boolean {
  * the href, so there is no 302 from `/{locale}/{page}` onto another language.
  */
 export function contentLocaleFor(locale: HallLocale, page: ContentPage): ContentLocale {
-  return hasPublishedContent(locale, page) ? locale : "en";
+  return hasPublishedContent(locale, page) ? locale : defaultLocale;
 }
 
 export function functionalSubtitle(locale: HallLocale): string {
@@ -123,7 +128,7 @@ export function appleStoreUrl(locale: HallLocale): string {
 export type WebTimerPlacement = "header" | "hall" | "card" | "notfound";
 
 export const WEB_TIMER_UTM = {
-  source: "doneat.app",
+  source: new URL(siteConfig.officialSiteUrl).hostname,
   medium: "referral",
   campaign: "official-site",
 } as const;
@@ -148,8 +153,8 @@ export function sitePath(path: string): string {
 }
 
 export function canonicalUrl(path: string): string {
-  if (path === "/" || path === "") return site.officialSiteUrl;
-  return `${site.officialSiteUrl}${sitePath(path)}`;
+  if (path === "/" || path === "") return siteConfig.officialSiteUrl;
+  return `${siteConfig.officialSiteUrl}${sitePath(path)}`;
 }
 
 export type SocialLink = (typeof siteConfig.socials)[number];

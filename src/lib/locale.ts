@@ -1,6 +1,8 @@
-import hall from "../../locales/hall.json";
 import {
   CONTENT_PAGES,
+  HALL_LOCALES,
+  defaultLocale,
+  isChina,
   WEB_TIMER_UTM,
   contentLocaleFor,
   isContentPage,
@@ -8,7 +10,7 @@ import {
   type HallLocale,
 } from "./config";
 
-const HALL_CODES = hall.locales as HallLocale[];
+const HALL_CODES = HALL_LOCALES;
 
 /** Lowercase BCP 47 tags that are not themselves hall locales. */
 const LANGUAGE_MAPPING: Record<string, HallLocale> = {
@@ -35,6 +37,7 @@ function canonicalHallLocale(code: string): HallLocale | null {
 }
 
 export function mapLanguageTag(tag: string): HallLocale | null {
+  if (isChina) return "zh-CN";
   const normalized = tag.trim().replace(/_/g, "-");
   if (!normalized) return null;
   const lower = normalized.toLowerCase();
@@ -79,7 +82,7 @@ export function negotiateHallLocale(tags: readonly string[]): HallLocale {
     const mapped = mapLanguageTag(tag);
     if (mapped) return mapped;
   }
-  return "en";
+  return defaultLocale;
 }
 
 export function localeFromAcceptLanguage(header: string | null | undefined): HallLocale {
@@ -93,6 +96,9 @@ export function localeFromPathname(pathname: string): HallLocale | null {
 }
 
 function pickerRuntimeJs(): string {
+  if (isChina) return `function fromPath(){return "zh-CN";}
+  function fromBrowser(){return "zh-CN";}
+  function contentLocale(){return "zh-CN";}`;
   return `var locales=${JSON.stringify(HALL_CODES)};
   var mapping=${JSON.stringify(LANGUAGE_MAPPING)};
   function canonical(code){
@@ -129,13 +135,13 @@ function pickerRuntimeJs(): string {
       var mapped=mapTag(tags[i]);
       if (mapped) return mapped;
     }
-    return "en";
+    return ${JSON.stringify(defaultLocale)};
   }
   var published=${JSON.stringify(Object.fromEntries(CONTENT_PAGES.map((page) => [page, publishedLocalesFor(page)])))};
   function contentLocale(hall, page){
     var list=published[page]||[];
     for (var i=0;i<list.length;i++) if (list[i]===hall) return hall;
-    return "en";
+    return ${JSON.stringify(defaultLocale)};
   }`;
 }
 
@@ -210,7 +216,7 @@ export function notFoundApplyInlineScript(
   var web=${JSON.stringify(webAppOrigin)};
   var utm=${JSON.stringify(utm)};
   var locale=fromPath(location.pathname)||fromBrowser();
-  var c=copy[locale]||copy.en;
+  var c=copy[locale]||copy[${JSON.stringify(defaultLocale)}];
   document.documentElement.lang=locale;
   document.documentElement.dir=locale==="ar"?"rtl":"ltr";
   document.title=c.title;
