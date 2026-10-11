@@ -147,7 +147,7 @@ sudo -u doneat-deploy mv -Tf /var/www/doneat-cn/.rollback-next /var/www/doneat-c
 
 `mv -T` 在同一目录中替换 symlink；无需重启 nginx。之后重新核对 HTTP 内容与 SHA。不要在发布任务进行时手动回滚。
 
-## HTTP 验收与 TLS
+## HTTP 验收
 
 nginx 仅公开简中六条正式路由与已知静态资源类型，未知文件、隐藏文件与其他语言返回真实 404，内部 `/404.html` 保留原响应状态。根与五个短路径为 302 且保留 query；`/sitemap.xml` 为 301 且保留 query。无 SPA fallback、目录列表或动态应用。
 
@@ -169,10 +169,124 @@ curl -I -H 'Host: www.doneat.com.cn' 'http://47.108.65.173/zh-CN/download?source
 
 从构建 HTML 中选一个实际 MP4 URL，用 `curl -I -H 'Range: bytes=0-1023'` 请求，确认 206/Content-Range；选一个 `_astro` 文件确认 immutable。实际浏览器检查浅/深、手机/桌面：首页和五页可读，下载链接有效，X 不显示，未提供备案号时无占位。curl 不代替视觉与交互验收。
 
-确认 `doneat.com.cn` 和 `www.doneat.com.cn` DNS 都指向目标后，管理员为这两个域名单独配置/续期 TLS，HTTPS 主站继续使用本配置的静态 location 规则，HTTP 域名转 HTTPS，并让 HTTPS 的 www 308 到裸域。IP HTTP 验收可继续使用独立 block；既有服务和海外 DNS 不动。TLS 完成后在真实域名重跑状态码、query、canonical、sitemap、静态缓存与视频范围检查。
+## HTTPS 配置与 webroot 续期
+
+2026-10-11 主线程经 Google DoH 核对，裸域和 www 的 A 记录均已指向 `47.108.65.173`。这只确认该解析结果；签发前仍应核对权威解析、其他公共解析和 AAAA（若配置了 IPv6，必须同样可达），并确认入站 80/443 与 ACME 服务的出站 HTTPS 可达。本轮新增的是待安装配置，未声称证书签发或 TLS 已成功。
+
+- `deploy/nginx-china.conf` 保留首次 HTTP bootstrap 原样。
+- `deploy/nginx-china-static.conf` 是原 bootstrap 主站规则的原样抽取，安装为 `/etc/nginx/snippets/doneat-cn-static.conf`，供裸域 HTTPS 与 IP HTTP 共用。
+- `deploy/nginx-china-tls.conf` 是证书存在后的最终站点配置：HTTP 两个域名 308 到 HTTPS 裸域，HTTPS www 308 到裸域，均保留完整 path/query；IP HTTP 继续直接服务静态站；不设置 HSTS。
+
+最终 HTTP 域名 block 的 ACME 使用独立 `location ^~ /.well-known/acme-challenge/`，读取 `/var/lib/letsencrypt`，重定向仅在 `location /` 内，不能改成 server 层整体 `return`。用 `certbot certonly --webroot` 签发/续期，不让 nginx 插件改写现有 server block。参考 [Certbot webroot 与续期说明](https://eff-certbot.readthedocs.io/en/stable/using.html)和 [nginx HTTPS 配置](https://nginx.org/en/docs/http/configuring_https_servers.html)。
+
+### 1. 先安装共享片段与临时 ACME HTTP 站点
+
+将新增两份配置通过现有管理员通道送到服务器的暂存目录，在该目录执行：
+
+```bash
+sudo apt-get install certbot
+sudo install -d -o root -g root -m 755 /etc/nginx/snippets /var/lib/letsencrypt/.well-known/acme-challenge
+sudo install -o root -g root -m 644 nginx-china-static.conf /etc/nginx/snippets/doneat-cn-static.conf
+sudo install -o root -g root -m 644 nginx-china-tls.conf /etc/nginx/sites-available/doneat-cn-tls
+```
+
+旧 bootstrap 不含 ACME location。证书不存在时不要启用 TLS 配置，`nginx -t` 会因无法读取证书失败。管理员用 `sudoedit /etc/nginx/sites-available/doneat-cn-acme` 创建以下临时 HTTP 配置；它继续服务国内内容，并优先公开验证 token：
+
+```nginx
+server {
+    listen 80;
+    listen [::]:80;
+    server_name doneat.com.cn www.doneat.com.cn 47.108.65.173;
+    location ^~ /.well-known/acme-challenge/ {
+        root /var/lib/letsencrypt;
+        default_type text/plain;
+        autoindex off;
+        try_files $uri =404;
+        add_header Cache-Control 'no-store' always;
+    }
+    include /etc/nginx/snippets/doneat-cn-static.conf;
+}
+```
+
+```bash
+sudo chown root:root /etc/nginx/sites-available/doneat-cn-acme
+sudo chmod 644 /etc/nginx/sites-available/doneat-cn-acme
+sudo ln -sfn /etc/nginx/sites-available/doneat-cn-acme /etc/nginx/sites-enabled/doneat-cn
+sudo nginx -t
+```
+
+检查成功才 `sudo systemctl reload nginx`。如果失败，先将该 symlink 恢复到原 `/etc/nginx/sites-available/doneat-cn`，修正后重新检查。只替换国内站这一个 symlink，不同时启用 bootstrap/acme/tls，不改其他站点和现有服务。
+
+在 webroot 写一个无敏感信息的测试 token，分别从外部经两个真实域名请求，必须直接返回 200 和该内容，不能返回 308/404；确认后删除测试 token。Let’s Encrypt 的 HTTP-01 必须可从公网端口 80 访问，不能只用本机或 IP 验证代替域名验证。
+
+### 2. 签发并切换 HTTPS
+
+```bash
+sudo certbot certonly --webroot --webroot-path /var/lib/letsencrypt \
+  --cert-name doneat.com.cn \
+  -d doneat.com.cn -d www.doneat.com.cn
+sudo test -s /etc/letsencrypt/live/doneat.com.cn/fullchain.pem
+sudo test -s /etc/letsencrypt/live/doneat.com.cn/privkey.pem
+sudo certbot certificates
+```
+
+按 Certbot 提示填写管理员邮箱并接受 CA 条款，检查证书覆盖两个域名。若出站连接或挑战失败，保留临时 ACME HTTP 站点，排查后重试；不提前启用 TLS，不用 `curl -k` 绕过证书验收，不把密钥拷进部署用户目录。
+
+证书已成功生成且路径符合上述值后：
+
+```bash
+sudo ln -sfn /etc/nginx/sites-available/doneat-cn-tls /etc/nginx/sites-enabled/doneat-cn
+sudo nginx -t
+```
+
+检查成功才 `sudo systemctl reload nginx`。检查失败先恢复 symlink 到 `doneat-cn-acme`，不要 reload 失败配置。切换后，IP HTTP 仍为静态验收入口；两个域名使用 HTTPS，主页面、404、缓存和视频范围规则来自同一共享片段。
+
+```bash
+curl -I 'http://doneat.com.cn/zh-CN/download?source=tls-check'
+curl -I 'http://www.doneat.com.cn/zh-CN/download?source=tls-check'
+curl -I 'https://www.doneat.com.cn/zh-CN/download?source=tls-check'
+curl -I 'https://doneat.com.cn/?source=tls-check'
+curl -I 'https://doneat.com.cn/download?source=tls-check'
+curl -I https://doneat.com.cn/zh-CN/download
+curl -I https://doneat.com.cn/missing-page
+curl -I http://47.108.65.173/zh-CN/download
+```
+
+前三项预期 308 且 path/query 完整；HTTPS 根/短路径预期 302；正式页与 IP 页 200；不存在页面 404。再用真实域名确认 canonical/sitemap 都是 `https://doneat.com.cn`，测试 `_astro` 缓存、MP4 206/Content-Range、浅/深与手机/桌面浏览器。证书可信链和两域名主机名校验必须通过。
+
+### 3. 自动续期与成功后的 reload
+
+webroot 参数由 Certbot 写入此证书的 renewal 配置，最终 HTTP ACME location 保持可用。管理员检查 `/etc/letsencrypt/renewal/doneat.com.cn.conf` 的 authenticator/webroot，避免后续被 nginx/manual 模式覆盖。不要停止 nginx 来续期，也不要建立重复 cron/timer。
+
+通过 `sudoedit /etc/letsencrypt/renewal-hooks/deploy/doneat-cn-nginx` 创建 root-owned 成功续期 hook（先用 `sudo install -d -o root -g root -m 755 /etc/letsencrypt/renewal-hooks/deploy` 建目录）：
+
+```sh
+#!/bin/sh
+set -eu
+[ "${RENEWED_LINEAGE:-}" = /etc/letsencrypt/live/doneat.com.cn ] || exit 0
+/usr/sbin/nginx -t
+/usr/bin/systemctl reload nginx
+```
+
+```bash
+sudo chown root:root /etc/letsencrypt/renewal-hooks/deploy/doneat-cn-nginx
+sudo chmod 755 /etc/letsencrypt/renewal-hooks/deploy/doneat-cn-nginx
+sudo systemctl list-timers --all certbot.timer
+```
+
+使用 apt 的 `certbot.timer` 时，若未启用，执行 `sudo systemctl enable --now certbot.timer`；如已有其他安装渠道的 timer/cron，沿用并确认只存在一套计划。hook 仅在此证书成功续期后测试并 reload nginx，失败不 reload，并通过 lineage 条件避免影响其他证书的续期流程。
+
+```bash
+sudo certbot renew --cert-name doneat.com.cn --dry-run --run-deploy-hooks
+sudo journalctl -u certbot.service --since '1 day ago'
+```
+
+dry-run 会测试 ACME 流程；`--run-deploy-hooks` 还会在模拟续期成功后执行配置检查/reload，提前记录这次维护操作。真实证书不被 staging 证书替换。检查命令退出码与 timer 日志，定期核对证书到期时间；只有实际 dry-run 成功才能记录自动续期验收完成。
 
 ## 本次检查边界
 
 本地临时目录测试已通过：同 SHA 两次成功发布保留两个独立 release；14 种恶意归档、5 类上限、截断归档、并发锁和 6 种非法 SSH 命令均被拒绝；失败不切换 current、无暂存残留；status 返回当前 SHA。workflow YAML 已解析，global job 无 environment 或部署 secrets；mock SSH 完整发布协议和临时私钥清理通过，6 种不合法 shell 参数被拒绝。
+
+HTTPS 配置的本地静态检查通过：共享片段与原 bootstrap 主站规则逐行一致、两处共用 include、证书路径、ACME 优先 location、重定向保留 request_uri 和无 HSTS 均已核对；新增文档中的 shell/hook 代码通过语法检查。未在本机运行 nginx，也未签发证书。
 
 本仓可运行 `bash -n scripts/deploy-china.sh`、Python compile 和临时目录 receiver 测试，验证合法部署、SHA 状态、重复发布的唯一目录以及恶意归档拒绝。服务器安装、真实 SSH/host key、nginx 配置加载、HTTP 与 TLS 只有在目标服务器实际检查后才能记为完成。
