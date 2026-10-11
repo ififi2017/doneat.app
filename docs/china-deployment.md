@@ -167,7 +167,7 @@ curl -I http://47.108.65.173/.doneat-release-sha
 curl -I -H 'Host: www.doneat.com.cn' 'http://47.108.65.173/zh-CN/download?source=acceptance'
 ```
 
-从构建 HTML 中选一个实际 MP4 URL，用 `curl -I -H 'Range: bytes=0-1023'` 请求，确认 206/Content-Range；选一个 `_astro` 文件确认 immutable。实际浏览器检查浅/深、手机/桌面：首页和五页可读，下载链接有效，X 不显示，未提供备案号时无占位。curl 不代替视觉与交互验收。
+从构建 HTML 中选一个实际 MP4 URL，用 `curl -I -H 'Range: bytes=0-1023'` 请求，确认 206/Content-Range；选一个 `_astro` 文件确认 immutable。实际浏览器检查浅/深、手机/桌面：首页和五页可读，下载链接有效，X 不显示，未提供备案号时保留空位，不显示伪备案文字。curl 不代替视觉与交互验收。
 
 ## HTTPS 配置与 webroot 续期
 
@@ -290,3 +290,19 @@ dry-run 会测试 ACME 流程；`--run-deploy-hooks` 还会在模拟续期成功
 HTTPS 配置的本地静态检查通过：共享片段与原 bootstrap 主站规则逐行一致、两处共用 include、证书路径、ACME 优先 location、重定向保留 request_uri 和无 HSTS 均已核对；新增文档中的 shell/hook 代码通过语法检查。未在本机运行 nginx，也未签发证书。
 
 本仓可运行 `bash -n scripts/deploy-china.sh`、Python compile 和临时目录 receiver 测试，验证合法部署、SHA 状态、重复发布的唯一目录以及恶意归档拒绝。服务器安装、真实 SSH/host key、nginx 配置加载、HTTP 与 TLS 只有在目标服务器实际检查后才能记为完成。
+
+## 2026-10-11 实际部署记录
+
+专用账号、受限公钥、root 管理的 SSH Match/接收器/Nginx 已安装，sshd -t、nginx -t 与真实受限 SSH 通过。私钥只保存在 GitHub environment china secret；未保存管理员密码。首次 [Actions run 38116278761](https://github.com/ififi2017/doneat.app/actions/runs/38116278761) 的 check/build/SEO/部署均成功；后续 push 国内分支继续发布。
+
+IP HTTP 六页、根/短路径 query、真实 404、资源缓存、MP4 206 已验收。48 个首页/下载页 HTML 本地资源与链接经服务器连接返回 200。Mac 内嵌 Chromium：390×844 下载页、1440×900 首页无横向溢出，X/语言选择隐藏，备案空位 32px，预览/恢复按钮可用；支持页和资源经 SSH 隧道验收，公网首页可读，公网下载页浏览器曾超时（直接 HTTP 为 200）。本次未实测另一系统配色、reduce 或 NoJS。
+
+[PR #32](https://github.com/ififi2017/doneat.app/pull/32) 保持草稿。[Vercel Preview](https://doneat-app-git-codex-china-site-ififi2017s-projects.vercel.app) 为默认海外构建，带登录保护，不代替国内验收。main 未合并，海外生产 last-modified 保持 2026-10-04。
+
+根域与 www 的 A 记录经 Google DoH 均为 47.108.65.173。两个公网域名返回 Server: Beaver、Non-compliance ICP Filing 403，HTTP-01 被同样拦截。按[阿里云说明](https://help.aliyun.com/zh/icp-filing/the-influence-of-the-record-during-the-site-visit)，先完成网站备案并接入阿里云，再启用正常域名访问。
+
+Certbot 已安装但没有成功签发证书，未启用 HTTPS，也未验收自动续期。服务器直连 ACME 出现 TLS EOF；临时出站连接测试可到达 CA 后仍因备案拦截失败。临时连接在交付前关闭，未修改现有代理配置。
+
+TLS/静态片段已安装为备用文件；独立 nginx -t -c 用临时测试证书通过，测试证书已删除。国内 enabled symlink 仍指向 HTTP bootstrap。备案通过并解决出站连接后，按上文 webroot 签发、切换和 dry-run 启用 HTTPS。
+
+获得真实网站备案号后，在 environment china 设置 ICP_FILING_NUMBER 并推送国内分支触发构建。网站备案与 App Store 的 APP 备案分别办理，此部署不会自动恢复 iOS 中国大陆上架。
