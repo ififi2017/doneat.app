@@ -4,7 +4,7 @@ description: "Cómo DoneAt almacena datos localmente por defecto, ofrece sincron
 heading: "Política de privacidad"
 intro: "Esta página explica cómo DoneAt almacena y procesa información: el sitio oficial, el temporizador web y las apps en iPhone, iPad, Android, Mac y Windows."
 updatedLabel: "Última actualización"
-updated: "4 de octubre de 2026"
+updated: "16 de octubre de 2026"
 ---
 
 ## Datos almacenados por DoneAt
@@ -132,3 +132,9 @@ Cuando esta política se actualice, la fecha de última actualización en la par
 Las preguntas sobre esta política, o sobre cómo se maneja la información, van a [hello@doneat.app](mailto:hello@doneat.app). Los problemas de producto y sugerencias también pueden enviarse a través de [GitHub Issues](https://github.com/ififi2017/Off-Work-Countdown/issues).
 
 Si identificas una diferencia entre esta política y el comportamiento real del producto, escribe a esa dirección o abre un issue.
+
+<!-- Review-access draft: publish only with the verified English/Simplified Chinese supplement. -->
+
+## Acceso opcional de revisión en Android
+
+Las versiones que ofrecen este acceso recopilan un identificador aleatorio de instalación y datos de autenticación si decides usarlo. Consulta el [suplemento en inglés](/en/privacy#optional-android-review-access) sobre su finalidad, conservación, revocación y eliminación.

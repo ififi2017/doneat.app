@@ -4,7 +4,7 @@ description: "DoneAt がデフォルトでデータをローカルに保存す�
 heading: "プライバシーポリシー"
 intro: "このページでは、DoneAt が情報を保存・処理する方法を説明します：公式サイト、ウェブタイマー、iPhone、iPad、Android、Mac、Windows のアプリについて。"
 updatedLabel: "最終更新"
-updated: "2026年10月4日"
+updated: "2026年10月16日"
 ---
 
 ## DoneAt が保存するデータ
@@ -132,3 +132,9 @@ DoneAt はあなたの Apple アカウントにアクセスしたり、そのプ
 このポリシーや情報の取り扱いに関するご質問は、[hello@doneat.app](mailto:hello@doneat.app) までお送りください。製品に関する問題や提案は [GitHub Issues](https://github.com/ififi2017/Off-Work-Countdown/issues) でも提出できます。
 
 このポリシーと製品の実際の動作との間に違いを見つけた場合は、そのアドレスにメールするか、Issue を開いてください。
+
+<!-- Review-access draft: publish only with the verified English/Simplified Chinese supplement. -->
+
+## Android の任意の審査用アクセス
+
+審査用アクセスに対応するバージョンでは、この機能を選ぶとランダムなインストール識別情報と認証情報を収集します。用途、保存期間、失効、削除については[英語の補足説明](/en/privacy#optional-android-review-access)をご覧ください。

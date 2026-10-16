@@ -4,7 +4,7 @@ description: "Come DoneAt memorizza i dati localmente di default, offre sincroni
 heading: "Informativa sulla privacy"
 intro: "Questa pagina spiega come DoneAt memorizza ed elabora le informazioni: il sito ufficiale, il timer web e le app su iPhone, iPad, Android, Mac e Windows."
 updatedLabel: "Ultimo aggiornamento"
-updated: "4 ottobre 2026"
+updated: "16 ottobre 2026"
 ---
 
 ## Dati memorizzati da DoneAt
@@ -132,3 +132,9 @@ Quando questa informativa viene aggiornata, verrà rivista anche la data di ulti
 Le domande su questa informativa, o su come vengono gestite le informazioni, vanno a [hello@doneat.app](mailto:hello@doneat.app). Problemi di prodotto e suggerimenti possono essere inviati anche tramite [GitHub Issues](https://github.com/ififi2017/Off-Work-Countdown/issues).
 
 Se identifichi una differenza tra questa informativa e il comportamento effettivo del prodotto, scrivi a quell'indirizzo o apri un issue.
+
+<!-- Review-access draft: publish only with the verified English/Simplified Chinese supplement. -->
+
+## Accesso facoltativo per la revisione Android
+
+Le versioni che offrono questo accesso raccolgono un identificatore casuale dell’installazione e dati di autenticazione se scegli di usarlo. Finalità, conservazione, revoca ed eliminazione sono descritte nel [supplemento in inglese](/en/privacy#optional-android-review-access).

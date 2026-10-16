@@ -4,7 +4,7 @@ description: "Wie DoneAt Daten standardmäßig lokal speichert, optionale privat
 heading: "Datenschutzrichtlinie"
 intro: "Diese Seite erklärt, wie DoneAt Informationen speichert und verarbeitet: die offizielle Website, den Web-Timer und die Apps auf iPhone, iPad, Android, Mac und Windows."
 updatedLabel: "Letzte Aktualisierung"
-updated: "4. Oktober 2026"
+updated: "16. Oktober 2026"
 ---
 
 ## Von DoneAt gespeicherte Daten
@@ -132,3 +132,9 @@ Bei Aktualisierungen dieser Richtlinie wird auch das Datum „Letzte Aktualisier
 Fragen zu dieser Richtlinie oder zur Datenverarbeitung gehen an [hello@doneat.app](mailto:hello@doneat.app). Produktprobleme und Vorschläge können auch über [GitHub Issues](https://github.com/ififi2017/Off-Work-Countdown/issues) eingereicht werden.
 
 Wenn du einen Unterschied zwischen dieser Richtlinie und dem tatsächlichen Produktverhalten feststellst, schreib an diese Adresse oder eröffne ein Issue.
+
+<!-- Review-access draft: publish only with the verified English/Simplified Chinese supplement. -->
+
+## Optionaler Android-Prüfzugang
+
+Versionen mit Prüfzugang erfassen bei dessen freiwilliger Nutzung eine zufällige Installationskennung und Authentifizierungsdaten. Zwecke, Aufbewahrung, Widerruf und Löschung beschreibt die [englische Ergänzung](/en/privacy#optional-android-review-access).

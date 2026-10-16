@@ -4,7 +4,7 @@ description: "DoneAt이 기본적으로 데이터를 로컬에 저장하는 방�
 heading: "개인정보 보호정책"
 intro: "이 페이지에서는 DoneAt이 정보를 저장·처리하는 방법을 설명합니다: 공식 사이트, 웹 타이머, iPhone, iPad, Android, Mac, Windows 앱."
 updatedLabel: "최종 업데이트"
-updated: "2026년 10월 4일"
+updated: "2026년 10월 16일"
 ---
 
 ## DoneAt이 저장하는 데이터
@@ -132,3 +132,9 @@ DoneAt은 귀하의 Apple 계정에 접근하거나 그 개인 iCloud 데이터�
 이 정책이나 정보 처리 방법에 대한 질문은 [hello@doneat.app](mailto:hello@doneat.app)으로 보내주세요. 제품 문제와 제안은 [GitHub Issues](https://github.com/ififi2017/Off-Work-Countdown/issues)에서도 제출할 수 있습니다.
 
 이 정책과 제품의 실제 동작 간에 차이를 발견하면 해당 주소로 이메일하거나 Issue를 열어주세요.
+
+<!-- Review-access draft: publish only with the verified English/Simplified Chinese supplement. -->
+
+## 선택적 Android 심사용 접근
+
+심사용 접근을 지원하는 버전에서는 이 기능을 선택하면 무작위 설치 식별 정보와 인증 정보를 수집합니다. 용도, 보관 기간, 철회 및 삭제에 대한 자세한 내용은 [영문 보충 설명](/en/privacy#optional-android-review-access)을 확인하세요.

@@ -4,12 +4,12 @@ description: "DoneAt 如何默认在本地保存数据、在 iPhone 和 iPad 上
 heading: "隐私政策"
 intro: "本页说明 DoneAt 如何存储和处理信息，包括官网、网页计时，以及 iPhone、iPad、Android、Mac 和 Windows 上的应用。"
 updatedLabel: "最后更新"
-updated: "2026 年 10 月 4 日"
+updated: "2026 年 10 月 16 日"
 ---
 
 ## DoneAt 保存的数据
 
-你输入的信息默认保存在本地：网页计时写在浏览器的本地存储里，iPhone、iPad、Android、Mac 和 Windows 上的应用写在应用数据里。DoneAt 不提供产品账号，也不会把这些信息发送到 DoneAt 的服务器。
+排班、薪资、记录、专注数据和偏好默认保存在本地：网页计时写在浏览器的本地存储里，iPhone、iPad、Android、Mac 和 Windows 上的应用写在应用数据里。DoneAt 不提供产品账号，也不会把这些工作信息发送到 DoneAt 的服务器。购买验证和可选的审核认证单独说明如下。
 
 在 iPhone 和 iPad 上，你可以选择打开 iCloud 同步。打开后，排班、记录、薪资、提醒偏好、外观、语言、生活档案和专注数据会存入你 Apple 账户下的私人 iCloud 数据库。通知授权、生物识别保护、实时活动设置、当前工作计时和新手引导状态仍只留在各台设备上。Android、网页计时、Mac 和 Windows 不参与这项 iCloud 同步。
 
@@ -57,6 +57,18 @@ DoneAt 使用 Cloudflare 托管的 `api.doneat.app` 核验 Android 购买。启�
 数据库保存购买令牌的哈希、商品、权益状态与到期时刻、核验时间、测试购买标记、替换令牌哈希及修订号，用于核验、恢复购买和防止已替换的旧购买重复生效。通知消息 ID 按 30 天窗口去重，在处理后续通知时清理过期记录。原始购买令牌与 Google 响应只在处理时使用，不存入数据库或应用日志。IP 限流也是临时处理；DoneAt 不在数据库保存 IP 地址或这些 IP 哈希。Cloudflare 和 Google 依各自政策处理网络流量。购买标识不用于广告或使用行为画像，手机上的签名凭据也不进入系统备份。
 
 订阅到期不会删除已有记录，导出与删除数据也不需要有效订阅。
+
+<!-- Review-access draft: publish only after implementation, retention/exit verification and matching Play Data safety review. -->
+
+## 可选的 Android 审核访问
+
+在启用审核访问的 Android 版本中，获授权的审核人员可以自行输入可重复使用的审核码，临时访问 Plus 功能。激活和续期通过 HTTPS 访问 Cloudflare 上既有的 `api.doneat.app` 服务。这与 Google Play 购买分开：不需要 DoneAt 账号、Google 登录、购买或参加试用，也不会创建或更改订单、订阅。日常使用不需要开启审核访问。
+
+为完成这项可选认证和防滥用，服务会处理审核码、随机生成的安装公钥及其哈希、私钥持有证明、续期密钥和短期挑战。数据库保存凭证哈希及状态、安装公钥及哈希、续期密钥哈希、授权修订号、最近签发／续期时间与撤销状态（到期时间按 24 小时租约确定），以及挑战哈希和期限。随机或经过哈希的标识仍是本服务收集的信息。这些标识不用于统计或广告，不关联 Play 订单。审核访问不收集 Gmail、硬件标识、薪资、排班、工作记录、专注内容或备份。原始审核码、安装私钥、续期密钥原文和签名授权正文不写入服务数据库或应用日志。私钥留在 Android Keystore；本机授权材料不进入备份或设备转移。
+
+每次已验证授权最长有效 24 小时，激活和自动续期需要联网。撤销会在应用下次联网核对时生效；未联网的安装可能保留剩余授权时间，最长 24 小时。过期挑战会立即被拒绝，每日清理会删除过期挑战，以及距最后续期已满七天的安装会话。可重复使用的凭证哈希保留至所有者轮换或撤销凭证；七天安装清理本身不会让该审核码失效。
+
+选择退出审核访问，会立即清除本机授权，并尝试删除该安装的服务端会话。离线退出时，服务端会话保留至清理。重装或会话清理后再次使用，需要用有效审核码重新激活。退出、到期或撤销不会删除本地记录，也不会取消真实 Play 购买。如需咨询或申请删除服务端记录，请联系 [hello@doneat.app](mailto:hello@doneat.app)。Cloudflare 依其政策处理网络流量。
 
 ## 官网
 
@@ -119,7 +131,7 @@ DoneAt 在托管页面、统计官网和网页计时、分发应用以及打开�
 - GitHub —— 源代码、版本信息，以及 GitHub 分发的桌面版本的更新检查
 - Apple —— 应用分发，以及通过 App Store 和 StoreKit 处理的 Plus 付款与购买验证，以及你选择在 iPhone 或 iPad 上打开的私人 iCloud 同步
 - Google —— Android 应用分发和更新、通过 Google Play 处理的 Plus 购买与验证、通过 Cloud Pub/Sub 传递的购买状态通知、可选的评分和评价，以及由 Google 提供的系统备份
-- Cloudflare —— 托管 Android 购买验证服务及购买状态数据库
+- Cloudflare —— 托管 Android 购买验证、可选审核访问认证及其数据库
 - Microsoft —— 你打开的 Microsoft Store 页面的分发与更新
 - 第三方下载镜像 —— 仅在你从 GitHub 分发的桌面版本里主动选择时使用
 - 你选择用来分享倒计时的第三方社交服务
