@@ -1,11 +1,12 @@
 ---
 import LocaleBounce from "../components/LocaleBounce.astro";
+import { isChina } from "../lib/config";
 import { localeRedirectInlineScript } from "../lib/locale";
 ---
 
 <LocaleBounce
   script={localeRedirectInlineScript()}
-  links={[
+  links={isChina ? [{ href: "/zh-CN", label: "DoneAt" }] : [
     { href: "/en", label: "DoneAt" },
     { href: "/zh-CN", label: "中文" },
   ]}

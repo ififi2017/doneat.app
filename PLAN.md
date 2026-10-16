@@ -242,9 +242,23 @@
 - [x] check 0 errors；build 121 页；seo:check、19 语内容检查与 152 个页脚颜色用例通过；228 组首屏与 114 组钉住段实测通过。
 - [x] 收尾章：mark 放大并加深色投影；两枚商店徽章统一黑色版并居中；标题按字形视觉居中（收掉句末全角标点的空白）；说明与平台行改米色、按句换行。iPhone 段改为大标题 + 导读句，修正层级。
 
+## 2026-10-11 国内分站
+
+- [x] 创建独立工作树与 `codex/china-site` 分支，基于 main `1830d4a`；保留原工作区未提交修改。
+- [x] 同仓构建变量控制国内简中六页、X 隐藏、国内 canonical/sitemap/robots、备案空位与正式号码注入；默认海外 19 语和既有入口不变。
+- [x] 国内构建关闭 Vercel Analytics 与未部署的统计入口；国内隐私页补托管与统计适用范围说明。
+- [x] `npm run check`：41 files、0 errors/warnings/hints；默认海外 build/seo 与国内空备案/注入文本两种 build/seo 通过。验收用文本未发布。
+- [x] GitHub environment `china` 的变量、专用部署密钥与分支限制；受限部署账号、root 管理的接收器/Nginx/SSH 配置已安装，服务器配置检查通过。
+- [x] 部署脚本和 receiver 的本地语法、非法归档、限额、并发、截断、原子替换与 mock SSH 协议验证通过；协作使用 GPT-6.1 Sol / High，主 Agent 已审查。
+- [x] GitHub Actions 发布成功（run 38116278761）；服务器 current SHA 对应 commit。六页/资源/真实 404/query 跳转/MP4 206/immutable 缓存通过。Mac 内嵌 Chromium：390×844 下载页、1440×900 首页无横向溢出，X/语言选择隐藏，备案空位 32px；服务器内容经 SSH 隧道及公网首页验收，公网下载页浏览器一次超时（直接 HTTP 200）。
+- [x] 根域与 www A 记录已指向目标（Google DoH 验证）。草稿 PR #32 和默认海外 Vercel Preview 已生成，main 未合并，海外生产未发布。
+- [x] HTTPS 备用配置已安装但未启用；目标服务器用临时测试证书独立 nginx -t 通过，测试证书已删除。
+- [ ] 网站备案通过并解决服务器 ACME 出站 TLS EOF 后签发受信任证书、启用 HTTPS/续期。当前阿里云 Beaver 返回 Non-compliance ICP Filing 403，HTTP-01 验证失败，未签发任何证书。
+- [ ] 提供真实网站备案号后设置 `ICP_FILING_NUMBER` 并重新发布。
+
 ## 2026-10-16 Android 可选审核访问披露（草稿）
 
 - [x] 准备英文／简中 About 与 Privacy 的审核访问补充，以及其余 17 个已有隐私页的短提示和英／简中补充链接；不新增未经审核的多语长文。保留原有工作区变更。
 - [x] 本地 `check`（39 files，0 errors/warnings/hints）、`build`（121 页）、`seo:check` 通过；19 个新增补充链接对应的构建锚点存在。Codex 内置浏览器实际查看深色英文 1280×720、简中 390×844 和阿拉伯语短提示；简中/阿拉伯语 390 宽无横向溢出，并实际点击阿拉伯语链接到英文补充。未覆盖亮色或完整 19 语视觉矩阵。
 - [ ] 对照最终 Android／Worker 实现验证字段、24 小时授权、最后续期七天安装清理、退出／撤销和备份排除。17 语短提示仍需母语审阅。
-- [ ] 用户审阅与发布决定；本轮不推送、合并、部署或提交 Play Data safety，不改首页、DNS 或域名绑定。正式审核访问启用前，必须先有匹配的已发布隐私披露和 Console 声明。
+- [x] 所有者于 2026-10-16 确认合并发布本补充；不改首页、DNS 或域名绑定，不含 Android 生产发布。正式审核访问启用前，必须先有匹配的已发布隐私披露和 Console 声明。

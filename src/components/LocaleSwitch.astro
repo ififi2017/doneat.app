@@ -24,7 +24,7 @@ function hrefFor(code: string): string {
 }
 ---
 
-<details class="locale-switch header-panel relative shrink-0" name="site-header-panel">
+{locales.length > 1 && <details class="locale-switch header-panel relative shrink-0" name="site-header-panel">
   <summary
     class="locale-switch-summary"
     aria-label={t(locale, "language")}
@@ -64,7 +64,7 @@ function hrefFor(code: string): string {
       ))
     }
   </nav>
-</details>
+</details>}
 
 <style>
   .locale-switch-summary {

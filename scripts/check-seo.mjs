@@ -25,6 +25,11 @@ function count(haystack, needle) {
   return haystack.split(needle).length - 1;
 }
 
+if (process.env.SITE_REGION === "cn") {
+  await import("./check-china-build.mjs");
+  process.exit(0);
+}
+
 const robots = read("robots.txt");
 assert(robots.includes("Sitemap: https://doneat.app/sitemap-index.xml"), "robots sitemap URL");
 assert(robots.includes("Allow: /"), "robots Allow");
