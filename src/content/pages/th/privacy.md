@@ -4,7 +4,7 @@ description: "DoneAt เก็บข้อมูลไว้ในเครื�
 heading: "นโยบายความเป็นส่วนตัว"
 intro: "หน้านี้อธิบายว่า DoneAt เก็บและประมวลผลข้อมูลอย่างไร: เว็บไซต์ทางการ ตัวจับเวลาบนเว็บ และแอปบน iPhone, iPad, Android, Mac และ Windows"
 updatedLabel: "อัปเดตล่าสุด"
-updated: "4 ตุลาคม 2026"
+updated: "16 ตุลาคม 2026"
 ---
 
 ## ข้อมูลที่ DoneAt เก็บ
@@ -132,3 +132,9 @@ DoneAt เข้าถึงบัญชี Apple ของคุณหรือ
 คำถามเกี่ยวกับนโยบายนี้ หรือเกี่ยวกับการจัดการข้อมูล ส่งถึง [hello@doneat.app](mailto:hello@doneat.app) ปัญหาผลิตภัณฑ์และข้อเสนอแนะส่งผ่าน [GitHub Issues](https://github.com/ififi2017/Off-Work-Countdown/issues) ได้เช่นกัน
 
 ถ้าคุณเห็นความต่างระหว่างนโยบายนี้กับพฤติกรรมจริงของผลิตภัณฑ์ ให้เขียนถึงที่อยู่นั้นหรือเปิด issue
+
+<!-- Review-access draft: publish only with the verified English/Simplified Chinese supplement. -->
+
+## สิทธิ์เข้าถึงเพื่อตรวจสอบ Android แบบเลือกใช้
+
+เวอร์ชันที่มีสิทธิ์นี้จะเก็บตัวระบุการติดตั้งแบบสุ่มและข้อมูลยืนยันตัวตนเมื่อคุณเลือกใช้ ดูวัตถุประสงค์ ระยะเวลาเก็บรักษา การเพิกถอน และการลบได้ใน[คำอธิบายเพิ่มเติมภาษาอังกฤษ](/en/privacy#optional-android-review-access)

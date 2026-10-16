@@ -4,7 +4,7 @@ description: "DoneAt veriyi varsayılan olarak yerelde tutar, iPhone ve iPad’d
 heading: "Gizlilik ilkesi"
 intro: "Bu sayfa DoneAt’in bilgiyi nasıl sakladığını ve işlediğini açıklar: resmî site, web zamanlayıcı ve iPhone, iPad, Android, Mac ile Windows uygulamaları."
 updatedLabel: "Son güncelleme"
-updated: "4 Ekim 2026"
+updated: "16 Ekim 2026"
 ---
 
 ## DoneAt’in sakladığı veri
@@ -132,3 +132,9 @@ Bu ilke güncellendiğinde sayfanın üstündeki son güncelleme tarihi de deği
 Bu ilke veya bilginin nasıl ele alındığı hakkındaki sorular [hello@doneat.app](mailto:hello@doneat.app) adresine gider. Ürün sorunları ve öneriler [GitHub Issues](https://github.com/ififi2017/Off-Work-Countdown/issues) üzerinden de iletilebilir.
 
 Bu ilke ile ürünün gerçek davranışı arasında bir fark görürsen o adrese yaz veya bir issue aç.
+
+<!-- Review-access draft: publish only with the verified English/Simplified Chinese supplement. -->
+
+## İsteğe bağlı Android inceleme erişimi
+
+Bu erişimi sunan sürümler, kullanmayı seçerseniz rastgele bir kurulum tanımlayıcısı ve kimlik doğrulama verileri toplar. Amaçlar, saklama süresi, iptal ve silme için [İngilizce ek açıklamaya](/en/privacy#optional-android-review-access) bakın.

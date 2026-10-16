@@ -4,7 +4,7 @@ description: "DoneAt डेटा डिफ़ॉल्ट रूप से स�
 heading: "गोपनीयता नीति"
 intro: "यह पेज बताता है कि DoneAt जानकारी कैसे संग्रहीत और संसाधित करता है: आधिकारिक साइट, वेब टाइमर, और iPhone, iPad, Android, Mac व Windows ऐप।"
 updatedLabel: "अंतिम अपडेट"
-updated: "4 अक्टूबर 2026"
+updated: "16 अक्टूबर 2026"
 ---
 
 ## DoneAt द्वारा संग्रहीत डेटा
@@ -132,3 +132,9 @@ DoneAt आपके Apple खाते तक नहीं पहुँच स�
 इस नीति या जानकारी के संचालन के प्रश्न [hello@doneat.app](mailto:hello@doneat.app) पर जाएँ। उत्पाद समस्याएँ और सुझाव [GitHub Issues](https://github.com/ififi2017/Off-Work-Countdown/issues) से भी भेजे जा सकते हैं।
 
 यदि आपको इस नीति और उत्पाद के वास्तविक व्यवहार में अंतर दिखे, उस पते पर लिखें या एक issue खोलें।
+
+<!-- Review-access draft: publish only with the verified English/Simplified Chinese supplement. -->
+
+## Android पर वैकल्पिक समीक्षा एक्सेस
+
+इस सुविधा वाले संस्करणों में इसे चुनने पर इंस्टॉलेशन का रैंडम पहचानकर्ता और प्रमाणीकरण डेटा एकत्र किया जाता है। उद्देश्य, डेटा रखने की अवधि, एक्सेस रद्द करने और डेटा मिटाने की जानकारी के लिए [अंग्रेज़ी में पूरक विवरण](/en/privacy#optional-android-review-access) देखें।

@@ -4,7 +4,7 @@ description: "DoneAt डेटा डीफॉल्टने स्थानि
 heading: "गोपनीयता धोरण"
 intro: "हे पान सांगते की DoneAt माहिती कशी साठवतो आणि प्रक्रिया करतो: अधिकृत साइट, वेब टायमर, आणि iPhone, iPad, Android, Mac व Windows अॅप."
 updatedLabel: "शेवटचे अपडेट"
-updated: "4 ऑक्टोबर 2026"
+updated: "16 ऑक्टोबर 2026"
 ---
 
 ## DoneAt साठवणारा डेटा
@@ -132,3 +132,9 @@ DoneAt तुमच्या Apple खात्यापर्यंत पो�
 या धोरणाबद्दल, किंवा माहिती कशी हाताळली जाते याबद्दलचे प्रश्न [hello@doneat.app](mailto:hello@doneat.app) वर जावेत. उत्पादन समस्या आणि सूचना [GitHub Issues](https://github.com/ififi2017/Off-Work-Countdown/issues) मार्फतही पाठवता येतात.
 
 या धोरण आणि उत्पादनाच्या प्रत्यक्ष वर्तनात फरक दिसल्यास त्या पत्त्यावर लिहा किंवा issue उघडा.
+
+<!-- Review-access draft: publish only with the verified English/Simplified Chinese supplement. -->
+
+## Android वरील ऐच्छिक पुनरावलोकन प्रवेश
+
+ही सुविधा असलेल्या आवृत्त्यांमध्ये ती निवडल्यास इन्स्टॉलेशनचा यादृच्छिक ओळखकर्ता आणि प्रमाणीकरण डेटा गोळा केला जातो. उद्देश, डेटा ठेवण्याचा कालावधी, प्रवेश रद्द करणे आणि डेटा हटवणे यासाठी [इंग्रजीतील पूरक माहिती](/en/privacy#optional-android-review-access) पाहा.

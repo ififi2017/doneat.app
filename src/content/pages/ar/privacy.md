@@ -4,7 +4,7 @@ description: "كيف يخزّن DoneAt البيانات محليًا افترا�
 heading: "سياسة الخصوصية"
 intro: "تشرح هذه الصفحة كيف يخزّن DoneAt المعلومات ويعالجها: الموقع الرسمي، ومؤقت الويب، والتطبيقات على iPhone وiPad وAndroid وMac وWindows."
 updatedLabel: "آخر تحديث"
-updated: "4 أكتوبر 2026"
+updated: "16 أكتوبر 2026"
 ---
 
 ## البيانات التي يخزّنها DoneAt
@@ -132,3 +132,9 @@ updated: "4 أكتوبر 2026"
 أسئلة هذه السياسة، أو عن كيفية التعامل مع المعلومات، تذهب إلى [hello@doneat.app](mailto:hello@doneat.app). يمكن أيضًا إرسال مشكلات المنتج والاقتراحات عبر [GitHub Issues](https://github.com/ififi2017/Off-Work-Countdown/issues).
 
 إذا وجدت فرقًا بين هذه السياسة وسلوك المنتج الفعلي، اكتب إلى ذلك العنوان أو افتح issue.
+
+<!-- Review-access draft: publish only with the verified English/Simplified Chinese supplement. -->
+
+## وصول اختياري لمراجعة Android
+
+تجمع الإصدارات التي تتيح هذا الوصول معرّف تثبيت عشوائيًا وبيانات المصادقة عند اختيار استخدامه. للاطلاع على الأغراض وفترات الاحتفاظ والإلغاء والحذف، راجع [الملحق باللغة الإنجليزية](/en/privacy#optional-android-review-access).
