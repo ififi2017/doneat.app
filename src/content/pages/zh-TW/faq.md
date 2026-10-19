@@ -1,13 +1,13 @@
 ---
 title: "常見問題 — DoneAt"
-description: "DoneAt 的常見問題：跨夜班次、今日已賺、隱私，以及如何在瀏覽器、iPhone 或電腦上使用。"
+description: "DoneAt 的常見問題：跨夜班次、今日已賺、隱私，以及如何在瀏覽器、iPhone、Android 或電腦上使用。"
 heading: "常見問題"
-intro: "怎麼設班次、數字怎麼來的、資料在哪裡。瀏覽器、iPhone、iPad、Mac 和 Windows 都適用。"
+intro: "怎麼設班次、數字怎麼來的、資料在哪裡。瀏覽器、iPhone、iPad、Android、Mac 和 Windows 都適用。"
 ---
 
 ## DoneAt 是什麼？
 
-DoneAt 是下班倒數計時。填好上班和下班時間，就會顯示還剩多少時分秒，並用進度條標出這一班走了多少。可以在瀏覽器裡用，也可以在 iPhone、iPad、Mac 或 Windows 上用。不用註冊 DoneAt 帳號。
+DoneAt 是下班倒數計時。填好上班和下班時間，就會顯示還剩多少時分秒，並用進度條標出這一班走了多少。可以在瀏覽器裡用，也可以在 iPhone、iPad、Android、Mac 或 Windows 上用。不用註冊 DoneAt 帳號。
 
 ## 怎麼開始使用？
 
@@ -23,11 +23,11 @@ DoneAt 是下班倒數計時。填好上班和下班時間，就會顯示還剩�
 
 ## 關掉頁面還會提醒我嗎？
 
-在瀏覽器裡，只有頁面還開著才能提醒。在 iPhone、iPad、Mac 和 Windows 上，離開螢幕之後，DoneAt 仍可以發系統通知。
+在瀏覽器裡，只有頁面還開著才能提醒。在 iPhone、iPad、Android、Mac 和 Windows 上，離開螢幕之後，DoneAt 仍可以發系統通知。
 
 ## 可以離線用嗎？
 
-倒數計時在你的裝置上計算，不需要連網。網頁計時打開過一次之後，斷網也能繼續用。裝在 iPhone、iPad、Mac 和 Windows 上的應用程式，在你安裝的那台裝置上就能用。
+倒數計時在你的裝置上計算，不需要連網。網頁計時打開過一次之後，斷網也能繼續用。裝在 iPhone、iPad、Android、Mac 和 Windows 上的應用程式，在你安裝的那台裝置上就能用。
 
 ## 我的薪資資訊安全嗎？
 
@@ -35,15 +35,15 @@ DoneAt 是下班倒數計時。填好上班和下班時間，就會顯示還剩�
 
 ## 手機或電腦上有應用程式嗎？
 
-有。iPhone、iPad 和 Mac 在 [App Store](https://apps.apple.com/tw/app/id6802803318)，Windows 在 [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ)。瀏覽器計時在 [off.rainif.com](https://off.rainif.com/zh-TW)。選一個你會真正開著的就行。
+有。iPhone、iPad 和 Mac 在 [App Store](https://apps.apple.com/tw/app/id6802803318)，Android 在 [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat)，Windows 在 [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ)。瀏覽器計時在 [off.rainif.com](https://off.rainif.com/zh-TW)。選一個你會真正開著的就行。
 
 ## 有小工具或 Apple Watch 版嗎？
 
-有。在 iPhone 和 iPad 上，主畫面和鎖定畫面小工具不打開 App 也能顯示這班還剩多久；在支援的 iPhone 上，即時動態會把進度留在鎖定畫面和動態島上。Apple Watch 版抬腕就能看到還剩多久、幾點下班，錶盤上還可以添加兩種複雜功能；它免費使用，無需 DoneAt Plus。小工具、即時動態和手錶上只顯示時間和進度，不顯示薪資。在 Mac 和 Windows 上，迷你計時器會讓倒數計時一直留在眼前。
+有。在 iPhone 和 iPad 上，主畫面和鎖定畫面小工具不打開 App 也能顯示這班還剩多久；在支援的 iPhone 上，即時動態會把進度留在鎖定畫面和動態島上。在 Android 上，主畫面小工具和常駐通知會顯示還剩多久。Apple Watch 版抬腕就能看到還剩多久、幾點下班，錶盤上還可以添加兩種複雜功能；它免費使用，無需 DoneAt Plus。小工具、通知、即時動態和手錶上只顯示時間和進度，不顯示薪資。在 Mac 和 Windows 上，迷你計時器會讓倒數計時一直留在眼前。
 
 ## 能按輪班和節假日排班嗎？
 
-在 iPhone 和 iPad 上可以。在同一張月曆裡設定排班：固定星期、隔週休、輪班輪休、自由排班或手動計時都行。在「工作時間與排班」裡選擇國家或地區後，排班會跟著當地節假日走。如果是從舊版本升級，在那裡開啟一次即可。網頁計時和 Mac、Windows 版使用一組上下班時間。
+在 iPhone、iPad 和 Android 上都可以。在同一張月曆裡設定排班：固定星期、隔週休、輪班輪休、自由排班或手動計時都行。選擇國家或地區的節假日後，排班會跟著當地節假日走。在 iPhone 和 iPad 上，這項設定在「工作時間與排班」裡；如果是從舊版本升級，在那裡開啟一次即可。網頁計時和 Mac、Windows 版使用一組上下班時間。
 
 ## 免費嗎？開源嗎？
 

@@ -1,13 +1,13 @@
 ---
 title: "Câu hỏi thường gặp — DoneAt"
-description: "Câu hỏi thường gặp về DoneAt: ca qua đêm, ước tính thu nhập, quyền riêng tư, và cách dùng trên trình duyệt, iPhone hoặc máy tính."
+description: "Câu hỏi thường gặp về DoneAt: ca qua đêm, ước tính thu nhập, quyền riêng tư, và cách dùng trên trình duyệt, iPhone, Android hoặc máy tính."
 heading: "Câu hỏi thường gặp"
-intro: "Cách đặt ca, các con số có nghĩa gì, và dữ liệu nằm ở đâu — trên trình duyệt, iPhone, iPad, Mac và Windows."
+intro: "Cách đặt ca, các con số có nghĩa gì, và dữ liệu nằm ở đâu — trên trình duyệt, iPhone, iPad, Android, Mac và Windows."
 ---
 
 ## DoneAt là gì?
 
-DoneAt là bộ đếm ngược giờ tan ca. Bạn đặt giờ bắt đầu và giờ tan ca. Ứng dụng hiện số giờ, phút và giây còn lại, cùng thanh tiến độ của ca. Dùng trên trình duyệt, trên iPhone và iPad, hoặc trên Mac hay Windows. Không cần tạo tài khoản DoneAt.
+DoneAt là bộ đếm ngược giờ tan ca. Bạn đặt giờ bắt đầu và giờ tan ca. Ứng dụng hiện số giờ, phút và giây còn lại, cùng thanh tiến độ của ca. Dùng trên trình duyệt, trên iPhone, iPad và Android, hoặc trên Mac hay Windows. Không cần tạo tài khoản DoneAt.
 
 ## Thiết lập thế nào?
 
@@ -23,11 +23,11 @@ Bật cài đặt lương và nhập một số theo tháng hoặc theo ngày. L
 
 ## Đóng thẻ rồi còn nhắc không?
 
-Trên trình duyệt, lời nhắc chỉ hiện khi trang còn mở. Trên iPhone, iPad, Mac và Windows, DoneAt có thể gửi thông báo hệ thống sau khi bạn rời màn hình.
+Trên trình duyệt, lời nhắc chỉ hiện khi trang còn mở. Trên iPhone, iPad, Android, Mac và Windows, DoneAt có thể gửi thông báo hệ thống sau khi bạn rời màn hình.
 
 ## Có dùng ngoại tuyến được không?
 
-Bộ đếm được tính trên thiết bị của bạn và không cần mạng. Sau khi mở bộ đếm web một lần, nó có thể tiếp tục khi không có kết nối. Ứng dụng iPhone, iPad, Mac và Windows chạy trên thiết bị bạn đã cài.
+Bộ đếm được tính trên thiết bị của bạn và không cần mạng. Sau khi mở bộ đếm web một lần, nó có thể tiếp tục khi không có kết nối. Ứng dụng iPhone, iPad, Android, Mac và Windows chạy trên thiết bị bạn đã cài.
 
 ## Thông tin lương của tôi có riêng tư không?
 
@@ -35,15 +35,15 @@ Giờ làm và lương ở trên thiết bị theo mặc định. Trên iPhone v
 
 ## Có ứng dụng cho điện thoại hoặc máy tính không?
 
-Có. iPhone, iPad và Mac có trên [App Store](https://apps.apple.com/vn/app/id6802803318). Windows có trên [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ). Bộ đếm trình duyệt ở [off.rainif.com](https://off.rainif.com/vi). Chọn cái bạn thực sự sẽ để mở.
+Có. iPhone, iPad và Mac có trên [App Store](https://apps.apple.com/vn/app/id6802803318). Android có trên [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat). Windows có trên [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ). Bộ đếm trình duyệt ở [off.rainif.com](https://off.rainif.com/vi). Chọn cái bạn thực sự sẽ để mở.
 
 ## Có tiện ích hoặc ứng dụng Apple Watch không?
 
-Có. Trên iPhone và iPad, tiện ích Màn hình chính và Màn hình khóa hiện thời gian còn lại của ca mà không cần mở ứng dụng, và trên các mẫu iPhone được hỗ trợ, Hoạt động trực tiếp giữ tiến độ trên Màn hình khóa và trong Dynamic Island. DoneAt cho Apple Watch hiện thời gian còn lại và giờ tan ca, với hai complication trên mặt đồng hồ. Ứng dụng Watch miễn phí và không cần DoneAt Plus. Tiện ích, Hoạt động trực tiếp và đồng hồ hiện thời gian và tiến độ, không bao giờ hiện lương. Trên Mac hoặc Windows, bộ đếm nhỏ giữ đồng hồ đếm ngược trong tầm mắt.
+Có. Trên iPhone và iPad, tiện ích Màn hình chính và Màn hình khóa hiện thời gian còn lại của ca mà không cần mở ứng dụng, và trên các mẫu iPhone được hỗ trợ, Hoạt động trực tiếp giữ tiến độ trên Màn hình khóa và trong Dynamic Island. Trên Android, tiện ích Màn hình chính và thông báo thường trực hiện thời gian còn lại. DoneAt cho Apple Watch hiện thời gian còn lại và giờ tan ca, với hai complication trên mặt đồng hồ. Ứng dụng Watch miễn phí và không cần DoneAt Plus. Tiện ích, thông báo, Hoạt động trực tiếp và đồng hồ hiện thời gian và tiến độ, không bao giờ hiện lương. Trên Mac hoặc Windows, bộ đếm nhỏ giữ đồng hồ đếm ngược trong tầm mắt.
 
 ## Có theo ca xoay và ngày lễ không?
 
-Trên iPhone và iPad thì có. Lập lịch trên một lịch tháng, với ngày cố định, tuần luân phiên, chu kỳ làm/nghỉ, lịch tự do hoặc bộ đếm thủ công. Chọn quốc gia hoặc khu vực trong Giờ làm và lịch, lịch sẽ theo ngày lễ của nơi đó, gồm ngày làm bù ở Trung Quốc đại lục. Nếu bạn cập nhật từ bản cũ hơn, hãy bật ngày lễ ở đó một lần. Bộ đếm trình duyệt cùng ứng dụng Mac và Windows dùng một giờ bắt đầu và một giờ kết thúc.
+Trên iPhone, iPad và Android thì có. Lập lịch trên một lịch tháng, với ngày cố định, tuần luân phiên, chu kỳ làm/nghỉ, lịch tự do hoặc bộ đếm thủ công. Chọn quốc gia hoặc khu vực để dùng ngày lễ của nơi đó, lịch sẽ theo ngày lễ ấy, gồm ngày làm bù ở Trung Quốc đại lục. Trên iPhone và iPad, mục này nằm trong Giờ làm và lịch; nếu bạn cập nhật từ bản cũ hơn, hãy bật ngày lễ ở đó một lần. Bộ đếm trình duyệt cùng ứng dụng Mac và Windows dùng một giờ bắt đầu và một giờ kết thúc.
 
 ## Có miễn phí không, và mã nguồn có mở không?
 

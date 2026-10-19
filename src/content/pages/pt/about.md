@@ -65,7 +65,7 @@ Os modelos de feriados incluem dados de calendários nacionais gerados com [Vaca
 
 ## Android
 
-A versão Android está em testes. O Google Play processa as compras. Com a verificação no servidor ativada, o DoneAt processa tokens na Cloudflare e guarda seus hashes com o estado do acesso; salários e registros de trabalho não são enviados. Veja a [política de privacidade](/pt/privacy#android) sobre verificação, backups e exclusão.
+A versão Android está disponível no [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat), que processa as compras. Com a verificação no servidor ativada, o DoneAt processa tokens na Cloudflare e guarda seus hashes com o estado do acesso; salários e registros de trabalho não são enviados. Veja a [política de privacidade](/pt/privacy#android) sobre verificação, backups e exclusão.
 
 A navegação Android usa [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass), de Kyant, e [Shapes 1.2.1](https://github.com/Kyant0/Shapes). O DoneAt adapta o exemplo `LiquidBottomTabs` para navegação, arraste, acessibilidade, layouts da direita para a esquerda e movimento reduzido. Os efeitos são desenhados localmente, sem enviar conteúdo ou identificadores do dispositivo aos autores. Ambas as bibliotecas usam Apache License 2.0: [licença Backdrop](/licenses/backdrop-2.0.1.txt), [licença Shapes](/licenses/shapes-1.2.1.txt), também incluídas em Ajustes → Sobre → Agradecimentos.
 

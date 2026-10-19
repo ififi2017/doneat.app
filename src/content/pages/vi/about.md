@@ -65,7 +65,7 @@ Mẫu ngày lễ gồm dữ liệu lịch quốc gia tạo bằng [Vacanza Holid
 
 ## Android
 
-Bản Android đang được thử nghiệm. Google Play xử lý giao dịch mua. Khi bật xác minh máy chủ, DoneAt xử lý mã thông báo mua hàng trên Cloudflare và lưu giá trị băm cùng trạng thái quyền truy cập; không gửi lương hay bản ghi công việc. Xem [chính sách quyền riêng tư](/vi/privacy#android) về xác minh, sao lưu và xóa.
+Bản Android có trên [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat), nơi xử lý giao dịch mua. Khi bật xác minh máy chủ, DoneAt xử lý mã thông báo mua hàng trên Cloudflare và lưu giá trị băm cùng trạng thái quyền truy cập; không gửi lương hay bản ghi công việc. Xem [chính sách quyền riêng tư](/vi/privacy#android) về xác minh, sao lưu và xóa.
 
 Thanh điều hướng Android dùng [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) của Kyant và [Shapes 1.2.1](https://github.com/Kyant0/Shapes). DoneAt điều chỉnh ví dụ `LiquidBottomTabs` cho điều hướng, kéo, trợ năng, bố cục phải sang trái và giảm chuyển động. Hiệu ứng được vẽ trên máy, không gửi nội dung ứng dụng hay mã định danh thiết bị cho tác giả. Cả hai dùng Apache License 2.0: [giấy phép Backdrop](/licenses/backdrop-2.0.1.txt), [giấy phép Shapes](/licenses/shapes-1.2.1.txt). Toàn văn cũng có trong Cài đặt → Giới thiệu → Lời cảm ơn.
 

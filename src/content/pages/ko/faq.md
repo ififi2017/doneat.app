@@ -1,13 +1,13 @@
 ---
 title: "자주 묻는 질문 — DoneAt"
-description: "DoneAt 자주 묻는 질문: 날짜를 넘기는 교대 근무, 오늘 번 금액, 개인정보 보호, 브라우저·iPhone·컴퓨터에서 사용하는 방법."
+description: "DoneAt 자주 묻는 질문: 날짜를 넘기는 교대 근무, 오늘 번 금액, 개인정보 보호, 브라우저·iPhone·Android·컴퓨터에서 사용하는 방법."
 heading: "자주 묻는 질문"
-intro: "근무 시간 설정 방법, 숫자 계산 방법, 데이터 저장 위치. 브라우저, iPhone, iPad, Mac, Windows 어디서든 사용할 수 있습니다."
+intro: "근무 시간 설정 방법, 숫자 계산 방법, 데이터 저장 위치. 브라우저, iPhone, iPad, Android, Mac, Windows 어디서든 사용할 수 있습니다."
 ---
 
 ## DoneAt이 뭔가요?
 
-DoneAt은 퇴근 카운트다운 앱입니다. 출근 시간과 퇴근 시간을 입력하면 남은 시간이 시분초로 표시되고, 진행 막대로 근무 진행률을 알 수 있습니다. 브라우저에서 사용할 수도 있고, iPhone, iPad, Mac, Windows에 설치해서 사용할 수도 있습니다. DoneAt 계정을 만들 필요가 없습니다.
+DoneAt은 퇴근 카운트다운 앱입니다. 출근 시간과 퇴근 시간을 입력하면 남은 시간이 시분초로 표시되고, 진행 막대로 근무 진행률을 알 수 있습니다. 브라우저에서 사용할 수도 있고, iPhone, iPad, Android, Mac, Windows에 설치해서 사용할 수도 있습니다. DoneAt 계정을 만들 필요가 없습니다.
 
 ## 어떻게 시작하나요?
 
@@ -23,11 +23,11 @@ DoneAt은 퇴근 카운트다운 앱입니다. 출근 시간과 퇴근 시간을
 
 ## 탭을 닫아도 알림이 오나요?
 
-브라우저에서는 페이지가 열려 있는 동안에만 알림이 됩니다. iPhone, iPad, Mac, Windows에서는 화면을 떠나도 DoneAt이 시스템 알림을 보낼 수 있습니다.
+브라우저에서는 페이지가 열려 있는 동안에만 알림이 됩니다. iPhone, iPad, Android, Mac, Windows에서는 화면을 떠나도 DoneAt이 시스템 알림을 보낼 수 있습니다.
 
 ## 오프라인에서도 되나요?
 
-카운트다운은 기기에서 계산되므로 네트워크가 필요 없습니다. 웹 타이머는 한 번 열면 이후로는 오프라인에서도 작동합니다. iPhone, iPad, Mac, Windows 앱은 설치한 기기에서 작동합니다.
+카운트다운은 기기에서 계산되므로 네트워크가 필요 없습니다. 웹 타이머는 한 번 열면 이후로는 오프라인에서도 작동합니다. iPhone, iPad, Android, Mac, Windows 앱은 설치한 기기에서 작동합니다.
 
 ## 급여 정보는 안전한가요?
 
@@ -35,15 +35,15 @@ DoneAt은 퇴근 카운트다운 앱입니다. 출근 시간과 퇴근 시간을
 
 ## 스마트폰이나 컴퓨터용 앱이 있나요?
 
-네. iPhone, iPad, Mac은 [App Store](https://apps.apple.com/kr/app/id6802803318)에서, Windows는 [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ)에서 받을 수 있습니다. 브라우저 타이머는 [off.rainif.com](https://off.rainif.com/ko)에 있습니다. 실제로 열어둘 것을 선택하세요.
+네. iPhone, iPad, Mac은 [App Store](https://apps.apple.com/kr/app/id6802803318)에서, Android는 [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat)에서, Windows는 [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ)에서 받을 수 있습니다. 브라우저 타이머는 [off.rainif.com](https://off.rainif.com/ko)에 있습니다. 실제로 열어둘 것을 선택하세요.
 
 ## 위젯이나 Apple Watch 버전이 있나요?
 
-네. iPhone과 iPad에서는 홈 화면과 잠금 화면 위젯으로 앱을 열지 않아도 근무 남은 시간을 볼 수 있습니다. 지원되는 iPhone에서는 라이브 액티비티가 잠금 화면과 다이내믹 아일랜드에 진행률을 표시합니다. Apple Watch 버전에서는 손목을 들면 남은 시간과 퇴근 시각을 볼 수 있고, 2가지 컴플리케이션도 사용할 수 있습니다. Watch 버전은 무료이며 DoneAt Plus가 필요 없습니다. 위젯, 라이브 액티비티, Watch에서는 시간과 진행률만 표시하고 급여는 표시하지 않습니다. Mac과 Windows에서는 미니 타이머로 카운트다운을 항상 볼 수 있습니다.
+네. iPhone과 iPad에서는 홈 화면과 잠금 화면 위젯으로 앱을 열지 않아도 근무 남은 시간을 볼 수 있습니다. 지원되는 iPhone에서는 라이브 액티비티가 잠금 화면과 다이내믹 아일랜드에 진행률을 표시합니다. Android에서는 홈 화면 위젯과 상시 알림으로 남은 시간을 볼 수 있습니다. Apple Watch 버전에서는 손목을 들면 남은 시간과 퇴근 시각을 볼 수 있고, 2가지 컴플리케이션도 사용할 수 있습니다. Watch 버전은 무료이며 DoneAt Plus가 필요 없습니다. 위젯, 알림, 라이브 액티비티, Watch에서는 시간과 진행률만 표시하고 급여는 표시하지 않습니다. Mac과 Windows에서는 미니 타이머로 카운트다운을 항상 볼 수 있습니다.
 
 ## 교대 근무와 공휴일에 맞춘 스케줄을 설정할 수 있나요?
 
-iPhone과 iPad에서는 가능합니다. 하나의 월간 캘린더에서 고정 요일, 격주, 교대 로테이션, 자유 설정, 수동 타이머 등의 스케줄을 설정할 수 있습니다. "근무 시간 및 스케줄"에서 국가나 지역을 선택하면 해당 지역의 공휴일이 반영됩니다. 이전 버전에서 업데이트한 경우 거기서 한 번 활성화하세요. 웹 타이머와 Mac·Windows 버전은 하나의 출퇴근 시간을 사용합니다.
+iPhone, iPad, Android에서는 가능합니다. 하나의 월간 캘린더에서 고정 요일, 격주, 교대 로테이션, 자유 설정, 수동 타이머 등의 스케줄을 설정할 수 있습니다. 국가나 지역을 선택하면 해당 지역의 공휴일이 스케줄에 반영됩니다. iPhone과 iPad에서는 "근무 시간 및 스케줄"에서 설정하며, 이전 버전에서 업데이트한 경우 거기서 한 번 활성화하세요. 웹 타이머와 Mac·Windows 버전은 하나의 출퇴근 시간을 사용합니다.
 
 ## 무료인가요? 오픈 소스인가요?
 

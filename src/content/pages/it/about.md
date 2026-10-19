@@ -65,7 +65,7 @@ I template delle festività includono dati di calendari nazionali generati con [
 
 ## Android
 
-La versione Android è in fase di test. Google Play gestisce gli acquisti. Con la verifica server attiva, DoneAt elabora i token su Cloudflare e ne conserva gli hash insieme allo stato dei diritti; stipendio e registri di lavoro non vengono inviati. Vedi l’[informativa sulla privacy](/it/privacy#android) per verifica, backup ed eliminazione.
+La versione Android è disponibile su [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat), che gestisce gli acquisti. Con la verifica server attiva, DoneAt elabora i token su Cloudflare e ne conserva gli hash insieme allo stato dei diritti; stipendio e registri di lavoro non vengono inviati. Vedi l’[informativa sulla privacy](/it/privacy#android) per verifica, backup ed eliminazione.
 
 La navigazione Android usa [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) di Kyant e [Shapes 1.2.1](https://github.com/Kyant0/Shapes). DoneAt adatta l’esempio `LiquidBottomTabs` per navigazione, trascinamento, accessibilità, layout da destra a sinistra e movimento ridotto. Il rendering è locale e non invia contenuti o identificativi del dispositivo agli autori. Entrambe le librerie usano Apache License 2.0: [licenza Backdrop](/licenses/backdrop-2.0.1.txt), [licenza Shapes](/licenses/shapes-1.2.1.txt), incluse anche in Impostazioni → Informazioni → Ringraziamenti.
 

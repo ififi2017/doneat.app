@@ -34,7 +34,7 @@ DoneAt 也帮助你回顾工作、安排接下来的时间：
 
 上下班时间、工作日、薪资和偏好默认留在你正在用的这台设备上，倒计时和收入估算也在本地算完。在 iPhone 和 iPad 上，你可以选择在多台设备间同步排班、记录、薪资和设置。可选 iCloud 同步进你自己的私人 iCloud，DoneAt 读不到。Mac、Windows 和网页计时仍只保存在本地。这些工作设置不会发送到 DoneAt 的服务器。
 
-Android 版本目前处于测试阶段，Plus 购买由 Google Play 处理。在启用服务端验证的版本中，DoneAt 在 Cloudflare 上的购买验证服务会向 Google 核对购买状态与精确到期时刻，处理购买令牌并保存其哈希和权益状态，不接收薪资或工作记录。购买验证、系统备份和删除方式见[隐私政策](/zh-CN/privacy)。
+Android 版已在 [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) 上架，Plus 购买由 Google Play 处理。在启用服务端验证的版本中，DoneAt 在 Cloudflare 上的购买验证服务会向 Google 核对购买状态与精确到期时刻，处理购买令牌并保存其哈希和权益状态，不接收薪资或工作记录。购买验证、系统备份和删除方式见[隐私政策](/zh-CN/privacy)。
 
 在启用审核访问的 Android 版本中，获授权的审核人员可自行输入可重复使用的审核码，无需购买或 DoneAt 账号即可临时访问 Plus。这项可选服务会收集随机安装公钥和认证元数据，安装会话在最后续期七天后清理，不关联 Play 订单，也不接收薪资、排班或工作记录。每次授权最长有效 24 小时。处理的信息、续期、撤销与删除方式见[可选的 Android 审核访问](/zh-CN/privacy#可选的-android-审核访问)。
 

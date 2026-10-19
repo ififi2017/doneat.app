@@ -65,7 +65,7 @@ Tatil şablonları, [Vacanza Holidays 0.83](https://github.com/vacanza/holidays)
 
 ## Android
 
-Android sürümü test aşamasındadır. Satın almaları Google Play işler. Sunucu doğrulaması açık sürümlerde DoneAt, Cloudflare üzerinde satın alma jetonlarını işler ve özetlerini erişim durumuyla saklar; maaş ve çalışma kayıtları gönderilmez. Doğrulama, yedekleme ve silme için [gizlilik politikasına](/tr/privacy#android) bakabilirsin.
+Android sürümü [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat)’de yayındadır ve satın almaları Google Play işler. Sunucu doğrulaması açık sürümlerde DoneAt, Cloudflare üzerinde satın alma jetonlarını işler ve özetlerini erişim durumuyla saklar; maaş ve çalışma kayıtları gönderilmez. Doğrulama, yedekleme ve silme için [gizlilik politikasına](/tr/privacy#android) bakabilirsin.
 
 Android gezinmesi Kyant’ın [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) ve [Shapes 1.2.1](https://github.com/Kyant0/Shapes) kütüphanelerini kullanır. `LiquidBottomTabs` örneği DoneAt’ın gezinme, sürükleme, erişilebilirlik, sağdan sola düzen ve azaltılmış hareket davranışına uyarlanmıştır. Efektler cihazda çizilir; uygulama içeriği veya cihaz kimlikleri yazarlara gönderilmez. İkisi de Apache License 2.0 kullanır: [Backdrop lisansı](/licenses/backdrop-2.0.1.txt), [Shapes lisansı](/licenses/shapes-1.2.1.txt). Tam metinler Ayarlar → Hakkında → Teşekkürler bölümünde de bulunur.
 

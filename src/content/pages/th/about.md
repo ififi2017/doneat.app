@@ -65,7 +65,7 @@ DoneAt ยังช่วยมองย้อนงานและวางเ�
 
 ## Android
 
-Android อยู่ระหว่างทดสอบ การซื้อดำเนินการโดย Google Play รุ่นที่เปิดการตรวจสอบผ่านเซิร์ฟเวอร์จะให้ DoneAt ประมวลผลโทเค็นการซื้อบน Cloudflare และเก็บค่าแฮชพร้อมสถานะสิทธิ์ โดยไม่ส่งเงินเดือนหรือบันทึกงาน อ่านเรื่องการตรวจสอบ สำรอง และลบข้อมูลใน[นโยบายความเป็นส่วนตัว](/th/privacy#android)
+แอป Android มีให้ดาวน์โหลดบน [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) และการซื้อดำเนินการโดย Google Play รุ่นที่เปิดการตรวจสอบผ่านเซิร์ฟเวอร์จะให้ DoneAt ประมวลผลโทเค็นการซื้อบน Cloudflare และเก็บค่าแฮชพร้อมสถานะสิทธิ์ โดยไม่ส่งเงินเดือนหรือบันทึกงาน อ่านเรื่องการตรวจสอบ สำรอง และลบข้อมูลใน[นโยบายความเป็นส่วนตัว](/th/privacy#android)
 
 แถบนำทาง Android ใช้ [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) ของ Kyant และ [Shapes 1.2.1](https://github.com/Kyant0/Shapes) โดยปรับตัวอย่าง `LiquidBottomTabs` ให้เข้ากับการนำทาง การลาก การช่วยการเข้าถึง การเรียงจากขวาไปซ้าย และการลดการเคลื่อนไหวของ DoneAt เอฟเฟกต์วาดบนเครื่อง ไม่ส่งเนื้อหาแอปหรือตัวระบุอุปกรณ์ให้ผู้พัฒนา ทั้งสองใช้ Apache License 2.0: [สัญญาอนุญาต Backdrop](/licenses/backdrop-2.0.1.txt) และ [Shapes](/licenses/shapes-1.2.1.txt) มีฉบับเต็มในแอปที่ การตั้งค่า → เกี่ยวกับ → กิตติกรรมประกาศด้วย
 

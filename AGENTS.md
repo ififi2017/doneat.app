@@ -17,7 +17,7 @@
 | `locales/hall.json` | 19 语功能行、Apple / Microsoft 徽章语言与 storefront 映射。英文功能行已是 **Work Shift Countdown**。 |
 | `assets/brand/` | Open Day SVG（mark 明/暗、满幅图标、圆角图标）。不要另造 mark。 |
 | `assets/icons/` | favicon、apple-touch、maskable、OG（mark + DoneAt）。 |
-| `assets/badges/` | 已下载的官方 App Store / Microsoft Store SVG。用仓内文件，不要再去产品仓拿 Mac App Store 专用标。 |
+| `assets/badges/` | 已下载的官方 App Store / Microsoft Store SVG 与 Google Play PNG（只裁掉透明边）。用仓内文件，不要再去产品仓拿 Mac App Store 专用标。 |
 | `assets/device/` | 首页机位 timer loop（`en` / `zh` × `white` / `black`）和下载页 review 录屏（`en-review` / `zh-review`，iOS 3.2.0），各一份 `.mp4` + `.png`。用法与转码命令见该目录 README。 |
 | `assets/showcase/` | 下载页 iPhone 功能区用的 3.2.0 商店图，`en` / `zh-CN` 各四张（小组件、月历、Apple Watch、倒计时），720 宽 WebP。 |
 | `content/source/*.content.json` | 英中长文草稿。**不能原文上线**，见下方 S2。 |
@@ -33,7 +33,7 @@ Astro 门厅、英中长文、下载页都已上线。接着改现有工程，�
 
 - 首页主按钮是「详细了解客户端」（en：Learn more about the apps）→ `/{lang}/download`。该语言已有下载页就进自己的页；还没有文件时链接直接指向 `/en/download`，不 302。不要写成「看电脑版什么样」——下载页手机和电脑都有。
 - 「在浏览器里试试」用次要描边，仍去 `https://off.rainif.com/{lang}`。下载页不要再放这两颗按钮。
-- 商店徽章顺序仍是 **App Store → Microsoft Store**。顶栏「打开网页版」仍去网页计时。
+- 商店徽章顺序是 **App Store → Google Play → Microsoft Store**（2026-10-19 Android 上架后加入 Google Play；国内站不显示 Google Play）。顶栏「打开网页版」仍去网页计时。
 - 首页整页（`.shift-page`）不可选中文字；下载 / FAQ / 关于等长文页照常可选。
 - 新版首页窄屏按语言起始边对齐，RTL 跟随阅读方向；章节竖叠，真实手机放在第 01 章，首屏不放手机。桌面首屏左为双行标题、品牌句和两个入口，右为与产品网页版同款的实时卡片（`LiveShiftCard.astro`）；窄屏卡片在入口下方。首屏不再重复顶栏的品牌字标。可五连击的品牌 mark 在收尾章标题上方用内联 SVG；官方商店徽章在收尾章提供，不要求重复放首屏。首页顶栏用 `tone="dark"`，两种系统配色下都是深梅色实色栏。顶栏不要用 `backdrop-filter`：盖在钉住的滚动场景上时，Chromium 会在栏里画出神秘方框。
 - 窄屏页脚可以折成多行，导航、社交图标、署名都居中。桌面仍左导航，右侧是社交图标 + 署名。
@@ -84,8 +84,9 @@ S0–S4 都已完成（S4 上线 2026-08-30）。以下按阶段保留仍然有�
 - 英文门厅：DoneAt + `Know when your time is yours` + Work Shift Countdown。
 - 中文门厅（zh-CN / zh-TW / zh-HK）：DoneAt + 原创品牌句 + 该语功能行。简中「几点下班，心里有数」，台湾「幾點下班，心裡有數」，香港「幾點放工，心裡有數」。不要英文字面直译。
 - 其他门厅：DoneAt + 各语品牌句 + `hall.json` 里的功能行。品牌句要像当地话，不要英文字面直译。功能行仍独立。
-- 首页首屏文字按钮：主按钮「详细了解客户端」进下载页；次按钮「在浏览器里试试」进 `https://off.rainif.com/{lang}`。商店徽章顺序仍是 **App Store → Microsoft Store**。
+- 首页首屏文字按钮：主按钮「详细了解客户端」进下载页；次按钮「在浏览器里试试」进 `https://off.rainif.com/{lang}`。商店徽章顺序是 **App Store → Google Play → Microsoft Store**。
   - App Store：仓内 `assets/badges/app-store/{black\|white}/{apple-locale}.svg`。浅色页用 black 标，深色页用 white 标。语言映射见 `hall.json`；`hi-IN`、`ar` 回退 `en-us`。链接用 id **`6802803318`**，storefront 跟语言走（简中 `/cn/`）。不要把 listing slug（`下班倒计时` / `off-work-countdown`）写死当品牌。若带 Apple 的 `itscg` / `itsct` / `mttnsubad` 就保留。
+  - Google Play：仓内 `assets/badges/google-play/{locale}.png`（Google 官方 PNG，只有深色一版，明暗页通用；各语言透明边不一致，`scripts/fetch-badges.mjs` 只裁透明边，不改图形）。高 40px 与 App Store 标齐平。语言映射见 `hall.json` 的 `googlePlayBadgeLocale`。链接 `https://play.google.com/store/apps/details?id=com.rainif.doneat`，统计事件 `google_play_open`。国内站（`isChina`）不显示。
   - Microsoft Store：官方 badge 脚本 + 仓内 SVG 兜底，链到 `https://apps.microsoft.com/detail/9PM0HJ2PP2LJ`。脚本挂了 SVG 仍可点。不要在徽章下再叠一条重复文字链。
 - 第 01 章三条短价值：本地、无账号、看清下班。不上对比表，不把 FAQ 铺在首页。
 - 第 01 章机位：**先播 mp4，png 做 poster 和播不了时的兜底**。`autoplay muted loop playsinline`，无控件、无声音。中文门厅用 `zh-*`，其余用 `en-*`。`prefers-color-scheme` 选 white/black。`prefers-reduced-motion: reduce` 只出 PNG。套仓内官方 iPhone 17 Pro Max 框（浅色 Cosmic Orange，深色 Deep Blue，`assets/device/frames/`）。视频和 PNG 铺在屏洞里，框叠在上面；框自带灵动岛，不要再另造机框或岛。

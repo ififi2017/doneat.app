@@ -65,7 +65,7 @@ Off Work Countdown أصبح DoneAt. العدّ التنازلي هو نفسه؛ 
 
 ## Android
 
-نسخة Android قيد الاختبار، ويعالج Google Play عمليات الشراء. في الإصدارات التي تفعّل التحقق عبر الخادم، يعالج DoneAt رموز الشراء على Cloudflare ويحفظ بصماتها مع حالة الاستحقاق، دون إرسال الراتب أو سجلات العمل. راجع [سياسة الخصوصية](/ar/privacy#android) للتحقق والنسخ الاحتياطي والحذف.
+نسخة Android متاحة على [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat)، ويعالج Google Play عمليات الشراء. في الإصدارات التي تفعّل التحقق عبر الخادم، يعالج DoneAt رموز الشراء على Cloudflare ويحفظ بصماتها مع حالة الاستحقاق، دون إرسال الراتب أو سجلات العمل. راجع [سياسة الخصوصية](/ar/privacy#android) للتحقق والنسخ الاحتياطي والحذف.
 
 يستخدم التنقل في Android مكتبة [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) من Kyant و[Shapes 1.2.1](https://github.com/Kyant0/Shapes). عدّل DoneAt مثال `LiquidBottomTabs` ليلائم التنقل والسحب وإمكانية الوصول والتخطيط من اليمين إلى اليسار وتقليل الحركة. تُرسم التأثيرات محليًا دون إرسال محتوى التطبيق أو معرّفات الجهاز إلى المؤلفين. المكتبتان مرخصتان بموجب Apache License 2.0: [ترخيص Backdrop](/licenses/backdrop-2.0.1.txt) و[ترخيص Shapes](/licenses/shapes-1.2.1.txt). النصوص الكاملة متاحة أيضًا في الإعدادات ← حول ← شكر وتقدير.
 

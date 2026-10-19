@@ -4,7 +4,7 @@ description: "Comment DoneAt stocke les données localement par défaut, propose
 heading: "Politique de confidentialité"
 intro: "Cette page explique comment DoneAt stocke et traite les informations : le site officiel, le minuteur web, et les apps sur iPhone, iPad, Android, Mac et Windows."
 updatedLabel: "Dernière mise à jour"
-updated: "16 octobre 2026"
+updated: "19 octobre 2026"
 ---
 
 ## Données stockées par DoneAt
@@ -32,7 +32,7 @@ Activer la synchronisation nécessite DoneAt Plus. La synchronisation déjà act
 
 ## Android
 
-L’app Android est en test. Sa disponibilité et les achats Plus dépendent de sa publication sur Google Play. Les données de travail et les réglages restent par défaut dans le stockage privé de l’app, sans compte DoneAt ni analyse d’utilisation dans l’app.
+Les données de travail et les réglages restent par défaut dans le stockage privé de l’app, sans compte DoneAt ni analyse d’utilisation dans l’app.
 
 Les sauvegardes système et transferts d’appareil peuvent inclure relevés, salaire, parcours professionnel, profil de vie, données Focus et réglages d’une configuration inachevée. Cela dépend de l’appareil, du compte et des réglages système. DoneAt n’en reçoit pas de copie serveur. Le minuteur en cours, le registre des rappels et les preuves d’achat sont exclus ; après restauration, les rappels sont recréés et les achats revérifiés. Aucune synchronisation automatique Google Drive ou avec l’iPhone n’est proposée. Les exports manuels sont des fichiers JSON lisibles, pouvant contenir le salaire ; le lieu ou destinataire choisi reçoit une copie distincte.
 

@@ -65,7 +65,7 @@ iCloud 同期を初めて有効にするには Plus が必要です。有効化�
 
 ## Android
 
-Android 版はテスト中です。購入は Google Play が処理します。サーバー検証を有効にした版では、DoneAt が Cloudflare 上で購入トークンを処理し、そのハッシュと利用権の状態を保存します。給与や勤務記録は送信しません。検証、バックアップ、削除については[プライバシーポリシー](/ja/privacy#android)をご覧ください。
+Android 版は [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) で入手でき、購入は Google Play が処理します。サーバー検証を有効にした版では、DoneAt が Cloudflare 上で購入トークンを処理し、そのハッシュと利用権の状態を保存します。給与や勤務記録は送信しません。検証、バックアップ、削除については[プライバシーポリシー](/ja/privacy#android)をご覧ください。
 
 Android のナビゲーションには、Kyant の [Backdrop（AndroidLiquidGlass）2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) と [Shapes 1.2.1](https://github.com/Kyant0/Shapes) を使用しています。`LiquidBottomTabs` のサンプルを、DoneAt の画面移動、ドラッグ、アクセシビリティ、右から左への表示、視差効果の軽減に合わせて変更しています。描画は端末内で行い、アプリの内容や端末識別子を作者へ送信しません。両ライブラリは Apache License 2.0 です。[Backdrop のライセンス](/licenses/backdrop-2.0.1.txt)と [Shapes のライセンス](/licenses/shapes-1.2.1.txt)の全文は、アプリの「設定 → このアプリについて → 謝辞」にも収録しています。
 

@@ -14,6 +14,7 @@ export const trackedEvents = [
   "web_timer_open",
   "download_page_open",
   "app_store_open",
+  "google_play_open",
   "microsoft_store_open",
   "github_source_open",
   "github_releases_open",

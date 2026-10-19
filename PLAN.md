@@ -71,20 +71,20 @@
 2026-10-01 用户重设计要求取代旧首屏分栏和窄屏居中：梅色双行标题与班次票据 → 真实录屏 → 小组件／Apple Watch → 下载。窄屏按语言起始边排列，品牌 mark 在首屏署名中，官方商店徽章在下载章；手机位于第 01 章。19 语 h1 必须两行完整可读。全站色板／外层栅格由 `src/styles/global.css` 统一定义，详见 AGENTS。
 
 - Mark 默认定住。橙色圆点五连击后指针转一圈回到五点（与 iOS 相同）；减少动态效果时只脉冲一次。
-- 首屏主入口为客户端下载详情，次入口为浏览器计时；下载章商店顺序为 **App Store → Microsoft Store**。Web 不提升为主入口。
+- 首屏主入口为客户端下载详情，次入口为浏览器计时；下载章商店顺序为 **App Store → Google Play → Microsoft Store**。Web 不提升为主入口。
   - **App Store** 用 [Apple Marketing Tools](https://toolbox.marketingtools.apple.com/) 的官方徽章图，不是产品仓里那套 Mac App Store 专用 SVG。模板：
     `https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/{black|white}/{apple-locale}`
     浅色用 `black`，深色用 `white`；`apple-locale` 跟当前门厅语言（如 `zh-cn`、`en-us`），没有对应图就回退 `en-us`。
     链接以 **id `6802803318`** 为准，商店地区跟语言走（简中用 `/cn/`，不要写死 `/us/`）。路径上的 `下班倒计时` / `off-work-countdown` 是现在的 listing slug，listing 改成 DoneAt 后会变，实现时不要把旧中文名当品牌写死。Apple 生成的 `itscg` / `itsct` / `mttnsubad` 查询参数保留。
   - **Microsoft Store** 用[官方 badge 脚本](https://get.microsoft.com/badge/)：按页面语言返回对应徽章，主题跟系统亮暗。两家官方 CDN 的可用性都作为接受的依赖。
 - Web 与顶栏「打开计时」都进 `https://off.rainif.com/{lang}`。
-- 第 01 章三条短价值：本地、无账号、看清下班。不上长对比表，不把 FAQ 铺在首页。平台可用性压成一行说明，不在首页铺 chip；Android 待发布状态在下载章与下载页的既有平台行中说明。
+- 第 01 章三条短价值：本地、无账号、看清下班。不上长对比表，不把 FAQ 铺在首页。平台可用性压成一行说明，不在首页铺 chip；Android 已于 2026-10-19 在 Google Play 上架，平台行直接列出 Android。
 - 第 01 章机位：**当前色彩模式、且未开启 reduced-motion 时才加载对应 MP4**；其余情况只出 PNG。再套官方 iPhone 17 Pro Max 框（浅色 Cosmic Orange，深色 Deep Blue，`assets/device/frames/`）。竖屏下班倒计时，不要商店合成图，不要另造机框或灵动岛。素材在 `assets/device/`：`en` / `zh` × `white` / `black` 各一份 `.mp4` + `.png`。语言跟内容语言走（中文门厅用 `zh`，其余用 `en`）；亮暗跟 `prefers-color-scheme`。`autoplay muted loop playsinline`，无控件、无声音。`prefers-reduced-motion: reduce` 只出 PNG，且不请求视频。
 - 首页不放桌面主窗 / 迷你计时（窗口标题仍是旧名），不上产品仓里那套旧名桌面 demo。下载页的桌面演示见下。
 
 ### 下载页
 
-商店入口与首页同一套 App Store / Microsoft Store 徽章，不放「在浏览器里试试」。平台行含 Android 即将推出。三项原生价值用卡片排布；系统要求与卡片同宽，并附弱化的 GitHub Releases 文字链（仅 macOS / Windows 未签名直装包）。不放 GitHub 直装按钮。语气不贬网页版。顶栏仍可打开网页计时。
+商店入口与首页同一套 App Store / Google Play / Microsoft Store 徽章，不放「在浏览器里试试」。平台行含 Android。三项原生价值用卡片排布；系统要求与卡片同宽，并附弱化的 GitHub Releases 文字链（仅 macOS / Windows 未签名直装包）。不放 GitHub 直装按钮。语气不贬网页版。顶栏仍可打开网页计时。
 
 - 手机机位播 review 录屏（`en-review` / `zh-review`，iOS 3.2.0 真机录制），同一套官方机框与 PNG 兜底，不用首页的 timer loop。电脑用仓内归档的主窗与迷你计时演示。
 - iPhone 功能区：一个图位轮播当前版本的商店图（`assets/showcase/`，en / zh-CN），旁边每张配一段可见说明，图片有具体 `alt`。3.2.0 为小组件与实时活动、月历排班与节假日、免费 Apple Watch、倒计时。减少动态效果时不自动轮播。
@@ -262,3 +262,10 @@
 - [x] 本地 `check`（39 files，0 errors/warnings/hints）、`build`（121 页）、`seo:check` 通过；19 个新增补充链接对应的构建锚点存在。Codex 内置浏览器实际查看深色英文 1280×720、简中 390×844 和阿拉伯语短提示；简中/阿拉伯语 390 宽无横向溢出，并实际点击阿拉伯语链接到英文补充。未覆盖亮色或完整 19 语视觉矩阵。
 - [ ] 对照最终 Android／Worker 实现验证字段、24 小时授权、最后续期七天安装清理、退出／撤销和备份排除。17 语短提示仍需母语审阅。
 - [x] 所有者于 2026-10-16 确认合并发布本补充；不改首页、DNS 或域名绑定，不含 Android 生产发布。正式审核访问启用前，必须先有匹配的已发布隐私披露和 Console 声明。
+
+## 2026-10-19 Android 正式上架
+
+- [x] 用户确认 Android 已在 [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) 上架，要求推进官网 Android 内容。
+- [x] 下载章、下载页与首页收尾加 19 语官方 Google Play 徽章（App Store → Google Play → Microsoft Store；国内站不显示），统计事件 `google_play_open`；平台行去掉「即将推出」；门厅标题、描述与 JSON-LD 加 Android。
+- [x] 19 语下载／FAQ／About／隐私去掉「测试阶段」说法；下载页补 Android 8.0+ 系统要求与 Android 数据说明；FAQ 的应用入口、通知、离线、小组件、排班与节假日加 Android。隐私数据处理范围不变，日期更新为 2026-10-19。非英／简中 17 语改动仍需母语审阅。
+

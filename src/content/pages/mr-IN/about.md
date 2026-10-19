@@ -65,7 +65,7 @@ iCloud सिंक सुरू करण्यासाठी Plus लाग�
 
 ## Android
 
-Android आवृत्ती चाचणीत आहे. खरेदी Google Play हाताळते. सर्व्हर पडताळणी सुरू असताना DoneAt, Cloudflare वर खरेदी टोकन प्रक्रिया करते आणि त्यांचे हॅश व प्रवेशाची स्थिती साठवते; पगार किंवा कामाच्या नोंदी पाठवल्या जात नाहीत. पडताळणी, बॅकअप आणि हटवण्याबद्दल [गोपनीयता धोरण](/mr-IN/privacy#android) पहा.
+Android आवृत्ती [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) वर उपलब्ध आहे, जे खरेदी हाताळते. सर्व्हर पडताळणी सुरू असताना DoneAt, Cloudflare वर खरेदी टोकन प्रक्रिया करते आणि त्यांचे हॅश व प्रवेशाची स्थिती साठवते; पगार किंवा कामाच्या नोंदी पाठवल्या जात नाहीत. पडताळणी, बॅकअप आणि हटवण्याबद्दल [गोपनीयता धोरण](/mr-IN/privacy#android) पहा.
 
 Android नेव्हिगेशनमध्ये Kyant यांची [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) आणि [Shapes 1.2.1](https://github.com/Kyant0/Shapes) वापरली जातात. DoneAt ने `LiquidBottomTabs` उदाहरण नेव्हिगेशन, ड्रॅग, सुलभता, उजवीकडून डावीकडे मांडणी आणि कमी हालचालींसाठी बदलले आहे. परिणाम उपकरणावर रेखाटले जातात; अॅपमधील मजकूर किंवा उपकरण ओळख लेखकांना पाठवली जात नाही. दोन्ही Apache License 2.0 अंतर्गत आहेत: [Backdrop परवाना](/licenses/backdrop-2.0.1.txt), [Shapes परवाना](/licenses/shapes-1.2.1.txt). पूर्ण मजकूर अॅपच्या सेटिंग → परिचय → आभारमध्येही आहे.
 
