@@ -43,16 +43,16 @@
       "valueSeeDone": "See when you're off",
       "appStoreLabel": "Download on the App Store",
       "microsoftStoreLabel": "Get it from Microsoft Store",
+      "googlePlayLabel": "Get it on Google Play",
       "platformsLabel": "Available on",
       "platformWeb": "Web",
-      "comingSoon": "Coming soon",
       "language": "Language",
       "navMenu": "Menu",
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "DoneAt on iPhone",
-      "homeTitle": "DoneAt: Work Shift Countdown for iPhone, Mac & Windows",
-      "homeDescription": "A work-shift countdown for the browser, iPhone, iPad, Mac and Windows. Your hours stay on your device. No account to create."
+      "homeTitle": "DoneAt: Work Shift Countdown for iPhone, Android, Mac & Windows",
+      "homeDescription": "A work-shift countdown for the browser, iPhone, iPad, Android, Mac and Windows. Your hours stay on your device. No account to create."
     },
     "zh-CN": {
       "skipToContent": "跳到正文",
@@ -76,16 +76,16 @@
       "valueSeeDone": "看清下班时间",
       "appStoreLabel": "在 App Store 下载",
       "microsoftStoreLabel": "前往 Microsoft Store",
+      "googlePlayLabel": "在 Google Play 下载",
       "platformsLabel": "可用于",
       "platformWeb": "浏览器",
-      "comingSoon": "即将推出",
       "language": "语言",
       "navMenu": "菜单",
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "iPhone 上的 DoneAt",
-      "homeTitle": "DoneAt：下班倒计时 App｜iPhone、Mac、Windows",
-      "homeDescription": "下班倒计时，浏览器、iPhone、iPad、Mac 和 Windows 都能用。时间留在你的设备上，不用注册。"
+      "homeTitle": "DoneAt：下班倒计时 App｜iPhone、Android、Mac、Windows",
+      "homeDescription": "下班倒计时，浏览器、iPhone、iPad、Android、Mac 和 Windows 都能用。时间留在你的设备上，不用注册。"
     },
     "zh-TW": {
       "skipToContent": "跳到正文",
@@ -109,16 +109,16 @@
       "valueSeeDone": "看清下班時間",
       "appStoreLabel": "在 App Store 下載",
       "microsoftStoreLabel": "前往 Microsoft Store",
+      "googlePlayLabel": "在 Google Play 下載",
       "platformsLabel": "可用於",
       "platformWeb": "瀏覽器",
-      "comingSoon": "即將推出",
       "language": "語言",
       "navMenu": "選單",
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "iPhone 上的 DoneAt",
-      "homeTitle": "DoneAt：下班倒數計時 App｜iPhone、Mac、Windows",
-      "homeDescription": "下班倒數計時，瀏覽器、iPhone、iPad、Mac 與 Windows 都能用。時間留在你的裝置上，不必註冊。"
+      "homeTitle": "DoneAt：下班倒數計時 App｜iPhone、Android、Mac、Windows",
+      "homeDescription": "下班倒數計時，瀏覽器、iPhone、iPad、Android、Mac 與 Windows 都能用。時間留在你的裝置上，不必註冊。"
     },
     "zh-HK": {
       "skipToContent": "跳到正文",
@@ -142,16 +142,16 @@
       "valueSeeDone": "睇清放工時間",
       "appStoreLabel": "喺 App Store 下載",
       "microsoftStoreLabel": "前往 Microsoft Store",
+      "googlePlayLabel": "喺 Google Play 下載",
       "platformsLabel": "可用於",
       "platformWeb": "瀏覽器",
-      "comingSoon": "即將推出",
       "language": "語言",
       "navMenu": "選單",
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "iPhone 上嘅 DoneAt",
-      "homeTitle": "DoneAt：放工倒數計時 App｜iPhone、Mac、Windows",
-      "homeDescription": "放工倒數，瀏覽器、iPhone、iPad、Mac 同 Windows 都用得。時間留喺你部裝置，唔使註冊。"
+      "homeTitle": "DoneAt：放工倒數計時 App｜iPhone、Android、Mac、Windows",
+      "homeDescription": "放工倒數，瀏覽器、iPhone、iPad、Android、Mac 同 Windows 都用得。時間留喺你部裝置，唔使註冊。"
     },
     "ja": {
       "skipToContent": "本文へ",
@@ -175,16 +175,16 @@
       "valueSeeDone": "退勤時刻がわかる",
       "appStoreLabel": "App Store からダウンロード",
       "microsoftStoreLabel": "Microsoft Store で入手",
+      "googlePlayLabel": "Google Play で手に入れよう",
       "platformsLabel": "使える環境",
       "platformWeb": "ブラウザ",
-      "comingSoon": "近日公開",
       "language": "言語",
       "navMenu": "メニュー",
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "iPhone の DoneAt",
-      "homeTitle": "DoneAt：退勤カウントダウンアプリ｜iPhone・Mac・Windows",
-      "homeDescription": "退勤カウントダウン。ブラウザ、iPhone、iPad、Mac、Windows で使えます。時間はこの端末に残ります。アカウントは不要です。"
+      "homeTitle": "DoneAt：退勤カウントダウンアプリ｜iPhone・Android・Mac・Windows",
+      "homeDescription": "退勤カウントダウン。ブラウザ、iPhone、iPad、Android、Mac、Windows で使えます。時間はこの端末に残ります。アカウントは不要です。"
     },
     "ko": {
       "skipToContent": "본문으로",
@@ -208,16 +208,16 @@
       "valueSeeDone": "퇴근 시간이 보여요",
       "appStoreLabel": "App Store에서 다운로드",
       "microsoftStoreLabel": "Microsoft Store에서 받기",
+      "googlePlayLabel": "Google Play에서 다운로드",
       "platformsLabel": "사용 가능한 곳",
       "platformWeb": "브라우저",
-      "comingSoon": "곧 출시",
       "language": "언어",
       "navMenu": "메뉴",
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "iPhone의 DoneAt",
-      "homeTitle": "DoneAt: 퇴근 카운트다운 앱 | iPhone, Mac, Windows",
-      "homeDescription": "퇴근 카운트다운. 브라우저, iPhone, iPad, Mac, Windows에서 쓸 수 있어요. 시간은 기기에 남습니다. 계정은 필요 없습니다."
+      "homeTitle": "DoneAt: 퇴근 카운트다운 앱 | iPhone, Android, Mac, Windows",
+      "homeDescription": "퇴근 카운트다운. 브라우저, iPhone, iPad, Android, Mac, Windows에서 쓸 수 있어요. 시간은 기기에 남습니다. 계정은 필요 없습니다."
     },
     "fr": {
       "skipToContent": "Aller au contenu",
@@ -241,16 +241,16 @@
       "valueSeeDone": "Voir quand vous sortez",
       "appStoreLabel": "Télécharger dans l’App Store",
       "microsoftStoreLabel": "Obtenir sur Microsoft Store",
+      "googlePlayLabel": "Disponible sur Google Play",
       "platformsLabel": "Disponible sur",
       "platformWeb": "Navigateur",
-      "comingSoon": "Bientôt",
       "language": "Langue",
       "navMenu": "Menu",
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "DoneAt sur iPhone",
-      "homeTitle": "DoneAt : compte à rebours de fin de journée pour iPhone, Mac et Windows",
-      "homeDescription": "Compte à rebours de fin de journée pour le navigateur, iPhone, iPad, Mac et Windows. Vos horaires restent sur l’appareil. Pas de compte."
+      "homeTitle": "DoneAt : compte à rebours de fin de journée pour iPhone, Android, Mac et Windows",
+      "homeDescription": "Compte à rebours de fin de journée pour le navigateur, iPhone, iPad, Android, Mac et Windows. Vos horaires restent sur l’appareil. Pas de compte."
     },
     "de": {
       "skipToContent": "Zum Inhalt",
@@ -274,16 +274,16 @@
       "valueSeeDone": "Feierabend im Blick",
       "appStoreLabel": "Laden im App Store",
       "microsoftStoreLabel": "Aus dem Microsoft Store",
+      "googlePlayLabel": "Jetzt bei Google Play",
       "platformsLabel": "Verfügbar auf",
       "platformWeb": "Browser",
-      "comingSoon": "Demnächst",
       "language": "Sprache",
       "navMenu": "Menü",
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "DoneAt auf dem iPhone",
-      "homeTitle": "DoneAt: Feierabend-Countdown-App für iPhone, Mac & Windows",
-      "homeDescription": "Feierabend-Countdown für Browser, iPhone, iPad, Mac und Windows. Ihre Zeiten bleiben auf dem Gerät. Kein Konto."
+      "homeTitle": "DoneAt: Feierabend-Countdown-App für iPhone, Android, Mac & Windows",
+      "homeDescription": "Feierabend-Countdown für Browser, iPhone, iPad, Android, Mac und Windows. Ihre Zeiten bleiben auf dem Gerät. Kein Konto."
     },
     "es": {
       "skipToContent": "Saltar al contenido",
@@ -307,16 +307,16 @@
       "valueSeeDone": "Ver cuándo sales",
       "appStoreLabel": "Descargar en el App Store",
       "microsoftStoreLabel": "Consíguelo en Microsoft Store",
+      "googlePlayLabel": "Disponible en Google Play",
       "platformsLabel": "Disponible en",
       "platformWeb": "Navegador",
-      "comingSoon": "Próximamente",
       "language": "Idioma",
       "navMenu": "Menú",
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "DoneAt en el iPhone",
-      "homeTitle": "DoneAt: cuenta regresiva del turno para iPhone, Mac y Windows",
-      "homeDescription": "Cuenta regresiva del turno para el navegador, iPhone, iPad, Mac y Windows. Tus horarios se quedan en el dispositivo. Sin cuenta."
+      "homeTitle": "DoneAt: cuenta regresiva del turno para iPhone, Android, Mac y Windows",
+      "homeDescription": "Cuenta regresiva del turno para el navegador, iPhone, iPad, Android, Mac y Windows. Tus horarios se quedan en el dispositivo. Sin cuenta."
     },
     "it": {
       "skipToContent": "Vai al contenuto",
@@ -340,16 +340,16 @@
       "valueSeeDone": "Vedi quando stacchi",
       "appStoreLabel": "Scarica su App Store",
       "microsoftStoreLabel": "Scarica da Microsoft Store",
+      "googlePlayLabel": "Disponibile su Google Play",
       "platformsLabel": "Disponibile su",
       "platformWeb": "Browser",
-      "comingSoon": "Prossimamente",
       "language": "Lingua",
       "navMenu": "Menu",
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "DoneAt su iPhone",
-      "homeTitle": "DoneAt: conto alla rovescia del turno per iPhone, Mac e Windows",
-      "homeDescription": "Conto alla rovescia del turno per browser, iPhone, iPad, Mac e Windows. Gli orari restano sul dispositivo. Nessun account."
+      "homeTitle": "DoneAt: conto alla rovescia del turno per iPhone, Android, Mac e Windows",
+      "homeDescription": "Conto alla rovescia del turno per browser, iPhone, iPad, Android, Mac e Windows. Gli orari restano sul dispositivo. Nessun account."
     },
     "pt": {
       "skipToContent": "Ir para o conteúdo",
@@ -373,16 +373,16 @@
       "valueSeeDone": "Ver quando pode sair",
       "appStoreLabel": "Baixar na App Store",
       "microsoftStoreLabel": "Obter na Microsoft Store",
+      "googlePlayLabel": "Disponível no Google Play",
       "platformsLabel": "Disponível em",
       "platformWeb": "Navegador",
-      "comingSoon": "Em breve",
       "language": "Idioma",
       "navMenu": "Menu",
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "DoneAt no iPhone",
-      "homeTitle": "DoneAt: contagem regressiva do expediente para iPhone, Mac e Windows",
-      "homeDescription": "Contagem regressiva do expediente para o navegador, iPhone, iPad, Mac e Windows. Seus horários ficam no dispositivo. Sem conta."
+      "homeTitle": "DoneAt: contagem regressiva do expediente para iPhone, Android, Mac e Windows",
+      "homeDescription": "Contagem regressiva do expediente para o navegador, iPhone, iPad, Android, Mac e Windows. Seus horários ficam no dispositivo. Sem conta."
     },
     "ru": {
       "skipToContent": "К содержимому",
@@ -406,16 +406,16 @@
       "valueSeeDone": "Видно, когда можно уйти",
       "appStoreLabel": "Загрузить в App Store",
       "microsoftStoreLabel": "Скачать из Microsoft Store",
+      "googlePlayLabel": "Доступно в Google Play",
       "platformsLabel": "Доступно на",
       "platformWeb": "Браузер",
-      "comingSoon": "Скоро",
       "language": "Язык",
       "navMenu": "Меню",
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "DoneAt на iPhone",
-      "homeTitle": "DoneAt: обратный отсчёт до конца смены для iPhone, Mac и Windows",
-      "homeDescription": "Обратный отсчёт до конца смены для браузера, iPhone, iPad, Mac и Windows. Расписание остаётся на устройстве. Без аккаунта."
+      "homeTitle": "DoneAt: обратный отсчёт до конца смены для iPhone, Android, Mac и Windows",
+      "homeDescription": "Обратный отсчёт до конца смены для браузера, iPhone, iPad, Android, Mac и Windows. Расписание остаётся на устройстве. Без аккаунта."
     },
     "hi-IN": {
       "skipToContent": "सामग्री पर जाएँ",
@@ -439,16 +439,16 @@
       "valueSeeDone": "देखें कब छुट्टी है",
       "appStoreLabel": "App Store से डाउनलोड करें",
       "microsoftStoreLabel": "Microsoft Store से पाएँ",
+      "googlePlayLabel": "इसे Google Play पर पाएं",
       "platformsLabel": "उपलब्ध प्लेटफ़ॉर्म",
       "platformWeb": "ब्राउज़र",
-      "comingSoon": "जल्द आ रहा है",
       "language": "भाषा",
       "navMenu": "मेनू",
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "iPhone पर DoneAt",
-      "homeTitle": "DoneAt: छुट्टी की उलटी गिनती — iPhone, Mac और Windows के लिए",
-      "homeDescription": "छुट्टी की उलटी गिनती — ब्राउज़र, iPhone, iPad, Mac और Windows पर। समय डिवाइस पर रहता है। खाते की ज़रूरत नहीं।"
+      "homeTitle": "DoneAt: छुट्टी की उलटी गिनती — iPhone, Android, Mac और Windows के लिए",
+      "homeDescription": "छुट्टी की उलटी गिनती — ब्राउज़र, iPhone, iPad, Android, Mac और Windows पर। समय डिवाइस पर रहता है। खाते की ज़रूरत नहीं।"
     },
     "mr-IN": {
       "skipToContent": "मुख्य मजकुराकडे जा",
@@ -472,16 +472,16 @@
       "valueSeeDone": "सुट्टी कधी ते दिसते",
       "appStoreLabel": "App Store वरून डाउनलोड करा",
       "microsoftStoreLabel": "Microsoft Store वरून मिळवा",
+      "googlePlayLabel": "Google Play वर मिळवा",
       "platformsLabel": "उपलब्ध प्लॅटफॉर्म",
       "platformWeb": "ब्राउझर",
-      "comingSoon": "लवकरच",
       "language": "भाषा",
       "navMenu": "मेनू",
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "iPhone वरील DoneAt",
-      "homeTitle": "DoneAt: सुट्टीची उलट मोजणी — iPhone, Mac आणि Windows साठी",
-      "homeDescription": "सुट्टीची उलट मोजणी — ब्राउझर, iPhone, iPad, Mac आणि Windows वर. वेळ डिव्हाइसवर राहतो. खाते लागत नाही."
+      "homeTitle": "DoneAt: सुट्टीची उलट मोजणी — iPhone, Android, Mac आणि Windows साठी",
+      "homeDescription": "सुट्टीची उलट मोजणी — ब्राउझर, iPhone, iPad, Android, Mac आणि Windows वर. वेळ डिव्हाइसवर राहतो. खाते लागत नाही."
     },
     "tr": {
       "skipToContent": "İçeriğe geç",
@@ -505,16 +505,16 @@
       "valueSeeDone": "Çıkış saatini gör",
       "appStoreLabel": "App Store’dan indir",
       "microsoftStoreLabel": "Microsoft Store’dan al",
+      "googlePlayLabel": "Google Play’den indirin",
       "platformsLabel": "Şu platformlarda",
       "platformWeb": "Tarayıcı",
-      "comingSoon": "Yakında",
       "language": "Dil",
       "navMenu": "Menü",
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "iPhone’da DoneAt",
-      "homeTitle": "DoneAt: iPhone, Mac ve Windows için mesai çıkışı geri sayımı",
-      "homeDescription": "Mesai çıkışı geri sayımı — tarayıcı, iPhone, iPad, Mac ve Windows. Saatleriniz cihazda kalır. Hesap gerekmez."
+      "homeTitle": "DoneAt: iPhone, Android, Mac ve Windows için mesai çıkışı geri sayımı",
+      "homeDescription": "Mesai çıkışı geri sayımı — tarayıcı, iPhone, iPad, Android, Mac ve Windows. Saatleriniz cihazda kalır. Hesap gerekmez."
     },
     "ar": {
       "skipToContent": "انتقل إلى المحتوى",
@@ -538,16 +538,16 @@
       "valueSeeDone": "اعرف متى ينتهي الدوام",
       "appStoreLabel": "التنزيل من App Store",
       "microsoftStoreLabel": "احصل عليه من Microsoft Store",
+      "googlePlayLabel": "احصل عليه من Google Play",
       "platformsLabel": "متاح على",
       "platformWeb": "المتصفح",
-      "comingSoon": "قريبًا",
       "language": "اللغة",
       "navMenu": "القائمة",
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "DoneAt على iPhone",
-      "homeTitle": "DoneAt: عداد تنازلي لنهاية الدوام على iPhone وMac وWindows",
-      "homeDescription": "عداد تنازلي لنهاية الدوام للمتصفح وiPhone وiPad وMac وWindows. تبقى أوقاتك على جهازك. بلا حساب."
+      "homeTitle": "DoneAt: عداد تنازلي لنهاية الدوام على iPhone وAndroid وMac وWindows",
+      "homeDescription": "عداد تنازلي لنهاية الدوام للمتصفح وiPhone وiPad وAndroid وMac وWindows. تبقى أوقاتك على جهازك. بلا حساب."
     },
     "th": {
       "skipToContent": "ข้ามไปยังเนื้อหา",
@@ -571,16 +571,16 @@
       "valueSeeDone": "เห็นว่าเลิกงานเมื่อไร",
       "appStoreLabel": "ดาวน์โหลดบน App Store",
       "microsoftStoreLabel": "รับจาก Microsoft Store",
+      "googlePlayLabel": "ดาวน์โหลดได้ที่ Google Play",
       "platformsLabel": "รองรับบน",
       "platformWeb": "เบราว์เซอร์",
-      "comingSoon": "เร็วๆ นี้",
       "language": "ภาษา",
       "navMenu": "เมนู",
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "DoneAt บน iPhone",
-      "homeTitle": "DoneAt: แอปนับถอยหลังเลิกงาน สำหรับ iPhone, Mac และ Windows",
-      "homeDescription": "นับถอยหลังเลิกงาน สำหรับเบราว์เซอร์, iPhone, iPad, Mac และ Windows เวลาอยู่บนเครื่องคุณ ไม่ต้องสมัครบัญชี"
+      "homeTitle": "DoneAt: แอปนับถอยหลังเลิกงาน สำหรับ iPhone, Android, Mac และ Windows",
+      "homeDescription": "นับถอยหลังเลิกงาน สำหรับเบราว์เซอร์, iPhone, iPad, Android, Mac และ Windows เวลาอยู่บนเครื่องคุณ ไม่ต้องสมัครบัญชี"
     },
     "id": {
       "skipToContent": "Lompat ke konten",
@@ -604,16 +604,16 @@
       "valueSeeDone": "Lihat jam pulang",
       "appStoreLabel": "Unduh di App Store",
       "microsoftStoreLabel": "Dapatkan di Microsoft Store",
+      "googlePlayLabel": "Temukan di Google Play",
       "platformsLabel": "Tersedia di",
       "platformWeb": "Browser",
-      "comingSoon": "Segera hadir",
       "language": "Bahasa",
       "navMenu": "Menu",
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "DoneAt di iPhone",
-      "homeTitle": "DoneAt: hitung mundur pulang kerja untuk iPhone, Mac & Windows",
-      "homeDescription": "Hitung mundur pulang kerja untuk browser, iPhone, iPad, Mac, dan Windows. Waktu Anda tetap di perangkat. Tanpa akun."
+      "homeTitle": "DoneAt: hitung mundur pulang kerja untuk iPhone, Android, Mac & Windows",
+      "homeDescription": "Hitung mundur pulang kerja untuk browser, iPhone, iPad, Android, Mac, dan Windows. Waktu Anda tetap di perangkat. Tanpa akun."
     },
     "vi": {
       "skipToContent": "Chuyển tới nội dung",
@@ -637,16 +637,16 @@
       "valueSeeDone": "Thấy lúc tan ca",
       "appStoreLabel": "Tải trên App Store",
       "microsoftStoreLabel": "Tải từ Microsoft Store",
+      "googlePlayLabel": "Tải xuống trên Google Play",
       "platformsLabel": "Có trên",
       "platformWeb": "Trình duyệt",
-      "comingSoon": "Sắp có",
       "language": "Ngôn ngữ",
       "navMenu": "Menu",
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "DoneAt trên iPhone",
-      "homeTitle": "DoneAt: đếm ngược giờ tan ca cho iPhone, Mac và Windows",
-      "homeDescription": "Đếm ngược giờ tan ca trên trình duyệt, iPhone, iPad, Mac và Windows. Giờ làm việc ở lại trên máy bạn. Không cần tài khoản."
+      "homeTitle": "DoneAt: đếm ngược giờ tan ca cho iPhone, Android, Mac và Windows",
+      "homeDescription": "Đếm ngược giờ tan ca trên trình duyệt, iPhone, iPad, Android, Mac và Windows. Giờ làm việc ở lại trên máy bạn. Không cần tài khoản."
     }
   }
 }

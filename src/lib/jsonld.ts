@@ -29,7 +29,7 @@ export function organizationJsonLd(): Record<string, unknown> {
 
 /**
  * Native apps plus the browser timer. No aggregateRating, download count,
- * or store price: Plus is paid on iOS, and store terms vary.
+ * or store price: Plus is paid on iOS and Android, and store terms vary.
  */
 export function softwareApplicationJsonLd(options: {
   url: string;
@@ -41,7 +41,7 @@ export function softwareApplicationJsonLd(options: {
     name: siteConfig.brandName,
     alternateName: "Off Work Countdown",
     applicationCategory: "UtilitiesApplication",
-    operatingSystem: "iOS, iPadOS, macOS, Windows, Web",
+    operatingSystem: "iOS, iPadOS, Android, macOS, Windows, Web",
     url: options.url,
     image: `${siteConfig.officialSiteUrl}/icons/og-1200x630.png`,
     description: options.description,

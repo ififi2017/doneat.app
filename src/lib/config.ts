@@ -90,6 +90,13 @@ export function microsoftBadgeLocale(locale: HallLocale): string {
   return hall.microsoftBadgeLocale[locale];
 }
 
+export function googlePlayBadgeLocale(locale: HallLocale): string {
+  return hall.googlePlayBadgeLocale[locale];
+}
+
+/** Google Play is unavailable in mainland China, so the China site leaves it out. */
+export const showGooglePlay = !isChina;
+
 export function deviceStem(locale: HallLocale): "zh" | "en" {
   return isChineseHall(locale) ? "zh" : "en";
 }

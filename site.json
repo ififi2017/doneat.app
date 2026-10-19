@@ -16,6 +16,8 @@
   ],
   "appStoreId": "6802803318",
   "appStoreUrlTemplate": "https://apps.apple.com/{storefront}/app/id6802803318",
+  "googlePlayPackage": "com.rainif.doneat",
+  "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.rainif.doneat",
   "microsoftStoreId": "9PM0HJ2PP2LJ",
   "microsoftStoreUrl": "https://apps.microsoft.com/detail/9PM0HJ2PP2LJ",
   "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/bepmkflijihfjodllcjogafffdcjabcf",

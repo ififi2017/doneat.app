@@ -68,7 +68,7 @@ assert(
 assert(enHall.includes('rel="canonical" href="https://doneat.app/en"'), "en canonical");
 assert(enHall.includes('hreflang="x-default" href="https://doneat.app/"'), "hall HTML x-default is the root");
 assert(enHall.includes('"@type":"WebSite"'), "WebSite JSON-LD for the site name");
-assert(enHall.includes("<title>DoneAt: Work Shift Countdown for iPhone, Mac &amp; Windows</title>"), "hall title carries function words");
+assert(enHall.includes("<title>DoneAt: Work Shift Countdown for iPhone, Android, Mac &amp; Windows</title>"), "hall title carries function words");
 
 const zhHall = read("zh-CN/index.html");
 assert(zhHall.includes('rel="canonical" href="https://doneat.app/zh-CN"'), "zh-CN canonical");
