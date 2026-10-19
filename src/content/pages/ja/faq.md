@@ -37,6 +37,14 @@ DoneAt は退勤カウントダウンアプリです。出勤時間と退勤時�
 
 はい。iPhone、iPad、Mac は [App Store](https://apps.apple.com/jp/app/id6802803318) で、Android は [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) で、Windows は [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ) で入手できます。ブラウザタイマーは [off.rainif.com](https://off.rainif.com/ja) にあります。実際に開いておくものを選んでください。
 
+## DoneAt Plus は iPhone と Android の両方で使えますか？
+
+Plus は、お使いの端末のストアで購入します。iPhone と iPad は App Store、Android は Google Play です。DoneAt にはアカウントがないため、一方のストアでの購入がもう一方で Plus を有効にすることはありません。カウントダウン、スケジュール、直近の記録はどちらでも無料です。
+
+## iPhone と Android の間で記録を移すには？
+
+一方の端末の「記録とデータ」でバックアップをエクスポートし、もう一方の端末の「記録とデータ」でそのファイルをインポートします。給与を含む記録と設定が引き継がれます。その後は 2 台が同期されることはないので、機種を替えるたびにもう一度エクスポートしてください。
+
 ## ウィジェットや Apple Watch 版はありますか？
 
 はい。iPhone と iPad では、ホーム画面やロック画面のウィジェットでアプリを開かなくてもシフトの残り時間が見られます。対応 iPhone ではライブアクティビティがロック画面と Dynamic Island に進捗を表示します。Android ではホーム画面のウィジェットと常駐通知で残り時間が見られます。Apple Watch 版では手首を上げるだけで残り時間と退勤時刻がわかり、2 種類のコンプリケーションも使えます。Watch 版は無料で、DoneAt Plus は不要です。ウィジェット、通知、ライブアクティビティ、Watch では時間と進捗だけを表示し、給与は表示されません。Mac と Windows ではミニタイマーでカウントダウンを常に見られます。

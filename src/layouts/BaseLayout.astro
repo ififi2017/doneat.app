@@ -48,6 +48,23 @@ const hreflangLinks = noindex ? [] : hreflangLinksFor(hreflangKind, path);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    {/* Visitor's phone platform, read in the browser only (nothing is sent or
+        stored), so Android visitors see Google Play first and the Android
+        phone. Without scripts the page stays on the iPhone defaults. */}
+    {!isChina && (
+      <script is:inline>
+        (function () {
+          var ua = navigator.userAgent || "";
+          var hint = (navigator.userAgentData && navigator.userAgentData.platform) || "";
+          var platform = /android/i.test(hint) || /Android/.test(ua)
+            ? "android"
+            : /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1)
+              ? "ios"
+              : "other";
+          document.documentElement.setAttribute("data-platform", platform);
+        })();
+      </script>
+    )}
     <title>{title}</title>
     <meta name="description" content={description} />
     {

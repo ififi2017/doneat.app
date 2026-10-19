@@ -37,6 +37,14 @@ DoneAt 係放工倒數計時。填好返工同放工時間，就會顯示仲有�
 
 有。iPhone、iPad 同 Mac 喺 [App Store](https://apps.apple.com/hk/app/id6802803318)，Android 喺 [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat)，Windows 喺 [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ)。瀏覽器計時喺 [off.rainif.com](https://off.rainif.com/zh-HK)。揀一個你會真正開住嘅就得。
 
+## DoneAt Plus 喺 iPhone 同 Android 上通用？
+
+Plus 係喺裝置所屬嘅商店購買：iPhone 同 iPad 喺 App Store，Android 喺 Google Play。DoneAt 冇帳號系統，所以喺一個商店嘅購買唔會解鎖另一個商店嘅 Plus。倒數計時、排班同最近嘅記錄喺兩邊都免費。
+
+## 點樣喺 iPhone 同 Android 之間轉移記錄？
+
+喺一部手機嘅「紀錄與資料」入面匯出備份，再喺另一部手機嘅「紀錄與資料」入面匯入呢個檔案。記錄同設定（包括薪金）都會帶過去。之後兩部手機唔會自動同步，換機嘅時候再匯出一次就得。
+
 ## 有小工具或 Apple Watch 版？
 
 有。喺 iPhone 同 iPad 上，主畫面同鎖定畫面小工具唔打開 App 都可以顯示呢更仲剩幾耐；喺支援嘅 iPhone 上，即時動態會將進度留喺鎖定畫面同動態島上面。喺 Android 上，主畫面小工具同常駐通知會顯示仲剩幾耐。Apple Watch 版抬手就睇到仲剩幾耐、幾點放工，錶面上仲可以加兩種複雜功能；佢免費使用，唔使 DoneAt Plus。小工具、通知、即時動態同手錶上只顯示時間同進度，唔顯示薪金。喺 Mac 同 Windows 上，迷你計時器會令倒數計時一直留喺眼前。

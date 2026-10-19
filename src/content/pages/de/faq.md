@@ -37,6 +37,14 @@ Arbeitszeiten und Gehalt bleiben standardmäßig auf dem Gerät. Auf iPhone und 
 
 Ja. iPhone, iPad und Mac gibt es im [App Store](https://apps.apple.com/de/app/id6802803318). Android gibt es bei [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat). Windows gibt es im [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ). Der Browser-Timer ist unter [off.rainif.com](https://off.rainif.com/de) erreichbar. Nutze das, was du tatsächlich offen lässt.
 
+## Kann ich DoneAt Plus auf iPhone und Android nutzen?
+
+Plus kaufst du im Store deines Geräts: im App Store auf iPhone und iPad, bei Google Play auf Android. DoneAt hat keine Konten, deshalb schaltet ein Kauf in einem Store Plus im anderen nicht frei. Countdown, Planung und die letzten Aufzeichnungen bleiben auf beiden kostenlos.
+
+## Wie übertrage ich meine Aufzeichnungen zwischen iPhone und Android?
+
+Exportiere unter „Einträge & Daten" auf einem Telefon eine Sicherung und importiere die Datei auf dem anderen unter „Einträge & Daten". Aufzeichnungen und Einstellungen, einschließlich Gehalt, werden übernommen. Danach synchronisieren sich die Telefone nicht mehr miteinander, exportiere also erneut, wenn du wechselst.
+
 ## Gibt es ein Widget oder eine Apple-Watch-App?
 
 Ja. Auf iPhone und iPad zeigen Widgets auf dem Home- und Sperrbildschirm die verbleibende Schichtzeit ohne App-Öffnen. Auf unterstützten iPhones bleibt eine Live-Aktivität auf dem Sperrbildschirm und in der Dynamic Island sichtbar. Auf Android zeigen Widgets auf dem Startbildschirm und eine dauerhafte Benachrichtigung die verbleibende Zeit. Die Apple-Watch-App zeigt mit einem Blick aufs Handgelenk Restzeit und Feierabend, mit zwei Komplikationen. Die Watch-App ist kostenlos und braucht kein DoneAt Plus. Widgets, Benachrichtigungen, Live-Aktivitäten und die Uhr zeigen Zeiten und Fortschritt, niemals Gehalt. Auf Mac und Windows hält der Mini-Timer den Countdown im Blick.

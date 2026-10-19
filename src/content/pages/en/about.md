@@ -1,6 +1,6 @@
 ---
 title: "About — DoneAt"
-description: "About DoneAt, a local-first work-shift countdown for the browser, iPhone, iPad, Mac and Windows."
+description: "About DoneAt, a local-first work-shift countdown for the browser, iPhone, iPad, Android, Mac and Windows."
 heading: "About DoneAt"
 intro: "A local-first shift timer you can leave open. No DoneAt account, no ads, and optional private iCloud sync on iPhone and iPad."
 ---
@@ -30,6 +30,17 @@ DoneAt also helps you look back at your work and plan time for what comes next:
 
 These features are part of the native iPhone and iPad app. The [download page](/en/download) explains the options for each platform.
 
+## On Android
+
+The Android app on [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) follows the same schedule rules as iPhone. The countdown, scheduling and public holidays are free:
+
+- Plan on one monthly calendar with fixed weekdays, alternating weeks, rotations and overnight shifts, or paint shifts onto a free schedule with a tap or a swipe.
+- Choose a country or region in Hours & schedule and your schedule follows its public holidays.
+- Check the time left from a home-screen widget or the ongoing notification, without opening the app.
+- Look back on the last seven days of records, try three time-off searches, and import or export your data for free. DoneAt Plus adds older records, the Year and Life views, reports, Focus, unlimited time-off searches and shift alarms.
+
+Android keeps your data on the phone. iCloud sync is not part of the Android app; Android’s own backup can include records and settings if you have it turned on, and a backup export moves your records between iPhone and Android.
+
 ## Where your data goes
 
 Working hours, workdays, salary and preferences stay on the device you are using by default. The countdown and earnings estimate are computed there. On iPhone and iPad, you can choose to sync schedules, records, salary and settings across your devices. Optional iCloud sync uses your private iCloud. DoneAt cannot read it. Mac, Windows and the web timer remain local. These work settings are not sent to DoneAt servers.
@@ -52,7 +63,7 @@ The software is provided under the [MPL-2.0](https://github.com/ififi2017/Off-Wo
 
 ## Free countdown, optional Plus
 
-The countdown stays free. On iPhone and iPad, DoneAt Plus adds full records, life views and focus tools, with monthly, yearly or lifetime purchase options through the App Store. Prices and any available trial are shown before purchase in the app.
+The countdown stays free. On iPhone and iPad, DoneAt Plus adds full records, life views and focus tools, with monthly, yearly or lifetime purchase options through the App Store. On Android, the same options are bought through Google Play. Purchases do not carry over between the App Store and Google Play. Prices and any available trial are shown before purchase in the app.
 
 Turning on iCloud sync requires Plus. Once enabled, sync continues after a subscription expires. Your existing records remain stored, and export and deletion remain available without an active subscription.
 

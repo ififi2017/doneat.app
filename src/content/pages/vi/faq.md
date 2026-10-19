@@ -37,6 +37,14 @@ Giờ làm và lương ở trên thiết bị theo mặc định. Trên iPhone v
 
 Có. iPhone, iPad và Mac có trên [App Store](https://apps.apple.com/vn/app/id6802803318). Android có trên [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat). Windows có trên [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ). Bộ đếm trình duyệt ở [off.rainif.com](https://off.rainif.com/vi). Chọn cái bạn thực sự sẽ để mở.
 
+## Tôi có dùng DoneAt Plus trên cả iPhone và Android được không?
+
+Plus được mua qua cửa hàng trên thiết bị của bạn: App Store trên iPhone và iPad, Google Play trên Android. DoneAt không có tài khoản, nên giao dịch mua ở một cửa hàng không mở khóa Plus ở cửa hàng kia. Bộ đếm, lịch làm và bản ghi gần đây vẫn miễn phí ở cả hai.
+
+## Làm sao chuyển bản ghi giữa iPhone và Android?
+
+Xuất bản sao lưu trong Bản ghi và dữ liệu trên một điện thoại, rồi nhập tệp đó trong Bản ghi và dữ liệu trên điện thoại còn lại. Bản ghi và cài đặt, gồm cả lương, sẽ được chuyển sang. Sau đó hai điện thoại không đồng bộ với nhau, nên hãy xuất lại mỗi khi bạn đổi máy.
+
 ## Có tiện ích hoặc ứng dụng Apple Watch không?
 
 Có. Trên iPhone và iPad, tiện ích Màn hình chính và Màn hình khóa hiện thời gian còn lại của ca mà không cần mở ứng dụng, và trên các mẫu iPhone được hỗ trợ, Hoạt động trực tiếp giữ tiến độ trên Màn hình khóa và trong Dynamic Island. Trên Android, tiện ích Màn hình chính và thông báo thường trực hiện thời gian còn lại. DoneAt cho Apple Watch hiện thời gian còn lại và giờ tan ca, với hai complication trên mặt đồng hồ. Ứng dụng Watch miễn phí và không cần DoneAt Plus. Tiện ích, thông báo, Hoạt động trực tiếp và đồng hồ hiện thời gian và tiến độ, không bao giờ hiện lương. Trên Mac hoặc Windows, bộ đếm nhỏ giữ đồng hồ đếm ngược trong tầm mắt.

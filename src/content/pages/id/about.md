@@ -1,6 +1,6 @@
 ---
 title: "Tentang — DoneAt"
-description: "Tentang DoneAt, hitung mundur sif kerja yang mengutamakan perangkat, untuk browser, iPhone, iPad, Mac, dan Windows."
+description: "Tentang DoneAt, hitung mundur sif kerja yang mengutamakan perangkat, untuk browser, iPhone, iPad, Android, Mac, dan Windows."
 heading: "Tentang DoneAt"
 intro: "Timer sif yang mengutamakan perangkat dan bisa dibiarkan terbuka. Tanpa akun DoneAt, tanpa iklan, dan dengan sinkronisasi iCloud pribadi opsional di iPhone dan iPad."
 ---
@@ -48,7 +48,7 @@ Perangkat lunak disediakan di bawah lisensi [MPL-2.0](https://github.com/ififi20
 
 ## Hitung mundur gratis, Plus opsional
 
-Hitung mundur tetap gratis. Di iPhone dan iPad, DoneAt Plus menambahkan catatan lengkap, tampilan hidup, dan alat fokus, dengan pilihan pembelian bulanan, tahunan, atau seumur hidup lewat App Store. Harga dan uji coba yang tersedia ditampilkan sebelum pembelian di aplikasi.
+Hitung mundur tetap gratis. Di iPhone dan iPad, DoneAt Plus menambahkan catatan lengkap, tampilan hidup, dan alat fokus, dengan pilihan pembelian bulanan, tahunan, atau seumur hidup lewat App Store. Di Android, pilihan yang sama dibeli lewat Google Play. Pembelian tidak berpindah antara App Store dan Google Play. Harga dan uji coba yang tersedia ditampilkan sebelum pembelian di aplikasi.
 
 Menyalakan sinkronisasi iCloud membutuhkan Plus. Setelah diaktifkan, sinkronisasi berlanjut setelah langganan berakhir. Catatan yang sudah ada tetap tersimpan, dan ekspor serta penghapusan tetap tersedia tanpa langganan aktif.
 
@@ -65,7 +65,16 @@ Templat hari libur mencakup data kalender nasional yang dibuat dengan [Vacanza H
 
 ## Android
 
-Versi Android tersedia di [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat), yang menangani pembelian. Pada versi dengan verifikasi server, DoneAt memproses token di Cloudflare dan menyimpan hash beserta status akses, tanpa mengirim gaji atau catatan kerja. Lihat [kebijakan privasi](/id/privacy#android) untuk verifikasi, cadangan, dan penghapusan.
+Aplikasi Android di [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) mengikuti aturan jadwal yang sama dengan iPhone. Hitung mundur, penjadwalan, dan hari libur resmi gratis:
+
+- Susun di satu kalender bulanan dengan hari tetap, minggu bergantian, rotasi, dan sif malam, atau lukis sif ke jadwal bebas dengan satu ketukan atau usapan.
+- Pilih negara atau wilayah di Jam & jadwal kerja, dan jadwal mengikuti hari libur resminya.
+- Lihat sisa waktu dari widget layar utama atau notifikasi berkelanjutan, tanpa membuka aplikasi.
+- Tinjau catatan tujuh hari terakhir, coba tiga pencarian cuti, dan impor atau ekspor datamu secara gratis. DoneAt Plus menambahkan catatan yang lebih lama, tampilan Tahun dan Hidup, laporan, Fokus, pencarian cuti tanpa batas, dan alarm sif.
+
+Android menyimpan datamu di ponsel. Sinkronisasi iCloud bukan bagian dari aplikasi Android; cadangan bawaan Android bisa menyertakan catatan dan pengaturan jika kamu mengaktifkannya, dan ekspor cadangan memindahkan catatanmu antara iPhone dan Android.
+
+Pembelian ditangani Google Play. Pada versi dengan verifikasi server, DoneAt memproses token di Cloudflare dan menyimpan hash beserta status akses, tanpa mengirim gaji atau catatan kerja. Lihat [kebijakan privasi](/id/privacy#android) untuk verifikasi, cadangan, dan penghapusan.
 
 Navigasi Android memakai [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) oleh Kyant dan [Shapes 1.2.1](https://github.com/Kyant0/Shapes). Contoh `LiquidBottomTabs` disesuaikan untuk navigasi DoneAt, seret, aksesibilitas, tata letak kanan-ke-kiri, dan pengurangan gerakan. Efek digambar di perangkat tanpa mengirim isi aplikasi atau pengenal perangkat kepada pembuatnya. Keduanya memakai Apache License 2.0: [lisensi Backdrop](/licenses/backdrop-2.0.1.txt), [lisensi Shapes](/licenses/shapes-1.2.1.txt). Teks lengkap juga ada di Pengaturan → Tentang → Ucapan terima kasih.
 

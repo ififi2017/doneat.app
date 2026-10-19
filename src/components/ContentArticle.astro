@@ -8,7 +8,7 @@ import StoreEntries from "./StoreEntries.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { downloadShowcaseCopy } from "../lib/download-showcase";
 import { contentTrackPage } from "../lib/analytics-events";
-import { canonicalUrl, isChina, siteConfig, type ContentLocale, type ContentPage, t } from "../lib/config";
+import { canonicalUrl, isChina, showGooglePlay, siteConfig, type ContentLocale, type ContentPage, t } from "../lib/config";
 import { faqPageJsonLd, parseFaqMarkdown } from "../lib/faq-jsonld";
 import { downloadJsonLd } from "../lib/jsonld";
 import { getEntry, render } from "astro:content";
@@ -126,13 +126,14 @@ const jsonLd = isFaq
             aria-label={showcase.pageIndexLabel}
           >
             <a href="#download-iphone"><span>01</span> iPhone / Apple Watch</a>
-            <a href="#download-showcase"><span>02</span> Mac / Windows</a>
+            {showGooglePlay && <a href="#download-android"><span>02</span> Android</a>}
+            <a href="#download-showcase"><span>{showGooglePlay ? "03" : "02"}</span> Mac / Windows</a>
             <a href="#download-compare">
-              <span>03</span>
+              <span>{showGooglePlay ? "04" : "03"}</span>
               {showcase.compareNavLabel}
             </a>
             <a href="#download-requirements">
-              <span>04</span> {entry.data.requirementsHeading}
+              <span>{showGooglePlay ? "05" : "04"}</span> {entry.data.requirementsHeading}
             </a>
           </nav>
         ) : null

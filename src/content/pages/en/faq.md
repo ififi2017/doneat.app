@@ -37,6 +37,14 @@ Your hours and salary stay on the device by default. On iPhone and iPad, you can
 
 Yes. iPhone, iPad and Mac are on the [App Store](https://apps.apple.com/us/app/id6802803318). Android is on [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat). Windows is on the [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ). The browser timer is at [off.rainif.com](https://off.rainif.com/en). Choose whichever you will actually leave open.
 
+## Can I use DoneAt Plus on both iPhone and Android?
+
+Plus is bought through the store on your device: the App Store on iPhone and iPad, and Google Play on Android. DoneAt has no accounts, so a purchase from one store does not unlock Plus in the other. The countdown, scheduling and recent records stay free on both.
+
+## How do I move my records between iPhone and Android?
+
+Export a backup in Records & Data on one phone, then import that file in Records & Data on the other. Records and settings, including salary, come across. The phones do not sync with each other afterwards, so export again whenever you switch.
+
 ## Is there a widget or an Apple Watch app?
 
 Yes. On iPhone and iPad, Home Screen and Lock Screen widgets show the time left in your shift without opening the app, and on supported iPhone models a Live Activity keeps your progress on the Lock Screen and in the Dynamic Island. On Android, home-screen widgets and an ongoing notification show the time left. DoneAt for Apple Watch shows the time left and when you clock out, with two watch face complications. The Watch app is free and does not need DoneAt Plus. Widgets, notifications, Live Activities and the watch show times and progress, never salary. On a Mac or Windows PC, the Mini Timer keeps the countdown in view.

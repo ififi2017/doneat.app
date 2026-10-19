@@ -37,6 +37,14 @@ Seus horários e salário ficam no dispositivo por padrão. No iPhone e iPad, vo
 
 Sim. iPhone, iPad e Mac estão na [App Store](https://apps.apple.com/br/app/id6802803318). O Android está no [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat). Windows está na [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ). O temporizador do navegador está em [off.rainif.com](https://off.rainif.com/pt). Escolha o que você realmente vai deixar aberto.
 
+## Posso usar o DoneAt Plus no iPhone e no Android?
+
+O Plus é comprado na loja do seu dispositivo: a App Store no iPhone e iPad, e o Google Play no Android. O DoneAt não tem contas, então uma compra em uma loja não libera o Plus na outra. A contagem regressiva, a programação e os registros recentes continuam gratuitos nas duas.
+
+## Como levo meus registros entre o iPhone e o Android?
+
+Exporte um backup em Registros e dados em um celular e importe esse arquivo em Registros e dados no outro. Os registros e ajustes, incluindo o salário, são transferidos. Depois disso os celulares não sincronizam entre si, então exporte de novo sempre que trocar de celular.
+
 ## Existe um widget ou app para Apple Watch?
 
 Sim. No iPhone e iPad, widgets na tela inicial e de bloqueio mostram o tempo restante sem abrir o app, e em iPhones compatíveis uma Atividade em tempo real mantém o progresso na tela de bloqueio e na Dynamic Island. No Android, widgets na tela inicial e uma notificação contínua mostram o tempo restante. O app para Apple Watch mostra o tempo restante e a hora de saída com duas complicações. O app do Watch é gratuito e não precisa do DoneAt Plus. Widgets, notificações, Atividades em tempo real e o relógio mostram tempos e progresso, nunca o salário. No Mac ou Windows, o mini temporizador mantém a contagem regressiva à vista.

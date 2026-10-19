@@ -1,6 +1,6 @@
 ---
 title: "概要 — DoneAt"
-description: "DoneAt について：ブラウザ、iPhone、iPad、Mac、Windows 向けのローカルファースト退勤カウントダウン。"
+description: "DoneAt について：ブラウザ、iPhone、iPad、Android、Mac、Windows 向けのローカルファースト退勤カウントダウン。"
 heading: "DoneAt について"
 intro: "開きっぱなしにできるローカルファーストのシフトタイマー。DoneAt アカウント不要、広告なし、iPhone と iPad ではプライベート iCloud 同期も選べます。"
 ---
@@ -48,7 +48,7 @@ DoneAt は仕事の振り返りや次の時間の計画にも役立ちます：
 
 ## 無料カウントダウンとオプションの Plus
 
-カウントダウンは無料のままです。iPhone と iPad では、DoneAt Plus で完全な記録、ライフビュー、集中ツールが使えます。App Store で月額、年額、または買い切りで購入できます。価格と試用の詳細はアプリ内で購入前に表示されます。
+カウントダウンは無料のままです。iPhone と iPad では、DoneAt Plus で完全な記録、ライフビュー、集中ツールが使えます。App Store で月額、年額、または買い切りで購入できます。Android では、同じ購入オプションを Google Play で選べます。App Store と Google Play の購入は引き継がれません。価格と試用の詳細はアプリ内で購入前に表示されます。
 
 iCloud 同期を初めて有効にするには Plus が必要です。有効化済みの同期はサブスクリプション終了後も継続し、既存の記録も保持されます。エクスポートと削除には有効なサブスクリプションは不要です。
 
@@ -65,7 +65,16 @@ iCloud 同期を初めて有効にするには Plus が必要です。有効化�
 
 ## Android
 
-Android 版は [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) で入手でき、購入は Google Play が処理します。サーバー検証を有効にした版では、DoneAt が Cloudflare 上で購入トークンを処理し、そのハッシュと利用権の状態を保存します。給与や勤務記録は送信しません。検証、バックアップ、削除については[プライバシーポリシー](/ja/privacy#android)をご覧ください。
+[Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) の Android 版は、iPhone と同じスケジュールのルールで動きます。カウントダウン、スケジュール、祝日は無料です：
+
+- 1 つの月間カレンダーでスケジュールを組めます。固定曜日、隔週、ローテーション、夜勤に対応し、フリーのスケジュールではタップやスワイプでシフトを塗ることもできます。
+- 「勤務時間とシフト」で国や地域を選ぶと、スケジュールがその地域の祝日に従います。
+- アプリを開かなくても、ホーム画面のウィジェットや常駐通知で残り時間を確認できます。
+- 直近 7 日間の記録、3 回の休暇検索、データのインポートとエクスポートは無料です。DoneAt Plus では、それ以前の記録、年ビューとライフビュー、レポート、集中、回数無制限の休暇検索、シフトアラームが使えます。
+
+Android ではデータは端末内に保存されます。Android 版に iCloud 同期はありません。Android 標準のバックアップをオンにしている場合は、記録と設定が含まれることがあります。バックアップをエクスポートすると、iPhone と Android の間で記録を移せます。
+
+購入は Google Play が処理します。サーバー検証を有効にした版では、DoneAt が Cloudflare 上で購入トークンを処理し、そのハッシュと利用権の状態を保存します。給与や勤務記録は送信しません。検証、バックアップ、削除については[プライバシーポリシー](/ja/privacy#android)をご覧ください。
 
 Android のナビゲーションには、Kyant の [Backdrop（AndroidLiquidGlass）2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) と [Shapes 1.2.1](https://github.com/Kyant0/Shapes) を使用しています。`LiquidBottomTabs` のサンプルを、DoneAt の画面移動、ドラッグ、アクセシビリティ、右から左への表示、視差効果の軽減に合わせて変更しています。描画は端末内で行い、アプリの内容や端末識別子を作者へ送信しません。両ライブラリは Apache License 2.0 です。[Backdrop のライセンス](/licenses/backdrop-2.0.1.txt)と [Shapes のライセンス](/licenses/shapes-1.2.1.txt)の全文は、アプリの「設定 → このアプリについて → 謝辞」にも収録しています。
 

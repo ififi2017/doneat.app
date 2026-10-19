@@ -37,6 +37,14 @@ DoneAt은 퇴근 카운트다운 앱입니다. 출근 시간과 퇴근 시간을
 
 네. iPhone, iPad, Mac은 [App Store](https://apps.apple.com/kr/app/id6802803318)에서, Android는 [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat)에서, Windows는 [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ)에서 받을 수 있습니다. 브라우저 타이머는 [off.rainif.com](https://off.rainif.com/ko)에 있습니다. 실제로 열어둘 것을 선택하세요.
 
+## iPhone과 Android에서 DoneAt Plus를 함께 쓸 수 있나요?
+
+Plus는 사용하는 기기의 스토어에서 구매합니다. iPhone과 iPad는 App Store, Android는 Google Play입니다. DoneAt에는 계정이 없어서 한쪽 스토어의 구매가 다른 쪽에서 Plus를 열어 주지는 않습니다. 카운트다운, 스케줄, 최근 기록은 양쪽 모두 무료입니다.
+
+## iPhone과 Android 사이에서 기록을 어떻게 옮기나요?
+
+한쪽 휴대폰의 "기록과 데이터"에서 백업을 내보낸 다음, 다른 쪽 휴대폰의 "기록과 데이터"에서 그 파일을 가져오세요. 급여를 포함한 기록과 설정이 함께 옮겨집니다. 그 뒤로는 두 휴대폰이 서로 동기화되지 않으니, 기기를 바꿀 때마다 다시 내보내세요.
+
 ## 위젯이나 Apple Watch 버전이 있나요?
 
 네. iPhone과 iPad에서는 홈 화면과 잠금 화면 위젯으로 앱을 열지 않아도 근무 남은 시간을 볼 수 있습니다. 지원되는 iPhone에서는 라이브 액티비티가 잠금 화면과 다이내믹 아일랜드에 진행률을 표시합니다. Android에서는 홈 화면 위젯과 상시 알림으로 남은 시간을 볼 수 있습니다. Apple Watch 버전에서는 손목을 들면 남은 시간과 퇴근 시각을 볼 수 있고, 2가지 컴플리케이션도 사용할 수 있습니다. Watch 버전은 무료이며 DoneAt Plus가 필요 없습니다. 위젯, 알림, 라이브 액티비티, Watch에서는 시간과 진행률만 표시하고 급여는 표시하지 않습니다. Mac과 Windows에서는 미니 타이머로 카운트다운을 항상 볼 수 있습니다.

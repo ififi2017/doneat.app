@@ -1,0 +1,47 @@
+{
+  "version": "Android 3.2.2 Google Play listing screenshots",
+  "sourceRepository": "ififi2017/Off-Work-Countdown",
+  "note": "Real Pixel 10 Pro captures of an isolated Debug install with synthetic data (scripts/marketing-shots/android); resized to 720 wide WebP, otherwise unchanged.",
+  "assets": [
+    {
+      "file": "assets/showcase/en/android-leave.webp",
+      "source": "play-store/images/en-US/phoneScreenshots/03-leave.png",
+      "sourceSHA256": "7a4119d149739d4f9a7b4eede33341281ffad0676d8ceefb9064ce78c322d1bb"
+    },
+    {
+      "file": "assets/showcase/en/android-calendar.webp",
+      "source": "play-store/images/en-US/phoneScreenshots/05-calendar.png",
+      "sourceSHA256": "78a282e61c713c5bfda32e14c31db3657634a3a6993ede5bb6366d96c706eaa5"
+    },
+    {
+      "file": "assets/showcase/en/android-records.webp",
+      "source": "play-store/images/en-US/phoneScreenshots/06-records.png",
+      "sourceSHA256": "1f739e663255997ad476f54176ad344af793cb59c827a0315d8001c958edc29f"
+    },
+    {
+      "file": "assets/showcase/en/android-breaks.webp",
+      "source": "play-store/images/en-US/phoneScreenshots/08-breaks.png",
+      "sourceSHA256": "766a3b8212d7037edb75d94299a00b54a24491c2e91a663fb4d7cbb5d8204321"
+    },
+    {
+      "file": "assets/showcase/zh-CN/android-leave.webp",
+      "source": "play-store/images/zh-CN/phoneScreenshots/03-leave.png",
+      "sourceSHA256": "e66d3841039393818e11c69edebade6712ccd1b94110768e9c32f954812fc476"
+    },
+    {
+      "file": "assets/showcase/zh-CN/android-calendar.webp",
+      "source": "play-store/images/zh-CN/phoneScreenshots/05-calendar.png",
+      "sourceSHA256": "2a34812660c04e350b9a0e99c8e418102b62ad2f63127faf6aa57dd040ab028c"
+    },
+    {
+      "file": "assets/showcase/zh-CN/android-records.webp",
+      "source": "play-store/images/zh-CN/phoneScreenshots/06-records.png",
+      "sourceSHA256": "1df3c87a7fe06762746e7d5946f24e6536616d30b36113acca7b4321aa81da17"
+    },
+    {
+      "file": "assets/showcase/zh-CN/android-breaks.webp",
+      "source": "play-store/images/zh-CN/phoneScreenshots/08-breaks.png",
+      "sourceSHA256": "2bf950229abe6917fe45f88a737618a7b3351601c3666fba298eb70563e2430a"
+    }
+  ]
+}

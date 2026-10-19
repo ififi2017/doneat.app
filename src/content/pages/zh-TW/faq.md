@@ -37,6 +37,14 @@ DoneAt 是下班倒數計時。填好上班和下班時間，就會顯示還剩�
 
 有。iPhone、iPad 和 Mac 在 [App Store](https://apps.apple.com/tw/app/id6802803318)，Android 在 [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat)，Windows 在 [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ)。瀏覽器計時在 [off.rainif.com](https://off.rainif.com/zh-TW)。選一個你會真正開著的就行。
 
+## DoneAt Plus 能在 iPhone 和 Android 上通用嗎？
+
+Plus 透過裝置所屬的商店購買：iPhone 和 iPad 在 App Store，Android 在 Google Play。DoneAt 沒有帳號體系，所以在一個商店的購買不會解鎖另一個商店的 Plus。倒數計時、排班和最近的記錄在兩邊都免費。
+
+## 怎麼在 iPhone 和 Android 之間轉移記錄？
+
+在一支手機的「紀錄與資料」裡匯出備份，再在另一支手機的「紀錄與資料」裡匯入這個檔案。記錄和設定（含薪資）都會帶過去。之後兩支手機不會自動同步，換手機時再匯出一次即可。
+
 ## 有小工具或 Apple Watch 版嗎？
 
 有。在 iPhone 和 iPad 上，主畫面和鎖定畫面小工具不打開 App 也能顯示這班還剩多久；在支援的 iPhone 上，即時動態會把進度留在鎖定畫面和動態島上。在 Android 上，主畫面小工具和常駐通知會顯示還剩多久。Apple Watch 版抬腕就能看到還剩多久、幾點下班，錶盤上還可以添加兩種複雜功能；它免費使用，無需 DoneAt Plus。小工具、通知、即時動態和手錶上只顯示時間和進度，不顯示薪資。在 Mac 和 Windows 上，迷你計時器會讓倒數計時一直留在眼前。

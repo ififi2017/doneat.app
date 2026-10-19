@@ -1,6 +1,6 @@
 ---
 title: "소개 — DoneAt"
-description: "DoneAt 소개: 브라우저, iPhone, iPad, Mac, Windows를 위한 로컬 우선 퇴근 카운트다운."
+description: "DoneAt 소개: 브라우저, iPhone, iPad, Android, Mac, Windows를 위한 로컬 우선 퇴근 카운트다운."
 heading: "DoneAt 소개"
 intro: "계속 열어둘 수 있는 로컬 우선 근무 타이머. DoneAt 계정 불필요, 광고 없음, iPhone과 iPad에서는 개인 iCloud 동기화도 선택 가능."
 ---
@@ -48,7 +48,7 @@ DoneAt은 업무 회고와 다음 시간 계획에도 도움이 됩니다:
 
 ## 무료 카운트다운과 선택적 Plus
 
-카운트다운은 무료입니다. iPhone과 iPad에서는 DoneAt Plus로 전체 기록, 라이프 뷰, 집중 도구를 사용할 수 있습니다. App Store에서 월간, 연간 또는 일회성 구매로 이용 가능합니다. 가격과 체험판 세부 정보는 앱 내 구매 전에 표시됩니다.
+카운트다운은 무료입니다. iPhone과 iPad에서는 DoneAt Plus로 전체 기록, 라이프 뷰, 집중 도구를 사용할 수 있습니다. App Store에서 월간, 연간 또는 일회성 구매로 이용 가능합니다. Android에서는 같은 옵션을 Google Play에서 구매할 수 있습니다. App Store와 Google Play의 구매는 서로 이어지지 않습니다. 가격과 체험판 세부 정보는 앱 내 구매 전에 표시됩니다.
 
 iCloud 동기화를 처음 활성화하려면 Plus가 필요합니다. 활성화된 동기화는 구독 종료 후에도 계속되며, 기존 기록도 유지됩니다. 내보내기와 삭제에는 유효한 구독이 필요 없습니다.
 
@@ -65,7 +65,16 @@ iCloud 동기화를 처음 활성화하려면 Plus가 필요합니다. 활성화
 
 ## Android
 
-Android 버전은 [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat)에서 받을 수 있으며 구매는 Google Play가 처리합니다. 서버 검증을 사용하는 버전에서는 DoneAt이 Cloudflare에서 구매 토큰을 처리하고 해시와 이용 권한 상태를 저장합니다. 급여와 근무 기록은 전송하지 않습니다. 검증, 백업, 삭제는 [개인정보 처리방침](/ko/privacy#android)을 참고하세요.
+[Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat)의 Android 앱은 iPhone과 같은 스케줄 규칙을 따릅니다. 카운트다운, 스케줄, 공휴일은 무료입니다:
+
+- 하나의 월간 캘린더에서 고정 요일, 격주, 교대 로테이션, 야간 근무로 스케줄을 짜거나, 자유 스케줄에서 탭하거나 쓸어서 근무를 칠할 수 있습니다.
+- "근무 시간 및 일정"에서 국가나 지역을 선택하면 해당 지역의 공휴일이 반영됩니다.
+- 앱을 열지 않아도 홈 화면 위젯이나 상시 알림에서 남은 시간을 볼 수 있습니다.
+- 최근 7일의 기록, 3회의 휴가 검색, 데이터 가져오기와 내보내기는 무료입니다. DoneAt Plus는 이전 기록, 연간 보기와 라이프 뷰, 리포트, 집중, 횟수 제한 없는 휴가 검색, 근무 알람을 추가합니다.
+
+Android에서는 데이터가 휴대폰에 저장됩니다. Android 앱에는 iCloud 동기화가 없습니다. Android 자체 백업을 켜 두면 기록과 설정이 포함될 수 있고, 백업을 내보내면 iPhone과 Android 사이에서 기록을 옮길 수 있습니다.
+
+구매는 Google Play가 처리합니다. 서버 검증을 사용하는 버전에서는 DoneAt이 Cloudflare에서 구매 토큰을 처리하고 해시와 이용 권한 상태를 저장합니다. 급여와 근무 기록은 전송하지 않습니다. 검증, 백업, 삭제는 [개인정보 처리방침](/ko/privacy#android)을 참고하세요.
 
 Android 탐색 UI는 Kyant의 [Backdrop(AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass)과 [Shapes 1.2.1](https://github.com/Kyant0/Shapes)을 사용합니다. `LiquidBottomTabs` 예제를 DoneAt의 탐색, 드래그, 접근성, 오른쪽에서 왼쪽으로 쓰는 화면, 동작 줄이기에 맞게 수정했습니다. 효과는 기기에서 그리며 앱 내용이나 기기 식별자를 개발자에게 보내지 않습니다. 두 라이브러리는 Apache License 2.0으로 제공됩니다. [Backdrop 라이선스](/licenses/backdrop-2.0.1.txt)와 [Shapes 라이선스](/licenses/shapes-1.2.1.txt) 전문은 앱의 설정 → 정보 → 감사의 말에도 포함되어 있습니다.
 

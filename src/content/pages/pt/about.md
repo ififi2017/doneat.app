@@ -1,6 +1,6 @@
 ---
 title: "Sobre — DoneAt"
-description: "Sobre o DoneAt, um temporizador de turno local para navegador, iPhone, iPad, Mac e Windows."
+description: "Sobre o DoneAt, um temporizador de turno local para navegador, iPhone, iPad, Android, Mac e Windows."
 heading: "Sobre o DoneAt"
 intro: "Um temporizador de turno local que você pode deixar aberto. Sem conta DoneAt, sem anúncios e com sincronização opcional privada do iCloud no iPhone e iPad."
 ---
@@ -48,7 +48,7 @@ O software é fornecido sob a licença [MPL-2.0](https://github.com/ififi2017/Of
 
 ## Contagem regressiva gratuita, Plus opcional
 
-A contagem regressiva continua gratuita. No iPhone e iPad, o DoneAt Plus adiciona registros completos, visualizações de vida e ferramentas de foco, com opções de compra mensal, anual ou vitalícia pela App Store. Os preços e qualquer período de teste disponível são mostrados antes da compra no app.
+A contagem regressiva continua gratuita. No iPhone e iPad, o DoneAt Plus adiciona registros completos, visualizações de vida e ferramentas de foco, com opções de compra mensal, anual ou vitalícia pela App Store. No Android, as mesmas opções são compradas pelo Google Play. As compras não são transferidas entre a App Store e o Google Play. Os preços e qualquer período de teste disponível são mostrados antes da compra no app.
 
 Ativar a sincronização com o iCloud requer o Plus. Uma vez habilitada, a sincronização continua após o término de uma assinatura. Seus registros existentes permanecem armazenados, e exportação e exclusão continuam disponíveis sem uma assinatura ativa.
 
@@ -65,7 +65,16 @@ Os modelos de feriados incluem dados de calendários nacionais gerados com [Vaca
 
 ## Android
 
-A versão Android está disponível no [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat), que processa as compras. Com a verificação no servidor ativada, o DoneAt processa tokens na Cloudflare e guarda seus hashes com o estado do acesso; salários e registros de trabalho não são enviados. Veja a [política de privacidade](/pt/privacy#android) sobre verificação, backups e exclusão.
+O app Android no [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) segue as mesmas regras de horário do iPhone. A contagem regressiva, a programação e os feriados são gratuitos:
+
+- Planeje em um único calendário mensal com dias fixos, semanas alternadas, rotações e turnos noturnos, ou pinte turnos em uma escala livre com um toque ou um deslize.
+- Escolha um país ou região em Horários e escala e seu horário seguirá seus feriados.
+- Veja o tempo restante em um widget da tela inicial ou na notificação contínua, sem abrir o app.
+- Reveja os últimos sete dias de registros, experimente três buscas de folga e importe ou exporte seus dados de graça. O DoneAt Plus adiciona registros mais antigos, as visualizações de Ano e de Vida, relatórios, Foco, buscas de folga ilimitadas e alarmes de turno.
+
+O Android mantém seus dados no celular. A sincronização do iCloud não faz parte do app Android; o backup do próprio Android pode incluir registros e ajustes se estiver ativado, e a exportação de um backup leva seus registros entre iPhone e Android.
+
+O Google Play processa as compras. Com a verificação no servidor ativada, o DoneAt processa tokens na Cloudflare e guarda seus hashes com o estado do acesso; salários e registros de trabalho não são enviados. Veja a [política de privacidade](/pt/privacy#android) sobre verificação, backups e exclusão.
 
 A navegação Android usa [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass), de Kyant, e [Shapes 1.2.1](https://github.com/Kyant0/Shapes). O DoneAt adapta o exemplo `LiquidBottomTabs` para navegação, arraste, acessibilidade, layouts da direita para a esquerda e movimento reduzido. Os efeitos são desenhados localmente, sem enviar conteúdo ou identificadores do dispositivo aos autores. Ambas as bibliotecas usam Apache License 2.0: [licença Backdrop](/licenses/backdrop-2.0.1.txt), [licença Shapes](/licenses/shapes-1.2.1.txt), também incluídas em Ajustes → Sobre → Agradecimentos.
 
