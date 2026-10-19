@@ -65,7 +65,7 @@ Templat hari libur mencakup data kalender nasional yang dibuat dengan [Vacanza H
 
 ## Android
 
-Versi Android masih diuji. Google Play menangani pembelian. Pada versi dengan verifikasi server, DoneAt memproses token di Cloudflare dan menyimpan hash beserta status akses, tanpa mengirim gaji atau catatan kerja. Lihat [kebijakan privasi](/id/privacy#android) untuk verifikasi, cadangan, dan penghapusan.
+Versi Android tersedia di [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat), yang menangani pembelian. Pada versi dengan verifikasi server, DoneAt memproses token di Cloudflare dan menyimpan hash beserta status akses, tanpa mengirim gaji atau catatan kerja. Lihat [kebijakan privasi](/id/privacy#android) untuk verifikasi, cadangan, dan penghapusan.
 
 Navigasi Android memakai [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) oleh Kyant dan [Shapes 1.2.1](https://github.com/Kyant0/Shapes). Contoh `LiquidBottomTabs` disesuaikan untuk navigasi DoneAt, seret, aksesibilitas, tata letak kanan-ke-kiri, dan pengurangan gerakan. Efek digambar di perangkat tanpa mengirim isi aplikasi atau pengenal perangkat kepada pembuatnya. Keduanya memakai Apache License 2.0: [lisensi Backdrop](/licenses/backdrop-2.0.1.txt), [lisensi Shapes](/licenses/shapes-1.2.1.txt). Teks lengkap juga ada di Pengaturan → Tentang → Ucapan terima kasih.
 

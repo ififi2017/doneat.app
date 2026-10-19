@@ -4,7 +4,7 @@ description: "Come DoneAt memorizza i dati localmente di default, offre sincroni
 heading: "Informativa sulla privacy"
 intro: "Questa pagina spiega come DoneAt memorizza ed elabora le informazioni: il sito ufficiale, il timer web e le app su iPhone, iPad, Android, Mac e Windows."
 updatedLabel: "Ultimo aggiornamento"
-updated: "16 ottobre 2026"
+updated: "19 ottobre 2026"
 ---
 
 ## Dati memorizzati da DoneAt
@@ -32,7 +32,7 @@ Attivare la sincronizzazione richiede DoneAt Plus. La sincronizzazione già atti
 
 ## Android
 
-L’app Android è in fase di test; disponibilità e acquisti Plus dipendono dalla pubblicazione su Google Play. Dati di lavoro e impostazioni restano di norma nello spazio privato dell’app, senza account DoneAt né analisi dell’utilizzo nell’app.
+Dati di lavoro e impostazioni restano di norma nello spazio privato dell’app, senza account DoneAt né analisi dell’utilizzo nell’app.
 
 Backup di sistema e trasferimenti possono includere registri, stipendio, carriera, profilo di vita, dati Focus e impostazioni di una configurazione incompleta. Dipendono da dispositivo, account e impostazioni di sistema; DoneAt non riceve copie sul server. Timer in corso, registro dei promemoria e prove d’acquisto sono esclusi. Dopo un ripristino i promemoria vengono ricreati e gli acquisti ricontrollati. Non c’è sincronizzazione automatica Google Drive o con iPhone. Le esportazioni manuali sono JSON leggibile, possono contenere lo stipendio e creano copie distinte nella destinazione scelta.
 

@@ -1,13 +1,13 @@
 ---
 title: "SSS — DoneAt"
-description: "DoneAt hakkında sık sorulan sorular: gece vardiyaları, bugünkü kazanç, gizlilik ve tarayıcıda, iPhone’da veya bilgisayarda kullanım."
+description: "DoneAt hakkında sık sorulan sorular: gece vardiyaları, bugünkü kazanç, gizlilik ve tarayıcıda, iPhone’da, Android’de veya bilgisayarda kullanım."
 heading: "Sık sorulan sorular"
-intro: "Vardiya nasıl kurulur, sayılar ne anlama gelir ve veriler nerede durur — tarayıcı, iPhone, iPad, Mac ve Windows’ta."
+intro: "Vardiya nasıl kurulur, sayılar ne anlama gelir ve veriler nerede durur — tarayıcı, iPhone, iPad, Android, Mac ve Windows’ta."
 ---
 
 ## DoneAt nedir?
 
-DoneAt bir iş çıkışı geri sayımıdır. İşe giriş ve iş çıkışı saatini girersin. Kalan saati, dakikayı ve saniyeyi, bir de vardiyanın ilerleme çubuğunu gösterir. Tarayıcıda, iPhone ve iPad’de ya da Mac ve Windows’ta kullan. DoneAt hesabı açmana gerek yok.
+DoneAt bir iş çıkışı geri sayımıdır. İşe giriş ve iş çıkışı saatini girersin. Kalan saati, dakikayı ve saniyeyi, bir de vardiyanın ilerleme çubuğunu gösterir. Tarayıcıda, iPhone, iPad ve Android’de ya da Mac ve Windows’ta kullan. DoneAt hesabı açmana gerek yok.
 
 ## Nasıl kurarım?
 
@@ -23,11 +23,11 @@ Maaş ayarlarını aç ve aylık ya da günlük bir tutar gir. Aylık maaş, ayd
 
 ## Sekmeyi kapatsam da hatırlatır mı?
 
-Tarayıcıda hatırlatma yalnızca sayfa açıkken çalışır. iPhone, iPad, Mac ve Windows’ta ekrandan ayrıldıktan sonra da DoneAt sistem bildirimi gönderebilir.
+Tarayıcıda hatırlatma yalnızca sayfa açıkken çalışır. iPhone, iPad, Android, Mac ve Windows’ta ekrandan ayrıldıktan sonra da DoneAt sistem bildirimi gönderebilir.
 
 ## Çevrimdışı çalışır mı?
 
-Geri sayım cihazında hesaplanır ve ağa ihtiyaç duymaz. Web zamanlayıcı bir kez açıldıktan sonra bağlantı olmadan da sürebilir. iPhone, iPad, Mac ve Windows uygulamaları kuruldukları cihazda çalışır.
+Geri sayım cihazında hesaplanır ve ağa ihtiyaç duymaz. Web zamanlayıcı bir kez açıldıktan sonra bağlantı olmadan da sürebilir. iPhone, iPad, Android, Mac ve Windows uygulamaları kuruldukları cihazda çalışır.
 
 ## Maaş bilgilerim gizli mi?
 
@@ -35,15 +35,15 @@ Saatlerin ve maaşın varsayılan olarak cihazda kalır. iPhone ve iPad’de cih
 
 ## Telefonum veya bilgisayarım için uygulama var mı?
 
-Evet. iPhone, iPad ve Mac [App Store](https://apps.apple.com/tr/app/id6802803318)’da. Windows [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ)’da. Tarayıcı zamanlayıcı [off.rainif.com](https://off.rainif.com/tr) adresinde. Gerçekten açık bırakacağın yeri seç.
+Evet. iPhone, iPad ve Mac [App Store](https://apps.apple.com/tr/app/id6802803318)’da. Android [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat)’de. Windows [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ)’da. Tarayıcı zamanlayıcı [off.rainif.com](https://off.rainif.com/tr) adresinde. Gerçekten açık bırakacağın yeri seç.
 
 ## Bileşen veya Apple Watch uygulaması var mı?
 
-Evet. iPhone ve iPad’de Ana Ekran ve Kilit Ekranı bileşenleri uygulamayı açmadan kalan süreyi gösterir; desteklenen iPhone’larda bir Live Activity ilerlemeyi Kilit Ekranı’nda ve Dynamic Island’da tutar. Apple Watch için DoneAt kalan süreyi ve iş çıkışını gösterir, iki saat yüzü komplikasyonuyla. Watch uygulaması ücretsizdir ve DoneAt Plus gerekmez. Bileşenler, Live Activities ve saat süre ile ilerlemeyi gösterir, maaşı asla. Mac veya Windows’ta mini sayaç geri sayımı görünür tutar.
+Evet. iPhone ve iPad’de Ana Ekran ve Kilit Ekranı bileşenleri uygulamayı açmadan kalan süreyi gösterir; desteklenen iPhone’larda bir Live Activity ilerlemeyi Kilit Ekranı’nda ve Dynamic Island’da tutar. Android’de Ana Ekran bileşenleri ve sürekli bir bildirim kalan süreyi gösterir. Apple Watch için DoneAt kalan süreyi ve iş çıkışını gösterir, iki saat yüzü komplikasyonuyla. Watch uygulaması ücretsizdir ve DoneAt Plus gerekmez. Bileşenler, bildirimler, Live Activities ve saat süre ile ilerlemeyi gösterir, maaşı asla. Mac veya Windows’ta mini sayaç geri sayımı görünür tutar.
 
 ## Dönüşümlü vardiyalarımı ve resmi tatilleri izleyebilir mi?
 
-iPhone ve iPad’de evet. Aylık bir takvimde sabit hafta günleri, dönüşümlü haftalar, vardiya rotasyonu, serbest plan veya elle zamanlama kur. Çalışma Saatleri ve Program’da bir ülke veya bölge seç; program o yerin resmi tatillerini, Çin anakarasındaki telafi iş günleri dahil, izler. Eski bir sürümden güncellediysen tatilleri orada bir kez aç. Tarayıcı zamanlayıcı ile Mac ve Windows uygulamaları tek bir başlangıç ve bitiş saati kullanır.
+iPhone, iPad ve Android’de evet. Aylık bir takvimde sabit hafta günleri, dönüşümlü haftalar, vardiya rotasyonu, serbest plan veya elle zamanlama kur. Bir ülke veya bölge seç; program o yerin resmi tatillerini, Çin anakarasındaki telafi iş günleri dahil, izler. iPhone ve iPad’de bu, Çalışma Saatleri ve Program’dadır; eski bir sürümden güncellediysen tatilleri orada bir kez aç. Tarayıcı zamanlayıcı ile Mac ve Windows uygulamaları tek bir başlangıç ve bitiş saati kullanır.
 
 ## Ücretsiz mi, kod açık mı?
 

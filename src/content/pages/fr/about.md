@@ -58,7 +58,7 @@ Les autorisations MIT déjà accordées restent valables. La marque et les visue
 
 ## Android
 
-La version Android est en test. Google Play gère les achats. Lorsque la vérification serveur est activée, DoneAt traite les jetons d’achat sur Cloudflare et conserve leurs empreintes avec l’état des droits ; ni salaire ni relevés de travail ne sont envoyés. Voir la [politique de confidentialité](/fr/privacy#android) pour la vérification, les sauvegardes et la suppression.
+La version Android est disponible sur [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat), qui gère les achats. Lorsque la vérification serveur est activée, DoneAt traite les jetons d’achat sur Cloudflare et conserve leurs empreintes avec l’état des droits ; ni salaire ni relevés de travail ne sont envoyés. Voir la [politique de confidentialité](/fr/privacy#android) pour la vérification, les sauvegardes et la suppression.
 
 La navigation Android utilise [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) de Kyant et [Shapes 1.2.1](https://github.com/Kyant0/Shapes). DoneAt adapte l’exemple `LiquidBottomTabs` à sa navigation, au glissement, à l’accessibilité, aux interfaces de droite à gauche et à la réduction des animations. Le rendu est local : aucun contenu de l’app ni identifiant d’appareil n’est envoyé aux auteurs. Les deux bibliothèques sont sous Apache License 2.0 : [licence Backdrop](/licenses/backdrop-2.0.1.txt), [licence Shapes](/licenses/shapes-1.2.1.txt). Les textes complets figurent aussi dans Réglages → À propos → Remerciements.
 

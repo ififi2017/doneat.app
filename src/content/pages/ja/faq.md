@@ -1,13 +1,13 @@
 ---
 title: "よくある質問 — DoneAt"
-description: "DoneAt のよくある質問：日付をまたぐシフト、本日の収入、プライバシー、ブラウザ・iPhone・パソコンでの使い方。"
+description: "DoneAt のよくある質問：日付をまたぐシフト、本日の収入、プライバシー、ブラウザ・iPhone・Android・パソコンでの使い方。"
 heading: "よくある質問"
-intro: "シフトの設定方法、数字の計算方法、データの保存場所。ブラウザ、iPhone、iPad、Mac、Windows のどれでも使えます。"
+intro: "シフトの設定方法、数字の計算方法、データの保存場所。ブラウザ、iPhone、iPad、Android、Mac、Windows のどれでも使えます。"
 ---
 
 ## DoneAt とは？
 
-DoneAt は退勤カウントダウンアプリです。出勤時間と退勤時間を入れると、残り時間が時分秒で表示され、進捗バーでシフトの経過がわかります。ブラウザで使うことも、iPhone、iPad、Mac、Windows にインストールして使うこともできます。DoneAt のアカウントを作る必要はありません。
+DoneAt は退勤カウントダウンアプリです。出勤時間と退勤時間を入れると、残り時間が時分秒で表示され、進捗バーでシフトの経過がわかります。ブラウザで使うことも、iPhone、iPad、Android、Mac、Windows にインストールして使うこともできます。DoneAt のアカウントを作る必要はありません。
 
 ## 使い始めるには？
 
@@ -23,11 +23,11 @@ DoneAt は退勤カウントダウンアプリです。出勤時間と退勤時�
 
 ## タブを閉じてもリマインドされますか？
 
-ブラウザでは、ページが開いている間だけリマインドできます。iPhone、iPad、Mac、Windows では、画面を離れても DoneAt がシステム通知を送れます。
+ブラウザでは、ページが開いている間だけリマインドできます。iPhone、iPad、Android、Mac、Windows では、画面を離れても DoneAt がシステム通知を送れます。
 
 ## オフラインで使えますか？
 
-カウントダウンは端末上で計算されるため、ネットワークは不要です。ウェブタイマーは一度開けば、その後はオフラインでも動作します。iPhone、iPad、Mac、Windows のアプリは、インストールした端末で動きます。
+カウントダウンは端末上で計算されるため、ネットワークは不要です。ウェブタイマーは一度開けば、その後はオフラインでも動作します。iPhone、iPad、Android、Mac、Windows のアプリは、インストールした端末で動きます。
 
 ## 給与情報は安全ですか？
 
@@ -35,15 +35,15 @@ DoneAt は退勤カウントダウンアプリです。出勤時間と退勤時�
 
 ## スマートフォンやパソコン用のアプリはありますか？
 
-はい。iPhone、iPad、Mac は [App Store](https://apps.apple.com/jp/app/id6802803318) で、Windows は [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ) で入手できます。ブラウザタイマーは [off.rainif.com](https://off.rainif.com/ja) にあります。実際に開いておくものを選んでください。
+はい。iPhone、iPad、Mac は [App Store](https://apps.apple.com/jp/app/id6802803318) で、Android は [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) で、Windows は [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ) で入手できます。ブラウザタイマーは [off.rainif.com](https://off.rainif.com/ja) にあります。実際に開いておくものを選んでください。
 
 ## ウィジェットや Apple Watch 版はありますか？
 
-はい。iPhone と iPad では、ホーム画面やロック画面のウィジェットでアプリを開かなくてもシフトの残り時間が見られます。対応 iPhone ではライブアクティビティがロック画面と Dynamic Island に進捗を表示します。Apple Watch 版では手首を上げるだけで残り時間と退勤時刻がわかり、2 種類のコンプリケーションも使えます。Watch 版は無料で、DoneAt Plus は不要です。ウィジェット、ライブアクティビティ、Watch では時間と進捗だけを表示し、給与は表示されません。Mac と Windows ではミニタイマーでカウントダウンを常に見られます。
+はい。iPhone と iPad では、ホーム画面やロック画面のウィジェットでアプリを開かなくてもシフトの残り時間が見られます。対応 iPhone ではライブアクティビティがロック画面と Dynamic Island に進捗を表示します。Android ではホーム画面のウィジェットと常駐通知で残り時間が見られます。Apple Watch 版では手首を上げるだけで残り時間と退勤時刻がわかり、2 種類のコンプリケーションも使えます。Watch 版は無料で、DoneAt Plus は不要です。ウィジェット、通知、ライブアクティビティ、Watch では時間と進捗だけを表示し、給与は表示されません。Mac と Windows ではミニタイマーでカウントダウンを常に見られます。
 
 ## ローテーションや祝日に対応したスケジュールは？
 
-iPhone と iPad では可能です。1 つの月間カレンダーで固定曜日、隔週、シフトローテーション、フリー、手動タイマーなどのスケジュールを組めます。「勤務時間とスケジュール」で国や地域を選ぶと、その地域の祝日が反映されます。古いバージョンからアップデートした場合は、そこで一度有効にしてください。ウェブタイマーと Mac・Windows 版は 1 組の出勤・退勤時間を使います。
+iPhone、iPad、Android では可能です。1 つの月間カレンダーで固定曜日、隔週、シフトローテーション、フリー、手動タイマーなどのスケジュールを組めます。国や地域を選ぶと、その地域の祝日がスケジュールに反映されます。iPhone と iPad では「勤務時間とスケジュール」で設定でき、古いバージョンからアップデートした場合は、そこで一度有効にしてください。ウェブタイマーと Mac・Windows 版は 1 組の出勤・退勤時間を使います。
 
 ## 無料ですか？オープンソースですか？
 

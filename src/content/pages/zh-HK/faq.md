@@ -1,13 +1,13 @@
 ---
 title: "常見問題 — DoneAt"
-description: "DoneAt 嘅常見問題：跨夜更、今日賺咗幾多、私隱，同埋點樣喺瀏覽器、iPhone 或電腦上面用。"
+description: "DoneAt 嘅常見問題：跨夜更、今日賺咗幾多、私隱，同埋點樣喺瀏覽器、iPhone、Android 或電腦上面用。"
 heading: "常見問題"
-intro: "點樣設更份、數字點嚟嘅、資料喺邊度。瀏覽器、iPhone、iPad、Mac 同 Windows 都適用。"
+intro: "點樣設更份、數字點嚟嘅、資料喺邊度。瀏覽器、iPhone、iPad、Android、Mac 同 Windows 都適用。"
 ---
 
 ## DoneAt 係乜嘢？
 
-DoneAt 係放工倒數計時。填好返工同放工時間，就會顯示仲有幾多鐘，並用進度條標出呢更走咗幾多。可以喺瀏覽器入面用，亦可以喺 iPhone、iPad、Mac 或 Windows 上面用。唔使註冊 DoneAt 帳號。
+DoneAt 係放工倒數計時。填好返工同放工時間，就會顯示仲有幾多鐘，並用進度條標出呢更走咗幾多。可以喺瀏覽器入面用，亦可以喺 iPhone、iPad、Android、Mac 或 Windows 上面用。唔使註冊 DoneAt 帳號。
 
 ## 點樣開始用？
 
@@ -23,11 +23,11 @@ DoneAt 係放工倒數計時。填好返工同放工時間，就會顯示仲有�
 
 ## 閂咗頁面仲會提醒我？
 
-喺瀏覽器入面，只有頁面仲開住先可以提醒。喺 iPhone、iPad、Mac 同 Windows 上，離開畫面之後，DoneAt 仲可以發系統通知。
+喺瀏覽器入面，只有頁面仲開住先可以提醒。喺 iPhone、iPad、Android、Mac 同 Windows 上，離開畫面之後，DoneAt 仲可以發系統通知。
 
 ## 可以離線用？
 
-倒數計時喺你部裝置上計算，唔使上網。網頁計時打開過一次之後，斷網都可以繼續用。裝喺 iPhone、iPad、Mac 同 Windows 上嘅應用程式，喺你安裝嗰部裝置上就用得。
+倒數計時喺你部裝置上計算，唔使上網。網頁計時打開過一次之後，斷網都可以繼續用。裝喺 iPhone、iPad、Android、Mac 同 Windows 上嘅應用程式，喺你安裝嗰部裝置上就用得。
 
 ## 我嘅薪金資料安全？
 
@@ -35,15 +35,15 @@ DoneAt 係放工倒數計時。填好返工同放工時間，就會顯示仲有�
 
 ## 手機或電腦上有應用程式？
 
-有。iPhone、iPad 同 Mac 喺 [App Store](https://apps.apple.com/hk/app/id6802803318)，Windows 喺 [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ)。瀏覽器計時喺 [off.rainif.com](https://off.rainif.com/zh-HK)。揀一個你會真正開住嘅就得。
+有。iPhone、iPad 同 Mac 喺 [App Store](https://apps.apple.com/hk/app/id6802803318)，Android 喺 [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat)，Windows 喺 [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ)。瀏覽器計時喺 [off.rainif.com](https://off.rainif.com/zh-HK)。揀一個你會真正開住嘅就得。
 
 ## 有小工具或 Apple Watch 版？
 
-有。喺 iPhone 同 iPad 上，主畫面同鎖定畫面小工具唔打開 App 都可以顯示呢更仲剩幾耐；喺支援嘅 iPhone 上，即時動態會將進度留喺鎖定畫面同動態島上面。Apple Watch 版抬手就睇到仲剩幾耐、幾點放工，錶面上仲可以加兩種複雜功能；佢免費使用，唔使 DoneAt Plus。小工具、即時動態同手錶上只顯示時間同進度，唔顯示薪金。喺 Mac 同 Windows 上，迷你計時器會令倒數計時一直留喺眼前。
+有。喺 iPhone 同 iPad 上，主畫面同鎖定畫面小工具唔打開 App 都可以顯示呢更仲剩幾耐；喺支援嘅 iPhone 上，即時動態會將進度留喺鎖定畫面同動態島上面。喺 Android 上，主畫面小工具同常駐通知會顯示仲剩幾耐。Apple Watch 版抬手就睇到仲剩幾耐、幾點放工，錶面上仲可以加兩種複雜功能；佢免費使用，唔使 DoneAt Plus。小工具、通知、即時動態同手錶上只顯示時間同進度，唔顯示薪金。喺 Mac 同 Windows 上，迷你計時器會令倒數計時一直留喺眼前。
 
 ## 可以按輪更同假期排班？
 
-喺 iPhone 同 iPad 上可以。喺同一張月曆入面設定排班：固定星期、隔週休、輪更輪休、自由排班或手動計時都得。喺「工作時間與排班」入面揀國家或地區之後，排班會跟住當地假期走。如果係從舊版本升級，喺嗰度開啟一次就得。網頁計時同 Mac、Windows 版用一組返工放工時間。
+喺 iPhone、iPad 同 Android 上都可以。喺同一張月曆入面設定排班：固定星期、隔週休、輪更輪休、自由排班或手動計時都得。揀國家或地區嘅假期之後，排班會跟住當地假期走。喺 iPhone 同 iPad 上，呢項設定喺「工作時間與排班」入面；如果係從舊版本升級，喺嗰度開啟一次就得。網頁計時同 Mac、Windows 版用一組返工放工時間。
 
 ## 免費？開源？
 

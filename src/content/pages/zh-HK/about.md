@@ -65,7 +65,7 @@ DoneAt 亦幫你回顧工作、安排之後嘅時間：
 
 ## Android
 
-Android 版本目前測試中，購買由 Google Play 處理。啟用伺服器驗證嘅版本會透過 Cloudflare 上嘅 DoneAt 服務處理購買權杖，保存佢嘅雜湊同權益狀態，唔會傳送薪金或工作記錄。驗證、備份同刪除方法見[私隱政策](/zh-HK/privacy#android)。
+Android 版已經喺 [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) 上架，購買由 Google Play 處理。啟用伺服器驗證嘅版本會透過 Cloudflare 上嘅 DoneAt 服務處理購買權杖，保存佢嘅雜湊同權益狀態，唔會傳送薪金或工作記錄。驗證、備份同刪除方法見[私隱政策](/zh-HK/privacy#android)。
 
 Android 導覽用咗 Kyant 嘅 [Backdrop（AndroidLiquidGlass）2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) 同 [Shapes 1.2.1](https://github.com/Kyant0/Shapes)。DoneAt 參考 `LiquidBottomTabs` 範例，調整應用程式導覽、拖曳、無障礙、由右至左版面同減少動態效果。效果喺裝置繪製，唔會向作者傳送應用程式內容或裝置識別碼。兩個程式庫均採用 Apache License 2.0：[Backdrop 授權條款](/licenses/backdrop-2.0.1.txt)、[Shapes 授權條款](/licenses/shapes-1.2.1.txt)。完整條款亦放喺應用程式「設定 → 關於 → 致謝」。
 

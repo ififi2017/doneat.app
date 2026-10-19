@@ -1,13 +1,13 @@
 ---
 title: "FAQ — DoneAt"
-description: "Domande frequenti su DoneAt: turni notturni, il calcolo dei guadagni, privacy e utilizzo nel browser, su iPhone o al computer."
+description: "Domande frequenti su DoneAt: turni notturni, il calcolo dei guadagni, privacy e utilizzo nel browser, su iPhone o Android, o al computer."
 heading: "Domande frequenti"
-intro: "Come impostare un turno, cosa significano i numeri e dove risiedono i tuoi dati, su browser, iPhone, iPad, Mac e Windows."
+intro: "Come impostare un turno, cosa significano i numeri e dove risiedono i tuoi dati, su browser, iPhone, iPad, Android, Mac e Windows."
 ---
 
 ## Cos'è DoneAt?
 
-DoneAt è un conto alla rovescia per la fine del lavoro. Inserisci l'orario di ingresso e di uscita. Ti mostra ore, minuti e secondi rimanenti, più una barra di avanzamento del turno. Usalo nel browser, su iPhone e iPad, oppure su Mac o Windows. Non serve creare un account DoneAt.
+DoneAt è un conto alla rovescia per la fine del lavoro. Inserisci l'orario di ingresso e di uscita. Ti mostra ore, minuti e secondi rimanenti, più una barra di avanzamento del turno. Usalo nel browser, su iPhone, iPad e Android, oppure su Mac o Windows. Non serve creare un account DoneAt.
 
 ## Come lo configuro?
 
@@ -23,11 +23,11 @@ Attiva le impostazioni stipendio e inserisci un importo mensile o giornaliero. U
 
 ## Mi avviserà anche se chiudo la scheda?
 
-Nel browser, un promemoria funziona solo finché la pagina resta aperta. Su iPhone, iPad, Mac e Windows, DoneAt può inviare una notifica di sistema anche dopo aver lasciato lo schermo.
+Nel browser, un promemoria funziona solo finché la pagina resta aperta. Su iPhone, iPad, Android, Mac e Windows, DoneAt può inviare una notifica di sistema anche dopo aver lasciato lo schermo.
 
 ## Funziona offline?
 
-Il conto alla rovescia viene calcolato sul dispositivo e non richiede rete. Dopo aver aperto il timer web una volta, può continuare a funzionare senza connessione. Le app per iPhone, iPad, Mac e Windows funzionano sul dispositivo su cui le hai installate.
+Il conto alla rovescia viene calcolato sul dispositivo e non richiede rete. Dopo aver aperto il timer web una volta, può continuare a funzionare senza connessione. Le app per iPhone, iPad, Android, Mac e Windows funzionano sul dispositivo su cui le hai installate.
 
 ## Le mie informazioni sullo stipendio sono private?
 
@@ -35,15 +35,15 @@ Orari e stipendio restano sul dispositivo di default. Su iPhone e iPad puoi sinc
 
 ## C'è un'app per telefono o computer?
 
-Sì. iPhone, iPad e Mac sono su [App Store](https://apps.apple.com/it/app/id6802803318). Windows è su [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ). Il timer del browser è su [off.rainif.com](https://off.rainif.com/it). Scegli quello che effettivamente terrai aperto.
+Sì. iPhone, iPad e Mac sono su [App Store](https://apps.apple.com/it/app/id6802803318). Android è su [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat). Windows è su [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ). Il timer del browser è su [off.rainif.com](https://off.rainif.com/it). Scegli quello che effettivamente terrai aperto.
 
 ## C'è un widget o un'app per Apple Watch?
 
-Sì. Su iPhone e iPad, i widget della schermata Home e del blocco schermo mostrano il tempo rimanente senza aprire l'app, e su iPhone supportati un'Attività in tempo reale mantiene il progresso sulla schermata di blocco e nella Dynamic Island. L'app per Apple Watch mostra il tempo rimanente e l'orario di uscita con due complicazioni. L'app Watch è gratuita e non richiede DoneAt Plus. Widget, Attività in tempo reale e orologio mostrano tempi e progresso, mai lo stipendio. Su Mac o Windows, il mini timer tiene il conto alla rovescia sempre visibile.
+Sì. Su iPhone e iPad, i widget della schermata Home e del blocco schermo mostrano il tempo rimanente senza aprire l'app, e su iPhone supportati un'Attività in tempo reale mantiene il progresso sulla schermata di blocco e nella Dynamic Island. Su Android, i widget della schermata Home e una notifica persistente mostrano il tempo rimanente. L'app per Apple Watch mostra il tempo rimanente e l'orario di uscita con due complicazioni. L'app Watch è gratuita e non richiede DoneAt Plus. Widget, notifiche, Attività in tempo reale e orologio mostrano tempi e progresso, mai lo stipendio. Su Mac o Windows, il mini timer tiene il conto alla rovescia sempre visibile.
 
 ## Può seguire i miei turni a rotazione e le festività?
 
-Su iPhone e iPad, sì. Pianifica il tuo programma in un calendario mensile con giorni fissi, settimane alternate, rotazioni di turno, programmazione libera o tempi manuali. Scegli un paese o regione in Orari e programmazione e il tuo calendario seguirà le sue festività, inclusi i giorni di recupero in Cina continentale. Se hai aggiornato da una versione precedente, attivalo lì una volta. Il timer web e le app Mac e Windows usano un singolo orario di inizio e fine.
+Su iPhone, iPad e Android, sì. Pianifica il tuo programma in un calendario mensile con giorni fissi, settimane alternate, rotazioni di turno, programmazione libera o tempi manuali. Scegli un paese o regione per le sue festività e il tuo calendario le seguirà, inclusi i giorni di recupero in Cina continentale. Su iPhone e iPad, si trova in Orari e programmazione; se hai aggiornato da una versione precedente, attivalo lì una volta. Il timer web e le app Mac e Windows usano un singolo orario di inizio e fine.
 
 ## È gratuito e il codice è aperto?
 

@@ -4,7 +4,7 @@ description: "Bagaimana DoneAt menyimpan data secara lokal secara bawaan, menawa
 heading: "Kebijakan privasi"
 intro: "Halaman ini menjelaskan bagaimana DoneAt menyimpan dan memproses informasi: situs resmi, timer web, dan aplikasi di iPhone, iPad, Android, Mac, dan Windows."
 updatedLabel: "Terakhir diperbarui"
-updated: "16 Oktober 2026"
+updated: "19 Oktober 2026"
 ---
 
 ## Data yang disimpan DoneAt
@@ -32,7 +32,7 @@ Mengaktifkan sinkronisasi membutuhkan DoneAt Plus. Sinkronisasi yang sudah aktif
 
 ## Android
 
-Aplikasi Android masih diuji; ketersediaan dan pembelian Plus mengikuti rilis Google Play. Data kerja dan pengaturan tersimpan secara bawaan di ruang pribadi aplikasi, tanpa akun DoneAt atau analisis penggunaan aplikasi.
+Data kerja dan pengaturan tersimpan secara bawaan di ruang pribadi aplikasi, tanpa akun DoneAt atau analisis penggunaan aplikasi.
 
 Cadangan sistem dan perpindahan perangkat dapat memuat catatan, gaji, riwayat karier, profil kehidupan, data Focus, serta pengaturan awal yang belum selesai. Ini bergantung pada perangkat, akun, dan pengaturan sistem; DoneAt tidak menerima salinan di server. Timer aktif, daftar pengingat terjadwal, dan bukti pembelian dikecualikan. Setelah pemulihan, pengingat dijadwalkan ulang dan pembelian diperiksa lagi. Tidak ada sinkronisasi otomatis Google Drive atau iPhone. Ekspor manual berupa JSON terbaca, dapat memuat gaji, dan membuat salinan terpisah di tujuan yang kamu pilih.
 

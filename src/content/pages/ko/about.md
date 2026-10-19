@@ -65,7 +65,7 @@ iCloud 동기화를 처음 활성화하려면 Plus가 필요합니다. 활성화
 
 ## Android
 
-Android 버전은 테스트 중이며 구매는 Google Play가 처리합니다. 서버 검증을 사용하는 버전에서는 DoneAt이 Cloudflare에서 구매 토큰을 처리하고 해시와 이용 권한 상태를 저장합니다. 급여와 근무 기록은 전송하지 않습니다. 검증, 백업, 삭제는 [개인정보 처리방침](/ko/privacy#android)을 참고하세요.
+Android 버전은 [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat)에서 받을 수 있으며 구매는 Google Play가 처리합니다. 서버 검증을 사용하는 버전에서는 DoneAt이 Cloudflare에서 구매 토큰을 처리하고 해시와 이용 권한 상태를 저장합니다. 급여와 근무 기록은 전송하지 않습니다. 검증, 백업, 삭제는 [개인정보 처리방침](/ko/privacy#android)을 참고하세요.
 
 Android 탐색 UI는 Kyant의 [Backdrop(AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass)과 [Shapes 1.2.1](https://github.com/Kyant0/Shapes)을 사용합니다. `LiquidBottomTabs` 예제를 DoneAt의 탐색, 드래그, 접근성, 오른쪽에서 왼쪽으로 쓰는 화면, 동작 줄이기에 맞게 수정했습니다. 효과는 기기에서 그리며 앱 내용이나 기기 식별자를 개발자에게 보내지 않습니다. 두 라이브러리는 Apache License 2.0으로 제공됩니다. [Backdrop 라이선스](/licenses/backdrop-2.0.1.txt)와 [Shapes 라이선스](/licenses/shapes-1.2.1.txt) 전문은 앱의 설정 → 정보 → 감사의 말에도 포함되어 있습니다.
 

@@ -1,6 +1,6 @@
 ---
 title: "Download — DoneAt"
-description: "Get DoneAt on the App Store or Microsoft Store: widgets, Live Activities, a free Apple Watch app and a monthly shift calendar on iPhone, plus system requirements."
+description: "Get DoneAt on the App Store, Google Play or Microsoft Store: widgets, Live Activities, a free Apple Watch app and a monthly shift calendar on iPhone, plus system requirements."
 heading: "Your time, close at hand."
 intro: "A glance at your phone. A moment on your wrist. A quiet corner of your desktop. Keep the time left in your shift where it works for you."
 nativeHeading: Why keep a native app around
@@ -12,12 +12,13 @@ nativePerks:
     body: On a computer, the remaining time can sit in the menu bar or system tray, and on a phone it can sit among your other apps and widgets. You do not have to hunt for a browser tab.
   - title: It keeps counting
     body: Close the page, lock the phone, or hide the window. The countdown on the device you installed continues from where you left it.
-nativeNote: Data on Mac and Windows stays on that computer. On iPhone and iPad, data is local by default, with optional sync through your private iCloud database. There is no DoneAt account to create.
+nativeNote: Data on Mac and Windows stays on that computer. On iPhone and iPad, data is local by default, with optional sync through your private iCloud database. On Android, data stays on the phone, and your system backup settings decide whether it is backed up. There is no DoneAt account to create.
 requirementsHeading: System requirements
 requirements:
   - "Windows: Windows 10 20H2 or later (WebView2 required)"
   - "macOS: macOS 13.0 or later"
   - "iOS/iPad OS: iOS 26.0/iPad OS 26.0 or later"
+  - "Android: Android 8.0 or later"
   - "Chrome extension: Chrome 120 or later"
 chromeExtensionLabel: Chrome Web Store
 chromeExtensionNote: Also available as a Chrome extension. Click the toolbar icon to see the time left.

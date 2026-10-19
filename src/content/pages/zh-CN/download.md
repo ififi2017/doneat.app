@@ -1,6 +1,6 @@
 ---
 title: "下载 — DoneAt"
-description: "从 App Store 或 Microsoft Store 获取 DoneAt：iPhone 上有小组件、实时活动、免费 Apple Watch 版和带节假日的月历排班，另附各平台系统要求。"
+description: "从 App Store、Google Play 或 Microsoft Store 获取 DoneAt：iPhone 上有小组件、实时活动、免费 Apple Watch 版和带节假日的月历排班，另附各平台系统要求。"
 heading: "把下班时刻，带在身边。"
 intro: "手机上看一眼，手腕上抬一下，桌面上留一角。今天这班还剩多久，在你顺手的地方看见。"
 nativeHeading: 为什么还要装一个应用
@@ -12,12 +12,13 @@ nativePerks:
     body: 在电脑上，剩余时间可以留在菜单栏或系统托盘；在手机上，它可以和别的应用、小组件放在一起。不必再翻浏览器标签。
   - title: 关掉页面也还在走
     body: 关掉页面、锁上手机或藏起窗口，装在这台设备上的倒计时会接着倒数。
-nativeNote: Mac 和 Windows 数据留在这台电脑上。iPhone 和 iPad 默认保存在本机，也可以选择通过你的私人 iCloud 数据库同步。不用注册 DoneAt 账号。
+nativeNote: Mac 和 Windows 数据留在这台电脑上。iPhone 和 iPad 默认保存在本机，也可以选择通过你的私人 iCloud 数据库同步。Android 数据留在手机上，是否进入系统备份由你的系统备份设置决定。不用注册 DoneAt 账号。
 requirementsHeading: 系统要求
 requirements:
   - Windows：Windows 10 20H2 及以上版本（需有 WebView2 组件）
   - macOS：macOS 13.0 及以上版本
   - iOS/iPad OS：iOS 26.0/iPad OS 26.0 及以上版本
+  - Android：Android 8.0 及以上版本
   - Chrome 扩展：Chrome 120 及以上版本
 chromeExtensionLabel: Chrome 应用商店
 chromeExtensionNote: 也有 Chrome 扩展版，点工具栏图标就能看剩余时间。

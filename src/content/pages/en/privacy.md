@@ -4,7 +4,7 @@ description: "How DoneAt stores data locally by default, offers optional private
 heading: "Privacy Policy"
 intro: "This page explains how DoneAt stores and processes information: the official site, the web timer, and the apps on iPhone, iPad, Android, Mac and Windows."
 updatedLabel: "Last updated"
-updated: "16 October 2026"
+updated: "19 October 2026"
 ---
 
 ## Data stored by DoneAt
@@ -32,8 +32,6 @@ Enabling sync requires DoneAt Plus. Sync that is already enabled continues after
 
 ## Android backups and device transfers
 
-The Android app is in testing. The Android sections of this policy describe that version; public availability and Plus purchases depend on its Google Play release.
-
 Android stores your records and settings in the app’s private storage. The system backup and device-transfer services may copy these records and settings, including salary, career history, life profile and Focus data. Unfinished setup settings may also contain salary. Whether a backup is made, where it is stored and how it is restored depend on your device, account and system settings. DoneAt does not receive a server copy. You can manage system backups in your device’s backup settings. [Android’s backup documentation](https://developer.android.com/identity/data/autobackup) explains the system service.
 
 The running timer, scheduled-reminder registry and saved purchase verification data are excluded from these backups. DoneAt rebuilds reminders and checks purchases with Google Play after restoration. Restoring a records backup does not by itself grant Plus access.
@@ -50,7 +48,7 @@ The export is a readable JSON file, not a password-protected archive. Choose a s
 
 On iPhone and iPad, Apple handles Plus subscriptions and lifetime purchases through the App Store. DoneAt uses StoreKit to verify purchase status and restore access, and keeps a local record of the verified entitlement and any expiry date. DoneAt does not receive your payment card details or send your purchase status to a DoneAt account server. Apple processes purchase information under its own policies.
 
-On Android, Google Play handles Plus subscriptions and lifetime purchases when they become available. DoneAt queries Google Play to verify and restore access, checks purchase signatures, and keeps purchase verification data in private app storage. This includes product identifiers and purchase tokens used to confirm purchases and retry unfinished confirmations. It excludes salary and work records and is not included in system backups. DoneAt may contact Google Play when the app opens or resumes, when you restore purchases, and when a confirmation needs to be retried. DoneAt does not receive your payment card details. Google processes purchases under its own policies.
+On Android, Google Play handles Plus subscriptions and lifetime purchases. DoneAt queries Google Play to verify and restore access, checks purchase signatures, and keeps purchase verification data in private app storage. This includes product identifiers and purchase tokens used to confirm purchases and retry unfinished confirmations. It excludes salary and work records and is not included in system backups. DoneAt may contact Google Play when the app opens or resumes, when you restore purchases, and when a confirmation needs to be retried. DoneAt does not receive your payment card details. Google processes purchases under its own policies.
 
 For Android purchase verification, DoneAt operates `api.doneat.app` on Cloudflare. A version with server verification enabled sends the Play purchase token, product identifier and a random request nonce over HTTPS. Google Play can also send purchase-state changes through Cloud Pub/Sub. The service queries Google for the current entitlement and exact expiry, then returns a digitally signed receipt. It does not receive salary, schedules, work records, Focus plans or backups.
 

@@ -4,7 +4,7 @@ description: "DoneAt veriyi varsayılan olarak yerelde tutar, iPhone ve iPad’d
 heading: "Gizlilik ilkesi"
 intro: "Bu sayfa DoneAt’in bilgiyi nasıl sakladığını ve işlediğini açıklar: resmî site, web zamanlayıcı ve iPhone, iPad, Android, Mac ile Windows uygulamaları."
 updatedLabel: "Son güncelleme"
-updated: "16 Ekim 2026"
+updated: "19 Ekim 2026"
 ---
 
 ## DoneAt’in sakladığı veri
@@ -32,7 +32,7 @@ Eşitlemeyi açmak DoneAt Plus gerektirir. Zaten açılmış eşitleme abonelik 
 
 ## Android
 
-Android uygulaması test aşamasındadır; erişim ve Plus satın almaları Google Play yayınına bağlıdır. Çalışma verileri ve ayarlar varsayılan olarak uygulamanın özel alanında kalır. DoneAt hesabı veya uygulama kullanım analizi yoktur.
+Çalışma verileri ve ayarlar varsayılan olarak uygulamanın özel alanında kalır. DoneAt hesabı veya uygulama kullanım analizi yoktur.
 
 Sistem yedekleri ve cihaz aktarımı; kayıtları, maaşı, kariyer geçmişini, yaşam profilini, Focus verilerini ve tamamlanmamış kurulum ayarlarını içerebilir. Bu, cihazına, hesabına ve sistem ayarlarına bağlıdır; DoneAt sunucusunda kopya oluşmaz. Çalışan sayaç, hatırlatıcı kaydı ve satın alma kanıtları hariç tutulur. Geri yükleme sonrası hatırlatıcılar yeniden planlanır ve satın almalar kontrol edilir. Otomatik Google Drive veya iPhone eşitlemesi yoktur. Elle dışa aktarılan yedek okunabilir JSON’dur, maaş içerebilir ve seçtiğin konum ya da alıcıda ayrı kopya oluşturur.
 

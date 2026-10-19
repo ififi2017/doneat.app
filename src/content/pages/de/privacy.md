@@ -4,7 +4,7 @@ description: "Wie DoneAt Daten standardmäßig lokal speichert, optionale privat
 heading: "Datenschutzrichtlinie"
 intro: "Diese Seite erklärt, wie DoneAt Informationen speichert und verarbeitet: die offizielle Website, den Web-Timer und die Apps auf iPhone, iPad, Android, Mac und Windows."
 updatedLabel: "Letzte Aktualisierung"
-updated: "16. Oktober 2026"
+updated: "19. Oktober 2026"
 ---
 
 ## Von DoneAt gespeicherte Daten
@@ -32,7 +32,7 @@ Die Aktivierung der Synchronisierung erfordert DoneAt Plus. Bereits aktivierte S
 
 ## Android
 
-Die Android-App befindet sich in der Testphase. Verfügbarkeit und Plus-Käufe richten sich nach der Veröffentlichung bei Google Play. Arbeitsdaten und Einstellungen bleiben standardmäßig im privaten App-Speicher; es gibt kein DoneAt-Konto und keine Nutzungsanalyse in der App.
+Arbeitsdaten und Einstellungen bleiben standardmäßig im privaten App-Speicher; es gibt kein DoneAt-Konto und keine Nutzungsanalyse in der App.
 
 System-Backups und Geräteübertragungen können Aufzeichnungen, Gehalt, beruflichen Verlauf, Lebensprofil, Focus-Daten und noch nicht abgeschlossene Einrichtungseinstellungen enthalten. Dies hängt von Gerät, Konto und Systemeinstellungen ab. DoneAt erhält keine Serverkopie. Laufender Timer, Erinnerungsregister und Kaufnachweise sind ausgeschlossen; nach einer Wiederherstellung werden Erinnerungen neu geplant und Käufe geprüft. Es gibt keine automatische Google-Drive- oder iPhone-Synchronisierung. Manuell exportierte Backups sind lesbare JSON-Dateien und können Gehalt enthalten; der gewählte Speicherort oder Empfänger erhält eine separate Kopie.
 

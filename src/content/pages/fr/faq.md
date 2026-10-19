@@ -1,13 +1,13 @@
 ---
 title: "FAQ — DoneAt"
-description: "Foire aux questions DoneAt : travail de nuit, estimation des gains, confidentialité, et comment l'utiliser dans le navigateur, sur iPhone ou sur ordinateur."
+description: "Foire aux questions DoneAt : travail de nuit, estimation des gains, confidentialité, et comment l'utiliser dans le navigateur, sur iPhone ou Android, ou sur ordinateur."
 heading: "Foire aux questions"
-intro: "Comment configurer vos horaires, comprendre les chiffres et savoir où vos données sont stockées. Pour le navigateur, iPhone, iPad, Mac et Windows."
+intro: "Comment configurer vos horaires, comprendre les chiffres et savoir où vos données sont stockées. Pour le navigateur, iPhone, iPad, Android, Mac et Windows."
 ---
 
 ## Qu'est-ce que DoneAt ?
 
-DoneAt est un compte à rebours de fin de journée. Indiquez votre heure de début et de fin, et vous verrez le temps restant en heures, minutes et secondes, avec une barre de progression. Vous pouvez l'utiliser dans le navigateur, sur iPhone, iPad, Mac ou Windows. Il n'y a pas de compte DoneAt à créer.
+DoneAt est un compte à rebours de fin de journée. Indiquez votre heure de début et de fin, et vous verrez le temps restant en heures, minutes et secondes, avec une barre de progression. Vous pouvez l'utiliser dans le navigateur, sur iPhone, iPad, Android, Mac ou Windows. Il n'y a pas de compte DoneAt à créer.
 
 ## Comment démarrer ?
 
@@ -23,11 +23,11 @@ Activez les paramètres de salaire et entrez un montant mensuel ou journalier. U
 
 ## Puis-je recevoir des rappels si je ferme l'onglet ?
 
-Dans le navigateur, les rappels ne fonctionnent que si la page reste ouverte. Sur iPhone, iPad, Mac et Windows, DoneAt peut envoyer des notifications système après avoir quitté l'écran.
+Dans le navigateur, les rappels ne fonctionnent que si la page reste ouverte. Sur iPhone, iPad, Android, Mac et Windows, DoneAt peut envoyer des notifications système après avoir quitté l'écran.
 
 ## Cela fonctionne-t-il hors ligne ?
 
-Le compte à rebours est calculé sur votre appareil et n'a pas besoin du réseau. Une fois le minuteur web ouvert, il continue de fonctionner sans connexion. Les apps iPhone, iPad, Mac et Windows fonctionnent sur l'appareil où elles sont installées.
+Le compte à rebours est calculé sur votre appareil et n'a pas besoin du réseau. Une fois le minuteur web ouvert, il continue de fonctionner sans connexion. Les apps iPhone, iPad, Android, Mac et Windows fonctionnent sur l'appareil où elles sont installées.
 
 ## Mes informations salariales sont-elles privées ?
 
@@ -35,15 +35,15 @@ Vos horaires et votre salaire restent sur l'appareil par défaut. Sur iPhone et 
 
 ## Existe-t-il une app pour téléphone ou ordinateur ?
 
-Oui. iPhone, iPad et Mac sont sur l'[App Store](https://apps.apple.com/fr/app/id6802803318), Windows sur le [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ). Le minuteur navigateur est sur [off.rainif.com](https://off.rainif.com/fr). Choisissez celui que vous garderez réellement ouvert.
+Oui. iPhone, iPad et Mac sont sur l'[App Store](https://apps.apple.com/fr/app/id6802803318), Android sur [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat), Windows sur le [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ). Le minuteur navigateur est sur [off.rainif.com](https://off.rainif.com/fr). Choisissez celui que vous garderez réellement ouvert.
 
 ## Y a-t-il un widget ou une version Apple Watch ?
 
-Oui. Sur iPhone et iPad, les widgets de l'écran d'accueil et de verrouillage affichent le temps restant sans ouvrir l'app. Sur les iPhone compatibles, une Activité en direct garde la progression sur l'écran de verrouillage et dans Dynamic Island. L'app Apple Watch affiche le temps restant et l'heure de fin, avec deux complications. L'app Watch est gratuite et ne nécessite pas DoneAt Plus. Les widgets, Activités en direct et la montre n'affichent jamais le salaire. Sur Mac et Windows, le mini-minuteur garde le compte à rebours visible.
+Oui. Sur iPhone et iPad, les widgets de l'écran d'accueil et de verrouillage affichent le temps restant sans ouvrir l'app. Sur les iPhone compatibles, une Activité en direct garde la progression sur l'écran de verrouillage et dans Dynamic Island. Sur Android, les widgets de l'écran d'accueil et une notification permanente affichent le temps restant. L'app Apple Watch affiche le temps restant et l'heure de fin, avec deux complications. L'app Watch est gratuite et ne nécessite pas DoneAt Plus. Les widgets, notifications, Activités en direct et la montre n'affichent jamais le salaire. Sur Mac et Windows, le mini-minuteur garde le compte à rebours visible.
 
 ## Peut-il suivre les rotations et les jours fériés ?
 
-Sur iPhone et iPad, oui. Planifiez votre emploi du temps sur un calendrier mensuel : jours fixes, semaines alternées, rotations, libre planification ou minuterie manuelle. Choisissez un pays ou une région dans « Horaires et planning » et votre planning suivra les jours fériés. Si vous avez mis à jour depuis une ancienne version, activez les jours fériés une fois dans ce menu. Le minuteur web et les apps Mac/Windows utilisent une seule paire d'horaires.
+Sur iPhone, iPad et Android, oui. Planifiez votre emploi du temps sur un calendrier mensuel : jours fixes, semaines alternées, rotations, libre planification ou minuterie manuelle. Choisissez un pays ou une région pour ses jours fériés et votre planning les suivra. Sur iPhone et iPad, cela se trouve dans « Horaires et planning » ; si vous avez mis à jour depuis une ancienne version, activez les jours fériés une fois dans ce menu. Le minuteur web et les apps Mac/Windows utilisent une seule paire d'horaires.
 
 ## Est-ce gratuit et open source ?
 
