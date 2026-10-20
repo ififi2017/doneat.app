@@ -15,6 +15,14 @@ The homepage plays the short timer loops (`en` / `zh` × `white` / `black`) insi
 
 Each stem has `.mp4` (H.264, faststart) and `.png`. Desktop originals were `.mov`; do not ship those.
 
+The four homepage timer loops were re-recorded on 2026-10-20 from iOS 3.2.3 (current `main`, Debug build) in the iPhone 18 Pro Max simulator (1320×2868) with `xcrun simctl io <udid> recordVideo --codec=h264 --mask=ignored`. They use the product repo's marketing demo archive and QA launch arguments (`scripts/marketing-shots/ios/creative-seed-3.2.1.mjs`), seeded to the same 09:00–18:00 day as the Android loop, with an overridden status bar (real Shanghai time, full signal, charged battery). The simulator's own archive, system language and status bar were restored afterwards. Trimmed to 14 s:
+
+```bash
+ffmpeg -ss 1 -t 14 -i en-white.raw.mov -an -vf "fps=30,format=yuv420p" \
+  -c:v libx264 -preset slow -crf 26 -profile:v high -movflags +faststart en-white.mp4
+ffmpeg -ss 0.5 -i en-white.mp4 -frames:v 1 en-white.png
+```
+
 The review clips were re-recorded on iOS 3.2.0 (2026-09-25). The device recordings are 1284×2778, so they are scaled to 2868 high and 3 px are cropped from each side to reach 1320×2868 without stretching:
 
 ```bash
