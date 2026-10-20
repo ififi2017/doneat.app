@@ -290,4 +290,5 @@
 - [x] Android 计时录屏（`en`/`zh` × 浅/深色，14 秒）与 PNG 海报：2026-10-20 09:33–09:36 在 Pixel 10 Pro 上录制，状态栏图标已遮，做法见 `assets/device/README.md`。
 - [ ] （可选）Android 桌面小组件与常驻通知的精确裁切，供第 02 章使用；需在用户手机桌面临时放置小组件，本轮未做。
 - [x] 首页第 01 章 iPhone 与 Android 并列，Android 套 Google 官方 Pixel 10 Pro 设备图稿（用户嫌中性外框丑，2026-10-20 换；CC BY 2.5，19 语 About 署名）；Google Play 徽章改为 1×/2×/3× PNG（原先只出 1× WebP，高分屏发糊）。
+- [x] 用户觉得 iPhone 录屏旧：2026-10-20 用 iPhone 18 Pro Max 模拟器从当前 main（3.2.3）重录首页四段计时循环，与 Android 同一套合成数据、同一天 09:00–18:00；下载页 review 片段未重录。
 - [x] check 0 errors、build 121 页、seo:check 通过；1280×800 浅/深色、390×844 浅色实测，Pixel 10 Pro 的 Chrome 实机确认 Android 识别与徽章清晰度。
