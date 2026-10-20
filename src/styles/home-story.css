@@ -313,8 +313,8 @@ html.scenes-on .proof-statement .w.is-lit {
 }
 /* iPhone and Android count down side by side. The visitor's own platform
    comes first (html[data-platform], set in BaseLayout); the second phone sits
-   a little lower so the pair reads as two devices, not a grid. The Android
-   outline is taller for its width, so it is drawn 5% narrower. */
+   a little lower so the pair reads as two devices, not a grid. The Pixel
+   frame is slightly taller for its width, so it is drawn 3% narrower. */
 .phone-pair {
   --phone: min(15.5rem, 46%);
   display: flex;
@@ -329,7 +329,7 @@ html.scenes-on .proof-statement .w.is-lit {
   max-width: none;
 }
 .phone-pair > .device-hero { width: var(--phone); }
-.phone-pair > .android-hero { width: calc(var(--phone) * 0.95); margin-top: 2.25rem; }
+.phone-pair > .android-hero { width: calc(var(--phone) * 0.97); margin-top: 2.25rem; }
 html[data-platform="android"] .phone-pair > .android-hero { order: -1; margin-top: 0; }
 html[data-platform="android"] .phone-pair > .device-hero { margin-top: 2.25rem; }
 .phone-device figcaption {

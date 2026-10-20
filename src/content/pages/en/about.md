@@ -84,6 +84,8 @@ The Android app uses [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Ky
 
 Both libraries are distributed under Apache License 2.0. Their complete licence texts are available here: [Backdrop](/licenses/backdrop-2.0.1.txt) and [Shapes](/licenses/shapes-1.2.1.txt), and in the Android app under Settings → About → Acknowledgements. These rendering libraries do not send app content or device identifiers to their authors.
 
+The homepage shows the Android app in Google’s [Pixel 10 Pro device art](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/), reproduced from work created and shared by the Android Open Source Project and used under the [Creative Commons Attribution 2.5 License](https://creativecommons.org/licenses/by/2.5/).
+
 ## Feedback
 
 Write to [hello@doneat.app](mailto:hello@doneat.app), or open a [GitHub Issue](https://github.com/ififi2017/Off-Work-Countdown/issues).

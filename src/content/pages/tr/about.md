@@ -78,6 +78,8 @@ Satın almaları Google Play işler. Sunucu doğrulaması açık sürümlerde Do
 
 Android gezinmesi Kyant’ın [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) ve [Shapes 1.2.1](https://github.com/Kyant0/Shapes) kütüphanelerini kullanır. `LiquidBottomTabs` örneği DoneAt’ın gezinme, sürükleme, erişilebilirlik, sağdan sola düzen ve azaltılmış hareket davranışına uyarlanmıştır. Efektler cihazda çizilir; uygulama içeriği veya cihaz kimlikleri yazarlara gönderilmez. İkisi de Apache License 2.0 kullanır: [Backdrop lisansı](/licenses/backdrop-2.0.1.txt), [Shapes lisansı](/licenses/shapes-1.2.1.txt). Tam metinler Ayarlar → Hakkında → Teşekkürler bölümünde de bulunur.
 
+Ana sayfa, Android uygulamasını Google’ın [Pixel 10 Pro cihaz çerçevesi](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/) içinde gösterir. Bu görsel Android Open Source Project tarafından oluşturulup paylaşılmıştır ve [Creative Commons Atıf 2.5 Lisansı](https://creativecommons.org/licenses/by/2.5/) kapsamında kullanılmaktadır.
+
 ## Geri bildirim
 
 [hello@doneat.app](mailto:hello@doneat.app) adresine yaz veya bir [GitHub Issue](https://github.com/ififi2017/Off-Work-Countdown/issues) aç.

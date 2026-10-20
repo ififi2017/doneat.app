@@ -84,6 +84,8 @@ Android 应用使用 Kyant 的 [Backdrop（AndroidLiquidGlass）2.0.1](https://g
 
 两个库均采用 Apache License 2.0。完整许可证可在此查看：[Backdrop](/licenses/backdrop-2.0.1.txt)、[Shapes](/licenses/shapes-1.2.1.txt)，也随 Android 应用附于“设置 → 关于 → 致谢”。这些绘图库不会向项目作者发送应用内容或设备标识。
 
+首页展示 Android 应用时使用了 Google 的 [Pixel 10 Pro 设备外框](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/)，该图稿由 Android 开源项目创作并分享，依据[知识共享署名 2.5 许可](https://creativecommons.org/licenses/by/2.5/)使用。
+
 ## 问题反馈
 
 写到 [hello@doneat.app](mailto:hello@doneat.app)，或开一条 [GitHub Issue](https://github.com/ififi2017/Off-Work-Countdown/issues)。

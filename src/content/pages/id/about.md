@@ -78,6 +78,8 @@ Pembelian ditangani Google Play. Pada versi dengan verifikasi server, DoneAt mem
 
 Navigasi Android memakai [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) oleh Kyant dan [Shapes 1.2.1](https://github.com/Kyant0/Shapes). Contoh `LiquidBottomTabs` disesuaikan untuk navigasi DoneAt, seret, aksesibilitas, tata letak kanan-ke-kiri, dan pengurangan gerakan. Efek digambar di perangkat tanpa mengirim isi aplikasi atau pengenal perangkat kepada pembuatnya. Keduanya memakai Apache License 2.0: [lisensi Backdrop](/licenses/backdrop-2.0.1.txt), [lisensi Shapes](/licenses/shapes-1.2.1.txt). Teks lengkap juga ada di Pengaturan → Tentang → Ucapan terima kasih.
 
+Beranda menampilkan aplikasi Android dalam [bingkai perangkat Pixel 10 Pro](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/) dari Google, yang direproduksi dari karya yang dibuat dan dibagikan oleh Android Open Source Project dan digunakan berdasarkan [Lisensi Creative Commons Atribusi 2.5](https://creativecommons.org/licenses/by/2.5/).
+
 ## Masukan
 
 Tulis ke [hello@doneat.app](mailto:hello@doneat.app), atau buka [GitHub Issue](https://github.com/ififi2017/Off-Work-Countdown/issues).

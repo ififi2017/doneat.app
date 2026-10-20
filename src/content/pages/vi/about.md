@@ -78,6 +78,8 @@ Google Play xử lý giao dịch mua. Khi bật xác minh máy chủ, DoneAt x�
 
 Thanh điều hướng Android dùng [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) của Kyant và [Shapes 1.2.1](https://github.com/Kyant0/Shapes). DoneAt điều chỉnh ví dụ `LiquidBottomTabs` cho điều hướng, kéo, trợ năng, bố cục phải sang trái và giảm chuyển động. Hiệu ứng được vẽ trên máy, không gửi nội dung ứng dụng hay mã định danh thiết bị cho tác giả. Cả hai dùng Apache License 2.0: [giấy phép Backdrop](/licenses/backdrop-2.0.1.txt), [giấy phép Shapes](/licenses/shapes-1.2.1.txt). Toàn văn cũng có trong Cài đặt → Giới thiệu → Lời cảm ơn.
 
+Trang chủ hiển thị ứng dụng Android trong [khung thiết bị Pixel 10 Pro](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/) của Google, được tái hiện từ tác phẩm do Android Open Source Project tạo và chia sẻ, sử dụng theo [Giấy phép Creative Commons Ghi công 2.5](https://creativecommons.org/licenses/by/2.5/).
+
 ## Góp ý
 
 Viết tới [hello@doneat.app](mailto:hello@doneat.app), hoặc mở một [GitHub Issue](https://github.com/ififi2017/Off-Work-Countdown/issues).

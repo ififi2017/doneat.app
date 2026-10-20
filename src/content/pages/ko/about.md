@@ -78,6 +78,8 @@ Android에서는 데이터가 휴대폰에 저장됩니다. Android 앱에는 iC
 
 Android 탐색 UI는 Kyant의 [Backdrop(AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass)과 [Shapes 1.2.1](https://github.com/Kyant0/Shapes)을 사용합니다. `LiquidBottomTabs` 예제를 DoneAt의 탐색, 드래그, 접근성, 오른쪽에서 왼쪽으로 쓰는 화면, 동작 줄이기에 맞게 수정했습니다. 효과는 기기에서 그리며 앱 내용이나 기기 식별자를 개발자에게 보내지 않습니다. 두 라이브러리는 Apache License 2.0으로 제공됩니다. [Backdrop 라이선스](/licenses/backdrop-2.0.1.txt)와 [Shapes 라이선스](/licenses/shapes-1.2.1.txt) 전문은 앱의 설정 → 정보 → 감사의 말에도 포함되어 있습니다.
 
+홈페이지의 Android 앱 화면에는 Google의 [Pixel 10 Pro 기기 이미지](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/)를 사용했습니다. 이 이미지는 Android 오픈소스 프로젝트가 제작·공유했으며 [크리에이티브 커먼즈 저작자표시 2.5 라이선스](https://creativecommons.org/licenses/by/2.5/)에 따라 사용합니다.
+
 ## 피드백
 
 [hello@doneat.app](mailto:hello@doneat.app)으로 이메일하거나, [GitHub Issue](https://github.com/ififi2017/Off-Work-Countdown/issues)를 열어주세요.

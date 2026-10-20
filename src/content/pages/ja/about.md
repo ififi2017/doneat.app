@@ -78,6 +78,8 @@ Android ではデータは端末内に保存されます。Android 版に iCloud
 
 Android のナビゲーションには、Kyant の [Backdrop（AndroidLiquidGlass）2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) と [Shapes 1.2.1](https://github.com/Kyant0/Shapes) を使用しています。`LiquidBottomTabs` のサンプルを、DoneAt の画面移動、ドラッグ、アクセシビリティ、右から左への表示、視差効果の軽減に合わせて変更しています。描画は端末内で行い、アプリの内容や端末識別子を作者へ送信しません。両ライブラリは Apache License 2.0 です。[Backdrop のライセンス](/licenses/backdrop-2.0.1.txt)と [Shapes のライセンス](/licenses/shapes-1.2.1.txt)の全文は、アプリの「設定 → このアプリについて → 謝辞」にも収録しています。
 
+ホームページの Android アプリは、Google の [Pixel 10 Pro デバイスアート](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/)に収めて表示しています。このアートワークは Android オープンソース プロジェクトが作成・共有したもので、[クリエイティブ・コモンズ 表示 2.5 ライセンス](https://creativecommons.org/licenses/by/2.5/)に基づいて使用しています。
+
 ## フィードバック
 
 [hello@doneat.app](mailto:hello@doneat.app) にメールするか、[GitHub Issue](https://github.com/ififi2017/Off-Work-Countdown/issues) を開いてください。

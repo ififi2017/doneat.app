@@ -63,4 +63,8 @@ ffmpeg -ss 0.5 -i android/en-white.mp4 -frames:v 1 android/en-white.png
 
 Dark takes use `color=0x000000`. For stills, `scripts/mask-android-status.mjs` applies the same mask to a PNG.
 
-There is no licensed Pixel frame here; `AndroidHero.astro` draws a neutral outline in CSS, like the Google Play screenshots. Do not substitute a Pixel device-art frame without checking its licence.
+The frame is `frames/pixel-10-pro.png` (1410×2968): Google's Pixel 10 Pro device art, `back.webp` with `mask.webp` composited at (59, 60), unchanged otherwise. The 1280×2856 capture fills the screen opening at (59, 60) with the emulator's 99 px corner radius.
+
+- Source: [Android Studio device art, `pixel_10_pro/`](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/) (the same files ship in the Android SDK under `skins/pixel_10_pro`). SHA-256: `back.webp` e21487b8a953f84c685478f609747bb8c3c51350451d1152594746fe41aa7903, `mask.webp` b47546422e36fa002dc174dc204cd166eef9d5c2b6b79fcd5fbedfcf0121c31f.
+- Google's [Device Art Generator](https://developer.android.com/distribute/marketing-tools/device-art-generator) offers this artwork for framing app screenshots "on your website or in other promotional materials". Site content is licensed under [Creative Commons Attribution 2.5](https://developer.android.com/license); the attribution sentence is at the end of each About page's open-source section. Google's trademarks are not licensed by it, and Google asks not to use framed screenshots in Play listings.
+- Do not redraw or recolour the frame. Do not treat it as original DoneAt artwork.

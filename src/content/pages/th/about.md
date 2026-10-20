@@ -78,6 +78,8 @@ Android เก็บข้อมูลไว้ในโทรศัพท์ �
 
 แถบนำทาง Android ใช้ [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) ของ Kyant และ [Shapes 1.2.1](https://github.com/Kyant0/Shapes) โดยปรับตัวอย่าง `LiquidBottomTabs` ให้เข้ากับการนำทาง การลาก การช่วยการเข้าถึง การเรียงจากขวาไปซ้าย และการลดการเคลื่อนไหวของ DoneAt เอฟเฟกต์วาดบนเครื่อง ไม่ส่งเนื้อหาแอปหรือตัวระบุอุปกรณ์ให้ผู้พัฒนา ทั้งสองใช้ Apache License 2.0: [สัญญาอนุญาต Backdrop](/licenses/backdrop-2.0.1.txt) และ [Shapes](/licenses/shapes-1.2.1.txt) มีฉบับเต็มในแอปที่ การตั้งค่า → เกี่ยวกับ → กิตติกรรมประกาศด้วย
 
+หน้าแรกแสดงแอป Android ใน[กรอบอุปกรณ์ Pixel 10 Pro](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/) ของ Google ซึ่งเป็นผลงานที่โครงการ Android Open Source Project สร้างและแบ่งปัน และใช้ตาม[สัญญาอนุญาตครีเอทีฟคอมมอนส์ แสดงที่มา 2.5](https://creativecommons.org/licenses/by/2.5/)
+
 ## ข้อเสนอแนะ
 
 เขียนถึง [hello@doneat.app](mailto:hello@doneat.app) หรือเปิด [GitHub Issue](https://github.com/ififi2017/Off-Work-Countdown/issues)

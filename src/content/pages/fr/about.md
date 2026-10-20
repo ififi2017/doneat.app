@@ -71,6 +71,8 @@ Google Play gère les achats. Lorsque la vérification serveur est activée, Don
 
 La navigation Android utilise [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) de Kyant et [Shapes 1.2.1](https://github.com/Kyant0/Shapes). DoneAt adapte l’exemple `LiquidBottomTabs` à sa navigation, au glissement, à l’accessibilité, aux interfaces de droite à gauche et à la réduction des animations. Le rendu est local : aucun contenu de l’app ni identifiant d’appareil n’est envoyé aux auteurs. Les deux bibliothèques sont sous Apache License 2.0 : [licence Backdrop](/licenses/backdrop-2.0.1.txt), [licence Shapes](/licenses/shapes-1.2.1.txt). Les textes complets figurent aussi dans Réglages → À propos → Remerciements.
 
+La page d’accueil présente l’app Android dans le [cadre d’appareil Pixel 10 Pro](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/) de Google, reproduit à partir d’une œuvre créée et partagée par l’Android Open Source Project et utilisé selon la [licence Creative Commons Attribution 2.5](https://creativecommons.org/licenses/by/2.5/).
+
 ## Contact
 
 Écrivez à [hello@doneat.app](mailto:hello@doneat.app), ou ouvrez une [issue GitHub](https://github.com/ififi2017/Off-Work-Countdown/issues).

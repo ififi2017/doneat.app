@@ -58,7 +58,7 @@ Astro 门厅、英中长文、下载页都已上线。接着改现有工程，�
 - 首页动效对照 Apple 产品页：`src/lib/home-scenes.ts` 只给每个 `[data-scene]` 写 0–1 的滚动进度（首屏 `--x`，其余 `--p`），并给 `html` 加 `scenes-on`；画面全部由 `home-story.css` 用进度算。`exit` 首屏随滚动上移淡出；`sticky` 一段钉住（左侧宣言逐词点亮、右侧 iPhone 真实录屏升起归位，随后三条价值依次点亮；各部分进度区间写在 `data-words`／`data-steps` 上）；`pass` 两段随进入展开（小组件与手表分层入场、收尾日落光升起）。首屏加载时标题逐行从遮罩里升起、卡片带模糊浮入。
 - 所有进度变量默认取完成态：没有脚本、减少动态效果时不钉住、不拉高章节，整页静态可读；切换系统偏好会即时撤销。只动 transform／opacity／color，滚动监听用 rAF 节流、只算视口附近的章节。窄于 880px 不钉住，宣言按自身经过视口中线逐词点亮。不要再做只有文字没有画面的整屏段落。
 - 钉住段内容高度必须小于视口：19 语 × 390×700／390×844／1024×768／1280×720／1440×800／1920×1080 要实测，改文案或字号后重跑。
-- 首页机位用 timer loop（`en`/`zh` × `white`/`black`）。下载页手机用 review clip（`en-review` / `zh-review`）。不要对调。首页不要换成商店合成图。第 01 章 iPhone 与 Android（`assets/device/android/`，Pixel 真机隔离 Debug 包录制）并列，访客自己的平台在前；Android 用 CSS 中性外框，不要换成未核许可的 Pixel 机框。下载页 Android 轮播用 Play 商店图（`assets/showcase/android-sources.json`）。
+- 首页机位用 timer loop（`en`/`zh` × `white`/`black`）。下载页手机用 review clip（`en-review` / `zh-review`）。不要对调。首页不要换成商店合成图。第 01 章 iPhone 与 Android（`assets/device/android/`，Pixel 真机隔离 Debug 包录制）并列，访客自己的平台在前；Android 套 Google 官方 Pixel 10 Pro 设备图稿（`assets/device/frames/pixel-10-pro.png`，CC BY 2.5，署名在各语 About 开源一节，来源与哈希见 `assets/device/README.md`），不要重绘或改色。下载页 Android 轮播用 Play 商店图（`assets/showcase/android-sources.json`）。
 - 商店图上印的标题搜索引擎读不到。下载页用商店图时，每张都要配一段页面上可见的功能说明和具体的 `alt`，只写该版本真实存在的功能（对照产品仓 `app-store-connect/ios/<版本>.json` 与 `docs/reviews/`）。
 - 下载页 iPhone 功能区是一个图位轮播多张商店图，说明列在旁边、始终可见，不要摆成商店图墙。轮播用内联脚本，不拉框架；悬停、键盘焦点、不在视口时暂停，`prefers-reduced-motion: reduce` 时不自动切换；没有脚本时停在第一张。
 - 新真机录屏常是别的机型尺寸（如 1284×2778）。等比缩放到 2868 高再居中裁到 1320×2868，不要拉伸；去音轨、`+faststart`。命令见 `assets/device/README.md`。

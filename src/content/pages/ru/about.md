@@ -78,6 +78,8 @@ DoneAt также помогает анализировать работу и п
 
 Навигация Android использует [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) автора Kyant и [Shapes 1.2.1](https://github.com/Kyant0/Shapes). Пример `LiquidBottomTabs` адаптирован для навигации DoneAt, перетаскивания, специальных возможностей, письма справа налево и уменьшения движения. Эффекты рисуются локально, без передачи содержимого приложения или идентификаторов устройства авторам. Обе библиотеки распространяются по Apache License 2.0: [лицензия Backdrop](/licenses/backdrop-2.0.1.txt), [лицензия Shapes](/licenses/shapes-1.2.1.txt). Полные тексты также доступны в Настройки → О приложении → Благодарности.
 
+На главной странице приложение для Android показано в [рамке устройства Pixel 10 Pro](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/) от Google. Это изображение создано и опубликовано Android Open Source Project и используется по [лицензии Creative Commons «Атрибуция» 2.5](https://creativecommons.org/licenses/by/2.5/).
+
 ## Обратная связь
 
 Пишите на [hello@doneat.app](mailto:hello@doneat.app) или создайте [Issue на GitHub](https://github.com/ififi2017/Off-Work-Countdown/issues).

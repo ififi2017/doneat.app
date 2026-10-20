@@ -78,6 +78,8 @@ Off Work Countdown أصبح DoneAt. العدّ التنازلي هو نفسه؛ 
 
 يستخدم التنقل في Android مكتبة [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) من Kyant و[Shapes 1.2.1](https://github.com/Kyant0/Shapes). عدّل DoneAt مثال `LiquidBottomTabs` ليلائم التنقل والسحب وإمكانية الوصول والتخطيط من اليمين إلى اليسار وتقليل الحركة. تُرسم التأثيرات محليًا دون إرسال محتوى التطبيق أو معرّفات الجهاز إلى المؤلفين. المكتبتان مرخصتان بموجب Apache License 2.0: [ترخيص Backdrop](/licenses/backdrop-2.0.1.txt) و[ترخيص Shapes](/licenses/shapes-1.2.1.txt). النصوص الكاملة متاحة أيضًا في الإعدادات ← حول ← شكر وتقدير.
 
+تعرض الصفحة الرئيسية تطبيق Android داخل [إطار جهاز Pixel 10 Pro](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/) من Google، وهو عمل أنشأه مشروع Android المفتوح المصدر وشاركه، ويُستخدم بموجب [ترخيص المشاع الإبداعي نسب المصنف 2.5](https://creativecommons.org/licenses/by/2.5/).
+
 ## ملاحظات
 
 اكتب إلى [hello@doneat.app](mailto:hello@doneat.app)، أو افتح [GitHub Issue](https://github.com/ififi2017/Off-Work-Countdown/issues).

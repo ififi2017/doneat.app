@@ -78,6 +78,8 @@ Android 嘅資料會保存喺手機上面。Android 應用程式冇 iCloud 同�
 
 Android 導覽用咗 Kyant 嘅 [Backdrop（AndroidLiquidGlass）2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) 同 [Shapes 1.2.1](https://github.com/Kyant0/Shapes)。DoneAt 參考 `LiquidBottomTabs` 範例，調整應用程式導覽、拖曳、無障礙、由右至左版面同減少動態效果。效果喺裝置繪製，唔會向作者傳送應用程式內容或裝置識別碼。兩個程式庫均採用 Apache License 2.0：[Backdrop 授權條款](/licenses/backdrop-2.0.1.txt)、[Shapes 授權條款](/licenses/shapes-1.2.1.txt)。完整條款亦放喺應用程式「設定 → 關於 → 致謝」。
 
+首頁展示 Android App 時用咗 Google 嘅 [Pixel 10 Pro 裝置外框](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/)，呢份圖稿由 Android 開放原始碼計劃創作並分享，按[創用 CC 署名 2.5 授權](https://creativecommons.org/licenses/by/2.5/)使用。
+
 ## 問題回饋
 
 寫去 [hello@doneat.app](mailto:hello@doneat.app)，或開一條 [GitHub Issue](https://github.com/ififi2017/Off-Work-Countdown/issues)。

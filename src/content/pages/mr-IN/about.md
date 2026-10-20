@@ -78,6 +78,8 @@ Android वर तुमचा डेटा फोनवरच राहतो. 
 
 Android नेव्हिगेशनमध्ये Kyant यांची [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) आणि [Shapes 1.2.1](https://github.com/Kyant0/Shapes) वापरली जातात. DoneAt ने `LiquidBottomTabs` उदाहरण नेव्हिगेशन, ड्रॅग, सुलभता, उजवीकडून डावीकडे मांडणी आणि कमी हालचालींसाठी बदलले आहे. परिणाम उपकरणावर रेखाटले जातात; अॅपमधील मजकूर किंवा उपकरण ओळख लेखकांना पाठवली जात नाही. दोन्ही Apache License 2.0 अंतर्गत आहेत: [Backdrop परवाना](/licenses/backdrop-2.0.1.txt), [Shapes परवाना](/licenses/shapes-1.2.1.txt). पूर्ण मजकूर अॅपच्या सेटिंग → परिचय → आभारमध्येही आहे.
 
+मुख्यपृष्ठावर Android अॅप Google च्या [Pixel 10 Pro डिव्हाइस फ्रेम](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/)मध्ये दाखवले आहे. हे चित्र Android Open Source Project ने तयार करून शेअर केले आहे आणि [Creative Commons Attribution 2.5 परवान्या](https://creativecommons.org/licenses/by/2.5/)नुसार वापरले आहे.
+
 ## अभिप्राय
 
 [hello@doneat.app](mailto:hello@doneat.app) वर लिहा, किंवा [GitHub Issue](https://github.com/ififi2017/Off-Work-Countdown/issues) उघडा.

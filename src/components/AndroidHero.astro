@@ -4,12 +4,14 @@ import enBlack from "../../assets/device/android/en-black.png";
 import enWhite from "../../assets/device/android/en-white.png";
 import zhBlack from "../../assets/device/android/zh-black.png";
 import zhWhite from "../../assets/device/android/zh-white.png";
+import pixelFrame from "../../assets/device/frames/pixel-10-pro.png";
 import { deviceStem, t, type HallLocale } from "../lib/config";
 
 // The Android counterpart of DeviceHero: the same timer loop, recorded on a
-// Pixel with the isolated Debug build and synthetic data. There is no licensed
-// Pixel frame in the repository, so the phone is a neutral outline drawn in
-// CSS, like the Google Play screenshots.
+// Pixel 10 Pro with the isolated Debug build and synthetic data, inside
+// Google's Pixel 10 Pro device art (Android Studio / Device Art Generator,
+// CC BY 2.5 — see assets/device/README.md). The 1280×2856 capture fills the
+// frame's screen opening at 59/60 px on the 1410×2968 artwork.
 interface Props {
   locale: HallLocale;
 }
@@ -20,6 +22,7 @@ const alt = t(locale, "androidDeviceAlt");
 const still = stem === "zh" ? { white: zhWhite, black: zhBlack } : { white: enWhite, black: enBlack };
 const sizes = "(min-width: 880px) 18rem, (min-width: 640px) 17rem, 80vw";
 const widths = [360, 720, 1080];
+const frameWidths = [400, 800, 1200];
 ---
 
 <div
@@ -72,6 +75,16 @@ const widths = [360, 720, 1080];
       aria-hidden="true"
     ></video>
   </div>
+  <Picture
+    src={pixelFrame}
+    alt=""
+    formats={["webp"]}
+    widths={frameWidths}
+    sizes={sizes}
+    pictureAttributes={{ class: "android-bezel" }}
+    loading="lazy"
+    aria-hidden="true"
+  />
 </div>
 
 <script is:inline>
@@ -126,10 +139,6 @@ const widths = [360, 720, 1080];
 <style>
   .android-hero {
     isolation: isolate;
-    padding: 3.2%;
-    border-radius: 12.5% / 5.8%;
-    background: #1d1b20;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
     filter: drop-shadow(0 24px 50px color-mix(in srgb, var(--color-plum) 28%, transparent));
   }
 
@@ -146,11 +155,15 @@ const widths = [360, 720, 1080];
     );
   }
 
+  /* Screen opening of the 1410×2968 frame: 1280×2856 at (59, 60). */
   .android-screen {
-    position: relative;
-    aspect-ratio: 1280 / 2856;
+    position: absolute;
+    top: 2.021563%;
+    left: 4.184397%;
+    width: 90.780142%;
+    height: 96.226415%;
     overflow: hidden;
-    border-radius: 10% / 4.6%;
+    border-radius: 7.7% / 3.5%;
     background: color-mix(in srgb, var(--color-plum) 18%, var(--color-cream));
   }
 
@@ -166,11 +179,33 @@ const widths = [360, 720, 1080];
   .android-video { opacity: 0; }
   .android-hero.is-video-playing .android-video { opacity: 1; }
 
+  .android-bezel {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .android-bezel :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    user-select: none;
+  }
+
   @media (prefers-color-scheme: dark) {
     .android-hero {
-      background: #2b2830;
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
       filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.5));
+    }
+
+    .android-hero::after {
+      background: radial-gradient(
+        ellipse at 50% 42%,
+        color-mix(in srgb, var(--color-orange-bright) 14%, transparent),
+        transparent 72%
+      );
     }
 
     .android-screen {
