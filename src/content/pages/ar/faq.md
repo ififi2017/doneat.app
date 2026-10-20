@@ -37,6 +37,14 @@ DoneAt عدّاد تنازلي لنهاية العمل. تضع وقت الحضو
 
 نعم. iPhone وiPad وMac على [App Store](https://apps.apple.com/sa/app/id6802803318). Android على [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat). Windows على [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ). مؤقت المتصفح على [off.rainif.com](https://off.rainif.com/ar). اختر ما ستتركه مفتوحًا فعلًا.
 
+## هل يمكنني استخدام DoneAt Plus على iPhone وAndroid معًا؟
+
+يُشترى Plus من متجر جهازك: App Store على iPhone وiPad وGoogle Play على Android. لا توجد حسابات في DoneAt، لذا لا يفتح الشراء من أحد المتجرين Plus في الآخر. يبقى العدّ التنازلي والجدولة وأحدث السجلات مجانية على الاثنين.
+
+## كيف أنقل سجلاتي بين iPhone وAndroid؟
+
+صدّر نسخة احتياطية من السجلات والبيانات على أحد الهاتفين، ثم استورد الملف نفسه من السجلات والبيانات على الهاتف الآخر. تنتقل السجلات والإعدادات، بما فيها الراتب. بعد ذلك لا يتزامن الهاتفان معًا، فصدّر من جديد كلما بدّلت هاتفك.
+
 ## هل توجد أداة أو تطبيق لـ Apple Watch؟
 
 نعم. على iPhone وiPad تعرض أدوات الشاشة الرئيسية وشاشة القفل الوقت المتبقي دون فتح التطبيق، وعلى أجهزة iPhone المدعومة تُبقي Live Activity التقدّم على شاشة القفل وفي Dynamic Island. على Android تعرض أدوات الشاشة الرئيسية وإشعار دائم الوقت المتبقي. تطبيق Apple Watch يعرض الوقت المتبقي ووقت الانصراف، مع تعقيدين لوجه الساعة. تطبيق الساعة مجاني ولا يحتاج DoneAt Plus. الأدوات والإشعارات وLive Activities والساعة تعرض الوقت والتقدّم، لا الراتب أبدًا. على Mac أو Windows يُبقي المؤقت المصغّر العدّ التنازلي ظاهرًا.

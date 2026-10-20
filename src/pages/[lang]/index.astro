@@ -1,6 +1,7 @@
 ---
 import { Picture } from "astro:assets";
 import BrandMark from "../../components/BrandMark.astro";
+import AndroidHero from "../../components/AndroidHero.astro";
 import DeviceHero from "../../components/DeviceHero.astro";
 import LiveShiftCard from "../../components/LiveShiftCard.astro";
 import MediaControls from "../../components/MediaControls.astro";
@@ -68,7 +69,7 @@ const values = [t(locale, "valueLocal"), t(locale, "valueNoAccount"), t(locale, 
               <ol class="phone-steps" data-steps="0.5 0.46">{values.map((v,i)=><li data-step={i}><span aria-hidden="true">0{i+1}</span>{v}</li>)}</ol>
               <a class="story-link" href={download} data-track="download_page_open">{t(locale,"downloadCta")}<span aria-hidden="true">↗</span></a>
             </div>
-            <figure class="phone-device"><DeviceHero locale={locale} /><figcaption><span id="phone-title">{functionalSubtitle(locale)} · iPhone</span><MediaControls locale={locale} /></figcaption></figure>
+            <figure class="phone-device"><div class="phone-pair"><DeviceHero locale={locale} /><AndroidHero locale={locale} /></div><figcaption><span id="phone-title">{functionalSubtitle(locale)} · iPhone · Android</span><MediaControls locale={locale} /></figcaption></figure>
           </div>
         </div>
       </section>

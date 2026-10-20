@@ -37,6 +37,14 @@ DoneAt काम से छुट्टी की उलटी गिनती �
 
 हाँ। iPhone, iPad और Mac [App Store](https://apps.apple.com/in/app/id6802803318) पर हैं। Android [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) पर है। Windows [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ) पर है। ब्राउज़र टाइमर [off.rainif.com](https://off.rainif.com/hi-IN) पर है। वही चुनें जिसे आप सच में खुला छोड़ेंगे।
 
+## क्या DoneAt Plus iPhone और Android दोनों पर चलता है?
+
+Plus आपके डिवाइस के स्टोर से खरीदा जाता है: iPhone और iPad पर App Store, Android पर Google Play। DoneAt में खाते नहीं हैं, इसलिए एक स्टोर की खरीदारी दूसरे में Plus अनलॉक नहीं करती। उलटी गिनती, शेड्यूल और हाल के रिकॉर्ड दोनों पर मुफ़्त रहते हैं।
+
+## iPhone और Android के बीच अपने रिकॉर्ड कैसे ले जाऊँ?
+
+एक फ़ोन पर रिकॉर्ड और डेटा में बैकअप निर्यात करें, फिर दूसरे फ़ोन पर रिकॉर्ड और डेटा में वह फ़ाइल आयात करें। रिकॉर्ड और सेटिंग, वेतन सहित, साथ आ जाती हैं। इसके बाद दोनों फ़ोन आपस में सिंक नहीं होते, इसलिए फ़ोन बदलने पर दोबारा निर्यात करें।
+
 ## क्या विजेट या Apple Watch ऐप है?
 
 हाँ। iPhone और iPad पर होम स्क्रीन और लॉक स्क्रीन विजेट ऐप खोले बिना बची शिफ्ट दिखाते हैं, और समर्थित iPhone पर Live Activity प्रगति को लॉक स्क्रीन और Dynamic Island पर रखती है। Android पर होम स्क्रीन विजेट और लगातार दिखने वाली सूचना बची हुई अवधि दिखाती है। Apple Watch के लिए DoneAt बची अवधि और छुट्टी का समय दिखाता है, दो वॉच फ़ेस कॉम्प्लिकेशन के साथ। Watch ऐप मुफ़्त है और DoneAt Plus की ज़रूरत नहीं। विजेट, सूचनाएँ, Live Activities और घड़ी समय व प्रगति दिखाते हैं, वेतन कभी नहीं। Mac या Windows पर मिनी टाइमर उलटी गिनती नज़र में रखता है।

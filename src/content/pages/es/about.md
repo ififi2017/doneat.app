@@ -1,6 +1,6 @@
 ---
 title: "Acerca de — DoneAt"
-description: "Acerca de DoneAt, un temporizador de turno local para navegador, iPhone, iPad, Mac y Windows."
+description: "Acerca de DoneAt, un temporizador de turno local para navegador, iPhone, iPad, Android, Mac y Windows."
 heading: "Acerca de DoneAt"
 intro: "Un temporizador de turno local que puedes dejar abierto. Sin cuenta de DoneAt, sin anuncios y con sincronización opcional privada de iCloud en iPhone y iPad."
 ---
@@ -48,7 +48,7 @@ El software se proporciona bajo la licencia [MPL-2.0](https://github.com/ififi20
 
 ## Cuenta regresiva gratuita, Plus opcional
 
-La cuenta regresiva sigue siendo gratuita. En iPhone y iPad, DoneAt Plus añade registros completos, vistas de vida y herramientas de enfoque, con opciones de compra mensual, anual o de por vida a través de la App Store. Los precios y cualquier prueba disponible se muestran antes de la compra en la app.
+La cuenta regresiva sigue siendo gratuita. En iPhone y iPad, DoneAt Plus añade registros completos, vistas de vida y herramientas de enfoque, con opciones de compra mensual, anual o de por vida a través de la App Store. En Android, las mismas opciones se compran a través de Google Play. Las compras no se trasladan entre la App Store y Google Play. Los precios y cualquier prueba disponible se muestran antes de la compra en la app.
 
 Activar la sincronización con iCloud requiere Plus. Una vez habilitada, la sincronización continúa después de que expire una suscripción. Tus registros existentes permanecen almacenados, y la exportación y eliminación siguen disponibles sin una suscripción activa.
 
@@ -65,9 +65,20 @@ Las plantillas de festivos incluyen datos de calendarios nacionales generados co
 
 ## Android
 
-La versión Android está disponible en [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat), que gestiona las compras. Al activar la verificación del servidor, DoneAt procesa tokens de compra en Cloudflare y guarda sus hashes junto con el estado del acceso; no envía salarios ni registros de trabajo. Consulta la [política de privacidad](/es/privacy#android) sobre verificación, copias y eliminación.
+La app Android de [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) sigue las mismas reglas de horario que en iPhone. La cuenta regresiva, la programación y los festivos son gratuitos:
+
+- Planifica en un único calendario mensual con días fijos, semanas alternas, rotaciones y turnos nocturnos, o pinta turnos en un horario libre con un toque o un deslizamiento.
+- Elige un país o región en Horario y turnos y tu horario seguirá sus festivos.
+- Consulta el tiempo restante desde un widget de la pantalla de inicio o la notificación permanente, sin abrir la app.
+- Revisa los últimos siete días de registros, prueba tres búsquedas de días libres e importa o exporta tus datos gratis. DoneAt Plus añade registros más antiguos, las vistas de año y de vida, informes, enfoque, búsquedas de días libres ilimitadas y alarmas de turno.
+
+Android guarda tus datos en el teléfono. La sincronización con iCloud no forma parte de la app Android; la copia de seguridad propia de Android puede incluir registros y ajustes si la tienes activada, y exportar una copia de seguridad traslada tus registros entre iPhone y Android.
+
+Google Play gestiona las compras. Al activar la verificación del servidor, DoneAt procesa tokens de compra en Cloudflare y guarda sus hashes junto con el estado del acceso; no envía salarios ni registros de trabajo. Consulta la [política de privacidad](/es/privacy#android) sobre verificación, copias y eliminación.
 
 La navegación Android utiliza [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) de Kyant y [Shapes 1.2.1](https://github.com/Kyant0/Shapes). DoneAt adapta el ejemplo `LiquidBottomTabs` para navegación, arrastre, accesibilidad, escritura de derecha a izquierda y movimiento reducido. El dibujo es local y no envía contenido ni identificadores del dispositivo a los autores. Ambas bibliotecas usan Apache License 2.0: [licencia de Backdrop](/licenses/backdrop-2.0.1.txt) y [licencia de Shapes](/licenses/shapes-1.2.1.txt), también incluidas en Ajustes → Acerca de → Agradecimientos.
+
+La página de inicio muestra la app de Android en el [marco del dispositivo Pixel 10 Pro](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/) de Google, reproducido a partir de una obra creada y compartida por el Android Open Source Project y usado según la [licencia Creative Commons Atribución 2.5](https://creativecommons.org/licenses/by/2.5/).
 
 ## Comentarios
 

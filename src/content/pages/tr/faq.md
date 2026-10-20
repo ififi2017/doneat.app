@@ -37,6 +37,14 @@ Saatlerin ve maaşın varsayılan olarak cihazda kalır. iPhone ve iPad’de cih
 
 Evet. iPhone, iPad ve Mac [App Store](https://apps.apple.com/tr/app/id6802803318)’da. Android [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat)’de. Windows [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ)’da. Tarayıcı zamanlayıcı [off.rainif.com](https://off.rainif.com/tr) adresinde. Gerçekten açık bırakacağın yeri seç.
 
+## DoneAt Plus’ı hem iPhone’da hem Android’de kullanabilir miyim?
+
+Plus, cihazındaki mağazadan satın alınır: iPhone ve iPad’de App Store, Android’de Google Play. DoneAt’ta hesap yoktur; bu yüzden bir mağazadaki satın alma diğerinde Plus’ı açmaz. Geri sayım, planlama ve son kayıtlar ikisinde de ücretsiz kalır.
+
+## Kayıtlarımı iPhone ile Android arasında nasıl taşırım?
+
+Bir telefonda Kayıtlar ve veri bölümünden yedek dışa aktar, sonra o dosyayı diğer telefonda Kayıtlar ve veri bölümünden içe aktar. Kayıtlar ve ayarlar, maaş dahil, taşınır. Sonrasında telefonlar birbiriyle eşitlenmez; telefon değiştirdiğinde yeniden dışa aktar.
+
 ## Bileşen veya Apple Watch uygulaması var mı?
 
 Evet. iPhone ve iPad’de Ana Ekran ve Kilit Ekranı bileşenleri uygulamayı açmadan kalan süreyi gösterir; desteklenen iPhone’larda bir Live Activity ilerlemeyi Kilit Ekranı’nda ve Dynamic Island’da tutar. Android’de Ana Ekran bileşenleri ve sürekli bir bildirim kalan süreyi gösterir. Apple Watch için DoneAt kalan süreyi ve iş çıkışını gösterir, iki saat yüzü komplikasyonuyla. Watch uygulaması ücretsizdir ve DoneAt Plus gerekmez. Bileşenler, bildirimler, Live Activities ve saat süre ile ilerlemeyi gösterir, maaşı asla. Mac veya Windows’ta mini sayaç geri sayımı görünür tutar.

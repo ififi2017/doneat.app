@@ -37,6 +37,14 @@ DoneAt 是下班倒计时。填好上班和下班时间，就会显示还剩多�
 
 有。iPhone、iPad 和 Mac 在 [App Store](https://apps.apple.com/cn/app/id6802803318)，Android 在 [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat)，Windows 在 [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ)。浏览器计时在 [off.rainif.com](https://off.rainif.com/zh-CN)。选一个你会真正开着的就行。
 
+## DoneAt Plus 能在 iPhone 和 Android 上通用吗？
+
+Plus 通过设备所在的商店购买：iPhone 和 iPad 在 App Store，Android 在 Google Play。DoneAt 没有账号体系，所以在一个商店的购买不会解锁另一个商店的 Plus。倒计时、排班和最近的记录在两边都免费。
+
+## 怎么在 iPhone 和 Android 之间转移记录？
+
+在一台手机的「记录与数据」里导出备份，再在另一台手机的「记录与数据」里导入这个文件。记录和设置（含薪资）都会带过去。之后两台手机不会自动同步，换手机时再导出一次即可。
+
 ## 有小组件或 Apple Watch 版吗？
 
 有。在 iPhone 和 iPad 上，主屏幕和锁定屏幕小组件不打开 App 也能显示这班还剩多久；在支持的 iPhone 上，实时活动会把进度留在锁定屏幕和灵动岛上。在 Android 上，桌面小组件和常驻通知会显示还剩多久。Apple Watch 版抬腕就能看到还剩多久、几点下班，表盘上还可以添加两种复杂功能；它免费使用，无需 DoneAt Plus。小组件、通知、实时活动和手表上只显示时间和进度，不显示薪资。在 Mac 和 Windows 上，迷你计时器会让倒计时一直留在眼前。

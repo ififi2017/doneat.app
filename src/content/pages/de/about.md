@@ -1,6 +1,6 @@
 ---
 title: "Über — DoneAt"
-description: "Über DoneAt, einen lokalen Schicht-Countdown für Browser, iPhone, iPad, Mac und Windows."
+description: "Über DoneAt, einen lokalen Schicht-Countdown für Browser, iPhone, iPad, Android, Mac und Windows."
 heading: "Über DoneAt"
 intro: "Ein lokaler Schicht-Timer, den du offen lassen kannst. Kein DoneAt-Konto, keine Werbung und optional private iCloud-Synchronisierung auf iPhone und iPad."
 ---
@@ -48,7 +48,7 @@ Die Software wird unter der [MPL-2.0](https://github.com/ififi2017/Off-Work-Coun
 
 ## Kostenloser Countdown, optionales Plus
 
-Der Countdown bleibt kostenlos. Auf iPhone und iPad fügt DoneAt Plus vollständige Aufzeichnungen, Lebensansichten und Fokus-Tools hinzu, mit monatlichen, jährlichen oder einmaligen Kaufoptionen über den App Store. Preise und eine eventuelle Testphase werden vor dem Kauf in der App angezeigt.
+Der Countdown bleibt kostenlos. Auf iPhone und iPad fügt DoneAt Plus vollständige Aufzeichnungen, Lebensansichten und Fokus-Tools hinzu, mit monatlichen, jährlichen oder einmaligen Kaufoptionen über den App Store. Auf Android kaufst du dieselben Optionen über Google Play. Käufe werden nicht zwischen App Store und Google Play übertragen. Preise und eine eventuelle Testphase werden vor dem Kauf in der App angezeigt.
 
 Das Einschalten der iCloud-Synchronisierung erfordert Plus. Einmal aktiviert, läuft die Synchronisierung nach Ablauf eines Abonnements weiter. Vorhandene Aufzeichnungen bleiben gespeichert, Export und Löschung sind auch ohne aktives Abo verfügbar.
 
@@ -65,9 +65,20 @@ Die Feiertagsvorlagen enthalten Kalendertagsdaten, generiert mit [Vacanza Holida
 
 ## Android
 
-Die Android-App ist bei [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) erhältlich. Käufe werden über Google Play abgewickelt. Bei aktivierter Serverprüfung verarbeitet DoneAt auf Cloudflare Kauftokens und speichert deren Hashes mit dem Berechtigungsstatus; Gehalt und Arbeitsaufzeichnungen werden nicht übertragen. Einzelheiten zu Prüfung, Sicherungen und Löschung stehen in der [Datenschutzerklärung](/de/privacy#android).
+Die Android-App bei [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) folgt denselben Zeitplanregeln wie auf dem iPhone. Countdown, Planung und Feiertage sind kostenlos:
+
+- Plane in einem Monatskalender mit festen Wochentagen, Wechselwochen, Schichtrotation und Nachtschichten oder trage Schichten per Tippen oder Wischen in einen freien Zeitplan ein.
+- Wähle unter „Zeiten & Dienstplan" ein Land oder eine Region, und dein Zeitplan folgt den dortigen Feiertagen.
+- Sieh die verbleibende Zeit in einem Widget auf dem Startbildschirm oder in der dauerhaften Benachrichtigung, ohne die App zu öffnen.
+- Die letzten sieben Tage der Aufzeichnungen, drei Urlaubssuchen sowie Import und Export deiner Daten sind kostenlos. DoneAt Plus fügt ältere Aufzeichnungen, die Jahres- und Lebensansicht, Berichte, Fokus, unbegrenzte Urlaubssuchen und Schichtwecker hinzu.
+
+Auf Android bleiben deine Daten auf dem Telefon. Die iCloud-Synchronisierung gehört nicht zur Android-App; die Android-eigene Sicherung kann Aufzeichnungen und Einstellungen enthalten, wenn du sie eingeschaltet hast, und mit einer exportierten Sicherung überträgst du deine Aufzeichnungen zwischen iPhone und Android.
+
+Käufe werden über Google Play abgewickelt. Bei aktivierter Serverprüfung verarbeitet DoneAt auf Cloudflare Kauftokens und speichert deren Hashes mit dem Berechtigungsstatus; Gehalt und Arbeitsaufzeichnungen werden nicht übertragen. Einzelheiten zu Prüfung, Sicherungen und Löschung stehen in der [Datenschutzerklärung](/de/privacy#android).
 
 Die Android-Navigation verwendet [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) von Kyant und [Shapes 1.2.1](https://github.com/Kyant0/Shapes). DoneAt hat das Beispiel `LiquidBottomTabs` für Navigation, Ziehen, Barrierefreiheit, Rechts-nach-links-Darstellung und reduzierte Bewegung angepasst. Die Effekte werden lokal gezeichnet; App-Inhalte und Gerätekennungen werden nicht an die Autoren gesendet. Beide Bibliotheken stehen unter Apache License 2.0: [Backdrop-Lizenz](/licenses/backdrop-2.0.1.txt), [Shapes-Lizenz](/licenses/shapes-1.2.1.txt). Die vollständigen Texte sind auch unter Einstellungen → Über → Danksagungen enthalten.
+
+Die Startseite zeigt die Android-App im [Pixel-10-Pro-Geräterahmen](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/) von Google, reproduziert aus einem vom Android Open Source Project erstellten und geteilten Werk und verwendet unter der [Creative-Commons-Lizenz Namensnennung 2.5](https://creativecommons.org/licenses/by/2.5/).
 
 ## Feedback
 

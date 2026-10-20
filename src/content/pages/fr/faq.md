@@ -37,6 +37,14 @@ Vos horaires et votre salaire restent sur l'appareil par défaut. Sur iPhone et 
 
 Oui. iPhone, iPad et Mac sont sur l'[App Store](https://apps.apple.com/fr/app/id6802803318), Android sur [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat), Windows sur le [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ). Le minuteur navigateur est sur [off.rainif.com](https://off.rainif.com/fr). Choisissez celui que vous garderez réellement ouvert.
 
+## Puis-je utiliser DoneAt Plus à la fois sur iPhone et sur Android ?
+
+Plus s'achète dans le store de votre appareil : l'App Store sur iPhone et iPad, Google Play sur Android. DoneAt n'a pas de comptes, donc un achat fait dans un store ne débloque pas Plus dans l'autre. Le compte à rebours, la planification et les relevés récents restent gratuits sur les deux.
+
+## Comment transférer mes relevés entre iPhone et Android ?
+
+Exportez une sauvegarde dans « Relevés et données » sur un téléphone, puis importez ce fichier dans « Relevés et données » sur l'autre. Les relevés et les réglages, salaire compris, sont transférés. Les deux téléphones ne se synchronisent pas ensuite : exportez de nouveau chaque fois que vous changez de téléphone.
+
 ## Y a-t-il un widget ou une version Apple Watch ?
 
 Oui. Sur iPhone et iPad, les widgets de l'écran d'accueil et de verrouillage affichent le temps restant sans ouvrir l'app. Sur les iPhone compatibles, une Activité en direct garde la progression sur l'écran de verrouillage et dans Dynamic Island. Sur Android, les widgets de l'écran d'accueil et une notification permanente affichent le temps restant. L'app Apple Watch affiche le temps restant et l'heure de fin, avec deux complications. L'app Watch est gratuite et ne nécessite pas DoneAt Plus. Les widgets, notifications, Activités en direct et la montre n'affichent jamais le salaire. Sur Mac et Windows, le mini-minuteur garde le compte à rebours visible.

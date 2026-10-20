@@ -37,3 +37,34 @@ Pick language from the hall locale (Chinese halls → `zh`, everyone else → `e
 - `autoplay muted loop playsinline` — no controls, no sound, no tap-to-start.
 - The `<img>` is the fallback when the video cannot play.
 - `prefers-reduced-motion: reduce` — hide the video, show only the PNG.
+
+# Android timer loop
+
+The homepage shows the Android phone beside the iPhone, both counting down. The visitor's own platform comes first (`html[data-platform]`, read in the browser only).
+
+| File | Language, appearance |
+| --- | --- |
+| `android/en-white.{mp4,png}` | English, light |
+| `android/en-black.{mp4,png}` | English, dark |
+| `android/zh-white.{mp4,png}` | Simplified Chinese, light |
+| `android/zh-black.{mp4,png}` | Simplified Chinese, dark |
+| `web/android-*.mp4` | Web encodes (`node scripts/prepare-web-video.mjs android-en-white …`) |
+
+Recorded 2026-10-20 on a Pixel 10 Pro (Android 3.2.3) with `adb shell screenrecord`, using only the isolated Debug install `com.rainif.doneat.shots` from the product repo's `scripts/marketing-shots/android` (synthetic demo history, timer scene seeded 09:00–18:00, in-app theme light or dark, per-app locale, System UI demo mode and Do Not Disturb during the take, all restored afterwards). The Play-installed app and its data were not touched.
+
+Each take is 1280×2856. The phone's own status-bar icons between the clock and the battery are masked with that row's background colour, as the product repo's Play composer does; app content is unchanged:
+
+```bash
+ffmpeg -ss 1 -t 14 -i en-white.raw.mp4 -an \
+  -vf "drawbox=x=215:y=0:w=890:h=150:color=0xf3f3f7:t=fill,fps=30,format=yuv420p" \
+  -c:v libx264 -preset slow -crf 24 -profile:v high -movflags +faststart android/en-white.mp4
+ffmpeg -ss 0.5 -i android/en-white.mp4 -frames:v 1 android/en-white.png
+```
+
+Dark takes use `color=0x000000`. For stills, `scripts/mask-android-status.mjs` applies the same mask to a PNG.
+
+The frame is `frames/pixel-10-pro.png` (1410×2968): Google's Pixel 10 Pro device art, `back.webp` with `mask.webp` composited at (59, 60), unchanged otherwise. The 1280×2856 capture fills the screen opening at (59, 60) with the emulator's 99 px corner radius.
+
+- Source: [Android Studio device art, `pixel_10_pro/`](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/) (the same files ship in the Android SDK under `skins/pixel_10_pro`). SHA-256: `back.webp` e21487b8a953f84c685478f609747bb8c3c51350451d1152594746fe41aa7903, `mask.webp` b47546422e36fa002dc174dc204cd166eef9d5c2b6b79fcd5fbedfcf0121c31f.
+- Google's [Device Art Generator](https://developer.android.com/distribute/marketing-tools/device-art-generator) offers this artwork for framing app screenshots "on your website or in other promotional materials". Site content is licensed under [Creative Commons Attribution 2.5](https://developer.android.com/license); the attribution sentence is at the end of each About page's open-source section. Google's trademarks are not licensed by it, and Google asks not to use framed screenshots in Play listings.
+- Do not redraw or recolour the frame. Do not treat it as original DoneAt artwork.

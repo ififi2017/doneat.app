@@ -129,7 +129,7 @@ const msBadgeWidth = Math.round((msBadgeHeight * msLight.width) / msLight.height
     {showGooglePlay && (
       <a
         href={siteConfig.googlePlayUrl}
-        class="inline-block leading-none"
+        class="gp-badge inline-block leading-none"
         data-track="google_play_open"
       >
         <Image
@@ -137,6 +137,8 @@ const msBadgeWidth = Math.round((msBadgeHeight * msLight.width) / msLight.height
           src={googlePlayBadge}
           alt={t(locale, "googlePlayLabel")}
           height={40}
+          densities={[1, 2, 3]}
+          format="png"
           inferSize
         />
       </a>
@@ -212,6 +214,8 @@ const msBadgeWidth = Math.round((msBadgeHeight * msLight.width) / msLight.height
     gap: 0.75rem;
   }
   .store-badges > a { padding-block: 2px; }
+  /* Android visitors see their own store first (html[data-platform] is set in BaseLayout). */
+  :global(html[data-platform="android"]) .gp-badge { order: -1; }
   .ms-badge { margin-block: 2px; }
 
   @media (max-width: 879px) {

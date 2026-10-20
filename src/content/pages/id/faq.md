@@ -37,6 +37,14 @@ Jam kerja dan gaji tetap di perangkat secara bawaan. Di iPhone dan iPad kamu bis
 
 Ya. iPhone, iPad, dan Mac ada di [App Store](https://apps.apple.com/id/app/id6802803318). Android ada di [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat). Windows ada di [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ). Timer browser ada di [off.rainif.com](https://off.rainif.com/id). Pilih yang benar-benar akan kamu biarkan terbuka.
 
+## Apakah DoneAt Plus bisa dipakai di iPhone dan Android sekaligus?
+
+Plus dibeli lewat toko di perangkatmu: App Store di iPhone dan iPad, Google Play di Android. DoneAt tidak memakai akun, jadi pembelian di satu toko tidak membuka Plus di toko lain. Hitung mundur, penjadwalan, dan catatan terbaru tetap gratis di keduanya.
+
+## Bagaimana memindahkan catatan antara iPhone dan Android?
+
+Ekspor cadangan di Catatan & data pada satu ponsel, lalu impor file itu di Catatan & data pada ponsel lainnya. Catatan dan pengaturan, termasuk gaji, ikut berpindah. Setelah itu kedua ponsel tidak saling sinkron, jadi ekspor lagi setiap kali kamu berganti ponsel.
+
 ## Apakah ada widget atau aplikasi Apple Watch?
 
 Ya. Di iPhone dan iPad, widget Layar Utama dan Layar Terkunci menampilkan sisa waktu sif tanpa membuka aplikasi, dan pada model iPhone yang didukung Live Activity menjaga kemajuan di Layar Terkunci dan di Dynamic Island. Di Android, widget layar utama dan notifikasi berkelanjutan menampilkan sisa waktu. DoneAt untuk Apple Watch menampilkan sisa waktu dan jam pulang, dengan dua komplikasi wajah jam. Aplikasi Watch gratis dan tidak membutuhkan DoneAt Plus. Widget, notifikasi, Live Activities, dan jam menampilkan waktu dan kemajuan, tidak pernah gaji. Di Mac atau Windows, timer mini menjaga hitung mundur tetap terlihat.

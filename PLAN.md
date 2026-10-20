@@ -269,3 +269,25 @@
 - [x] 下载章、下载页与首页收尾加 19 语官方 Google Play 徽章（App Store → Google Play → Microsoft Store；国内站不显示），统计事件 `google_play_open`；平台行去掉「即将推出」；门厅标题、描述与 JSON-LD 加 Android。
 - [x] 19 语下载／FAQ／About／隐私去掉「测试阶段」说法；下载页补 Android 8.0+ 系统要求与 Android 数据说明；FAQ 的应用入口、通知、离线、小组件、排班与节假日加 Android。隐私数据处理范围不变，日期更新为 2026-10-19。非英／简中 17 语改动仍需母语审阅。
 
+
+## 2026-10-19 Android 上架后的官网改版
+
+用户确认：Android 上架后官网要从「iPhone 产品站」改为「手机 + 电脑产品站」；版式、色板与滚动场景不推倒重来，补 Android 的内容与真实素材。用户把三项决定交给 agent，结论如下：
+
+- 首页第 01 章 iPhone 与 Android 并列倒计时（2026-10-20 用户看过后要求与 iOS 并列或分板块展示，交 agent 决定；取代前一版「按访客只放一台」）。访客自己的平台排在前面，第二台略低错开。识别只在浏览器本地读 `navigator.userAgentData` / UA，写 `html[data-platform]`，不发送、不存储；没有脚本时 iPhone 在前。
+- Android 素材在用户的 Pixel 10 Pro 上，用产品仓 `scripts/marketing-shots/android` 的隔离 Debug 包 `com.rainif.doneat.shots` 和合成数据录制，不碰 Play 安装版的数据。需要在班次中录。机框用 Google 官方 Pixel 10 Pro 设备图稿（Device Art Generator 明确用于网站宣传，CC BY 2.5 署名）。
+- 国内站不显示 Google Play 与 Android 入口（国内无 Google Play），保持现状。
+
+### A 不依赖新素材
+
+- [x] 商店徽章按访客平台排序：Android 访客 Google Play 在前，其余仍 App Store → Google Play → Microsoft Store。
+- [x] 下载页加「Android 上能做什么」轮播（Play 3.2.2 商店图：月历排班、休假规划、记录、午休），页内目录加 Android；对照表改三列：iPhone / iPad、Android、电脑，如实标出差异（Apple Watch、实时活动、iCloud 仅 iPhone；常驻通知、系统备份为 Android）。
+- [x] 首页第 02 章说明文字改为包含 Android（19 语）。
+- [x] About 补 Android 一节；FAQ 补「Plus 能否跨 App Store／Google Play」「iPhone 和 Android 之间怎么转记录」（19 语）。
+
+### B 依赖 Pixel 录制
+
+- [x] Android 计时录屏（`en`/`zh` × 浅/深色，14 秒）与 PNG 海报：2026-10-20 09:33–09:36 在 Pixel 10 Pro 上录制，状态栏图标已遮，做法见 `assets/device/README.md`。
+- [ ] （可选）Android 桌面小组件与常驻通知的精确裁切，供第 02 章使用；需在用户手机桌面临时放置小组件，本轮未做。
+- [x] 首页第 01 章 iPhone 与 Android 并列，Android 套 Google 官方 Pixel 10 Pro 设备图稿（用户嫌中性外框丑，2026-10-20 换；CC BY 2.5，19 语 About 署名）；Google Play 徽章改为 1×/2×/3× PNG（原先只出 1× WebP，高分屏发糊）。
+- [x] check 0 errors、build 121 页、seo:check 通过；1280×800 浅/深色、390×844 浅色实测，Pixel 10 Pro 的 Chrome 实机确认 Android 识别与徽章清晰度。

@@ -1,6 +1,6 @@
 ---
 title: "關於 — DoneAt"
-description: "關於 DoneAt：一個面向瀏覽器、iPhone、iPad、Mac 和 Windows 的本地優先下班倒數計時。"
+description: "關於 DoneAt：一個面向瀏覽器、iPhone、iPad、Android、Mac 和 Windows 的本地優先下班倒數計時。"
 heading: "關於 DoneAt"
 intro: "一個可以一直開著的本地優先下班倒數計時。不用註冊 DoneAt 帳號，沒有廣告；iPhone 和 iPad 可選用私人 iCloud 同步。"
 ---
@@ -48,7 +48,7 @@ DoneAt 也幫助你回顧工作、安排接下來的時間：
 
 ## 免費倒數計時與可選的 Plus
 
-下班倒數計時保持免費。iPhone 和 iPad 上的 DoneAt Plus 提供完整記錄、生活視圖和專注工具，可透過 App Store 選擇月度訂閱、年度訂閱或終身購買。價格和適用的試用資訊會在應用程式內購買前顯示。
+下班倒數計時保持免費。iPhone 和 iPad 上的 DoneAt Plus 提供完整記錄、生活視圖和專注工具，可透過 App Store 選擇月度訂閱、年度訂閱或終身購買。Android 上同樣的選項透過 Google Play 購買。App Store 與 Google Play 的購買不能互通。價格和適用的試用資訊會在應用程式內購買前顯示。
 
 首次開啟 iCloud 同步需要 Plus。已開啟的同步在訂閱到期後仍會繼續，已有記錄也會保留；匯出與刪除資料不需要有效訂閱。
 
@@ -65,9 +65,20 @@ DoneAt 也幫助你回顧工作、安排接下來的時間：
 
 ## Android
 
-Android 版已在 [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) 上架，購買由 Google Play 處理。啟用伺服器驗證的版本會透過 Cloudflare 上的 DoneAt 服務處理購買權杖，保存其雜湊與權益狀態，不傳送薪資或工作記錄。驗證、備份和刪除方式見[隱私權政策](/zh-TW/privacy#android)。
+[Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) 上的 Android 應用程式和 iPhone 遵循同一套排班規則。倒數計時、排班和節假日都免費：
+
+- 在同一張月曆裡排班：固定星期、隔週休、輪班輪休和跨夜班次都可以，也能在自由排班裡點一下或滑一下把班次鋪上去。
+- 在「工作時間與排班」中選擇國家或地區，排班會跟著當地節假日走。
+- 不打開 App，看主畫面小工具或常駐通知就知道還剩多久。
+- 最近七天的記錄、三次休假規劃搜尋，以及匯入匯出資料都免費。DoneAt Plus 增加更早的記錄、年視圖和人生視圖、週期報告、專注、不限次數的休假搜尋和班次鬧鐘。
+
+Android 的資料保存在手機上。Android 應用程式不含 iCloud 同步；如果你開啟了 Android 內建的備份，記錄和設定可能包含在內。透過備份匯出，可以在 iPhone 和 Android 之間轉移記錄。
+
+購買由 Google Play 處理。啟用伺服器驗證的版本會透過 Cloudflare 上的 DoneAt 服務處理購買權杖，保存其雜湊與權益狀態，不傳送薪資或工作記錄。驗證、備份和刪除方式見[隱私權政策](/zh-TW/privacy#android)。
 
 Android 導覽使用 Kyant 的 [Backdrop（AndroidLiquidGlass）2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) 和 [Shapes 1.2.1](https://github.com/Kyant0/Shapes)。DoneAt 參考 `LiquidBottomTabs` 範例，調整應用程式導覽、拖曳、輔助使用、由右至左版面與減少動態效果。效果在裝置上繪製，不會向作者傳送應用程式內容或裝置識別碼。兩個函式庫均採 Apache License 2.0：[Backdrop 授權條款](/licenses/backdrop-2.0.1.txt)、[Shapes 授權條款](/licenses/shapes-1.2.1.txt)。完整條款也附於應用程式的「設定 → 關於 → 致謝」。
+
+首頁展示 Android App 時使用了 Google 的 [Pixel 10 Pro 裝置外框](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/)，該圖稿由 Android 開放原始碼計畫創作並分享，依據[創用 CC 姓名標示 2.5 授權](https://creativecommons.org/licenses/by/2.5/)使用。
 
 ## 問題回饋
 
