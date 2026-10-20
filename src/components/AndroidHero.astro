@@ -1,0 +1,190 @@
+---
+import { Picture } from "astro:assets";
+import enBlack from "../../assets/device/android/en-black.png";
+import enWhite from "../../assets/device/android/en-white.png";
+import zhBlack from "../../assets/device/android/zh-black.png";
+import zhWhite from "../../assets/device/android/zh-white.png";
+import { deviceStem, t, type HallLocale } from "../lib/config";
+
+// The Android counterpart of DeviceHero: the same timer loop, recorded on a
+// Pixel with the isolated Debug build and synthetic data. There is no licensed
+// Pixel frame in the repository, so the phone is a neutral outline drawn in
+// CSS, like the Google Play screenshots.
+interface Props {
+  locale: HallLocale;
+}
+
+const { locale } = Astro.props;
+const stem = deviceStem(locale);
+const alt = t(locale, "androidDeviceAlt");
+const still = stem === "zh" ? { white: zhWhite, black: zhBlack } : { white: enWhite, black: enBlack };
+const sizes = "(min-width: 880px) 18rem, (min-width: 640px) 17rem, 80vw";
+const widths = [360, 720, 1080];
+---
+
+<div
+  class="android-hero relative mx-auto w-full max-w-[15.5rem] sm:max-w-[19rem] lg:max-w-[23rem]"
+  data-android-hero
+>
+  <div class="android-screen">
+    <Picture
+      src={still.white}
+      alt={alt}
+      formats={["webp"]}
+      widths={widths}
+      sizes={sizes}
+      class="android-still light-scheme"
+      pictureAttributes={{ class: "light-scheme" }}
+      loading="lazy"
+      decoding="async"
+    />
+    <Picture
+      src={still.black}
+      alt={alt}
+      formats={["webp"]}
+      widths={widths}
+      sizes={sizes}
+      class="android-still dark-scheme"
+      pictureAttributes={{ class: "dark-scheme" }}
+      loading="lazy"
+      decoding="async"
+    />
+    <video
+      class="android-video light-scheme"
+      data-src={`/device/web/android-${stem}-white.mp4`}
+      muted
+      loop
+      playsinline
+      preload="none"
+      width="1280"
+      height="2856"
+      aria-hidden="true"
+    ></video>
+    <video
+      class="android-video dark-scheme"
+      data-src={`/device/web/android-${stem}-black.mp4`}
+      muted
+      loop
+      playsinline
+      preload="none"
+      width="1280"
+      height="2856"
+      aria-hidden="true"
+    ></video>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var hero = document.querySelector("[data-android-hero]");
+    if (!(hero instanceof HTMLElement)) return;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches || Boolean(navigator.connection && navigator.connection.saveData);
+    var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var video = hero.querySelector(dark ? "video.dark-scheme" : "video.light-scheme");
+
+    function loadVideo() {
+      if (reduce || document.documentElement.hasAttribute("data-demos-paused") || !(video instanceof HTMLVideoElement) || !video.dataset.src) return;
+      if (video.querySelector("source")) return;
+      var source = document.createElement("source");
+      source.src = video.dataset.src;
+      source.type = "video/mp4";
+      video.appendChild(source);
+      video.setAttribute("autoplay", "");
+      video.preload = "metadata";
+      video.addEventListener("playing", function () { hero.classList.add("is-video-playing"); });
+      video.addEventListener("play", function () {
+        if (document.documentElement.hasAttribute("data-demos-paused")) video.pause();
+      });
+      video.load();
+      var play = video.play();
+      if (play && typeof play.catch === "function") play.catch(function () {});
+    }
+
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(
+        function (entries) {
+          if (!entries[0] || !entries[0].isIntersecting) return;
+          loadVideo();
+          if (video instanceof HTMLVideoElement && video.querySelector("source")) io.disconnect();
+        },
+        { rootMargin: "160px 0px", threshold: 0.01 },
+      );
+      io.observe(hero);
+    } else if (hero.offsetParent) {
+      loadVideo();
+    }
+    document.addEventListener("doneat:media", function (event) {
+      if (!event.detail.paused) {
+        reduce = false;
+        var bounds = hero.getBoundingClientRect();
+        if (bounds.height && bounds.bottom > 0 && bounds.top < innerHeight) loadVideo();
+      }
+    });
+  })();
+</script>
+
+<style>
+  .android-hero {
+    isolation: isolate;
+    padding: 3.2%;
+    border-radius: 12.5% / 5.8%;
+    background: #1d1b20;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    filter: drop-shadow(0 24px 50px color-mix(in srgb, var(--color-plum) 28%, transparent));
+  }
+
+  .android-hero::after {
+    content: "";
+    position: absolute;
+    inset: 16% 8% 10%;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse at 50% 42%,
+      color-mix(in srgb, var(--color-orange) 16%, transparent),
+      transparent 70%
+    );
+  }
+
+  .android-screen {
+    position: relative;
+    aspect-ratio: 1280 / 2856;
+    overflow: hidden;
+    border-radius: 10% / 4.6%;
+    background: color-mix(in srgb, var(--color-plum) 18%, var(--color-cream));
+  }
+
+  .android-screen :global(img),
+  .android-screen video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+  .android-video { opacity: 0; }
+  .android-hero.is-video-playing .android-video { opacity: 1; }
+
+  @media (prefers-color-scheme: dark) {
+    .android-hero {
+      background: #2b2830;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+      filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.5));
+    }
+
+    .android-screen {
+      background: color-mix(in srgb, var(--color-evening-end) 70%, black);
+    }
+
+    .light-scheme {
+      display: none;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    .dark-scheme {
+      display: none;
+    }
+  }
+</style>

@@ -37,3 +37,30 @@ Pick language from the hall locale (Chinese halls → `zh`, everyone else → `e
 - `autoplay muted loop playsinline` — no controls, no sound, no tap-to-start.
 - The `<img>` is the fallback when the video cannot play.
 - `prefers-reduced-motion: reduce` — hide the video, show only the PNG.
+
+# Android timer loop
+
+The homepage shows the Android phone beside the iPhone, both counting down. The visitor's own platform comes first (`html[data-platform]`, read in the browser only).
+
+| File | Language, appearance |
+| --- | --- |
+| `android/en-white.{mp4,png}` | English, light |
+| `android/en-black.{mp4,png}` | English, dark |
+| `android/zh-white.{mp4,png}` | Simplified Chinese, light |
+| `android/zh-black.{mp4,png}` | Simplified Chinese, dark |
+| `web/android-*.mp4` | Web encodes (`node scripts/prepare-web-video.mjs android-en-white …`) |
+
+Recorded 2026-10-20 on a Pixel 10 Pro (Android 3.2.3) with `adb shell screenrecord`, using only the isolated Debug install `com.rainif.doneat.shots` from the product repo's `scripts/marketing-shots/android` (synthetic demo history, timer scene seeded 09:00–18:00, in-app theme light or dark, per-app locale, System UI demo mode and Do Not Disturb during the take, all restored afterwards). The Play-installed app and its data were not touched.
+
+Each take is 1280×2856. The phone's own status-bar icons between the clock and the battery are masked with that row's background colour, as the product repo's Play composer does; app content is unchanged:
+
+```bash
+ffmpeg -ss 1 -t 14 -i en-white.raw.mp4 -an \
+  -vf "drawbox=x=215:y=0:w=890:h=150:color=0xf3f3f7:t=fill,fps=30,format=yuv420p" \
+  -c:v libx264 -preset slow -crf 24 -profile:v high -movflags +faststart android/en-white.mp4
+ffmpeg -ss 0.5 -i android/en-white.mp4 -frames:v 1 android/en-white.png
+```
+
+Dark takes use `color=0x000000`. For stills, `scripts/mask-android-status.mjs` applies the same mask to a PNG.
+
+There is no licensed Pixel frame here; `AndroidHero.astro` draws a neutral outline in CSS, like the Google Play screenshots. Do not substitute a Pixel device-art frame without checking its licence.

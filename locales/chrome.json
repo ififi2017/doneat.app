@@ -51,6 +51,7 @@
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "DoneAt on iPhone",
+      "androidDeviceAlt": "DoneAt on Android",
       "homeTitle": "DoneAt: Work Shift Countdown for iPhone, Android, Mac & Windows",
       "homeDescription": "A work-shift countdown for the browser, iPhone, iPad, Android, Mac and Windows. Your hours stay on your device. No account to create."
     },
@@ -84,6 +85,7 @@
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "iPhone 上的 DoneAt",
+      "androidDeviceAlt": "Android 上的 DoneAt",
       "homeTitle": "DoneAt：下班倒计时 App｜iPhone、Android、Mac、Windows",
       "homeDescription": "下班倒计时，浏览器、iPhone、iPad、Android、Mac 和 Windows 都能用。时间留在你的设备上，不用注册。"
     },
@@ -117,6 +119,7 @@
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "iPhone 上的 DoneAt",
+      "androidDeviceAlt": "Android 上的 DoneAt",
       "homeTitle": "DoneAt：下班倒數計時 App｜iPhone、Android、Mac、Windows",
       "homeDescription": "下班倒數計時，瀏覽器、iPhone、iPad、Android、Mac 與 Windows 都能用。時間留在你的裝置上，不必註冊。"
     },
@@ -150,6 +153,7 @@
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "iPhone 上嘅 DoneAt",
+      "androidDeviceAlt": "Android 上嘅 DoneAt",
       "homeTitle": "DoneAt：放工倒數計時 App｜iPhone、Android、Mac、Windows",
       "homeDescription": "放工倒數，瀏覽器、iPhone、iPad、Android、Mac 同 Windows 都用得。時間留喺你部裝置，唔使註冊。"
     },
@@ -183,6 +187,7 @@
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "iPhone の DoneAt",
+      "androidDeviceAlt": "Android の DoneAt",
       "homeTitle": "DoneAt：退勤カウントダウンアプリ｜iPhone・Android・Mac・Windows",
       "homeDescription": "退勤カウントダウン。ブラウザ、iPhone、iPad、Android、Mac、Windows で使えます。時間はこの端末に残ります。アカウントは不要です。"
     },
@@ -216,6 +221,7 @@
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "iPhone의 DoneAt",
+      "androidDeviceAlt": "Android의 DoneAt",
       "homeTitle": "DoneAt: 퇴근 카운트다운 앱 | iPhone, Android, Mac, Windows",
       "homeDescription": "퇴근 카운트다운. 브라우저, iPhone, iPad, Android, Mac, Windows에서 쓸 수 있어요. 시간은 기기에 남습니다. 계정은 필요 없습니다."
     },
@@ -249,6 +255,7 @@
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "DoneAt sur iPhone",
+      "androidDeviceAlt": "DoneAt sur Android",
       "homeTitle": "DoneAt : compte à rebours de fin de journée pour iPhone, Android, Mac et Windows",
       "homeDescription": "Compte à rebours de fin de journée pour le navigateur, iPhone, iPad, Android, Mac et Windows. Vos horaires restent sur l’appareil. Pas de compte."
     },
@@ -282,6 +289,7 @@
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "DoneAt auf dem iPhone",
+      "androidDeviceAlt": "DoneAt auf Android",
       "homeTitle": "DoneAt: Feierabend-Countdown-App für iPhone, Android, Mac & Windows",
       "homeDescription": "Feierabend-Countdown für Browser, iPhone, iPad, Android, Mac und Windows. Ihre Zeiten bleiben auf dem Gerät. Kein Konto."
     },
@@ -315,6 +323,7 @@
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "DoneAt en el iPhone",
+      "androidDeviceAlt": "DoneAt en Android",
       "homeTitle": "DoneAt: cuenta regresiva del turno para iPhone, Android, Mac y Windows",
       "homeDescription": "Cuenta regresiva del turno para el navegador, iPhone, iPad, Android, Mac y Windows. Tus horarios se quedan en el dispositivo. Sin cuenta."
     },
@@ -348,6 +357,7 @@
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "DoneAt su iPhone",
+      "androidDeviceAlt": "DoneAt su Android",
       "homeTitle": "DoneAt: conto alla rovescia del turno per iPhone, Android, Mac e Windows",
       "homeDescription": "Conto alla rovescia del turno per browser, iPhone, iPad, Android, Mac e Windows. Gli orari restano sul dispositivo. Nessun account."
     },
@@ -381,6 +391,7 @@
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "DoneAt no iPhone",
+      "androidDeviceAlt": "DoneAt no Android",
       "homeTitle": "DoneAt: contagem regressiva do expediente para iPhone, Android, Mac e Windows",
       "homeDescription": "Contagem regressiva do expediente para o navegador, iPhone, iPad, Android, Mac e Windows. Seus horários ficam no dispositivo. Sem conta."
     },
@@ -414,6 +425,7 @@
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "DoneAt на iPhone",
+      "androidDeviceAlt": "DoneAt на Android",
       "homeTitle": "DoneAt: обратный отсчёт до конца смены для iPhone, Android, Mac и Windows",
       "homeDescription": "Обратный отсчёт до конца смены для браузера, iPhone, iPad, Android, Mac и Windows. Расписание остаётся на устройстве. Без аккаунта."
     },
@@ -447,6 +459,7 @@
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "iPhone पर DoneAt",
+      "androidDeviceAlt": "Android पर DoneAt",
       "homeTitle": "DoneAt: छुट्टी की उलटी गिनती — iPhone, Android, Mac और Windows के लिए",
       "homeDescription": "छुट्टी की उलटी गिनती — ब्राउज़र, iPhone, iPad, Android, Mac और Windows पर। समय डिवाइस पर रहता है। खाते की ज़रूरत नहीं।"
     },
@@ -480,6 +493,7 @@
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "iPhone वरील DoneAt",
+      "androidDeviceAlt": "Android वरील DoneAt",
       "homeTitle": "DoneAt: सुट्टीची उलट मोजणी — iPhone, Android, Mac आणि Windows साठी",
       "homeDescription": "सुट्टीची उलट मोजणी — ब्राउझर, iPhone, iPad, Android, Mac आणि Windows वर. वेळ डिव्हाइसवर राहतो. खाते लागत नाही."
     },
@@ -513,6 +527,7 @@
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "iPhone’da DoneAt",
+      "androidDeviceAlt": "Android’de DoneAt",
       "homeTitle": "DoneAt: iPhone, Android, Mac ve Windows için mesai çıkışı geri sayımı",
       "homeDescription": "Mesai çıkışı geri sayımı — tarayıcı, iPhone, iPad, Android, Mac ve Windows. Saatleriniz cihazda kalır. Hesap gerekmez."
     },
@@ -546,6 +561,7 @@
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "DoneAt على iPhone",
+      "androidDeviceAlt": "DoneAt على Android",
       "homeTitle": "DoneAt: عداد تنازلي لنهاية الدوام على iPhone وAndroid وMac وWindows",
       "homeDescription": "عداد تنازلي لنهاية الدوام للمتصفح وiPhone وiPad وAndroid وMac وWindows. تبقى أوقاتك على جهازك. بلا حساب."
     },
@@ -579,6 +595,7 @@
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "DoneAt บน iPhone",
+      "androidDeviceAlt": "DoneAt บน Android",
       "homeTitle": "DoneAt: แอปนับถอยหลังเลิกงาน สำหรับ iPhone, Android, Mac และ Windows",
       "homeDescription": "นับถอยหลังเลิกงาน สำหรับเบราว์เซอร์, iPhone, iPad, Android, Mac และ Windows เวลาอยู่บนเครื่องคุณ ไม่ต้องสมัครบัญชี"
     },
@@ -612,6 +629,7 @@
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "DoneAt di iPhone",
+      "androidDeviceAlt": "DoneAt di Android",
       "homeTitle": "DoneAt: hitung mundur pulang kerja untuk iPhone, Android, Mac & Windows",
       "homeDescription": "Hitung mundur pulang kerja untuk browser, iPhone, iPad, Android, Mac, dan Windows. Waktu Anda tetap di perangkat. Tanpa akun."
     },
@@ -645,6 +663,7 @@
       "contentEnglish": "English",
       "contentChinese": "中文",
       "deviceAlt": "DoneAt trên iPhone",
+      "androidDeviceAlt": "DoneAt trên Android",
       "homeTitle": "DoneAt: đếm ngược giờ tan ca cho iPhone, Android, Mac và Windows",
       "homeDescription": "Đếm ngược giờ tan ca trên trình duyệt, iPhone, iPad, Android, Mac và Windows. Giờ làm việc ở lại trên máy bạn. Không cần tài khoản."
     }
