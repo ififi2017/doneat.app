@@ -299,4 +299,4 @@
 - [x] 按用户提供的正式号码设置 GitHub environment `china` 的 `ICP_FILING_NUMBER=沪ICP备2026055302号-1`；国内六页页脚链接工信部。
 - [x] check：42 files、0 errors/warnings/hints；海外 build/seo、国内带真实备案号 build/seo 通过。Mac 内置 Chromium 本地实际查看首页收尾与备案页脚（724×1011）；未重跑完整多尺寸/明暗矩阵。
 - [x] 国内分支发布成功：[Actions 39573324137](https://github.com/ififi2017/doneat.app/actions/runs/39573324137)。公网六页均 HTTP 200 且备案号与工信部链接正确；Mac 内置 Chromium 查看线上首页，最新双手机展示与备案链接均存在。
-- [ ] 用户追加要求 HTTPS-only：已准备根域/www/IP HTTP 跳转（保留 ACME 挑战例外）。本机现有 SSH 密钥无法登录管理员，等待管理员会话后签发证书、启用并验证续期；当前 HTTPS 443 连接失败。
+- [ ] 用户追加要求 HTTPS-only：已准备根域/www/IP HTTP 跳转（保留 ACME 挑战例外）。已通过用户打开的 ServerCat root 会话接入。ACME HTTP 验证配置启用且 nginx -t 通过，根域/www 验证文件均公网 200；证书服务直连与现有 ShellCrash 代理均 TLS 失败，HK/US 节点测试分别 503/504，等待用户决定证书出口修复范围。尚未签发或启用 HTTPS。

@@ -310,3 +310,9 @@ TLS/静态片段已安装为备用文件；独立 nginx -t -c 用临时测试证
 ## 2026-10-21 备案配置与设计同步
 
 用户提供正式网站备案号：沪ICP备2026055302号-1。已写入 GitHub environment `china` 的 `ICP_FILING_NUMBER`，沿用构建时注入，未写入海外环境。国内分支同步 main `895de47`；国内与海外构建、SEO 检查均通过。HTTPS 443 当前无法连接，不能将内容部署等同于 HTTPS/续期完成。
+
+### 2026-10-21 HTTPS 接入排查
+
+用户已在 ServerCat 提供管理员会话。创建并启用 `doneat-cn-acme`，Nginx 检查与 reload 成功；根域/www 的 HTTP-01 测试文件均公网 200。站点仍提供 HTTP 服务，TLS 配置未启用。
+
+服务器使用 ShellCrash fake-IP DNS；Let’s Encrypt 正式/测试服务直连 TLS 失败，通过现有 127.0.0.1:7890 代理亦失败；现有 HK/US 节点对正式 ACME 端点的 delay 测试返回 503/504。未修改代理规则、节点、DNS 或防火墙，等待用户决定修复范围。原有 ACME 账号目录存在，未重新注册或接受新协议。
