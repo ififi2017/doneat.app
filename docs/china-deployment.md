@@ -167,7 +167,7 @@ curl -I http://47.108.65.173/.doneat-release-sha
 curl -I -H 'Host: www.doneat.com.cn' 'http://47.108.65.173/zh-CN/download?source=acceptance'
 ```
 
-从构建 HTML 中选一个实际 MP4 URL，用 `curl -I -H 'Range: bytes=0-1023'` 请求，确认 206/Content-Range；选一个 `_astro` 文件确认 immutable。实际浏览器检查浅/深、手机/桌面：首页和五页可读，下载链接有效，X 不显示，未提供备案号时保留空位，不显示伪备案文字。curl 不代替视觉与交互验收。
+从构建 HTML 中选一个实际 MP4 URL，用 `curl -I -H 'Range: bytes=0-1023'` 请求，确认 206/Content-Range；选一个 `_astro` 文件确认 immutable。实际浏览器检查浅/深、手机/桌面：首页和五页可读，下载链接有效，X 不显示；备案号在页脚署名行，未提供时不显示，不显示伪备案文字。curl 不代替视觉与交互验收。
 
 ## HTTPS 配置与 webroot 续期
 

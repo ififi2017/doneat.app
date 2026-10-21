@@ -2,8 +2,8 @@
 import SocialLinks from "./SocialLinks.astro";
 import {
   contentLocaleFor,
-  isChina,
   icpFilingNumber,
+  otherSiteLink,
   siteConfig,
   t,
   type HallLocale,
@@ -16,6 +16,7 @@ interface Props {
 const { locale } = Astro.props;
 const howItWorksLang = contentLocaleFor(locale, "how-it-works");
 const privacyLang = contentLocaleFor(locale, "privacy");
+const otherSite = otherSiteLink(Astro.url.pathname.replace(/\/$/, ""));
 ---
 
 <footer class="site-footer mt-auto">
@@ -24,6 +25,7 @@ const privacyLang = contentLocaleFor(locale, "privacy");
       <a href={`/${howItWorksLang}/how-it-works`}>{t(locale, "howItWorks")}</a>
       <a href={`/${privacyLang}/privacy`}>{t(locale, "privacy")}</a>
       <a href={`mailto:${siteConfig.supportEmail}`}>{t(locale, "contactUs")}</a>
+      {otherSite && <a href={otherSite.href} lang="zh-CN" hreflang="zh-CN">{otherSite.label}</a>}
     </nav>
     <div class="site-footer-end">
       <SocialLinks locale={locale} />
@@ -31,15 +33,13 @@ const privacyLang = contentLocaleFor(locale, "privacy");
         <a href="https://rainif.com" target="_blank" rel="noopener noreferrer">
           © fi_niaR Studio
         </a>
+        {icpFilingNumber && <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">{icpFilingNumber}</a>}
         <a href="https://astro.build/" target="_blank" rel="noopener noreferrer">
           Powered by Astro
         </a>
       </p>
     </div>
   </div>
-  {isChina && <div class="page-frame site-footer-filing" aria-label="备案信息">
-    {icpFilingNumber && <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">{icpFilingNumber}</a>}
-  </div>}
 </footer>
 
 <style>
@@ -51,18 +51,6 @@ const privacyLang = contentLocaleFor(locale, "privacy");
     color: var(--night-ink);
     border-top: 1px solid color-mix(in srgb, var(--night-ink) 22%, transparent);
   }
-  .site-footer-filing {
-    min-height: 2rem;
-    padding-block: 0 1rem;
-    text-align: center;
-    font-size: 0.75rem;
-  }
-  .site-footer-filing a {
-    color: inherit;
-    text-decoration: none;
-    overflow-wrap: anywhere;
-  }
-  .site-footer-filing a:hover { color: var(--footer-link-hover-color); }
   .site-footer-inner {
     display: flex;
     flex-wrap: wrap;
