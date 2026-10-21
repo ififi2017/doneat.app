@@ -13,6 +13,7 @@
 | environment variable | `SITE_REGION` | `cn` |
 | environment variable | `SITE_ORIGIN` | `https://doneat.com.cn` |
 | environment variable | `ICP_FILING_NUMBER` | 未提供时留空；有正式备案号后填写完整展示文本 |
+| environment variable | `PSB_FILING_NUMBER` | 公安联网备案号，预留；未提供时不显示。填写完整展示文本（如「沪公网安备31010402000001号」），查询链接取其中数字 |
 | environment variable | `DEPLOY_HOST` | `47.108.65.173` |
 | environment variable | `DEPLOY_USER` | `doneat-deploy` |
 | environment variable | `DEPLOY_PORT` | `22`（或实际 SSH 端口） |

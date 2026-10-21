@@ -3,6 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import {
   HALL_LOCALES,
   icpFilingNumber,
+  psbFilingNumber,
+  psbFilingUrl,
   defaultLocale,
   siteConfig,
   t,
@@ -127,6 +129,7 @@ const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
           href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a
         >
         {icpFilingNumber && <a class="text-plum/80 hover:text-orange-ink dark:text-cream/80 dark:hover:text-orange-bright" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">{icpFilingNumber}</a>}
+        {psbFilingNumber && <a class="text-plum/80 hover:text-orange-ink dark:text-cream/80 dark:hover:text-orange-bright" href={psbFilingUrl} target="_blank" rel="noopener noreferrer">{psbFilingNumber}</a>}
       </div>
     </footer>
   </div>

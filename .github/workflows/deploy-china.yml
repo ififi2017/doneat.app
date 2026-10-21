@@ -29,6 +29,7 @@ jobs:
       SITE_REGION: ${{ vars.SITE_REGION || 'cn' }}
       SITE_ORIGIN: ${{ vars.SITE_ORIGIN || 'https://doneat.com.cn' }}
       ICP_FILING_NUMBER: ${{ vars.ICP_FILING_NUMBER }}
+      PSB_FILING_NUMBER: ${{ vars.PSB_FILING_NUMBER }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -72,6 +73,7 @@ jobs:
       SITE_REGION: global
       SITE_ORIGIN: https://doneat.app
       ICP_FILING_NUMBER: ''
+      PSB_FILING_NUMBER: ''
     steps:
       - uses: actions/checkout@v4
         with:

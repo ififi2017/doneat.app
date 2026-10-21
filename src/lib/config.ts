@@ -4,7 +4,7 @@ import site from "../../site.json";
 import { PUBLISHED_BY_PAGE } from "./published-content";
 
 import { defaultLocale, isChina, siteOrigin } from "./deployment";
-export { defaultLocale, isChina, icpFilingNumber } from "./deployment";
+export { defaultLocale, isChina, icpFilingNumber, psbFilingNumber, psbFilingUrl } from "./deployment";
 
 export const siteConfig = isChina
   ? { ...site, officialSiteUrl: siteOrigin, socials: site.socials.filter((item) => item.id !== "x") }

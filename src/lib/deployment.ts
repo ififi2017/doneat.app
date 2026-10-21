@@ -13,3 +13,8 @@ if (origin.protocol !== "https:" || origin.pathname !== "/" || origin.search || 
   throw new Error("SITE_ORIGIN must be an HTTPS origin without a path, query or credentials");
 }
 export const icpFilingNumber = isChina ? (process.env.ICP_FILING_NUMBER || "").trim() : "";
+/** 公安联网备案, e.g. 沪公网安备31010402000001号; the query link uses its digits. */
+export const psbFilingNumber = isChina ? (process.env.PSB_FILING_NUMBER || "").trim() : "";
+export const psbFilingUrl = psbFilingNumber
+  ? `https://beian.mps.gov.cn/#/query/webSearch?code=${psbFilingNumber.replace(/\D/g, "")}`
+  : "";

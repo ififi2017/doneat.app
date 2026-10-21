@@ -4,6 +4,8 @@ import {
   contentLocaleFor,
   icpFilingNumber,
   otherSiteLink,
+  psbFilingNumber,
+  psbFilingUrl,
   siteConfig,
   t,
   type HallLocale,
@@ -25,7 +27,7 @@ const otherSite = otherSiteLink(Astro.url.pathname.replace(/\/$/, ""));
       <a href={`/${howItWorksLang}/how-it-works`}>{t(locale, "howItWorks")}</a>
       <a href={`/${privacyLang}/privacy`}>{t(locale, "privacy")}</a>
       <a href={`mailto:${siteConfig.supportEmail}`}>{t(locale, "contactUs")}</a>
-      {otherSite && <a href={otherSite.href} lang="zh-CN" hreflang="zh-CN">{otherSite.label}</a>}
+      {otherSite && <a href={otherSite.href} lang="zh-CN">{otherSite.label}</a>}
     </nav>
     <div class="site-footer-end">
       <SocialLinks locale={locale} />
@@ -34,6 +36,7 @@ const otherSite = otherSiteLink(Astro.url.pathname.replace(/\/$/, ""));
           © fi_niaR Studio
         </a>
         {icpFilingNumber && <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">{icpFilingNumber}</a>}
+        {psbFilingNumber && <a href={psbFilingUrl} target="_blank" rel="noopener noreferrer">{psbFilingNumber}</a>}
         <a href="https://astro.build/" target="_blank" rel="noopener noreferrer">
           Powered by Astro
         </a>

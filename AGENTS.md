@@ -154,7 +154,7 @@ S0–S4 都已完成（S4 上线 2026-08-30）。以下按阶段保留仍然有�
 ## 2026-10-11 国内分站（用户批准）
 
 - 同仓使用构建变量：默认 `SITE_REGION=global` 保持海外规则；`SITE_REGION=cn` 只生成简中六页，国内 canonical 使用 `SITE_ORIGIN=https://doneat.com.cn`，隐藏语言选择器、X 和 Vercel 统计。
-- 国内备案号通过 `ICP_FILING_NUMBER` 注入并链接工信部，放在页脚署名行（`© fi_niaR Studio` 之后），不单独占一栏；未提供时不显示，不生成虚假号码。
+- 国内备案号通过 `ICP_FILING_NUMBER` 注入并链接工信部，放在页脚署名行（`© fi_niaR Studio` 之后），不单独占一栏；公安联网备案号同理用 `PSB_FILING_NUMBER`，紧跟其后，链到全国互联网安全管理服务平台。未提供时都不显示，不生成虚假号码。
 - 国内站由 GitHub environment `china` 和 `.github/workflows/deploy-china.yml` 发布到专用服务器。当前仅 `codex/china-site` 分支自动发布，main/Vercel 海外生产不变。不要擅自把国内变量加入 Vercel 项目。
 - 接收器与 Nginx 规则、凭证配置和回滚步骤见 `docs/china-deployment.md`；服务器密码、SSH 私钥不能入仓。
 - 修改共享组件时同时验证默认海外与国内构建。国内检查：`SITE_REGION=cn npm run build`、`SITE_REGION=cn npm run seo:check`；海外使用原命令。
