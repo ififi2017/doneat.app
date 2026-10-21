@@ -46,7 +46,9 @@ html.scenes-on :is(.hero-copy, .hero-stage, .carry-island, .carry-live, .carry-w
   grid-template-columns: minmax(0, 1.25fr) minmax(0, 28rem);
   align-items: center;
   gap: clamp(2.5rem, 6vw, 7rem);
-  min-height: min(calc(100svh - 3.5rem), 58rem);
+  /* Fill the first screen below the header on landscape displays of any size;
+     on tall portrait windows the width cap keeps the hero from stretching. */
+  min-height: min(calc(100svh - 3.5rem), 75vw);
   padding-block: clamp(2.5rem, 7svh, 5.5rem);
 }
 .hero-copy {
