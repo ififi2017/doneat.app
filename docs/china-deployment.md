@@ -239,7 +239,7 @@ sudo ln -sfn /etc/nginx/sites-available/doneat-cn-tls /etc/nginx/sites-enabled/d
 sudo nginx -t
 ```
 
-检查成功才 `sudo systemctl reload nginx`。检查失败先恢复 symlink 到 `doneat-cn-acme`，不要 reload 失败配置。切换后，IP HTTP 仍为静态验收入口；两个域名使用 HTTPS，主页面、404、缓存和视频范围规则来自同一共享片段。
+检查成功才 `sudo systemctl reload nginx`。检查失败先恢复 symlink 到 `doneat-cn-acme`，不要 reload 失败配置。切换后，IP HTTP 也以 308 跳转至 HTTPS 裸域；两个域名使用 HTTPS，主页面、404、缓存和视频范围规则来自同一共享片段。
 
 ```bash
 curl -I 'http://doneat.com.cn/zh-CN/download?source=tls-check'
@@ -252,7 +252,7 @@ curl -I https://doneat.com.cn/missing-page
 curl -I http://47.108.65.173/zh-CN/download
 ```
 
-前三项预期 308 且 path/query 完整；HTTPS 根/短路径预期 302；正式页与 IP 页 200；不存在页面 404。再用真实域名确认 canonical/sitemap 都是 `https://doneat.com.cn`，测试 `_astro` 缓存、MP4 206/Content-Range、浅/深与手机/桌面浏览器。证书可信链和两域名主机名校验必须通过。
+前三项预期 308 且 path/query 完整；HTTPS 根/短路径预期 302；正式页 200，IP 页 308 到 HTTPS；不存在页面 404。再用真实域名确认 canonical/sitemap 都是 `https://doneat.com.cn`，测试 `_astro` 缓存、MP4 206/Content-Range、浅/深与手机/桌面浏览器。证书可信链和两域名主机名校验必须通过。
 
 ### 3. 自动续期与成功后的 reload
 

@@ -254,7 +254,7 @@
 - [x] 根域与 www A 记录已指向目标（Google DoH 验证）。草稿 PR #32 和默认海外 Vercel Preview 已生成，main 未合并，海外生产未发布。
 - [x] HTTPS 备用配置已安装但未启用；目标服务器用临时测试证书独立 nginx -t 通过，测试证书已删除。
 - [ ] 网站备案通过并解决服务器 ACME 出站 TLS EOF 后签发受信任证书、启用 HTTPS/续期。当前阿里云 Beaver 返回 Non-compliance ICP Filing 403，HTTP-01 验证失败，未签发任何证书。
-- [ ] 提供真实网站备案号后设置 `ICP_FILING_NUMBER` 并重新发布。
+- [x] 2026-10-21：用户提供沪ICP备2026055302号-1，已设置 `ICP_FILING_NUMBER` 并重新发布。
 
 ## 2026-10-16 Android 可选审核访问披露（草稿）
 
@@ -298,4 +298,5 @@
 - [x] 国内分支同步官网 main `895de47`（含最新双手机展示、下载页设计与 iOS 3.2.3 首页录屏）；保留国内六页、隐藏 Google Play 下载入口及独立部署设置。
 - [x] 按用户提供的正式号码设置 GitHub environment `china` 的 `ICP_FILING_NUMBER=沪ICP备2026055302号-1`；国内六页页脚链接工信部。
 - [x] check：42 files、0 errors/warnings/hints；海外 build/seo、国内带真实备案号 build/seo 通过。Mac 内置 Chromium 本地实际查看首页收尾与备案页脚（724×1011）；未重跑完整多尺寸/明暗矩阵。
-- [ ] 国内分支发布与公网内容复核。HTTPS 当前 443 连接失败，证书/续期仍未验收。
+- [x] 国内分支发布成功：[Actions 39573324137](https://github.com/ififi2017/doneat.app/actions/runs/39573324137)。公网六页均 HTTP 200 且备案号与工信部链接正确；Mac 内置 Chromium 查看线上首页，最新双手机展示与备案链接均存在。
+- [ ] 用户追加要求 HTTPS-only：已准备根域/www/IP HTTP 跳转（保留 ACME 挑战例外）。本机现有 SSH 密钥无法登录管理员，等待管理员会话后签发证书、启用并验证续期；当前 HTTPS 443 连接失败。
