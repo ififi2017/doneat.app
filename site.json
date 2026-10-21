@@ -4,7 +4,7 @@
   "webAppUrl": "https://off.rainif.com",
   "officialSiteUrl": "https://doneat.app",
   "chinaSiteUrl": "https://doneat.com.cn",
-  "chinaSiteLive": false,
+  "chinaSiteLive": true,
   "supportEmail": "hello@doneat.app",
   "githubUrl": "https://github.com/ififi2017/Off-Work-Countdown",
   "githubReleasesUrl": "https://github.com/ififi2017/Off-Work-Countdown/releases/latest",
