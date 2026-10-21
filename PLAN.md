@@ -292,3 +292,10 @@
 - [x] 首页第 01 章 iPhone 与 Android 并列，Android 套 Google 官方 Pixel 10 Pro 设备图稿（用户嫌中性外框丑，2026-10-20 换；CC BY 2.5，19 语 About 署名）；Google Play 徽章改为 1×/2×/3× PNG（原先只出 1× WebP，高分屏发糊）。
 - [x] 用户觉得 iPhone 录屏旧：2026-10-20 用 iPhone 18 Pro Max 模拟器从当前 main（3.2.3）重录首页四段计时循环，与 Android 同一套合成数据、同一天 09:00–18:00；下载页 review 片段未重录。
 - [x] check 0 errors、build 121 页、seo:check 通过；1280×800 浅/深色、390×844 浅色实测，Pixel 10 Pro 的 Chrome 实机确认 Android 识别与徽章清晰度。
+
+## 2026-10-21 国内站备案与设计同步
+
+- [x] 国内分支同步官网 main `895de47`（含最新双手机展示、下载页设计与 iOS 3.2.3 首页录屏）；保留国内六页、隐藏 Google Play 下载入口及独立部署设置。
+- [x] 按用户提供的正式号码设置 GitHub environment `china` 的 `ICP_FILING_NUMBER=沪ICP备2026055302号-1`；国内六页页脚链接工信部。
+- [x] check：42 files、0 errors/warnings/hints；海外 build/seo、国内带真实备案号 build/seo 通过。Mac 内置 Chromium 本地实际查看首页收尾与备案页脚（724×1011）；未重跑完整多尺寸/明暗矩阵。
+- [ ] 国内分支发布与公网内容复核。HTTPS 当前 443 连接失败，证书/续期仍未验收。

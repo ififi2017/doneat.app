@@ -306,3 +306,7 @@ Certbot 已安装但没有成功签发证书，未启用 HTTPS，也未验收自
 TLS/静态片段已安装为备用文件；独立 nginx -t -c 用临时测试证书通过，测试证书已删除。国内 enabled symlink 仍指向 HTTP bootstrap。备案通过并解决出站连接后，按上文 webroot 签发、切换和 dry-run 启用 HTTPS。
 
 获得真实网站备案号后，在 environment china 设置 ICP_FILING_NUMBER 并推送国内分支触发构建。网站备案与 App Store 的 APP 备案分别办理，此部署不会自动恢复 iOS 中国大陆上架。
+
+## 2026-10-21 备案配置与设计同步
+
+用户提供正式网站备案号：沪ICP备2026055302号-1。已写入 GitHub environment `china` 的 `ICP_FILING_NUMBER`，沿用构建时注入，未写入海外环境。国内分支同步 main `895de47`；国内与海外构建、SEO 检查均通过。HTTPS 443 当前无法连接，不能将内容部署等同于 HTTPS/续期完成。
