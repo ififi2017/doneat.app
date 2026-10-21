@@ -253,7 +253,7 @@
 - [x] GitHub Actions 发布成功（run 38116278761）；服务器 current SHA 对应 commit。六页/资源/真实 404/query 跳转/MP4 206/immutable 缓存通过。Mac 内嵌 Chromium：390×844 下载页、1440×900 首页无横向溢出，X/语言选择隐藏，备案空位 32px；服务器内容经 SSH 隧道及公网首页验收，公网下载页浏览器一次超时（直接 HTTP 200）。
 - [x] 根域与 www A 记录已指向目标（Google DoH 验证）。草稿 PR #32 和默认海外 Vercel Preview 已生成，main 未合并，海外生产未发布。
 - [x] HTTPS 备用配置已安装但未启用；目标服务器用临时测试证书独立 nginx -t 通过，测试证书已删除。
-- [x] 网站备案通过并解决服务器 ACME 出站 TLS EOF 后签发受信任证书、启用 HTTPS/续期。（2026-10-21 用户确认备案与证书完成；国际站页脚随之打开「中国大陆站」链接，`site.json` 的 `chinaSiteLive`。）
+- [ ] 网站备案通过并解决服务器 ACME 出站 TLS EOF 后签发受信任证书、启用 HTTPS/续期。当前阿里云 Beaver 返回 Non-compliance ICP Filing 403，HTTP-01 验证失败，未签发任何证书。
 - [ ] 提供真实网站备案号后设置 `ICP_FILING_NUMBER` 并重新发布。
 
 ## 2026-10-16 Android 可选审核访问披露（草稿）
