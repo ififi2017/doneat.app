@@ -253,7 +253,7 @@
 - [x] GitHub Actions 发布成功（run 38116278761）；服务器 current SHA 对应 commit。六页/资源/真实 404/query 跳转/MP4 206/immutable 缓存通过。Mac 内嵌 Chromium：390×844 下载页、1440×900 首页无横向溢出，X/语言选择隐藏，备案空位 32px；服务器内容经 SSH 隧道及公网首页验收，公网下载页浏览器一次超时（直接 HTTP 200）。
 - [x] 根域与 www A 记录已指向目标（Google DoH 验证）。草稿 PR #32 和默认海外 Vercel Preview 已生成，main 未合并，海外生产未发布。
 - [x] HTTPS 备用配置已安装但未启用；目标服务器用临时测试证书独立 nginx -t 通过，测试证书已删除。
-- [ ] 网站备案通过并解决服务器 ACME 出站 TLS EOF 后签发受信任证书、启用 HTTPS/续期。当前阿里云 Beaver 返回 Non-compliance ICP Filing 403，HTTP-01 验证失败，未签发任何证书。
+- [x] 2026-10-21：备案拦截及服务器出口问题已解决，证书签发、HTTPS 与续期验收通过（见文末记录）。
 - [x] 2026-10-21：用户提供沪ICP备2026055302号-1，已设置 `ICP_FILING_NUMBER` 并重新发布。
 
 ## 2026-10-16 Android 可选审核访问披露（草稿）
@@ -300,3 +300,11 @@
 - [x] check：42 files、0 errors/warnings/hints；海外 build/seo、国内带真实备案号 build/seo 通过。Mac 内置 Chromium 本地实际查看首页收尾与备案页脚（724×1011）；未重跑完整多尺寸/明暗矩阵。
 - [x] 国内分支发布成功：[Actions 39573324137](https://github.com/ififi2017/doneat.app/actions/runs/39573324137)。公网六页均 HTTP 200 且备案号与工信部链接正确；Mac 内置 Chromium 查看线上首页，最新双手机展示与备案链接均存在。
 - [ ] 用户追加要求 HTTPS-only：已准备根域/www/IP HTTP 跳转（保留 ACME 挑战例外）。已通过用户打开的 ServerCat root 会话接入。ACME HTTP 验证配置启用且 nginx -t 通过，根域/www 验证文件均公网 200；证书服务直连与现有 ShellCrash 代理均 TLS 失败，HK/US 节点测试分别 503/504，等待用户决定证书出口修复范围。尚未签发或启用 HTTPS。
+
+## 2026-10-21 国内站 HTTPS 启用
+
+- [x] 用户修复服务器出口后，复测 ACME 200，使用既有账号签发根域/www 证书，有效期至 2027-01-19。
+- [x] 启用 TLS 配置，裸域/www/IP 的 HTTP 308 至 HTTPS 裸域，保留 path/query；证书验证文件仍通过 HTTP 提供。六页 HTTPS 200、备案号正确、未知页 404、www HTTPS 308；Mac 内置 Chromium 访问无证书告警。
+- [x] certbot.timer 已排程；安装仅针对此证书的成功续期 Nginx 检查/reload hook。
+
+自动续期验收：`certbot renew --cert-name doneat.com.cn --dry-run --run-deploy-hooks` 成功，deploy hook 实际执行 Nginx 检查与 reload；计划任务使用既有 certbot.timer。

@@ -316,3 +316,9 @@ TLS/静态片段已安装为备用文件；独立 nginx -t -c 用临时测试证
 用户已在 ServerCat 提供管理员会话。创建并启用 `doneat-cn-acme`，Nginx 检查与 reload 成功；根域/www 的 HTTP-01 测试文件均公网 200。站点仍提供 HTTP 服务，TLS 配置未启用。
 
 服务器使用 ShellCrash fake-IP DNS；Let’s Encrypt 正式/测试服务直连 TLS 失败，通过现有 127.0.0.1:7890 代理亦失败；现有 HK/US 节点对正式 ACME 端点的 delay 测试返回 503/504。未修改代理规则、节点、DNS 或防火墙，等待用户决定修复范围。原有 ACME 账号目录存在，未重新注册或接受新协议。
+
+### HTTPS 已启用（2026-10-21）
+
+用户修复出口后 ACME 连接恢复。使用既有账号签发 doneat.com.cn 与 www.doneat.com.cn 的证书（到期 2027-01-19），enabled symlink 已切到 doneat-cn-tls，Nginx 检查与 reload 成功。域名、www、IP HTTP 统一 308 至 HTTPS 裸域并保留 path/query，ACME HTTP-01 例外保留。公网六页 200、备案、404、www 重定向及证书信任验证通过；Mac 内置 Chromium HTTPS 首页可读。certbot.timer 已存在，新增 root-owned deploy hook 仅为本站证书检查并 reload Nginx。
+
+自动续期验收：`certbot renew --cert-name doneat.com.cn --dry-run --run-deploy-hooks` 成功，deploy hook 实际执行 Nginx 检查与 reload；计划任务使用既有 certbot.timer。
