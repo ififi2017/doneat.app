@@ -420,9 +420,6 @@ body {
   padding-block: 3rem;
   border-block: 1px solid var(--rule);
 }
-.compare-hint {
-  display: none;
-}
 .native-band {
   margin-top: 5rem;
   padding-top: 3rem;
@@ -487,12 +484,6 @@ body {
   }
   .desktop-section {
     margin-block: 3rem;
-  }
-  .compare-hint {
-    display: block;
-    margin-top: 1rem;
-    color: var(--muted);
-    font-size: 0.75rem;
   }
   .native-band {
     margin-top: 3rem;
