@@ -53,7 +53,7 @@ Astro 门厅、英中长文、下载页都已上线。接着改现有工程，�
 - 触摸没有 hover。点按必须自己出反馈：橙色圆点约 `scale(1.16)` + 同一套暖光。`prefers-reduced-motion: reduce` 只变亮、不缩放。
 - SVG 内的可聚焦元素（如彩蛋命中圆）浏览器按 `:focus` 而非 `:focus-visible` 画默认焦点框，点一下就出现方框。要显式 `:focus { outline: none }`，只在 `:focus-visible` 画圆形焦点环。
 - 五连击只打缺口里的橙色圆点（可加大透明命中圆），圆环和指针不计数。第五次指针绕 `512,512` 转一圈回到五点，角度累加，不要从 360 弹回 0。时长约 0.8s，对照 iOS `CelebratingBrandMark`。不要为它拉 React。
-- 下载对照表是**手机 / iPad vs 电脑**，不是网页 vs 桌面。三种状态：`included` 实心橙点、`limited` 空心、`absent` 短横 + 「没有」/「No」。不要只靠把字调淡。iOS 独有行不要发明产品里没有的功能。
+- 下载对照表是**手机 / iPad vs 电脑**，不是网页 vs 桌面。三种状态：`included` 实心橙点、`limited` 空心、`absent` 短横 + 「没有」/「No」。不要只靠把字调淡。iOS 独有行不要发明产品里没有的功能。各平台都一样的功能只在表格上方「每个客户端都有」一行列一次，表格只放有差别的行；格子写几个词，整句说明留给上方功能区。
 - 第 02 章使用真实产品原始截图的准确裁切和官方 Watch 框，来源、版本与裁切坐标记录在 `assets/product/sources.json`。宣传标题用页面原生排字，不把带标题的商店海报贴在首页；不生成或重绘产品 UI。
 - 首页动效对照 Apple 产品页：`src/lib/home-scenes.ts` 只给每个 `[data-scene]` 写 0–1 的滚动进度（首屏 `--x`，其余 `--p`），并给 `html` 加 `scenes-on`；画面全部由 `home-story.css` 用进度算。`exit` 首屏随滚动上移淡出；`sticky` 一段钉住（左侧宣言逐词点亮、右侧 iPhone 真实录屏升起归位，随后三条价值依次点亮；各部分进度区间写在 `data-words`／`data-steps` 上）；`pass` 两段随进入展开（小组件与手表分层入场、收尾日落光升起）。首屏加载时标题逐行从遮罩里升起、卡片带模糊浮入。
 - 随滚动进度改 transform／opacity 的元素，在 `html.scenes-on` 下都要 `will-change: transform, opacity`（集中写在 `home-story.css` 顶部）。不提层时 Chromium 每帧重新栅格化暖光、阴影和图片，Windows 和 4K 屏上明显卡（实测小组件段每帧栅格化从约 38ms 降到约 6ms）。动画元素和包着播放中视频的元素不要用 `filter: drop-shadow`：前者改成图片自身的 `box-shadow`，机框阴影用机身形状的 `::before` + `box-shadow`。
@@ -156,7 +156,7 @@ S0–S4 都已完成（S4 上线 2026-08-30）。以下按阶段保留仍然有�
 ## 2026-10-11 国内分站（用户批准）
 
 - 同仓使用构建变量：默认 `SITE_REGION=global` 保持海外规则；`SITE_REGION=cn` 只生成简中六页，国内 canonical 使用 `SITE_ORIGIN=https://doneat.com.cn`，隐藏语言选择器、X 和 Vercel 统计。
-- 国内页脚预留备案位，正式号码通过 `ICP_FILING_NUMBER` 注入并链接工信部；未提供时留空，不生成虚假号码。
+- 国内备案号通过 `ICP_FILING_NUMBER` 注入并链接工信部，放在页脚署名行（`© fi_niaR Studio` 之后），不单独占一栏；公安联网备案号同理用 `PSB_FILING_NUMBER`，紧跟其后，链到全国互联网安全管理服务平台。未提供时都不显示，不生成虚假号码。
 - 国内站由 GitHub environment `china` 和 `.github/workflows/deploy-china.yml` 发布到专用服务器。当前仅 `codex/china-site` 分支自动发布，main/Vercel 海外生产不变。不要擅自把国内变量加入 Vercel 项目。
 - 接收器与 Nginx 规则、凭证配置和回滚步骤见 `docs/china-deployment.md`；服务器密码、SSH 私钥不能入仓。
 - 修改共享组件时同时验证默认海外与国内构建。国内检查：`SITE_REGION=cn npm run build`、`SITE_REGION=cn npm run seo:check`；海外使用原命令。

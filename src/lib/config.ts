@@ -4,7 +4,7 @@ import site from "../../site.json";
 import { PUBLISHED_BY_PAGE } from "./published-content";
 
 import { defaultLocale, isChina, siteOrigin } from "./deployment";
-export { defaultLocale, isChina, icpFilingNumber } from "./deployment";
+export { defaultLocale, isChina, icpFilingNumber, psbFilingNumber, psbFilingUrl } from "./deployment";
 
 export const siteConfig = isChina
   ? { ...site, officialSiteUrl: siteOrigin, socials: site.socials.filter((item) => item.id !== "x") }
@@ -39,6 +39,20 @@ export function isContentLocale(value: string | undefined): value is ContentLoca
 }
 
 /** True when `src/content/pages/{locale}/{page}.md` is listed in `published-content.ts`. */
+/**
+ * The footer link to the other regional site, on the matching page where it
+ * exists there. The mainland site only carries Simplified Chinese, so its
+ * label stays Chinese on every international locale. The international site
+ * links there only once `chinaSiteLive` is set (it needs HTTPS and a filing).
+ */
+export function otherSiteLink(pathname: string): { href: string; label: string } | null {
+  if (isChina) return { href: `${site.officialSiteUrl}${pathname}`, label: "国际站" };
+  if (!site.chinaSiteLive) return null;
+  const [, , page = ""] = pathname.split("/");
+  const target = isContentPage(page) && hasPublishedContent("zh-CN", page) ? `/zh-CN/${page}` : "/zh-CN";
+  return { href: `${site.chinaSiteUrl}${target}`, label: "中国大陆站" };
+}
+
 export function hasPublishedContent(locale: string, page: ContentPage): boolean {
   return (PUBLISHED_BY_PAGE[page] as readonly string[]).includes(locale);
 }

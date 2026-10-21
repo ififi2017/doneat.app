@@ -13,6 +13,7 @@
 | environment variable | `SITE_REGION` | `cn` |
 | environment variable | `SITE_ORIGIN` | `https://doneat.com.cn` |
 | environment variable | `ICP_FILING_NUMBER` | 未提供时留空；有正式备案号后填写完整展示文本 |
+| environment variable | `PSB_FILING_NUMBER` | 公安联网备案号，预留；未提供时不显示。填写完整展示文本（如「沪公网安备31010402000001号」），查询链接取其中数字 |
 | environment variable | `DEPLOY_HOST` | `47.108.65.173` |
 | environment variable | `DEPLOY_USER` | `doneat-deploy` |
 | environment variable | `DEPLOY_PORT` | `22`（或实际 SSH 端口） |
@@ -167,7 +168,7 @@ curl -I http://47.108.65.173/.doneat-release-sha
 curl -I -H 'Host: www.doneat.com.cn' 'http://47.108.65.173/zh-CN/download?source=acceptance'
 ```
 
-从构建 HTML 中选一个实际 MP4 URL，用 `curl -I -H 'Range: bytes=0-1023'` 请求，确认 206/Content-Range；选一个 `_astro` 文件确认 immutable。实际浏览器检查浅/深、手机/桌面：首页和五页可读，下载链接有效，X 不显示，未提供备案号时保留空位，不显示伪备案文字。curl 不代替视觉与交互验收。
+从构建 HTML 中选一个实际 MP4 URL，用 `curl -I -H 'Range: bytes=0-1023'` 请求，确认 206/Content-Range；选一个 `_astro` 文件确认 immutable。实际浏览器检查浅/深、手机/桌面：首页和五页可读，下载链接有效，X 不显示；备案号在页脚署名行，未提供时不显示，不显示伪备案文字。curl 不代替视觉与交互验收。
 
 ## HTTPS 配置与 webroot 续期
 

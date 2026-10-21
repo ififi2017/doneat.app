@@ -2,8 +2,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import {
   HALL_LOCALES,
-  isChina,
   icpFilingNumber,
+  psbFilingNumber,
+  psbFilingUrl,
   defaultLocale,
   siteConfig,
   t,
@@ -121,16 +122,15 @@ const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
 
     <footer class="mt-auto border-t border-plum/10 dark:border-cream/10">
       <div
-        class="page-frame flex py-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] text-sm sm:py-6 sm:pb-[max(1.5rem,env(safe-area-inset-bottom))]"
+        class="page-frame flex flex-wrap gap-x-5 gap-y-1 py-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] text-sm sm:py-6 sm:pb-[max(1.5rem,env(safe-area-inset-bottom))]"
       >
         <a
           class="text-plum/80 hover:text-orange-ink dark:text-cream/80 dark:hover:text-orange-bright"
           href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a
         >
+        {icpFilingNumber && <a class="text-plum/80 hover:text-orange-ink dark:text-cream/80 dark:hover:text-orange-bright" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">{icpFilingNumber}</a>}
+        {psbFilingNumber && <a class="text-plum/80 hover:text-orange-ink dark:text-cream/80 dark:hover:text-orange-bright" href={psbFilingUrl} target="_blank" rel="noopener noreferrer">{psbFilingNumber}</a>}
       </div>
-      {isChina && <div class="page-frame min-h-8 pb-4 text-center text-xs" aria-label="备案信息">
-        {icpFilingNumber && <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">{icpFilingNumber}</a>}
-      </div>}
     </footer>
   </div>
 </BaseLayout>

@@ -138,42 +138,35 @@ const tours = [
   </h2>
   <p class="article-sublede">{copy.comparisonLede}</p>
 
-  <p class="compare-hint">{copy.compareHint}</p>
-  <div class="compare-wrap" role="region" tabindex="0" aria-labelledby="download-compare">
-    <table class:list={["compare-table", showGooglePlay && "has-android"]}>
-      <thead>
-        <tr>
-          <th scope="col">{copy.featureLabel}</th>
-          <th scope="col">{copy.mobileLabel}</th>
-          {showGooglePlay && <th scope="col">{copy.androidLabel}</th>}
-          <th scope="col">{copy.desktopLabel}</th>
+  <div class="compare-everywhere">
+    <p>{copy.everywhereLabel}</p>
+    <ul>{copy.everywhere.map((feature) => <li>{feature}</li>)}</ul>
+  </div>
+
+  <div class="compare-wrap">
+    <!-- Explicit roles keep the table semantics when narrow screens restyle the rows as grids. -->
+    <table role="table" aria-labelledby="download-compare" class:list={["compare-table", showGooglePlay && "has-android"]} style={`--compare-cols:${showGooglePlay ? 3 : 2}`}>
+      <thead role="rowgroup">
+        <tr role="row">
+          <th role="columnheader" scope="col">{copy.featureLabel}</th>
+          <th role="columnheader" scope="col">{copy.mobileLabel}</th>
+          {showGooglePlay && <th role="columnheader" scope="col">{copy.androidLabel}</th>}
+          <th role="columnheader" scope="col">{copy.desktopLabel}</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody role="rowgroup">
         {
           copy.rows.map((row) => (
-            <tr>
-              <th scope="row">{row.feature}</th>
-              <td data-status={row.mobile.status}>
-                <span class="compare-cell">
-                  <span class="compare-cue" aria-hidden="true"></span>
-                  <span>{row.mobile.detail}</span>
-                </span>
-              </td>
-              {showGooglePlay && (
-                <td data-status={row.android.status}>
+            <tr role="row">
+              <th role="rowheader" scope="row">{row.feature}</th>
+              {[row.mobile, ...(showGooglePlay ? [row.android] : []), row.desktop].map((cell) => (
+                <td role="cell" data-status={cell.status}>
                   <span class="compare-cell">
                     <span class="compare-cue" aria-hidden="true"></span>
-                    <span>{row.android.detail}</span>
+                    <span>{cell.detail}</span>
                   </span>
                 </td>
-              )}
-              <td data-status={row.desktop.status}>
-                <span class="compare-cell">
-                  <span class="compare-cue" aria-hidden="true"></span>
-                  <span>{row.desktop.detail}</span>
-                </span>
-              </td>
+              ))}
             </tr>
           ))
         }
@@ -337,23 +330,40 @@ const tours = [
   .showcase-desk { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 3rem; max-width: 56rem; margin-inline: auto; align-items: center; }
   .showcase-figure { margin: 0; min-width: 0; }
   .showcase-figure figcaption { min-height: 2.75rem; margin-top: .65rem; padding-block: .5rem; color: var(--muted); font-size: .75rem; line-height: 1.5; }
-  .compare-wrap { margin-top: 2rem; overflow-x: auto; border: 1px solid var(--rule); border-radius: 1rem; }
-  .compare-table { width: 100%; min-width: 42rem; border-collapse: collapse; font-size: .9375rem; line-height: 1.45; }
-  .compare-table th, .compare-table td { padding: 1.15rem; border-bottom: 1px solid var(--rule); text-align: start; vertical-align: top; }
-  .compare-table thead { background: var(--surface); }
-  .compare-table thead th { color: var(--muted); font-size: .8125rem; font-weight: 600; }
-  .compare-table th:first-child { width: 24%; }
-  .compare-table.has-android { min-width: 52rem; }
-  .compare-table.has-android th:first-child { width: 19%; }
-  .compare-table tbody th { font-weight: 600; color: var(--ink); }
+  /* Shared features are listed once; the table only carries differences. */
+  .compare-everywhere { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem 1.25rem; margin-top: 1.75rem; }
+  .compare-everywhere p { margin: 0; color: var(--muted); font-size: .8125rem; }
+  .compare-everywhere ul { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; margin: 0; padding: 0; list-style: none; }
+  .compare-everywhere li { display: inline-flex; align-items: baseline; gap: .45rem; font-size: .9375rem; font-weight: 500; }
+  .compare-everywhere li::before { content: ""; flex: none; width: .5rem; height: .5rem; border-radius: 50%; background: var(--accent); transform: translateY(-.1em); }
+  .compare-wrap { margin-top: 1.5rem; overflow-x: auto; }
+  .compare-table { width: 100%; min-width: 34rem; border-collapse: collapse; table-layout: fixed; font-size: .9375rem; line-height: 1.45; }
+  .compare-table th, .compare-table td { padding: .9rem .75rem; border-bottom: 1px solid var(--rule); text-align: start; vertical-align: top; }
+  .compare-table :is(th, td):first-child { padding-inline-start: 0; }
+  .compare-table thead th { padding-block: 0 .7rem; color: var(--muted); font-size: .8125rem; font-weight: 500; }
+  .compare-table th:first-child { width: 22%; }
+  .compare-table.has-android { min-width: 40rem; }
+  .compare-table tbody th { font-weight: 500; color: var(--ink); }
   .compare-table tr:last-child :is(th, td) { border-bottom: 0; }
   .compare-cell { display: flex; align-items: flex-start; gap: .5rem; }
   .compare-cue { flex: none; box-sizing: border-box; margin-top: .42em; width: .5rem; height: .5rem; border-radius: 50%; }
-  .compare-table td[data-status="included"] { color: var(--ink); font-weight: 500; }
+  .compare-table td[data-status="included"] { color: var(--ink); }
   .compare-table td[data-status="included"] .compare-cue { background: var(--accent); }
   .compare-table td[data-status="limited"], .compare-table td[data-status="absent"] { color: var(--muted); }
   .compare-table td[data-status="limited"] .compare-cue { border: 1.5px solid var(--muted); }
   .compare-table td[data-status="absent"] .compare-cue { height: 0; margin-top: .72em; border-radius: 0; border-top: 1.5px solid var(--muted); }
+  /* Phones: the feature name takes its own line and the platforms sit in
+     columns beneath it, so the table reads without sideways scrolling. */
+  @media (max-width: 639px) {
+    .compare-table, .compare-table.has-android { display: block; min-width: 0; font-size: .875rem; }
+    .compare-table :is(thead, tbody) { display: block; }
+    .compare-table tr { display: grid; grid-template-columns: repeat(var(--compare-cols), minmax(0, 1fr)); gap: .4rem .75rem; padding-block: .85rem; border-bottom: 1px solid var(--rule); }
+    .compare-table thead tr { padding-block: 0 .6rem; }
+    .compare-table tr:last-child { border-bottom: 0; }
+    .compare-table :is(th, td), .compare-table thead th, .compare-table th:first-child { width: auto; padding: 0; border: 0; }
+    .compare-table thead th:first-child { display: none; }
+    .compare-table tbody th { grid-column: 1 / -1; font-weight: 600; }
+  }
   @media (max-width: 879px) {
     .tour-stage { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
     .tour-slot { max-width: 17rem; }

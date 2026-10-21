@@ -48,9 +48,11 @@ export interface DownloadShowcaseCopy {
   mobileLabel: string;
   androidLabel: string;
   desktopLabel: string;
-  /** Download-page section nav and the sideways-scroll hint. */
+  /** Features every app has, listed once above the table instead of as rows. */
+  everywhereLabel: string;
+  everywhere: string[];
+  /** Download-page section nav. */
   showcaseLabel: string;
-  compareHint: string;
   pageIndexLabel: string;
   compareNavLabel: string;
   rows: CompareRow[];
@@ -128,114 +130,70 @@ const copy: Partial<Record<ContentLocale, DownloadShowcaseCopy>> &
     ],
     comparisonHeading: "装在哪里，剩余时间出现的方式不一样",
     comparisonLede:
-      "倒计时、今日已赚和跨夜班次每个客户端都有。iPhone 和 Android 上还可以用月历排班、跟着节假日走、把年终奖算进去、用生物识别锁住薪资；Apple Watch 和实时活动只在 iPhone 上。",
+      "基础功能每个客户端都有。手机上排班和薪资更细，电脑上随时唤出。",
     featureLabel: "功能",
     mobileLabel: "iPhone / iPad",
     androidLabel: "Android",
     desktopLabel: "电脑",
+    everywhereLabel: "每个客户端都有",
+    everywhere: [
+      "下班倒计时与进度",
+      "今日已赚",
+      "跨夜班次",
+      "下班提醒",
+      "数据默认留在本机",
+    ],
     showcaseLabel: "DoneAt 客户端功能",
-    compareHint: "横向滑动，查看各平台的功能 →",
     pageIndexLabel: "本页内容",
     compareNavLabel: "功能对照",
     rows: [
       {
-        feature: "下班倒计时",
-        mobile: { status: "included", detail: "实时倒数与进度" },
-        android: { status: "included", detail: "实时倒数与进度" },
-        desktop: { status: "included", detail: "实时倒数与进度" },
-      },
-      {
-        feature: "今日已赚",
-        mobile: { status: "included", detail: "月薪或日薪，按进度累加" },
-        android: { status: "included", detail: "月薪或日薪，按进度累加" },
-        desktop: { status: "included", detail: "月薪或日薪，按进度累加" },
-      },
-      {
-        feature: "跨夜班次",
-        mobile: { status: "included", detail: "下班早于上班时按跨零点处理" },
-        android: { status: "included", detail: "下班早于上班时按跨零点处理" },
-        desktop: { status: "included", detail: "下班早于上班时按跨零点处理" },
-      },
-      {
-        feature: "月历排班",
-        mobile: {
-          status: "included",
-          detail: "固定星期、大小周、轮班轮休、自由排班或手动计时",
-        },
-        android: { status: "included", detail: "固定星期、大小周、轮班轮休、自由排班或手动计时" },
+        feature: "月历与循环排班",
+        mobile: { status: "included", detail: "大小周、轮班、自由排班" },
+        android: { status: "included", detail: "大小周、轮班、自由排班" },
         desktop: { status: "limited", detail: "一组上下班时间" },
       },
       {
         feature: "节假日与调休",
-        mobile: {
-          status: "included",
-          detail: "按国家或地区适配，在「工作时间与排班」中开启",
-        },
-        android: { status: "included", detail: "按国家或地区适配，在「工作时间与排班」中设置" },
+        mobile: { status: "included", detail: "按国家或地区" },
+        android: { status: "included", detail: "按国家或地区" },
         desktop: { status: "absent", detail: "没有" },
       },
       {
         feature: "年终奖",
-        mobile: { status: "included", detail: "可折进今日已赚" },
-        android: { status: "included", detail: "可折进今日已赚" },
-        desktop: { status: "limited", detail: "月薪或日薪" },
+        mobile: { status: "included", detail: "折进今日已赚" },
+        android: { status: "included", detail: "折进今日已赚" },
+        desktop: { status: "limited", detail: "只算月薪或日薪" },
       },
       {
         feature: "薪资保密",
-        mobile: { status: "included", detail: "打开设置或显示金额要生物识别" },
-        android: { status: "included", detail: "显示金额要指纹、人脸或锁屏密码" },
+        mobile: { status: "included", detail: "生物识别" },
+        android: { status: "included", detail: "指纹、人脸或锁屏密码" },
         desktop: { status: "absent", detail: "没有" },
       },
       {
-        feature: "接下来",
-        mobile: { status: "included", detail: "健康提醒、上班进度、午休" },
-        android: { status: "included", detail: "健康提醒、上班进度、午休" },
+        feature: "接下来的安排",
+        mobile: { status: "included", detail: "健康提醒、进度、午休" },
+        android: { status: "included", detail: "健康提醒、进度、午休" },
         desktop: { status: "absent", detail: "没有" },
-      },
-      {
-        feature: "自动循环排班",
-        mobile: {
-          status: "included",
-          detail: "设一次，按班次循环；之后看小组件即可",
-        },
-        android: { status: "included", detail: "设一次，按班次循环；之后看小组件即可" },
-        desktop: { status: "absent", detail: "没有" },
-      },
-      {
-        feature: "离开之后仍提醒",
-        mobile: { status: "included", detail: "系统通知" },
-        android: { status: "included", detail: "系统通知" },
-        desktop: { status: "included", detail: "窗口藏起后仍可系统通知" },
       },
       {
         feature: "抬眼就在",
-        mobile: {
-          status: "included",
-          detail: "主屏幕与锁定屏幕小组件、实时活动",
-        },
-        android: { status: "included", detail: "桌面小组件与常驻通知" },
-        desktop: { status: "included", detail: "菜单栏、托盘与迷你计时" },
+        mobile: { status: "included", detail: "小组件、实时活动" },
+        android: { status: "included", detail: "小组件、常驻通知" },
+        desktop: { status: "included", detail: "菜单栏、托盘、迷你计时" },
       },
       {
         feature: "Apple Watch",
-        mobile: { status: "included", detail: "免费 App 与两种复杂功能" },
+        mobile: { status: "included", detail: "免费 App 与复杂功能" },
         android: { status: "absent", detail: "没有" },
         desktop: { status: "absent", detail: "没有" },
       },
       {
-        feature: "登录启动与快捷键",
+        feature: "开机启动与快捷键",
         mobile: { status: "limited", detail: "从主屏幕打开" },
         android: { status: "limited", detail: "从桌面打开" },
-        desktop: { status: "included", detail: "登录后就绪，全局快捷键唤出" },
-      },
-      {
-        feature: "数据存储",
-        mobile: {
-          status: "included",
-          detail: "默认保存在本机，可选择通过私人 iCloud 同步",
-        },
-        android: { status: "included", detail: "默认保存在本机，可包含在 Android 系统备份中" },
-        desktop: { status: "included", detail: "班次和薪资不上传" },
+        desktop: { status: "included", detail: "登录即就绪，快捷键唤出" },
       },
     ],
   },
@@ -309,155 +267,70 @@ const copy: Partial<Record<ContentLocale, DownloadShowcaseCopy>> &
     ],
     comparisonHeading: "Where it lives is what changes",
     comparisonLede:
-      "The countdown, today’s earnings, and overnight shifts are in every app. On iPhone and Android you can also plan the month on a calendar, follow public holidays, fold in a year-end bonus and lock salary behind biometrics. Apple Watch and Live Activities are iPhone only.",
+      "The basics are in every app. Phones go deeper on schedules and pay; computers stay one shortcut away.",
     featureLabel: "Feature",
     mobileLabel: "iPhone / iPad",
     androidLabel: "Android",
     desktopLabel: "Computer",
+    everywhereLabel: "In every app",
+    everywhere: [
+      "Shift countdown and progress",
+      "Today’s earnings",
+      "Overnight shifts",
+      "Clock-off reminders",
+      "Data stays on your device by default",
+    ],
     showcaseLabel: "DoneAt app features",
-    compareHint: "Scroll sideways to compare each platform →",
     pageIndexLabel: "On this page",
     compareNavLabel: "Compare features",
     rows: [
       {
-        feature: "Shift countdown",
-        mobile: {
-          status: "included",
-          detail: "Live remaining time and progress",
-        },
-        android: { status: "included", detail: "Live remaining time and progress" },
-        desktop: {
-          status: "included",
-          detail: "Live remaining time and progress",
-        },
-      },
-      {
-        feature: "Today’s earnings",
-        mobile: {
-          status: "included",
-          detail: "Monthly or daily pay, by progress",
-        },
-        android: { status: "included", detail: "Monthly or daily pay, by progress" },
-        desktop: {
-          status: "included",
-          detail: "Monthly or daily pay, by progress",
-        },
-      },
-      {
-        feature: "Overnight shifts",
-        mobile: {
-          status: "included",
-          detail: "End time before start crosses midnight",
-        },
-        android: { status: "included", detail: "End time before start crosses midnight" },
-        desktop: {
-          status: "included",
-          detail: "End time before start crosses midnight",
-        },
-      },
-      {
-        feature: "Monthly calendar",
-        mobile: {
-          status: "included",
-          detail:
-            "Fixed weekdays, alternating weeks, rotations, free scheduling or manual timing",
-        },
-        android: { status: "included", detail: "Fixed weekdays, alternating weeks, rotations, free scheduling or manual timing" },
+        feature: "Calendar and rotations",
+        mobile: { status: "included", detail: "Alternating weeks, rotations, free scheduling" },
+        android: { status: "included", detail: "Alternating weeks, rotations, free scheduling" },
         desktop: { status: "limited", detail: "One start and end time" },
       },
       {
         feature: "Public holidays",
-        mobile: {
-          status: "included",
-          detail: "By country or region, turned on in Work Hours & Schedule",
-        },
-        android: { status: "included", detail: "By country or region, set in Hours & schedule" },
+        mobile: { status: "included", detail: "By country or region" },
+        android: { status: "included", detail: "By country or region" },
         desktop: { status: "absent", detail: "No" },
       },
       {
         feature: "Year-end bonus",
         mobile: { status: "included", detail: "Folds into today’s earnings" },
         android: { status: "included", detail: "Folds into today’s earnings" },
-        desktop: { status: "limited", detail: "Monthly or daily pay" },
+        desktop: { status: "limited", detail: "Monthly or daily pay only" },
       },
       {
         feature: "Salary lock",
-        mobile: {
-          status: "included",
-          detail: "Biometrics to open salary settings or show the amount",
-        },
-        android: { status: "included", detail: "Fingerprint, face or screen lock to show the amount" },
+        mobile: { status: "included", detail: "Biometrics" },
+        android: { status: "included", detail: "Fingerprint, face or screen lock" },
         desktop: { status: "absent", detail: "No" },
       },
       {
         feature: "Coming up",
-        mobile: {
-          status: "included",
-          detail: "Health reminders, shift progress, lunch",
-        },
-        android: { status: "included", detail: "Health reminders, shift progress, lunch" },
+        mobile: { status: "included", detail: "Health reminders, progress, lunch" },
+        android: { status: "included", detail: "Health reminders, progress, lunch" },
         desktop: { status: "absent", detail: "No" },
-      },
-      {
-        feature: "Recurring schedule",
-        mobile: {
-          status: "included",
-          detail:
-            "Set once; it cycles on its own. After that, the widget is enough",
-        },
-        android: { status: "included", detail: "Set once; it cycles on its own. After that, the widget is enough" },
-        desktop: { status: "absent", detail: "No" },
-      },
-      {
-        feature: "Reminders after you leave",
-        mobile: { status: "included", detail: "System notifications" },
-        android: { status: "included", detail: "System notifications" },
-        desktop: {
-          status: "included",
-          detail: "System notifications with the window hidden",
-        },
       },
       {
         feature: "Close at hand",
-        mobile: {
-          status: "included",
-          detail: "Home Screen and Lock Screen widgets, Live Activities",
-        },
-        android: { status: "included", detail: "Home-screen widgets and an ongoing notification" },
-        desktop: {
-          status: "included",
-          detail: "Menu bar, tray, and mini timer",
-        },
+        mobile: { status: "included", detail: "Widgets, Live Activities" },
+        android: { status: "included", detail: "Widgets, ongoing notification" },
+        desktop: { status: "included", detail: "Menu bar, tray, mini timer" },
       },
       {
         feature: "Apple Watch",
-        mobile: {
-          status: "included",
-          detail: "Free app and two complications",
-        },
+        mobile: { status: "included", detail: "Free app and complications" },
         android: { status: "absent", detail: "No" },
         desktop: { status: "absent", detail: "No" },
       },
       {
         feature: "Launch at login and shortcut",
-        mobile: { status: "limited", detail: "Open it from the home screen" },
-        android: { status: "limited", detail: "Open it from the home screen" },
-        desktop: {
-          status: "included",
-          detail: "Ready after login, one shortcut away",
-        },
-      },
-      {
-        feature: "Data storage",
-        mobile: {
-          status: "included",
-          detail: "Local by default, with optional private iCloud sync",
-        },
-        android: { status: "included", detail: "Local by default; Android backup can include it" },
-        desktop: {
-          status: "included",
-          detail: "Hours and salary are not uploaded",
-        },
+        mobile: { status: "limited", detail: "Open from the home screen" },
+        android: { status: "limited", detail: "Open from the home screen" },
+        desktop: { status: "included", detail: "Ready at login, one shortcut away" },
       },
     ],
   },

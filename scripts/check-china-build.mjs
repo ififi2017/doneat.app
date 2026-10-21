@@ -18,7 +18,7 @@ for (const page of ['', ...pages]) {
   assert(!/https?:\/\/(?:www\.)?(?:x|twitter)\.com\//.test(html), `${path}: no X links/structured data`);
   assert(!html.includes('name="twitter:'), `${path}: no X metadata`);
   assert(!html.includes('locale-switch-summary'), `${path}: no language switcher`);
-  assert(html.includes('site-footer-filing'), `${path}: filing space reserved`);
+  assert(html.includes('href="https://doneat.app/zh-CN'), `${path}: footer links the international site`);
   assert(!html.includes('/_vercel/insights') && !html.includes('navigator.sendBeacon'), `${path}: no Vercel or unserved beacon`);
   const alternates = [...html.matchAll(/hreflang="([^"]+)"/g)].map(match => match[1]);
   assert(alternates.length === 2 && alternates.every(locale => ['zh-CN', 'x-default'].includes(locale)), `${path}: real locale alternates only`);
@@ -48,5 +48,12 @@ const filing = (process.env.ICP_FILING_NUMBER || '').trim();
 if (filing) {
   assert(read('zh-CN/index.html').includes('https://beian.miit.gov.cn/'), 'Real filing links to MIIT');
   assert(read('zh-CN/index.html').includes(filing), 'Real filing number is visible');
+}
+const psbFiling = (process.env.PSB_FILING_NUMBER || '').trim();
+if (psbFiling) {
+  assert(read('zh-CN/index.html').includes(`https://beian.mps.gov.cn/#/query/webSearch?code=${psbFiling.replace(/\D/g, '')}`), 'Public security filing links to MPS');
+  assert(read('zh-CN/index.html').includes(psbFiling), 'Public security filing number is visible');
+} else {
+  assert(!read('zh-CN/index.html').includes('beian.mps.gov.cn'), 'No public security filing link without a number');
 }
 console.log('China build checks passed: routes, local links/assets, SEO, X removal, filing and analytics isolation');
