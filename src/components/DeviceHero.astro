@@ -26,7 +26,9 @@ const alt = altOverride ?? t(locale, "deviceAlt");
 const still = stem === "zh" ? { white: zhWhite, black: zhBlack } : { white: enWhite, black: enBlack };
 const reviewStill = stem === "zh" ? zhReview : enReview;
 const reviewSrc = `/device/web/${stem}-review.mp4`;
-const sizes = "(min-width: 880px) 18rem, (min-width: 640px) 17rem, 80vw";
+// Beyond 1920px the rem grid scales with the viewport (global.css), which a
+// sizes rem does not follow; vw does.
+const sizes = "(min-width: 1921px) 19vw, (min-width: 880px) 18rem, (min-width: 640px) 17rem, 80vw";
 const stillWidths = [360, 720, 1080];
 const frameWidths = [400, 800, 1200];
 ---
@@ -225,7 +227,19 @@ const frameWidths = [400, 800, 1200];
 <style>
   .device-hero {
     isolation: isolate;
-    filter: drop-shadow(0 24px 50px color-mix(in srgb, var(--color-plum) 28%, transparent));
+  }
+
+  /* The shadow is a box-shadow on a body-shaped layer, not a drop-shadow on
+     the whole device: a filter over the playing video is recomputed on every
+     video frame, which drops frames on large and Windows screens. */
+  .device-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0.7% 1.4%;
+    z-index: -2;
+    border-radius: 19% / 9.3%;
+    box-shadow: 0 24px 50px color-mix(in srgb, var(--color-plum) 28%, transparent);
+    pointer-events: none;
   }
 
   .device-hero::after {
@@ -281,8 +295,8 @@ const frameWidths = [400, 800, 1200];
   }
 
   @media (prefers-color-scheme: dark) {
-    .device-hero {
-      filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.5));
+    .device-hero::before {
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
     }
 
     .device-hero::after {

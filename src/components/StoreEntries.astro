@@ -149,7 +149,7 @@ const msBadgeWidth = Math.round((msBadgeHeight * msLight.width) / msLight.height
       aria-label={t(locale, "microsoftStoreLabel")}
       data-track="microsoft_store_open"
       data-ms-width={msBadgeWidth}
-      style={`width:${msBadgeWidth}px`}
+      style={`width:${msBadgeWidth / 16}rem`}
     >
       <span class="ms-fallback" aria-hidden="true">
         {!fixedDark && (
@@ -242,12 +242,13 @@ const msBadgeWidth = Math.round((msBadgeHeight * msLight.width) / msLight.height
       var wrap = badge.closest(".ms-badge");
       var img = badge.shadowRoot && badge.shadowRoot.querySelector("img");
       if (!wrap || !img || !img.naturalWidth || !img.naturalHeight) return false;
-      img.style.height = "40px";
-      img.style.maxHeight = "40px";
+      img.style.height = "2.5rem";
+      img.style.maxHeight = "2.5rem";
       img.style.width = "auto";
+      // Widths in 16px units, written as rem so the badge scales with the grid.
       var fromImg = Math.round((40 * img.naturalWidth) / img.naturalHeight);
       var fromFallback = parseInt(wrap.getAttribute("data-ms-width"), 10) || 0;
-      wrap.style.width = Math.max(fromImg, fromFallback) + "px";
+      wrap.style.width = Math.max(fromImg, fromFallback) / 16 + "rem";
       wrap.classList.add("is-loaded");
       return true;
     }
