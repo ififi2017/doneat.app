@@ -37,7 +37,7 @@ Astro 门厅、英中长文、下载页都已上线。接着改现有工程，�
 - 首页整页（`.shift-page`）不可选中文字；下载 / FAQ / 关于等长文页照常可选。
 - 新版首页窄屏按语言起始边对齐，RTL 跟随阅读方向；章节竖叠，真实手机放在第 01 章，首屏不放手机。桌面首屏左为双行标题、品牌句和两个入口，右为与产品网页版同款的实时卡片（`LiveShiftCard.astro`）；窄屏卡片在入口下方。首屏不再重复顶栏的品牌字标。可五连击的品牌 mark 在收尾章标题上方用内联 SVG；官方商店徽章在收尾章提供，不要求重复放首屏。首页顶栏用 `tone="dark"`，两种系统配色下都是深梅色实色栏。顶栏不要用 `backdrop-filter`：盖在钉住的滚动场景上时，Chromium 会在栏里画出神秘方框。
 - 窄屏页脚可以折成多行，导航、社交图标、署名都居中。桌面仍左导航，右侧是社交图标 + 署名。
-- 页脚是：怎么算的、隐私、联系我们；社交图标列（现为 X `@doneatapp`，渠道写在 `site.json` 的 `socials`，不要把空位画出来）；署名 `© fi_niaR Studio` 和 Powered by Astro。GitHub **源码**在顶栏图标，不进页脚，也不进社交列。
+- 页脚是：怎么算的、隐私、联系我们；社交图标列（现为 X `@doneatapp`，渠道写在 `site.json` 的 `socials`，不要把空位画出来）；署名 `© fi_niaR Studio` 和 Powered by Astro。署名用工作室标志 `> fi_niaR Studio█`（Geist Mono Bold 子集 `public/fonts/fi_niaR-Mark.woff2`，光标闪烁，减少动态效果时不闪），链到 https://finiar.app 。GitHub **源码**在顶栏图标，不进页脚，也不进社交列。
 
 ## 实现经验（不要重踩）
 
