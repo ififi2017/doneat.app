@@ -32,8 +32,8 @@ const otherSite = otherSiteLink(Astro.url.pathname.replace(/\/$/, ""));
     <div class="site-footer-end">
       <SocialLinks locale={locale} />
       <p class="site-footer-credits">
-        <a href="https://rainif.com" target="_blank" rel="noopener noreferrer">
-          © fi_niaR Studio
+        <a class="studio-mark" href="https://finiar.app" target="_blank" rel="noopener noreferrer" aria-label="© fi_niaR Studio">
+          ©&nbsp;<span class="studio-mark-chevron" aria-hidden="true">&gt;</span>fi_niaR Studio<span class="studio-mark-cursor" aria-hidden="true"></span>
         </a>
         {icpFilingNumber && <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">{icpFilingNumber}</a>}
         {psbFilingNumber && <a href={psbFilingUrl} target="_blank" rel="noopener noreferrer">{psbFilingNumber}</a>}
@@ -80,6 +80,47 @@ const otherSite = otherSiteLink(Astro.url.pathname.replace(/\/$/, ""));
 
   .site-footer-credits {
     margin-block: 0;
+  }
+
+  /* fi_niaR Studio mark, shared with finiar.app and the other studio sites.
+     The font is a Geist Mono Bold subset holding only "> fi_niaR Studio"
+     (OFL-1.1, public/licenses/geist-ofl.txt). The footer is always dark, so
+     the mark uses the studio's dark-scheme accent. */
+  @font-face {
+    font-family: "fi_niaR Mark";
+    src: url("/fonts/fi_niaR-Mark.woff2") format("woff2");
+    font-weight: 700;
+    font-display: swap;
+  }
+
+  .site-footer-inner .studio-mark {
+    font: 700 1em/1 "fi_niaR Mark", "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+
+  .studio-mark-chevron {
+    color: #7aa7ff;
+    margin-right: 0.4em;
+  }
+
+  .studio-mark-cursor {
+    display: inline-block;
+    width: 0.55em;
+    height: 0.95em;
+    margin-left: 0.15em;
+    background: #7aa7ff;
+    opacity: 0.85;
+    animation: studio-mark-blink 1.1s step-end infinite;
+  }
+
+  @keyframes studio-mark-blink {
+    0%, 49% { opacity: 0.85; }
+    50%, 100% { opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .studio-mark-cursor { animation: none; }
   }
 
   @media (max-width: 639px) {
