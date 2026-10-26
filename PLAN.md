@@ -312,4 +312,4 @@
 ## 2026-10-26 国内站公安备案
 
 - [x] 按用户提供的链接，在国内六页共用页脚展示「沪公网安备31011202023803号」，与 ICP 备案号并列；新窗口打开并设置 noopener/noreferrer，窄屏可换行。
-- [ ] 国内／海外构建检查及国内站发布验收。
+- [x] check：42 files、0 errors/warnings/hints；国内／海外 build 与 seo:check 均通过，海外构建不包含公安备案号。国内 [Actions 40265047585](https://github.com/ififi2017/doneat.app/actions/runs/40265047585) 发布成功，公网六页 HTTPS 200，公安链接／文本／新窗口属性及原 ICP 号均核对正确。Mac 内置 Chromium 查看线上首页页脚（896×1149，浅色系统），两备案链接并列且可读；未重跑全尺寸／明暗矩阵。
