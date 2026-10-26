@@ -322,3 +322,7 @@ TLS/静态片段已安装为备用文件；独立 nginx -t -c 用临时测试证
 用户修复出口后 ACME 连接恢复。使用既有账号签发 doneat.com.cn 与 www.doneat.com.cn 的证书（到期 2027-01-19），enabled symlink 已切到 doneat-cn-tls，Nginx 检查与 reload 成功。域名、www、IP HTTP 统一 308 至 HTTPS 裸域并保留 path/query，ACME HTTP-01 例外保留。公网六页 200、备案、404、www 重定向及证书信任验证通过；Mac 内置 Chromium HTTPS 首页可读。certbot.timer 已存在，新增 root-owned deploy hook 仅为本站证书检查并 reload Nginx。
 
 自动续期验收：`certbot renew --cert-name doneat.com.cn --dry-run --run-deploy-hooks` 成功，deploy hook 实际执行 Nginx 检查与 reload；计划任务使用既有 certbot.timer。
+
+## 2026-10-26 公安备案展示
+
+国内站共用页脚在 ICP 备案号旁展示「沪公网安备31011202023803号」，链接使用用户提供的公安部查询地址 `https://beian.mps.gov.cn/#/query/webSearch?code=31011202023803`。仅国内构建显示，海外构建不显示。

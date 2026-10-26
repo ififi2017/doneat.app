@@ -39,6 +39,7 @@ const privacyLang = contentLocaleFor(locale, "privacy");
   </div>
   {isChina && <div class="page-frame site-footer-filing" aria-label="备案信息">
     {icpFilingNumber && <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">{icpFilingNumber}</a>}
+    <a href="https://beian.mps.gov.cn/#/query/webSearch?code=31011202023803" target="_blank" rel="noopener noreferrer">沪公网安备31011202023803号</a>
   </div>}
 </footer>
 
@@ -52,6 +53,10 @@ const privacyLang = contentLocaleFor(locale, "privacy");
     border-top: 1px solid color-mix(in srgb, var(--night-ink) 22%, transparent);
   }
   .site-footer-filing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.25rem;
     min-height: 2rem;
     padding-block: 0 1rem;
     text-align: center;

@@ -308,3 +308,8 @@
 - [x] certbot.timer 已排程；安装仅针对此证书的成功续期 Nginx 检查/reload hook。
 
 自动续期验收：`certbot renew --cert-name doneat.com.cn --dry-run --run-deploy-hooks` 成功，deploy hook 实际执行 Nginx 检查与 reload；计划任务使用既有 certbot.timer。
+
+## 2026-10-26 国内站公安备案
+
+- [x] 按用户提供的链接，在国内六页共用页脚展示「沪公网安备31011202023803号」，与 ICP 备案号并列；新窗口打开并设置 noopener/noreferrer，窄屏可换行。
+- [ ] 国内／海外构建检查及国内站发布验收。

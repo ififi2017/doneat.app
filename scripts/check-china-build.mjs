@@ -19,6 +19,8 @@ for (const page of ['', ...pages]) {
   assert(!html.includes('name="twitter:'), `${path}: no X metadata`);
   assert(!html.includes('locale-switch-summary'), `${path}: no language switcher`);
   assert(html.includes('site-footer-filing'), `${path}: filing space reserved`);
+  assert(html.includes('href="https://beian.mps.gov.cn/#/query/webSearch?code=31011202023803"'), `${path}: police filing query link`);
+  assert(html.includes('沪公网安备31011202023803号'), `${path}: police filing number visible`);
   assert(!html.includes('/_vercel/insights') && !html.includes('navigator.sendBeacon'), `${path}: no Vercel or unserved beacon`);
   const alternates = [...html.matchAll(/hreflang="([^"]+)"/g)].map(match => match[1]);
   assert(alternates.length === 2 && alternates.every(locale => ['zh-CN', 'x-default'].includes(locale)), `${path}: real locale alternates only`);
