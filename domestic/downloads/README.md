@@ -1,0 +1,21 @@
+# Cloudflare APK distribution
+
+2026-10-28: account R2 is not activated (API10042). The approved Cloudflare distribution uses **Workers Static Assets**, with no application Worker logic or R2 purchase. APK3.2.1(5) is5744285bytes, below the25MiB per-file limit. Official limits/pricing: https://developers.cloudflare.com/workers/static-assets/billing-and-limitations/ . If future artifacts exceed this limit, select/enable appropriate object storage before uploading.
+
+Service: `doneat-downloads`, custom domain `downloads.doneat.app`. No admin/API bindings. Workers.dev and preview URLs disabled. Current deployment version `62deeeb1-d6a4-413f-9068-aba4517b772c`.
+
+Assets are ignored in Git. Retain every distributed immutable version when preparing future deployments: Workers deployments describe the whole asset tree, so deploying only a new version would remove old public paths. Never overwrite an existing version/hash path with different bytes. Original APK and release metadata are archived in the product workspace under `build/android-cn-production-20261027/`.
+
+Current public prefix:
+`/android/cn/3.2.1-5/d10a832cece3a/`
+
+Files: `doneat-cn-3.2.1-5.apk`, `release.json`, `SHA256SUMS.txt`.
+
+`assets/_headers` sets nosniff/noindex/no-referrer, one-year immutable cache, and exact APK MIME plus attachment filename for APK only. No authentication, secrets, user records, mappings or backup objects are uploaded. Source is publicly retained at the fixed GitHub commit linked by `../release.json`.
+
+Deploy from the site root using a pinned existing Wrangler installation:
+`wrangler deploy --config domestic/downloads/wrangler.jsonc`
+
+Verify the public body hash, signature, MIME and attachment filename after deployment, and verify404 for unknown paths. Record the deployment version. Static serving currently returns200/full body for Range requests: resumable downloads are **not** claimed. The current file is about5.5MiB. Default curl/Python user agents can be blocked by the existing zone security policy; an honest `DoneAt-Release-Verification/1.0` client and an Android Chrome user agent downloaded successfully from Chengdu, without changing any zone security rules.
+
+Do not remove old source tags/commits or mark the Android release as the latest desktop release. Restore the website's prior symlinks if rollback is needed; keep already-distributed artifacts/source obtainable.

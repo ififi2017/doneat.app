@@ -1,0 +1,10 @@
+{
+  "name": "doneat-downloads",
+  "account_id": "5bdf98b2bc34ee3aa04c843987dc80e2",
+  "compatibility_date": "2026-10-28",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{ "pattern": "downloads.doneat.app", "custom_domain": true }],
+  "assets": { "directory": "./assets", "not_found_handling": "none", "html_handling": "none" },
+  "observability": { "enabled": false }
+}
