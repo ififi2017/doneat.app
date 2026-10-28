@@ -22,8 +22,12 @@ Do not remove old source tags/commits or mark the Android release as the latest 
 
 ## Manual Android update checks
 
-`/android/cn/latest.json` is public metadata (schemaVersion/applicationId/channel/versionCode/versionName/minSdk). It uses `no-cache, max-age=0, must-revalidate`, overriding the immutable APK cache. The client requests it only when the user checks for updates, compares versionCode locally, rejects other packages/channels/redirects/oversized or malformed responses, and opens the fixed official download page only after confirmation. It never sends installation or membership data and never downloads or installs in the background.
+`/android/cn/latest.json` is public metadata (schemaVersion/applicationId/channel/versionCode/versionName/minSdk). It uses `no-cache, max-age=0, must-revalidate`, overriding the immutable APK cache. From build 7, the client requests it on foreground launch/resume at most once per 24 hours, or when the user manually checks for updates, compares versionCode locally, rejects other packages/channels/redirects/oversized or malformed responses, and opens the fixed official download page only after confirmation. It never sends installation or membership data and never downloads or installs in the background.
 
 Stage a verified APK under its new immutable version/hash path, update `domestic/release.json`, then run `node domestic/downloads/prepare-update.mjs` before Wrangler deployment. The script checks APK size and SHA-256 before updating the public pointer. Keep all previous APK assets. Never put a candidate's version in the feed before its public download and source record are ready.
 
 2026-10-28 update: build 6 (5,782,546 bytes) uses immutable prefix `/android/cn/3.2.1-6/5f6455f5ce44/`; source commit `2794ec9d9958b8f06c9e35e42eeaf4d4ee9cd5de`. Cloudflare deployment `99488b95-e116-4342-a039-553b0db696c7` retains build 5 and adds the uncached version feed.
+
+Build 7 adds bounded plain-text English/Simplified Chinese release notes from `domestic/changelog.json`. Automatic checks fail silently, never run a background worker, and remind about the same version at most once per seven days. Their local throttle state is excluded from backup.
+
+Build 7 deployment: `a07edf75-127c-4515-b3cc-d6df3200c8b3`; immutable prefix `/android/cn/3.2.1-7/37e480aa222a/`. Builds 5 and 6 retained. Corresponding source: `6c87cb6fe377e65b1764e4793bf9a30f7ccd3138`.
