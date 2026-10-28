@@ -1,11 +1,11 @@
 {
   "versionName": "3.2.1",
-  "versionCode": 5,
-  "bytes": 5744285,
-  "apkSha256": "d10a832cece3a88105aa9bdb9586304fa1779154b452c1092d97e57370ac6d60",
+  "versionCode": 6,
+  "bytes": 5782546,
+  "apkSha256": "5f6455f5ce44413c55dccbe261973e421727aa07c90583e4e5452c7bb79d672d",
   "certificateSha256": "2554fa47d4cb553bf22c1d8821769ca2c27381821c65fe68af835a9336bcd41b",
-  "sourceCommit": "59bf5e40959cafc21d3dc20ad9ce667d11934a83",
-  "sourceUrl": "https://github.com/ififi2017/Off-Work-Countdown/tree/59bf5e40959cafc21d3dc20ad9ce667d11934a83",
+  "sourceCommit": "2794ec9d9958b8f06c9e35e42eeaf4d4ee9cd5de",
+  "sourceUrl": "https://github.com/ififi2017/Off-Work-Countdown/tree/2794ec9d9958b8f06c9e35e42eeaf4d4ee9cd5de",
   "publishedAt": "2026-10-28",
-  "apkUrl": "https://downloads.doneat.app/android/cn/3.2.1-5/d10a832cece3a/doneat-cn-3.2.1-5.apk"
+  "apkUrl": "https://downloads.doneat.app/android/cn/3.2.1-6/5f6455f5ce44/doneat-cn-3.2.1-6.apk"
 }
