@@ -60,3 +60,6 @@ console.log(`PASS: ${locales.length} download entries and domestic sitemap separ
 
 assert.ok(files.get('/android/privacy').includes('不发送设备标识、激活码、会员凭据、薪资或工作记录'));
 assert.ok(files.get('/android').includes('设置 → 关于 → 检查更新'));
+
+assert.ok(files.get('/android').includes('id="changelog"'));
+assert.ok(files.get('/android/privacy').includes('每 24 小时最多请求一次'));
