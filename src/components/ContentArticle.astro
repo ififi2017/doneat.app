@@ -120,7 +120,7 @@ const jsonLd = isFaq
           ) : null
         }
       </div>
-      {isDownload ? <MainlandAndroidEntry locale={locale} /> : null}
+      {isDownload && !isChina && locale === "zh-CN" ? <MainlandAndroidEntry locale={locale} /> : null}
       {
         isDownload ? (
           <nav

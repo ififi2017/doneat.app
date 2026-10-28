@@ -52,7 +52,14 @@ const allLocales = JSON.parse(await readFile(path.resolve(here, '../locales/hall
 const locales = process.env.SITE_REGION === 'cn' ? ['zh-CN'] : allLocales;
 for (const locale of locales) {
   const download = await readFile(path.join(repoDist, locale, 'download/index.html'), 'utf8');
-  assert.ok(download.includes('href="https://doneat.com.cn/android"') && download.includes('mainland-android-heading'), `${locale}: mainland download entry`);
+  const china = process.env.SITE_REGION === 'cn';
+  assert.equal(download.includes('mainland-android-heading'), !china && locale === 'zh-CN', `${locale}: only global Simplified Chinese shows the mainland hint`);
+  assert.equal(/<a\b[^>]*class="[^"]*android-download-badge/.test(download), china, `${locale}: domestic Android badge`);
+  if (china) {
+    assert.ok(download.includes('href="/android"'), 'Domestic badge opens the dedicated Android page');
+    assert.match(download, /class="police-filing"[^>]*>[\s\S]*?<img[^>]+police-filing/, 'Police filing includes the official icon');
+  }
+  if (!china && locale !== 'zh-CN') assert.ok(!download.includes('href="https://doneat.com.cn/android"'), `${locale}: no mainland download prompt`);
 }
 const sitemap = await readFile(path.join(repoDist, 'sitemap-0.xml'), 'utf8');
 assert.ok(!sitemap.includes('https://doneat.app/android'), 'Domestic canonical routes stay out of international sitemap');
