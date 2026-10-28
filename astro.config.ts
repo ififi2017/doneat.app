@@ -78,7 +78,7 @@ export default defineConfig({
         const url = new URL(page);
         const segments = url.pathname.split("/").filter(Boolean);
         if (segments.length === 0) return false;
-        if (segments[0] === "404") return false;
+        if (segments[0] === "404" || segments[0] === "android") return false;
         if (segments.length === 1 && (CONTENT_PAGES as readonly string[]).includes(segments[0])) {
           return false;
         }

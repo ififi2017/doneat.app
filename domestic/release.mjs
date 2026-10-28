@@ -3,6 +3,10 @@ import { readFile } from 'node:fs/promises';
 
 export async function loadRelease() {
   const release = JSON.parse(await readFile(new URL('./release.json', import.meta.url), 'utf8'));
+  return validateRelease(release);
+}
+
+export function validateRelease(release) {
   assert.match(release.versionName, /^\d+\.\d+\.\d+$/);
   assert.ok(Number.isSafeInteger(release.versionCode) && release.versionCode > 0);
   assert.ok(Number.isSafeInteger(release.bytes) && release.bytes > 0);

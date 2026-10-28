@@ -57,7 +57,7 @@ const webHref = webAppUrl(locale, "hall");
 const msHref = siteConfig.microsoftStoreUrl;
 const isDownload = variant === "download";
 const platformLine = isDownload
-  ? `Windows · Mac · iPhone/iPad · Android (${t(locale, "comingSoon")})`
+  ? `Windows · Mac · iPhone/iPad · Android · Google Play (${t(locale, "comingSoon")})`
   : `${t(locale, "platformWeb")} · Windows · Mac · iPhone/iPad`;
 const appleBlack = pickBadge(appleBlackBadges, `${appleLocale}.svg`, "en-us.svg");
 const appleWhite = pickBadge(appleWhiteBadges, `${appleLocale}.svg`, "en-us.svg");

@@ -1,5 +1,6 @@
 ---
 import DeviceHero from "./DeviceHero.astro";
+import MainlandAndroidEntry from "./MainlandAndroidEntry.astro";
 import MediaControls from "./MediaControls.astro";
 import DownloadShowcase from "./DownloadShowcase.astro";
 import SiteFooter from "./SiteFooter.astro";
@@ -119,6 +120,7 @@ const jsonLd = isFaq
           ) : null
         }
       </div>
+      {isDownload ? <MainlandAndroidEntry locale={locale} /> : null}
       {
         isDownload ? (
           <nav

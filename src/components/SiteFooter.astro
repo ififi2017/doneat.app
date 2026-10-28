@@ -9,9 +9,10 @@ import {
 
 interface Props {
   locale: HallLocale;
+  domestic?: boolean;
 }
 
-const { locale } = Astro.props;
+const { locale, domestic = false } = Astro.props;
 const howItWorksLang = contentLocaleFor(locale, "how-it-works");
 const privacyLang = contentLocaleFor(locale, "privacy");
 ---
@@ -20,7 +21,7 @@ const privacyLang = contentLocaleFor(locale, "privacy");
   <div class="page-frame site-footer-inner">
     <nav class="site-footer-nav" aria-label={siteConfig.brandName}>
       <a href={`/${howItWorksLang}/how-it-works`}>{t(locale, "howItWorks")}</a>
-      <a href={`/${privacyLang}/privacy`}>{t(locale, "privacy")}</a>
+      <a href={domestic ? "/android/privacy" : `/${privacyLang}/privacy`}>{t(locale, "privacy")}</a>
       <a href={`mailto:${siteConfig.supportEmail}`}>{t(locale, "contactUs")}</a>
     </nav>
     <div class="site-footer-end">

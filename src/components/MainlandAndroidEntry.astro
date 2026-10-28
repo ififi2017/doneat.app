@@ -1,0 +1,62 @@
+---
+import type { HallLocale } from "../lib/config";
+import { mainlandDownloadCopy } from "../lib/mainland-download";
+interface Props { locale: HallLocale }
+const { locale } = Astro.props;
+const copy = mainlandDownloadCopy[locale];
+---
+
+<aside class="mainland-entry" aria-labelledby="mainland-android-heading">
+  <div>
+    <p class="mainland-platform">Android</p>
+    <h2 id="mainland-android-heading">{copy.title}</h2>
+    <p class="mainland-description">{copy.body}</p>
+  </div>
+  <a class="mainland-link" href="https://doneat.com.cn/android" rel="noopener noreferrer">
+    <span>{copy.link}</span><span aria-hidden="true">↗</span>
+  </a>
+</aside>
+
+<style>
+  .mainland-entry {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem 2.5rem;
+    margin-block: 2rem;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border: 1px solid var(--rule);
+    border-inline-start: 3px solid var(--accent);
+    border-radius: 1.25rem;
+    background: var(--surface);
+  }
+  .mainland-entry > div { min-width: 0; max-width: 44rem; }
+  .mainland-platform { margin: 0 0 .5rem; color: var(--accent); font-size: .75rem; font-weight: 600; }
+  h2 { margin: 0; color: var(--ink); font-size: clamp(1.15rem, 2vw, 1.4rem); font-weight: 600; line-height: 1.4; text-wrap: balance; }
+  .mainland-description { margin: .65rem 0 0; color: var(--muted); font-size: .95rem; line-height: 1.75; }
+  .mainland-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    flex-shrink: 0;
+    max-width: 19rem;
+    min-height: 2.75rem;
+    padding: .7rem 1.1rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    color: var(--ink);
+    font-size: .9rem;
+    font-weight: 550;
+    line-height: 1.5;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+  .mainland-link:hover { border-color: var(--accent); color: var(--accent); }
+  .mainland-link:active { background: var(--tile); }
+  .mainland-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  @media (max-width: 880px) {
+    .mainland-entry { align-items: flex-start; flex-direction: column; gap: 1.1rem; }
+    .mainland-link { max-width: 100%; }
+  }
+</style>

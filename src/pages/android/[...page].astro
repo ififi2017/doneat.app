@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import { pages, updated } from '../../lib/domestic-pages.mjs';
+import '../../styles/domestic.css';
+export function getStaticPaths() {
+  return pages.map((page) => ({ params: { page: page.route.slice('/android/'.length) || undefined }, props: { page } }));
+}
+const { page } = Astro.props;
+const nav = [['/android','国内 Android'],['/android/buy','购买说明'],['/android/faq','常见问题'],['/android/refunds','退款与售后']];
+---
+<BaseLayout locale="zh-CN" title={`${page.title} · DoneAt`} description={page.description} path={page.route} hreflangKind="content" noindex canonicalOrigin="https://doneat.com.cn" analytics={false}>
+  <div class="flex min-h-screen flex-col">
+    <SiteHeader locale="zh-CN" currentPage="download" domestic />
+    <nav class="page-frame domestic-nav" aria-label="国内 Android 导航">
+      {nav.map(([href,label]) => <a href={href} aria-current={page.route === href ? 'page' : undefined}>{label}</a>)}
+    </nav>
+    <main id="content" class="domestic-content">
+      {page.landing ? <Fragment set:html={page.content} /> : <>
+        <header class="page-frame hero"><div class="inner"><p class="eyebrow">DONEAT · 国内 ANDROID 版</p><h1>{page.title}</h1><p class="lede">{page.lede}</p><p class="meta">更新于 {updated}</p></div></header>
+        <div class="page-frame body"><div class="inner" set:html={page.content} /></div>
+      </>}
+    </main>
+    <SiteFooter locale="zh-CN" domestic />
+  </div>
+</BaseLayout>

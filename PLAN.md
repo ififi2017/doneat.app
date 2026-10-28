@@ -308,3 +308,9 @@
 - [x] 备份失败后的恢复通知逻辑和去重测试核对，Lark接受明确标注的恢复演练通知；未制造真实故障或改线上告警状态。
 
 详见 `domestic/DEPLOYMENT.md`；本轮不发布国际站，不含Vercel预览。
+
+## 2026-10-28 国内下载页整合 Astro
+
+- [x] 国内五页迁入 `src/pages/android/[...page].astro`，共享主站Layout/Header/Footer和字体、色板、栅格、按钮；独立build脚本只负责调用Astro和打包产物，删除第二套CSS/HTML渲染。
+- [x] 国际站19语客户端下载页增加中国大陆Android入口，链接现有国内URL，无地区自动跳转；Google Play即将推出与已提供国内下载明确区分。
+- [x] 保持国内无分析脚本、canonical和noindex策略，国际sitemap排除国内路由，APK和源码地址保持不变。
