@@ -19,3 +19,11 @@ Deploy from the site root using a pinned existing Wrangler installation:
 Verify the public body hash, signature, MIME and attachment filename after deployment, and verify404 for unknown paths. Record the deployment version. Static serving currently returns200/full body for Range requests: resumable downloads are **not** claimed. The current file is about5.5MiB. Default curl/Python user agents can be blocked by the existing zone security policy; an honest `DoneAt-Release-Verification/1.0` client and an Android Chrome user agent downloaded successfully from Chengdu, without changing any zone security rules.
 
 Do not remove old source tags/commits or mark the Android release as the latest desktop release. Restore the website's prior symlinks if rollback is needed; keep already-distributed artifacts/source obtainable.
+
+## Manual Android update checks
+
+`/android/cn/latest.json` is public metadata (schemaVersion/applicationId/channel/versionCode/versionName/minSdk). It uses `no-cache, max-age=0, must-revalidate`, overriding the immutable APK cache. The client requests it only when the user checks for updates, compares versionCode locally, rejects other packages/channels/redirects/oversized or malformed responses, and opens the fixed official download page only after confirmation. It never sends installation or membership data and never downloads or installs in the background.
+
+Stage a verified APK under its new immutable version/hash path, update `domestic/release.json`, then run `node domestic/downloads/prepare-update.mjs` before Wrangler deployment. The script checks APK size and SHA-256 before updating the public pointer. Keep all previous APK assets. Never put a candidate's version in the feed before its public download and source record are ready.
+
+2026-10-28 update: build 6 (5,782,546 bytes) uses immutable prefix `/android/cn/3.2.1-6/5f6455f5ce44/`; source commit `2794ec9d9958b8f06c9e35e42eeaf4d4ee9cd5de`. Cloudflare deployment `99488b95-e116-4342-a039-553b0db696c7` retains build 5 and adds the uncached version feed.

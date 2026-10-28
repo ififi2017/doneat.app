@@ -367,3 +367,5 @@
 - [x] 国内五页迁入 `src/pages/android/[...page].astro`，共享主站Layout/Header/Footer和字体、色板、栅格、按钮；独立build脚本只负责调用Astro和打包产物，删除第二套CSS/HTML渲染。
 - [x] 国际站19语客户端下载页增加中国大陆Android入口，链接现有国内URL，无地区自动跳转；保留已上架 Google Play 入口，并说明国内版独立授权。
 - [x] 保持国内无分析脚本、canonical和noindex策略，国际sitemap排除国内路由，APK和源码地址保持不变。
+
+- [x] 2026-10-28：国内 Android 3.2.1 (6) 下载记录和手动版本检查说明；隐私页披露公共版本元数据请求，不上传会员凭据或工作数据。
