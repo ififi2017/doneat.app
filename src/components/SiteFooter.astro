@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import policeFilingIcon from "../../assets/icons/police-filing.png";
 import SocialLinks from "./SocialLinks.astro";
 import {
   contentLocaleFor,
@@ -37,7 +39,7 @@ const otherSite = otherSiteLink(Astro.url.pathname.replace(/\/$/, ""));
           ©&nbsp;<span class="studio-mark-chevron" aria-hidden="true">&gt;</span>fi_niaR Studio<span class="studio-mark-cursor" aria-hidden="true"></span>
         </a>
         {icpFilingNumber && <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">{icpFilingNumber}</a>}
-        {psbFilingNumber && <a href={psbFilingUrl} target="_blank" rel="noopener noreferrer">{psbFilingNumber}</a>}
+        {psbFilingNumber && <a class="police-filing" href={psbFilingUrl} target="_blank" rel="noopener noreferrer"><Image src={policeFilingIcon} width={18} height={20} alt="" /><span>{psbFilingNumber}</span></a>}
         <a href="https://astro.build/" target="_blank" rel="noopener noreferrer">
           Powered by Astro
         </a>
@@ -153,6 +155,9 @@ const otherSite = otherSiteLink(Astro.url.pathname.replace(/\/$/, ""));
     text-decoration: none;
   }
 
+  .police-filing { gap: .35rem; }
+  .police-filing img { flex: none; width: 18px; height: 20px; }
+
   .site-footer-inner a:hover {
     color: var(--footer-link-hover-color, var(--color-orange-ink));
   }
@@ -162,7 +167,10 @@ const otherSite = otherSiteLink(Astro.url.pathname.replace(/\/$/, ""));
       color: var(--footer-link-color, color-mix(in srgb, var(--color-cream) 80%, transparent));
     }
 
-    .site-footer-inner a:hover {
+    .police-filing { gap: .35rem; }
+  .police-filing img { flex: none; width: 18px; height: 20px; }
+
+  .site-footer-inner a:hover {
       color: var(--footer-link-hover-color, var(--color-orange-bright));
     }
   }
