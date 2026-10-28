@@ -5,7 +5,9 @@ import {
   appleBadgeLocale,
   appleStoreUrl,
   contentLocaleFor,
+  googlePlayBadgeLocale,
   microsoftBadgeLocale,
+  showGooglePlay,
   siteConfig,
   t,
   webAppUrl,
@@ -26,6 +28,10 @@ const appleBlackBadges = import.meta.glob<ImageMetadata>(
 );
 const appleWhiteBadges = import.meta.glob<ImageMetadata>(
   "../../assets/badges/app-store/white/*.svg",
+  { eager: true, import: "default" },
+);
+const googlePlayBadges = import.meta.glob<ImageMetadata>(
+  "../../assets/badges/google-play/*.png",
   { eager: true, import: "default" },
 );
 const microsoftBadges = import.meta.glob<ImageMetadata>(
@@ -56,11 +62,17 @@ const appleHref = appleStoreUrl(locale);
 const webHref = webAppUrl(locale, "hall");
 const msHref = siteConfig.microsoftStoreUrl;
 const isDownload = variant === "download";
+const appPlatforms = `Windows · Mac · iPhone/iPad${showGooglePlay ? " · Android" : ""}`;
 const platformLine = isDownload
-  ? `Windows · Mac · iPhone/iPad · Android · Google Play (${t(locale, "comingSoon")})`
-  : `${t(locale, "platformWeb")} · Windows · Mac · iPhone/iPad`;
+  ? appPlatforms
+  : `${t(locale, "platformWeb")} · ${appPlatforms}`;
 const appleBlack = pickBadge(appleBlackBadges, `${appleLocale}.svg`, "en-us.svg");
 const appleWhite = pickBadge(appleWhiteBadges, `${appleLocale}.svg`, "en-us.svg");
+const googlePlayBadge = pickBadge(
+  googlePlayBadges,
+  `${googlePlayBadgeLocale(locale)}.png`,
+  "en.png",
+);
 const msLight = pickBadge(
   microsoftBadges,
   `${msLocale}-light.svg`,
@@ -114,13 +126,30 @@ const msBadgeWidth = Math.round((msBadgeHeight * msLight.width) / msLight.height
         />
       )}
     </a>
+    {showGooglePlay && (
+      <a
+        href={siteConfig.googlePlayUrl}
+        class="gp-badge inline-block leading-none"
+        data-track="google_play_open"
+      >
+        <Image
+          class="h-10 w-auto"
+          src={googlePlayBadge}
+          alt={t(locale, "googlePlayLabel")}
+          height={40}
+          densities={[1, 2, 3]}
+          format="png"
+          inferSize
+        />
+      </a>
+    )}
     <a
       href={msHref}
       class="ms-badge"
       aria-label={t(locale, "microsoftStoreLabel")}
       data-track="microsoft_store_open"
       data-ms-width={msBadgeWidth}
-      style={`width:${msBadgeWidth}px`}
+      style={`width:${msBadgeWidth / 16}rem`}
     >
       <span class="ms-fallback" aria-hidden="true">
         {!fixedDark && (
@@ -185,6 +214,8 @@ const msBadgeWidth = Math.round((msBadgeHeight * msLight.width) / msLight.height
     gap: 0.75rem;
   }
   .store-badges > a { padding-block: 2px; }
+  /* Android visitors see their own store first (html[data-platform] is set in BaseLayout). */
+  :global(html[data-platform="android"]) .gp-badge { order: -1; }
   .ms-badge { margin-block: 2px; }
 
   @media (max-width: 879px) {
@@ -211,12 +242,13 @@ const msBadgeWidth = Math.round((msBadgeHeight * msLight.width) / msLight.height
       var wrap = badge.closest(".ms-badge");
       var img = badge.shadowRoot && badge.shadowRoot.querySelector("img");
       if (!wrap || !img || !img.naturalWidth || !img.naturalHeight) return false;
-      img.style.height = "40px";
-      img.style.maxHeight = "40px";
+      img.style.height = "2.5rem";
+      img.style.maxHeight = "2.5rem";
       img.style.width = "auto";
+      // Widths in 16px units, written as rem so the badge scales with the grid.
       var fromImg = Math.round((40 * img.naturalWidth) / img.naturalHeight);
       var fromFallback = parseInt(wrap.getAttribute("data-ms-width"), 10) || 0;
-      wrap.style.width = Math.max(fromImg, fromFallback) + "px";
+      wrap.style.width = Math.max(fromImg, fromFallback) / 16 + "rem";
       wrap.classList.add("is-loaded");
       return true;
     }

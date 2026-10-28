@@ -4,12 +4,12 @@ description: "How DoneAt stores data locally by default, offers optional private
 heading: "Privacy Policy"
 intro: "This page explains how DoneAt stores and processes information: the official site, the web timer, and the apps on iPhone, iPad, Android, Mac and Windows."
 updatedLabel: "Last updated"
-updated: "4 October 2026"
+updated: "19 October 2026"
 ---
 
 ## Data stored by DoneAt
 
-Information you enter is stored locally by default: in the browser’s local storage on the web timer, and in the application’s data on iPhone, iPad, Android, Mac and Windows. DoneAt does not provide product accounts or send this information to DoneAt servers.
+Your schedules, salary, records, Focus data and preferences are stored locally by default: in the browser’s local storage on the web timer, and in the application’s data on iPhone, iPad, Android, Mac and Windows. DoneAt does not provide product accounts or send this work information to DoneAt servers. Separate purchase verification and optional review authentication are described below.
 
 On iPhone and iPad, you can choose to turn on iCloud sync. It stores your schedules, records, salary, reminder preferences, appearance, language, life profile and Focus data in your private iCloud database under your Apple Account. Notification authorization, biometric protection, Live Activity settings, the current work timer and onboarding state stay on each device. Android, the web timer, Mac and Windows do not participate in this iCloud sync.
 
@@ -32,8 +32,6 @@ Enabling sync requires DoneAt Plus. Sync that is already enabled continues after
 
 ## Android backups and device transfers
 
-The Android app is in testing. The Android sections of this policy describe that version; public availability and Plus purchases depend on its Google Play release.
-
 Android stores your records and settings in the app’s private storage. The system backup and device-transfer services may copy these records and settings, including salary, career history, life profile and Focus data. Unfinished setup settings may also contain salary. Whether a backup is made, where it is stored and how it is restored depend on your device, account and system settings. DoneAt does not receive a server copy. You can manage system backups in your device’s backup settings. [Android’s backup documentation](https://developer.android.com/identity/data/autobackup) explains the system service.
 
 The running timer, scheduled-reminder registry and saved purchase verification data are excluded from these backups. DoneAt rebuilds reminders and checks purchases with Google Play after restoration. Restoring a records backup does not by itself grant Plus access.
@@ -50,13 +48,25 @@ The export is a readable JSON file, not a password-protected archive. Choose a s
 
 On iPhone and iPad, Apple handles Plus subscriptions and lifetime purchases through the App Store. DoneAt uses StoreKit to verify purchase status and restore access, and keeps a local record of the verified entitlement and any expiry date. DoneAt does not receive your payment card details or send your purchase status to a DoneAt account server. Apple processes purchase information under its own policies.
 
-On Android, Google Play handles Plus subscriptions and lifetime purchases when they become available. DoneAt queries Google Play to verify and restore access, checks purchase signatures, and keeps purchase verification data in private app storage. This includes product identifiers and purchase tokens used to confirm purchases and retry unfinished confirmations. It excludes salary and work records and is not included in system backups. DoneAt may contact Google Play when the app opens or resumes, when you restore purchases, and when a confirmation needs to be retried. DoneAt does not receive your payment card details. Google processes purchases under its own policies.
+On Android, Google Play handles Plus subscriptions and lifetime purchases. DoneAt queries Google Play to verify and restore access, checks purchase signatures, and keeps purchase verification data in private app storage. This includes product identifiers and purchase tokens used to confirm purchases and retry unfinished confirmations. It excludes salary and work records and is not included in system backups. DoneAt may contact Google Play when the app opens or resumes, when you restore purchases, and when a confirmation needs to be retried. DoneAt does not receive your payment card details. Google processes purchases under its own policies.
 
 For Android purchase verification, DoneAt operates `api.doneat.app` on Cloudflare. A version with server verification enabled sends the Play purchase token, product identifier and a random request nonce over HTTPS. Google Play can also send purchase-state changes through Cloud Pub/Sub. The service queries Google for the current entitlement and exact expiry, then returns a digitally signed receipt. It does not receive salary, schedules, work records, Focus plans or backups.
 
 The database stores a hash of the purchase token, the product, entitlement status and expiry, verification time, test-purchase flag, replacement-token hash and revision. These purchase records support verification, restoration and prevention of reuse after a purchase is replaced. Notification message IDs use a 30-day deduplication window; older entries are removed when later notifications are processed. Raw purchase tokens and Google responses are processed transiently and are not stored in the database or application logs. IP-based rate limiting is transient; DoneAt does not save IP addresses or those IP hashes in the database. Cloudflare and Google process network traffic under their own policies. Purchase identifiers are not used for advertising or usage profiling. Signed receipts on the phone are excluded from system backup.
 
 A subscription expiring does not delete your existing records. Export and deletion remain available without an active subscription.
+
+<!-- Review-access draft: publish only after implementation, retention/exit verification and matching Play Data safety review. -->
+
+## Optional Android review access
+
+In Android versions with review access enabled, an authorized reviewer can choose to enter a reusable review code to temporarily access Plus features. Activation and renewal use HTTPS to the existing `api.doneat.app` service on Cloudflare. This is separate from Google Play purchases: it requires no DoneAt account, Google sign-in, purchase or trial, and does not create or change an order or subscription. Ordinary use does not require review access.
+
+For this optional authentication and abuse prevention, the service processes the review code, a random installation public key and its hash, proof of possession, a renewal secret and short-lived challenges. Its database stores the credential hash and status, installation public key and hash, renewal-secret hash, authorization revision, last issue/renewal time and revocation status (expiry follows the 24-hour lease), and challenge hashes and expiry times. A random or hashed identifier is still information collected by this service. These identifiers are not used for analytics or advertising and are not linked to Play orders. Review access does not collect Gmail, hardware identifiers, salary, schedules, work records, Focus content or backups. Raw codes, installation private keys, renewal secrets and signed authorization bodies are not stored in the service database or application logs. The private key stays in Android Keystore; local authorization material is excluded from backups and device transfer.
+
+Each verified authorization lasts at most 24 hours. Activation and automatic renewal require a network connection. Revocation is applied when the app next checks online; a disconnected installation may retain the remaining authorized time, up to 24 hours. Expired challenges are rejected immediately, and a daily cleanup removes them and installation sessions whose last renewal was at least seven days ago. Reusable credential hashes remain until the owner rotates or revokes the credential; the seven-day installation cleanup does not itself invalidate the reusable code.
+
+Choosing Exit review access clears local authorization immediately and attempts to delete that installation’s server session. If offline, the server session remains until cleanup. Reinstalling or returning after session cleanup requires activation again with a valid code. Exiting, expiry or revocation does not delete your local records or cancel a real Play purchase. For questions or server-record deletion requests, contact [hello@doneat.app](mailto:hello@doneat.app). Cloudflare processes network traffic under its own policies.
 
 ## Official site
 
@@ -119,7 +129,7 @@ DoneAt uses the following services to host pages, measure the official site and 
 - GitHub — source code, release information, and update checks for GitHub-distributed desktop builds
 - Apple — app distribution, Plus payments and purchase verification through the App Store and StoreKit, and private iCloud sync when you choose to enable it on iPhone or iPad
 - Google — Android distribution and updates, Plus purchases and purchase verification through Google Play, purchase-state notifications through Cloud Pub/Sub, optional ratings and reviews, and system backups where provided by Google
-- Cloudflare — hosting the Android purchase-verification service and its purchase-state database
+- Cloudflare — hosting Android purchase verification, optional review-access authentication and their databases
 - Microsoft — distribution and updates for the Microsoft Store listing you open
 - A third-party download mirror, used only when you choose it from a GitHub-distributed desktop build
 - The third-party social service you choose when sharing a countdown

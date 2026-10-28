@@ -4,7 +4,7 @@ description: "DoneAt がデフォルトでデータをローカルに保存す�
 heading: "プライバシーポリシー"
 intro: "このページでは、DoneAt が情報を保存・処理する方法を説明します：公式サイト、ウェブタイマー、iPhone、iPad、Android、Mac、Windows のアプリについて。"
 updatedLabel: "最終更新"
-updated: "2026年10月4日"
+updated: "2026年10月19日"
 ---
 
 ## DoneAt が保存するデータ
@@ -32,7 +32,7 @@ iPhone と iPad では、iCloud 同期を有効にすることができます。
 
 ## Android
 
-Android アプリはテスト中です。一般公開と Plus 購入は Google Play でのリリースに従います。勤務データと設定は標準でアプリの専用領域に保存され、DoneAt アカウントやアプリ内の利用状況分析はありません。
+勤務データと設定は標準でアプリの専用領域に保存され、DoneAt アカウントやアプリ内の利用状況分析はありません。
 
 システムのバックアップや端末移行には、記録、給与、職歴、人生プロフィール、Focus データ、未完了の初期設定が含まれる場合があります。動作は端末、アカウント、システム設定に依存し、DoneAt のサーバーにはコピーされません。実行中のタイマー、通知予約の管理情報、購入証明は対象外です。復元後は通知を再設定し、購入を再確認します。Google Drive や iPhone との自動同期はありません。手動エクスポートは給与を含み得る読み取り可能な JSON で、選んだ保存先や受信者に独立したコピーが作られます。
 
@@ -132,3 +132,9 @@ DoneAt はあなたの Apple アカウントにアクセスしたり、そのプ
 このポリシーや情報の取り扱いに関するご質問は、[hello@doneat.app](mailto:hello@doneat.app) までお送りください。製品に関する問題や提案は [GitHub Issues](https://github.com/ififi2017/Off-Work-Countdown/issues) でも提出できます。
 
 このポリシーと製品の実際の動作との間に違いを見つけた場合は、そのアドレスにメールするか、Issue を開いてください。
+
+<!-- Review-access draft: publish only with the verified English/Simplified Chinese supplement. -->
+
+## Android の任意の審査用アクセス
+
+審査用アクセスに対応するバージョンでは、この機能を選ぶとランダムなインストール識別情報と認証情報を収集します。用途、保存期間、失効、削除については[英語の補足説明](/en/privacy#optional-android-review-access)をご覧ください。

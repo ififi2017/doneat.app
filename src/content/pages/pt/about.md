@@ -1,6 +1,6 @@
 ---
 title: "Sobre — DoneAt"
-description: "Sobre o DoneAt, um temporizador de turno local para navegador, iPhone, iPad, Mac e Windows."
+description: "Sobre o DoneAt, um temporizador de turno local para navegador, iPhone, iPad, Android, Mac e Windows."
 heading: "Sobre o DoneAt"
 intro: "Um temporizador de turno local que você pode deixar aberto. Sem conta DoneAt, sem anúncios e com sincronização opcional privada do iCloud no iPhone e iPad."
 ---
@@ -44,17 +44,19 @@ Abrir um link externo ou um serviço de compartilhamento leva a esse destino sob
 
 Salário e totais de tempo são estimativas para referência pessoal. Não são registros de folha de pagamento nem consultoria legal, fiscal, trabalhista ou financeira. Os lembretes não devem ser usados para cronometragens críticas de segurança ou legalmente exigidas.
 
-O software é fornecido sob a licença MIT, como está e sem garantia, na medida permitida por lei. O texto da licença no repositório é o aviso legal definitivo.
+O software é fornecido sob a licença [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md), como está e sem garantia, na medida permitida por lei. O texto da licença no repositório é o aviso legal definitivo.
 
 ## Contagem regressiva gratuita, Plus opcional
 
-A contagem regressiva continua gratuita. No iPhone e iPad, o DoneAt Plus adiciona registros completos, visualizações de vida e ferramentas de foco, com opções de compra mensal, anual ou vitalícia pela App Store. Os preços e qualquer período de teste disponível são mostrados antes da compra no app.
+A contagem regressiva continua gratuita. No iPhone e iPad, o DoneAt Plus adiciona registros completos, visualizações de vida e ferramentas de foco, com opções de compra mensal, anual ou vitalícia pela App Store. No Android, as mesmas opções são compradas pelo Google Play. As compras não são transferidas entre a App Store e o Google Play. Os preços e qualquer período de teste disponível são mostrados antes da compra no app.
 
 Ativar a sincronização com o iCloud requer o Plus. Uma vez habilitada, a sincronização continua após o término de uma assinatura. Seus registros existentes permanecem armazenados, e exportação e exclusão continuam disponíveis sem uma assinatura ativa.
 
 ## Código aberto
 
-O projeto está publicado sob a licença MIT. Você pode inspecionar o código ou criar sua própria versão do [repositório público do GitHub](https://github.com/ififi2017/Off-Work-Countdown).
+O projeto está publicado sob a licença [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md). Você pode inspecionar o código ou criar sua própria versão do [repositório público do GitHub](https://github.com/ififi2017/Off-Work-Countdown).
+
+As permissões MIT já concedidas continuam válidas. A marca e o material visual têm condições separadas; os componentes de terceiros mantêm suas próprias licenças. [Uso da marca](https://github.com/ififi2017/Off-Work-Countdown/blob/main/TRADEMARKS.md)
 
 Os modelos de feriados incluem dados de calendários nacionais gerados com [Vacanza Holidays 0.83](https://github.com/vacanza/holidays) e dados de feriados e dias de compensação da China continental de [holiday-cn](https://github.com/NateScarlet/holiday-cn). Ambas as fontes estão disponíveis sob a licença MIT:
 
@@ -63,9 +65,20 @@ Os modelos de feriados incluem dados de calendários nacionais gerados com [Vaca
 
 ## Android
 
-A versão Android está em testes. O Google Play processa as compras. Com a verificação no servidor ativada, o DoneAt processa tokens na Cloudflare e guarda seus hashes com o estado do acesso; salários e registros de trabalho não são enviados. Veja a [política de privacidade](/pt/privacy#android) sobre verificação, backups e exclusão.
+O app Android no [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) segue as mesmas regras de horário do iPhone. A contagem regressiva, a programação e os feriados são gratuitos:
+
+- Planeje em um único calendário mensal com dias fixos, semanas alternadas, rotações e turnos noturnos, ou pinte turnos em uma escala livre com um toque ou um deslize.
+- Escolha um país ou região em Horários e escala e seu horário seguirá seus feriados.
+- Veja o tempo restante em um widget da tela inicial ou na notificação contínua, sem abrir o app.
+- Reveja os últimos sete dias de registros, experimente três buscas de folga e importe ou exporte seus dados de graça. O DoneAt Plus adiciona registros mais antigos, as visualizações de Ano e de Vida, relatórios, Foco, buscas de folga ilimitadas e alarmes de turno.
+
+O Android mantém seus dados no celular. A sincronização do iCloud não faz parte do app Android; o backup do próprio Android pode incluir registros e ajustes se estiver ativado, e a exportação de um backup leva seus registros entre iPhone e Android.
+
+O Google Play processa as compras. Com a verificação no servidor ativada, o DoneAt processa tokens na Cloudflare e guarda seus hashes com o estado do acesso; salários e registros de trabalho não são enviados. Veja a [política de privacidade](/pt/privacy#android) sobre verificação, backups e exclusão.
 
 A navegação Android usa [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass), de Kyant, e [Shapes 1.2.1](https://github.com/Kyant0/Shapes). O DoneAt adapta o exemplo `LiquidBottomTabs` para navegação, arraste, acessibilidade, layouts da direita para a esquerda e movimento reduzido. Os efeitos são desenhados localmente, sem enviar conteúdo ou identificadores do dispositivo aos autores. Ambas as bibliotecas usam Apache License 2.0: [licença Backdrop](/licenses/backdrop-2.0.1.txt), [licença Shapes](/licenses/shapes-1.2.1.txt), também incluídas em Ajustes → Sobre → Agradecimentos.
+
+A página inicial mostra o app Android na [moldura do dispositivo Pixel 10 Pro](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/) do Google, reproduzida de uma obra criada e compartilhada pelo Android Open Source Project e usada sob a [licença Creative Commons Atribuição 2.5](https://creativecommons.org/licenses/by/2.5/).
 
 ## Feedback
 

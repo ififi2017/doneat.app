@@ -4,7 +4,7 @@ description: "Bagaimana DoneAt menyimpan data secara lokal secara bawaan, menawa
 heading: "Kebijakan privasi"
 intro: "Halaman ini menjelaskan bagaimana DoneAt menyimpan dan memproses informasi: situs resmi, timer web, dan aplikasi di iPhone, iPad, Android, Mac, dan Windows."
 updatedLabel: "Terakhir diperbarui"
-updated: "4 Oktober 2026"
+updated: "19 Oktober 2026"
 ---
 
 ## Data yang disimpan DoneAt
@@ -32,7 +32,7 @@ Mengaktifkan sinkronisasi membutuhkan DoneAt Plus. Sinkronisasi yang sudah aktif
 
 ## Android
 
-Aplikasi Android masih diuji; ketersediaan dan pembelian Plus mengikuti rilis Google Play. Data kerja dan pengaturan tersimpan secara bawaan di ruang pribadi aplikasi, tanpa akun DoneAt atau analisis penggunaan aplikasi.
+Data kerja dan pengaturan tersimpan secara bawaan di ruang pribadi aplikasi, tanpa akun DoneAt atau analisis penggunaan aplikasi.
 
 Cadangan sistem dan perpindahan perangkat dapat memuat catatan, gaji, riwayat karier, profil kehidupan, data Focus, serta pengaturan awal yang belum selesai. Ini bergantung pada perangkat, akun, dan pengaturan sistem; DoneAt tidak menerima salinan di server. Timer aktif, daftar pengingat terjadwal, dan bukti pembelian dikecualikan. Setelah pemulihan, pengingat dijadwalkan ulang dan pembelian diperiksa lagi. Tidak ada sinkronisasi otomatis Google Drive atau iPhone. Ekspor manual berupa JSON terbaca, dapat memuat gaji, dan membuat salinan terpisah di tujuan yang kamu pilih.
 
@@ -132,3 +132,9 @@ Saat kebijakan ini diperbarui, tanggal terakhir diperbarui di bagian atas halama
 Pertanyaan tentang kebijakan ini, atau tentang cara informasi ditangani, dikirim ke [hello@doneat.app](mailto:hello@doneat.app). Masalah produk dan saran juga bisa dikirim lewat [GitHub Issues](https://github.com/ififi2017/Off-Work-Countdown/issues).
 
 Jika kamu menemukan perbedaan antara kebijakan ini dan perilaku produk yang sebenarnya, tulis ke alamat itu atau buka sebuah issue.
+
+<!-- Review-access draft: publish only with the verified English/Simplified Chinese supplement. -->
+
+## Akses peninjauan Android opsional
+
+Versi yang menyediakan akses ini mengumpulkan pengenal instalasi acak dan data autentikasi jika Anda memilih menggunakannya. Lihat [tambahan berbahasa Inggris](/en/privacy#optional-android-review-access) untuk tujuan, masa penyimpanan, pencabutan, dan penghapusan.

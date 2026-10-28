@@ -1,6 +1,6 @@
 ---
 title: "關於 — DoneAt"
-description: "關於 DoneAt：一個面向瀏覽器、iPhone、iPad、Mac 同 Windows 嘅本地優先放工倒數計時。"
+description: "關於 DoneAt：一個面向瀏覽器、iPhone、iPad、Android、Mac 同 Windows 嘅本地優先放工倒數計時。"
 heading: "關於 DoneAt"
 intro: "一個可以一直開住嘅本地優先放工倒數計時。唔使註冊 DoneAt 帳號，冇廣告；iPhone 同 iPad 可選用私人 iCloud 同步。"
 ---
@@ -44,17 +44,19 @@ DoneAt 亦幫你回顧工作、安排之後嘅時間：
 
 薪金同時間彙總只供個人參考，唔係人工記錄，亦唔構成法律、稅務、勞動關係或財務建議。提醒唔好用喺安全關鍵或法律要求嘅計時上。
 
-本軟件依據 MIT 授權條款按現狀提供，喺法律允許嘅範圍內唔作保證。儲存庫入面嘅授權條款原文係具有約束力嘅法律聲明。
+本軟件依據 [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) 授權條款按現狀提供，喺法律允許嘅範圍內唔作保證。儲存庫入面嘅授權條款原文係具有約束力嘅法律聲明。
 
 ## 免費倒數計時同可選嘅 Plus
 
-放工倒數計時保持免費。iPhone 同 iPad 上嘅 DoneAt Plus 提供完整記錄、生活視圖同專注工具，可以透過 App Store 揀月度訂閱、年度訂閱或終身購買。價錢同適用嘅試用資訊會喺應用程式內購買前顯示。
+放工倒數計時保持免費。iPhone 同 iPad 上嘅 DoneAt Plus 提供完整記錄、生活視圖同專注工具，可以透過 App Store 揀月度訂閱、年度訂閱或終身購買。Android 上同樣嘅選項會透過 Google Play 購買。App Store 同 Google Play 嘅購買唔可以互通。價錢同適用嘅試用資訊會喺應用程式內購買前顯示。
 
 首次開啟 iCloud 同步需要 Plus。已開啟嘅同步喺訂閱到期後仲會繼續，已有記錄都會保留；匯出同刪除資料唔需要有效訂閱。
 
 ## 開源
 
-專案採用 MIT 協議開源。你可以喺公開嘅 [GitHub 儲存庫](https://github.com/ififi2017/Off-Work-Countdown)睇程式碼，或者建構自己嘅版本。
+專案採用 [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) 協議開源。你可以喺公開嘅 [GitHub 儲存庫](https://github.com/ififi2017/Off-Work-Countdown)睇程式碼，或者建構自己嘅版本。
+
+歷史 MIT 授權繼續有效。品牌與素材另行授權，第三方組件保留各自授權條款。 [品牌使用規則](https://github.com/ififi2017/Off-Work-Countdown/blob/main/TRADEMARKS.md)
 
 假期範本包含由 [Vacanza Holidays 0.83](https://github.com/vacanza/holidays) 產生嘅各國家同地區假期資料，同 [holiday-cn](https://github.com/NateScarlet/holiday-cn) 提供嘅中國大陸法定假期同調休上班資料。兩個來源均採用 MIT 授權條款：
 
@@ -63,9 +65,20 @@ DoneAt 亦幫你回顧工作、安排之後嘅時間：
 
 ## Android
 
-Android 版本目前測試中，購買由 Google Play 處理。啟用伺服器驗證嘅版本會透過 Cloudflare 上嘅 DoneAt 服務處理購買權杖，保存佢嘅雜湊同權益狀態，唔會傳送薪金或工作記錄。驗證、備份同刪除方法見[私隱政策](/zh-HK/privacy#android)。
+[Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) 上嘅 Android 應用程式同 iPhone 跟同一套排班規則。倒數計時、排班同假期都免費：
+
+- 喺同一張月曆入面排班：固定星期、隔週休、輪更輪休同跨夜更次都得，亦可以喺自由排班入面點一下或者掃一下，將更次鋪上去。
+- 喺「工作時間與排班」入面揀國家或地區，排班會跟住當地假期走。
+- 唔使打開 App，睇主畫面小工具或者常駐通知就知仲剩幾耐。
+- 最近七日嘅記錄、三次休假規劃搜尋，同匯入匯出資料都免費。DoneAt Plus 加入更早嘅記錄、年視圖同人生視圖、週期報告、專注、無限次休假搜尋同更表鬧鐘。
+
+Android 嘅資料會保存喺手機上面。Android 應用程式冇 iCloud 同步；如果你開咗 Android 自帶嘅備份，記錄同設定可能會包括喺入面。透過備份匯出，就可以喺 iPhone 同 Android 之間轉移記錄。
+
+購買由 Google Play 處理。啟用伺服器驗證嘅版本會透過 Cloudflare 上嘅 DoneAt 服務處理購買權杖，保存佢嘅雜湊同權益狀態，唔會傳送薪金或工作記錄。驗證、備份同刪除方法見[私隱政策](/zh-HK/privacy#android)。
 
 Android 導覽用咗 Kyant 嘅 [Backdrop（AndroidLiquidGlass）2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) 同 [Shapes 1.2.1](https://github.com/Kyant0/Shapes)。DoneAt 參考 `LiquidBottomTabs` 範例，調整應用程式導覽、拖曳、無障礙、由右至左版面同減少動態效果。效果喺裝置繪製，唔會向作者傳送應用程式內容或裝置識別碼。兩個程式庫均採用 Apache License 2.0：[Backdrop 授權條款](/licenses/backdrop-2.0.1.txt)、[Shapes 授權條款](/licenses/shapes-1.2.1.txt)。完整條款亦放喺應用程式「設定 → 關於 → 致謝」。
+
+首頁展示 Android App 時用咗 Google 嘅 [Pixel 10 Pro 裝置外框](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/)，呢份圖稿由 Android 開放原始碼計劃創作並分享，按[創用 CC 署名 2.5 授權](https://creativecommons.org/licenses/by/2.5/)使用。
 
 ## 問題回饋
 

@@ -28,6 +28,14 @@
   background: var(--surface);
 }
 
+/* Every element whose transform/opacity follows scroll progress gets its own
+   compositor layer while scenes run. Without one, Chromium re-rasterises the
+   glow, shadows and images on every scroll frame, which stutters on Windows
+   and on large screens. */
+html.scenes-on :is(.hero-copy, .hero-stage, .carry-island, .carry-live, .carry-widget, .carry-watch, .finale-glow) {
+  will-change: transform, opacity;
+}
+
 /* ---------- Hero ---------- */
 .scene-hero {
   position: relative;
@@ -38,7 +46,9 @@
   grid-template-columns: minmax(0, 1.25fr) minmax(0, 28rem);
   align-items: center;
   gap: clamp(2.5rem, 6vw, 7rem);
-  min-height: min(calc(100svh - 3.5rem), 58rem);
+  /* Fill the first screen below the header on landscape displays of any size;
+     on tall portrait windows the width cap keeps the hero from stretching. */
+  min-height: min(calc(100svh - 3.5rem), 75vw);
   padding-block: clamp(2.5rem, 7svh, 5.5rem);
 }
 .hero-copy {
@@ -311,9 +321,27 @@ html.scenes-on .proof-statement .w.is-lit {
   justify-items: center;
   gap: 1rem;
 }
-.phone-device .device-hero {
-  width: min(21rem, 100%);
+/* iPhone and Android count down side by side. The visitor's own platform
+   comes first (html[data-platform], set in BaseLayout); the second phone sits
+   a little lower so the pair reads as two devices, not a grid. The Pixel
+   frame is slightly taller for its width, so it is drawn 3% narrower. */
+.phone-pair {
+  --phone: min(15.5rem, 46%);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(0.85rem, 2.4vw, 1.75rem);
+  width: 100%;
 }
+.phone-pair > :is(.device-hero, .android-hero) {
+  flex: none;
+  margin: 0;
+  max-width: none;
+}
+.phone-pair > .device-hero { width: var(--phone); }
+.phone-pair > .android-hero { width: calc(var(--phone) * 0.97); margin-top: 2.25rem; }
+html[data-platform="android"] .phone-pair > .android-hero { order: -1; margin-top: 0; }
+html[data-platform="android"] .phone-pair > .device-hero { margin-top: 2.25rem; }
 .phone-device figcaption {
   display: flex;
   flex-wrap: wrap;
@@ -342,12 +370,13 @@ html.scenes-on .proof-statement .w.is-lit {
   /* --a: the device rises and settles over the first quarter of the pin. */
   html.scenes-on .phone-device {
     --a: clamp(0, calc(var(--p, 1) / 0.25), 1);
+    will-change: transform, opacity;
     opacity: calc(0.35 + 0.65 * var(--a));
     transform: translateY(calc((1 - var(--a)) * 18svh)) scale(calc(1 + (1 - var(--a)) * 0.16));
     transform-origin: 50% 30%;
   }
-  html.scenes-on .phone-device .device-hero {
-    width: min(21rem, 100%, calc((100svh - 10rem) * 0.44));
+  html.scenes-on .phone-pair {
+    --phone: min(15.5rem, 46%, calc((100svh - 12.5rem) * 0.47));
   }
   html.scenes-on .phone-steps li {
     opacity: 0.32;
@@ -424,12 +453,14 @@ html.scenes-on .proof-statement .w.is-lit {
 .carry-widgets picture {
   display: block;
   height: auto;
-  filter: drop-shadow(0 18px 24px rgb(0 0 0 / 0.12));
 }
+/* box-shadow follows each image's radius and rasterises once with its layer;
+   a drop-shadow filter would be recomputed on every scroll frame. */
 .carry-widgets img {
   display: block;
   width: 100%;
   height: auto;
+  box-shadow: 0 18px 24px rgb(0 0 0 / 0.12);
 }
 .carry-island {
   width: 55%;
@@ -653,8 +684,8 @@ html.scenes-on .scene-finale {
   .carry-gallery {
     grid-template-columns: minmax(0, 1fr);
   }
-  .phone-device .device-hero {
-    width: min(17rem, 100%);
+  .phone-pair {
+    --phone: min(12.5rem, 45%);
   }
 }
 @media (max-width: 539px) {

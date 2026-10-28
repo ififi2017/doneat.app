@@ -1,6 +1,6 @@
 ---
 title: "About — DoneAt"
-description: "About DoneAt, a local-first work-shift countdown for the browser, iPhone, iPad, Mac and Windows."
+description: "About DoneAt, a local-first work-shift countdown for the browser, iPhone, iPad, Android, Mac and Windows."
 heading: "About DoneAt"
 intro: "A local-first shift timer you can leave open. No DoneAt account, no ads, and optional private iCloud sync on iPhone and iPad."
 ---
@@ -30,11 +30,24 @@ DoneAt also helps you look back at your work and plan time for what comes next:
 
 These features are part of the native iPhone and iPad app. The [download page](/en/download) explains the options for each platform.
 
+## On Android
+
+The Android app on [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) follows the same schedule rules as iPhone. The countdown, scheduling and public holidays are free:
+
+- Plan on one monthly calendar with fixed weekdays, alternating weeks, rotations and overnight shifts, or paint shifts onto a free schedule with a tap or a swipe.
+- Choose a country or region in Hours & schedule and your schedule follows its public holidays.
+- Check the time left from a home-screen widget or the ongoing notification, without opening the app.
+- Look back on the last seven days of records, try three time-off searches, and import or export your data for free. DoneAt Plus adds older records, the Year and Life views, reports, Focus, unlimited time-off searches and shift alarms.
+
+Android keeps your data on the phone. iCloud sync is not part of the Android app; Android’s own backup can include records and settings if you have it turned on, and a backup export moves your records between iPhone and Android.
+
 ## Where your data goes
 
 Working hours, workdays, salary and preferences stay on the device you are using by default. The countdown and earnings estimate are computed there. On iPhone and iPad, you can choose to sync schedules, records, salary and settings across your devices. Optional iCloud sync uses your private iCloud. DoneAt cannot read it. Mac, Windows and the web timer remain local. These work settings are not sent to DoneAt servers.
 
-The Android version is in testing. Google Play handles its Plus purchases. In builds with server verification enabled, DoneAt’s purchase-verification service on Cloudflare checks purchase status and exact expiry with Google. It processes purchase tokens and stores their hashes with entitlement state. Salary and work records stay outside this service. See the [privacy policy](/en/privacy) for purchase verification, system backups and deletion.
+The Android app is available on [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat), which handles its Plus purchases. In builds with server verification enabled, DoneAt’s purchase-verification service on Cloudflare checks purchase status and exact expiry with Google. It processes purchase tokens and stores their hashes with entitlement state. Salary and work records stay outside this service. See the [privacy policy](/en/privacy) for purchase verification, system backups and deletion.
+
+In Android versions with review access enabled, an authorized reviewer may enter a reusable code for temporary Plus access without a purchase or DoneAt account. This optional service collects a random installation public key and authentication metadata, keeps installation sessions for seven days after the last renewal, and does not link them to Play orders or receive salary, schedules or work records. Each authorization lasts at most 24 hours. See [optional Android review access](/en/privacy#optional-android-review-access) for the information processed, renewal, revocation and deletion.
 
 The official site and the web timer record page views, loading performance, and a small set of aggregate events. An event carries only a name, never your schedule, salary, account, or advertising identifier. Hosting and analytics providers may still receive ordinary connection metadata such as an IP address and user agent, as they do on any website. The [privacy](/en/privacy) page has the details.
 
@@ -46,17 +59,19 @@ Opening an external link or a sharing service reaches that destination on its ow
 
 Salary and time totals are estimates for personal reference. They are not payroll records, and they are not legal, tax, employment, or financial advice. Reminders should not be used for safety-critical or legally required timing.
 
-The software is provided under the MIT licence, as is and without warranty, to the extent permitted by law. The licence text in the repository is the controlling legal notice.
+The software is provided under the [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) licence, as is and without warranty, to the extent permitted by law. The licence text in the repository is the controlling legal notice.
 
 ## Free countdown, optional Plus
 
-The countdown stays free. On iPhone and iPad, DoneAt Plus adds full records, life views and focus tools, with monthly, yearly or lifetime purchase options through the App Store. Prices and any available trial are shown before purchase in the app.
+The countdown stays free. On iPhone and iPad, DoneAt Plus adds full records, life views and focus tools, with monthly, yearly or lifetime purchase options through the App Store. On Android, the same options are bought through Google Play. Purchases do not carry over between the App Store and Google Play. Prices and any available trial are shown before purchase in the app.
 
 Turning on iCloud sync requires Plus. Once enabled, sync continues after a subscription expires. Your existing records remain stored, and export and deletion remain available without an active subscription.
 
 ## Open source
 
-The project is released under the MIT licence. You can inspect the code or build your own version from the public [GitHub repository](https://github.com/ififi2017/Off-Work-Countdown).
+The project is released under the [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) licence. You can inspect the code or build your own version from the public [GitHub repository](https://github.com/ififi2017/Off-Work-Countdown).
+
+Historical MIT permissions remain valid. Brand and artwork permissions are separate; third-party components retain their own licenses. [Brand guidelines](https://github.com/ififi2017/Off-Work-Countdown/blob/main/TRADEMARKS.md)
 
 The holiday templates include national-calendar data generated with [Vacanza Holidays 0.83](https://github.com/vacanza/holidays) and mainland China public-holiday and makeup-workday data from [holiday-cn](https://github.com/NateScarlet/holiday-cn). Both sources are available under the MIT licence:
 
@@ -68,6 +83,8 @@ The holiday templates include national-calendar data generated with [Vacanza Hol
 The Android app uses [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) by Kyant, with [Shapes 1.2.1](https://github.com/Kyant0/Shapes), to draw glass blur, refraction and shapes on the device. DoneAt’s bottom navigation adapts the project’s `LiquidBottomTabs` example for its own navigation, dragging, accessibility, right-to-left layouts and reduced-motion behavior.
 
 Both libraries are distributed under Apache License 2.0. Their complete licence texts are available here: [Backdrop](/licenses/backdrop-2.0.1.txt) and [Shapes](/licenses/shapes-1.2.1.txt), and in the Android app under Settings → About → Acknowledgements. These rendering libraries do not send app content or device identifiers to their authors.
+
+The homepage shows the Android app in Google’s [Pixel 10 Pro device art](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/), reproduced from work created and shared by the Android Open Source Project and used under the [Creative Commons Attribution 2.5 License](https://creativecommons.org/licenses/by/2.5/).
 
 ## Feedback
 

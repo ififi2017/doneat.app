@@ -4,7 +4,7 @@ description: "Comment DoneAt stocke les données localement par défaut, propose
 heading: "Politique de confidentialité"
 intro: "Cette page explique comment DoneAt stocke et traite les informations : le site officiel, le minuteur web, et les apps sur iPhone, iPad, Android, Mac et Windows."
 updatedLabel: "Dernière mise à jour"
-updated: "4 octobre 2026"
+updated: "19 octobre 2026"
 ---
 
 ## Données stockées par DoneAt
@@ -32,7 +32,7 @@ Activer la synchronisation nécessite DoneAt Plus. La synchronisation déjà act
 
 ## Android
 
-L’app Android est en test. Sa disponibilité et les achats Plus dépendent de sa publication sur Google Play. Les données de travail et les réglages restent par défaut dans le stockage privé de l’app, sans compte DoneAt ni analyse d’utilisation dans l’app.
+Les données de travail et les réglages restent par défaut dans le stockage privé de l’app, sans compte DoneAt ni analyse d’utilisation dans l’app.
 
 Les sauvegardes système et transferts d’appareil peuvent inclure relevés, salaire, parcours professionnel, profil de vie, données Focus et réglages d’une configuration inachevée. Cela dépend de l’appareil, du compte et des réglages système. DoneAt n’en reçoit pas de copie serveur. Le minuteur en cours, le registre des rappels et les preuves d’achat sont exclus ; après restauration, les rappels sont recréés et les achats revérifiés. Aucune synchronisation automatique Google Drive ou avec l’iPhone n’est proposée. Les exports manuels sont des fichiers JSON lisibles, pouvant contenir le salaire ; le lieu ou destinataire choisi reçoit une copie distincte.
 
@@ -124,3 +124,9 @@ Lorsque cette politique est mise à jour, la date de dernière mise à jour en h
 ## Nous contacter
 
 Pour les questions sur cette politique ou sur la façon dont les informations sont gérées, contactez-nous à [hello@doneat.app](mailto:hello@doneat.app). Les problèmes et suggestions concernant le produit peuvent également être soumis via [GitHub Issues](https://github.com/ififi2017/Off-Work-Countdown/issues).
+
+<!-- Review-access draft: publish only with the verified English/Simplified Chinese supplement. -->
+
+## Accès de validation Android facultatif
+
+Les versions proposant cet accès collectent un identifiant aléatoire d’installation et des données d’authentification si vous choisissez de l’utiliser. Consultez le [complément en anglais](/en/privacy#optional-android-review-access) pour les finalités, la conservation, la révocation et la suppression.

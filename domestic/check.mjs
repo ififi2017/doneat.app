@@ -48,11 +48,12 @@ assert.ok(files.get('/android/privacy').includes('APK 通过 Cloudflare 分发')
 console.log(`PASS: ${routes.length} pages, ${linksChecked} local links/assets, immutable release/source metadata, contact links, unique anchors, no analytics/forms; shared Astro shell.`);
 
 const repoDist = path.resolve(here, '../dist');
-const locales = JSON.parse(await readFile(path.resolve(here, '../locales/hall.json'), 'utf8')).locales;
+const allLocales = JSON.parse(await readFile(path.resolve(here, '../locales/hall.json'), 'utf8')).locales;
+const locales = process.env.SITE_REGION === 'cn' ? ['zh-CN'] : allLocales;
 for (const locale of locales) {
   const download = await readFile(path.join(repoDist, locale, 'download/index.html'), 'utf8');
   assert.ok(download.includes('href="https://doneat.com.cn/android"') && download.includes('mainland-android-heading'), `${locale}: mainland download entry`);
 }
 const sitemap = await readFile(path.join(repoDist, 'sitemap-0.xml'), 'utf8');
 assert.ok(!sitemap.includes('https://doneat.app/android'), 'Domestic canonical routes stay out of international sitemap');
-console.log('PASS: 19 international download entries and domestic sitemap separation.');
+console.log(`PASS: ${locales.length} download entries and domestic sitemap separation.`);

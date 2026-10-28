@@ -1,6 +1,6 @@
 ---
 title: "डाउनलोड — DoneAt"
-description: "App Store किंवा Microsoft Store वरून DoneAt मिळवा: विजेट, Live Activities, मोफत Apple Watch अॅप आणि iPhone वर मासिक शिफ्ट दिनदर्शिका, सिस्टम आवश्यकतांसह."
+description: "App Store, Google Play किंवा Microsoft Store वरून DoneAt मिळवा: विजेट, Live Activities, मोफत Apple Watch अॅप आणि iPhone वर मासिक शिफ्ट दिनदर्शिका, सिस्टम आवश्यकतांसह."
 heading: "तुमची वेळ, हाताजवळ."
 intro: "फोनवर एक नजर. मनगटावर एक क्षण. डेस्कटॉपचा एक शांत कोपरा. शिफ्टमधील उरलेली वेळ तिथे ठेवा जिथे ती तुमच्या कामी येईल."
 nativeHeading: मूळ अॅप का जवळ ठेवावे
@@ -12,12 +12,13 @@ nativePerks:
     body: संगणकावर उरलेली वेळ मेनू बार किंवा सिस्टम ट्रेमध्ये राहू शकते, आणि फोनवर इतर अॅप व विजेटमध्ये. ब्राउझर टॅब शोधण्याची गरज नाही.
   - title: मोजणी सुरू राहते
     body: पेज बंद करा, फोन लॉक करा, किंवा विंडो लपवा. जिथे इंस्टॉल केले आहे त्या उपकरणावर उलट मोजणी तिथून पुढे जाते जिथे तुम्ही सोडली होती.
-nativeNote: Mac आणि Windows वर डेटा त्या संगणकावर राहतो. iPhone आणि iPad वर डेटा डीफॉल्टने स्थानिक आहे, खाजगी iCloud डेटाबेसमधून ऐच्छिक सिंकसह. DoneAt खाते तयार करण्याची गरज नाही.
+nativeNote: Mac आणि Windows वर डेटा त्या संगणकावर राहतो. iPhone आणि iPad वर डेटा डीफॉल्टने स्थानिक आहे, खाजगी iCloud डेटाबेसमधून ऐच्छिक सिंकसह. Android वर डेटा फोनवरच राहतो, आणि तो बॅकअपमध्ये जातो की नाही हे तुमच्या सिस्टम बॅकअप सेटिंगवर अवलंबून आहे. DoneAt खाते तयार करण्याची गरज नाही.
 requirementsHeading: सिस्टम आवश्यकता
 requirements:
   - "Windows: Windows 10 20H2 किंवा नंतरचे (WebView2 आवश्यक)"
   - "macOS: macOS 13.0 किंवा नंतरचे"
   - "iOS/iPadOS: iOS 26.0/iPadOS 26.0 किंवा नंतरचे"
+  - "Android: Android 8.0 किंवा नंतरचे"
   - "Chrome एक्सटेंशन: Chrome 120 किंवा नंतरचे"
 chromeExtensionLabel: Chrome Web Store
 chromeExtensionNote: Chrome एक्सटेंशन म्हणूनही उपलब्ध. उरलेली वेळ पाहण्यासाठी टूलबार आयकॉनवर क्लिक करा.

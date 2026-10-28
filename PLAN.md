@@ -71,20 +71,20 @@
 2026-10-01 用户重设计要求取代旧首屏分栏和窄屏居中：梅色双行标题与班次票据 → 真实录屏 → 小组件／Apple Watch → 下载。窄屏按语言起始边排列，品牌 mark 在首屏署名中，官方商店徽章在下载章；手机位于第 01 章。19 语 h1 必须两行完整可读。全站色板／外层栅格由 `src/styles/global.css` 统一定义，详见 AGENTS。
 
 - Mark 默认定住。橙色圆点五连击后指针转一圈回到五点（与 iOS 相同）；减少动态效果时只脉冲一次。
-- 首屏主入口为客户端下载详情，次入口为浏览器计时；下载章商店顺序为 **App Store → Microsoft Store**。Web 不提升为主入口。
+- 首屏主入口为客户端下载详情，次入口为浏览器计时；下载章商店顺序为 **App Store → Google Play → Microsoft Store**。Web 不提升为主入口。
   - **App Store** 用 [Apple Marketing Tools](https://toolbox.marketingtools.apple.com/) 的官方徽章图，不是产品仓里那套 Mac App Store 专用 SVG。模板：
     `https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/{black|white}/{apple-locale}`
     浅色用 `black`，深色用 `white`；`apple-locale` 跟当前门厅语言（如 `zh-cn`、`en-us`），没有对应图就回退 `en-us`。
     链接以 **id `6802803318`** 为准，商店地区跟语言走（简中用 `/cn/`，不要写死 `/us/`）。路径上的 `下班倒计时` / `off-work-countdown` 是现在的 listing slug，listing 改成 DoneAt 后会变，实现时不要把旧中文名当品牌写死。Apple 生成的 `itscg` / `itsct` / `mttnsubad` 查询参数保留。
   - **Microsoft Store** 用[官方 badge 脚本](https://get.microsoft.com/badge/)：按页面语言返回对应徽章，主题跟系统亮暗。两家官方 CDN 的可用性都作为接受的依赖。
 - Web 与顶栏「打开计时」都进 `https://off.rainif.com/{lang}`。
-- 第 01 章三条短价值：本地、无账号、看清下班。不上长对比表，不把 FAQ 铺在首页。平台可用性压成一行说明，不在首页铺 chip；Android 待发布状态在下载章与下载页的既有平台行中说明。
+- 第 01 章三条短价值：本地、无账号、看清下班。不上长对比表，不把 FAQ 铺在首页。平台可用性压成一行说明，不在首页铺 chip；Android 已于 2026-10-19 在 Google Play 上架，平台行直接列出 Android。
 - 第 01 章机位：**当前色彩模式、且未开启 reduced-motion 时才加载对应 MP4**；其余情况只出 PNG。再套官方 iPhone 17 Pro Max 框（浅色 Cosmic Orange，深色 Deep Blue，`assets/device/frames/`）。竖屏下班倒计时，不要商店合成图，不要另造机框或灵动岛。素材在 `assets/device/`：`en` / `zh` × `white` / `black` 各一份 `.mp4` + `.png`。语言跟内容语言走（中文门厅用 `zh`，其余用 `en`）；亮暗跟 `prefers-color-scheme`。`autoplay muted loop playsinline`，无控件、无声音。`prefers-reduced-motion: reduce` 只出 PNG，且不请求视频。
 - 首页不放桌面主窗 / 迷你计时（窗口标题仍是旧名），不上产品仓里那套旧名桌面 demo。下载页的桌面演示见下。
 
 ### 下载页
 
-商店入口与首页同一套 App Store / Microsoft Store 徽章，不放「在浏览器里试试」。平台行含 Android 即将推出。三项原生价值用卡片排布；系统要求与卡片同宽，并附弱化的 GitHub Releases 文字链（仅 macOS / Windows 未签名直装包）。不放 GitHub 直装按钮。语气不贬网页版。顶栏仍可打开网页计时。
+商店入口与首页同一套 App Store / Google Play / Microsoft Store 徽章，不放「在浏览器里试试」。平台行含 Android。三项原生价值用卡片排布；系统要求与卡片同宽，并附弱化的 GitHub Releases 文字链（仅 macOS / Windows 未签名直装包）。不放 GitHub 直装按钮。语气不贬网页版。顶栏仍可打开网页计时。
 
 - 手机机位播 review 录屏（`en-review` / `zh-review`，iOS 3.2.0 真机录制），同一套官方机框与 PNG 兜底，不用首页的 timer loop。电脑用仓内归档的主窗与迷你计时演示。
 - iPhone 功能区：一个图位轮播当前版本的商店图（`assets/showcase/`，en / zh-CN），旁边每张配一段可见说明，图片有具体 `alt`。3.2.0 为小组件与实时活动、月历排班与节假日、免费 Apple Watch、倒计时。减少动态效果时不自动轮播。
@@ -159,6 +159,15 @@
 - [x] 19 语 About 补充 Kyant 的 Backdrop（AndroidLiquidGlass）2.0.1 / Shapes 1.2.1、LiquidBottomTabs 改编范围、设备本地绘制和 Apache-2.0；两份完整许可证与应用内版本逐字一致。隐私页链接到对应致谢，日期更新至 2026-10-04。Android 保持测试阶段、服务器验证依版本启用的说明。
 - [x] 本次 `check`（39 files，0 errors/warnings/hints）、`build`（121 页）、`seo:check` 通过；19 语 × 隐私/About × 390/1280 宽度共 76 个浏览器布局用例无横向溢出。实际查看浅色中文/英文隐私与致谢、阿拉伯语 RTL 段落及俄语标题；修复既有俄语长标题溢出。两份许可证与跨页锚点检查通过。本轮未做深色视觉复验，17 语新增译文的母语审阅仍需后续补充。
 - [x] 创建官网 [PR #30](https://github.com/ififi2017/doneat.app/pull/30)，Vercel 构建 Ready。[预览地址](https://doneat-app-git-codex-android-privacy-policy-ififi2017s-projects.vercel.app) 需要 Vercel 登录，当前浏览器会话未获得预览访问；保留访问保护。发布与生产域名验收证据记录在该 PR。Android 功能验证状态仍以产品仓 `docs/android/progress.md` 为准。
+
+### 产品 MPL 切换与品牌授权（2026-10-04）
+
+- [x] 官网代码保留 MIT；新增 LICENSING / ASSETS / TRADEMARKS，按路径区分原创品牌素材、内联 Logo 与 Apple/Microsoft/字体等第三方资源，保留历史 MIT 权利。
+- [x] 19 语 About / FAQ 的产品许可说明改为 MPL-2.0，增加历史授权及品牌边界链接；节假日数据的 MIT 与 Android 的 Apache-2.0 声明保持原样。
+- [x] `check`（39 files、0 errors/warnings/hints）、`build`（121 页）、`seo:check` 通过；19 语 × About/FAQ × 390/1280 × 浅/深色共 152 个浏览器用例无溢出，MPL 链接数量正确，已实际查看英/中/阿拉伯语截图。第三方许可和归属段落逐字核对不变。
+- [ ] 与产品 [PR #298](https://github.com/ififi2017/Off-Work-Countdown/pull/298) 协调合并，产品先合并；官网不得提前声明切换已发布。
+- [x] 官网 [PR #31](https://github.com/ififi2017/doneat.app/pull/31) 已创建；`21698b2` 的 Vercel 构建 Ready。[预览地址](https://doneat-app-git-codex-mpl-brand-licensing-ififi2017s-projects.vercel.app/en/about) 已记录。当前浏览器被重定向到 Vercel 的 GitHub 登录页，未获得访问权限。
+- [ ] 登录后完成 Vercel 页面验收；本地 152 个用例不能替代受保护预览的线上验收。
 
 ### S3 — SEO 与响应头
 
@@ -249,12 +258,56 @@
 - [x] check 0 errors；build 121 页；seo:check、19 语内容检查与 152 个页脚颜色用例通过；228 组首屏与 114 组钉住段实测通过。
 - [x] 收尾章：mark 放大并加深色投影；两枚商店徽章统一黑色版并居中；标题按字形视觉居中（收掉句末全角标点的空白）；说明与平台行改米色、按句换行。iPhone 段改为大标题 + 导读句，修正层级。
 
+## 2026-10-11 国内分站
+
+- [x] 创建独立工作树与 `codex/china-site` 分支，基于 main `1830d4a`；保留原工作区未提交修改。
+- [x] 同仓构建变量控制国内简中六页、X 隐藏、国内 canonical/sitemap/robots、备案空位与正式号码注入；默认海外 19 语和既有入口不变。
+- [x] 国内构建关闭 Vercel Analytics 与未部署的统计入口；国内隐私页补托管与统计适用范围说明。
+- [x] `npm run check`：41 files、0 errors/warnings/hints；默认海外 build/seo 与国内空备案/注入文本两种 build/seo 通过。验收用文本未发布。
+- [x] GitHub environment `china` 的变量、专用部署密钥与分支限制；受限部署账号、root 管理的接收器/Nginx/SSH 配置已安装，服务器配置检查通过。
+- [x] 部署脚本和 receiver 的本地语法、非法归档、限额、并发、截断、原子替换与 mock SSH 协议验证通过；协作使用 GPT-6.1 Sol / High，主 Agent 已审查。
+- [x] GitHub Actions 发布成功（run 38116278761）；服务器 current SHA 对应 commit。六页/资源/真实 404/query 跳转/MP4 206/immutable 缓存通过。Mac 内嵌 Chromium：390×844 下载页、1440×900 首页无横向溢出，X/语言选择隐藏，备案空位 32px；服务器内容经 SSH 隧道及公网首页验收，公网下载页浏览器一次超时（直接 HTTP 200）。
+- [x] 根域与 www A 记录已指向目标（Google DoH 验证）。草稿 PR #32 和默认海外 Vercel Preview 已生成，main 未合并，海外生产未发布。
+- [x] HTTPS 备用配置已安装但未启用；目标服务器用临时测试证书独立 nginx -t 通过，测试证书已删除。
+- [ ] 网站备案通过并解决服务器 ACME 出站 TLS EOF 后签发受信任证书、启用 HTTPS/续期。当前阿里云 Beaver 返回 Non-compliance ICP Filing 403，HTTP-01 验证失败，未签发任何证书。
+- [ ] 提供真实网站备案号后设置 `ICP_FILING_NUMBER` 并重新发布。
+
 ## 2026-10-16 Android 可选审核访问披露（草稿）
 
 - [x] 准备英文／简中 About 与 Privacy 的审核访问补充，以及其余 17 个已有隐私页的短提示和英／简中补充链接；不新增未经审核的多语长文。保留原有工作区变更。
 - [x] 本地 `check`（39 files，0 errors/warnings/hints）、`build`（121 页）、`seo:check` 通过；19 个新增补充链接对应的构建锚点存在。Codex 内置浏览器实际查看深色英文 1280×720、简中 390×844 和阿拉伯语短提示；简中/阿拉伯语 390 宽无横向溢出，并实际点击阿拉伯语链接到英文补充。未覆盖亮色或完整 19 语视觉矩阵。
 - [ ] 对照最终 Android／Worker 实现验证字段、24 小时授权、最后续期七天安装清理、退出／撤销和备份排除。17 语短提示仍需母语审阅。
-- [ ] 用户审阅与发布决定；本轮不推送、合并、部署或提交 Play Data safety，不改首页、DNS 或域名绑定。正式审核访问启用前，必须先有匹配的已发布隐私披露和 Console 声明。
+- [x] 所有者于 2026-10-16 确认合并发布本补充；不改首页、DNS 或域名绑定，不含 Android 生产发布。正式审核访问启用前，必须先有匹配的已发布隐私披露和 Console 声明。
+
+## 2026-10-19 Android 正式上架
+
+- [x] 用户确认 Android 已在 [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) 上架，要求推进官网 Android 内容。
+- [x] 下载章、下载页与首页收尾加 19 语官方 Google Play 徽章（App Store → Google Play → Microsoft Store；国内站不显示），统计事件 `google_play_open`；平台行去掉「即将推出」；门厅标题、描述与 JSON-LD 加 Android。
+- [x] 19 语下载／FAQ／About／隐私去掉「测试阶段」说法；下载页补 Android 8.0+ 系统要求与 Android 数据说明；FAQ 的应用入口、通知、离线、小组件、排班与节假日加 Android。隐私数据处理范围不变，日期更新为 2026-10-19。非英／简中 17 语改动仍需母语审阅。
+
+
+## 2026-10-19 Android 上架后的官网改版
+
+用户确认：Android 上架后官网要从「iPhone 产品站」改为「手机 + 电脑产品站」；版式、色板与滚动场景不推倒重来，补 Android 的内容与真实素材。用户把三项决定交给 agent，结论如下：
+
+- 首页第 01 章 iPhone 与 Android 并列倒计时（2026-10-20 用户看过后要求与 iOS 并列或分板块展示，交 agent 决定；取代前一版「按访客只放一台」）。访客自己的平台排在前面，第二台略低错开。识别只在浏览器本地读 `navigator.userAgentData` / UA，写 `html[data-platform]`，不发送、不存储；没有脚本时 iPhone 在前。
+- Android 素材在用户的 Pixel 10 Pro 上，用产品仓 `scripts/marketing-shots/android` 的隔离 Debug 包 `com.rainif.doneat.shots` 和合成数据录制，不碰 Play 安装版的数据。需要在班次中录。机框用 Google 官方 Pixel 10 Pro 设备图稿（Device Art Generator 明确用于网站宣传，CC BY 2.5 署名）。
+- 国内站不显示 Google Play 与 Android 入口（国内无 Google Play），保持现状。
+
+### A 不依赖新素材
+
+- [x] 商店徽章按访客平台排序：Android 访客 Google Play 在前，其余仍 App Store → Google Play → Microsoft Store。
+- [x] 下载页加「Android 上能做什么」轮播（Play 3.2.2 商店图：月历排班、休假规划、记录、午休），页内目录加 Android；对照表改三列：iPhone / iPad、Android、电脑，如实标出差异（Apple Watch、实时活动、iCloud 仅 iPhone；常驻通知、系统备份为 Android）。
+- [x] 首页第 02 章说明文字改为包含 Android（19 语）。
+- [x] About 补 Android 一节；FAQ 补「Plus 能否跨 App Store／Google Play」「iPhone 和 Android 之间怎么转记录」（19 语）。
+
+### B 依赖 Pixel 录制
+
+- [x] Android 计时录屏（`en`/`zh` × 浅/深色，14 秒）与 PNG 海报：2026-10-20 09:33–09:36 在 Pixel 10 Pro 上录制，状态栏图标已遮，做法见 `assets/device/README.md`。
+- [ ] （可选）Android 桌面小组件与常驻通知的精确裁切，供第 02 章使用；需在用户手机桌面临时放置小组件，本轮未做。
+- [x] 首页第 01 章 iPhone 与 Android 并列，Android 套 Google 官方 Pixel 10 Pro 设备图稿（用户嫌中性外框丑，2026-10-20 换；CC BY 2.5，19 语 About 署名）；Google Play 徽章改为 1×/2×/3× PNG（原先只出 1× WebP，高分屏发糊）。
+- [x] 用户觉得 iPhone 录屏旧：2026-10-20 用 iPhone 18 Pro Max 模拟器从当前 main（3.2.3）重录首页四段计时循环，与 Android 同一套合成数据、同一天 09:00–18:00；下载页 review 片段未重录。
+- [x] check 0 errors、build 121 页、seo:check 通过；1280×800 浅/深色、390×844 浅色实测，Pixel 10 Pro 的 Chrome 实机确认 Android 识别与徽章清晰度。
 
 - [x] 2026-10-27：按用户授权完成国内授权后端与发卡后台测试环境。数据库为成都自建 PostgreSQL，私有仓库 `ififi2017/doneat-cn-license`；后台 `console.doneat.app` 由 Worker + Tunnel 访问成都管理 API，使用密码 + 通行密钥。API 公网仍为503，Android等Pixel接入；基线备份恢复通过，生产PITR/异地备份和退款事件回退未完成，详见国内 PLAN v3.0。
 
@@ -312,5 +365,5 @@
 ## 2026-10-28 国内下载页整合 Astro
 
 - [x] 国内五页迁入 `src/pages/android/[...page].astro`，共享主站Layout/Header/Footer和字体、色板、栅格、按钮；独立build脚本只负责调用Astro和打包产物，删除第二套CSS/HTML渲染。
-- [x] 国际站19语客户端下载页增加中国大陆Android入口，链接现有国内URL，无地区自动跳转；Google Play即将推出与已提供国内下载明确区分。
+- [x] 国际站19语客户端下载页增加中国大陆Android入口，链接现有国内URL，无地区自动跳转；保留已上架 Google Play 入口，并说明国内版独立授权。
 - [x] 保持国内无分析脚本、canonical和noindex策略，国际sitemap排除国内路由，APK和源码地址保持不变。

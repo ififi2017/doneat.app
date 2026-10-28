@@ -1,6 +1,6 @@
 ---
 title: "Hakkında — DoneAt"
-description: "Tarayıcı, iPhone, iPad, Mac ve Windows için yerel bir vardiya geri sayımı olan DoneAt hakkında."
+description: "Tarayıcı, iPhone, iPad, Android, Mac ve Windows için yerel bir vardiya geri sayımı olan DoneAt hakkında."
 heading: "DoneAt hakkında"
 intro: "Açık bırakabileceğin yerel bir vardiya sayacı. DoneAt hesabı yok, reklam yok; iPhone ve iPad’de isteğe bağlı özel iCloud eşitlemesi var."
 ---
@@ -44,17 +44,19 @@ Harici bir bağlantı veya paylaşım hizmeti o hedefe kendi koşullarıyla ula�
 
 Maaş ve süre toplamları kişisel başvuru için tahminlerdir. Bordro kaydı değildir; hukuki, vergi, istihdam veya finansal tavsiye değildir. Hatırlatıcılar güvenlik açısından kritik veya yasal olarak zorunlu zamanlama için kullanılmamalıdır.
 
-Yazılım, yasanın izin verdiği ölçüde, MIT lisansı altında olduğu gibi ve garantisiz sunulur. Depodaki lisans metni bağlayıcı yasal bildirimdir.
+Yazılım, yasanın izin verdiği ölçüde, [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) lisansı altında olduğu gibi ve garantisiz sunulur. Depodaki lisans metni bağlayıcı yasal bildirimdir.
 
 ## Ücretsiz geri sayım, isteğe bağlı Plus
 
-Geri sayım ücretsiz kalır. iPhone ve iPad’de DoneAt Plus tam kayıtlar, yaşam görünümleri ve odak araçları ekler; App Store üzerinden aylık, yıllık veya ömür boyu satın alma seçenekleriyle. Fiyatlar ve varsa deneme, satın almadan önce uygulamada gösterilir.
+Geri sayım ücretsiz kalır. iPhone ve iPad’de DoneAt Plus tam kayıtlar, yaşam görünümleri ve odak araçları ekler; App Store üzerinden aylık, yıllık veya ömür boyu satın alma seçenekleriyle. Android’de aynı seçenekler Google Play üzerinden satın alınır. Satın almalar App Store ile Google Play arasında geçmez. Fiyatlar ve varsa deneme, satın almadan önce uygulamada gösterilir.
 
 iCloud eşitlemesini açmak Plus gerektirir. Bir kez açıldığında eşitleme abonelik bittikten sonra da sürer. Mevcut kayıtların saklanır; dışa aktarma ve silme, etkin abonelik olmadan da kullanılabilir.
 
 ## Açık kaynak
 
-Proje MIT lisansı altında yayımlanır. Kodu inceleyebilir veya herkese açık [GitHub deposundan](https://github.com/ififi2017/Off-Work-Countdown) kendi sürümünü derleyebilirsin.
+Proje [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) lisansı altında yayımlanır. Kodu inceleyebilir veya herkese açık [GitHub deposundan](https://github.com/ififi2017/Off-Work-Countdown) kendi sürümünü derleyebilirsin.
+
+Daha önce verilen MIT izinleri geçerliliğini korur. Marka ve görseller ayrı koşullara tabidir; üçüncü taraf bileşenler kendi lisanslarını korur. [Marka kullanım kuralları](https://github.com/ififi2017/Off-Work-Countdown/blob/main/TRADEMARKS.md)
 
 Tatil şablonları, [Vacanza Holidays 0.83](https://github.com/vacanza/holidays) ile üretilmiş ulusal takvim verisini ve [holiday-cn](https://github.com/NateScarlet/holiday-cn) kaynağından Çin anakarası resmi tatil ve telafi iş günü verisini içerir. İki kaynak da MIT lisansı altındadır:
 
@@ -63,9 +65,20 @@ Tatil şablonları, [Vacanza Holidays 0.83](https://github.com/vacanza/holidays)
 
 ## Android
 
-Android sürümü test aşamasındadır. Satın almaları Google Play işler. Sunucu doğrulaması açık sürümlerde DoneAt, Cloudflare üzerinde satın alma jetonlarını işler ve özetlerini erişim durumuyla saklar; maaş ve çalışma kayıtları gönderilmez. Doğrulama, yedekleme ve silme için [gizlilik politikasına](/tr/privacy#android) bakabilirsin.
+[Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat)’deki Android uygulaması iPhone ile aynı program kurallarını izler. Geri sayım, planlama ve resmi tatiller ücretsizdir:
+
+- Tek bir aylık takvimde sabit hafta günleri, dönüşümlü haftalar, rotasyonlar ve gece vardiyalarıyla planla; ya da serbest planda bir dokunuş veya kaydırmayla vardiyaları boya.
+- Saatler ve vardiya bölümünde bir ülke veya bölge seç; programın o bölgenin resmi tatillerini izler.
+- Uygulamayı açmadan kalan süreyi Ana Ekran bileşeninden veya sürekli bildirimden gör.
+- Son yedi günün kayıtlarına bak, üç izin araması dene, verilerini ücretsiz içe veya dışa aktar. DoneAt Plus daha eski kayıtları, Yıl ve Yaşam görünümlerini, raporları, Odak’ı, sınırsız izin aramasını ve vardiya alarmlarını ekler.
+
+Android verilerini telefonunda tutar. iCloud eşitlemesi Android uygulamasının parçası değildir; açıksa Android’in kendi yedeği kayıtları ve ayarları içerebilir, dışa aktarılan bir yedek de kayıtlarını iPhone ile Android arasında taşır.
+
+Satın almaları Google Play işler. Sunucu doğrulaması açık sürümlerde DoneAt, Cloudflare üzerinde satın alma jetonlarını işler ve özetlerini erişim durumuyla saklar; maaş ve çalışma kayıtları gönderilmez. Doğrulama, yedekleme ve silme için [gizlilik politikasına](/tr/privacy#android) bakabilirsin.
 
 Android gezinmesi Kyant’ın [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) ve [Shapes 1.2.1](https://github.com/Kyant0/Shapes) kütüphanelerini kullanır. `LiquidBottomTabs` örneği DoneAt’ın gezinme, sürükleme, erişilebilirlik, sağdan sola düzen ve azaltılmış hareket davranışına uyarlanmıştır. Efektler cihazda çizilir; uygulama içeriği veya cihaz kimlikleri yazarlara gönderilmez. İkisi de Apache License 2.0 kullanır: [Backdrop lisansı](/licenses/backdrop-2.0.1.txt), [Shapes lisansı](/licenses/shapes-1.2.1.txt). Tam metinler Ayarlar → Hakkında → Teşekkürler bölümünde de bulunur.
+
+Ana sayfa, Android uygulamasını Google’ın [Pixel 10 Pro cihaz çerçevesi](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/) içinde gösterir. Bu görsel Android Open Source Project tarafından oluşturulup paylaşılmıştır ve [Creative Commons Atıf 2.5 Lisansı](https://creativecommons.org/licenses/by/2.5/) kapsamında kullanılmaktadır.
 
 ## Geri bildirim
 

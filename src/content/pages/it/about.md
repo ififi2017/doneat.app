@@ -1,6 +1,6 @@
 ---
 title: "Informazioni — DoneAt"
-description: "Informazioni su DoneAt, un timer di turno locale per browser, iPhone, iPad, Mac e Windows."
+description: "Informazioni su DoneAt, un timer di turno locale per browser, iPhone, iPad, Android, Mac e Windows."
 heading: "Informazioni su DoneAt"
 intro: "Un timer di turno locale che puoi lasciare aperto. Nessun account DoneAt, nessuna pubblicità e sincronizzazione opzionale privata iCloud su iPhone e iPad."
 ---
@@ -44,17 +44,19 @@ Aprire un link esterno o un servizio di condivisione raggiunge quella destinazio
 
 Stipendio e totali di tempo sono stime per riferimento personale. Non sono registri paghe né consulenza legale, fiscale, lavorativa o finanziaria. I promemoria non dovrebbero essere usati per tempistiche critiche per la sicurezza o legalmente richieste.
 
-Il software è fornito sotto licenza MIT, così com'è e senza garanzia, nella misura consentita dalla legge. Il testo della licenza nel repository è l'avviso legale di riferimento.
+Il software è fornito sotto licenza [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md), così com'è e senza garanzia, nella misura consentita dalla legge. Il testo della licenza nel repository è l'avviso legale di riferimento.
 
 ## Conto alla rovescia gratuito, Plus opzionale
 
-Il conto alla rovescia resta gratuito. Su iPhone e iPad, DoneAt Plus aggiunge record completi, viste di vita e strumenti di concentrazione, con opzioni di acquisto mensili, annuali o a vita tramite l'App Store. I prezzi e le eventuali prove disponibili vengono mostrati prima dell'acquisto nell'app.
+Il conto alla rovescia resta gratuito. Su iPhone e iPad, DoneAt Plus aggiunge record completi, viste di vita e strumenti di concentrazione, con opzioni di acquisto mensili, annuali o a vita tramite l'App Store. Su Android le stesse opzioni si acquistano tramite Google Play. Gli acquisti non si trasferiscono tra App Store e Google Play. I prezzi e le eventuali prove disponibili vengono mostrati prima dell'acquisto nell'app.
 
 Attivare la sincronizzazione iCloud richiede Plus. Una volta abilitata, la sincronizzazione continua dopo la scadenza di un abbonamento. I tuoi record esistenti rimangono memorizzati, e l'esportazione e l'eliminazione restano disponibili senza un abbonamento attivo.
 
 ## Open source
 
-Il progetto è rilasciato sotto licenza MIT. Puoi ispezionare il codice o creare la tua versione dal [repository pubblico GitHub](https://github.com/ififi2017/Off-Work-Countdown).
+Il progetto è rilasciato sotto licenza [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md). Puoi ispezionare il codice o creare la tua versione dal [repository pubblico GitHub](https://github.com/ififi2017/Off-Work-Countdown).
+
+Le autorizzazioni MIT già concesse restano valide. Marchio e materiale grafico hanno condizioni separate; i componenti di terze parti mantengono le proprie licenze. [Uso del marchio](https://github.com/ififi2017/Off-Work-Countdown/blob/main/TRADEMARKS.md)
 
 I template delle festività includono dati di calendari nazionali generati con [Vacanza Holidays 0.83](https://github.com/vacanza/holidays) e dati delle festività e dei giorni di recupero della Cina continentale da [holiday-cn](https://github.com/NateScarlet/holiday-cn). Entrambe le fonti sono disponibili sotto licenza MIT:
 
@@ -63,9 +65,20 @@ I template delle festività includono dati di calendari nazionali generati con [
 
 ## Android
 
-La versione Android è in fase di test. Google Play gestisce gli acquisti. Con la verifica server attiva, DoneAt elabora i token su Cloudflare e ne conserva gli hash insieme allo stato dei diritti; stipendio e registri di lavoro non vengono inviati. Vedi l’[informativa sulla privacy](/it/privacy#android) per verifica, backup ed eliminazione.
+L’app Android su [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) segue le stesse regole di programmazione dell’iPhone. Il conto alla rovescia, la pianificazione e le festività sono gratuiti:
+
+- Pianifica su un unico calendario mensile con giorni fissi, settimane alternate, rotazioni e turni notturni, oppure dipingi i turni su un programma libero con un tocco o uno scorrimento.
+- Scegli un paese o regione in Orari e turni e il tuo programma seguirà le sue festività.
+- Controlla il tempo rimasto da un widget della schermata Home o dalla notifica persistente, senza aprire l’app.
+- Rivedi gli ultimi sette giorni di record, prova tre ricerche di ferie e importa o esporta i tuoi dati gratis. DoneAt Plus aggiunge record più vecchi, le viste Anno e Vita, i report, la concentrazione, ricerche di ferie illimitate e le sveglie dei turni.
+
+Android tiene i tuoi dati sul telefono. La sincronizzazione iCloud non fa parte dell’app Android; il backup di Android può includere record e impostazioni se lo hai attivato, e l’esportazione di un backup sposta i tuoi record tra iPhone e Android.
+
+Google Play gestisce gli acquisti. Con la verifica server attiva, DoneAt elabora i token su Cloudflare e ne conserva gli hash insieme allo stato dei diritti; stipendio e registri di lavoro non vengono inviati. Vedi l’[informativa sulla privacy](/it/privacy#android) per verifica, backup ed eliminazione.
 
 La navigazione Android usa [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) di Kyant e [Shapes 1.2.1](https://github.com/Kyant0/Shapes). DoneAt adatta l’esempio `LiquidBottomTabs` per navigazione, trascinamento, accessibilità, layout da destra a sinistra e movimento ridotto. Il rendering è locale e non invia contenuti o identificativi del dispositivo agli autori. Entrambe le librerie usano Apache License 2.0: [licenza Backdrop](/licenses/backdrop-2.0.1.txt), [licenza Shapes](/licenses/shapes-1.2.1.txt), incluse anche in Impostazioni → Informazioni → Ringraziamenti.
+
+La home page mostra l’app Android nella [cornice del dispositivo Pixel 10 Pro](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/) di Google, riprodotta da un’opera creata e condivisa dall’Android Open Source Project e usata secondo la [licenza Creative Commons Attribuzione 2.5](https://creativecommons.org/licenses/by/2.5/).
 
 ## Feedback
 

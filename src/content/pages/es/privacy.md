@@ -4,7 +4,7 @@ description: "Cómo DoneAt almacena datos localmente por defecto, ofrece sincron
 heading: "Política de privacidad"
 intro: "Esta página explica cómo DoneAt almacena y procesa información: el sitio oficial, el temporizador web y las apps en iPhone, iPad, Android, Mac y Windows."
 updatedLabel: "Última actualización"
-updated: "4 de octubre de 2026"
+updated: "19 de octubre de 2026"
 ---
 
 ## Datos almacenados por DoneAt
@@ -32,7 +32,7 @@ Activar la sincronización requiere DoneAt Plus. La sincronización que ya está
 
 ## Android
 
-Android está en pruebas; su disponibilidad y las compras Plus dependen del lanzamiento en Google Play. Los datos de trabajo y ajustes permanecen por defecto en el almacenamiento privado de la app, sin cuenta DoneAt ni analítica de uso en la app.
+Los datos de trabajo y ajustes permanecen por defecto en el almacenamiento privado de la app, sin cuenta DoneAt ni analítica de uso en la app.
 
 Las copias del sistema y transferencias de dispositivo pueden incluir registros, salario, historial profesional, perfil de vida, datos Focus y ajustes de una configuración incompleta. Dependen del dispositivo, cuenta y ajustes del sistema; DoneAt no recibe una copia en su servidor. El temporizador activo, registro de recordatorios y pruebas de compra quedan excluidos. Tras restaurar, se programan los recordatorios y se comprueban las compras de nuevo. No hay sincronización automática con Google Drive ni con iPhone. Las exportaciones manuales son JSON legible, pueden incluir salario y crean una copia separada en el destino que elijas.
 
@@ -132,3 +132,9 @@ Cuando esta política se actualice, la fecha de última actualización en la par
 Las preguntas sobre esta política, o sobre cómo se maneja la información, van a [hello@doneat.app](mailto:hello@doneat.app). Los problemas de producto y sugerencias también pueden enviarse a través de [GitHub Issues](https://github.com/ififi2017/Off-Work-Countdown/issues).
 
 Si identificas una diferencia entre esta política y el comportamiento real del producto, escribe a esa dirección o abre un issue.
+
+<!-- Review-access draft: publish only with the verified English/Simplified Chinese supplement. -->
+
+## Acceso opcional de revisión en Android
+
+Las versiones que ofrecen este acceso recopilan un identificador aleatorio de instalación y datos de autenticación si decides usarlo. Consulta el [suplemento en inglés](/en/privacy#optional-android-review-access) sobre su finalidad, conservación, revocación y eliminación.

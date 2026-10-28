@@ -3,10 +3,15 @@ import hall from "../../locales/hall.json";
 import site from "../../site.json";
 import { PUBLISHED_BY_PAGE } from "./published-content";
 
-export const siteConfig = site;
+import { defaultLocale, isChina, siteOrigin } from "./deployment";
+export { defaultLocale, isChina, icpFilingNumber, psbFilingNumber, psbFilingUrl } from "./deployment";
+
+export const siteConfig = isChina
+  ? { ...site, officialSiteUrl: siteOrigin, socials: site.socials.filter((item) => item.id !== "x") }
+  : site;
 
 export type HallLocale = keyof typeof hall.functionalSubtitle;
-export const HALL_LOCALES = hall.locales as HallLocale[];
+export const HALL_LOCALES: HallLocale[] = isChina ? ["zh-CN"] : hall.locales as HallLocale[];
 
 export type ContentLocale = HallLocale;
 
@@ -34,6 +39,20 @@ export function isContentLocale(value: string | undefined): value is ContentLoca
 }
 
 /** True when `src/content/pages/{locale}/{page}.md` is listed in `published-content.ts`. */
+/**
+ * The footer link to the other regional site, on the matching page where it
+ * exists there. The mainland site only carries Simplified Chinese, so its
+ * label stays Chinese on every international locale. The international site
+ * links there only once `chinaSiteLive` is set (it needs HTTPS and a filing).
+ */
+export function otherSiteLink(pathname: string): { href: string; label: string } | null {
+  if (isChina) return { href: `${site.officialSiteUrl}${pathname}`, label: "国际站" };
+  if (!site.chinaSiteLive) return null;
+  const [, , page = ""] = pathname.split("/");
+  const target = isContentPage(page) && hasPublishedContent("zh-CN", page) ? `/zh-CN/${page}` : "/zh-CN";
+  return { href: `${site.chinaSiteUrl}${target}`, label: "中国大陆站" };
+}
+
 export function hasPublishedContent(locale: string, page: ContentPage): boolean {
   return (PUBLISHED_BY_PAGE[page] as readonly string[]).includes(locale);
 }
@@ -61,7 +80,7 @@ export function isChineseHall(locale: HallLocale): boolean {
  * the href, so there is no 302 from `/{locale}/{page}` onto another language.
  */
 export function contentLocaleFor(locale: HallLocale, page: ContentPage): ContentLocale {
-  return hasPublishedContent(locale, page) ? locale : "en";
+  return hasPublishedContent(locale, page) ? locale : defaultLocale;
 }
 
 export function functionalSubtitle(locale: HallLocale): string {
@@ -84,6 +103,13 @@ export function appleStorefront(locale: HallLocale): string {
 export function microsoftBadgeLocale(locale: HallLocale): string {
   return hall.microsoftBadgeLocale[locale];
 }
+
+export function googlePlayBadgeLocale(locale: HallLocale): string {
+  return hall.googlePlayBadgeLocale[locale];
+}
+
+/** Google Play is unavailable in mainland China, so the China site leaves it out. */
+export const showGooglePlay = !isChina;
 
 export function deviceStem(locale: HallLocale): "zh" | "en" {
   return isChineseHall(locale) ? "zh" : "en";
@@ -123,7 +149,7 @@ export function appleStoreUrl(locale: HallLocale): string {
 export type WebTimerPlacement = "header" | "hall" | "card" | "notfound";
 
 export const WEB_TIMER_UTM = {
-  source: "doneat.app",
+  source: new URL(siteConfig.officialSiteUrl).hostname,
   medium: "referral",
   campaign: "official-site",
 } as const;
@@ -148,8 +174,8 @@ export function sitePath(path: string): string {
 }
 
 export function canonicalUrl(path: string): string {
-  if (path === "/" || path === "") return site.officialSiteUrl;
-  return `${site.officialSiteUrl}${sitePath(path)}`;
+  if (path === "/" || path === "") return siteConfig.officialSiteUrl;
+  return `${siteConfig.officialSiteUrl}${sitePath(path)}`;
 }
 
 export type SocialLink = (typeof siteConfig.socials)[number];

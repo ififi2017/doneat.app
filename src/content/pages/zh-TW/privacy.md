@@ -4,7 +4,7 @@ description: "DoneAt 如何預設將資料保存在本地、在 iPhone 和 iPad 
 heading: "隱私權政策"
 intro: "本頁說明 DoneAt 如何儲存和處理資訊：官網、網頁計時，以及 iPhone、iPad、Android、Mac 和 Windows 上的應用程式。"
 updatedLabel: "最後更新"
-updated: "2026 年 10 月 4 日"
+updated: "2026 年 10 月 19 日"
 ---
 
 ## DoneAt 儲存的資料
@@ -32,7 +32,7 @@ updated: "2026 年 10 月 4 日"
 
 ## Android
 
-Android 應用程式目前處於測試階段，公開下載與 Plus 購買以 Google Play 發布為準。工作資料與設定預設儲存在應用程式的私有空間，不需要 DoneAt 帳號，應用程式不收集使用統計。
+工作資料與設定預設儲存在應用程式的私有空間，不需要 DoneAt 帳號，應用程式不收集使用統計。
 
 系統備份與裝置移轉可能包含記錄、薪資、職涯歷史、生活檔案、Focus 資料及未完成的初始設定，取決於裝置、帳號及系統設定；DoneAt 伺服器不會收到副本。執行中的計時器、提醒登記與購買憑證不納入系統備份；還原後會重新安排提醒並核對購買。沒有自動 Google Drive 同步，也不與 iPhone 自動同步。手動匯出的備份是可直接讀取的 JSON，可能包含薪資，所選位置或接收人會取得獨立副本。
 
@@ -132,3 +132,9 @@ DoneAt 無法存取你的 Apple 帳號或代表你刪除其私人 iCloud 資料�
 有關本政策或資訊處理方式的問題，請寫信至 [hello@doneat.app](mailto:hello@doneat.app)。產品問題和建議也可透過 [GitHub Issues](https://github.com/ififi2017/Off-Work-Countdown/issues) 提交。
 
 如果你發現本政策與產品實際行為之間存在差異，請寫信至該地址或開一條 Issue。
+
+<!-- Review-access draft: publish only with the verified English/Simplified Chinese supplement. -->
+
+## 可選的 Android 審核存取
+
+提供審核存取的版本會在你選用時收集隨機安裝識別與驗證資料。完整的資料用途、保留期限、撤銷與刪除說明，請見[簡體中文補充](/zh-CN/privacy#可选的-android-审核访问)。

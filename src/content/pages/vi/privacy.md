@@ -4,7 +4,7 @@ description: "DoneAt lưu dữ liệu trên máy theo mặc định, có đồng
 heading: "Chính sách quyền riêng tư"
 intro: "Trang này giải thích DoneAt lưu và xử lý thông tin thế nào: trang chính thức, bộ đếm web, và ứng dụng trên iPhone, iPad, Android, Mac và Windows."
 updatedLabel: "Cập nhật lần cuối"
-updated: "4 tháng 10 năm 2026"
+updated: "19 tháng 10 năm 2026"
 ---
 
 ## Dữ liệu DoneAt lưu
@@ -32,7 +32,7 @@ Bật đồng bộ cần DoneAt Plus. Đồng bộ đã bật tiếp tục sau k
 
 ## Android
 
-Ứng dụng Android đang thử nghiệm; khả năng tải và mua Plus phụ thuộc vào bản phát hành Google Play. Dữ liệu công việc và cài đặt mặc định nằm trong bộ nhớ riêng của ứng dụng, không có tài khoản DoneAt hay phân tích hành vi sử dụng trong ứng dụng.
+Dữ liệu công việc và cài đặt mặc định nằm trong bộ nhớ riêng của ứng dụng, không có tài khoản DoneAt hay phân tích hành vi sử dụng trong ứng dụng.
 
 Sao lưu hệ thống và chuyển thiết bị có thể chứa bản ghi, lương, lịch sử nghề nghiệp, hồ sơ cuộc sống, dữ liệu Focus và cài đặt ban đầu chưa hoàn tất. Điều này tùy thiết bị, tài khoản và cài đặt hệ thống; DoneAt không nhận bản sao trên máy chủ. Bộ đếm đang chạy, sổ nhắc nhở đã lên lịch và bằng chứng mua hàng bị loại trừ. Sau khi khôi phục, nhắc nhở được lập lại và giao dịch được kiểm tra lại. Không tự đồng bộ Google Drive hoặc với iPhone. Bản xuất thủ công là JSON đọc được, có thể chứa lương và tạo bản sao riêng tại nơi bạn chọn.
 
@@ -132,3 +132,9 @@ Khi chính sách này được cập nhật, ngày cập nhật lần cuối ở
 Câu hỏi về chính sách này, hoặc về cách thông tin được xử lý, gửi tới [hello@doneat.app](mailto:hello@doneat.app). Vấn đề sản phẩm và góp ý cũng có thể gửi qua [GitHub Issues](https://github.com/ififi2017/Off-Work-Countdown/issues).
 
 Nếu bạn thấy khác biệt giữa chính sách này và hành vi thực tế của sản phẩm, hãy viết tới địa chỉ đó hoặc mở một issue.
+
+<!-- Review-access draft: publish only with the verified English/Simplified Chinese supplement. -->
+
+## Quyền truy cập xét duyệt Android tùy chọn
+
+Các phiên bản có tính năng này thu thập mã nhận dạng cài đặt ngẫu nhiên và dữ liệu xác thực khi bạn chọn sử dụng. Xem [phần bổ sung bằng tiếng Anh](/en/privacy#optional-android-review-access) về mục đích, thời hạn lưu giữ, thu hồi và xóa dữ liệu.

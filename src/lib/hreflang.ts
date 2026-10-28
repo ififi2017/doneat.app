@@ -1,5 +1,6 @@
 import {
   canonicalUrl,
+  defaultLocale,
   HALL_LOCALES,
   hasPublishedContent,
   isContentPage,
@@ -41,7 +42,7 @@ export function contentHreflangLinks(page: ContentPage): HreflangLink[] {
       lang: code,
       href: canonicalUrl(`/${code}/${page}`),
     })),
-    { lang: "x-default", href: canonicalUrl(`/en/${page}`) },
+    { lang: "x-default", href: canonicalUrl(`/${defaultLocale}/${page}`) },
   ];
 }
 

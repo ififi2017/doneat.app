@@ -13,3 +13,7 @@
 国内服务器使用独立android-current与根站current软链接。每次复制现有根站到新release，只添加新构建的共享资产，不覆盖其它路由；Android目录独立切换。国际站发布通过PR/Vercel。保留旧目录和部署记录供回滚，禁止直接将本机混有无关修改的整个dist覆盖国内根站。
 
 `add-android-entry.py` 是2026-10-28早期发布的历史导航迁移脚本；不要在每次Astro部署时重复运行。完整部署历史见DEPLOYMENT.md。
+
+## Unified deployment (2026-10-28)
+
+The packaging build sets `SITE_REGION=cn`. Run its checks with `SITE_REGION=cn npm --prefix domestic run check`; after a global build, run the same checks without this variable to verify all 19 entries. Production now serves the complete China Astro build from `current`, including `/android`. The old `android-current` is retained for legacy assets and rollback only. Build from a clean committed checkout and preserve the existing ICP/PSB environment values. This supersedes the separate-directory deployment instructions above.

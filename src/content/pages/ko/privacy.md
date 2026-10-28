@@ -4,7 +4,7 @@ description: "DoneAt이 기본적으로 데이터를 로컬에 저장하는 방�
 heading: "개인정보 보호정책"
 intro: "이 페이지에서는 DoneAt이 정보를 저장·처리하는 방법을 설명합니다: 공식 사이트, 웹 타이머, iPhone, iPad, Android, Mac, Windows 앱."
 updatedLabel: "최종 업데이트"
-updated: "2026년 10월 4일"
+updated: "2026년 10월 19일"
 ---
 
 ## DoneAt이 저장하는 데이터
@@ -32,7 +32,7 @@ iPhone과 iPad에서는 iCloud 동기화를 활성화할 수 있습니다. 활�
 
 ## Android
 
-Android 앱은 테스트 중이며 공개 배포와 Plus 구매는 Google Play 출시 일정에 따릅니다. 근무 데이터와 설정은 기본적으로 앱 전용 저장소에 보관합니다. DoneAt 계정이나 앱 사용 분석은 없습니다.
+근무 데이터와 설정은 기본적으로 앱 전용 저장소에 보관합니다. DoneAt 계정이나 앱 사용 분석은 없습니다.
 
 시스템 백업과 기기 이전에는 기록, 급여, 경력, 생활 프로필, Focus 데이터, 완료하지 않은 초기 설정이 포함될 수 있습니다. 기기, 계정, 시스템 설정에 따라 달라지며 DoneAt 서버에는 사본을 보내지 않습니다. 실행 중인 타이머, 알림 예약 정보, 구매 증명은 제외합니다. 복원 후 알림을 다시 예약하고 구매를 확인합니다. Google Drive나 iPhone과 자동 동기화하지 않습니다. 직접 내보낸 백업은 급여가 포함될 수 있는 읽을 수 있는 JSON 파일이며, 선택한 저장소나 수신자에게 별도 사본이 생깁니다.
 
@@ -132,3 +132,9 @@ DoneAt은 귀하의 Apple 계정에 접근하거나 그 개인 iCloud 데이터�
 이 정책이나 정보 처리 방법에 대한 질문은 [hello@doneat.app](mailto:hello@doneat.app)으로 보내주세요. 제품 문제와 제안은 [GitHub Issues](https://github.com/ififi2017/Off-Work-Countdown/issues)에서도 제출할 수 있습니다.
 
 이 정책과 제품의 실제 동작 간에 차이를 발견하면 해당 주소로 이메일하거나 Issue를 열어주세요.
+
+<!-- Review-access draft: publish only with the verified English/Simplified Chinese supplement. -->
+
+## 선택적 Android 심사용 접근
+
+심사용 접근을 지원하는 버전에서는 이 기능을 선택하면 무작위 설치 식별 정보와 인증 정보를 수집합니다. 용도, 보관 기간, 철회 및 삭제에 대한 자세한 내용은 [영문 보충 설명](/en/privacy#optional-android-review-access)을 확인하세요.

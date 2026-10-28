@@ -1,6 +1,6 @@
 ---
 title: "Giới thiệu — DoneAt"
-description: "Giới thiệu DoneAt, bộ đếm ngược ca làm ưu tiên dữ liệu trên máy, cho trình duyệt, iPhone, iPad, Mac và Windows."
+description: "Giới thiệu DoneAt, bộ đếm ngược ca làm ưu tiên dữ liệu trên máy, cho trình duyệt, iPhone, iPad, Android, Mac và Windows."
 heading: "Giới thiệu DoneAt"
 intro: "Bộ đếm ca ưu tiên dữ liệu trên máy, để mở cũng được. Không tài khoản DoneAt, không quảng cáo, và có đồng bộ iCloud riêng tùy chọn trên iPhone và iPad."
 ---
@@ -44,17 +44,19 @@ Mở một liên kết ngoài hoặc dịch vụ chia sẻ sẽ tới đích đ�
 
 Lương và tổng thời gian là ước tính để bạn tham khảo. Chúng không phải bảng lương, và không phải tư vấn pháp lý, thuế, lao động hoặc tài chính. Không dùng lời nhắc cho việc tính giờ then chốt về an toàn hoặc bắt buộc theo luật.
 
-Phần mềm được cung cấp theo giấy phép MIT, nguyên trạng và không bảo đảm, trong phạm vi luật cho phép. Văn bản giấy phép trong kho mã là thông báo pháp lý có hiệu lực.
+Phần mềm được cung cấp theo giấy phép [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md), nguyên trạng và không bảo đảm, trong phạm vi luật cho phép. Văn bản giấy phép trong kho mã là thông báo pháp lý có hiệu lực.
 
 ## Bộ đếm miễn phí, Plus tùy chọn
 
-Bộ đếm vẫn miễn phí. Trên iPhone và iPad, DoneAt Plus thêm bản ghi đầy đủ, góc nhìn cuộc sống và công cụ tập trung, với lựa chọn mua theo tháng, theo năm hoặc trọn đời qua App Store. Giá và bản dùng thử nếu có được hiện trước khi mua trong ứng dụng.
+Bộ đếm vẫn miễn phí. Trên iPhone và iPad, DoneAt Plus thêm bản ghi đầy đủ, góc nhìn cuộc sống và công cụ tập trung, với lựa chọn mua theo tháng, theo năm hoặc trọn đời qua App Store. Trên Android, các lựa chọn tương tự được mua qua Google Play. Giao dịch mua không chuyển giữa App Store và Google Play. Giá và bản dùng thử nếu có được hiện trước khi mua trong ứng dụng.
 
 Bật đồng bộ iCloud cần Plus. Sau khi bật, đồng bộ tiếp tục khi đăng ký hết hạn. Bản ghi hiện có vẫn được lưu, và xuất cùng xóa vẫn dùng được khi không còn đăng ký đang hoạt động.
 
 ## Mã nguồn mở
 
-Dự án được phát hành theo giấy phép MIT. Bạn có thể xem mã hoặc tự dựng một bản từ [kho GitHub công khai](https://github.com/ififi2017/Off-Work-Countdown).
+Dự án được phát hành theo giấy phép [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md). Bạn có thể xem mã hoặc tự dựng một bản từ [kho GitHub công khai](https://github.com/ififi2017/Off-Work-Countdown).
+
+Các quyền đã cấp theo MIT vẫn có hiệu lực. Thương hiệu và tư liệu hình ảnh có điều khoản riêng; các thành phần bên thứ ba giữ nguyên giấy phép của mình. [Hướng dẫn sử dụng thương hiệu](https://github.com/ififi2017/Off-Work-Countdown/blob/main/TRADEMARKS.md)
 
 Mẫu ngày lễ gồm dữ liệu lịch quốc gia tạo bằng [Vacanza Holidays 0.83](https://github.com/vacanza/holidays) và dữ liệu ngày lễ cùng ngày làm bù của Trung Quốc đại lục từ [holiday-cn](https://github.com/NateScarlet/holiday-cn). Cả hai nguồn đều theo giấy phép MIT:
 
@@ -63,9 +65,20 @@ Mẫu ngày lễ gồm dữ liệu lịch quốc gia tạo bằng [Vacanza Holid
 
 ## Android
 
-Bản Android đang được thử nghiệm. Google Play xử lý giao dịch mua. Khi bật xác minh máy chủ, DoneAt xử lý mã thông báo mua hàng trên Cloudflare và lưu giá trị băm cùng trạng thái quyền truy cập; không gửi lương hay bản ghi công việc. Xem [chính sách quyền riêng tư](/vi/privacy#android) về xác minh, sao lưu và xóa.
+Ứng dụng Android trên [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) theo cùng quy tắc lập lịch như trên iPhone. Bộ đếm, lịch làm và ngày lễ đều miễn phí:
+
+- Lập lịch trên một lịch tháng với ngày cố định, tuần luân phiên, chu kỳ làm/nghỉ và ca đêm, hoặc tô ca lên lịch tự do bằng một chạm hoặc một lần vuốt.
+- Chọn quốc gia hoặc khu vực trong Giờ làm và lịch, lịch sẽ theo ngày lễ của nơi đó.
+- Xem thời gian còn lại từ tiện ích Màn hình chính hoặc thông báo thường trực mà không cần mở ứng dụng.
+- Xem lại bản ghi bảy ngày gần nhất, thử ba lượt tìm kỳ nghỉ, và nhập hoặc xuất dữ liệu miễn phí. DoneAt Plus thêm bản ghi cũ hơn, chế độ xem Năm và Cuộc sống, báo cáo, Tập trung, tìm kỳ nghỉ không giới hạn và báo thức theo ca.
+
+Android giữ dữ liệu của bạn trên điện thoại. Đồng bộ iCloud không có trong ứng dụng Android; bản sao lưu riêng của Android có thể gồm bản ghi và cài đặt nếu bạn đã bật, và xuất bản sao lưu sẽ chuyển bản ghi giữa iPhone và Android.
+
+Google Play xử lý giao dịch mua. Khi bật xác minh máy chủ, DoneAt xử lý mã thông báo mua hàng trên Cloudflare và lưu giá trị băm cùng trạng thái quyền truy cập; không gửi lương hay bản ghi công việc. Xem [chính sách quyền riêng tư](/vi/privacy#android) về xác minh, sao lưu và xóa.
 
 Thanh điều hướng Android dùng [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) của Kyant và [Shapes 1.2.1](https://github.com/Kyant0/Shapes). DoneAt điều chỉnh ví dụ `LiquidBottomTabs` cho điều hướng, kéo, trợ năng, bố cục phải sang trái và giảm chuyển động. Hiệu ứng được vẽ trên máy, không gửi nội dung ứng dụng hay mã định danh thiết bị cho tác giả. Cả hai dùng Apache License 2.0: [giấy phép Backdrop](/licenses/backdrop-2.0.1.txt), [giấy phép Shapes](/licenses/shapes-1.2.1.txt). Toàn văn cũng có trong Cài đặt → Giới thiệu → Lời cảm ơn.
+
+Trang chủ hiển thị ứng dụng Android trong [khung thiết bị Pixel 10 Pro](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/) của Google, được tái hiện từ tác phẩm do Android Open Source Project tạo và chia sẻ, sử dụng theo [Giấy phép Creative Commons Ghi công 2.5](https://creativecommons.org/licenses/by/2.5/).
 
 ## Góp ý
 

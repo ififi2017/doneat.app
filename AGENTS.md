@@ -17,7 +17,7 @@
 | `locales/hall.json` | 19 语功能行、Apple / Microsoft 徽章语言与 storefront 映射。英文功能行已是 **Work Shift Countdown**。 |
 | `assets/brand/` | Open Day SVG（mark 明/暗、满幅图标、圆角图标）。不要另造 mark。 |
 | `assets/icons/` | favicon、apple-touch、maskable、OG（mark + DoneAt）。 |
-| `assets/badges/` | 已下载的官方 App Store / Microsoft Store SVG。用仓内文件，不要再去产品仓拿 Mac App Store 专用标。 |
+| `assets/badges/` | 已下载的官方 App Store / Microsoft Store SVG 与 Google Play PNG（只裁掉透明边）。用仓内文件，不要再去产品仓拿 Mac App Store 专用标。 |
 | `assets/device/` | 首页机位 timer loop（`en` / `zh` × `white` / `black`）和下载页 review 录屏（`en-review` / `zh-review`，iOS 3.2.0），各一份 `.mp4` + `.png`。用法与转码命令见该目录 README。 |
 | `assets/showcase/` | 下载页 iPhone 功能区用的 3.2.0 商店图，`en` / `zh-CN` 各四张（小组件、月历、Apple Watch、倒计时），720 宽 WebP。 |
 | `content/source/*.content.json` | 英中长文草稿。**不能原文上线**，见下方 S2。 |
@@ -33,11 +33,11 @@ Astro 门厅、英中长文、下载页都已上线。接着改现有工程，�
 
 - 首页主按钮是「详细了解客户端」（en：Learn more about the apps）→ `/{lang}/download`。该语言已有下载页就进自己的页；还没有文件时链接直接指向 `/en/download`，不 302。不要写成「看电脑版什么样」——下载页手机和电脑都有。
 - 「在浏览器里试试」用次要描边，仍去 `https://off.rainif.com/{lang}`。下载页不要再放这两颗按钮。
-- 商店徽章顺序仍是 **App Store → Microsoft Store**。顶栏「打开网页版」仍去网页计时。
+- 商店徽章顺序是 **App Store → Google Play → Microsoft Store**（2026-10-19 Android 上架后加入 Google Play；国内站不显示 Google Play）。顶栏「打开网页版」仍去网页计时。
 - 首页整页（`.shift-page`）不可选中文字；下载 / FAQ / 关于等长文页照常可选。
 - 新版首页窄屏按语言起始边对齐，RTL 跟随阅读方向；章节竖叠，真实手机放在第 01 章，首屏不放手机。桌面首屏左为双行标题、品牌句和两个入口，右为与产品网页版同款的实时卡片（`LiveShiftCard.astro`）；窄屏卡片在入口下方。首屏不再重复顶栏的品牌字标。可五连击的品牌 mark 在收尾章标题上方用内联 SVG；官方商店徽章在收尾章提供，不要求重复放首屏。首页顶栏用 `tone="dark"`，两种系统配色下都是深梅色实色栏。顶栏不要用 `backdrop-filter`：盖在钉住的滚动场景上时，Chromium 会在栏里画出神秘方框。
 - 窄屏页脚可以折成多行，导航、社交图标、署名都居中。桌面仍左导航，右侧是社交图标 + 署名。
-- 页脚是：怎么算的、隐私、联系我们；社交图标列（现为 X `@doneatapp`，渠道写在 `site.json` 的 `socials`，不要把空位画出来）；署名 `© fi_niaR Studio` 和 Powered by Astro。GitHub **源码**在顶栏图标，不进页脚，也不进社交列。
+- 页脚是：怎么算的、隐私、联系我们；社交图标列（现为 X `@doneatapp`，渠道写在 `site.json` 的 `socials`，不要把空位画出来）；署名 `© fi_niaR Studio` 和 Powered by Astro。署名用工作室标志 `> fi_niaR Studio█`（Geist Mono Bold 子集 `public/fonts/fi_niaR-Mark.woff2`，光标闪烁，减少动态效果时不闪），链到 https://finiar.app 。GitHub **源码**在顶栏图标，不进页脚，也不进社交列。
 
 ## 实现经验（不要重踩）
 
@@ -53,12 +53,14 @@ Astro 门厅、英中长文、下载页都已上线。接着改现有工程，�
 - 触摸没有 hover。点按必须自己出反馈：橙色圆点约 `scale(1.16)` + 同一套暖光。`prefers-reduced-motion: reduce` 只变亮、不缩放。
 - SVG 内的可聚焦元素（如彩蛋命中圆）浏览器按 `:focus` 而非 `:focus-visible` 画默认焦点框，点一下就出现方框。要显式 `:focus { outline: none }`，只在 `:focus-visible` 画圆形焦点环。
 - 五连击只打缺口里的橙色圆点（可加大透明命中圆），圆环和指针不计数。第五次指针绕 `512,512` 转一圈回到五点，角度累加，不要从 360 弹回 0。时长约 0.8s，对照 iOS `CelebratingBrandMark`。不要为它拉 React。
-- 下载对照表是**手机 / iPad vs 电脑**，不是网页 vs 桌面。三种状态：`included` 实心橙点、`limited` 空心、`absent` 短横 + 「没有」/「No」。不要只靠把字调淡。iOS 独有行不要发明产品里没有的功能。
+- 下载对照表是**手机 / iPad vs 电脑**，不是网页 vs 桌面。三种状态：`included` 实心橙点、`limited` 空心、`absent` 短横 + 「没有」/「No」。不要只靠把字调淡。iOS 独有行不要发明产品里没有的功能。各平台都一样的功能只在表格上方「每个客户端都有」一行列一次，表格只放有差别的行；格子写几个词，整句说明留给上方功能区。
 - 第 02 章使用真实产品原始截图的准确裁切和官方 Watch 框，来源、版本与裁切坐标记录在 `assets/product/sources.json`。宣传标题用页面原生排字，不把带标题的商店海报贴在首页；不生成或重绘产品 UI。
 - 首页动效对照 Apple 产品页：`src/lib/home-scenes.ts` 只给每个 `[data-scene]` 写 0–1 的滚动进度（首屏 `--x`，其余 `--p`），并给 `html` 加 `scenes-on`；画面全部由 `home-story.css` 用进度算。`exit` 首屏随滚动上移淡出；`sticky` 一段钉住（左侧宣言逐词点亮、右侧 iPhone 真实录屏升起归位，随后三条价值依次点亮；各部分进度区间写在 `data-words`／`data-steps` 上）；`pass` 两段随进入展开（小组件与手表分层入场、收尾日落光升起）。首屏加载时标题逐行从遮罩里升起、卡片带模糊浮入。
+- 随滚动进度改 transform／opacity 的元素，在 `html.scenes-on` 下都要 `will-change: transform, opacity`（集中写在 `home-story.css` 顶部）。不提层时 Chromium 每帧重新栅格化暖光、阴影和图片，Windows 和 4K 屏上明显卡（实测小组件段每帧栅格化从约 38ms 降到约 6ms）。动画元素和包着播放中视频的元素不要用 `filter: drop-shadow`：前者改成图片自身的 `box-shadow`，机框阴影用机身形状的 `::before` + `box-shadow`。
+- 大屏缩放：`global.css` 的 `html` 字号在 1920×1080 以上随视口宽高中较小的一边放大（最多 175%），整套 rem 栅格随之等比放大，4K 显示器看到的是 1080p 的构图而不是窄栏。≤1920×1080 时仍是浏览器默认字号。横屏（含 4:3）首屏正好填满顶栏以下一屏，不露下一章；竖屏窗口按 `75vw` 封顶，不拉成一长条。尺寸要用 rem（含 Microsoft 徽章），不要写死 px；`sizes` 里的 rem 不跟随根字号，大屏档用 vw。
 - 所有进度变量默认取完成态：没有脚本、减少动态效果时不钉住、不拉高章节，整页静态可读；切换系统偏好会即时撤销。只动 transform／opacity／color，滚动监听用 rAF 节流、只算视口附近的章节。窄于 880px 不钉住，宣言按自身经过视口中线逐词点亮。不要再做只有文字没有画面的整屏段落。
 - 钉住段内容高度必须小于视口：19 语 × 390×700／390×844／1024×768／1280×720／1440×800／1920×1080 要实测，改文案或字号后重跑。
-- 首页机位用 timer loop（`en`/`zh` × `white`/`black`）。下载页手机用 review clip（`en-review` / `zh-review`）。不要对调。首页不要换成商店合成图。
+- 首页机位用 timer loop（`en`/`zh` × `white`/`black`）。下载页手机用 review clip（`en-review` / `zh-review`）。不要对调。首页不要换成商店合成图。第 01 章 iPhone 与 Android（`assets/device/android/`，Pixel 真机隔离 Debug 包录制）并列，访客自己的平台在前；Android 套 Google 官方 Pixel 10 Pro 设备图稿（`assets/device/frames/pixel-10-pro.png`，CC BY 2.5，署名在各语 About 开源一节，来源与哈希见 `assets/device/README.md`），不要重绘或改色。下载页 Android 轮播用 Play 商店图（`assets/showcase/android-sources.json`）。
 - 商店图上印的标题搜索引擎读不到。下载页用商店图时，每张都要配一段页面上可见的功能说明和具体的 `alt`，只写该版本真实存在的功能（对照产品仓 `app-store-connect/ios/<版本>.json` 与 `docs/reviews/`）。
 - 下载页 iPhone 功能区是一个图位轮播多张商店图，说明列在旁边、始终可见，不要摆成商店图墙。轮播用内联脚本，不拉框架；悬停、键盘焦点、不在视口时暂停，`prefers-reduced-motion: reduce` 时不自动切换；没有脚本时停在第一张。
 - 新真机录屏常是别的机型尺寸（如 1284×2778）。等比缩放到 2868 高再居中裁到 1320×2868，不要拉伸；去音轨、`+faststart`。命令见 `assets/device/README.md`。
@@ -84,8 +86,9 @@ S0–S4 都已完成（S4 上线 2026-08-30）。以下按阶段保留仍然有�
 - 英文门厅：DoneAt + `Know when your time is yours` + Work Shift Countdown。
 - 中文门厅（zh-CN / zh-TW / zh-HK）：DoneAt + 原创品牌句 + 该语功能行。简中「几点下班，心里有数」，台湾「幾點下班，心裡有數」，香港「幾點放工，心裡有數」。不要英文字面直译。
 - 其他门厅：DoneAt + 各语品牌句 + `hall.json` 里的功能行。品牌句要像当地话，不要英文字面直译。功能行仍独立。
-- 首页首屏文字按钮：主按钮「详细了解客户端」进下载页；次按钮「在浏览器里试试」进 `https://off.rainif.com/{lang}`。商店徽章顺序仍是 **App Store → Microsoft Store**。
+- 首页首屏文字按钮：主按钮「详细了解客户端」进下载页；次按钮「在浏览器里试试」进 `https://off.rainif.com/{lang}`。商店徽章顺序是 **App Store → Google Play → Microsoft Store**。
   - App Store：仓内 `assets/badges/app-store/{black\|white}/{apple-locale}.svg`。浅色页用 black 标，深色页用 white 标。语言映射见 `hall.json`；`hi-IN`、`ar` 回退 `en-us`。链接用 id **`6802803318`**，storefront 跟语言走（简中 `/cn/`）。不要把 listing slug（`下班倒计时` / `off-work-countdown`）写死当品牌。若带 Apple 的 `itscg` / `itsct` / `mttnsubad` 就保留。
+  - Google Play：仓内 `assets/badges/google-play/{locale}.png`（Google 官方 PNG，只有深色一版，明暗页通用；各语言透明边不一致，`scripts/fetch-badges.mjs` 只裁透明边，不改图形）。高 40px 与 App Store 标齐平。语言映射见 `hall.json` 的 `googlePlayBadgeLocale`。链接 `https://play.google.com/store/apps/details?id=com.rainif.doneat`，统计事件 `google_play_open`。国内站（`isChina`）不显示。
   - Microsoft Store：官方 badge 脚本 + 仓内 SVG 兜底，链到 `https://apps.microsoft.com/detail/9PM0HJ2PP2LJ`。脚本挂了 SVG 仍可点。不要在徽章下再叠一条重复文字链。
 - 第 01 章三条短价值：本地、无账号、看清下班。不上对比表，不把 FAQ 铺在首页。
 - 第 01 章机位：**先播 mp4，png 做 poster 和播不了时的兜底**。`autoplay muted loop playsinline`，无控件、无声音。中文门厅用 `zh-*`，其余用 `en-*`。`prefers-color-scheme` 选 white/black。`prefers-reduced-motion: reduce` 只出 PNG。套仓内官方 iPhone 17 Pro Max 框（浅色 Cosmic Orange，深色 Deep Blue，`assets/device/frames/`）。视频和 PNG 铺在屏洞里，框叠在上面；框自带灵动岛，不要再另造机框或岛。
@@ -149,3 +152,11 @@ S0–S4 都已完成（S4 上线 2026-08-30）。以下按阶段保留仍然有�
 - `npm run check`、`npm run build`、`npm run seo:check` 通过。PR 用 Vercel 预览链接验收；合并到 `main` 即发布到 `doneat.app`。
 
 做完后更新 `PLAN.md` 对应 checkbox，并在 PR 里写清 Vercel 预览链接。
+
+## 2026-10-11 国内分站（用户批准）
+
+- 同仓使用构建变量：默认 `SITE_REGION=global` 保持海外规则；`SITE_REGION=cn` 只生成简中六页，国内 canonical 使用 `SITE_ORIGIN=https://doneat.com.cn`，隐藏语言选择器、X 和 Vercel 统计。
+- 国内备案号通过 `ICP_FILING_NUMBER` 注入并链接工信部，放在页脚署名行（`© fi_niaR Studio` 之后），不单独占一栏；公安联网备案号同理用 `PSB_FILING_NUMBER`，紧跟其后，链到全国互联网安全管理服务平台。未提供时都不显示，不生成虚假号码。
+- 国内站由 GitHub environment `china` 和 `.github/workflows/deploy-china.yml` 发布到专用服务器。当前仅 `codex/china-site` 分支自动发布，main/Vercel 海外生产不变。不要擅自把国内变量加入 Vercel 项目。
+- 接收器与 Nginx 规则、凭证配置和回滚步骤见 `docs/china-deployment.md`；服务器密码、SSH 私钥不能入仓。
+- 修改共享组件时同时验证默认海外与国内构建。国内检查：`SITE_REGION=cn npm run build`、`SITE_REGION=cn npm run seo:check`；海外使用原命令。

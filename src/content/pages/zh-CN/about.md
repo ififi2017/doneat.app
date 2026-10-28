@@ -1,6 +1,6 @@
 ---
 title: "关于 — DoneAt"
-description: "关于 DoneAt：一个面向浏览器、iPhone、iPad、Mac 和 Windows 的本地优先下班倒计时。"
+description: "关于 DoneAt：一个面向浏览器、iPhone、iPad、Android、Mac 和 Windows 的本地优先下班倒计时。"
 heading: "关于 DoneAt"
 intro: "一个可以一直开着的本地优先下班倒计时。不用注册 DoneAt 账号，没有广告；iPhone 和 iPad 可选用私人 iCloud 同步。"
 ---
@@ -30,11 +30,24 @@ DoneAt 也帮助你回顾工作、安排接下来的时间：
 
 这些功能属于原生 iPhone 和 iPad 应用。各平台的功能介绍见[下载页](/zh-CN/download)。
 
+## 在 Android 上
+
+[Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) 上的 Android 应用和 iPhone 遵循同一套排班规则。倒计时、排班和节假日都免费：
+
+- 在同一张月历里排班：固定星期、大小周、轮班轮休和跨夜班次都可以，也能在自由排班里点一下或划一下把班次铺上去。
+- 在「工作时间与排班」里选择国家或地区，排班会跟着当地节假日走。
+- 不打开 App，看桌面小组件或常驻通知就知道还剩多久。
+- 最近七天的记录、三次休假规划搜索，以及导入导出数据都免费。DoneAt Plus 增加更早的记录、年视图和人生视图、周期报告、专注、不限次数的休假搜索和班次闹钟。
+
+Android 的数据保存在手机上。Android 应用不含 iCloud 同步；如果你开启了 Android 自带的备份，记录和设置可能包含在内。通过备份导出，可以在 iPhone 和 Android 之间转移记录。
+
 ## 你的数据会去哪里
 
 上下班时间、工作日、薪资和偏好默认留在你正在用的这台设备上，倒计时和收入估算也在本地算完。在 iPhone 和 iPad 上，你可以选择在多台设备间同步排班、记录、薪资和设置。可选 iCloud 同步进你自己的私人 iCloud，DoneAt 读不到。Mac、Windows 和网页计时仍只保存在本地。这些工作设置不会发送到 DoneAt 的服务器。
 
-Android 版本目前处于测试阶段，Plus 购买由 Google Play 处理。在启用服务端验证的版本中，DoneAt 在 Cloudflare 上的购买验证服务会向 Google 核对购买状态与精确到期时刻，处理购买令牌并保存其哈希和权益状态，不接收薪资或工作记录。购买验证、系统备份和删除方式见[隐私政策](/zh-CN/privacy)。
+Android 版已在 [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) 上架，Plus 购买由 Google Play 处理。在启用服务端验证的版本中，DoneAt 在 Cloudflare 上的购买验证服务会向 Google 核对购买状态与精确到期时刻，处理购买令牌并保存其哈希和权益状态，不接收薪资或工作记录。购买验证、系统备份和删除方式见[隐私政策](/zh-CN/privacy)。
+
+在启用审核访问的 Android 版本中，获授权的审核人员可自行输入可重复使用的审核码，无需购买或 DoneAt 账号即可临时访问 Plus。这项可选服务会收集随机安装公钥和认证元数据，安装会话在最后续期七天后清理，不关联 Play 订单，也不接收薪资、排班或工作记录。每次授权最长有效 24 小时。处理的信息、续期、撤销与删除方式见[可选的 Android 审核访问](/zh-CN/privacy#可选的-android-审核访问)。
 
 官网和网页计时会记录页面访问、加载表现，以及少量合计事件。事件里只有事件名称，没有班次、薪资、账号或广告标识。和其他网站一样，托管与统计服务商仍可能依据其条款收到 IP 地址、浏览器标识等常规连接信息。细节见[隐私](/zh-CN/privacy)。
 
@@ -46,17 +59,19 @@ Android 版本目前处于测试阶段，Plus 购买由 Google Play 处理。在
 
 薪资与时间汇总只供个人参考，不是工资记录，也不构成法律、税务、劳动关系或财务建议。提醒不要用在安全关键或法律要求的计时上。
 
-本软件依据 MIT 许可证按现状提供，在法律允许的范围内不作保证。仓库里的许可证原文是具有约束力的法律声明。
+本软件依据 [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) 许可证按现状提供，在法律允许的范围内不作保证。仓库里的许可证原文是具有约束力的法律声明。
 
 ## 免费倒计时与可选的 Plus
 
-下班倒计时保持免费。iPhone 和 iPad 上的 DoneAt Plus 提供完整记录、生活视图和专注工具，可通过 App Store 选择月度订阅、年度订阅或终身购买。价格和适用的试用信息会在应用内购买前显示。
+下班倒计时保持免费。iPhone 和 iPad 上的 DoneAt Plus 提供完整记录、生活视图和专注工具，可通过 App Store 选择月度订阅、年度订阅或终身购买。Android 上同样的选项通过 Google Play 购买。App Store 与 Google Play 的购买不能互通。价格和适用的试用信息会在应用内购买前显示。
 
 首次开启 iCloud 同步需要 Plus。已开启的同步在订阅到期后仍会继续，已有记录也会保留；导出与删除数据不需要有效订阅。
 
 ## 开源
 
-项目采用 MIT 协议开源。你可以在公开的 [GitHub 仓库](https://github.com/ififi2017/Off-Work-Countdown)查看代码，或者构建自己的版本。
+项目采用 [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) 协议开源。你可以在公开的 [GitHub 仓库](https://github.com/ififi2017/Off-Work-Countdown)查看代码，或者构建自己的版本。
+
+历史 MIT 授权继续有效。品牌与素材另行授权，第三方组件保留各自许可证。 [品牌使用规则](https://github.com/ififi2017/Off-Work-Countdown/blob/main/TRADEMARKS.md)
 
 节假日模板包含由 [Vacanza Holidays 0.83](https://github.com/vacanza/holidays) 生成的各国家和地区节假日数据，以及 [holiday-cn](https://github.com/NateScarlet/holiday-cn) 提供的中国大陆法定节假日与调休上班数据。两个来源均采用 MIT 许可证：
 
@@ -68,6 +83,8 @@ Android 版本目前处于测试阶段，Plus 购买由 Google Play 处理。在
 Android 应用使用 Kyant 的 [Backdrop（AndroidLiquidGlass）2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) 及其依赖 [Shapes 1.2.1](https://github.com/Kyant0/Shapes)，在设备上绘制玻璃模糊、折射与形状。DoneAt 底部导航参考了项目的 `LiquidBottomTabs` 示例，并适配应用导航、拖动、无障碍、从右向左布局及减弱动态效果。
 
 两个库均采用 Apache License 2.0。完整许可证可在此查看：[Backdrop](/licenses/backdrop-2.0.1.txt)、[Shapes](/licenses/shapes-1.2.1.txt)，也随 Android 应用附于“设置 → 关于 → 致谢”。这些绘图库不会向项目作者发送应用内容或设备标识。
+
+首页展示 Android 应用时使用了 Google 的 [Pixel 10 Pro 设备外框](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/)，该图稿由 Android 开源项目创作并分享，依据[知识共享署名 2.5 许可](https://creativecommons.org/licenses/by/2.5/)使用。
 
 ## 问题反馈
 

@@ -1,13 +1,13 @@
 ---
 title: "FAQ — DoneAt"
-description: "Perguntas frequentes sobre o DoneAt: turnos noturnos, o cálculo de ganhos, privacidade e uso no navegador, no iPhone ou no computador."
+description: "Perguntas frequentes sobre o DoneAt: turnos noturnos, o cálculo de ganhos, privacidade e uso no navegador, no iPhone, no Android ou no computador."
 heading: "Perguntas frequentes"
-intro: "Como configurar um turno, o que os números significam e onde seus dados ficam — no navegador, iPhone, iPad, Mac e Windows."
+intro: "Como configurar um turno, o que os números significam e onde seus dados ficam — no navegador, iPhone, iPad, Android, Mac e Windows."
 ---
 
 ## O que é o DoneAt?
 
-O DoneAt é uma contagem regressiva para o fim do expediente. Você insere a hora de entrada e de saída. Ele mostra as horas, minutos e segundos restantes, além de uma barra de progresso do turno. Use no navegador, no iPhone e iPad, ou no Mac ou Windows. Não é preciso criar uma conta DoneAt.
+O DoneAt é uma contagem regressiva para o fim do expediente. Você insere a hora de entrada e de saída. Ele mostra as horas, minutos e segundos restantes, além de uma barra de progresso do turno. Use no navegador, no iPhone, iPad e Android, ou no Mac ou Windows. Não é preciso criar uma conta DoneAt.
 
 ## Como configuro?
 
@@ -23,11 +23,11 @@ Ative as configurações de salário e insira um valor mensal ou diário. Um sal
 
 ## Vai me avisar mesmo se eu fechar a aba?
 
-No navegador, um lembrete só funciona enquanto a página estiver aberta. No iPhone, iPad, Mac e Windows, o DoneAt pode enviar uma notificação do sistema depois que você sair da tela.
+No navegador, um lembrete só funciona enquanto a página estiver aberta. No iPhone, iPad, Android, Mac e Windows, o DoneAt pode enviar uma notificação do sistema depois que você sair da tela.
 
 ## Funciona offline?
 
-A contagem regressiva é calculada no seu dispositivo e não precisa de rede. Depois de abrir o temporizador web uma vez, ele pode continuar funcionando sem conexão. Os apps de iPhone, iPad, Mac e Windows funcionam no dispositivo onde você os instalou.
+A contagem regressiva é calculada no seu dispositivo e não precisa de rede. Depois de abrir o temporizador web uma vez, ele pode continuar funcionando sem conexão. Os apps de iPhone, iPad, Android, Mac e Windows funcionam no dispositivo onde você os instalou.
 
 ## Minhas informações salariais são privadas?
 
@@ -35,19 +35,27 @@ Seus horários e salário ficam no dispositivo por padrão. No iPhone e iPad, vo
 
 ## Existe um app para meu celular ou computador?
 
-Sim. iPhone, iPad e Mac estão na [App Store](https://apps.apple.com/br/app/id6802803318). Windows está na [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ). O temporizador do navegador está em [off.rainif.com](https://off.rainif.com/pt). Escolha o que você realmente vai deixar aberto.
+Sim. iPhone, iPad e Mac estão na [App Store](https://apps.apple.com/br/app/id6802803318). O Android está no [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat). Windows está na [Microsoft Store](https://apps.microsoft.com/detail/9PM0HJ2PP2LJ). O temporizador do navegador está em [off.rainif.com](https://off.rainif.com/pt). Escolha o que você realmente vai deixar aberto.
+
+## Posso usar o DoneAt Plus no iPhone e no Android?
+
+O Plus é comprado na loja do seu dispositivo: a App Store no iPhone e iPad, e o Google Play no Android. O DoneAt não tem contas, então uma compra em uma loja não libera o Plus na outra. A contagem regressiva, a programação e os registros recentes continuam gratuitos nas duas.
+
+## Como levo meus registros entre o iPhone e o Android?
+
+Exporte um backup em Registros e dados em um celular e importe esse arquivo em Registros e dados no outro. Os registros e ajustes, incluindo o salário, são transferidos. Depois disso os celulares não sincronizam entre si, então exporte de novo sempre que trocar de celular.
 
 ## Existe um widget ou app para Apple Watch?
 
-Sim. No iPhone e iPad, widgets na tela inicial e de bloqueio mostram o tempo restante sem abrir o app, e em iPhones compatíveis uma Atividade em tempo real mantém o progresso na tela de bloqueio e na Dynamic Island. O app para Apple Watch mostra o tempo restante e a hora de saída com duas complicações. O app do Watch é gratuito e não precisa do DoneAt Plus. Widgets, Atividades em tempo real e o relógio mostram tempos e progresso, nunca o salário. No Mac ou Windows, o mini temporizador mantém a contagem regressiva à vista.
+Sim. No iPhone e iPad, widgets na tela inicial e de bloqueio mostram o tempo restante sem abrir o app, e em iPhones compatíveis uma Atividade em tempo real mantém o progresso na tela de bloqueio e na Dynamic Island. No Android, widgets na tela inicial e uma notificação contínua mostram o tempo restante. O app para Apple Watch mostra o tempo restante e a hora de saída com duas complicações. O app do Watch é gratuito e não precisa do DoneAt Plus. Widgets, notificações, Atividades em tempo real e o relógio mostram tempos e progresso, nunca o salário. No Mac ou Windows, o mini temporizador mantém a contagem regressiva à vista.
 
 ## Pode acompanhar meus turnos rotativos e feriados?
 
-No iPhone e iPad, sim. Planeje seu horário em um calendário mensal com dias fixos, semanas alternadas, rotações de turno, programação livre ou tempos manuais. Escolha um país ou região em Horários e programação e seu calendário seguirá seus feriados, incluindo dias de compensação na China continental. Se você atualizou de uma versão anterior, ative lá uma vez. O temporizador web e os apps de Mac e Windows usam um único horário de início e fim.
+No iPhone, iPad e Android, sim. Planeje seu horário em um calendário mensal com dias fixos, semanas alternadas, rotações de turno, programação livre ou tempos manuais. Escolha um país ou região para seus feriados e seu calendário os seguirá, incluindo dias de compensação na China continental. No iPhone e iPad, isso fica em Horários e programação; se você atualizou de uma versão anterior, ative lá uma vez. O temporizador web e os apps de Mac e Windows usam um único horário de início e fim.
 
 ## É gratuito e o código é aberto?
 
-O temporizador web é gratuito. Não há contas DoneAt, anúncios ou níveis pagos no site. O código fonte está publicado no [GitHub](https://github.com/ififi2017/Off-Work-Countdown) sob a licença MIT. Os preços e termos das lojas seguem as condições de cada loja.
+O temporizador web é gratuito. Não há contas DoneAt, anúncios ou níveis pagos no site. O código fonte está publicado no [GitHub](https://github.com/ififi2017/Off-Work-Countdown) sob a licença [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md). Os preços e termos das lojas seguem as condições de cada loja.
 
 ## Quais idiomas são suportados?
 

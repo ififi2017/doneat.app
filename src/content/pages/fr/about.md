@@ -1,6 +1,6 @@
 ---
 title: "À propos — DoneAt"
-description: "À propos de DoneAt, un compte à rebours de fin de journée local-first pour le navigateur, iPhone, iPad, Mac et Windows."
+description: "À propos de DoneAt, un compte à rebours de fin de journée local-first pour le navigateur, iPhone, iPad, Android, Mac et Windows."
 heading: "À propos de DoneAt"
 intro: "Un minuteur de quart local-first que vous pouvez laisser ouvert. Pas de compte DoneAt, pas de publicités, et synchronisation iCloud privée optionnelle sur iPhone et iPad."
 ---
@@ -42,23 +42,36 @@ L'utilisation quotidienne ne nécessite pas de compte DoneAt. L'app de bureau in
 
 Les totaux de salaire et de temps sont des estimations personnelles, pas des relevés de paie. Ils ne constituent pas un conseil juridique, fiscal, d'emploi ou financier. N'utilisez pas les rappels pour des timings critiques pour la sécurité ou légalement requis.
 
-Le logiciel est fourni sous licence MIT, tel quel et sans garantie, dans les limites permises par la loi.
+Le logiciel est fourni sous licence [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md), tel quel et sans garantie, dans les limites permises par la loi.
 
 ## Compte à rebours gratuit et Plus optionnel
 
-Le compte à rebours reste gratuit. Sur iPhone et iPad, DoneAt Plus ajoute les relevés complets, les vues de vie et les outils de concentration, avec des options d'achat mensuel, annuel ou à vie via l'App Store.
+Le compte à rebours reste gratuit. Sur iPhone et iPad, DoneAt Plus ajoute les relevés complets, les vues de vie et les outils de concentration, avec des options d'achat mensuel, annuel ou à vie via l'App Store. Sur Android, les mêmes options s'achètent via Google Play. Les achats ne se transfèrent pas entre l'App Store et Google Play.
 
 Activer la synchronisation iCloud pour la première fois nécessite Plus. Une synchronisation déjà activée continue après l'expiration de l'abonnement.
 
 ## Open source
 
-Le projet est publié sous licence MIT. Vous pouvez inspecter le code ou créer votre propre version depuis le [dépôt GitHub](https://github.com/ififi2017/Off-Work-Countdown) public.
+Le projet est publié sous licence [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md). Vous pouvez inspecter le code ou créer votre propre version depuis le [dépôt GitHub](https://github.com/ififi2017/Off-Work-Countdown) public.
+
+Les autorisations MIT déjà accordées restent valables. La marque et les visuels ont des conditions distinctes ; les composants tiers conservent leurs propres licences. [Utilisation de la marque](https://github.com/ififi2017/Off-Work-Countdown/blob/main/TRADEMARKS.md)
 
 ## Android
 
-La version Android est en test. Google Play gère les achats. Lorsque la vérification serveur est activée, DoneAt traite les jetons d’achat sur Cloudflare et conserve leurs empreintes avec l’état des droits ; ni salaire ni relevés de travail ne sont envoyés. Voir la [politique de confidentialité](/fr/privacy#android) pour la vérification, les sauvegardes et la suppression.
+L’app Android sur [Google Play](https://play.google.com/store/apps/details?id=com.rainif.doneat) suit les mêmes règles de planning que sur iPhone. Le compte à rebours, la planification et les jours fériés sont gratuits :
+
+- Planifiez sur un seul calendrier mensuel, avec jours fixes, semaines alternées, rotations et quarts de nuit, ou peignez les quarts sur un planning libre d’un toucher ou d’un balayage.
+- Choisissez un pays ou une région dans « Horaires et planning » et votre planning suivra ses jours fériés.
+- Consultez le temps restant depuis un widget de l’écran d’accueil ou la notification permanente, sans ouvrir l’app.
+- Revoyez les sept derniers jours de relevés, essayez trois recherches de congés et importez ou exportez vos données gratuitement. DoneAt Plus ajoute les relevés plus anciens, les vues Année et Vie, les rapports, la concentration, des recherches de congés illimitées et les réveils de service.
+
+Android garde vos données sur le téléphone. La synchronisation iCloud ne fait pas partie de l’app Android ; la sauvegarde propre à Android peut inclure relevés et réglages si vous l’avez activée, et l’export d’une sauvegarde permet de transférer vos relevés entre iPhone et Android.
+
+Google Play gère les achats. Lorsque la vérification serveur est activée, DoneAt traite les jetons d’achat sur Cloudflare et conserve leurs empreintes avec l’état des droits ; ni salaire ni relevés de travail ne sont envoyés. Voir la [politique de confidentialité](/fr/privacy#android) pour la vérification, les sauvegardes et la suppression.
 
 La navigation Android utilise [Backdrop (AndroidLiquidGlass) 2.0.1](https://github.com/Kyant0/AndroidLiquidGlass) de Kyant et [Shapes 1.2.1](https://github.com/Kyant0/Shapes). DoneAt adapte l’exemple `LiquidBottomTabs` à sa navigation, au glissement, à l’accessibilité, aux interfaces de droite à gauche et à la réduction des animations. Le rendu est local : aucun contenu de l’app ni identifiant d’appareil n’est envoyé aux auteurs. Les deux bibliothèques sont sous Apache License 2.0 : [licence Backdrop](/licenses/backdrop-2.0.1.txt), [licence Shapes](/licenses/shapes-1.2.1.txt). Les textes complets figurent aussi dans Réglages → À propos → Remerciements.
+
+La page d’accueil présente l’app Android dans le [cadre d’appareil Pixel 10 Pro](https://android.googlesource.com/platform/tools/adt/idea/+/refs/heads/mirror-goog-studio-main/artwork/resources/device-art-resources/pixel_10_pro/) de Google, reproduit à partir d’une œuvre créée et partagée par l’Android Open Source Project et utilisé selon la [licence Creative Commons Attribution 2.5](https://creativecommons.org/licenses/by/2.5/).
 
 ## Contact
 

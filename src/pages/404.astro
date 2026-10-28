@@ -2,6 +2,10 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import {
   HALL_LOCALES,
+  icpFilingNumber,
+  psbFilingNumber,
+  psbFilingUrl,
+  defaultLocale,
   siteConfig,
   t,
   webAppUrl,
@@ -22,15 +26,15 @@ const copy = Object.fromEntries(
   ]),
 ) as Record<HallLocale, NotFoundCopy>;
 
-const fallback = copy.en;
+const fallback = copy[defaultLocale];
 const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
 ---
 
 <BaseLayout
-  locale="en"
+  locale={defaultLocale}
   title={fallback.title}
   description={fallback.body}
-  path="/en"
+  path={`/${defaultLocale}`}
   hreflangKind="hall"
   noindex
 >
@@ -41,7 +45,7 @@ const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
       <div class="page-frame flex items-center py-1.5 sm:py-3">
         <a
           id="nf-logo"
-          href="/en"
+          href={`/${defaultLocale}`}
           class="flex shrink-0 items-center gap-2 no-underline"
         >
           <img
@@ -99,12 +103,12 @@ const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
         {fallback.body}
       </p>
       <div class="mt-8 flex flex-wrap gap-3">
-        <a id="nf-home" href="/en" class="btn btn-primary">
+        <a id="nf-home" href={`/${defaultLocale}`} class="btn btn-primary">
           {fallback.home}
         </a>
         <a
           id="nf-timer"
-          href={webAppUrl("en", "notfound")}
+          href={webAppUrl(defaultLocale, "notfound")}
           class="btn btn-secondary"
           data-track="web_timer_open"
           target="_blank"
@@ -118,12 +122,14 @@ const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
 
     <footer class="mt-auto border-t border-plum/10 dark:border-cream/10">
       <div
-        class="page-frame flex py-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] text-sm sm:py-6 sm:pb-[max(1.5rem,env(safe-area-inset-bottom))]"
+        class="page-frame flex flex-wrap gap-x-5 gap-y-1 py-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] text-sm sm:py-6 sm:pb-[max(1.5rem,env(safe-area-inset-bottom))]"
       >
         <a
           class="text-plum/80 hover:text-orange-ink dark:text-cream/80 dark:hover:text-orange-bright"
           href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a
         >
+        {icpFilingNumber && <a class="text-plum/80 hover:text-orange-ink dark:text-cream/80 dark:hover:text-orange-bright" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">{icpFilingNumber}</a>}
+        {psbFilingNumber && <a class="text-plum/80 hover:text-orange-ink dark:text-cream/80 dark:hover:text-orange-bright" href={psbFilingUrl} target="_blank" rel="noopener noreferrer">{psbFilingNumber}</a>}
       </div>
     </footer>
   </div>

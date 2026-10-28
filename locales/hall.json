@@ -126,6 +126,27 @@
     "id": "id",
     "vi": "vi"
   },
+  "googlePlayBadgeLocale": {
+    "en": "en",
+    "zh-CN": "zh-cn",
+    "zh-TW": "zh-tw",
+    "zh-HK": "zh-hk",
+    "ja": "ja",
+    "ko": "ko",
+    "fr": "fr",
+    "de": "de",
+    "es": "es",
+    "it": "it",
+    "pt": "pt-br",
+    "ru": "ru",
+    "hi-IN": "hi",
+    "mr-IN": "mr",
+    "tr": "tr",
+    "ar": "ar",
+    "th": "th",
+    "id": "id",
+    "vi": "vi"
+  },
   "notes": {
     "enFunctionalSubtitle": "Product translation.json still says Off Work Countdown; hall uses the locked Work Shift Countdown.",
     "chineseBrandSentence": "zh-CN / zh-TW / zh-HK stay original. English stays Know when your time is yours. Other halls keep the feeling (certainty about getting off) in local idiom, with ASO words like Feierabend / 退勤 / 퇴근 / tan ca / pulang. Do not calque English or Chinese word-for-word.",
