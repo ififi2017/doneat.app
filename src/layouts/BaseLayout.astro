@@ -25,6 +25,8 @@ interface Props {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   noindex?: boolean;
   trackPage?: TrackedEvent;
+  canonicalOrigin?: string;
+  analytics?: boolean;
 }
 
 const {
@@ -36,9 +38,11 @@ const {
   jsonLd,
   noindex = false,
   trackPage,
+  canonicalOrigin,
+  analytics = true,
 } = Astro.props;
-const canonical = canonicalUrl(path);
-const ogImage = canonicalUrl("/icons/og-1200x630.png");
+const canonical = canonicalOrigin ? new URL(path, canonicalOrigin).href : canonicalUrl(path);
+const ogImage = canonicalOrigin ? new URL("/icons/og-1200x630.png", canonicalOrigin).href : canonicalUrl("/icons/og-1200x630.png");
 const twitter = twitterSite();
 const hreflangLinks = noindex ? [] : hreflangLinksFor(hreflangKind, path);
 ---
@@ -69,7 +73,10 @@ const hreflangLinks = noindex ? [] : hreflangLinksFor(hreflangKind, path);
     <meta name="description" content={description} />
     {
       noindex ? (
-        <meta name="robots" content="noindex, nofollow" />
+        <>
+          <meta name="robots" content={canonicalOrigin ? "noindex, follow" : "noindex, nofollow"} />
+          {canonicalOrigin ? <link rel="canonical" href={canonical} /> : null}
+        </>
       ) : (
         <>
           <link rel="canonical" href={canonical} />
@@ -112,7 +119,7 @@ const hreflangLinks = noindex ? [] : hreflangLinksFor(hreflangKind, path);
       media="(prefers-color-scheme: dark)"
     />
     <Fragment set:html={jsonLdMarkup(jsonLd)} />
-    {!isChina && <Analytics />}
+{!isChina && analytics && <Analytics />}
   </head>
   <body class="min-h-screen font-sans antialiased" data-track-page={trackPage}>
     <a
@@ -122,6 +129,6 @@ const hreflangLinks = noindex ? [] : hreflangLinksFor(hreflangKind, path);
       {t(locale, "skipToContent")}
     </a>
     <slot />
-    {!isChina && <TrackBeacon />}
+{!isChina && analytics && <TrackBeacon />}
   </body>
 </html>

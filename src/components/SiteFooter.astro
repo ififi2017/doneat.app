@@ -13,9 +13,10 @@ import {
 
 interface Props {
   locale: HallLocale;
+  domestic?: boolean;
 }
 
-const { locale } = Astro.props;
+const { locale, domestic = false } = Astro.props;
 const howItWorksLang = contentLocaleFor(locale, "how-it-works");
 const privacyLang = contentLocaleFor(locale, "privacy");
 const otherSite = otherSiteLink(Astro.url.pathname.replace(/\/$/, ""));
@@ -25,7 +26,7 @@ const otherSite = otherSiteLink(Astro.url.pathname.replace(/\/$/, ""));
   <div class="page-frame site-footer-inner">
     <nav class="site-footer-nav" aria-label={siteConfig.brandName}>
       <a href={`/${howItWorksLang}/how-it-works`}>{t(locale, "howItWorks")}</a>
-      <a href={`/${privacyLang}/privacy`}>{t(locale, "privacy")}</a>
+      <a href={domestic ? "/android/privacy" : `/${privacyLang}/privacy`}>{t(locale, "privacy")}</a>
       <a href={`mailto:${siteConfig.supportEmail}`}>{t(locale, "contactUs")}</a>
       {otherSite && <a href={otherSite.href} lang="zh-CN">{otherSite.label}</a>}
     </nav>

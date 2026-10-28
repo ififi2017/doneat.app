@@ -14,9 +14,10 @@ interface Props {
   currentPage?: ContentPage | "home";
   /** "dark" keeps the bar dark in both schemes (the homepage opens on black). */
   tone?: "auto" | "dark";
+  domestic?: boolean;
 }
 
-const { locale, currentPage = "home", tone = "auto" } = Astro.props;
+const { locale, currentPage = "home", tone = "auto", domestic = false } = Astro.props;
 function hrefFor(page: "download" | "faq" | "about"): string {
   return `/${contentLocaleFor(locale, page)}/${page}`;
 }
@@ -100,7 +101,7 @@ const linkActive = "text-orange-ink dark:text-orange-bright";
     </nav>
 
     <div class="ms-auto flex shrink-0 items-center gap-1.5 sm:gap-2">
-      <LocaleSwitch locale={locale} currentPage={currentPage} />
+      {domestic ? <a class="text-sm whitespace-nowrap" href="https://doneat.app/zh-CN">国际官网 ↗</a> : <LocaleSwitch locale={locale} currentPage={currentPage} />}
       <details class="nav-more header-panel relative" name="site-header-panel">
         <summary class="nav-more-summary" aria-label={t(locale, "navMenu")}>
           <span class="nav-more-bars" aria-hidden="true">
