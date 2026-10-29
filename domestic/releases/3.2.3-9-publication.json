@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-10-29T03:23:09.938138+00:00",
+  "githubRelease": "https://github.com/ififi2017/Off-Work-Countdown/releases/tag/android-cn-v3.2.3-9",
+  "release": {
+    "versionName": "3.2.3",
+    "versionCode": 9,
+    "bytes": 6671723,
+    "apkSha256": "2965f0ca2737f4c612b9ef89567f00ba10f1194b586ba03e89c751c618cfbb66",
+    "certificateSha256": "2554fa47d4cb553bf22c1d8821769ca2c27381821c65fe68af835a9336bcd41b",
+    "sourceCommit": "0538cf48d3259a5898ec0e6012c5ebdfce8e0263",
+    "sourceUrl": "https://github.com/ififi2017/Off-Work-Countdown/tree/0538cf48d3259a5898ec0e6012c5ebdfce8e0263",
+    "publishedAt": "2026-10-29",
+    "apkUrl": "https://downloads.doneat.app/android/cn/3.2.3-9/2965f0ca2737/doneat-cn-3.2.3-9.apk"
+  },
+  "cloudflare": {
+    "apkStagingVersion": "71157ecc-b974-498e-82da-9fb371af30c7",
+    "feedVersion": "ac00641e-349d-4016-9400-a8a945a9a039",
+    "retainedBuilds": [
+      5,
+      6,
+      7,
+      9
+    ]
+  },
+  "website": {
+    "releaseId": "20261029-cn-3.2.3-9-955c252-r2",
+    "siteSourceCommit": "955c2523febad351b4bf3b0bd85125db27f5ac12",
+    "apkSourceCommit": "0538cf48d3259a5898ec0e6012c5ebdfce8e0263",
+    "archiveSha256": "a1bb69b4894e42e14237eef57a895e74437257262d5e228441d9d66ee7335ba6",
+    "previousRoot": "/var/www/doneat-cn/releases/20261028-entry-filing",
+    "previousAndroid": "/var/www/doneat-cn/android-releases/20261028-astro-android/android",
+    "newRoot": "/var/www/doneat-cn/releases/20261029-cn-3.2.3-9-955c252-r2",
+    "newAndroid": "/var/www/doneat-cn/android-releases/20261029-cn-3.2.3-9-955c252-r2/android",
+    "androidRootRoutingCopied": true,
+    "addedAssets": 1,
+    "identicalExistingAssets": 222,
+    "rootHtmlSha256": {
+      "zh-CN/index.html": "950190ec16fd3860f02e26f5bce36b9a84b7824fbfb5ccbd3ec2bdd3848672b8",
+      "zh-CN/download/index.html": "2d43c170b9a4cc606ee5de278570af30962fd4a07f54ee16a7f49cfa168b677b",
+      "zh-CN/about/index.html": "9d216a5206153c36985439e7dc8810b0b0c2f222bcaac59eb548f2553e65ec1b",
+      "zh-CN/faq/index.html": "b6d34622f2b609671af96296e3c599fe0ef6cc90cba462206718755a5a57c255",
+      "zh-CN/privacy/index.html": "75c1c57662aad84e8aa2253e580a58933ad2a62478d2129000d11b53751d3156",
+      "zh-CN/how-it-works/index.html": "ba03782067efcd286f3e221b0ee3022783487c827a9b2cc81f0a740d7840a0fe"
+    },
+    "originFivePageHashesVerified": true
+  },
+  "publicBodySha256": {
+    "/android": "6feb6b7c50f30c778c03e3e4ffef7376d01ae2aa59df0b5dad4aa74bad63a3fc",
+    "/android/buy": "808b6cc2c07b58104763fbfa002b7824d6952637e3a4a8c52e2813806770f392",
+    "/android/faq": "788090ca6e7321cd8f3005d54afc61fbc0df1bba015a9bb4dc6187606ac5373b",
+    "/android/privacy": "d2a802627a9ea2431db46b36ecd793e14e87880163324b09d6c76fb690e02020",
+    "/android/refunds": "ca5895b553ea2ee5adad27d1f6eb6926b964546a0d884ce900dfe54e287e703e",
+    "/icons/apple-touch-180.png": "dc4e7a1044c2aa24aa8741b1593cfde31b01689b0995a5f08993304a650a98e2",
+    "/brand/off-work-countdown-mark.svg": "9483612345784232760536dc49ccb6935235fc5cb81fc95e63e3b32b5875c399",
+    "/_astro/_..Caov-cx7.css": "8685366b4fbea321b29858a90bdbd4a120c07d0b34443dc6ae468ea565a0a30a",
+    "/icons/icon-192.png": "4fa1ae70e6bf31a7723b95575ff4500c0eec67a22253a1bdb660449f7197f946",
+    "/brand/off-work-countdown-mark-dark.svg": "f48844449e9c64d4b633875b1ee959179f2e9e01b385dcb257946349e7249bb8",
+    "/_astro/SiteHeader.DVftG1Mi.css": "355f5810b29087ff7878205f16f6d2e25fea396a6c3aa050f4e96c59fe870d59",
+    "/fonts/fi_niaR-Mark.woff2": "6bb5278010daf7c2b03f78a99f1b3d7ce3feb9f0f50f8c6de13dd64a99028b34",
+    "/_astro/police-filing.5eBpD1mQ_Z2p9YS6.webp": "2163d284b40c33df3417d462e9a953781ecfc7b131686426eae1434dfadc8130",
+    "/_astro/BaseLayout.CcVhpdel.css": "65c0207fd48efaa95f24eeab75d324f71c99e10d8c127b831c3b7f3582131871",
+    "/fonts/GeistVF.woff2": "02b67e973da783c5608d14ff95e60708a40022520cbf0d9ec4185627b6e2e7ce",
+    "/icons/favicon-48.png": "66042d41f29106cb016553f87723665ef78504192d3e63ecdc4a21c7d8b672c1",
+    "/favicon.svg": "9483612345784232760536dc49ccb6935235fc5cb81fc95e63e3b32b5875c399",
+    "/favicon.ico": "b50f44819bc23403b8863048fe59d3f208b238e2624872f65496e431439e8435",
+    "/zh-CN": "950190ec16fd3860f02e26f5bce36b9a84b7824fbfb5ccbd3ec2bdd3848672b8",
+    "/zh-CN/download": "2d43c170b9a4cc606ee5de278570af30962fd4a07f54ee16a7f49cfa168b677b",
+    "/zh-CN/about": "9d216a5206153c36985439e7dc8810b0b0c2f222bcaac59eb548f2553e65ec1b",
+    "/zh-CN/faq": "b6d34622f2b609671af96296e3c599fe0ef6cc90cba462206718755a5a57c255",
+    "/zh-CN/privacy": "75c1c57662aad84e8aa2253e580a58933ad2a62478d2129000d11b53751d3156",
+    "/zh-CN/how-it-works": "ba03782067efcd286f3e221b0ee3022783487c827a9b2cc81f0a740d7840a0fe"
+  },
+  "verification": {
+    "apkPublicBytesMatchedCandidate": true,
+    "domesticPagesByteIdentical": 5,
+    "referencedAssetsByteIdentical": 13,
+    "unchangedRootHtmlPages": 6,
+    "feedVersion9IndependentlyConfirmedByPrimaryAgent": true,
+    "oldFilesDownloadedAndMatchedBeforeDeploy": 10,
+    "deploymentUploadedOnlyNewImmutableFilesThenLatest": true
+  }
+}
