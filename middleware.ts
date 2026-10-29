@@ -2,8 +2,14 @@ import { resolveLocaleRedirectPath } from "./src/lib/locale";
 
 export const config = {
   matcher: [
+    // Only these URLs negotiate a language. Localized pages, assets, API
+    // requests and 404s must not invoke a function just to return undefined.
     "/",
-    "/((?!_astro|brand|icons|badges|device|favicon|robots\\.txt|sitemap).*)",
+    "/about",
+    "/download",
+    "/faq",
+    "/how-it-works",
+    "/privacy",
   ],
 };
 

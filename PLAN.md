@@ -110,6 +110,12 @@
 
 ## 阶段
 
+### 2026-10-29 Vercel CPU 优化
+
+- [x] 检查语言中间件：matcher 覆盖无需跳转的本地化页面、API 和部分静态资源。
+- [x] matcher 收窄到根路径及五个短内容入口，保留原语言协商、302、query 和 Vary。检查、海外与国内 build/seo:check、六入口重定向 smoke 验证通过。
+- [ ] PR 预览与生产验证；上线后对比新增 middleware 调用及 CPU。历史用量不会因代码优化立即清零，未承诺具体节省比例。
+
 ### Android 国内激活码版本规划
 
 - [x] 2026-10-26：完成 [Android 国内分发与激活码会员 PLAN](docs/PLAN-ANDROID-CN-ACTIVATION.md) v1，基于现有 Cloudflare Worker/D1 和 Android 签名票据设计 `api.doneat.com.cn`、发卡 Web 后台、年费/终身会员、设备绑定与基础防破解。用户已确认首次激活 + 3 次换绑，同一时间仅一台设备有效。
