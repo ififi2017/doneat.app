@@ -1,5 +1,7 @@
 # 国内 Android 支持页部署记录
 
+**当前路由（2026-10-29核对）：**实际启用的 `doneat-cn-static.conf` 使用 `try_files $uri/index.html` 从 `current/android` 读取五页；下文2026-10-27的exact alias片段已不再include。`android-current`仍用于旧assets兼容。不要只切android-current而漏掉新root中的android子树；不需要修改Nginx配置。
+
 2026-10-27，按本轮用户授权，将独立静态子树部署到现有成都网站。不含支付接入、公开 APK、销售开放、DNS 或 TLS 配置变更；网页继续明确测试状态。
 
 ## 服务器与实际配置
@@ -93,3 +95,18 @@ curl --noproxy '*' --resolve doneat.com.cn:443:127.0.0.1 \
 - `domestic build/check`、主站`npm run check/build/seo:check`全部通过；主站121页构建仅用于验证，没有把国际站构建部署到国内根目录。无本轮Vercel发布，因此没有虚构Vercel预览链接。
 - 本机和成都服务器下载APK摘要均匹配；正确MIME/attachment/nosniff/immutable响应。不存在文件404；Range请求返回200整包，未承诺断点续传或全运营商下载质量。
 - Chrome桌面页面布局与版本信息可读；其点击下载遇到本机ERR_BLOCKED_BY_CLIENT，未关闭安全设置。Pixel浏览器从官网成功到达正确文件名/5.74MB的标准APK下载确认框；确认由用户亲自操作，未代越过安全提示。
+
+
+## 2026-10-29 CN 3.2.3（9）公开发布
+
+[GitHub正式版本](https://github.com/ififi2017/Off-Work-Countdown/releases/tag/android-cn-v3.2.3-9) 对应源码 `0538cf48d3259a5898ec0e6012c5ebdfce8e0263`，APK 6,671,723 bytes，SHA-256 `2965f0ca2737f4c612b9ef89567f00ba10f1194b586ba03e89c751c618cfbb66`；原CN证书 `2554fa47d4cb553bf22c1d8821769ca2c27381821c65fe68af835a9336bcd41b` 未变。官方apksigner/aapt2复验通过，公开下载体与候选逐字节一致。
+
+下载先发布固定APK及metadata，Cloudflare版本 `71157ecc-b974-498e-82da-9fb371af30c7` 保持feed7；五页和引用资产上线验证后，再用 `ac00641e-349d-4016-9400-a8a945a9a039` 将latest切到9。旧5/6/7资源在部署前逐个下载核对，并完整保留；上传记录分别只新增三项固定文件、更新一项latest，不上传mapping或源码归档。
+
+页面发布到 `/var/www/doneat-cn/releases/20261029-cn-3.2.3-9-955c252-r2` 与 `/var/www/doneat-cn/android-releases/20261029-cn-3.2.3-9-955c252-r2/android`。以当前root复制新目录，只覆盖副本android子树；新增1项共享资源，222项已有资源一致，原6个zh-CN正文SHA-256不变。源站及公网五页、13项引用资源逐字节符合构建。首次验收按过时alias文档操作时返回旧正文，脚本自动恢复旧链接；确认实际路由后重新发布通过，未改Nginx/TLS/DNS/API或支付配置。
+
+回滚元数据：`/var/www/doneat-cn/release-20261029-cn-3.2.3-9-955c252-r2.json`。旧root是 `/var/www/doneat-cn/releases/20261028-entry-filing`，旧android是 `/var/www/doneat-cn/android-releases/20261028-astro-android/android`。用临时symlink加rename分别恢复current/android-current；保留所有新旧目录。下载回滚可将服务回到上述APK staging版本（包含5/6/7/9全部固定资产，feed7），或在完整资源树上仅恢复旧feed；不要回到缺少9资产的旧部署，不删除公开APK和源码。
+
+`npm run check`、国际构建和SEO、国内构建及五页142项本地引用/清单检查通过。国内构建使用线上已有ICP备案与公安备案文字，主Agent实际IAB检查下载信息和四项更新日志布局正常；没有重新声称全主题/设备矩阵。公共feed9及APK摘要已由主Agent另行验证。国际专用SEO脚本不适用于CN构建；国内采用专门检查，未放宽脚本断言。
+
+站点 [PR47](https://github.com/ififi2017/doneat.app/pull/47)；[Vercel Preview](https://doneat-app-git-codex-cn-323-release-site-ififi2017s-projects.vercel.app)。main合并会按现有规则发布Vercel，仅国内版本JSON/日志及本次发布文档改变；未带入原检出的隐私/About未提交修改。可复核的公网正文摘要及服务器发布记录见 [publication JSON](releases/3.2.3-9-publication.json)。

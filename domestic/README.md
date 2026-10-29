@@ -10,7 +10,7 @@
 
 国内页面canonical固定为 `https://doneat.com.cn`，保留noindex,follow，并从国际站sitemap排除。页面关闭Vercel Analytics/TrackBeacon，但保留共用页头菜单的点击/Escape交互，不加载第三方嵌入脚本。
 
-国内服务器使用独立android-current与根站current软链接。每次复制现有根站到新release，只添加新构建的共享资产，不覆盖其它路由；Android目录独立切换。国际站发布通过PR/Vercel。保留旧目录和部署记录供回滚，禁止直接将本机混有无关修改的整个dist覆盖国内根站。
+国内服务器保留android-current与根站current软链接。当前生效Nginx从current/android读取五页，android-current只供旧assets兼容；历史exact alias片段已不再include。每次复制现有根站到新release，只覆盖副本的android子树并添加新构建的共享资产，不覆盖其它路由，再原子切换两个链接。国际站发布通过PR/Vercel。保留旧目录和部署记录供回滚，禁止直接将本机混有无关修改的整个dist覆盖国内根站。
 
 `add-android-entry.py` 是2026-10-28早期发布的历史导航迁移脚本；不要在每次Astro部署时重复运行。完整部署历史见DEPLOYMENT.md。
 
