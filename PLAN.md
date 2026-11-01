@@ -386,3 +386,10 @@
 
 - [x] 固定正式签名 APK、SHA-256、原 CN 证书及对应源码 `0538cf48d3259a5898ec0e6012c5ebdfce8e0263`；更新中英文小组件、欢迎页时间滚动与致谢折叠说明，不改国际站隐私/About 文案。
 - [x] 保留 5/6/7 全部旧下载资产，发布国内 Android 页面和 3.2.3（9）公共更新清单；五页及 13 项引用资产公网逐字节一致，六个原根站正文不变。部署、签名/摘要、回滚及 PR47 的 Vercel 预览见 `domestic/DEPLOYMENT.md` 和 `domestic/releases/3.2.3-9-publication.json`。
+
+## 2026-11-01 Ahrefs 失效链接与 hreflang 排查
+
+- [x] 独立抓取生产 sitemap 的 114 页，全部 200；114 页共同引用 Cloudflare 改写产生的一个邮件保护 404 目标。Ahrefs 详情当前会话不可访问，未声称取得历史告警行；来源页面见 `docs/seo-audit-2026-11-01-evidence.json`。
+- [x] BaseLayout 输出邮件排除边界，保留公开支持邮箱的 mailto；覆盖页脚与 Markdown，不修改 Cloudflare 设置、DNS、区域路由或首页根路径 x-default。
+- [x] 增加离线链接/锚点/hreflang 互链与 sitemap 一致性检查并接入 seo:check；增加线上 HTTP 目标聚合检查与五项回归测试。check、海外与国内 build/seo:check 通过，详见 `docs/seo-audit-2026-11-01.md`。
+- [ ] PR 预览及合并后 Cloudflare 原始 HTML/mailto 复验、Ahrefs 重新抓取；19 个根路径 x-default 跳转保留，需对照 Ahrefs 详情确认。未处理尚未取得详情的标题/描述/结构化数据告警。

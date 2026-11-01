@@ -1,0 +1,846 @@
+{
+  "checkedDate": "2026-11-01",
+  "method": "GET each production sitemap URL using curl, without redirects; parse raw HTML anchors and alternates",
+  "historicalAhrefsDetailsAvailable": true,
+  "sharedTarget": "https://doneat.app/cdn-cgi/l/email-protection",
+  "sharedTargetStatus": 404,
+  "referringPages": [
+    {
+      "url": "https://doneat.app/ar",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": true
+    },
+    {
+      "url": "https://doneat.app/ar/about",
+      "status": 200,
+      "emailProtectionLinks": 2,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/ar/download",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/ar/faq",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/ar/how-it-works",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/ar/privacy",
+      "status": 200,
+      "emailProtectionLinks": 3,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/de",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": true
+    },
+    {
+      "url": "https://doneat.app/de/about",
+      "status": 200,
+      "emailProtectionLinks": 2,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/de/download",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/de/faq",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/de/how-it-works",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/de/privacy",
+      "status": 200,
+      "emailProtectionLinks": 3,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/en",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": true
+    },
+    {
+      "url": "https://doneat.app/en/about",
+      "status": 200,
+      "emailProtectionLinks": 2,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/en/download",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/en/faq",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/en/how-it-works",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/en/privacy",
+      "status": 200,
+      "emailProtectionLinks": 4,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/es",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": true
+    },
+    {
+      "url": "https://doneat.app/es/about",
+      "status": 200,
+      "emailProtectionLinks": 2,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/es/download",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/es/faq",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/es/how-it-works",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/es/privacy",
+      "status": 200,
+      "emailProtectionLinks": 3,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/fr",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": true
+    },
+    {
+      "url": "https://doneat.app/fr/about",
+      "status": 200,
+      "emailProtectionLinks": 2,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/fr/download",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/fr/faq",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/fr/how-it-works",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/fr/privacy",
+      "status": 200,
+      "emailProtectionLinks": 3,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/hi-IN",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": true
+    },
+    {
+      "url": "https://doneat.app/hi-IN/about",
+      "status": 200,
+      "emailProtectionLinks": 2,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/hi-IN/download",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/hi-IN/faq",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/hi-IN/how-it-works",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/hi-IN/privacy",
+      "status": 200,
+      "emailProtectionLinks": 3,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/id",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": true
+    },
+    {
+      "url": "https://doneat.app/id/about",
+      "status": 200,
+      "emailProtectionLinks": 2,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/id/download",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/id/faq",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/id/how-it-works",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/id/privacy",
+      "status": 200,
+      "emailProtectionLinks": 3,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/it",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": true
+    },
+    {
+      "url": "https://doneat.app/it/about",
+      "status": 200,
+      "emailProtectionLinks": 2,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/it/download",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/it/faq",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/it/how-it-works",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/it/privacy",
+      "status": 200,
+      "emailProtectionLinks": 3,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/ja",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": true
+    },
+    {
+      "url": "https://doneat.app/ja/about",
+      "status": 200,
+      "emailProtectionLinks": 2,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/ja/download",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/ja/faq",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/ja/how-it-works",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/ja/privacy",
+      "status": 200,
+      "emailProtectionLinks": 3,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/ko",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": true
+    },
+    {
+      "url": "https://doneat.app/ko/about",
+      "status": 200,
+      "emailProtectionLinks": 2,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/ko/download",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/ko/faq",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/ko/how-it-works",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/ko/privacy",
+      "status": 200,
+      "emailProtectionLinks": 3,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/mr-IN",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": true
+    },
+    {
+      "url": "https://doneat.app/mr-IN/about",
+      "status": 200,
+      "emailProtectionLinks": 2,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/mr-IN/download",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/mr-IN/faq",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/mr-IN/how-it-works",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/mr-IN/privacy",
+      "status": 200,
+      "emailProtectionLinks": 3,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/pt",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": true
+    },
+    {
+      "url": "https://doneat.app/pt/about",
+      "status": 200,
+      "emailProtectionLinks": 2,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/pt/download",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/pt/faq",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/pt/how-it-works",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/pt/privacy",
+      "status": 200,
+      "emailProtectionLinks": 3,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/ru",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": true
+    },
+    {
+      "url": "https://doneat.app/ru/about",
+      "status": 200,
+      "emailProtectionLinks": 2,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/ru/download",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/ru/faq",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/ru/how-it-works",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/ru/privacy",
+      "status": 200,
+      "emailProtectionLinks": 3,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/th",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": true
+    },
+    {
+      "url": "https://doneat.app/th/about",
+      "status": 200,
+      "emailProtectionLinks": 2,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/th/download",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/th/faq",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/th/how-it-works",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/th/privacy",
+      "status": 200,
+      "emailProtectionLinks": 3,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/tr",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": true
+    },
+    {
+      "url": "https://doneat.app/tr/about",
+      "status": 200,
+      "emailProtectionLinks": 2,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/tr/download",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/tr/faq",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/tr/how-it-works",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/tr/privacy",
+      "status": 200,
+      "emailProtectionLinks": 3,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/vi",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": true
+    },
+    {
+      "url": "https://doneat.app/vi/about",
+      "status": 200,
+      "emailProtectionLinks": 2,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/vi/download",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/vi/faq",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/vi/how-it-works",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/vi/privacy",
+      "status": 200,
+      "emailProtectionLinks": 3,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/zh-CN",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": true
+    },
+    {
+      "url": "https://doneat.app/zh-CN/about",
+      "status": 200,
+      "emailProtectionLinks": 2,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/zh-CN/download",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/zh-CN/faq",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/zh-CN/how-it-works",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/zh-CN/privacy",
+      "status": 200,
+      "emailProtectionLinks": 4,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/zh-HK",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": true
+    },
+    {
+      "url": "https://doneat.app/zh-HK/about",
+      "status": 200,
+      "emailProtectionLinks": 2,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/zh-HK/download",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/zh-HK/faq",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/zh-HK/how-it-works",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/zh-HK/privacy",
+      "status": 200,
+      "emailProtectionLinks": 3,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/zh-TW",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": true
+    },
+    {
+      "url": "https://doneat.app/zh-TW/about",
+      "status": 200,
+      "emailProtectionLinks": 2,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/zh-TW/download",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/zh-TW/faq",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/zh-TW/how-it-works",
+      "status": 200,
+      "emailProtectionLinks": 1,
+      "rootXDefault": false
+    },
+    {
+      "url": "https://doneat.app/zh-TW/privacy",
+      "status": 200,
+      "emailProtectionLinks": 3,
+      "rootXDefault": false
+    }
+  ],
+  "ahrefsHistorical": {
+    "crawl": "30-10-2026T152246",
+    "verifiedDate": "2026-11-01",
+    "method": "Read all 114 rows after Show more expansion and all 19 redirected hreflang link rows in authenticated Ahrefs UI",
+    "brokenTarget": "https://doneat.app/cdn-cgi/l/email-protection",
+    "targetStatus": 404,
+    "brokenLinkSourceUrls": [
+      "https://doneat.app/ar",
+      "https://doneat.app/ar/about",
+      "https://doneat.app/ar/download",
+      "https://doneat.app/ar/faq",
+      "https://doneat.app/ar/how-it-works",
+      "https://doneat.app/ar/privacy",
+      "https://doneat.app/de",
+      "https://doneat.app/de/about",
+      "https://doneat.app/de/download",
+      "https://doneat.app/de/faq",
+      "https://doneat.app/de/how-it-works",
+      "https://doneat.app/de/privacy",
+      "https://doneat.app/en",
+      "https://doneat.app/en/about",
+      "https://doneat.app/en/download",
+      "https://doneat.app/en/faq",
+      "https://doneat.app/en/how-it-works",
+      "https://doneat.app/en/privacy",
+      "https://doneat.app/es",
+      "https://doneat.app/es/about",
+      "https://doneat.app/es/download",
+      "https://doneat.app/es/faq",
+      "https://doneat.app/es/how-it-works",
+      "https://doneat.app/es/privacy",
+      "https://doneat.app/fr",
+      "https://doneat.app/fr/about",
+      "https://doneat.app/fr/download",
+      "https://doneat.app/fr/faq",
+      "https://doneat.app/fr/how-it-works",
+      "https://doneat.app/fr/privacy",
+      "https://doneat.app/hi-IN",
+      "https://doneat.app/hi-IN/about",
+      "https://doneat.app/hi-IN/download",
+      "https://doneat.app/hi-IN/faq",
+      "https://doneat.app/hi-IN/how-it-works",
+      "https://doneat.app/hi-IN/privacy",
+      "https://doneat.app/id",
+      "https://doneat.app/id/about",
+      "https://doneat.app/id/download",
+      "https://doneat.app/id/faq",
+      "https://doneat.app/id/how-it-works",
+      "https://doneat.app/id/privacy",
+      "https://doneat.app/it",
+      "https://doneat.app/it/about",
+      "https://doneat.app/it/download",
+      "https://doneat.app/it/faq",
+      "https://doneat.app/it/how-it-works",
+      "https://doneat.app/it/privacy",
+      "https://doneat.app/ja",
+      "https://doneat.app/ja/about",
+      "https://doneat.app/ja/download",
+      "https://doneat.app/ja/faq",
+      "https://doneat.app/ja/how-it-works",
+      "https://doneat.app/ja/privacy",
+      "https://doneat.app/ko",
+      "https://doneat.app/ko/about",
+      "https://doneat.app/ko/download",
+      "https://doneat.app/ko/faq",
+      "https://doneat.app/ko/how-it-works",
+      "https://doneat.app/ko/privacy",
+      "https://doneat.app/mr-IN",
+      "https://doneat.app/mr-IN/about",
+      "https://doneat.app/mr-IN/download",
+      "https://doneat.app/mr-IN/faq",
+      "https://doneat.app/mr-IN/how-it-works",
+      "https://doneat.app/mr-IN/privacy",
+      "https://doneat.app/pt",
+      "https://doneat.app/pt/about",
+      "https://doneat.app/pt/download",
+      "https://doneat.app/pt/faq",
+      "https://doneat.app/pt/how-it-works",
+      "https://doneat.app/pt/privacy",
+      "https://doneat.app/ru",
+      "https://doneat.app/ru/about",
+      "https://doneat.app/ru/download",
+      "https://doneat.app/ru/faq",
+      "https://doneat.app/ru/how-it-works",
+      "https://doneat.app/ru/privacy",
+      "https://doneat.app/th",
+      "https://doneat.app/th/about",
+      "https://doneat.app/th/download",
+      "https://doneat.app/th/faq",
+      "https://doneat.app/th/how-it-works",
+      "https://doneat.app/th/privacy",
+      "https://doneat.app/tr",
+      "https://doneat.app/tr/about",
+      "https://doneat.app/tr/download",
+      "https://doneat.app/tr/faq",
+      "https://doneat.app/tr/how-it-works",
+      "https://doneat.app/tr/privacy",
+      "https://doneat.app/vi",
+      "https://doneat.app/vi/about",
+      "https://doneat.app/vi/download",
+      "https://doneat.app/vi/faq",
+      "https://doneat.app/vi/how-it-works",
+      "https://doneat.app/vi/privacy",
+      "https://doneat.app/zh-CN",
+      "https://doneat.app/zh-CN/about",
+      "https://doneat.app/zh-CN/download",
+      "https://doneat.app/zh-CN/faq",
+      "https://doneat.app/zh-CN/how-it-works",
+      "https://doneat.app/zh-CN/privacy",
+      "https://doneat.app/zh-HK",
+      "https://doneat.app/zh-HK/about",
+      "https://doneat.app/zh-HK/download",
+      "https://doneat.app/zh-HK/faq",
+      "https://doneat.app/zh-HK/how-it-works",
+      "https://doneat.app/zh-HK/privacy",
+      "https://doneat.app/zh-TW",
+      "https://doneat.app/zh-TW/about",
+      "https://doneat.app/zh-TW/download",
+      "https://doneat.app/zh-TW/faq",
+      "https://doneat.app/zh-TW/how-it-works",
+      "https://doneat.app/zh-TW/privacy"
+    ],
+    "hreflangSourceUrls": [
+      "https://doneat.app/ar",
+      "https://doneat.app/de",
+      "https://doneat.app/en",
+      "https://doneat.app/es",
+      "https://doneat.app/fr",
+      "https://doneat.app/hi-IN",
+      "https://doneat.app/id",
+      "https://doneat.app/it",
+      "https://doneat.app/ja",
+      "https://doneat.app/ko",
+      "https://doneat.app/mr-IN",
+      "https://doneat.app/pt",
+      "https://doneat.app/ru",
+      "https://doneat.app/th",
+      "https://doneat.app/tr",
+      "https://doneat.app/vi",
+      "https://doneat.app/zh-CN",
+      "https://doneat.app/zh-HK",
+      "https://doneat.app/zh-TW"
+    ],
+    "hreflang": "x-default",
+    "hreflangTarget": "https://doneat.app/",
+    "hreflangTargetStatus": 302,
+    "finalTarget": "https://doneat.app/en",
+    "finalTargetStatus": 200,
+    "foundIn": [
+      "Sitemap",
+      "HTML source"
+    ]
+  }
+}

@@ -128,7 +128,12 @@ const hreflangLinks = noindex ? [] : hreflangLinksFor(hreflangKind, path);
     >
       {t(locale, "skipToContent")}
     </a>
+    {/* These are public support addresses. Preserve mailto links, including
+        Markdown content, instead of Cloudflare's crawlable 404 email URL.
+        set:html keeps the documented boundary comments in built HTML. */}
+    <Fragment set:html="<!--email_off-->" />
     <slot />
+    <Fragment set:html="<!--/email_off-->" />
 {!isChina && analytics && <TrackBeacon />}
   </body>
 </html>

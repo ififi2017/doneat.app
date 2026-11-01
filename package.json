@@ -11,7 +11,10 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "seo:check": "node scripts/check-seo.mjs"
+    "seo:check": "node scripts/check-seo.mjs && node scripts/check-links.mjs",
+    "links:check": "node scripts/check-links.mjs",
+    "links:live": "node scripts/check-links-live.mjs",
+    "links:test": "node --test scripts/check-links.test.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",
@@ -24,5 +27,8 @@
     "canvas-confetti": "^1.9.4",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "ultrahtml": "^1.7.0"
   }
 }
