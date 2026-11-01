@@ -3,6 +3,18 @@
     "schemaVersion": 1,
     "applicationId": "com.rainif.doneat.cn",
     "channel": "cn",
+    "versionCode": 10,
+    "versionName": "3.2.5",
+    "minSdk": 26,
+    "releaseNotes": {
+      "zh-CN": "• 修复休息倒计时的进度气泡在接近起点或终点时被截断的问题，百分比与指针现在可完整显示。",
+      "en": "• Fixed the rest countdown progress bubble being clipped near either end of the bar. The percentage and pointer now remain fully visible."
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "applicationId": "com.rainif.doneat.cn",
+    "channel": "cn",
     "versionCode": 9,
     "versionName": "3.2.3",
     "minSdk": 26,
