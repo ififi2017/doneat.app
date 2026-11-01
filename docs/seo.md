@@ -90,3 +90,34 @@ Canonical spot-check: `/en`, `/zh-CN`, `/ja`, `/en/faq`, `/zh-CN/faq` should eac
 Intent-page backlog (no marketing URLs this round): [seo-intent-backlog.md](seo-intent-backlog.md).
 
 Cross-domain SEO plan (both `off.rainif.com` and `doneat.app`, based on Search Console and Bing data as of 2026-09-25): [Off-Work-Countdown `plans/Web/001-seo-search-growth.md`](https://github.com/ififi2017/Off-Work-Countdown/blob/main/plans/Web/001-seo-search-growth.md).
+
+## Link audit commands
+
+`npm run seo:check` now also validates the generated link graph: same-origin
+anchors and files, canonical alternate targets, reciprocal hreflang, sitemap/HTML
+agreement, and literal Cloudflare email exclusion boundaries around public support
+mailto links. It runs for both global and `SITE_REGION=cn` builds. External sites
+are deliberately outside the offline graph. `npm run links:test` exercises broken
+links, fragments, hreflang and edge-email regressions.
+
+For an explicit HTTP check after deployment:
+
+```bash
+npm run links:live -- --origin https://doneat.app --report /tmp/doneat-links.json
+```
+
+This requires curl and network access. It fetches sitemap pages and unique
+same-origin link/hreflang targets with four workers, records source pages for each
+failed target, and does not follow redirects. Only the documented hall x-default
+root 302 to `/en` (with `Accept-Language: en`) is classified as expected. Other
+redirects, fetch failures and non-self canonicals fail the audit. A passing local
+build cannot validate Cloudflare transformations; repeat the HTTP audit after a
+production release. Do not add an Astro route or redirect for
+`/cdn-cgi/l/email-protection`: it belongs to Cloudflare, not the site's router.
+
+Public support email links are inside `<!--email_off-->` boundaries emitted by
+BaseLayout. This uses Cloudflare's per-HTML exclusion mechanism, including rendered
+Markdown, without changing zone settings. The intended result is an ordinary
+`mailto:hello@doneat.app` link even with JavaScript disabled. These already-public
+support addresses will be readable to crawlers; this is not a private mailbox
+address protection mechanism.

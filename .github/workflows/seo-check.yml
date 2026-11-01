@@ -1,0 +1,26 @@
+name: SEO link graph
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        region: [global, cn]
+    env:
+      SITE_REGION: ${{ matrix.region }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm run links:test
+      - run: npm run build
+      - run: npm run seo:check
