@@ -19,7 +19,7 @@ for (const page of ['', ...pages]) {
   assert(!html.includes('name="twitter:'), `${path}: no X metadata`);
   assert(!html.includes('locale-switch-summary'), `${path}: no language switcher`);
   assert(html.includes('href="https://doneat.app/zh-CN'), `${path}: footer links the international site`);
-  assert(!html.includes('/_vercel/insights') && !html.includes('navigator.sendBeacon'), `${path}: no Vercel or unserved beacon`);
+  assert(!html.includes('/_vercel/insights') && !html.includes('"/api/e"') && html.includes('data-cn-analytics') && html.includes('/api/cn-events'), `${path}: domestic collector only, no Vercel or overseas beacon`);
   const alternates = [...html.matchAll(/hreflang="([^"]+)"/g)].map(match => match[1]);
   assert(alternates.length === 2 && alternates.every(locale => ['zh-CN', 'x-default'].includes(locale)), `${path}: real locale alternates only`);
   for (const match of html.matchAll(/(?:href|src)="(\/[^"?#]*)/g)) {

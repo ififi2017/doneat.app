@@ -1,0 +1,1761 @@
+{
+  "uid": "doneat-cn-web",
+  "title": "DoneAt 国内官网 · 访问与下载",
+  "tags": [
+    "DoneAt",
+    "China",
+    "Website"
+  ],
+  "timezone": "Asia/Shanghai",
+  "schemaVersion": 39,
+  "version": 1,
+  "editable": false,
+  "refresh": "1m",
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "id": 1,
+      "title": "统计口径",
+      "type": "text",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 4
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "**国内官网 · doneat.com.cn**　[官网](https://doneat.com.cn/zh-CN) · [Android 下载](https://doneat.com.cn/android) · [服务运行](https://shanghai.rainif.com/d/doneat-service-runtime)\n\n上半区为 **Nginx 回源请求**，包括机器人，**不包含 EdgeOne 缓存命中**；下半区为浏览器匿名事件，不统计 UV 或用户身份。概览使用顶部「汇总天数」（北京时间，含今天）；趋势使用右上角时间范围。日志历史仅覆盖当前保留文件，埋点从上线后开始。下载点击不代表下载完成，购买点击不代表付款。"
+      }
+    },
+    {
+      "id": 2,
+      "title": "回源请求 · 汇总",
+      "type": "stat",
+      "gridPos": {
+        "x": 0,
+        "y": 4,
+        "w": 6,
+        "h": 4
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bfpzceehv9q80f"
+      },
+      "description": "",
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum(doneat_cn_web_origin_requests_window{days=\"$days\"})",
+          "instant": true,
+          "range": false,
+          "legendFormat": "{{event}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bfpzceehv9q80f"
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "textMode": "auto",
+        "orientation": "auto"
+      }
+    },
+    {
+      "id": 3,
+      "title": "正式页面 · 回源请求",
+      "type": "stat",
+      "gridPos": {
+        "x": 6,
+        "y": 4,
+        "w": 6,
+        "h": 4
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bfpzceehv9q80f"
+      },
+      "description": "",
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum(doneat_cn_web_origin_requests_window{days=\"$days\",category=\"page\",status=\"2xx\"})",
+          "instant": true,
+          "range": false,
+          "legendFormat": "{{event}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bfpzceehv9q80f"
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "textMode": "auto",
+        "orientation": "auto"
+      }
+    },
+    {
+      "id": 4,
+      "title": "疑似扫描 · 路径特征",
+      "type": "stat",
+      "gridPos": {
+        "x": 12,
+        "y": 4,
+        "w": 6,
+        "h": 4
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bfpzceehv9q80f"
+      },
+      "description": "仅按固定扫描路径特征分类，可能误判；不等同全部攻击量。",
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum(doneat_cn_web_origin_requests_window{days=\"$days\",category=\"suspected_scan\"})",
+          "instant": true,
+          "range": false,
+          "legendFormat": "{{event}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bfpzceehv9q80f"
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "textMode": "auto",
+        "orientation": "auto"
+      }
+    },
+    {
+      "id": 5,
+      "title": "服务端错误 · 5xx",
+      "type": "stat",
+      "gridPos": {
+        "x": 18,
+        "y": 4,
+        "w": 6,
+        "h": 4
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bfpzceehv9q80f"
+      },
+      "description": "",
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum(doneat_cn_web_origin_requests_window{days=\"$days\",status=\"5xx\"})",
+          "instant": true,
+          "range": false,
+          "legendFormat": "{{event}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bfpzceehv9q80f"
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "textMode": "auto",
+        "orientation": "auto"
+      }
+    },
+    {
+      "id": 6,
+      "title": "回源请求趋势 · 5 分钟均值",
+      "type": "timeseries",
+      "gridPos": {
+        "x": 0,
+        "y": 8,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bfpzceehv9q80f"
+      },
+      "description": "",
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(status)(doneat_cn_web_origin_requests_5m) / 300",
+          "instant": false,
+          "range": true,
+          "legendFormat": "{{status}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bfpzceehv9q80f"
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "reqps",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "table",
+          "placement": "bottom",
+          "calcs": [
+            "lastNotNull",
+            "max"
+          ]
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      }
+    },
+    {
+      "id": 7,
+      "title": "回源类别 · 5 分钟均值",
+      "type": "timeseries",
+      "gridPos": {
+        "x": 12,
+        "y": 8,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bfpzceehv9q80f"
+      },
+      "description": "",
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(category)(doneat_cn_web_origin_requests_5m) / 300",
+          "instant": false,
+          "range": true,
+          "legendFormat": "{{category}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bfpzceehv9q80f"
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "reqps",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "table",
+          "placement": "bottom",
+          "calcs": [
+            "lastNotNull",
+            "max"
+          ]
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      }
+    },
+    {
+      "id": 8,
+      "title": "回源响应流量 · 5 分钟均值",
+      "type": "timeseries",
+      "gridPos": {
+        "x": 0,
+        "y": 16,
+        "w": 12,
+        "h": 7
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bfpzceehv9q80f"
+      },
+      "description": "",
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "doneat_cn_web_origin_bytes_5m / 300",
+          "instant": false,
+          "range": true,
+          "legendFormat": "源站响应字节",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bfpzceehv9q80f"
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "Bps",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "table",
+          "placement": "bottom",
+          "calcs": [
+            "lastNotNull",
+            "max"
+          ]
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      }
+    },
+    {
+      "id": 9,
+      "title": "回源状态码 · 汇总",
+      "type": "bargauge",
+      "gridPos": {
+        "x": 12,
+        "y": 16,
+        "w": 12,
+        "h": 7
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bfpzceehv9q80f"
+      },
+      "description": "",
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(status)(doneat_cn_web_origin_requests_window{days=\"$days\"})",
+          "instant": true,
+          "range": false,
+          "legendFormat": "{{status}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bfpzceehv9q80f"
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "textMode": "auto",
+        "orientation": "horizontal",
+        "displayMode": "gradient",
+        "showUnfilled": true
+      }
+    },
+    {
+      "id": 10,
+      "title": "匿名浏览与下载",
+      "type": "text",
+      "gridPos": {
+        "x": 0,
+        "y": 31,
+        "w": 24,
+        "h": 3
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "仅保存「日期、固定事件名、次数」，不使用 Cookie、访客 ID，不保存 IP / UA / 来源网址 / 查询参数。遵循 DNT / GPC。开放计数接口可能被伪造，数据用于趋势参考，不作为订单或财务记录。"
+      }
+    },
+    {
+      "id": 11,
+      "title": "页面浏览事件",
+      "type": "stat",
+      "gridPos": {
+        "x": 0,
+        "y": 34,
+        "w": 6,
+        "h": 4
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bfpzceehv9q80f"
+      },
+      "description": "",
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum(doneat_cn_web_events_window{days=\"$days\",event=~\".*_view\"})",
+          "instant": true,
+          "range": false,
+          "legendFormat": "{{event}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bfpzceehv9q80f"
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "textMode": "auto",
+        "orientation": "auto"
+      }
+    },
+    {
+      "id": 12,
+      "title": "Android 下载页浏览",
+      "type": "stat",
+      "gridPos": {
+        "x": 6,
+        "y": 34,
+        "w": 6,
+        "h": 4
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bfpzceehv9q80f"
+      },
+      "description": "",
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum(doneat_cn_web_events_window{days=\"$days\",event=~\"android_view\"})",
+          "instant": true,
+          "range": false,
+          "legendFormat": "{{event}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bfpzceehv9q80f"
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "textMode": "auto",
+        "orientation": "auto"
+      }
+    },
+    {
+      "id": 13,
+      "title": "APK 下载点击",
+      "type": "stat",
+      "gridPos": {
+        "x": 12,
+        "y": 34,
+        "w": 6,
+        "h": 4
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bfpzceehv9q80f"
+      },
+      "description": "",
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum(doneat_cn_web_events_window{days=\"$days\",event=~\"apk_download_open\"})",
+          "instant": true,
+          "range": false,
+          "legendFormat": "{{event}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bfpzceehv9q80f"
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "textMode": "auto",
+        "orientation": "auto"
+      }
+    },
+    {
+      "id": 14,
+      "title": "购买入口点击",
+      "type": "stat",
+      "gridPos": {
+        "x": 18,
+        "y": 34,
+        "w": 6,
+        "h": 4
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bfpzceehv9q80f"
+      },
+      "description": "",
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum(doneat_cn_web_events_window{days=\"$days\",event=~\"buy_page_open\"})",
+          "instant": true,
+          "range": false,
+          "legendFormat": "{{event}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bfpzceehv9q80f"
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "textMode": "auto",
+        "orientation": "auto"
+      }
+    },
+    {
+      "id": 15,
+      "title": "页面浏览 · 分类",
+      "type": "bargauge",
+      "gridPos": {
+        "x": 0,
+        "y": 38,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bfpzceehv9q80f"
+      },
+      "description": "",
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "doneat_cn_web_events_window{days=\"$days\",event=~\".*_view\"}",
+          "instant": true,
+          "range": false,
+          "legendFormat": "{{event}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bfpzceehv9q80f"
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "hall_view"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "首页"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "download_view"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "客户端下载页"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "android_view"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Android 下载页"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "android_buy_view"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "购买页"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "android_faq_view"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Android 常见问题"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "android_privacy_view"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Android 隐私"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "android_refunds_view"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "退款流程"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "faq_view"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "常见问题"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "about_view"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "关于"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "privacy_view"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "隐私"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "how_it_works_view"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "怎么算的"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "apk_download_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "APK 下载"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "buy_page_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "购买入口"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "contact_xhs_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "小红书联系"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "contact_email_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "邮件联系"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "android_page_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Android 下载页入口"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "app_store_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "App Store"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "microsoft_store_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Microsoft Store"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "web_timer_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "网页版"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "download_page_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "客户端下载入口"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "github_source_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "GitHub 源码"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "github_releases_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "GitHub Releases"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "chrome_extension_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Chrome 扩展"
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "textMode": "auto",
+        "orientation": "horizontal",
+        "displayMode": "gradient",
+        "showUnfilled": true
+      }
+    },
+    {
+      "id": 16,
+      "title": "下载 / 商店 / 联系 · 点击",
+      "type": "bargauge",
+      "gridPos": {
+        "x": 12,
+        "y": 38,
+        "w": 12,
+        "h": 9
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bfpzceehv9q80f"
+      },
+      "description": "",
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "doneat_cn_web_events_window{days=\"$days\",event=~\".*_open\"}",
+          "instant": true,
+          "range": false,
+          "legendFormat": "{{event}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bfpzceehv9q80f"
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "hall_view"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "首页"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "download_view"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "客户端下载页"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "android_view"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Android 下载页"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "android_buy_view"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "购买页"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "android_faq_view"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Android 常见问题"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "android_privacy_view"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Android 隐私"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "android_refunds_view"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "退款流程"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "faq_view"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "常见问题"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "about_view"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "关于"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "privacy_view"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "隐私"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "how_it_works_view"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "怎么算的"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "apk_download_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "APK 下载"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "buy_page_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "购买入口"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "contact_xhs_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "小红书联系"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "contact_email_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "邮件联系"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "android_page_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Android 下载页入口"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "app_store_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "App Store"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "microsoft_store_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Microsoft Store"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "web_timer_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "网页版"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "download_page_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "客户端下载入口"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "github_source_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "GitHub 源码"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "github_releases_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "GitHub Releases"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "chrome_extension_open"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Chrome 扩展"
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "textMode": "auto",
+        "orientation": "horizontal",
+        "displayMode": "gradient",
+        "showUnfilled": true
+      }
+    },
+    {
+      "id": 17,
+      "title": "采集距今",
+      "type": "stat",
+      "gridPos": {
+        "x": 0,
+        "y": 47,
+        "w": 8,
+        "h": 4
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bfpzceehv9q80f"
+      },
+      "description": "",
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "time() - doneat_cn_web_export_timestamp_seconds",
+          "instant": true,
+          "range": false,
+          "legendFormat": "{{event}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bfpzceehv9q80f"
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 180
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "textMode": "auto",
+        "orientation": "auto"
+      }
+    },
+    {
+      "id": 18,
+      "title": "日志最早记录",
+      "type": "stat",
+      "gridPos": {
+        "x": 8,
+        "y": 47,
+        "w": 8,
+        "h": 4
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bfpzceehv9q80f"
+      },
+      "description": "",
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "doneat_cn_web_oldest_log_timestamp_seconds * 1000",
+          "instant": true,
+          "range": false,
+          "legendFormat": "{{event}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bfpzceehv9q80f"
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "dateTimeAsIso",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "textMode": "auto",
+        "orientation": "auto"
+      }
+    },
+    {
+      "id": 19,
+      "title": "采集节点在线",
+      "type": "stat",
+      "gridPos": {
+        "x": 16,
+        "y": 47,
+        "w": 8,
+        "h": 4
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bfpzceehv9q80f"
+      },
+      "description": "",
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "up{instance=\"AliYun CD\",job=\"node_exporter_remote\"}",
+          "instant": true,
+          "range": false,
+          "legendFormat": "{{event}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bfpzceehv9q80f"
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "textMode": "auto",
+        "orientation": "auto"
+      }
+    },
+    {
+      "id": 20,
+      "title": "数据维护",
+      "type": "text",
+      "gridPos": {
+        "x": 0,
+        "y": 51,
+        "w": 24,
+        "h": 3
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "Nginx 日志以服务器现有轮转为准；匿名事件在成都自建 SQLite 保存 90 天，Prometheus 历史按现有 30 天保留。两者不包含会员、激活码、工作记录或薪资。指标每分钟刷新，Lark 告警保持原有配置。"
+      }
+    },
+    {
+      "id": 21,
+      "title": "每日回源请求 · 现存日志",
+      "type": "table",
+      "gridPos": {
+        "x": 0,
+        "y": 23,
+        "w": 24,
+        "h": 8
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bfpzceehv9q80f"
+      },
+      "description": "",
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "doneat_cn_web_origin_requests_day",
+          "instant": true,
+          "range": false,
+          "legendFormat": "{{event}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bfpzceehv9q80f"
+          },
+          "format": "table"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "showHeader": true,
+        "sortBy": [
+          {
+            "displayName": "日期（北京时间）",
+            "desc": true
+          }
+        ]
+      },
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "__name__": true,
+              "instance": true,
+              "job": true
+            },
+            "renameByName": {
+              "date": "日期（北京时间）",
+              "Value": "回源请求数"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "templating": {
+    "list": [
+      {
+        "name": "days",
+        "label": "汇总天数",
+        "type": "custom",
+        "query": "1,7,14,30",
+        "current": {
+          "text": "7",
+          "value": "7"
+        },
+        "options": [
+          {
+            "text": "1",
+            "value": "1",
+            "selected": false
+          },
+          {
+            "text": "7",
+            "value": "7",
+            "selected": true
+          },
+          {
+            "text": "14",
+            "value": "14",
+            "selected": false
+          },
+          {
+            "text": "30",
+            "value": "30",
+            "selected": false
+          }
+        ],
+        "includeAll": false,
+        "multi": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+[Unit]
+Description=DoneAt domestic website aggregate metrics
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /opt/doneat-cn-analytics/export.py
+TimeoutStartSec=45
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/node_exporter/textfile_collector
