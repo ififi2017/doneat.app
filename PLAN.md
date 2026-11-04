@@ -398,4 +398,4 @@
 
 - [x] 新增独立匿名事件接收器与 Nginx 汇总采集器：固定事件、北京时间每日计数、90 天保留，无 Cookie、身份标识或来源参数；国内与海外统计隔离。
 - [x] 新增 `doneat-cn-web` 看板配置，明确区分回源请求、扫描特征与浏览/下载/购买入口事件，不将请求数当 UV，不将点击当下载或付款完成。
-- [ ] 生产部署与 Grafana / 浏览器端到端验收，记录见 `deploy/cn-analytics/README.md`。
+- [x] 生产部署与 Grafana / 浏览器端到端验收通过：回源每日历史、浏览与购买入口点击、Prometheus 与 Grafana 展示均已核对，记录见 `deploy/cn-analytics/README.md`。
