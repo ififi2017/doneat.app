@@ -1,5 +1,6 @@
 ---
 import Analytics from "@vercel/analytics/astro";
+import ChinaBeacon from "../components/ChinaBeacon.astro";
 import TrackBeacon from "../components/TrackBeacon.astro";
 import "../styles/global.css";
 import type { TrackedEvent } from "../lib/analytics-events";
@@ -135,5 +136,6 @@ const hreflangLinks = noindex ? [] : hreflangLinksFor(hreflangKind, path);
     <slot />
     <Fragment set:html="<!--/email_off-->" />
 {!isChina && analytics && <TrackBeacon />}
+{isChina && <ChinaBeacon />}
   </body>
 </html>

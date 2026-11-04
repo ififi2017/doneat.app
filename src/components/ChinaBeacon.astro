@@ -1,0 +1,36 @@
+---
+// Same-origin fixed event names only; independent of overseas analytics.
+---
+<script is:inline data-cn-analytics>
+(function () {
+  if (navigator.doNotTrack === '1' || navigator.globalPrivacyControl) return;
+  var pages = {
+    '/zh-CN': 'hall_view', '/zh-CN/download': 'download_view',
+    '/zh-CN/faq': 'faq_view', '/zh-CN/about': 'about_view',
+    '/zh-CN/privacy': 'privacy_view', '/zh-CN/how-it-works': 'how_it_works_view',
+    '/android': 'android_view', '/android/buy': 'android_buy_view',
+    '/android/faq': 'android_faq_view', '/android/privacy': 'android_privacy_view',
+    '/android/refunds': 'android_refunds_view'
+  };
+  var allowed = ['download_page_open','web_timer_open','app_store_open','microsoft_store_open',
+    'github_source_open','github_releases_open','chrome_extension_open'];
+  function send(event) {
+    if (!event || !navigator.sendBeacon) return;
+    try { navigator.sendBeacon('/api/cn-events', event); } catch (_) {}
+  }
+  send(pages[location.pathname.replace(/\/$/, '')]);
+  document.addEventListener('click', function (event) {
+    if (!(event.target instanceof Element)) return;
+    var link = event.target.closest('a[href]');
+    if (!link) return;
+    var url = new URL(link.href, location.href);
+    var tracked = link.getAttribute('data-track');
+    if (url.hostname === 'downloads.doneat.app' && url.pathname.endsWith('.apk')) send('apk_download_open');
+    else if (url.origin === location.origin && url.pathname.replace(/\/$/, '') === '/android/buy') send('buy_page_open');
+    else if (url.origin === location.origin && url.pathname.replace(/\/$/, '') === '/android') send('android_page_open');
+    else if (url.hostname === 'xhslink.cn') send('contact_xhs_open');
+    else if (url.protocol === 'mailto:') send('contact_email_open');
+    else if (allowed.indexOf(tracked) !== -1) send(tracked);
+  }, true);
+})();
+</script>

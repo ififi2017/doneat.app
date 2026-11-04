@@ -393,3 +393,9 @@
 - [x] BaseLayout 输出邮件排除边界，保留公开支持邮箱的 mailto；覆盖页脚与 Markdown，不修改 Cloudflare 设置、DNS、区域路由或首页根路径 x-default。
 - [x] 增加离线链接/锚点/hreflang 互链与 sitemap 一致性检查并接入 seo:check；增加线上 HTTP 目标聚合检查与五项回归测试。check、海外与国内 build/seo:check 通过，详见 `docs/seo-audit-2026-11-01.md`。
 - [ ] PR 预览及合并后 Cloudflare 原始 HTML/mailto 复验、Ahrefs 重新抓取；19 个根路径 x-default 跳转保留，需对照 Ahrefs 详情确认。未处理尚未取得详情的标题/描述/结构化数据告警。
+
+## 2026-11-04 国内官网独立流量看板
+
+- [x] 新增独立匿名事件接收器与 Nginx 汇总采集器：固定事件、北京时间每日计数、90 天保留，无 Cookie、身份标识或来源参数；国内与海外统计隔离。
+- [x] 新增 `doneat-cn-web` 看板配置，明确区分回源请求、扫描特征与浏览/下载/购买入口事件，不将请求数当 UV，不将点击当下载或付款完成。
+- [x] 生产部署与 Grafana / 浏览器端到端验收通过：回源每日历史、浏览与购买入口点击、Prometheus 与 Grafana 展示均已核对，记录见 `deploy/cn-analytics/README.md`。

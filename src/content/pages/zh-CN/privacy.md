@@ -155,3 +155,7 @@ DoneAt 无法访问你的 Apple 账户，也无法代你删除其中的私人 iC
 关于本政策或信息处理方式的问题，请写到 [hello@doneat.app](mailto:hello@doneat.app)。产品问题和建议也可以通过 [GitHub Issue](https://github.com/ififi2017/Off-Work-Countdown/issues) 提交。
 
 如果你发现本政策的说明与产品实际行为不一致，请写到这个邮箱或开一个 Issue。
+
+### 中国大陆官网匿名统计
+
+`doneat.com.cn` 使用自建统计服务，仅按北京时间汇总页面浏览与下载、购买入口、商店及联系链接的点击次数，保留 90 天。不使用 cookie、访客标识或本地存储；统计不保存 IP、User-Agent、来源网址、查询参数或浏览历史，遵循浏览器的 Do Not Track 和 Global Privacy Control 信号。点击不代表已完成下载或付款。运维看板另将源站访问日志汇总为请求量、状态码和疑似扫描趋势，不把请求量当作独立访客数；CDN 缓存命中的请求不会出现在源站日志中。
