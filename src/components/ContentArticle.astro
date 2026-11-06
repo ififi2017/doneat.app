@@ -74,7 +74,7 @@ const jsonLd = isFaq
   path={path}
   hreflangKind="content"
   jsonLd={jsonLd}
-  trackPage={contentTrackPage(page)}
+  trackPage={page === "terms" ? undefined : contentTrackPage(page)}
 >
   <div class="flex min-h-screen flex-col">
     <SiteHeader locale={locale} currentPage={page} />
@@ -86,7 +86,7 @@ const jsonLd = isFaq
         <div>
           <header class="article-head">
             <p class="article-kicker">
-              {t(locale, page === "how-it-works" ? "howItWorks" : page)}
+              {page === "terms" ? entry.data.heading : t(locale, page === "how-it-works" ? "howItWorks" : page)}
             </p>
             <h1 class="article-title">{entry.data.heading}</h1>
             {

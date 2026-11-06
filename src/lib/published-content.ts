@@ -8,6 +8,7 @@
  * table against the files on disk at build time.
  */
 export const PUBLISHED_BY_PAGE = {
+  terms: ["en", "zh-CN"],
   download: [
     "en",
     "zh-CN",

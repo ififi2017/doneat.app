@@ -5,6 +5,7 @@ import SocialLinks from "./SocialLinks.astro";
 import {
   contentLocaleFor,
   icpFilingNumber,
+  isChina,
   otherSiteLink,
   psbFilingNumber,
   psbFilingUrl,
@@ -29,6 +30,7 @@ const otherSite = otherSiteLink(Astro.url.pathname.replace(/\/$/, ""));
     <nav class="site-footer-nav" aria-label={siteConfig.brandName}>
       <a href={`/${howItWorksLang}/how-it-works`}>{t(locale, "howItWorks")}</a>
       <a href={domestic ? "/android/privacy" : `/${privacyLang}/privacy`}>{t(locale, "privacy")}</a>
+      {!isChina && !domestic && <a href={`/${contentLocaleFor(locale, "terms")}/terms`} lang={contentLocaleFor(locale, "terms")}>{locale === "zh-CN" ? "Google Play 服务条款" : "Google Play Terms"}</a>}
       <a href={`mailto:${siteConfig.supportEmail}`}>{t(locale, "contactUs")}</a>
       {otherSite && <a href={otherSite.href} lang="zh-CN">{otherSite.label}</a>}
     </nav>
