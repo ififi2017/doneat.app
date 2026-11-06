@@ -50,7 +50,7 @@ export function otherSiteLink(pathname: string): { href: string; label: string }
   if (isChina) return { href: `${site.officialSiteUrl}${pathname}`, label: "国际站" };
   if (!site.chinaSiteLive) return null;
   const [, , page = ""] = pathname.split("/");
-  const target = isContentPage(page) && hasPublishedContent("zh-CN", page) ? `/zh-CN/${page}` : "/zh-CN";
+  const target = page !== "terms" && isContentPage(page) && hasPublishedContent("zh-CN", page) ? `/zh-CN/${page}` : "/zh-CN";
   return { href: `${site.chinaSiteUrl}${target}`, label: "中国大陆站" };
 }
 
