@@ -93,3 +93,10 @@ curl --noproxy '*' --resolve doneat.com.cn:443:127.0.0.1 \
 - `domestic build/check`、主站`npm run check/build/seo:check`全部通过；主站121页构建仅用于验证，没有把国际站构建部署到国内根目录。无本轮Vercel发布，因此没有虚构Vercel预览链接。
 - 本机和成都服务器下载APK摘要均匹配；正确MIME/attachment/nosniff/immutable响应。不存在文件404；Range请求返回200整包，未承诺断点续传或全运营商下载质量。
 - Chrome桌面页面布局与版本信息可读；其点击下载遇到本机ERR_BLOCKED_BY_CLIENT，未关闭安全设置。Pixel浏览器从官网成功到达正确文件名/5.74MB的标准APK下载确认框；确认由用户亲自操作，未代越过安全提示。
+
+## 2026-11-06 国内价格与退款文案
+
+- 年付版 28 元、终身版 40 元；两种方案均支持付款后 14 天内无理由退款。同步首页、购买、FAQ、退款及共用联系区域，页面更新日期为 2026-11-06。
+- 实际生效的 Nginx static snippet 已通过 `current` 根目录提供 Android 路由，旧 `android-current` 仅用于兼容资源。发布基于线上 `/var/www/doneat-cn/releases/20261104-cn-web-e8d28ed` 复制为 `/var/www/doneat-cn/releases/20261106-pricing-refunds`，仅替换五份 Android HTML 文案；未用本地旧 APK 清单覆盖线上下载。
+- `current` 已切到新目录；回滚可将其原子恢复到上述旧根目录。元数据 `/var/www/doneat-cn/release-20261106-pricing-refunds.json`。兼容 `android-current` 保持原路径。未修改 Nginx、DNS、TLS、EdgeOne 或国际站。
+- 本地 check 零诊断，build/seo:check/国内检查通过；本轮验证为 HTTP 内容及文件核对，未做浏览器视觉复验。未提交、推送 Git，无本轮 Vercel 预览。
