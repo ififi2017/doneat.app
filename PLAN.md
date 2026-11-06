@@ -108,6 +108,12 @@
 - Microsoft Store：https://apps.microsoft.com/detail/9PM0HJ2PP2LJ
 - 产品源码：https://github.com/ififi2017/Off-Work-Countdown
 
+## 2026-11-06 Google Play 版服务条款
+
+- [x] 新增英文与简中 `/en/terms`、`/zh-CN/terms`，仅适用国际 Google Play 版；覆盖订阅、取消、退款、恢复购买及法定消费者权利。国内继续使用现有购买、隐私与退款说明。
+- [x] 接入现有长文布局、国际站页脚、语言选择器、canonical、hreflang 与 sitemap；国内构建不生成条款页或入口。
+- [ ] 完成国际/国内构建检查、PR 预览及生产验证。
+
 ## 阶段
 
 ### 2026-10-29 Vercel CPU 优化
