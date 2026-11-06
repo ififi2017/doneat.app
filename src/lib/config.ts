@@ -21,6 +21,7 @@ export const CONTENT_PAGES = [
   "about",
   "faq",
   "how-it-works",
+  ...(!isChina ? ["terms"] as const : []),
 ] as const;
 export type ContentPage = (typeof CONTENT_PAGES)[number];
 
