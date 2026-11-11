@@ -38,12 +38,14 @@ The hall `<title>` is `homeTitle` in `locales/chrome.json`: brand, the local fun
 
 | Page | JSON-LD |
 | --- | --- |
-| Hall | `@graph`: `WebSite` (site name DoneAt, `alternateName` Off Work Countdown) + `Organization` + `SoftwareApplication` + `WebApplication` (browser timer). No ratings or download counts. Native `SoftwareApplication` has no `offers` (iOS Plus is paid). The web timer node may say free. |
+| Hall | `@graph`: `WebSite` (site name DoneAt, `alternateName` Off Work Countdown) + `Organization` + `SoftwareApplication` + `WebApplication` (browser timer). No ratings or download counts. Native `SoftwareApplication` has no `offers` (iOS Plus is paid); its `sameAs` lists the App Store, Google Play (global only) and Microsoft Store listings. The web timer node may say free. |
 | Download | `@graph`: same `Organization` / `SoftwareApplication` `@id`s + `WebPage` |
 | FAQ | `FAQPage` only. Questions/answers are parsed from the Markdown body so they match visible copy. |
 | 404 | `noindex,nofollow`. No canonical. No `og:url` (must not point at `/en`). |
 
 `Organization.sameAs` is GitHub + X (`@doneatapp`). Keep those; do not invent extra profiles.
+
+`/llms.txt` (`src/pages/llms.txt.ts`) is a Markdown map for AI answer engines: summary, key facts, store links and the English and Chinese support pages. Titles and descriptions come from content frontmatter; the key facts are hand-written, so keep them in step with the FAQ. The China build emits a Chinese version without Google Play or X.
 
 Validate FAQ with [Rich Results Test](https://search.google.com/test/rich-results) on `/en/faq` and `/zh-CN/faq`.
 

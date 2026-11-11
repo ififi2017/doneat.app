@@ -1,4 +1,4 @@
-import { sameAsUrls, siteConfig } from "./config";
+import { isChina, sameAsUrls, showGooglePlay, siteConfig } from "./config";
 
 export const ORGANIZATION_ID = `${siteConfig.officialSiteUrl}/#organization`;
 export const SOFTWARE_ID = `${siteConfig.officialSiteUrl}/#app`;
@@ -47,7 +47,17 @@ export function softwareApplicationJsonLd(options: {
     description: options.description,
     author: { "@id": ORGANIZATION_ID },
     publisher: { "@id": ORGANIZATION_ID },
+    sameAs: storeListingUrls(),
   };
+}
+
+/** Official store listings of the same app, so engines can join them to one entity. */
+export function storeListingUrls(): string[] {
+  return [
+    siteConfig.appStoreUrlTemplate.replace("{storefront}", isChina ? "cn" : "us"),
+    ...(showGooglePlay ? [siteConfig.googlePlayUrl] : []),
+    siteConfig.microsoftStoreUrl,
+  ];
 }
 
 export function webTimerJsonLd(locale: string): Record<string, unknown> {

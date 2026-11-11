@@ -34,6 +34,13 @@ const robots = read("robots.txt");
 assert(robots.includes("Sitemap: https://doneat.app/sitemap-index.xml"), "robots sitemap URL");
 assert(robots.includes("Allow: /"), "robots Allow");
 
+const llms = read("llms.txt");
+assert(llms.startsWith("# DoneAt\n"), "llms.txt starts with an H1");
+assert(llms.includes("https://doneat.app/en/faq"), "llms.txt links the English FAQ");
+assert(llms.includes("https://doneat.app/zh-CN/faq"), "llms.txt links the Chinese FAQ");
+assert(llms.includes("https://off.rainif.com/llms.txt"), "llms.txt points at the web timer's llms.txt");
+assert(!llms.includes("<html"), "llms.txt is plain text");
+
 const indexXml = read("sitemap-index.xml");
 assert(indexXml.includes("https://doneat.app/sitemap-0.xml"), "sitemap index lists sitemap-0");
 
@@ -66,6 +73,7 @@ assert(
   "SoftwareApplication JSON-LD",
 );
 assert(enHall.includes('rel="canonical" href="https://doneat.app/en"'), "en canonical");
+assert(enHall.includes('"sameAs":["https://apps.apple.com/us/app/id6802803318"'), "SoftwareApplication sameAs lists the store listings");
 assert(enHall.includes('hreflang="x-default" href="https://doneat.app/"'), "hall HTML x-default is the root");
 assert(enHall.includes('"@type":"WebSite"'), "WebSite JSON-LD for the site name");
 assert(enHall.includes("<title>DoneAt: Work Shift Countdown for iPhone, Android, Mac &amp; Windows</title>"), "hall title carries function words");
