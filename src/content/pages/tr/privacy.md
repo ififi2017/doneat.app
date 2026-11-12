@@ -79,7 +79,7 @@ Olay listesinin tamamı bu depoda [`src/lib/analytics-events.ts`](https://github
 
 Web zamanlayıcı, sonraki ziyaretlerin seçtiğin dilde açılması için `i18nextLng` adlı bir çerezde dil kodu saklar. İlk ziyarette o an görünen dilden konur, dili değiştirdiğinde güncellenir, bir yıl sonra sona erer ve tarayıcıdan kaldırılabilir.
 
-Ne resmî site ne de uygulamalar reklam veya siteler arası izleme çerezi kullanır. Tek istisna, off.rainif.com üzerindeki web zamanlayıcının vardiya ön ayarları ve hesaplayıcılar gibi bazı içerik sayfalarıdır; bu sayfalarda Google AdSense reklamları gösterilir. Geri sayımın kendisi, yüklü web uygulaması, masaüstü ve mobil uygulamalar ile resmî sitede reklam gösterilmez. Google ve iş ortakları bu reklamları sunmak ve ölçmek için çerezler veya benzer tanımlayıcılar kullanabilir. Avrupa Ekonomik Alanı, Birleşik Krallık ve İsviçre'de Google önce bir onay mesajıyla tercihini sorar; bunu sonradan değiştirebilirsin. DoneAt çalışma saatlerini veya maaşını Google'a göndermez. Yukarıda anlatılan analiz çerezlere dayanmaz.
+Ne resmî site ne de uygulamalar reklam veya siteler arası izleme çerezi kullanır. Tek istisna off.rainif.com üzerindeki web zamanlayıcıdır; bir tarayıcı sekmesinde açıkken Google AdSense reklamları gösterir. Yüklü web uygulaması, masaüstü ve mobil uygulamalar ile resmî sitede reklam gösterilmez. Google ve iş ortakları bu reklamları sunmak ve ölçmek için çerezler veya benzer tanımlayıcılar kullanabilir. Avrupa Ekonomik Alanı, Birleşik Krallık ve İsviçre'de Google önce bir onay mesajıyla tercihini sorar; bunu sonradan değiştirebilirsin. DoneAt çalışma saatlerini veya maaşını Google'a göndermez. Yukarıda anlatılan analiz çerezlere dayanmaz.
 
 ## Bir geri sayım paylaşmak
 

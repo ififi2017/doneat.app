@@ -55,7 +55,7 @@ On iPhone, iPad and Android, yes. Plan your schedule on one monthly calendar wit
 
 ## Is it free, and is the code open?
 
-The web timer is free to use. There are no DoneAt accounts or paid tiers on the website. Some content pages of the browser timer, such as shift presets and calculators, show Google ads. The countdown itself, the installed web app, the native apps and the official site show none. Source code is published on [GitHub](https://github.com/ififi2017/Off-Work-Countdown) under the [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) licence. Store listings follow each store’s own price and terms.
+The web timer is free to use. There are no DoneAt accounts or paid tiers on the website. The browser timer shows Google ads. For an ad-free countdown, install the app for your phone or computer: the installed web app, the native apps and the official site show none. Source code is published on [GitHub](https://github.com/ififi2017/Off-Work-Countdown) under the [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) licence. Store listings follow each store’s own price and terms.
 
 ## Which languages are supported?
 

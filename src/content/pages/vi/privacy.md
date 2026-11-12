@@ -79,7 +79,7 @@ Danh sách sự kiện sản phẩm đầy đủ có trong kho mã nguồn mở 
 
 Bộ đếm web dùng một cookie tên `i18nextLng` để lưu mã ngôn ngữ, để các lần vào sau mở bằng ngôn ngữ bạn đã chọn. Nó được đặt ở lần vào đầu tiên từ ngôn ngữ đang hiển thị, cập nhật khi bạn đổi ngôn ngữ, hết hạn sau một năm, và xóa được trong trình duyệt.
 
-Cả trang chính thức lẫn các ứng dụng đều không dùng cookie quảng cáo hoặc theo dõi xuyên trang. Ngoại lệ duy nhất là một số trang nội dung của bộ đếm web tại off.rainif.com, như mẫu ca làm và máy tính, nơi hiển thị quảng cáo Google AdSense. Bản thân màn hình đếm ngược, ứng dụng web đã cài, ứng dụng máy tính và di động cùng trang chính thức không hiển thị quảng cáo. Google và các đối tác có thể dùng cookie hoặc mã định danh tương tự để phân phối và đo lường các quảng cáo này. Tại Khu vực Kinh tế Châu Âu, Vương quốc Anh và Thụy Sĩ, Google trước hết hỏi lựa chọn của bạn qua thông báo đồng ý, và bạn có thể đổi sau đó. DoneAt không gửi giờ làm hay lương của bạn cho Google. Phân tích mô tả ở trên không dựa vào cookie.
+Cả trang chính thức lẫn các ứng dụng đều không dùng cookie quảng cáo hoặc theo dõi xuyên trang. Ngoại lệ duy nhất là bộ đếm web tại off.rainif.com, hiển thị quảng cáo Google AdSense khi được mở trong một thẻ trình duyệt. Ứng dụng web đã cài, ứng dụng máy tính và di động cùng trang chính thức không hiển thị quảng cáo. Google và các đối tác có thể dùng cookie hoặc mã định danh tương tự để phân phối và đo lường các quảng cáo này. Tại Khu vực Kinh tế Châu Âu, Vương quốc Anh và Thụy Sĩ, Google trước hết hỏi lựa chọn của bạn qua thông báo đồng ý, và bạn có thể đổi sau đó. DoneAt không gửi giờ làm hay lương của bạn cho Google. Phân tích mô tả ở trên không dựa vào cookie.
 
 ## Chia sẻ bộ đếm ngược
 
