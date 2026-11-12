@@ -55,7 +55,7 @@ iPhone, iPad और Android पर हाँ। एक मासिक कैल
 
 ## क्या यह मुफ़्त है, और कोड खुला है?
 
-वेब टाइमर मुफ़्त है। वेबसाइट पर DoneAt खाते, विज्ञापन या सशुल्क स्तर नहीं हैं। स्रोत कोड [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) लाइसेंस के तहत [GitHub](https://github.com/ififi2017/Off-Work-Countdown) पर है। स्टोर लिस्टिंग हर स्टोर की अपनी कीमत और शर्तों का पालन करती है।
+वेब टाइमर मुफ़्त है। वेबसाइट पर DoneAt खाते या सशुल्क स्तर नहीं हैं। स्रोत कोड [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) लाइसेंस के तहत [GitHub](https://github.com/ififi2017/Off-Work-Countdown) पर है। स्टोर लिस्टिंग हर स्टोर की अपनी कीमत और शर्तों का पालन करती है।
 
 ## कौन सी भाषाएँ समर्थित हैं?
 

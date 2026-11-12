@@ -4,7 +4,7 @@ description: "DoneAt lưu dữ liệu trên máy theo mặc định, có đồng
 heading: "Chính sách quyền riêng tư"
 intro: "Trang này giải thích DoneAt lưu và xử lý thông tin thế nào: trang chính thức, bộ đếm web, và ứng dụng trên iPhone, iPad, Android, Mac và Windows."
 updatedLabel: "Cập nhật lần cuối"
-updated: "19 tháng 10 năm 2026"
+updated: "12 tháng 11 năm 2026"
 ---
 
 ## Dữ liệu DoneAt lưu
@@ -79,7 +79,7 @@ Danh sách sự kiện sản phẩm đầy đủ có trong kho mã nguồn mở 
 
 Bộ đếm web dùng một cookie tên `i18nextLng` để lưu mã ngôn ngữ, để các lần vào sau mở bằng ngôn ngữ bạn đã chọn. Nó được đặt ở lần vào đầu tiên từ ngôn ngữ đang hiển thị, cập nhật khi bạn đổi ngôn ngữ, hết hạn sau một năm, và xóa được trong trình duyệt.
 
-Cả trang chính thức lẫn bộ đếm web đều không dùng cookie quảng cáo hoặc theo dõi xuyên trang. Phân tích mô tả ở trên không dựa vào cookie.
+Cả trang chính thức lẫn các ứng dụng đều không dùng cookie quảng cáo hoặc theo dõi xuyên trang. Ngoại lệ duy nhất là bộ đếm web tại off.rainif.com, hiển thị quảng cáo Google AdSense khi được mở trong một thẻ trình duyệt. Ứng dụng web đã cài, ứng dụng máy tính và di động cùng trang chính thức không hiển thị quảng cáo. Google và các đối tác có thể dùng cookie hoặc mã định danh tương tự để phân phối và đo lường các quảng cáo này. Tại Khu vực Kinh tế Châu Âu, Vương quốc Anh và Thụy Sĩ, Google trước hết hỏi lựa chọn của bạn qua thông báo đồng ý, và bạn có thể đổi sau đó. DoneAt không gửi giờ làm hay lương của bạn cho Google. Phân tích mô tả ở trên không dựa vào cookie.
 
 ## Chia sẻ bộ đếm ngược
 

@@ -2,7 +2,7 @@
 title: "About — DoneAt"
 description: "About DoneAt, a local-first work-shift countdown for the browser, iPhone, iPad, Android, Mac and Windows."
 heading: "About DoneAt"
-intro: "A local-first shift timer you can leave open. No DoneAt account, no ads, and optional private iCloud sync on iPhone and iPad."
+intro: "A local-first shift timer you can leave open. No DoneAt account, no ads in the apps, and optional private iCloud sync on iPhone and iPad."
 ---
 
 ## Why this project exists
@@ -49,7 +49,7 @@ The Android app is available on [Google Play](https://play.google.com/store/apps
 
 In Android versions with review access enabled, an authorized reviewer may enter a reusable code for temporary Plus access without a purchase or DoneAt account. This optional service collects a random installation public key and authentication metadata, keeps installation sessions for seven days after the last renewal, and does not link them to Play orders or receive salary, schedules or work records. Each authorization lasts at most 24 hours. See [optional Android review access](/en/privacy#optional-android-review-access) for the information processed, renewal, revocation and deletion.
 
-The official site and the web timer record page views, loading performance, and a small set of aggregate events. An event carries only a name, never your schedule, salary, account, or advertising identifier. Hosting and analytics providers may still receive ordinary connection metadata such as an IP address and user agent, as they do on any website. The [privacy](/en/privacy) page has the details.
+The official site and the web timer record page views, loading performance, and a small set of aggregate events. An event carries only a name, never your schedule, salary, account, or advertising identifier. Hosting and analytics providers may still receive ordinary connection metadata such as an IP address and user agent, as they do on any website. The web timer shows Google AdSense ads in a browser tab; the installed web app, the native apps and this site show none. The [privacy](/en/privacy) page has the details.
 
 Day-to-day use does not need a DoneAt account. A GitHub desktop build asks GitHub on launch whether a newer release exists; that request carries no account, salary, or usage data, and an installer downloads only after you choose to update. A Microsoft Store build does not check for updates itself.
 

@@ -2,7 +2,7 @@
 title: "Informazioni — DoneAt"
 description: "Informazioni su DoneAt, un timer di turno locale per browser, iPhone, iPad, Android, Mac e Windows."
 heading: "Informazioni su DoneAt"
-intro: "Un timer di turno locale che puoi lasciare aperto. Nessun account DoneAt, nessuna pubblicità e sincronizzazione opzionale privata iCloud su iPhone e iPad."
+intro: "Un timer di turno locale che puoi lasciare aperto. Nessun account DoneAt e sincronizzazione opzionale privata iCloud su iPhone e iPad."
 ---
 
 ## Perché esiste questo progetto

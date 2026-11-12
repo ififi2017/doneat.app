@@ -55,7 +55,7 @@ Sur iPhone, iPad et Android, oui. Planifiez votre emploi du temps sur un calendr
 
 ## Est-ce gratuit et open source ?
 
-Le minuteur web est gratuit. Il n'y a pas de compte DoneAt, de publicités ni de niveaux payants sur le site web. Le code source est publié sous licence [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) sur [GitHub](https://github.com/ififi2017/Off-Work-Countdown). Les prix et conditions des stores s'appliquent à leurs versions.
+Le minuteur web est gratuit. Il n'y a pas de compte DoneAt ni de niveaux payants sur le site web. Le code source est publié sous licence [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) sur [GitHub](https://github.com/ififi2017/Off-Work-Countdown). Les prix et conditions des stores s'appliquent à leurs versions.
 
 ## Quelles langues sont prises en charge ?
 

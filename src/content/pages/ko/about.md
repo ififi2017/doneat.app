@@ -2,7 +2,7 @@
 title: "소개 — DoneAt"
 description: "DoneAt 소개: 브라우저, iPhone, iPad, Android, Mac, Windows를 위한 로컬 우선 퇴근 카운트다운."
 heading: "DoneAt 소개"
-intro: "계속 열어둘 수 있는 로컬 우선 근무 타이머. DoneAt 계정 불필요, 광고 없음, iPhone과 iPad에서는 개인 iCloud 동기화도 선택 가능."
+intro: "계속 열어둘 수 있는 로컬 우선 근무 타이머. DoneAt 계정 불필요, iPhone과 iPad에서는 개인 iCloud 동기화도 선택 가능."
 ---
 
 ## 이 프로젝트를 만든 이유

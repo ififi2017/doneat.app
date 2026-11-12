@@ -2,7 +2,7 @@
 title: "परिचय — DoneAt"
 description: "DoneAt बद्दल: ब्राउझर, iPhone, iPad, Android, Mac आणि Windows साठी स्थानिक शिफ्ट उलट मोजणी."
 heading: "DoneAt बद्दल"
-intro: "एक स्थानिक शिफ्ट टायमर जो उघडा ठेवता येतो. DoneAt खाते नाही, जाहिराती नाहीत, आणि iPhone व iPad वर ऐच्छिक खाजगी iCloud सिंक."
+intro: "एक स्थानिक शिफ्ट टायमर जो उघडा ठेवता येतो. DoneAt खाते नाही, आणि iPhone व iPad वर ऐच्छिक खाजगी iCloud सिंक."
 ---
 
 ## हा प्रकल्प का आहे

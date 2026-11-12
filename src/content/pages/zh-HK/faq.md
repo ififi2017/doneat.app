@@ -55,7 +55,7 @@ Plus 係喺裝置所屬嘅商店購買：iPhone 同 iPad 喺 App Store，Android
 
 ## 免費？開源？
 
-網頁計時可以免費用，冇 DoneAt 帳號、廣告或付費檔位。原始碼以 [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) 協議公開喺 [GitHub](https://github.com/ififi2017/Off-Work-Countdown)。各商店嘅價錢同條款以商店為準。
+網頁計時可以免費用，冇 DoneAt 帳號或付費檔位。原始碼以 [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) 協議公開喺 [GitHub](https://github.com/ififi2017/Off-Work-Countdown)。各商店嘅價錢同條款以商店為準。
 
 ## 支援咩語言？
 

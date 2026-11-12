@@ -2,7 +2,7 @@
 title: "À propos — DoneAt"
 description: "À propos de DoneAt, un compte à rebours de fin de journée local-first pour le navigateur, iPhone, iPad, Android, Mac et Windows."
 heading: "À propos de DoneAt"
-intro: "Un minuteur de quart local-first que vous pouvez laisser ouvert. Pas de compte DoneAt, pas de publicités, et synchronisation iCloud privée optionnelle sur iPhone et iPad."
+intro: "Un minuteur de quart local-first que vous pouvez laisser ouvert. Pas de compte DoneAt, et synchronisation iCloud privée optionnelle sur iPhone et iPad."
 ---
 
 ## Pourquoi ce projet existe

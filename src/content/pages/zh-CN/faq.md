@@ -55,7 +55,7 @@ Plus 通过设备所在的商店购买：iPhone 和 iPad 在 App Store，Android
 
 ## 免费吗？开源吗？
 
-网页计时可以免费使用，没有 DoneAt 账号、广告或付费档位。源代码以 [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) 协议公开在 [GitHub](https://github.com/ififi2017/Off-Work-Countdown)。各商店的价格和条款以商店为准。
+网页计时可以免费使用，没有 DoneAt 账号或付费档位。浏览器里的网页计时会展示 Google 广告。想要没有广告的倒计时，可以安装手机或电脑上的 App：已安装的网页应用、原生 App 和官网都没有广告。源代码以 [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md) 协议公开在 [GitHub](https://github.com/ififi2017/Off-Work-Countdown)。各商店的价格和条款以商店为准。
 
 ## 支持哪些语言？
 

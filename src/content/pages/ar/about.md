@@ -2,7 +2,7 @@
 title: "حول — DoneAt"
 description: "حول DoneAt، عدّاد وردية محلي للمتصفح وiPhone وiPad وAndroid وMac وWindows."
 heading: "حول DoneAt"
-intro: "مؤقت وردية محلي يمكنك تركه مفتوحًا. بلا حساب DoneAt، وبلا إعلانات، ومع مزامنة iCloud خاصة اختيارية على iPhone وiPad."
+intro: "مؤقت وردية محلي يمكنك تركه مفتوحًا. بلا حساب DoneAt، ومع مزامنة iCloud خاصة اختيارية على iPhone وiPad."
 ---
 
 ## لماذا يوجد هذا المشروع

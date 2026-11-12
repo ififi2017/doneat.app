@@ -55,7 +55,7 @@ Plus покупается в магазине вашего устройства:
 
 ## Это бесплатно и код открыт?
 
-Веб-таймер бесплатен. Нет учётных записей DoneAt, рекламы или платных уровней на сайте. Исходный код опубликован на [GitHub](https://github.com/ififi2017/Off-Work-Countdown) под лицензией [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md). Цены и условия магазинов определяются каждым магазином.
+Веб-таймер бесплатен. Нет учётных записей DoneAt или платных уровней на сайте. Исходный код опубликован на [GitHub](https://github.com/ififi2017/Off-Work-Countdown) под лицензией [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md). Цены и условия магазинов определяются каждым магазином.
 
 ## Какие языки поддерживаются?
 

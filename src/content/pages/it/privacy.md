@@ -4,7 +4,7 @@ description: "Come DoneAt memorizza i dati localmente di default, offre sincroni
 heading: "Informativa sulla privacy"
 intro: "Questa pagina spiega come DoneAt memorizza ed elabora le informazioni: il sito ufficiale, il timer web e le app su iPhone, iPad, Android, Mac e Windows."
 updatedLabel: "Ultimo aggiornamento"
-updated: "19 ottobre 2026"
+updated: "12 novembre 2026"
 ---
 
 ## Dati memorizzati da DoneAt
@@ -79,7 +79,7 @@ La lista completa degli eventi di prodotto è disponibile nel repository open so
 
 Il timer web usa un cookie chiamato `i18nextLng` per memorizzare un codice lingua così che le visite successive possano aprirsi nella lingua che hai scelto. Viene impostato alla prima visita dalla lingua attualmente visualizzata, si aggiorna quando cambi lingua, scade dopo un anno e può essere rimosso nel tuo browser.
 
-Né il sito ufficiale né il timer web usano cookie pubblicitari o di tracciamento cross-site. Le analisi descritte sopra non si basano su cookie.
+Né il sito ufficiale né le app usano cookie pubblicitari o di tracciamento cross-site. L'unica eccezione è il timer web su off.rainif.com, che mostra annunci Google AdSense quando è aperto in una scheda del browser. L'app web installata, le app desktop e mobili e il sito ufficiale non ne mostrano. Google e i suoi partner possono usare cookie o identificatori simili per mostrare e misurare questi annunci. Nello Spazio economico europeo, nel Regno Unito e in Svizzera, Google chiede prima la tua scelta con un messaggio di consenso, che potrai modificare in seguito. DoneAt non invia a Google i tuoi orari né il tuo stipendio. Le analisi descritte sopra non si basano su cookie.
 
 ## Condividere un conto alla rovescia
 

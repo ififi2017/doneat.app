@@ -2,7 +2,7 @@
 title: "Hakkında — DoneAt"
 description: "Tarayıcı, iPhone, iPad, Android, Mac ve Windows için yerel bir vardiya geri sayımı olan DoneAt hakkında."
 heading: "DoneAt hakkında"
-intro: "Açık bırakabileceğin yerel bir vardiya sayacı. DoneAt hesabı yok, reklam yok; iPhone ve iPad’de isteğe bağlı özel iCloud eşitlemesi var."
+intro: "Açık bırakabileceğin yerel bir vardiya sayacı. DoneAt hesabı yok; iPhone ve iPad’de isteğe bağlı özel iCloud eşitlemesi var."
 ---
 
 ## Bu proje neden var

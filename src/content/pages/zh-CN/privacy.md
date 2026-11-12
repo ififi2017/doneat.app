@@ -4,7 +4,7 @@ description: "DoneAt 如何默认在本地保存数据、在 iPhone 和 iPad 上
 heading: "隐私政策"
 intro: "本页说明 DoneAt 如何存储和处理信息，包括官网、网页计时，以及 iPhone、iPad、Android、Mac 和 Windows 上的应用。"
 updatedLabel: "最后更新"
-updated: "2026 年 10 月 19 日"
+updated: "2026 年 11 月 12 日"
 ---
 
 ## DoneAt 保存的数据
@@ -90,7 +90,7 @@ DoneAt 使用 Cloudflare 托管的 `api.doneat.app` 核验 Android 购买。启�
 
 网页计时使用名为 `i18nextLng` 的 Cookie 保存语言代码，以便下次打开时仍是你选的语言。它会在首次访问时根据当前显示语言写入，切换语言时更新，有效期一年，可以在浏览器里清除。
 
-官网和网页计时都不使用广告 Cookie 或跨站跟踪 Cookie。上面的统计服务也不依赖 Cookie。
+官网和各个 App 都不使用广告 Cookie 或跨站跟踪 Cookie。唯一的例外是 off.rainif.com 网页计时：在浏览器标签页中打开时，它会展示 Google AdSense 广告。已安装的网页应用、桌面和手机 App 以及官网都不展示广告。Google 及其合作伙伴可能使用 Cookie 或类似标识符来投放和衡量这些广告。在欧洲经济区、英国和瑞士，Google 会先通过同意消息征求你的选择，之后你也可以更改。DoneAt 不会把你的工时或薪资发送给 Google。上面的统计服务也不依赖 Cookie。
 
 ## 分享倒计时
 
@@ -128,7 +128,7 @@ DoneAt 在托管页面、统计官网和网页计时、分发应用以及打开�
 - Upstash —— 存储官网和网页计时的按日合计事件计数
 - GitHub —— 源代码、版本信息，以及 GitHub 分发的桌面版本的更新检查
 - Apple —— 应用分发，以及通过 App Store 和 StoreKit 处理的 Plus 付款与购买验证，以及你选择在 iPhone 或 iPad 上打开的私人 iCloud 同步
-- Google —— Android 应用分发和更新、通过 Google Play 处理的 Plus 购买与验证、通过 Cloud Pub/Sub 传递的购买状态通知、可选的评分和评价，以及由 Google 提供的系统备份
+- Google —— Android 应用分发和更新、通过 Google Play 处理的 Plus 购买与验证、通过 Cloud Pub/Sub 传递的购买状态通知、可选的评分和评价，由 Google 提供的系统备份，以及通过 Google AdSense 在浏览器中的网页计时展示的广告
 - Cloudflare —— 托管 Android 购买验证、可选审核访问认证及其数据库
 - Microsoft —— 你打开的 Microsoft Store 页面的分发与更新
 - 第三方下载镜像 —— 仅在你从 GitHub 分发的桌面版本里主动选择时使用

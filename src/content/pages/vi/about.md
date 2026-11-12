@@ -2,7 +2,7 @@
 title: "Giới thiệu — DoneAt"
 description: "Giới thiệu DoneAt, bộ đếm ngược ca làm ưu tiên dữ liệu trên máy, cho trình duyệt, iPhone, iPad, Android, Mac và Windows."
 heading: "Giới thiệu DoneAt"
-intro: "Bộ đếm ca ưu tiên dữ liệu trên máy, để mở cũng được. Không tài khoản DoneAt, không quảng cáo, và có đồng bộ iCloud riêng tùy chọn trên iPhone và iPad."
+intro: "Bộ đếm ca ưu tiên dữ liệu trên máy, để mở cũng được. Không tài khoản DoneAt, và có đồng bộ iCloud riêng tùy chọn trên iPhone và iPad."
 ---
 
 ## Vì sao có dự án này

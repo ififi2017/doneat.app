@@ -4,7 +4,7 @@ description: "DoneAt 如何預設將資料保存在本地、在 iPhone 和 iPad 
 heading: "隱私權政策"
 intro: "本頁說明 DoneAt 如何儲存和處理資訊：官網、網頁計時，以及 iPhone、iPad、Android、Mac 和 Windows 上的應用程式。"
 updatedLabel: "最後更新"
-updated: "2026 年 10 月 19 日"
+updated: "2026 年 11 月 12 日"
 ---
 
 ## DoneAt 儲存的資料
@@ -79,7 +79,7 @@ Google Play 處理購買及自願提交的評分。DoneAt 不會取得信用卡�
 
 網頁計時使用名為 `i18nextLng` 的 Cookie 來儲存語言代碼，以便後續訪問可以用你選擇的語言打開。它在首次訪問時根據當前顯示的語言設定，在你更改語言時更新，一年後過期，可以在瀏覽器中移除。
 
-官網和網頁計時都不使用廣告或跨網站追蹤 Cookie。上述分析不依賴 Cookie。
+官網和各個 App 都不使用廣告或跨網站追蹤 Cookie。唯一的例外是 off.rainif.com 網頁計時：在瀏覽器分頁中開啟時，它會顯示 Google AdSense 廣告。已安裝的網頁應用、桌面和手機 App 以及官網都不顯示廣告。Google 及其合作夥伴可能使用 Cookie 或類似識別碼來投放和衡量這些廣告。在歐洲經濟區、英國和瑞士，Google 會先透過同意訊息徵求你的選擇，之後你也可以更改。DoneAt 不會把你的工時或薪資傳送給 Google。上述分析不依賴 Cookie。
 
 ## 分享倒數計時
 

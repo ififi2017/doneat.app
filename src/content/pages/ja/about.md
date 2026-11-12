@@ -2,7 +2,7 @@
 title: "概要 — DoneAt"
 description: "DoneAt について：ブラウザ、iPhone、iPad、Android、Mac、Windows 向けのローカルファースト退勤カウントダウン。"
 heading: "DoneAt について"
-intro: "開きっぱなしにできるローカルファーストのシフトタイマー。DoneAt アカウント不要、広告なし、iPhone と iPad ではプライベート iCloud 同期も選べます。"
+intro: "開きっぱなしにできるローカルファーストのシフトタイマー。DoneAt アカウント不要、iPhone と iPad ではプライベート iCloud 同期も選べます。"
 ---
 
 ## なぜこのプロジェクトを作ったのか
