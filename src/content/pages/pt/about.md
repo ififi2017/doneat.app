@@ -2,7 +2,7 @@
 title: "Sobre — DoneAt"
 description: "Sobre o DoneAt, um temporizador de turno local para navegador, iPhone, iPad, Android, Mac e Windows."
 heading: "Sobre o DoneAt"
-intro: "Um temporizador de turno local que você pode deixar aberto. Sem conta DoneAt, sem anúncios e com sincronização opcional privada do iCloud no iPhone e iPad."
+intro: "Um temporizador de turno local que você pode deixar aberto. Sem conta DoneAt e com sincronização opcional privada do iCloud no iPhone e iPad."
 ---
 
 ## Por que este projeto existe

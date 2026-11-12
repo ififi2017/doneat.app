@@ -2,7 +2,7 @@
 title: "Über — DoneAt"
 description: "Über DoneAt, einen lokalen Schicht-Countdown für Browser, iPhone, iPad, Android, Mac und Windows."
 heading: "Über DoneAt"
-intro: "Ein lokaler Schicht-Timer, den du offen lassen kannst. Kein DoneAt-Konto, keine Werbung und optional private iCloud-Synchronisierung auf iPhone und iPad."
+intro: "Ein lokaler Schicht-Timer, den du offen lassen kannst. Kein DoneAt-Konto und optional private iCloud-Synchronisierung auf iPhone und iPad."
 ---
 
 ## Warum es dieses Projekt gibt

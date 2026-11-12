@@ -4,7 +4,7 @@ description: "Comment DoneAt stocke les données localement par défaut, propose
 heading: "Politique de confidentialité"
 intro: "Cette page explique comment DoneAt stocke et traite les informations : le site officiel, le minuteur web, et les apps sur iPhone, iPad, Android, Mac et Windows."
 updatedLabel: "Dernière mise à jour"
-updated: "19 octobre 2026"
+updated: "12 novembre 2026"
 ---
 
 ## Données stockées par DoneAt
@@ -73,7 +73,7 @@ Les événements produit proviennent d'une autre liste fixe et publique, comme `
 
 Le minuteur web utilise un cookie nommé `i18nextLng` pour stocker un code de langue afin que les visites ultérieures s'ouvrent dans la langue que vous avez choisie. Il est défini lors de la première visite, mis à jour lorsque vous changez de langue, expire après un an et peut être supprimé dans votre navigateur.
 
-Ni le site officiel ni le minuteur web n'utilisent de cookies publicitaires ou de suivi inter-sites.
+Ni le site officiel ni les applications n'utilisent de cookies publicitaires ou de suivi inter-sites. La seule exception concerne certaines pages de contenu du minuteur web sur off.rainif.com, comme les préréglages d'horaires et les calculateurs, qui affichent des publicités Google AdSense. Le compte à rebours lui-même, l'application web installée, les applications de bureau et mobiles et le site officiel n'en affichent aucune. Google et ses partenaires peuvent utiliser des cookies ou des identifiants similaires pour diffuser et mesurer ces publicités. Dans l'Espace économique européen, au Royaume-Uni et en Suisse, Google demande d'abord votre choix dans un message de consentement, que vous pouvez modifier ensuite. DoneAt n'envoie pas vos horaires ni votre salaire à Google. L'analyse décrite ci-dessus ne repose pas sur des cookies.
 
 ## Partage d'un compte à rebours
 

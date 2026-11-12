@@ -2,7 +2,7 @@
 title: "Tentang — DoneAt"
 description: "Tentang DoneAt, hitung mundur sif kerja yang mengutamakan perangkat, untuk browser, iPhone, iPad, Android, Mac, dan Windows."
 heading: "Tentang DoneAt"
-intro: "Timer sif yang mengutamakan perangkat dan bisa dibiarkan terbuka. Tanpa akun DoneAt, tanpa iklan, dan dengan sinkronisasi iCloud pribadi opsional di iPhone dan iPad."
+intro: "Timer sif yang mengutamakan perangkat dan bisa dibiarkan terbuka. Tanpa akun DoneAt dan dengan sinkronisasi iCloud pribadi opsional di iPhone dan iPad."
 ---
 
 ## Mengapa proyek ini ada

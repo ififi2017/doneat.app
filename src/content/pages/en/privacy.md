@@ -4,7 +4,7 @@ description: "How DoneAt stores data locally by default, offers optional private
 heading: "Privacy Policy"
 intro: "This page explains how DoneAt stores and processes information: the official site, the web timer, and the apps on iPhone, iPad, Android, Mac and Windows."
 updatedLabel: "Last updated"
-updated: "19 October 2026"
+updated: "12 November 2026"
 ---
 
 ## Data stored by DoneAt
@@ -90,7 +90,7 @@ The complete product event list is available in the product’s open-source repo
 
 The web timer uses a cookie named `i18nextLng` to store a language code so that later visits can open in the language you chose. It is set on the first visit from the language currently displayed, updates when you change languages, expires after one year, and can be removed in your browser.
 
-Neither the official site nor the web timer uses advertising or cross-site tracking cookies. The analytics described above do not rely on cookies.
+Neither the official site nor the apps use advertising or cross-site tracking cookies. The one exception is some content pages of the web timer at off.rainif.com, such as shift presets and calculators, which show Google AdSense ads. The countdown itself, the installed web app, the desktop and mobile apps and the official site show none. Google and its partners may use cookies or similar identifiers to serve and measure those ads. In the European Economic Area, the United Kingdom and Switzerland, Google asks for your choice in a consent message first, and you can change it afterwards. DoneAt does not send your hours or salary to Google. The analytics described above do not rely on cookies.
 
 ## Sharing a countdown
 
@@ -128,7 +128,7 @@ DoneAt uses the following services to host pages, measure the official site and 
 - Upstash — storage of daily aggregate event counts for the official site and the web timer
 - GitHub — source code, release information, and update checks for GitHub-distributed desktop builds
 - Apple — app distribution, Plus payments and purchase verification through the App Store and StoreKit, and private iCloud sync when you choose to enable it on iPhone or iPad
-- Google — Android distribution and updates, Plus purchases and purchase verification through Google Play, purchase-state notifications through Cloud Pub/Sub, optional ratings and reviews, and system backups where provided by Google
+- Google — Android distribution and updates, Plus purchases and purchase verification through Google Play, purchase-state notifications through Cloud Pub/Sub, optional ratings and reviews, system backups where provided by Google, and ads on some content pages of the web timer through Google AdSense
 - Cloudflare — hosting Android purchase verification, optional review-access authentication and their databases
 - Microsoft — distribution and updates for the Microsoft Store listing you open
 - A third-party download mirror, used only when you choose it from a GitHub-distributed desktop build

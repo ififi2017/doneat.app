@@ -55,7 +55,7 @@ Trên iPhone, iPad và Android thì có. Lập lịch trên một lịch tháng,
 
 ## Có miễn phí không, và mã nguồn có mở không?
 
-Bộ đếm web dùng miễn phí. Trang web không có tài khoản DoneAt, quảng cáo hay hạng trả phí. Mã nguồn được công bố trên [GitHub](https://github.com/ififi2017/Off-Work-Countdown) theo giấy phép [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md). Trang cửa hàng theo giá và điều khoản của từng cửa hàng.
+Bộ đếm web dùng miễn phí. Trang web không có tài khoản DoneAt hay hạng trả phí. Mã nguồn được công bố trên [GitHub](https://github.com/ififi2017/Off-Work-Countdown) theo giấy phép [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md). Trang cửa hàng theo giá và điều khoản của từng cửa hàng.
 
 ## Hỗ trợ những ngôn ngữ nào?
 

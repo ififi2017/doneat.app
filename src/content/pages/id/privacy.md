@@ -4,7 +4,7 @@ description: "Bagaimana DoneAt menyimpan data secara lokal secara bawaan, menawa
 heading: "Kebijakan privasi"
 intro: "Halaman ini menjelaskan bagaimana DoneAt menyimpan dan memproses informasi: situs resmi, timer web, dan aplikasi di iPhone, iPad, Android, Mac, dan Windows."
 updatedLabel: "Terakhir diperbarui"
-updated: "19 Oktober 2026"
+updated: "12 November 2026"
 ---
 
 ## Data yang disimpan DoneAt
@@ -79,7 +79,7 @@ Daftar peristiwa produk lengkap tersedia di repositori sumber terbuka produk. Pe
 
 Timer web memakai cookie bernama `i18nextLng` untuk menyimpan kode bahasa agar kunjungan berikutnya bisa terbuka dalam bahasa yang kamu pilih. Cookie itu dipasang pada kunjungan pertama dari bahasa yang sedang ditampilkan, diperbarui saat kamu mengganti bahasa, kedaluwarsa setelah satu tahun, dan bisa dihapus di browser.
 
-Baik situs resmi maupun timer web tidak memakai cookie iklan atau pelacakan lintas situs. Analitik yang dijelaskan di atas tidak bergantung pada cookie.
+Baik situs resmi maupun aplikasi tidak memakai cookie iklan atau pelacakan lintas situs. Satu-satunya pengecualian adalah beberapa halaman konten timer web di off.rainif.com, seperti preset shift dan kalkulator, yang menampilkan iklan Google AdSense. Hitung mundur itu sendiri, aplikasi web yang terpasang, aplikasi desktop dan seluler, serta situs resmi tidak menampilkan iklan. Google dan mitranya dapat memakai cookie atau pengenal serupa untuk menayangkan dan mengukur iklan tersebut. Di Wilayah Ekonomi Eropa, Inggris, dan Swiss, Google lebih dulu meminta pilihanmu lewat pesan persetujuan, yang dapat kamu ubah kemudian. DoneAt tidak mengirim jam kerja atau gajimu ke Google. Analitik yang dijelaskan di atas tidak bergantung pada cookie.
 
 ## Berbagi hitung mundur
 

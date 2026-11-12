@@ -4,7 +4,7 @@ description: "Wie DoneAt Daten standardmäßig lokal speichert, optionale privat
 heading: "Datenschutzrichtlinie"
 intro: "Diese Seite erklärt, wie DoneAt Informationen speichert und verarbeitet: die offizielle Website, den Web-Timer und die Apps auf iPhone, iPad, Android, Mac und Windows."
 updatedLabel: "Letzte Aktualisierung"
-updated: "19. Oktober 2026"
+updated: "12. November 2026"
 ---
 
 ## Von DoneAt gespeicherte Daten
@@ -79,7 +79,7 @@ Die vollständige Produkt-Ereignisliste ist im Open-Source-Repository des Produk
 
 Der Web-Timer verwendet ein Cookie namens `i18nextLng`, um einen Sprachcode zu speichern, damit spätere Besuche in der gewählten Sprache öffnen. Es wird beim ersten Besuch mit der angezeigten Sprache gesetzt, aktualisiert sich beim Sprachwechsel, läuft nach einem Jahr ab und kann im Browser gelöscht werden.
 
-Weder die offizielle Website noch der Web-Timer verwenden Werbe- oder Cross-Site-Tracking-Cookies. Die oben beschriebene Analyse beruht nicht auf Cookies.
+Weder die offizielle Website noch die Apps verwenden Werbe- oder Cross-Site-Tracking-Cookies. Die einzige Ausnahme sind einige Inhaltsseiten des Web-Timers auf off.rainif.com, etwa Schicht-Voreinstellungen und Rechner, auf denen Google-AdSense-Werbung erscheint. Der Countdown selbst, die installierte Web-App, die Desktop- und Mobil-Apps und die offizielle Website zeigen keine Werbung. Google und seine Partner können Cookies oder ähnliche Kennungen verwenden, um diese Werbung auszuliefern und zu messen. Im Europäischen Wirtschaftsraum, im Vereinigten Königreich und in der Schweiz fragt Google zuerst in einer Einwilligungsmeldung nach deiner Entscheidung, die du später ändern kannst. DoneAt sendet deine Arbeitszeiten oder dein Gehalt nicht an Google. Die oben beschriebene Analyse beruht nicht auf Cookies.
 
 ## Einen Countdown teilen
 

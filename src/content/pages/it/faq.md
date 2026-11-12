@@ -55,7 +55,7 @@ Su iPhone, iPad e Android, sì. Pianifica il tuo programma in un calendario mens
 
 ## È gratuito e il codice è aperto?
 
-Il timer web è gratuito. Non ci sono account DoneAt, pubblicità o livelli a pagamento sul sito. Il codice sorgente è pubblicato su [GitHub](https://github.com/ififi2017/Off-Work-Countdown) sotto licenza [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md). I prezzi e i termini dello store seguono le condizioni di ogni store.
+Il timer web è gratuito. Non ci sono account DoneAt o livelli a pagamento sul sito. Il codice sorgente è pubblicato su [GitHub](https://github.com/ififi2017/Off-Work-Countdown) sotto licenza [MPL-2.0](https://github.com/ififi2017/Off-Work-Countdown/blob/main/LICENSING.md). I prezzi e i termini dello store seguono le condizioni di ogni store.
 
 ## Quali lingue sono supportate?
 

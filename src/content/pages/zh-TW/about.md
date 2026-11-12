@@ -2,7 +2,7 @@
 title: "關於 — DoneAt"
 description: "關於 DoneAt：一個面向瀏覽器、iPhone、iPad、Android、Mac 和 Windows 的本地優先下班倒數計時。"
 heading: "關於 DoneAt"
-intro: "一個可以一直開著的本地優先下班倒數計時。不用註冊 DoneAt 帳號，沒有廣告；iPhone 和 iPad 可選用私人 iCloud 同步。"
+intro: "一個可以一直開著的本地優先下班倒數計時。不用註冊 DoneAt 帳號；iPhone 和 iPad 可選用私人 iCloud 同步。"
 ---
 
 ## 為什麼做這個專案

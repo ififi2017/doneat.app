@@ -4,7 +4,7 @@ description: "Cómo DoneAt almacena datos localmente por defecto, ofrece sincron
 heading: "Política de privacidad"
 intro: "Esta página explica cómo DoneAt almacena y procesa información: el sitio oficial, el temporizador web y las apps en iPhone, iPad, Android, Mac y Windows."
 updatedLabel: "Última actualización"
-updated: "19 de octubre de 2026"
+updated: "12 de noviembre de 2026"
 ---
 
 ## Datos almacenados por DoneAt
@@ -79,7 +79,7 @@ La lista completa de eventos de producto está disponible en el repositorio de c
 
 El temporizador web usa una cookie llamada `i18nextLng` para almacenar un código de idioma para que las visitas posteriores puedan abrirse en el idioma que elegiste. Se establece en la primera visita con el idioma actualmente mostrado, se actualiza cuando cambias de idioma, expira después de un año y puede eliminarse en tu navegador.
 
-Ni el sitio oficial ni el temporizador web usan cookies de publicidad o rastreo entre sitios. Las analíticas descritas arriba no dependen de cookies.
+Ni el sitio oficial ni las apps usan cookies de publicidad o rastreo entre sitios. La única excepción son algunas páginas de contenido del temporizador web en off.rainif.com, como los ajustes de turnos y las calculadoras, que muestran anuncios de Google AdSense. La cuenta atrás en sí, la app web instalada, las apps de escritorio y móviles y el sitio oficial no muestran ninguno. Google y sus socios pueden usar cookies o identificadores similares para mostrar y medir esos anuncios. En el Espacio Económico Europeo, el Reino Unido y Suiza, Google pide antes tu elección en un mensaje de consentimiento, que puedes cambiar después. DoneAt no envía tus horas ni tu salario a Google. Las analíticas descritas arriba no dependen de cookies.
 
 ## Compartir una cuenta regresiva
 
