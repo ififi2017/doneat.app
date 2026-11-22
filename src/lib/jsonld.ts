@@ -28,8 +28,10 @@ export function organizationJsonLd(): Record<string, unknown> {
 }
 
 /**
- * Native apps plus the browser timer. No aggregateRating, download count,
- * or store price: Plus is paid on iOS and Android, and store terms vary.
+ * Native apps plus the browser timer. Free to download, so `offers` says
+ * price 0 (Google's software app rich result requires `offers.price`); Plus
+ * is an in-app purchase and is not listed. No aggregateRating or download
+ * count: Google does not allow ratings copied from the app stores.
  */
 export function softwareApplicationJsonLd(options: {
   url: string;
@@ -45,9 +47,19 @@ export function softwareApplicationJsonLd(options: {
     url: options.url,
     image: `${siteConfig.officialSiteUrl}/icons/og-1200x630.png`,
     description: options.description,
+    offers: freeOffer(),
     author: { "@id": ORGANIZATION_ID },
     publisher: { "@id": ORGANIZATION_ID },
     sameAs: storeListingUrls(),
+  };
+}
+
+/** Free download or free use; paid upgrades are in-app and not listed here. */
+export function freeOffer(): Record<string, unknown> {
+  return {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
   };
 }
 
@@ -70,11 +82,7 @@ export function webTimerJsonLd(locale: string): Record<string, unknown> {
     applicationCategory: "UtilitiesApplication",
     operatingSystem: "Web",
     isAccessibleForFree: true,
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-    },
+    offers: freeOffer(),
     publisher: { "@id": ORGANIZATION_ID },
   };
 }
