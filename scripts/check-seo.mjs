@@ -75,6 +75,11 @@ assert(
 assert(enHall.includes('rel="canonical" href="https://doneat.app/en"'), "en canonical");
 assert(enHall.includes('"sameAs":["https://apps.apple.com/us/app/id6802803318"'), "SoftwareApplication sameAs lists the store listings");
 assert(enHall.includes('hreflang="x-default" href="https://doneat.app/"'), "hall HTML x-default is the root");
+assert(
+  count(enHall, '"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}') === 2,
+  "hall SoftwareApplication and WebApplication both carry offers price 0",
+);
+assert(!enHall.includes("aggregateRating"), "no store ratings copied into JSON-LD");
 assert(enHall.includes('"@type":"WebSite"'), "WebSite JSON-LD for the site name");
 assert(enHall.includes("<title>DoneAt: Work Shift Countdown for iPhone, Android, Mac &amp; Windows</title>"), "hall title carries function words");
 
@@ -120,6 +125,10 @@ const enDownload = read("en/download/index.html");
 assert(
   enDownload.includes("SoftwareApplication") || enDownload.includes("softwareApplication"),
   "download SoftwareApplication",
+);
+assert(
+  enDownload.includes('"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}'),
+  "download SoftwareApplication carries offers price 0",
 );
 
 const notFound = read("404.html");

@@ -38,7 +38,7 @@ The hall `<title>` is `homeTitle` in `locales/chrome.json`: brand, the local fun
 
 | Page | JSON-LD |
 | --- | --- |
-| Hall | `@graph`: `WebSite` (site name DoneAt, `alternateName` Off Work Countdown) + `Organization` + `SoftwareApplication` + `WebApplication` (browser timer). No ratings or download counts. Native `SoftwareApplication` has no `offers` (iOS Plus is paid); its `sameAs` lists the App Store, Google Play (global only) and Microsoft Store listings. The web timer node may say free. |
+| Hall | `@graph`: `WebSite` (site name DoneAt, `alternateName` Off Work Countdown) + `Organization` + `SoftwareApplication` + `WebApplication` (browser timer). No ratings or download counts: Google does not allow ratings copied from other sites such as the app stores, so Ahrefs / Rich Results Test still report the missing `aggregateRating`, and that notice is accepted. Native `SoftwareApplication` has `offers` price `0` (free to download; Plus is an in-app purchase and is not listed); its `sameAs` lists the App Store, Google Play (global only) and Microsoft Store listings. The web timer node may say free. |
 | Download | `@graph`: same `Organization` / `SoftwareApplication` `@id`s + `WebPage` |
 | FAQ | `FAQPage` only. Questions/answers are parsed from the Markdown body so they match visible copy. |
 | 404 | `noindex,nofollow`. No canonical. No `og:url` (must not point at `/en`). |
