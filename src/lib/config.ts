@@ -126,6 +126,33 @@ export function htmlLang(locale: HallLocale): string {
   return locale;
 }
 
+const OG_LOCALE_MAP: Record<HallLocale, string> = {
+  en: "en_US",
+  "zh-CN": "zh_CN",
+  "zh-TW": "zh_TW",
+  "zh-HK": "zh_HK",
+  ja: "ja_JP",
+  ko: "ko_KR",
+  fr: "fr_FR",
+  de: "de_DE",
+  es: "es_ES",
+  it: "it_IT",
+  pt: "pt_BR",
+  ru: "ru_RU",
+  "hi-IN": "hi_IN",
+  "mr-IN": "mr_IN",
+  tr: "tr_TR",
+  ar: "ar_SA",
+  th: "th_TH",
+  id: "id_ID",
+  vi: "vi_VN",
+};
+
+/** Open Graph `og:locale` requires `language_TERRITORY` format. */
+export function ogLocale(locale: HallLocale): string {
+  return OG_LOCALE_MAP[locale];
+}
+
 /**
  * Hall `<title>`: brand, local function words and platforms
  * (e.g. "DoneAt: Work Shift Countdown for iPhone, Mac & Windows").

@@ -130,10 +130,34 @@ assert(
   enDownload.includes('"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}'),
   "download SoftwareApplication carries offers price 0",
 );
+assert(enDownload.includes('"@type":"BreadcrumbList"'), "download BreadcrumbList JSON-LD");
+assert(enDownload.includes('"installUrl"'), "download SoftwareApplication installUrl");
+
+assert(enHall.includes('property="og:locale" content="en_US"'), "en og:locale is en_US");
+assert(count(enHall, 'property="og:locale:alternate"') === 18, "en hall has 18 og:locale:alternate tags");
+assert(enHall.includes('property="og:image:alt"'), "en og:image:alt");
+assert(enHall.includes('name="twitter:image:alt"'), "en twitter:image:alt");
+assert(enHall.includes('property="og:image:type" content="image/png"'), "en og:image:type");
+assert(enHall.includes('href="/fonts/GeistVF.woff2"'), "en preloads GeistVF");
+
+const viHall = read("vi/index.html");
+assert(viHall.includes('property="og:locale" content="vi_VN"'), "vi og:locale is vi_VN");
+assert(!viHall.includes('rel="preload" href="/fonts/GeistVF.woff2"'), "vi skips unused GeistVF preload");
+assert(jaHall.includes('property="og:locale" content="ja_JP"'), "ja og:locale is ja_JP");
+
+assert(enFaq.includes('"@type":"BreadcrumbList"'), "faq BreadcrumbList JSON-LD");
+const enAbout = read("en/about/index.html");
+const enHow = read("en/how-it-works/index.html");
+const enPrivacy = read("en/privacy/index.html");
+assert(enAbout.includes('"@type":"AboutPage"') && enAbout.includes('"@type":"BreadcrumbList"'), "about JSON-LD");
+assert(enHow.includes('"@type":"WebPage"') && enHow.includes('"@type":"BreadcrumbList"'), "how-it-works JSON-LD");
+assert(enPrivacy.includes('"@type":"WebPage"') && enPrivacy.includes('"@type":"BreadcrumbList"'), "privacy JSON-LD");
+assert(enPrivacy.includes('"dateModified"'), "privacy dateModified JSON-LD");
 
 const notFound = read("404.html");
 assert(notFound.includes("noindex, nofollow") || notFound.includes("noindex,nofollow"), "404 noindex");
 assert(!notFound.includes('property="og:url"'), "404 must omit og:url");
+assert(!notFound.includes('property="og:locale:alternate"'), "404 must omit og:locale:alternate");
 
 const sitemapXml = join(dist, "sitemap.xml");
 const sitemapRedirect =

@@ -38,11 +38,9 @@ const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
   hreflangKind="hall"
   noindex
 >
-  <div class="flex min-h-screen flex-col">
-    <header
-      class="sticky top-0 z-40 border-b border-plum/10 bg-cream/90 pt-[env(safe-area-inset-top)] backdrop-blur-md dark:border-cream/10 dark:bg-evening-end/80"
-    >
-      <div class="page-frame flex items-center py-1.5 sm:py-3">
+  <div class="nf-shell flex min-h-screen flex-col">
+    <header class="nf-header sticky top-0 z-40 pt-[env(safe-area-inset-top)]">
+      <div class="page-frame flex min-h-[3.5rem] items-center py-1.5">
         <a
           id="nf-logo"
           href={`/${defaultLocale}`}
@@ -69,68 +67,148 @@ const applyScript = notFoundApplyInlineScript(copy, siteConfig.webAppUrl);
       </div>
     </header>
 
-    <main
-      id="content"
-      class="mx-auto flex w-full max-w-xl flex-1 flex-col justify-center px-4 py-16 sm:px-6 sm:py-24"
-    >
-      <img
-        class="h-16 w-16 dark:hidden sm:h-20 sm:w-20"
-        src="/brand/off-work-countdown-mark.svg"
-        width="80"
-        height="80"
-        alt=""
-        aria-hidden="true"
-      />
-      <img
-        class="hidden h-16 w-16 dark:block sm:h-20 sm:w-20"
-        src="/brand/off-work-countdown-mark-dark.svg"
-        width="80"
-        height="80"
-        alt=""
-        aria-hidden="true"
-      />
-      <p class="mt-6 text-sm font-medium text-orange-ink dark:text-orange-bright">404</p>
-      <h1
-        id="nf-heading"
-        class="mt-2 text-[1.75rem] font-semibold tracking-tight sm:text-4xl"
-      >
-        {fallback.heading}
-      </h1>
-      <p
-        id="nf-body"
-        class="mt-4 max-w-md text-base leading-relaxed text-plum/80 dark:text-cream/80"
-      >
-        {fallback.body}
-      </p>
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a id="nf-home" href={`/${defaultLocale}`} class="btn btn-primary">
-          {fallback.home}
-        </a>
-        <a
-          id="nf-timer"
-          href={webAppUrl(defaultLocale, "notfound")}
-          class="btn btn-secondary"
-          data-track="web_timer_open"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {fallback.timer}
-        </a>
+    <main id="content" class="page-frame nf-main">
+      <div class="nf-card">
+        <div class="nf-mark-wrap" aria-hidden="true">
+          <img
+            class="h-16 w-16 dark:hidden sm:h-20 sm:w-20"
+            src="/brand/off-work-countdown-mark.svg"
+            width="80"
+            height="80"
+            alt=""
+            aria-hidden="true"
+          />
+          <img
+            class="hidden h-16 w-16 dark:block sm:h-20 sm:w-20"
+            src="/brand/off-work-countdown-mark-dark.svg"
+            width="80"
+            height="80"
+            alt=""
+            aria-hidden="true"
+          />
+        </div>
+        <p class="nf-code">404</p>
+        <h1 id="nf-heading" class="nf-heading">
+          {fallback.heading}
+        </h1>
+        <p id="nf-body" class="nf-body">
+          {fallback.body}
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a id="nf-home" href={`/${defaultLocale}`} class="btn btn-primary">
+            {fallback.home}
+          </a>
+          <a
+            id="nf-timer"
+            href={webAppUrl(defaultLocale, "notfound")}
+            class="btn btn-secondary"
+            data-track="web_timer_open"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {fallback.timer}
+          </a>
+        </div>
       </div>
       <Fragment set:html={`<script>${applyScript}</script>`} />
     </main>
 
-    <footer class="mt-auto border-t border-plum/10 dark:border-cream/10">
-      <div
-        class="page-frame flex flex-wrap gap-x-5 gap-y-1 py-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] text-sm sm:py-6 sm:pb-[max(1.5rem,env(safe-area-inset-bottom))]"
-      >
-        <a
-          class="text-plum/80 hover:text-orange-ink dark:text-cream/80 dark:hover:text-orange-bright"
-          href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a
-        >
-        {icpFilingNumber && <a class="text-plum/80 hover:text-orange-ink dark:text-cream/80 dark:hover:text-orange-bright" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">{icpFilingNumber}</a>}
-        {psbFilingNumber && <a class="text-plum/80 hover:text-orange-ink dark:text-cream/80 dark:hover:text-orange-bright" href={psbFilingUrl} target="_blank" rel="noopener noreferrer">{psbFilingNumber}</a>}
+    <footer class="nf-footer mt-auto">
+      <div class="page-frame nf-footer-inner">
+        <a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a>
+        {icpFilingNumber && <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">{icpFilingNumber}</a>}
+        {psbFilingNumber && <a href={psbFilingUrl} target="_blank" rel="noopener noreferrer">{psbFilingNumber}</a>}
       </div>
     </footer>
   </div>
 </BaseLayout>
+
+<style>
+  .nf-header {
+    background: var(--paper);
+    color: var(--ink);
+    border-bottom: 1px solid color-mix(in srgb, var(--rule) 85%, transparent);
+  }
+  .nf-main {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    padding-block: clamp(3rem, 8vw, 6rem);
+  }
+  .nf-card {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    max-width: 38rem;
+  }
+  .nf-mark-wrap {
+    position: relative;
+    display: inline-flex;
+  }
+  .nf-mark-wrap::before {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(
+      closest-side,
+      color-mix(in srgb, var(--color-orange) 18%, transparent),
+      transparent 72%
+    );
+  }
+  .nf-code {
+    display: inline-flex;
+    align-items: center;
+    margin: 1.5rem 0 0;
+    padding: 0.2rem 0.65rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 650;
+    letter-spacing: 0.08em;
+    font-variant-numeric: tabular-nums;
+  }
+  .nf-heading {
+    margin: 0.9rem 0 0;
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.12;
+    text-wrap: balance;
+  }
+  .nf-body {
+    margin: 1rem 0 0;
+    max-width: 34em;
+    color: var(--muted);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    text-wrap: pretty;
+  }
+  .nf-footer {
+    background: var(--night-surface);
+    color: var(--night-ink);
+    border-top: 1px solid color-mix(in srgb, var(--night-ink) 22%, transparent);
+  }
+  .nf-footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+    padding-block: 1.5rem;
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+    font-size: 0.75rem;
+  }
+  .nf-footer-inner a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    color: var(--night-ink);
+    text-decoration: none;
+    transition: color 150ms ease;
+  }
+  .nf-footer-inner a:hover {
+    color: var(--color-orange-bright);
+  }
+</style>

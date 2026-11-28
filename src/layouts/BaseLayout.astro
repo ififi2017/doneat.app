@@ -6,9 +6,12 @@ import "../styles/global.css";
 import type { TrackedEvent } from "../lib/analytics-events";
 import {
   canonicalUrl,
+  functionalSubtitle,
   htmlLang,
+  isHallLocale,
   isRtl,
   isChina,
+  ogLocale,
   siteConfig,
   t,
   twitterSite,
@@ -44,8 +47,16 @@ const {
 } = Astro.props;
 const canonical = canonicalOrigin ? new URL(path, canonicalOrigin).href : canonicalUrl(path);
 const ogImage = canonicalOrigin ? new URL("/icons/og-1200x630.png", canonicalOrigin).href : canonicalUrl("/icons/og-1200x630.png");
+const ogImageAlt = `${siteConfig.brandName} — ${functionalSubtitle(locale)}`;
 const twitter = twitterSite();
 const hreflangLinks = noindex ? [] : hreflangLinksFor(hreflangKind, path);
+const currentOgLocale = ogLocale(locale);
+const alternateOgLocales = noindex
+  ? []
+  : hreflangLinks
+      .filter((link) => link.lang !== "x-default" && link.lang !== locale && isHallLocale(link.lang))
+      .map((link) => ogLocale(link.lang as HallLocale));
+const preloadGeist = locale !== "vi";
 ---
 
 <!doctype html>
@@ -53,6 +64,7 @@ const hreflangLinks = noindex ? [] : hreflangLinksFor(hreflangKind, path);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
     {/* Visitor's phone platform, read in the browser only (nothing is sent or
         stored), so Android visitors see Google Play first and the Android
         phone. Without scripts the page stays on the iPhone defaults. */}
@@ -93,22 +105,28 @@ const hreflangLinks = noindex ? [] : hreflangLinksFor(hreflangKind, path);
     <meta property="og:description" content={description} />
     {noindex ? null : <meta property="og:url" content={canonical} />}
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content={locale.replace("-", "_")} />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta property="og:locale" content={currentOgLocale} />
+    {alternateOgLocales.map((alt) => (
+      <meta property="og:locale:alternate" content={alt} />
+    ))}
     {!isChina && <>
     <meta name="twitter:card" content="summary_large_image" />
     {twitter ? <meta name="twitter:site" content={twitter} /> : null}
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
     </>}
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" href="/icons/favicon-48.png" type="image/png" sizes="48x48" />
     <link rel="icon" href="/icons/icon-192.png" type="image/png" sizes="192x192" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/icons/apple-touch-180.png" />
-    <link rel="preload" href="/fonts/GeistVF.woff2" as="font" type="font/woff2" crossorigin />
+    {preloadGeist ? <link rel="preload" href="/fonts/GeistVF.woff2" as="font" type="font/woff2" crossorigin /> : null}
     <meta
       name="theme-color"
       content={siteConfig.colors.paper}

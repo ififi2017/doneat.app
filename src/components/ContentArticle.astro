@@ -9,9 +9,22 @@ import StoreEntries from "./StoreEntries.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { downloadShowcaseCopy } from "../lib/download-showcase";
 import { contentTrackPage } from "../lib/analytics-events";
-import { canonicalUrl, isChina, showGooglePlay, siteConfig, type ContentLocale, type ContentPage, t } from "../lib/config";
-import { faqPageJsonLd, parseFaqMarkdown } from "../lib/faq-jsonld";
-import { downloadJsonLd } from "../lib/jsonld";
+import {
+  contentLocaleFor,
+  isChina,
+  showGooglePlay,
+  siteConfig,
+  type ContentLocale,
+  type ContentPage,
+  t,
+} from "../lib/config";
+import { parseFaqMarkdown } from "../lib/faq-jsonld";
+import {
+  contentPageJsonLd,
+  downloadJsonLd,
+  faqGraphJsonLd,
+  isoDateFromUpdated,
+} from "../lib/jsonld";
 import { getEntry, render } from "astro:content";
 
 interface Props {
@@ -26,11 +39,29 @@ const entry = own ?? (await getEntry("pages", `en/${page}`));
 if (!entry) {
   throw new Error(`Missing content: ${locale}/${page}`);
 }
-const { Content } = await render(entry);
+const { Content, headings } = await render(entry);
 const path = own ? `/${locale}/${page}` : `/en/${page}`;
 const isFaq = page === "faq";
 const isDownload = page === "download";
 const hasBody = Boolean(entry.body?.trim());
+const tocHeadings = !isDownload ? headings.filter((heading) => heading.depth === 2) : [];
+const showToc = tocHeadings.length >= 3;
+const breadcrumbName =
+  page === "terms"
+    ? entry.data.heading
+    : t(locale, page === "how-it-works" ? "howItWorks" : page);
+const updatedIso = isoDateFromUpdated(entry.data.updated);
+
+const relatedOrder = ["download", "how-it-works", "faq", "about", "privacy"] as const;
+const relatedLinks = !isDownload
+  ? relatedOrder
+      .filter((item) => item !== page)
+      .map((item) => ({
+        href: `/${contentLocaleFor(locale, item)}/${item}`,
+        label: t(locale, item === "how-it-works" ? "howItWorks" : item),
+        primary: item === "download",
+      }))
+  : [];
 
 // 商店徽章之外的次要入口：Chrome 扩展和 GitHub 安装包，只在系统要求下方给文字链接。
 const otherDownloads = [
@@ -54,17 +85,31 @@ const otherDownloads = [
 
 const showcase = downloadShowcaseCopy(locale);
 const jsonLd = isFaq
-  ? faqPageJsonLd(parseFaqMarkdown(entry.body ?? ""), {
+  ? faqGraphJsonLd(parseFaqMarkdown(entry.body ?? ""), {
       locale,
-      url: canonicalUrl(path),
+      path,
+      title: entry.data.title,
+      description: entry.data.description,
+      breadcrumbName,
     })
   : isDownload
     ? downloadJsonLd({
+        locale,
         path,
         title: entry.data.title,
         description: entry.data.description,
+        breadcrumbName,
+        requirements: entry.data.requirements,
       })
-    : undefined;
+    : contentPageJsonLd({
+        locale,
+        path,
+        page,
+        title: entry.data.title,
+        description: entry.data.description,
+        breadcrumbName,
+        updated: entry.data.updated,
+      });
 ---
 
 <BaseLayout
@@ -84,15 +129,18 @@ const jsonLd = isFaq
     >
       <div class:list={[isDownload && "download-hero"]}>
         <div>
-          <header class="article-head">
-            <p class="article-kicker">
-              {page === "terms" ? entry.data.heading : t(locale, page === "how-it-works" ? "howItWorks" : page)}
-            </p>
+          <header class:list={["article-head", !isDownload && "article-head-ruled"]}>
+            <p class="article-kicker">{breadcrumbName}</p>
             <h1 class="article-title">{entry.data.heading}</h1>
             {
               entry.data.updated ? (
                 <p class="article-meta">
-                  {entry.data.updatedLabel} {entry.data.updated}
+                  {entry.data.updatedLabel}{" "}
+                  {updatedIso ? (
+                    <time datetime={updatedIso}>{entry.data.updated}</time>
+                  ) : (
+                    entry.data.updated
+                  )}
                 </p>
               ) : null
             }
@@ -156,18 +204,14 @@ const jsonLd = isFaq
               {entry.data.nativePerks.map((perk, index) => (
                 <li class="native-perk">
                   <span class="perk-number" aria-hidden="true">0{index + 1}</span>
-                  <h3 class="text-[0.98rem] font-semibold tracking-tight">{perk.title}</h3>
-                  <p class="mt-2 text-sm leading-relaxed text-plum/75 dark:text-cream/75">
-                    {perk.body}
-                  </p>
+                  <h3 class="native-perk-title">{perk.title}</h3>
+                  <p class="native-perk-body">{perk.body}</p>
                 </li>
               ))}
             </ul>
             {
               entry.data.nativeNote ? (
-                <p class="mt-5 max-w-prose text-sm leading-relaxed text-plum/70 dark:text-cream/70">
-                  {entry.data.nativeNote}
-                </p>
+                <p class="native-note">{entry.data.nativeNote}</p>
               ) : null
             }
           </section>
@@ -179,24 +223,21 @@ const jsonLd = isFaq
             class="article-band requirements-band"
             aria-labelledby="download-requirements"
           >
-            <h2
-              id="download-requirements"
-              class="text-xs font-semibold tracking-[0.04em] text-plum/65 dark:text-cream/65"
-            >
+            <h2 id="download-requirements" class="requirements-heading">
               {entry.data.requirementsHeading}
             </h2>
-            <ul class="mt-2 list-none space-y-1 p-0 text-sm leading-relaxed text-plum/70 dark:text-cream/70">
+            <ul class="requirements-list">
               {entry.data.requirements.map((line) => (
                 <li>{line}</li>
               ))}
             </ul>
             {
               otherDownloads.length ? (
-                <ul class="mt-3 list-none space-y-1 border-t border-plum/10 p-0 pt-3 text-sm leading-relaxed text-plum/60 dark:border-cream/10 dark:text-cream/60">
+                <ul class="requirements-other">
                   {otherDownloads.map((item) => (
                     <li>
                       <a
-                        class="text-inherit underline decoration-plum/25 underline-offset-4 hover:text-orange-ink hover:decoration-orange-ink dark:decoration-cream/25 dark:hover:text-orange-bright dark:hover:decoration-orange-bright"
+                        class="requirements-link"
                         href={item.href}
                         data-track={item.track}
                         target="_blank"
@@ -215,16 +256,72 @@ const jsonLd = isFaq
       }
       {
         hasBody ? (
-          <div
-            class:list={["article-body", isFaq ? "faq-content" : "content"]}
-          >
-            {isChina && page === "privacy" && <p>
-              本页同时介绍 DoneAt 客户端与网站的隐私处理。国内官网 doneat.com.cn 托管于国内服务器，
-              不启用下文所述的 Vercel Analytics；服务器会处理提供网页所需的连接信息。
-              关于 doneat.app 和 off.rainif.com 的说明适用于对应网站。
-            </p>}
-            <Content />
+          <div class:list={["article-layout", showToc && "has-toc"]}>
+            {
+              showToc ? (
+                <details class="article-toc-mobile">
+                  <summary>
+                    <span>{entry.data.heading}</span>
+                    <span class="article-toc-count" aria-hidden="true">{tocHeadings.length}</span>
+                  </summary>
+                  <nav aria-label={entry.data.heading}>
+                    <ol>
+                      {tocHeadings.map((heading, index) => (
+                        <li>
+                          <a href={`#${heading.slug}`}>
+                            <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                            <span>{heading.text}</span>
+                          </a>
+                        </li>
+                      ))}
+                    </ol>
+                  </nav>
+                </details>
+              ) : null
+            }
+            <div class:list={["article-body", isFaq ? "faq-content" : "content"]}>
+              {isChina && page === "privacy" && <p>
+                本页同时介绍 DoneAt 客户端与网站的隐私处理。国内官网 doneat.com.cn 托管于国内服务器，
+                不启用下文所述的 Vercel Analytics；服务器会处理提供网页所需的连接信息。
+                关于 doneat.app 和 off.rainif.com 的说明适用于对应网站。
+              </p>}
+              <Content />
+            </div>
+            {
+              showToc ? (
+                <aside class="article-toc" aria-label={entry.data.heading}>
+                  <p class="article-toc-label">{breadcrumbName}</p>
+                  <nav aria-label={entry.data.heading}>
+                    <ol>
+                      {tocHeadings.map((heading, index) => (
+                        <li>
+                          <a href={`#${heading.slug}`}>
+                            <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                            <span>{heading.text}</span>
+                          </a>
+                        </li>
+                      ))}
+                    </ol>
+                  </nav>
+                </aside>
+              ) : null
+            }
           </div>
+        ) : null
+      }
+      {
+        relatedLinks.length ? (
+          <nav class="article-related" aria-label={siteConfig.brandName}>
+            {relatedLinks.map((item) => (
+              <a
+                class:list={["article-related-link", item.primary && "is-primary"]}
+                href={item.href}
+              >
+                <span>{item.label}</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            ))}
+          </nav>
         ) : null
       }
     </main>

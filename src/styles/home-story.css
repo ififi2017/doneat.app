@@ -40,8 +40,21 @@ html.scenes-on :is(.hero-copy, .hero-stage, .carry-island, .carry-live, .carry-w
 .scene-hero {
   position: relative;
   overflow: clip;
+  isolation: isolate;
+}
+.scene-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(62% 58% at 14% 8%, rgb(255 154 69 / 0.09), transparent 70%),
+    radial-gradient(50% 60% at 88% 92%, rgb(244 90 30 / 0.08), transparent 72%);
 }
 .hero-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(0, 28rem);
   align-items: center;
@@ -128,19 +141,23 @@ html.scenes-on :is(.hero-copy, .hero-stage, .carry-island, .carry-live, .carry-w
 .scene-hero .btn-primary {
   background: var(--night-ink);
   color: var(--color-plum);
+  box-shadow: 0 2px 10px -4px rgb(0 0 0 / 0.35);
 }
 .shift-web-link {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  min-height: 44px;
+  min-height: 2.75rem;
   color: var(--color-orange-bright);
   font-size: 0.9375rem;
+  font-weight: 500;
   text-decoration: none;
+  transition: color 150ms ease;
 }
 .shift-web-link:hover {
+  color: #ffb878;
   text-decoration: underline;
-  text-underline-offset: 0.25em;
+  text-underline-offset: 0.28em;
 }
 .hero-stage {
   position: relative;
@@ -379,7 +396,7 @@ html[data-platform="android"] .phone-pair > .device-hero { margin-top: 2.25rem; 
     --phone: min(15.5rem, 46%, calc((100svh - 12.5rem) * 0.47));
   }
   html.scenes-on .phone-steps li {
-    opacity: 0.32;
+    opacity: 0.38;
   }
   html.scenes-on .phone-steps li.is-active {
     opacity: 1;
@@ -435,9 +452,27 @@ html[data-platform="android"] .phone-pair > .device-hero { margin-top: 2.25rem; 
   margin: 0;
   min-width: 0;
   padding: clamp(1.75rem, 4vw, 3.5rem);
+  border: 1px solid color-mix(in srgb, var(--rule) 78%, transparent);
   border-radius: 1.75rem;
   background: var(--tile);
+  box-shadow:
+    0 1px 2px color-mix(in srgb, var(--color-plum) 4%, transparent),
+    0 24px 52px -34px color-mix(in srgb, var(--color-plum) 22%, transparent);
   overflow: clip;
+  transition:
+    border-color 220ms var(--ease-out),
+    box-shadow 220ms var(--ease-out);
+}
+@media (prefers-color-scheme: dark) {
+  .carry-gallery figure {
+    border-color: color-mix(in srgb, var(--color-cream) 10%, transparent);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--color-cream) 6%, transparent),
+      0 26px 56px -28px rgb(0 0 0 / 0.55);
+  }
+  .carry-widgets img {
+    box-shadow: 0 18px 28px rgb(0 0 0 / 0.45);
+  }
 }
 /* Media centres in its tile; both captions share one baseline. */
 .carry-gallery figure > :first-child {
@@ -554,6 +589,7 @@ html.scenes-on .carry-watch {
   position: relative;
   overflow: clip;
   isolation: isolate;
+  border-top: 1px solid color-mix(in srgb, var(--color-cream) 8%, transparent);
   /* With the header and footer, fill the last screen exactly; content is
      centred, so a one-line English title leaves no gap above. */
   display: grid;
@@ -733,5 +769,21 @@ html.scenes-on .scene-finale {
   .scene-hero .btn-primary:hover {
     background: #fff;
     color: var(--color-plum);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 28px -10px rgb(255 154 69 / 0.42);
+  }
+  .carry-gallery figure:hover {
+    border-color: color-mix(in srgb, var(--accent) 32%, var(--rule));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shift-web-link,
+  .carry-gallery figure,
+  .story-link > span,
+  .shift-web-link > span {
+    transition: none;
+  }
+  .scene-hero .btn-primary:hover {
+    transform: none;
   }
 }

@@ -405,3 +405,11 @@
 - [x] 新增独立匿名事件接收器与 Nginx 汇总采集器：固定事件、北京时间每日计数、90 天保留，无 Cookie、身份标识或来源参数；国内与海外统计隔离。
 - [x] 新增 `doneat-cn-web` 看板配置，明确区分回源请求、扫描特征与浏览/下载/购买入口事件，不将请求数当 UV，不将点击当下载或付款完成。
 - [x] 生产部署与 Grafana / 浏览器端到端验收通过：回源每日历史、浏览与购买入口点击、Prometheus 与 Grafana 展示均已核对，记录见 `deploy/cn-analytics/README.md`。
+
+## 2026-11-28 官网 UI 审查、质感提升与 SEO 升级
+
+- [x] 顶栏与语言选择器设计系统统一（`SiteHeader.astro`、`LocaleSwitch.astro`）：统一明暗及 `.tone-dark` 下拉面板表面与投影，消除两面板色差，柔化深梅顶栏分隔线（无 `backdrop-filter`），新增当前页面底部指示条与语言选单选中圆点；同步升级 `404.astro` 至统一暖纸／深梅视觉系统并移除旧 `backdrop-blur-md`。
+- [x] 首页与下载页质感提升（`home-story.css`、`StoreEntries.astro`、`DownloadShowcase.astro`、`DesktopClip.astro`、`MainlandAndroidEntry.astro`、`global.css`）：首屏柔和傍晚氛围层、第 02 章卡片边框与暗色阴影层次、商店徽章微交互；下载页 iPhone／Android 轮播升级选中卡片态、4.5s 自动轮播细进度条与方向键切换，桌面演示增实体边框阴影，对比表与「每个客户端都有」横条卡片化并保留窄屏无横滑栅格。
+- [x] 长文页排版与内链升级（`ContentArticle.astro`、`global.css`）：消除低对比硬编码透明度色（统一走 `--muted` / `--rule` / `--tile`），新增零水合页面快速目录（桌面右侧粘性大纲 + 窄屏折叠目录）、FAQ 编辑式编号及底部跨页引导链接条。
+- [x] SEO 与技术标头升级（`config.ts`、`jsonld.ts`、`BaseLayout.astro`、`vercel.json`、`docs/seo.md`、`scripts/check-seo.mjs`）：规范 19 语 `og:locale`（`ll_CC`）与 `og:locale:alternate`、`og:image:alt`/`twitter:image:alt`、`color-scheme`；`vi` 跳过无用 `GeistVF.woff2` 预加载；全站补齐 `BreadcrumbList`、`AboutPage`、`WebPage`（含 ISO `dateModified`）、`SoftwareApplication.installUrl` 与 `softwareRequirements`（保留既有 `offers` 0 元、`sameAs` 与 `llms.txt`）；`vercel.json` 补充静态资源缓存与安全响应头。
+- [ ] 真机浏览器明暗／多语视觉与交互复核（本轮沙箱内无法启动本地 Chrome，已完成海外与国内双构建、链接图谱、对比度、锚点与 SEO 全量自动验收）。

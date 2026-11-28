@@ -38,12 +38,15 @@ The hall `<title>` is `homeTitle` in `locales/chrome.json`: brand, the local fun
 
 | Page | JSON-LD |
 | --- | --- |
-| Hall | `@graph`: `WebSite` (site name DoneAt, `alternateName` Off Work Countdown) + `Organization` + `SoftwareApplication` + `WebApplication` (browser timer). No ratings or download counts: Google does not allow ratings copied from other sites such as the app stores, so Ahrefs / Rich Results Test still report the missing `aggregateRating`, and that notice is accepted. Native `SoftwareApplication` has `offers` price `0` (free to download; Plus is an in-app purchase and is not listed); its `sameAs` lists the App Store, Google Play (global only) and Microsoft Store listings. The web timer node may say free. |
-| Download | `@graph`: same `Organization` / `SoftwareApplication` `@id`s + `WebPage` |
-| FAQ | `FAQPage` only. Questions/answers are parsed from the Markdown body so they match visible copy. |
+| Hall | `@graph`: `WebSite` (site name DoneAt, `alternateName` Off Work Countdown) + `Organization` + `SoftwareApplication` (`inLanguage`, store `installUrl`) + `WebApplication` (browser timer). No ratings or download counts: Google does not allow ratings copied from other sites such as the app stores, so Ahrefs / Rich Results Test still report the missing `aggregateRating`, and that notice is accepted. Native `SoftwareApplication` has `offers` price `0` (free to download; Plus is an in-app purchase and is not listed); its `sameAs` lists the App Store, Google Play (global only) and Microsoft Store listings. The web timer node may say free. |
+| Download | `@graph`: `Organization` + `SoftwareApplication` (`inLanguage`, store `installUrl`, `softwareRequirements`, `offers` price `0`, `sameAs`) + `WebPage` + `BreadcrumbList` |
+| FAQ | `@graph`: `Organization` + `FAQPage` (questions/answers parsed from the Markdown body so they match visible copy) + `BreadcrumbList` |
+| About | `@graph`: `Organization` + `AboutPage` + `BreadcrumbList` |
+| How it works / Privacy / Terms | `@graph`: `Organization` + `WebPage` (with ISO `dateModified` when `updated` is present) + `BreadcrumbList` |
 | 404 | `noindex,nofollow`. No canonical. No `og:url` (must not point at `/en`). |
 
 `Organization.sameAs` is GitHub + X (`@doneatapp`). Keep those; do not invent extra profiles.
+Open Graph emits standard `language_TERRITORY` `og:locale` (plus `og:locale:alternate` for every published alternate), `og:image:type`, and localized `og:image:alt` / `twitter:image:alt` (global build).
 
 `/llms.txt` (`src/pages/llms.txt.ts`) is a Markdown map for AI answer engines: summary, key facts, store links and the English and Chinese support pages. Titles and descriptions come from content frontmatter; the key facts are hand-written, so keep them in step with the FAQ. The China build emits a Chinese version without Google Play or X.
 

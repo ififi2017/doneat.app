@@ -180,16 +180,23 @@ body {
   justify-content: center;
   gap: 0.45rem;
   min-height: 2.75rem;
-  padding: 0.4rem 0.75rem;
+  padding: 0.4rem 0.85rem;
   border: 1px solid var(--rule);
   border-radius: 999px;
+  background: var(--tile);
   color: inherit;
   font-size: 0.75rem;
+  font-weight: 500;
   line-height: 1.4;
   cursor: pointer;
+  transition:
+    border-color 150ms ease,
+    color 150ms ease,
+    background-color 150ms ease;
 }
 .media-control:hover {
   border-color: var(--accent);
+  color: var(--accent);
 }
 .media-control[hidden] {
   display: none;
@@ -241,16 +248,168 @@ body {
 /* Reading measures live inside the shared grid, rather than moving its edge. */
 .article {
   flex: 1;
-  padding-block: clamp(2.5rem, 6vw, 5rem) 5rem;
+  padding-block: clamp(2.5rem, 6vw, 5rem) 5.5rem;
 }
 .article-head {
   width: 100%;
   margin-bottom: 3rem;
   max-width: 48rem;
 }
+.article-head-ruled {
+  padding-bottom: 2.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+.article-layout {
+  width: 100%;
+}
+.article-layout.has-toc {
+  display: grid;
+  grid-template-columns: minmax(0, 46rem);
+  gap: 2rem;
+}
 .article-body {
   width: 100%;
   max-width: 46rem;
+  min-width: 0;
+}
+.article-toc {
+  display: none;
+}
+.article-toc-mobile {
+  max-width: 46rem;
+  border: 1px solid var(--rule);
+  border-radius: 1rem;
+  background: var(--tile);
+  padding: 0.2rem 1rem;
+}
+.article-toc-mobile > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 2.75rem;
+  padding-block: 0.55rem;
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.article-toc-mobile > summary::-webkit-details-marker {
+  display: none;
+}
+.article-toc-mobile > summary::marker {
+  content: "";
+}
+.article-toc-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.65rem;
+  height: 1.4rem;
+  padding-inline: 0.45rem;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+}
+.article-toc-mobile ol,
+.article-toc ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.article-toc-mobile ol {
+  border-top: 1px solid var(--rule);
+  padding-block: 0.5rem 0.75rem;
+}
+.article-toc-mobile a,
+.article-toc a {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  padding-block: 0.42rem;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.45;
+  text-decoration: none;
+  transition: color 140ms ease;
+}
+.article-toc-mobile a > span:first-child,
+.article-toc a > span:first-child {
+  flex: none;
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.article-toc-mobile a:hover,
+.article-toc a:hover {
+  color: var(--accent);
+}
+@media (min-width: 1080px) {
+  .article-layout.has-toc {
+    grid-template-columns: minmax(0, 46rem) minmax(14rem, 19rem);
+    justify-content: space-between;
+    align-items: start;
+    gap: clamp(3rem, 6vw, 6rem);
+  }
+  .article-toc-mobile {
+    display: none;
+  }
+  .article-toc {
+    display: block;
+    position: sticky;
+    top: 5.5rem;
+    max-height: calc(100svh - 7rem);
+    overflow-y: auto;
+    padding-inline-start: 1.25rem;
+    border-inline-start: 1px solid var(--rule);
+  }
+  .article-toc-label {
+    margin: 0 0 0.75rem;
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 650;
+    letter-spacing: 0.08em;
+  }
+}
+.article-related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  max-width: 46rem;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+}
+.article-related-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.75rem;
+  padding: 0.55rem 1.05rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--tile);
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    border-color 150ms ease,
+    color 150ms ease,
+    background-color 150ms ease;
+}
+.article-related-link.is-primary {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--rule));
+  color: var(--accent);
+}
+.article-related-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--surface);
 }
 .article-measure,
 .article-band {
@@ -278,6 +437,7 @@ body {
   color: var(--muted);
   font-size: 0.8125rem;
   line-height: 1.45;
+  font-variant-numeric: tabular-nums;
 }
 .article-lede {
   margin: 1.15rem 0 0;
@@ -303,47 +463,88 @@ body {
   line-height: 1.7;
 }
 .content :where(h2) {
-  margin: 2.75rem 0 0.65rem;
-  font-size: 1.25rem;
-  font-weight: 600;
+  margin: 3rem 0 0.75rem;
+  font-size: 1.3rem;
+  font-weight: 620;
+  letter-spacing: -0.02em;
   line-height: 1.35;
+  color: var(--ink);
 }
 .content :where(h2:first-child) {
   margin-top: 0;
 }
 .content :where(h3) {
-  margin: 1.75rem 0 0.5rem;
-  font-size: 1rem;
+  margin: 1.85rem 0 0.55rem;
+  font-size: 1.04rem;
   font-weight: 600;
-  line-height: 1.35;
+  line-height: 1.38;
+  color: var(--ink);
 }
-.content :where(p, ul) {
-  margin: 0 0 1rem;
+.content :where(p, ul, ol) {
+  margin: 0 0 1.05rem;
   color: var(--muted);
   font-size: 1.0625rem;
-  line-height: 1.7;
+  line-height: 1.75;
+}
+.content :where(strong) {
+  color: var(--ink);
+  font-weight: 600;
+}
+.content :where(code) {
+  padding: 0.12em 0.4em;
+  border-radius: 0.35rem;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.88em;
 }
 .content :where(ul) {
-  padding-inline-start: 1.15rem;
+  padding-inline-start: 1.2rem;
   list-style: disc;
 }
 .content :where(li) {
-  margin: 0.4rem 0;
+  margin: 0.45rem 0;
   padding-inline-start: 0.15rem;
+}
+.content :where(li)::marker {
+  color: var(--accent);
 }
 .content :where(a),
 .faq-content :where(a) {
   color: var(--accent);
   text-decoration: underline;
-  text-underline-offset: 0.18em;
+  text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color 140ms ease;
+}
+.content :where(a:hover),
+.faq-content :where(a:hover) {
+  text-decoration-color: currentColor;
+}
+.faq-content {
+  counter-reset: faq-item;
 }
 .faq-content :where(h2) {
+  counter-increment: faq-item;
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
   margin: 0;
-  padding: 1.65rem 0 0.45rem;
+  padding: 1.75rem 0 0.55rem;
   border-top: 1px solid var(--rule);
-  font-size: 1.125rem;
-  font-weight: 600;
-  line-height: 1.35;
+  color: var(--ink);
+  font-size: 1.15rem;
+  font-weight: 620;
+  letter-spacing: -0.015em;
+  line-height: 1.38;
+}
+.faq-content :where(h2)::before {
+  content: counter(faq-item, decimal-leading-zero);
+  flex: none;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
 }
 .faq-content :where(h2:first-child) {
   padding-top: 0.1rem;
@@ -351,10 +552,11 @@ body {
 }
 .faq-content :where(p) {
   margin: 0;
-  padding-bottom: 1.65rem;
+  padding-inline-start: 2.05rem;
+  padding-bottom: 1.75rem;
   color: var(--muted);
   font-size: 1.0625rem;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 .faq-content :where(p:last-child) {
   padding-bottom: 0;
@@ -386,9 +588,13 @@ body {
 .download-device {
   width: 100%;
   padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid color-mix(in srgb, var(--rule) 75%, transparent);
   background: var(--surface);
-  border-radius: 1.5rem;
+  border-radius: 1.75rem;
   text-align: center;
+  box-shadow:
+    0 1px 2px color-mix(in srgb, var(--color-plum) 4%, transparent),
+    0 20px 44px -32px color-mix(in srgb, var(--color-plum) 20%, transparent);
 }
 .download-device .device-hero {
   width: 17rem;
@@ -400,21 +606,25 @@ body {
 .download-index {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 2rem;
+  gap: 0.5rem 1.75rem;
   border-block: 1px solid var(--rule);
   padding-block: 0.75rem;
 }
 .download-index a {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.6rem;
   min-height: 2.75rem;
   color: var(--ink);
-  font-size: 0.8125rem;
+  font-size: 0.84rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 150ms ease;
 }
 .download-index span {
   color: var(--accent);
-  font-size: 0.625rem;
+  font-size: 0.7rem;
+  font-weight: 650;
   font-variant-numeric: tabular-nums;
 }
 .download-index a:hover {
@@ -433,30 +643,108 @@ body {
 .native-perks {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 2.5rem;
-  gap: 2rem;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  gap: 1.5rem;
 }
 .native-perk {
-  padding-top: 1.2rem;
-  border-top: 1px solid var(--rule);
+  padding: 1.5rem;
+  border: 1px solid var(--rule);
+  border-radius: 1.25rem;
+  background: var(--tile);
+  box-shadow:
+    0 1px 2px color-mix(in srgb, var(--color-plum) 3%, transparent),
+    0 14px 32px -26px color-mix(in srgb, var(--color-plum) 18%, transparent);
 }
 .perk-number {
   display: block;
   font-size: 0.75rem;
+  font-weight: 650;
   color: var(--accent);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   font-variant-numeric: tabular-nums;
+}
+.native-perk-title {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+}
+.native-perk-body {
+  margin: 0.55rem 0 0;
+  color: var(--muted);
+  font-size: 0.9125rem;
+  line-height: 1.65;
+}
+.native-note {
+  margin: 1.5rem 0 0;
+  max-width: 46rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.65;
 }
 .requirements-band {
   margin-top: 3rem;
-  padding: 1.5rem;
+  padding: clamp(1.35rem, 3vw, 2rem);
   border: 1px solid var(--rule);
-  border-radius: 1rem;
+  border-radius: 1.25rem;
+  background: var(--tile);
   scroll-margin-top: 7rem;
 }
-.requirements-band ul,
-.native-band > p {
+.requirements-heading {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+}
+.requirements-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem 2rem;
+  margin: 0.9rem 0 0;
+  padding: 0;
+  list-style: none;
   color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.requirements-other {
+  margin: 1.15rem 0 0;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--rule);
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.requirements-link {
+  color: var(--ink);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--rule) 95%, var(--ink));
+  text-underline-offset: 0.22em;
+  transition:
+    color 140ms ease,
+    text-decoration-color 140ms ease;
+}
+.requirements-link:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+@media (prefers-color-scheme: dark) {
+  .download-device,
+  .native-perk {
+    border-color: color-mix(in srgb, var(--color-cream) 10%, transparent);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--color-cream) 5%, transparent),
+      0 20px 44px -28px rgba(0, 0, 0, 0.5);
+  }
 }
 @media (max-width: 879px) {
   .download-hero {
@@ -469,23 +757,32 @@ body {
   .download-device .device-hero {
     width: 15rem;
   }
+  .native-perks {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 @media (max-width: 639px) {
   .article-lede {
     font-size: 1.125rem;
   }
+  .faq-content :where(p) {
+    padding-inline-start: 0;
+  }
   .download-index {
     gap: 0.25rem 1rem;
   }
   .download-index a {
-    font-size: 0.75rem;
+    font-size: 0.78rem;
   }
   .download-page .article-title {
     font-size: 3rem;
   }
   .native-perks {
     grid-template-columns: minmax(0, 1fr);
-    gap: 1.5rem;
+    gap: 1.1rem;
+  }
+  .requirements-list {
+    grid-template-columns: minmax(0, 1fr);
   }
   .desktop-section {
     margin-block: 3rem;
@@ -495,7 +792,13 @@ body {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .btn {
+  .btn,
+  .media-control,
+  .article-toc a,
+  .article-toc-mobile a,
+  .article-related-link,
+  .download-index a,
+  .requirements-link {
     transition:
       background-color 140ms ease,
       color 140ms ease,
