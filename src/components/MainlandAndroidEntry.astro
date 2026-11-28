@@ -42,19 +42,27 @@ const copy = mainlandDownloadCopy[locale];
     flex-shrink: 0;
     max-width: 19rem;
     min-height: 2.75rem;
-    padding: .7rem 1.1rem;
+    padding: .7rem 1.2rem;
     border: 1px solid var(--rule);
     border-radius: 999px;
+    background: var(--tile);
     color: var(--ink);
     font-size: .9rem;
     font-weight: 550;
     line-height: 1.5;
     text-decoration: none;
     overflow-wrap: anywhere;
+    transition:
+      border-color 150ms ease,
+      color 150ms ease,
+      background-color 150ms ease;
   }
   .mainland-link:hover { border-color: var(--accent); color: var(--accent); }
-  .mainland-link:active { background: var(--tile); }
+  .mainland-link:active { background: var(--surface); }
   .mainland-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  @media (prefers-reduced-motion: reduce) {
+    .mainland-link { transition: none; }
+  }
   @media (max-width: 880px) {
     .mainland-entry { align-items: flex-start; flex-direction: column; gap: 1.1rem; }
     .mainland-link { max-width: 100%; }
